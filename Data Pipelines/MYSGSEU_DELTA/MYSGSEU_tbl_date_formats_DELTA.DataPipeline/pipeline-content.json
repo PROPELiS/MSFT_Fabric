@@ -7,41 +7,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT DISTINCT\n        ISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION    \nFROM CHANGETABLE(CHANGES [Job].[JobItemColourPlateDimensions],0) CT\nLEFT JOIN [Job].[JobItemColourPlateDimensions] F\n ON CT.[JobItemColourPlateDimensionsId] = F.[JobItemColourPlateDimensionsId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
-              "type": "Expression"
-            },
-            "partitionOption": "None",
-            "queryTimeout": "02:00:00"
-          },
-          "datasetSettings": {
-            "type": "SqlServerTable",
-            "typeProperties": {
-              "database": "MCGDataFactory"
-            },
-            "schema": [],
-            "externalReferences": {
-              "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
-            },
-            "annotations": []
-          }
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "LookupNew",
-        "dependsOn": []
-      },
-      {
-        "type": "Lookup",
-        "typeProperties": {
-          "source": {
-            "type": "SqlServerSource",
-            "sqlReaderQuery": {
-              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update\nWHERE TableName = 'Job_JobItemColourPlateDimensions'",
+              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'tbl_date_formats'\n ",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -70,12 +36,46 @@
         "dependsOn": []
       },
       {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT DISTINCT\n        ISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION    \nFROM CHANGETABLE(CHANGES dbo.tbl_date_formats,0) CT\nLEFT JOIN dbo.tbl_date_formats F\n ON CT.[DateFormatId] = F.[DateFormatId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n ",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "SqlServerTable",
+            "typeProperties": {
+              "database": "MCGDataFactory"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupNew",
+        "dependsOn": []
+      },
+      {
         "type": "Copy",
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT\n        CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.[JobItemColourPlateDimensionsId] as CT_JobItemColourPlateDimensionsId\n       ,F.[JobItemColourPlateDimensionsId]\n       ,F.[JobItemColourId]\n       ,F.[Height]\n       ,F.[Width]\n FROM CHANGETABLE(CHANGES [Job].[JobItemColourPlateDimensions],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT    \n  LEFT JOIN [Job].[JobItemColourPlateDimensions] F\n  ON CT.[JobItemColourPlateDimensionsId] = F.[JobItemColourPlateDimensionsId]\n  WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n  AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "value": "SELECT  CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.[DateFormatId] AS CT_DateFormatId\n          ,F.[DateFormatId]\n          ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Standard],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Standard]\n          ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Format],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Format]\n          ,[SQLStyle]\nFROM CHANGETABLE(CHANGES dbo.tbl_date_formats,@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT\nLEFT JOIN dbo.tbl_date_formats F\n ON F.DateFormatId = CT.DateFormatId\nWHERE CT.SYS_CHANGE_VERSION IS NOT NULL\nAND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -109,7 +109,7 @@
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
                   "fileName": {
-                    "value": "@concat('MYSGSEU','_','Job_JobItemColourPlateDimensions','.csv')",
+                    "value": "@concat('MYSGSEU','_','tbl_date_formats','.csv')",
                     "type": "Expression"
                   }
                 },
@@ -152,16 +152,16 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobItemColourPlateDimensions_DELTA_CSV",
+        "name": "tbl_date_formats_DELTA_CSV",
         "dependsOn": [
           {
-            "activity": "LookupNew",
+            "activity": "LookupOld",
             "dependencyConditions": [
               "Succeeded"
             ]
           },
           {
-            "activity": "LookupOld",
+            "activity": "LookupNew",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -174,7 +174,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT\n        CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.[JobItemColourPlateDimensionsId] as CT_JobItemColourPlateDimensionsId\n       ,F.[JobItemColourPlateDimensionsId]\n       ,F.[JobItemColourId]\n       ,F.[Height]\n       ,F.[Width]\n FROM CHANGETABLE(CHANGES [Job].[JobItemColourPlateDimensions],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT    \n  LEFT JOIN [Job].[JobItemColourPlateDimensions] F\n  ON CT.[JobItemColourPlateDimensionsId] = F.[JobItemColourPlateDimensionsId]\n  WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n  AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "value": "SELECT  CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.[DateFormatId] AS CT_DateFormatId\n          ,F.[DateFormatId]\n          ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Standard],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Standard]\n          ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Format],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Format]\n          ,[SQLStyle]\nFROM CHANGETABLE(CHANGES dbo.tbl_date_formats,@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT\nLEFT JOIN dbo.tbl_date_formats F\n ON F.DateFormatId = CT.DateFormatId\nWHERE CT.SYS_CHANGE_VERSION IS NOT NULL\nAND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -207,7 +207,7 @@
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
                   "fileName": {
-                    "value": "@concat('MYSGSEU','_','Job_JobItemColourPlateDimensions','.parquet')",
+                    "value": "@concat('MYSGSEU','_','tbl_date_formats','.parquet')",
                     "type": "Expression"
                   }
                 },
@@ -246,10 +246,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobItemColourPlateDimensions_DELTA_PARQUET",
+        "name": "tbl_date_formats_DELTA_PARQUET",
         "dependsOn": [
           {
-            "activity": "Job_JobItemColourPlateDimensions_DELTA_CSV",
+            "activity": "tbl_date_formats_DELTA_CSV",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -263,7 +263,7 @@
           "scripts": [
             {
               "text": {
-                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'Job_JobItemColourPlateDimensions'",
+                "value": "UPDATE ChangeTracking_Fabric_Update\n\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\n\nWHERE [TableName] = 'tbl_date_formats'",
                 "type": "Expression"
               },
               "type": "Query"
@@ -284,7 +284,7 @@
         "name": "ChangeTracking_version_Update",
         "dependsOn": [
           {
-            "activity": "Job_JobItemColourPlateDimensions_DELTA_PARQUET",
+            "activity": "tbl_date_formats_DELTA_PARQUET",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -310,7 +310,7 @@
                 "location": {
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
-                  "fileName": "MYSGSEU_Job_JobItemColourPlateDimensions.csv"
+                  "fileName": "MYSGSEU_tbl_date_formats.csv"
                 },
                 "columnDelimiter": "^",
                 "rowDelimiter": "\r\n",
@@ -342,7 +342,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "Job_JobItemColourPlateDimensions_DELTA"
+                "table": "tbl_date_formats_DELTA"
               },
               "schema": [],
               "linkedService": {
@@ -390,7 +390,7 @@
       {
         "type": "TridentNotebook",
         "typeProperties": {
-          "notebookId": "ade0f97b-695b-45e0-83a2-fe9500004d99",
+          "notebookId": "e8daf6d4-d36e-4725-a079-df3c304fcd36",
           "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
           "parameters": {
             "in_mode": {
@@ -406,9 +406,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobItemColourPlateDimensions_Notebook",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
+        "name": "tbl_date_formats_Notebook",
         "dependsOn": [
           {
             "activity": "File_To_Table",
@@ -427,7 +425,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "dbo",
-                "table": "job_jobitemcolourplatedimensions"
+                "table": "tbl_date_formats"
               },
               "schema": [],
               "linkedService": {
@@ -435,8 +433,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
-                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -448,7 +446,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"Job_JobItemColourPlateDimensions\";  ",
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_date_formats\";  \n",
               "type": "Expression"
             },
             "importSettings": {
@@ -458,7 +456,7 @@
               "type": "SnowflakeTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "Job_JobItemColourPlateDimensions",
+                "table": "tbl_date_formats",
                 "database": "SILVER_FABRIC"
               },
               "schema": [],
@@ -470,88 +468,6 @@
           },
           "translator": {
             "type": "TabularTranslator",
-            "mappings": [
-              {
-                "source": {
-                  "name": "SYS_CHANGE_VERSION",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "SYS_CHANGE_VERSION",
-                  "type": "String",
-                  "physicalType": "VARCHAR"
-                }
-              },
-              {
-                "source": {
-                  "name": "SYS_CHANGE_OPERATION",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "SYS_CHANGE_OPERATION",
-                  "type": "String",
-                  "physicalType": "VARCHAR"
-                }
-              },
-              {
-                "source": {
-                  "name": "JobItemColourPlateDimensionsId",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "JobItemColourPlateDimensionsId",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 0,
-                  "precision": 38
-                }
-              },
-              {
-                "source": {
-                  "name": "JobItemColourId",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "JobItemColourId",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 0,
-                  "precision": 38
-                }
-              },
-              {
-                "source": {
-                  "name": "Height",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "Height",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 6,
-                  "precision": 38
-                }
-              },
-              {
-                "source": {
-                  "name": "Width",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "Width",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 6,
-                  "precision": 38
-                }
-              }
-            ],
             "typeConversion": true,
             "typeConversionSettings": {
               "allowDataTruncation": true,
@@ -567,12 +483,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_SF_Job_JobItemColourPlateDimensions",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
+        "name": "Fabric_to_SF_tbl_date_formats",
         "dependsOn": [
           {
-            "activity": "Job_JobItemColourPlateDimensions_Notebook",
+            "activity": "tbl_date_formats_Notebook",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -588,7 +502,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "dbo",
-                "table": "job_jobitemcolourplatedimensions"
+                "table": "tbl_date_formats"
               },
               "schema": [],
               "linkedService": {
@@ -596,8 +510,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
-                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -609,7 +523,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"Job_JobItemColourPlateDimensions\"; ",
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_date_formats\";  \n",
               "type": "Expression"
             },
             "importSettings": {
@@ -619,7 +533,7 @@
               "type": "SnowflakeTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "Job_JobItemColourPlateDimensions",
+                "table": "tbl_date_formats",
                 "database": "SILVER_FABRIC"
               },
               "schema": [],
@@ -646,12 +560,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_DEV_SF_Job_JobItemColourPlateDimensions",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
+        "name": "Fabric_to_dev_SF_tbl_date_formats",
         "dependsOn": [
           {
-            "activity": "Job_JobItemColourPlateDimensions_Notebook",
+            "activity": "tbl_date_formats_Notebook",
             "dependencyConditions": [
               "Succeeded"
             ]

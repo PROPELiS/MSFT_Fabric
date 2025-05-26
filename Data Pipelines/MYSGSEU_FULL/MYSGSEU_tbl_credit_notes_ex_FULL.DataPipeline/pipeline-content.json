@@ -7,7 +7,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT \n\tCT.SYS_CHANGE_VERSION\n   ,CT.SYS_CHANGE_CREATION_VERSION\n   ,CT.SYS_CHANGE_OPERATION\n   ,CT.SYS_CHANGE_COLUMNS\n   ,CT.SYS_CHANGE_CONTEXT\n    ,CT.[Id] AS CT_Id\n\t  ,F.[Id]\n      ,F.[Status]\n     FROM  CHANGETABLE(CHANGES [JOB].[JobStatus],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n     LEFT JOIN [JOB].[JobStatus] F\n     ON CT.[Id] = F.[Id]\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "value": "SELECT NULL AS SYS_CHANGE_VERSION\n       ,NULL AS SYS_CHANGE_CREATION_VERSION\n       ,NULL AS SYS_CHANGE_OPERATION\n       ,NULL AS SYS_CHANGE_COLUMNS\n       ,NULL AS SYS_CHANGE_CONTEXT\n       ,NULL AS CT_CreditNoteExId\n\t   ,[CreditNoteExId]\n\t   ,[CreditNoteId]\n\t   ,[CreditNoteAuthorId]\n\t   ,[CreditNoteCustomerId]\n\t   ,[CreditNoteContactId]\nFROM [dbo].[tbl_credit_notes_ex]",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -19,7 +19,7 @@
               },
               "schema": [],
               "externalReferences": {
-                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+                "connection": "a7d4d570-3f33-4ecb-bc60-e1942a5498df"
               },
               "annotations": []
             }
@@ -29,7 +29,7 @@
             "formatSettings": {
               "type": "DelimitedTextWriteSettings",
               "quoteAllText": true,
-              "fileExtension": ".csv"
+              "fileExtension": ".txt"
             },
             "storeSettings": {
               "type": "LakehouseWriteSettings"
@@ -39,9 +39,9 @@
               "typeProperties": {
                 "location": {
                   "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Delta/Active",
+                  "folderPath": "MYSGSEU/Full",
                   "fileName": {
-                    "value": "@concat('MYSGSEU','_','Job_JobStatus','.csv')",
+                    "value": "@concat('MYSGSEU','_','tbl_credit_notes_ex','.csv')",
                     "type": "Expression"
                   }
                 },
@@ -84,89 +84,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobStatus_DELTA_CSV",
-        "dependsOn": [
-          {
-            "activity": "LookupNew",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          },
-          {
-            "activity": "LookupOld",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Lookup",
-        "typeProperties": {
-          "source": {
-            "type": "SqlServerSource",
-            "sqlReaderQuery": {
-              "value": "SELECT DISTINCT \n\t\tISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION\t   \nFROM CHANGETABLE(CHANGES [JOB].[JobStatus],0) CT\nLEFT JOIN [JOB].[JobStatus] F\n ON CT.[Id] = F.[Id]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
-              "type": "Expression"
-            },
-            "partitionOption": "None",
-            "queryTimeout": "02:00:00"
-          },
-          "datasetSettings": {
-            "type": "SqlServerTable",
-            "typeProperties": {
-              "database": "MCGDataFactory"
-            },
-            "schema": [],
-            "externalReferences": {
-              "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
-            },
-            "annotations": []
-          },
-          "firstRowOnly": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "LookupNew",
-        "dependsOn": []
-      },
-      {
-        "type": "Lookup",
-        "typeProperties": {
-          "source": {
-            "type": "SqlServerSource",
-            "sqlReaderQuery": {
-              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'Job_JobStatus'",
-              "type": "Expression"
-            },
-            "partitionOption": "None",
-            "queryTimeout": "02:00:00"
-          },
-          "datasetSettings": {
-            "type": "SqlServerTable",
-            "typeProperties": {
-              "database": "SGSEDW"
-            },
-            "schema": [],
-            "externalReferences": {
-              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
-            },
-            "annotations": []
-          }
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "LookupOld",
+        "name": "MYSGSEU_tbl_credit_notes_ex_Full",
         "dependsOn": []
       },
       {
@@ -175,7 +93,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT \n\tCT.SYS_CHANGE_VERSION\n   ,CT.SYS_CHANGE_CREATION_VERSION\n   ,CT.SYS_CHANGE_OPERATION\n   ,CT.SYS_CHANGE_COLUMNS\n   ,CT.SYS_CHANGE_CONTEXT\n    ,CT.[Id] AS CT_Id\n\t  ,F.[Id]\n      ,F.[Status]\n     FROM  CHANGETABLE(CHANGES [JOB].[JobStatus],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n     LEFT JOIN [JOB].[JobStatus] F\n     ON CT.[Id] = F.[Id]\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "value": "SELECT NULL AS SYS_CHANGE_VERSION\n       ,NULL AS SYS_CHANGE_CREATION_VERSION\n       ,NULL AS SYS_CHANGE_OPERATION\n       ,NULL AS SYS_CHANGE_COLUMNS\n       ,NULL AS SYS_CHANGE_CONTEXT\n       ,NULL AS CT_CreditNoteExId\n\t   ,[CreditNoteExId]\n\t   ,[CreditNoteId]\n\t   ,[CreditNoteAuthorId]\n\t   ,[CreditNoteCustomerId]\n\t   ,[CreditNoteContactId]\nFROM [dbo].[tbl_credit_notes_ex]",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -187,7 +105,7 @@
               },
               "schema": [],
               "externalReferences": {
-                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+                "connection": "a7d4d570-3f33-4ecb-bc60-e1942a5498df"
               },
               "annotations": []
             }
@@ -206,9 +124,9 @@
               "typeProperties": {
                 "location": {
                   "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Delta/Active",
+                  "folderPath": "MYSGSEU/Full",
                   "fileName": {
-                    "value": "@concat('MYSGSEU','_','Job_JobStatus','.parquet')",
+                    "value": "@concat('MYSGSEU','_','tbl_credit_notes_ex','.parquet')",
                     "type": "Expression"
                   }
                 },
@@ -247,45 +165,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobStatus_DELTA_PARQUET",
+        "name": "MYSGSEU_tbl_credit_notes_ex_parquet",
         "dependsOn": [
           {
-            "activity": "Job_JobStatus_DELTA_CSV",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Script",
-        "typeProperties": {
-          "database": "SGSEDW",
-          "scripts": [
-            {
-              "text": {
-                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'Job_JobStatus'",
-                "type": "Expression"
-              },
-              "type": "Query"
-            }
-          ],
-          "scriptBlockExecutionTimeout": "02:00:00"
-        },
-        "externalReferences": {
-          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "ChangeTracking_version_Update",
-        "dependsOn": [
-          {
-            "activity": "Job_JobStatus_DELTA_PARQUET",
+            "activity": "MYSGSEU_tbl_credit_notes_ex_Full",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -310,8 +193,8 @@
               "typeProperties": {
                 "location": {
                   "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Delta/Active",
-                  "fileName": "MYSGSEU_Job_JobStatus.csv"
+                  "folderPath": "MYSGSEU/Full",
+                  "fileName": "MYSGSEU_tbl_credit_notes_ex.csv"
                 },
                 "columnDelimiter": "^",
                 "rowDelimiter": "\r\n",
@@ -343,7 +226,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "Job_JobStatus_DELTA"
+                "table": "tbl_credit_notes_ex_FULL"
               },
               "schema": [],
               "linkedService": {
@@ -381,7 +264,7 @@
         "name": "File_To_Table",
         "dependsOn": [
           {
-            "activity": "ChangeTracking_version_Update",
+            "activity": "MYSGSEU_tbl_credit_notes_ex_parquet",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -391,11 +274,11 @@
       {
         "type": "TridentNotebook",
         "typeProperties": {
-          "notebookId": "93528f18-ba8b-4404-b3f3-45532e2c4fa7",
+          "notebookId": "de7df882-4b83-4cec-82ad-5e6435aa4322",
           "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
           "parameters": {
-            "in_mode": {
-              "value": "DELTA",
+            "in_mode ": {
+              "value": "FULL",
               "type": "string"
             }
           }
@@ -407,7 +290,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobStatus_Notebook",
+        "name": "tbl_credit_notes_ex_Notebook",
         "dependsOn": [
           {
             "activity": "File_To_Table",
@@ -426,7 +309,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "dbo",
-                "table": "job_jobstatus"
+                "table": "tbl_credit_notes_ex"
               },
               "schema": [],
               "linkedService": {
@@ -447,7 +330,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"Job_JobStatus\";  ",
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_credit_notes_ex\"; ",
               "type": "Expression"
             },
             "importSettings": {
@@ -457,7 +340,7 @@
               "type": "SnowflakeTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "Job_JobStatus",
+                "table": "tbl_credit_notes_ex",
                 "database": "SILVER_FABRIC"
               },
               "schema": [],
@@ -484,87 +367,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_SF_Job_JobStatus",
+        "name": "Fabric_To_SF_tbl_credit_notes_ex",
         "dependsOn": [
           {
-            "activity": "Job_JobStatus_Notebook",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "LakehouseTableSource",
-            "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "dbo",
-                "table": "job_jobstatus"
-              },
-              "schema": [],
-              "linkedService": {
-                "name": "SILVER",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Tables"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
-            }
-          },
-          "sink": {
-            "type": "SnowflakeSink",
-            "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"Job_JobStatus\";  ",
-              "type": "Expression"
-            },
-            "importSettings": {
-              "type": "SnowflakeImportCopyCommand"
-            },
-            "datasetSettings": {
-              "type": "SnowflakeTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "Job_JobStatus",
-                "database": "SILVER_FABRIC"
-              },
-              "schema": [],
-              "externalReferences": {
-                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
-              },
-              "annotations": []
-            }
-          },
-          "translator": {
-            "type": "TabularTranslator",
-            "typeConversion": true,
-            "typeConversionSettings": {
-              "allowDataTruncation": true,
-              "treatBooleanAsNumber": false
-            }
-          },
-          "enableStaging": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Fabric_To_Dev_SF_Job_JobStatus",
-        "dependsOn": [
-          {
-            "activity": "Job_JobStatus_Notebook",
+            "activity": "tbl_credit_notes_ex_Notebook",
             "dependencyConditions": [
               "Succeeded"
             ]

@@ -2,146 +2,12 @@
   "properties": {
     "activities": [
       {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "SqlServerSource",
-            "sqlReaderQuery": {
-              "value": "SELECT \n\tCT.SYS_CHANGE_VERSION\n   ,CT.SYS_CHANGE_CREATION_VERSION\n   ,CT.SYS_CHANGE_OPERATION\n   ,CT.SYS_CHANGE_COLUMNS\n   ,CT.SYS_CHANGE_CONTEXT\n    ,CT.[Id] AS CT_Id\n\t  ,F.[Id]\n      ,F.[Status]\n     FROM  CHANGETABLE(CHANGES [JOB].[JobStatus],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n     LEFT JOIN [JOB].[JobStatus] F\n     ON CT.[Id] = F.[Id]\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
-              "type": "Expression"
-            },
-            "partitionOption": "None",
-            "queryTimeout": "02:00:00",
-            "datasetSettings": {
-              "type": "SqlServerTable",
-              "typeProperties": {
-                "database": "MCGDataFactory"
-              },
-              "schema": [],
-              "externalReferences": {
-                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
-              },
-              "annotations": []
-            }
-          },
-          "sink": {
-            "type": "DelimitedTextSink",
-            "formatSettings": {
-              "type": "DelimitedTextWriteSettings",
-              "quoteAllText": true,
-              "fileExtension": ".csv"
-            },
-            "storeSettings": {
-              "type": "LakehouseWriteSettings"
-            },
-            "datasetSettings": {
-              "type": "DelimitedText",
-              "typeProperties": {
-                "location": {
-                  "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Delta/Active",
-                  "fileName": {
-                    "value": "@concat('MYSGSEU','_','Job_JobStatus','.csv')",
-                    "type": "Expression"
-                  }
-                },
-                "columnDelimiter": "^",
-                "rowDelimiter": "\r\n",
-                "quoteChar": "\"",
-                "escapeChar": "\\",
-                "firstRowAsHeader": true
-              },
-              "schema": [],
-              "linkedService": {
-                "name": "BRONZE",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Files"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
-            }
-          },
-          "translator": {
-            "type": "TabularTranslator",
-            "typeConversion": true,
-            "typeConversionSettings": {
-              "allowDataTruncation": true,
-              "treatBooleanAsNumber": false
-            }
-          },
-          "enableStaging": false
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Job_JobStatus_DELTA_CSV",
-        "dependsOn": [
-          {
-            "activity": "LookupNew",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          },
-          {
-            "activity": "LookupOld",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
         "type": "Lookup",
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT DISTINCT \n\t\tISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION\t   \nFROM CHANGETABLE(CHANGES [JOB].[JobStatus],0) CT\nLEFT JOIN [JOB].[JobStatus] F\n ON CT.[Id] = F.[Id]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
-              "type": "Expression"
-            },
-            "partitionOption": "None",
-            "queryTimeout": "02:00:00"
-          },
-          "datasetSettings": {
-            "type": "SqlServerTable",
-            "typeProperties": {
-              "database": "MCGDataFactory"
-            },
-            "schema": [],
-            "externalReferences": {
-              "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
-            },
-            "annotations": []
-          },
-          "firstRowOnly": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "LookupNew",
-        "dependsOn": []
-      },
-      {
-        "type": "Lookup",
-        "typeProperties": {
-          "source": {
-            "type": "SqlServerSource",
-            "sqlReaderQuery": {
-              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'Job_JobStatus'",
+              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'tbl_despatch_note_items'",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -170,12 +36,46 @@
         "dependsOn": []
       },
       {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT DISTINCT \n\t\tISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION\t   \nFROM CHANGETABLE(CHANGES [dbo].[tbl_despatch_note_items],0) CT\nLEFT JOIN [dbo].[tbl_despatch_note_items] F\n ON CT.[DespatchNoteItemId] = F.[DespatchNoteItemId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "SqlServerTable",
+            "typeProperties": {
+              "database": "MCGDataFactory"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupNew",
+        "dependsOn": []
+      },
+      {
         "type": "Copy",
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT \n\tCT.SYS_CHANGE_VERSION\n   ,CT.SYS_CHANGE_CREATION_VERSION\n   ,CT.SYS_CHANGE_OPERATION\n   ,CT.SYS_CHANGE_COLUMNS\n   ,CT.SYS_CHANGE_CONTEXT\n    ,CT.[Id] AS CT_Id\n\t  ,F.[Id]\n      ,F.[Status]\n     FROM  CHANGETABLE(CHANGES [JOB].[JobStatus],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n     LEFT JOIN [JOB].[JobStatus] F\n     ON CT.[Id] = F.[Id]\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "value": "SELECT \n        CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.DespatchNoteItemId AS CT_DespatchNoteItemId\n      , F.DespatchNoteItemId\n       ,[DespatchNoteId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchItemDesc],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchItemDesc]\n\t   ,[DespatchItemQty]\n\t   ,[JobTaskId]\n\t   ,[JobStageId]\n\t   ,[JobItemId]\n\t   ,[OriginalDespatchNoteItemId]\n\t   ,CASE\n     WHEN [FinalProduct] = 'True' THEN 1      \n     WHEN [FinalProduct] = 'False' THEN 0\n  ELSE [FinalProduct]\nEND AS [FinalProduct]\n     FROM  CHANGETABLE(CHANGES [dbo].[tbl_despatch_note_items],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n     LEFT JOIN [dbo].[tbl_despatch_note_items] F\n     ON CT.DespatchNoteItemId = F.DespatchNoteItemId\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -208,7 +108,7 @@
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
                   "fileName": {
-                    "value": "@concat('MYSGSEU','_','Job_JobStatus','.parquet')",
+                    "value": "@concat('MYSGSEU','_','tbl_despatch_note_items','.parquet')",
                     "type": "Expression"
                   }
                 },
@@ -247,45 +147,16 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobStatus_DELTA_PARQUET",
+        "name": "tbl_despatch_note_items_DELTA_PARQUET",
         "dependsOn": [
           {
-            "activity": "Job_JobStatus_DELTA_CSV",
+            "activity": "LookupNew",
             "dependencyConditions": [
               "Succeeded"
             ]
-          }
-        ]
-      },
-      {
-        "type": "Script",
-        "typeProperties": {
-          "database": "SGSEDW",
-          "scripts": [
-            {
-              "text": {
-                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'Job_JobStatus'",
-                "type": "Expression"
-              },
-              "type": "Query"
-            }
-          ],
-          "scriptBlockExecutionTimeout": "02:00:00"
-        },
-        "externalReferences": {
-          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "ChangeTracking_version_Update",
-        "dependsOn": [
+          },
           {
-            "activity": "Job_JobStatus_DELTA_PARQUET",
+            "activity": "LookupOld",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -296,28 +167,27 @@
         "type": "Copy",
         "typeProperties": {
           "source": {
-            "type": "DelimitedTextSource",
-            "formatSettings": {
-              "type": "DelimitedTextReadSettings"
-            },
+            "type": "ParquetSource",
             "storeSettings": {
               "type": "LakehouseReadSettings",
               "recursive": true,
               "enablePartitionDiscovery": false
             },
+            "formatSettings": {
+              "type": "ParquetReadSettings"
+            },
             "datasetSettings": {
-              "type": "DelimitedText",
+              "type": "Parquet",
               "typeProperties": {
                 "location": {
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
-                  "fileName": "MYSGSEU_Job_JobStatus.csv"
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_despatch_note_items','.parquet')",
+                    "type": "Expression"
+                  }
                 },
-                "columnDelimiter": "^",
-                "rowDelimiter": "\r\n",
-                "quoteChar": "\"",
-                "escapeChar": "\\",
-                "firstRowAsHeader": true
+                "compressionCodec": "snappy"
               },
               "schema": [],
               "linkedService": {
@@ -343,7 +213,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "Job_JobStatus_DELTA"
+                "table": "tbl_despatch_note_items_DELTA"
               },
               "schema": [],
               "linkedService": {
@@ -389,9 +259,44 @@
         ]
       },
       {
+        "type": "Script",
+        "typeProperties": {
+          "database": "SGSEDW",
+          "scripts": [
+            {
+              "text": {
+                "value": "UPDATE ChangeTracking_Fabric_Update\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\nWHERE [TableName] = 'tbl_despatch_note_items'",
+                "type": "Expression"
+              },
+              "type": "Query"
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        },
+        "externalReferences": {
+          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ChangeTracking_version_Update",
+        "dependsOn": [
+          {
+            "activity": "tbl_despatch_note_items_DELTA_PARQUET",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
         "type": "TridentNotebook",
         "typeProperties": {
-          "notebookId": "93528f18-ba8b-4404-b3f3-45532e2c4fa7",
+          "notebookId": "b0c559ca-e171-4358-b949-6c984f0ba5ee",
           "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
           "parameters": {
             "in_mode": {
@@ -401,13 +306,12 @@
           }
         },
         "policy": {
-          "timeout": "0.12:00:00",
           "retry": 0,
           "retryIntervalInSeconds": 30,
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobStatus_Notebook",
+        "name": "tbl_despatch_note_items_Notebook",
         "dependsOn": [
           {
             "activity": "File_To_Table",
@@ -426,7 +330,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "dbo",
-                "table": "job_jobstatus"
+                "table": "tbl_despatch_note_items"
               },
               "schema": [],
               "linkedService": {
@@ -447,7 +351,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"Job_JobStatus\";  ",
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_despatch_note_items\";",
               "type": "Expression"
             },
             "importSettings": {
@@ -457,7 +361,7 @@
               "type": "SnowflakeTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "Job_JobStatus",
+                "table": "tbl_despatch_note_items",
                 "database": "SILVER_FABRIC"
               },
               "schema": [],
@@ -484,10 +388,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_SF_Job_JobStatus",
+        "name": "Fabric_To_SF_tbl_despatch_note_items",
         "dependsOn": [
           {
-            "activity": "Job_JobStatus_Notebook",
+            "activity": "tbl_despatch_note_items_Notebook",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -503,7 +407,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "dbo",
-                "table": "job_jobstatus"
+                "table": "tbl_despatch_note_items"
               },
               "schema": [],
               "linkedService": {
@@ -524,7 +428,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"Job_JobStatus\";  ",
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_despatch_note_items\";",
               "type": "Expression"
             },
             "importSettings": {
@@ -534,7 +438,7 @@
               "type": "SnowflakeTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "Job_JobStatus",
+                "table": "tbl_despatch_note_items",
                 "database": "SILVER_FABRIC"
               },
               "schema": [],
@@ -561,10 +465,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_Dev_SF_Job_JobStatus",
+        "name": "Fabric_To_Dev_SF_tbl_despatch_note_items",
         "dependsOn": [
           {
-            "activity": "Job_JobStatus_Notebook",
+            "activity": "tbl_despatch_note_items_Notebook",
             "dependencyConditions": [
               "Succeeded"
             ]

@@ -2,80 +2,12 @@
   "properties": {
     "activities": [
       {
-        "type": "Lookup",
-        "typeProperties": {
-          "source": {
-            "type": "SqlServerSource",
-            "sqlReaderQuery": {
-              "value": "SELECT DISTINCT\n        ISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION    \nFROM CHANGETABLE(CHANGES [Job].[JobItemColourPlateDimensions],0) CT\nLEFT JOIN [Job].[JobItemColourPlateDimensions] F\n ON CT.[JobItemColourPlateDimensionsId] = F.[JobItemColourPlateDimensionsId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
-              "type": "Expression"
-            },
-            "partitionOption": "None",
-            "queryTimeout": "02:00:00"
-          },
-          "datasetSettings": {
-            "type": "SqlServerTable",
-            "typeProperties": {
-              "database": "MCGDataFactory"
-            },
-            "schema": [],
-            "externalReferences": {
-              "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
-            },
-            "annotations": []
-          }
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "LookupNew",
-        "dependsOn": []
-      },
-      {
-        "type": "Lookup",
-        "typeProperties": {
-          "source": {
-            "type": "SqlServerSource",
-            "sqlReaderQuery": {
-              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update\nWHERE TableName = 'Job_JobItemColourPlateDimensions'",
-              "type": "Expression"
-            },
-            "partitionOption": "None",
-            "queryTimeout": "02:00:00"
-          },
-          "datasetSettings": {
-            "type": "SqlServerTable",
-            "typeProperties": {
-              "database": "SGSEDW"
-            },
-            "schema": [],
-            "externalReferences": {
-              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
-            },
-            "annotations": []
-          }
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "LookupOld",
-        "dependsOn": []
-      },
-      {
         "type": "Copy",
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT\n        CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.[JobItemColourPlateDimensionsId] as CT_JobItemColourPlateDimensionsId\n       ,F.[JobItemColourPlateDimensionsId]\n       ,F.[JobItemColourId]\n       ,F.[Height]\n       ,F.[Width]\n FROM CHANGETABLE(CHANGES [Job].[JobItemColourPlateDimensions],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT    \n  LEFT JOIN [Job].[JobItemColourPlateDimensions] F\n  ON CT.[JobItemColourPlateDimensionsId] = F.[JobItemColourPlateDimensionsId]\n  WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n  AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "value": "SELECT NULL AS SYS_CHANGE_VERSION\n       ,NULL AS SYS_CHANGE_CREATION_VERSION\n       ,NULL AS SYS_CHANGE_OPERATION\n       ,NULL AS SYS_CHANGE_COLUMNS\n       ,NULL AS SYS_CHANGE_CONTEXT\n       ,NULL AS CT_CreditNoteId\n\t   ,[CreditNoteId]\n\t   ,[CreditNoteDateTime]\n\t   ,[CreditNoteStatus]\n\t   ,[JobVersionId]\n\t   ,[InvoiceId]\n\t   ,[JobContactId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Address],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Address]\n\t   ,[ExchangeRateId]\n\t   ,[ExchangeRateValue]\n\t   ,[TaxCodeId]\n\t   ,[TaxCodeRate]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CreditReason],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CreditReason]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CreditNoteNotes],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CreditNoteNotes]\n\t   ,[ApprovedBy]\n\t   ,[ApprovedDateTime]\n\t   , CASE\n     WHEN [CreditNoteReadyForExport] = 'True' THEN 1      \n     WHEN [CreditNoteReadyForExport] = 'False' THEN 0\n  ELSE [CreditNoteReadyForExport]\nEND AS [CreditNoteReadyForExport]\n\n\t   ,\t   CASE\n     WHEN [CreditNoteExported] = 'True' THEN 1      \n     WHEN [CreditNoteExported] = 'False' THEN 0\n  ELSE [CreditNoteExported]\nEND AS [CreditNoteExported]\n\t   ,[CreditNoteExportedDateTime]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CreditNoteTitle],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CreditNoteTitle]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ClientPON],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ClientPON]\n\t   ,[CurrencyId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PostingAddress],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PostingAddress]\n\t   ,[ExportStatus]\n\t   ,[EntityId]\n\t   ,CASE\n     WHEN [TaxExemptionOverride] = 'True' THEN 1      \n     WHEN [TaxExemptionOverride] = 'False' THEN 0\n  ELSE [TaxExemptionOverride]\nEND AS [TaxExemptionOverride]\n\t   FROM [dbo].[tbl_credit_notes]\n\t   \n\t   ",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -87,7 +19,7 @@
               },
               "schema": [],
               "externalReferences": {
-                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+                "connection": "a7d4d570-3f33-4ecb-bc60-e1942a5498df"
               },
               "annotations": []
             }
@@ -97,7 +29,7 @@
             "formatSettings": {
               "type": "DelimitedTextWriteSettings",
               "quoteAllText": true,
-              "fileExtension": ".csv"
+              "fileExtension": ".txt"
             },
             "storeSettings": {
               "type": "LakehouseWriteSettings"
@@ -107,9 +39,9 @@
               "typeProperties": {
                 "location": {
                   "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Delta/Active",
+                  "folderPath": "MYSGSEU/Full",
                   "fileName": {
-                    "value": "@concat('MYSGSEU','_','Job_JobItemColourPlateDimensions','.csv')",
+                    "value": "@concat('MYSGSEU','_','tbl_credit_notes','.csv')",
                     "type": "Expression"
                   }
                 },
@@ -152,21 +84,8 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobItemColourPlateDimensions_DELTA_CSV",
-        "dependsOn": [
-          {
-            "activity": "LookupNew",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          },
-          {
-            "activity": "LookupOld",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
+        "name": "MYSGSEU_tbl_credit_notes_Full",
+        "dependsOn": []
       },
       {
         "type": "Copy",
@@ -174,7 +93,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT\n        CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.[JobItemColourPlateDimensionsId] as CT_JobItemColourPlateDimensionsId\n       ,F.[JobItemColourPlateDimensionsId]\n       ,F.[JobItemColourId]\n       ,F.[Height]\n       ,F.[Width]\n FROM CHANGETABLE(CHANGES [Job].[JobItemColourPlateDimensions],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT    \n  LEFT JOIN [Job].[JobItemColourPlateDimensions] F\n  ON CT.[JobItemColourPlateDimensionsId] = F.[JobItemColourPlateDimensionsId]\n  WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n  AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "value": "SELECT NULL AS SYS_CHANGE_VERSION\n       ,NULL AS SYS_CHANGE_CREATION_VERSION\n       ,NULL AS SYS_CHANGE_OPERATION\n       ,NULL AS SYS_CHANGE_COLUMNS\n       ,NULL AS SYS_CHANGE_CONTEXT\n       ,NULL AS CT_CreditNoteId\n\t   ,[CreditNoteId]\n\t   ,[CreditNoteDateTime]\n\t   ,[CreditNoteStatus]\n\t   ,[JobVersionId]\n\t   ,[InvoiceId]\n\t   ,[JobContactId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Address],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Address]\n\t   ,[ExchangeRateId]\n\t   ,[ExchangeRateValue]\n\t   ,[TaxCodeId]\n\t   ,[TaxCodeRate]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CreditReason],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CreditReason]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CreditNoteNotes],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CreditNoteNotes]\n\t   ,[ApprovedBy]\n\t   ,[ApprovedDateTime]\n\t   , CASE\n     WHEN [CreditNoteReadyForExport] = 'True' THEN 1      \n     WHEN [CreditNoteReadyForExport] = 'False' THEN 0\n  ELSE [CreditNoteReadyForExport]\nEND AS [CreditNoteReadyForExport]\n\n\t   ,\t   CASE\n     WHEN [CreditNoteExported] = 'True' THEN 1      \n     WHEN [CreditNoteExported] = 'False' THEN 0\n  ELSE [CreditNoteExported]\nEND AS [CreditNoteExported]\n\t   ,[CreditNoteExportedDateTime]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CreditNoteTitle],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CreditNoteTitle]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ClientPON],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ClientPON]\n\t   ,[CurrencyId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PostingAddress],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PostingAddress]\n\t   ,[ExportStatus]\n\t   ,[EntityId]\n\t   ,CASE\n     WHEN [TaxExemptionOverride] = 'True' THEN 1      \n     WHEN [TaxExemptionOverride] = 'False' THEN 0\n  ELSE [TaxExemptionOverride]\nEND AS [TaxExemptionOverride]\n\t   FROM [dbo].[tbl_credit_notes]\n\t   ",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -186,7 +105,7 @@
               },
               "schema": [],
               "externalReferences": {
-                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+                "connection": "a7d4d570-3f33-4ecb-bc60-e1942a5498df"
               },
               "annotations": []
             }
@@ -205,9 +124,9 @@
               "typeProperties": {
                 "location": {
                   "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Delta/Active",
+                  "folderPath": "MYSGSEU/Full",
                   "fileName": {
-                    "value": "@concat('MYSGSEU','_','Job_JobItemColourPlateDimensions','.parquet')",
+                    "value": "@concat('MYSGSEU','_','tbl_credit_notes','.parquet')",
                     "type": "Expression"
                   }
                 },
@@ -246,45 +165,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobItemColourPlateDimensions_DELTA_PARQUET",
+        "name": "MYSGSEU_tbl_credit_notes_parquet",
         "dependsOn": [
           {
-            "activity": "Job_JobItemColourPlateDimensions_DELTA_CSV",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Script",
-        "typeProperties": {
-          "database": "SGSEDW",
-          "scripts": [
-            {
-              "text": {
-                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'Job_JobItemColourPlateDimensions'",
-                "type": "Expression"
-              },
-              "type": "Query"
-            }
-          ],
-          "scriptBlockExecutionTimeout": "02:00:00"
-        },
-        "externalReferences": {
-          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "ChangeTracking_version_Update",
-        "dependsOn": [
-          {
-            "activity": "Job_JobItemColourPlateDimensions_DELTA_PARQUET",
+            "activity": "MYSGSEU_tbl_credit_notes_Full",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -309,8 +193,8 @@
               "typeProperties": {
                 "location": {
                   "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Delta/Active",
-                  "fileName": "MYSGSEU_Job_JobItemColourPlateDimensions.csv"
+                  "folderPath": "MYSGSEU/Full",
+                  "fileName": "MYSGSEU_tbl_credit_notes.csv"
                 },
                 "columnDelimiter": "^",
                 "rowDelimiter": "\r\n",
@@ -342,7 +226,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "Job_JobItemColourPlateDimensions_DELTA"
+                "table": "tbl_credit_notes_FULL"
               },
               "schema": [],
               "linkedService": {
@@ -377,10 +261,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "File_To_Table",
+        "name": "File_To_table",
         "dependsOn": [
           {
-            "activity": "ChangeTracking_version_Update",
+            "activity": "MYSGSEU_tbl_credit_notes_parquet",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -390,11 +274,11 @@
       {
         "type": "TridentNotebook",
         "typeProperties": {
-          "notebookId": "ade0f97b-695b-45e0-83a2-fe9500004d99",
+          "notebookId": "30215d5b-9029-49eb-aa67-cdbcf44fbeff",
           "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
           "parameters": {
             "in_mode": {
-              "value": "DELTA",
+              "value": "FULL",
               "type": "string"
             }
           }
@@ -406,12 +290,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobItemColourPlateDimensions_Notebook",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
+        "name": "tbl_credit_notes_Notebook",
         "dependsOn": [
           {
-            "activity": "File_To_Table",
+            "activity": "File_To_table",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -427,7 +309,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "dbo",
-                "table": "job_jobitemcolourplatedimensions"
+                "table": "tbl_credit_notes"
               },
               "schema": [],
               "linkedService": {
@@ -435,8 +317,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
-                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -448,7 +330,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"Job_JobItemColourPlateDimensions\";  ",
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_credit_notes\";  ",
               "type": "Expression"
             },
             "importSettings": {
@@ -458,7 +340,7 @@
               "type": "SnowflakeTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "Job_JobItemColourPlateDimensions",
+                "table": "tbl_credit_notes",
                 "database": "SILVER_FABRIC"
               },
               "schema": [],
@@ -470,88 +352,6 @@
           },
           "translator": {
             "type": "TabularTranslator",
-            "mappings": [
-              {
-                "source": {
-                  "name": "SYS_CHANGE_VERSION",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "SYS_CHANGE_VERSION",
-                  "type": "String",
-                  "physicalType": "VARCHAR"
-                }
-              },
-              {
-                "source": {
-                  "name": "SYS_CHANGE_OPERATION",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "SYS_CHANGE_OPERATION",
-                  "type": "String",
-                  "physicalType": "VARCHAR"
-                }
-              },
-              {
-                "source": {
-                  "name": "JobItemColourPlateDimensionsId",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "JobItemColourPlateDimensionsId",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 0,
-                  "precision": 38
-                }
-              },
-              {
-                "source": {
-                  "name": "JobItemColourId",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "JobItemColourId",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 0,
-                  "precision": 38
-                }
-              },
-              {
-                "source": {
-                  "name": "Height",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "Height",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 6,
-                  "precision": 38
-                }
-              },
-              {
-                "source": {
-                  "name": "Width",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "Width",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 6,
-                  "precision": 38
-                }
-              }
-            ],
             "typeConversion": true,
             "typeConversionSettings": {
               "allowDataTruncation": true,
@@ -567,12 +367,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_SF_Job_JobItemColourPlateDimensions",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
+        "name": "Fabric_To_SF_tbl_credit_notes",
         "dependsOn": [
           {
-            "activity": "Job_JobItemColourPlateDimensions_Notebook",
+            "activity": "tbl_credit_notes_Notebook",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -588,7 +386,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "dbo",
-                "table": "job_jobitemcolourplatedimensions"
+                "table": "tbl_credit_notes"
               },
               "schema": [],
               "linkedService": {
@@ -596,8 +394,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
-                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -609,7 +407,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"Job_JobItemColourPlateDimensions\"; ",
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_credit_notes\";",
               "type": "Expression"
             },
             "importSettings": {
@@ -619,7 +417,7 @@
               "type": "SnowflakeTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "Job_JobItemColourPlateDimensions",
+                "table": "tbl_credit_notes",
                 "database": "SILVER_FABRIC"
               },
               "schema": [],
@@ -646,12 +444,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_DEV_SF_Job_JobItemColourPlateDimensions",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
+        "name": "Fabric_To_Dev_SF_bl_credit_notes",
         "dependsOn": [
           {
-            "activity": "Job_JobItemColourPlateDimensions_Notebook",
+            "activity": "tbl_credit_notes_Notebook",
             "dependencyConditions": [
               "Succeeded"
             ]

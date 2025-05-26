@@ -2,80 +2,12 @@
   "properties": {
     "activities": [
       {
-        "type": "Lookup",
-        "typeProperties": {
-          "source": {
-            "type": "SqlServerSource",
-            "sqlReaderQuery": {
-              "value": "SELECT DISTINCT\n        ISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION    \nFROM CHANGETABLE(CHANGES [Job].[JobItemColourPlateDimensions],0) CT\nLEFT JOIN [Job].[JobItemColourPlateDimensions] F\n ON CT.[JobItemColourPlateDimensionsId] = F.[JobItemColourPlateDimensionsId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
-              "type": "Expression"
-            },
-            "partitionOption": "None",
-            "queryTimeout": "02:00:00"
-          },
-          "datasetSettings": {
-            "type": "SqlServerTable",
-            "typeProperties": {
-              "database": "MCGDataFactory"
-            },
-            "schema": [],
-            "externalReferences": {
-              "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
-            },
-            "annotations": []
-          }
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "LookupNew",
-        "dependsOn": []
-      },
-      {
-        "type": "Lookup",
-        "typeProperties": {
-          "source": {
-            "type": "SqlServerSource",
-            "sqlReaderQuery": {
-              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update\nWHERE TableName = 'Job_JobItemColourPlateDimensions'",
-              "type": "Expression"
-            },
-            "partitionOption": "None",
-            "queryTimeout": "02:00:00"
-          },
-          "datasetSettings": {
-            "type": "SqlServerTable",
-            "typeProperties": {
-              "database": "SGSEDW"
-            },
-            "schema": [],
-            "externalReferences": {
-              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
-            },
-            "annotations": []
-          }
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "LookupOld",
-        "dependsOn": []
-      },
-      {
         "type": "Copy",
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT\n        CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.[JobItemColourPlateDimensionsId] as CT_JobItemColourPlateDimensionsId\n       ,F.[JobItemColourPlateDimensionsId]\n       ,F.[JobItemColourId]\n       ,F.[Height]\n       ,F.[Width]\n FROM CHANGETABLE(CHANGES [Job].[JobItemColourPlateDimensions],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT    \n  LEFT JOIN [Job].[JobItemColourPlateDimensions] F\n  ON CT.[JobItemColourPlateDimensionsId] = F.[JobItemColourPlateDimensionsId]\n  WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n  AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "value": "SELECT \n\tCT.SYS_CHANGE_VERSION\n   ,CT.SYS_CHANGE_CREATION_VERSION\n   ,CT.SYS_CHANGE_OPERATION\n   ,CT.SYS_CHANGE_COLUMNS\n   ,CT.SYS_CHANGE_CONTEXT\n    ,CT.[JobContactPONumberId] AS CT_JobContactPONumberId\n       ,F.[JobContactPONumberId]\n       ,F.[JobContactId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PONumber],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PONumber]\n      ,[PODocumentName]\n      ,[PODocumentLocation]\n      ,[PODocumentType]\n      ,[CreatedDate]\n      ,[CreatedBy]\n      ,[UpdatedDate]\n      ,[UpdatedBy]\n      ,[ServerStoreId]\n     FROM  CHANGETABLE(CHANGES [dbo].[tbl_job_contact_po_numbers],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n     LEFT JOIN [dbo].[tbl_job_contact_po_numbers] F\n     ON CT.[JobContactPONumberId] = F.[JobContactPONumberId]\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -109,7 +41,7 @@
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
                   "fileName": {
-                    "value": "@concat('MYSGSEU','_','Job_JobItemColourPlateDimensions','.csv')",
+                    "value": "@concat('MYSGSEU','_','tbl_job_contact_po_numbers','.csv')",
                     "type": "Expression"
                   }
                 },
@@ -152,16 +84,16 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobItemColourPlateDimensions_DELTA_CSV",
+        "name": "tbl_job_contact_po_numbers_DELTA_CSV",
         "dependsOn": [
           {
-            "activity": "LookupNew",
+            "activity": "LookupOld",
             "dependencyConditions": [
               "Succeeded"
             ]
           },
           {
-            "activity": "LookupOld",
+            "activity": "LookupNew",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -174,7 +106,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT\n        CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.[JobItemColourPlateDimensionsId] as CT_JobItemColourPlateDimensionsId\n       ,F.[JobItemColourPlateDimensionsId]\n       ,F.[JobItemColourId]\n       ,F.[Height]\n       ,F.[Width]\n FROM CHANGETABLE(CHANGES [Job].[JobItemColourPlateDimensions],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT    \n  LEFT JOIN [Job].[JobItemColourPlateDimensions] F\n  ON CT.[JobItemColourPlateDimensionsId] = F.[JobItemColourPlateDimensionsId]\n  WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n  AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "value": "SELECT \n\tCT.SYS_CHANGE_VERSION\n   ,CT.SYS_CHANGE_CREATION_VERSION\n   ,CT.SYS_CHANGE_OPERATION\n   ,CT.SYS_CHANGE_COLUMNS\n   ,CT.SYS_CHANGE_CONTEXT\n    ,CT.[JobContactPONumberId] AS CT_JobContactPONumberId\n       ,F.[JobContactPONumberId]\n       ,F.[JobContactId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PONumber],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PONumber]\n      ,[PODocumentName]\n      ,[PODocumentLocation]\n      ,[PODocumentType]\n      ,[CreatedDate]\n      ,[CreatedBy]\n      ,[UpdatedDate]\n      ,[UpdatedBy]\n      ,[ServerStoreId]\n     FROM  CHANGETABLE(CHANGES [dbo].[tbl_job_contact_po_numbers],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n     LEFT JOIN [dbo].[tbl_job_contact_po_numbers] F\n     ON CT.[JobContactPONumberId] = F.[JobContactPONumberId]\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -207,7 +139,7 @@
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
                   "fileName": {
-                    "value": "@concat('MYSGSEU','_','Job_JobItemColourPlateDimensions','.parquet')",
+                    "value": "@concat('MYSGSEU','_','tbl_job_contact_po_numbers','.parquet')",
                     "type": "Expression"
                   }
                 },
@@ -246,10 +178,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobItemColourPlateDimensions_DELTA_PARQUET",
+        "name": "tbl_job_contact_po_numbers_DELTA_PARQUET",
         "dependsOn": [
           {
-            "activity": "Job_JobItemColourPlateDimensions_DELTA_CSV",
+            "activity": "tbl_job_contact_po_numbers_DELTA_CSV",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -263,7 +195,7 @@
           "scripts": [
             {
               "text": {
-                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'Job_JobItemColourPlateDimensions'",
+                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_job_contact_po_numbers'",
                 "type": "Expression"
               },
               "type": "Query"
@@ -284,12 +216,80 @@
         "name": "ChangeTracking_version_Update",
         "dependsOn": [
           {
-            "activity": "Job_JobItemColourPlateDimensions_DELTA_PARQUET",
+            "activity": "tbl_job_contact_po_numbers_DELTA_PARQUET",
             "dependencyConditions": [
               "Succeeded"
             ]
           }
         ]
+      },
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'tbl_job_contact_po_numbers'",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "SqlServerTable",
+            "typeProperties": {
+              "database": "SGSEDW"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupOld",
+        "dependsOn": []
+      },
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT DISTINCT \n\t\tISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION\t   \nFROM CHANGETABLE(CHANGES [dbo].[tbl_job_contact_po_numbers],0) CT\nLEFT JOIN [dbo].[tbl_job_contact_po_numbers] F\n ON CT.[JobContactPONumberId] = F.[JobContactPONumberId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "SqlServerTable",
+            "typeProperties": {
+              "database": "MCGDataFactory"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupNew",
+        "dependsOn": []
       },
       {
         "type": "Copy",
@@ -310,7 +310,7 @@
                 "location": {
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
-                  "fileName": "MYSGSEU_Job_JobItemColourPlateDimensions.csv"
+                  "fileName": "MYSGSEU_tbl_job_contact_po_numbers.csv"
                 },
                 "columnDelimiter": "^",
                 "rowDelimiter": "\r\n",
@@ -342,7 +342,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "Job_JobItemColourPlateDimensions_DELTA"
+                "table": "tbl_job_contact_po_numbers_DELTA"
               },
               "schema": [],
               "linkedService": {
@@ -390,7 +390,7 @@
       {
         "type": "TridentNotebook",
         "typeProperties": {
-          "notebookId": "ade0f97b-695b-45e0-83a2-fe9500004d99",
+          "notebookId": "e30b8689-91b9-4052-b813-8a7750bb4ae4",
           "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
           "parameters": {
             "in_mode": {
@@ -400,15 +400,12 @@
           }
         },
         "policy": {
-          "timeout": "0.12:00:00",
           "retry": 0,
           "retryIntervalInSeconds": 30,
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Job_JobItemColourPlateDimensions_Notebook",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
+        "name": "tbl_job_contact_po_numbers_Notebook",
         "dependsOn": [
           {
             "activity": "File_To_Table",
@@ -427,7 +424,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "dbo",
-                "table": "job_jobitemcolourplatedimensions"
+                "table": "tbl_job_contact_po_numbers"
               },
               "schema": [],
               "linkedService": {
@@ -435,8 +432,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
-                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -448,7 +445,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"Job_JobItemColourPlateDimensions\";  ",
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_job_contact_po_numbers\";",
               "type": "Expression"
             },
             "importSettings": {
@@ -458,12 +455,89 @@
               "type": "SnowflakeTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "Job_JobItemColourPlateDimensions",
+                "table": "tbl_job_contact_po_numbers",
                 "database": "SILVER_FABRIC"
               },
               "schema": [],
               "externalReferences": {
                 "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_SF_tbl_job_contact_po_numbers",
+        "dependsOn": [
+          {
+            "activity": "tbl_job_contact_po_numbers_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_job_contact_po_numbers"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_job_contact_po_numbers\";  \n",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_job_contact_po_numbers",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
               },
               "annotations": []
             }
@@ -497,12 +571,120 @@
               },
               {
                 "source": {
-                  "name": "JobItemColourPlateDimensionsId",
+                  "name": "PONumber",
                   "type": "String",
                   "physicalType": "string"
                 },
                 "sink": {
-                  "name": "JobItemColourPlateDimensionsId",
+                  "name": "PONumber",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PODocumentName",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PODocumentName",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PODocumentLocation",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PODocumentLocation",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PODocumentType",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PODocumentType",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CreatedDate",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "CreatedDate",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CreatedBy",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "CreatedBy",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "UpdatedDate",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "UpdatedDate",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "UpdatedBy",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "UpdatedBy",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ServerStoreId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ServerStoreId",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobContactPONumberId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobContactPONumberId",
                   "type": "Int64",
                   "physicalType": "NUMBER",
                   "scale": 0,
@@ -511,43 +693,15 @@
               },
               {
                 "source": {
-                  "name": "JobItemColourId",
+                  "name": "JobContactId",
                   "type": "String",
                   "physicalType": "string"
                 },
                 "sink": {
-                  "name": "JobItemColourId",
+                  "name": "JobContactId",
                   "type": "Int64",
                   "physicalType": "NUMBER",
                   "scale": 0,
-                  "precision": 38
-                }
-              },
-              {
-                "source": {
-                  "name": "Height",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "Height",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 6,
-                  "precision": 38
-                }
-              },
-              {
-                "source": {
-                  "name": "Width",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "Width",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 6,
                   "precision": 38
                 }
               }
@@ -567,91 +721,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_SF_Job_JobItemColourPlateDimensions",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
+        "name": "Fabric_To_Dev_SF_tbl_job_contact_po_numbers",
         "dependsOn": [
           {
-            "activity": "Job_JobItemColourPlateDimensions_Notebook",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "LakehouseTableSource",
-            "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "dbo",
-                "table": "job_jobitemcolourplatedimensions"
-              },
-              "schema": [],
-              "linkedService": {
-                "name": "SILVER",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
-                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
-                    "rootFolder": "Tables"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
-            }
-          },
-          "sink": {
-            "type": "SnowflakeSink",
-            "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"Job_JobItemColourPlateDimensions\"; ",
-              "type": "Expression"
-            },
-            "importSettings": {
-              "type": "SnowflakeImportCopyCommand"
-            },
-            "datasetSettings": {
-              "type": "SnowflakeTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "Job_JobItemColourPlateDimensions",
-                "database": "SILVER_FABRIC"
-              },
-              "schema": [],
-              "externalReferences": {
-                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
-              },
-              "annotations": []
-            }
-          },
-          "translator": {
-            "type": "TabularTranslator",
-            "typeConversion": true,
-            "typeConversionSettings": {
-              "allowDataTruncation": true,
-              "treatBooleanAsNumber": false
-            }
-          },
-          "enableStaging": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Fabric_To_DEV_SF_Job_JobItemColourPlateDimensions",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
-        "dependsOn": [
-          {
-            "activity": "Job_JobItemColourPlateDimensions_Notebook",
+            "activity": "tbl_job_contact_po_numbers_Notebook",
             "dependencyConditions": [
               "Succeeded"
             ]
