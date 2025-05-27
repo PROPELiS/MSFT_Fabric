@@ -1,0 +1,459 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT  NULL AS SYS_CHANGE_VERSION\n\t   ,NULL AS SYS_CHANGE_CREATION_VERSION\n\t   ,NULL AS SYS_CHANGE_OPERATION\n\t   ,NULL AS SYS_CHANGE_COLUMNS\n\t   ,NULL AS SYS_CHANGE_CONTEXT\n\t   ,NULL AS CT_DAXCustomerId\n      ,F.[DAXCustomerId]\n      ,[PartyId]\n      ,[CreatedDate]\n      ,[UpdatedDate]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Party_Name],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Party_Name]\n      ,[role]\n      ,[Customer_Id]\n      ,[Invoicing_Delivery_On_Hold]\n      ,[Payment_Terms]\n      ,[Discount]\n      ,[Currency]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Invoice_Account],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Invoice_Account]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Customer_Group],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Customer_Group]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Tax_Exempt_Number],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Tax_Exempt_Number]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Identification],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Identification]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Data_Area_Id],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Data_Area_Id]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Portal],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Portal]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Customer_Portal_ID],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Customer_Portal_ID]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([LineOfBusinessId],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [LineOfBusinessId]\n  FROM [dbo].[tbl_DAX_customers] F \n",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dce8062b-aeb5-4bcd-a38a-dc1d449a061f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "quoteAllText": true,
+              "fileExtension": ".txt"
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Full",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_DAX_customers','.csv')",
+                    "type": "Expression"
+                  }
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "MYSGSEU_tbl_DAX_customers_FULL",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT  NULL AS SYS_CHANGE_VERSION\n\t   ,NULL AS SYS_CHANGE_CREATION_VERSION\n\t   ,NULL AS SYS_CHANGE_OPERATION\n\t   ,NULL AS SYS_CHANGE_COLUMNS\n\t   ,NULL AS SYS_CHANGE_CONTEXT\n\t   ,NULL AS CT_DAXCustomerId\n      ,F.[DAXCustomerId]\n      ,[PartyId]\n      ,[CreatedDate]\n      ,[UpdatedDate]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Party_Name],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Party_Name]\n      ,[role]\n      ,[Customer_Id]\n      ,[Invoicing_Delivery_On_Hold]\n      ,[Payment_Terms]\n      ,[Discount]\n      ,[Currency]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Invoice_Account],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Invoice_Account]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Customer_Group],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Customer_Group]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Tax_Exempt_Number],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Tax_Exempt_Number]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Identification],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Identification]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Data_Area_Id],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Data_Area_Id]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Portal],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Portal]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Customer_Portal_ID],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [Customer_Portal_ID]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([LineOfBusinessId],'^',''),'\"','`'),'\\','/'),CHAR(10),''),CHAR(13),'') AS [LineOfBusinessId]\n  FROM [dbo].[tbl_DAX_customers] F \n",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dce8062b-aeb5-4bcd-a38a-dc1d449a061f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "ParquetSink",
+            "formatSettings": {
+              "type": "ParquetWriteSettings",
+              "enableVertiParquet": true
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "Parquet",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Full",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_DAX_customers','.parquet')",
+                    "type": "Expression"
+                  }
+                },
+                "compressionCodec": "snappy"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "MYSGSEU_tbl_DAX_customers",
+        "dependsOn": [
+          {
+            "activity": "MYSGSEU_tbl_DAX_customers_FULL",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Full",
+                  "fileName": "MYSGSEU_tbl_DAX_customers.csv"
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_DAX_customers_FULL"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "File_To_Table",
+        "dependsOn": [
+          {
+            "activity": "MYSGSEU_tbl_DAX_customers",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "c8fcf9dc-f455-b896-4a18-d5205a5a5880",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "in_mode": {
+              "value": "FULL",
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_DAX_customers_Notebook",
+        "dependsOn": [
+          {
+            "activity": "File_To_Table",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_dax_customers"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_DAX_customers\";",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_DAX_customers",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_SF_tbl_DAX_customers",
+        "dependsOn": [
+          {
+            "activity": "tbl_DAX_customers_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_dax_customers"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_DAX_customers\";",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_DAX_customers",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_Dev_SF_tbl_DAX_customers",
+        "dependsOn": [
+          {
+            "activity": "tbl_DAX_customers_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

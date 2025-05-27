@@ -1,0 +1,1047 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT NULL AS SYS_CHANGE_VERSION\n       ,NULL AS SYS_CHANGE_CREATION_VERSION\n       ,NULL AS SYS_CHANGE_OPERATION\n       ,NULL AS SYS_CHANGE_COLUMNS\n       ,NULL AS SYS_CHANGE_CONTEXT\n       ,NULL AS CT_TaxRequestItemTaxId\n       ,[TaxRequestItemTaxId]\n\t   ,[TaxRequestId]\n\t   ,[InvoiceItemId]\n\t   ,[CreditNoteItemId]\n\t   ,[DespatchNoteId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AuthorityName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AuthorityName]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AuthorityType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AuthorityType]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([TaxName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [TaxName]\n\t   ,[TaxApplied]\n\t   ,[FeeApplied]\n\t   ,[TaxableAmount]\n\t   ,[TaxableQuantity]\n\t   ,[ExemptQty]\n\t   ,[ExemptAmt]\n\t   ,[TaxRate]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([BaseType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [BaseType]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PassFlag],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PassFlag]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PassType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PassType]\n\t   ,[TransferItemId]\n\t   ,[Quantity]\t   \t   \n FROM [dbo].[tbl_invoice_taxrequest_itemtaxes]",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dce8062b-aeb5-4bcd-a38a-dc1d449a061f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "quoteAllText": true,
+              "fileExtension": ".txt"
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Full",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_invoice_taxrequest_itemtaxes','.csv')",
+                    "type": "Expression"
+                  }
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "MYSGSEU_tbl_invoice_taxrequest_itemtaxes_FULL",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT NULL AS SYS_CHANGE_VERSION\n       ,NULL AS SYS_CHANGE_CREATION_VERSION\n       ,NULL AS SYS_CHANGE_OPERATION\n       ,NULL AS SYS_CHANGE_COLUMNS\n       ,NULL AS SYS_CHANGE_CONTEXT\n       ,NULL AS CT_TaxRequestItemTaxId\n       ,[TaxRequestItemTaxId]\n\t   ,[TaxRequestId]\n\t   ,[InvoiceItemId]\n\t   ,[CreditNoteItemId]\n\t   ,[DespatchNoteId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AuthorityName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AuthorityName]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AuthorityType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AuthorityType]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([TaxName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [TaxName]\n\t   ,[TaxApplied]\n\t   ,[FeeApplied]\n\t   ,[TaxableAmount]\n\t   ,[TaxableQuantity]\n\t   ,[ExemptQty]\n\t   ,[ExemptAmt]\n\t   ,[TaxRate]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([BaseType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [BaseType]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PassFlag],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PassFlag]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PassType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PassType]\n\t   ,[TransferItemId]\n\t   ,[Quantity]\t   \t   \n FROM [dbo].[tbl_invoice_taxrequest_itemtaxes]",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dce8062b-aeb5-4bcd-a38a-dc1d449a061f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "ParquetSink",
+            "formatSettings": {
+              "type": "ParquetWriteSettings",
+              "enableVertiParquet": true
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "Parquet",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Full",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_invoice_taxrequest_itemtaxes','.parquet')",
+                    "type": "Expression"
+                  }
+                },
+                "compressionCodec": "snappy"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "MYSGSEU_tbl_invoice_taxrequest_itemtaxes",
+        "dependsOn": [
+          {
+            "activity": "MYSGSEU_tbl_invoice_taxrequest_itemtaxes_FULL",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Full",
+                  "fileName": "MYSGSEU_tbl_invoice_taxrequest_itemtaxes.csv"
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_invoice_taxrequest_itemtaxes_FULL"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "File_To_Table",
+        "dependsOn": [
+          {
+            "activity": "MYSGSEU_tbl_invoice_taxrequest_itemtaxes",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "ad0df9cb-7416-8a7f-4787-9b2dd42e0540",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "in_mode": {
+              "value": "FULL",
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_invoice_taxrequest_itemtaxes_Notebook",
+        "dependsOn": [
+          {
+            "activity": "File_To_Table",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_invoice_taxrequest_itemtaxes"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_invoice_taxrequest_itemtaxes\";",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_invoice_taxrequest_itemtaxes",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "SYS_CHANGE_VERSION",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SYS_CHANGE_VERSION",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SYS_CHANGE_OPERATION",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SYS_CHANGE_OPERATION",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxRequestItemTaxId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxRequestItemTaxId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxRequestId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxRequestId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "InvoiceItemId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "InvoiceItemId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "CreditNoteItemId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "CreditNoteItemId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "DespatchNoteId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "DespatchNoteId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "AuthorityName",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "AuthorityName",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "AuthorityType",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "AuthorityType",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxName",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxName",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxApplied",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxApplied",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 18
+                }
+              },
+              {
+                "source": {
+                  "name": "FeeApplied",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "FeeApplied",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 18
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxableAmount",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxableAmount",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 18
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxableQuantity",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxableQuantity",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "ExemptQty",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ExemptQty",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "ExemptAmt",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ExemptAmt",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 18
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxRate",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxRate",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 5,
+                  "precision": 18
+                }
+              },
+              {
+                "source": {
+                  "name": "BaseType",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "BaseType",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PassFlag",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PassFlag",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PassType",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PassType",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TransferItemId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TransferItemId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "Quantity",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Quantity",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 18
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_SF_tbl_invoice_taxrequest_itemtaxes",
+        "dependsOn": [
+          {
+            "activity": "tbl_invoice_taxrequest_itemtaxes_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_invoice_taxrequest_itemtaxes"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_invoice_taxrequest_itemtaxes\";",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_invoice_taxrequest_itemtaxes",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "SYS_CHANGE_VERSION",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SYS_CHANGE_VERSION",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SYS_CHANGE_OPERATION",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SYS_CHANGE_OPERATION",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxRequestItemTaxId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxRequestItemTaxId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxRequestId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxRequestId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "InvoiceItemId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "InvoiceItemId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "CreditNoteItemId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "CreditNoteItemId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "DespatchNoteId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "DespatchNoteId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "AuthorityName",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "AuthorityName",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "AuthorityType",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "AuthorityType",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxName",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxName",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxApplied",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxApplied",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 18
+                }
+              },
+              {
+                "source": {
+                  "name": "FeeApplied",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "FeeApplied",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 18
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxableAmount",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxableAmount",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 18
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxableQuantity",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxableQuantity",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "ExemptQty",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ExemptQty",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "ExemptAmt",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ExemptAmt",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 18
+                }
+              },
+              {
+                "source": {
+                  "name": "TaxRate",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TaxRate",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 5,
+                  "precision": 18
+                }
+              },
+              {
+                "source": {
+                  "name": "BaseType",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "BaseType",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PassFlag",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PassFlag",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PassType",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PassType",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TransferItemId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TransferItemId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "Quantity",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Quantity",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 18
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_Dev_SF_tbl_invoice_taxrequest_itemtaxes",
+        "dependsOn": [
+          {
+            "activity": "tbl_invoice_taxrequest_itemtaxes_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
