@@ -1,0 +1,575 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'tbl_new_stage_categories'",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "SqlServerTable",
+            "typeProperties": {
+              "database": "SGSEDW"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupOld",
+        "dependsOn": []
+      },
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT DISTINCT \n        ISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION     \nFROM CHANGETABLE(CHANGES [DBO].[tbl_new_stage_categories],0) CT\nLEFT JOIN [DBO].[tbl_new_stage_categories] F\n ON CT.[CategoryId] = F.[CategoryId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "SqlServerTable",
+            "typeProperties": {
+              "database": "MCGDataFactory"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupNew",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT  CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.[CategoryId] AS CT_CategoryId\n      ,F.[CategoryId]\n      ,[CategoryName]\n      ,[CategoryDeleted]\nFROM  CHANGETABLE(CHANGES [DBO].[tbl_new_stage_categories],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n     LEFT JOIN [DBO].[tbl_new_stage_categories] F\n     ON CT.[CategoryId] = F.[CategoryId]\n WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "quoteAllText": true,
+              "fileExtension": ".csv"
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Delta/Active",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_new_stage_categories','.csv')",
+                    "type": "Expression"
+                  }
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_new_stage_categories_DELTA_CSV",
+        "dependsOn": [
+          {
+            "activity": "LookupNew",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "LookupOld",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT  CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.[CategoryId] AS CT_CategoryId\n      ,F.[CategoryId]\n      ,[CategoryName]\n      ,[CategoryDeleted]\nFROM  CHANGETABLE(CHANGES [DBO].[tbl_new_stage_categories],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n     LEFT JOIN [DBO].[tbl_new_stage_categories] F\n     ON CT.[CategoryId] = F.[CategoryId]\n WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "ParquetSink",
+            "formatSettings": {
+              "type": "ParquetWriteSettings",
+              "enableVertiParquet": true
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "Parquet",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Delta/Active",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_new_stage_categories','.parquet')",
+                    "type": "Expression"
+                  }
+                },
+                "compressionCodec": "snappy"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_new_stage_categories_DELTA_PARQUET",
+        "dependsOn": [
+          {
+            "activity": "tbl_new_stage_categories_DELTA_CSV",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Script",
+        "typeProperties": {
+          "database": "SGSEDW",
+          "scripts": [
+            {
+              "text": {
+                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_new_stage_categories'\r\n",
+                "type": "Expression"
+              },
+              "type": "Query"
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        },
+        "externalReferences": {
+          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ChangeTracking_version_Update",
+        "dependsOn": [
+          {
+            "activity": "tbl_new_stage_categories_DELTA_PARQUET",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Delta/Active",
+                  "fileName": "MYSGSEU_tbl_new_stage_categories.csv"
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_new_stage_categories_DELTA"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "File_To_Table",
+        "dependsOn": [
+          {
+            "activity": "ChangeTracking_version_Update",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "cc9684cc-ded4-429d-a88b-c8e93ba53e77",
+          "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+          "parameters": {
+            "in_mode": {
+              "value": "DELTA",
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_new_stage_categories_Notebook",
+        "dependsOn": [
+          {
+            "activity": "File_To_Table",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_new_stage_categories"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_new_stage_categories\";  \n",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_new_stage_categories",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_to_SF_tbl_new_stage_categories",
+        "dependsOn": [
+          {
+            "activity": "tbl_new_stage_categories_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_new_stage_categories"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_new_stage_categories\";  \n",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_new_stage_categories",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_to_devSF_tbl_new_stage_categories_copy1",
+        "dependsOn": [
+          {
+            "activity": "tbl_new_stage_categories_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,964 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT \n    NULL AS SYS_CHANGE_VERSION,\n    NULL AS SYS_CHANGE_CREATION_VERSION,\n    NULL AS SYS_CHANGE_OPERATION,\n    NULL AS SYS_CHANGE_COLUMNS,\n    NULL AS SYS_CHANGE_CONTEXT,\n    NULL AS CT_JobVersionId,\n    F.[JobVersionId],\n    [JobId],\n    [JobVersion],\n    [JobStatus],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PackagingReference], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [PackagingReference],\n    [BookedDateTime],\n    [JobRangeId],\n    [Retailer],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Brand], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [Brand],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Variety], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [Variety],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Promotion], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [Promotion],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Weight], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [Weight],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([LanguageDesc], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [LanguageDesc],\n    [PlateSizeUnitId],\n    [TransferMethod],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([TransferNotes], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [TransferNotes],\n    [SessionId],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([LegacyDesignNo], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [LegacyDesignNo],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchNotes], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [DespatchNotes],\n    [ProjectId],\n    [MAPSDesignRef],\n    [MAPSBriefId],\n    CASE \n        WHEN [MAPSLinked] = 1 THEN 'true'\n        WHEN [MAPSLinked] = 0 THEN 'false'\n        ELSE NULL\n    END AS [MAPSLinked],  -- 0/1 to true/false conversion\n    [Priority],\n    [FormattedJobNumber],\n    [ClonedJobVersionId],\n    [ArtReceived],\n    [EndUserInfoReceived],\n    [PrinterInfoReceived],\n    [LastInfoReceived],\n    [OrderTypeId],\n    [PackTypeId],\n    [JobRelationshipId],\n    [ImportedContentSource],\n    [OverallJobDueDate],\n    [JobRelationship],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ISOLanguageCodes], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [ISOLanguageCodes],\n    [WordCount],\n    [LanguageCount],\n    [InvoicingStatusId]\nFROM \n    [DBO].[tbl_job_versions] F;\n",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dce8062b-aeb5-4bcd-a38a-dc1d449a061f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "quoteAllText": true,
+              "fileExtension": ".csv"
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Full",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_job_versions','.csv')",
+                    "type": "Expression"
+                  }
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "MYSGSEU_tbl_job_versions_FULL",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT \n    NULL AS SYS_CHANGE_VERSION,\n    NULL AS SYS_CHANGE_CREATION_VERSION,\n    NULL AS SYS_CHANGE_OPERATION,\n    NULL AS SYS_CHANGE_COLUMNS,\n    NULL AS SYS_CHANGE_CONTEXT,\n    NULL AS CT_JobVersionId,\n    F.[JobVersionId],\n    [JobId],\n    [JobVersion],\n    [JobStatus],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PackagingReference], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [PackagingReference],\n    [BookedDateTime],\n    [JobRangeId],\n    [Retailer],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Brand], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [Brand],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Variety], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [Variety],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Promotion], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [Promotion],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Weight], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [Weight],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([LanguageDesc], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [LanguageDesc],\n    [PlateSizeUnitId],\n    [TransferMethod],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([TransferNotes], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [TransferNotes],\n    [SessionId],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([LegacyDesignNo], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [LegacyDesignNo],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchNotes], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [DespatchNotes],\n    [ProjectId],\n    [MAPSDesignRef],\n    [MAPSBriefId],\n    CASE \n        WHEN [MAPSLinked] = 1 THEN 'true'\n        WHEN [MAPSLinked] = 0 THEN 'false'\n        ELSE NULL\n    END AS [MAPSLinked],  -- 0/1 to true/false conversion\n    [Priority],\n    [FormattedJobNumber],\n    [ClonedJobVersionId],\n    [ArtReceived],\n    [EndUserInfoReceived],\n    [PrinterInfoReceived],\n    [LastInfoReceived],\n    [OrderTypeId],\n    [PackTypeId],\n    [JobRelationshipId],\n    [ImportedContentSource],\n    [OverallJobDueDate],\n    [JobRelationship],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ISOLanguageCodes], '^', ''), '\"', ''), '\\', ''), CHAR(10), ''), CHAR(13), '') AS [ISOLanguageCodes],\n    [WordCount],\n    [LanguageCount],\n    [InvoicingStatusId]\nFROM \n    [DBO].[tbl_job_versions] F;\n",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dce8062b-aeb5-4bcd-a38a-dc1d449a061f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "ParquetSink",
+            "formatSettings": {
+              "type": "ParquetWriteSettings",
+              "enableVertiParquet": true
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "Parquet",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Full",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_job_versions','.parquet')",
+                    "type": "Expression"
+                  }
+                },
+                "compressionCodec": "snappy"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "MYSGSEU_tbl_job_versions_parquet",
+        "dependsOn": [
+          {
+            "activity": "MYSGSEU_tbl_job_versions_FULL",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Full",
+                  "fileName": "MYSGSEU_tbl_job_versions.csv"
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_job_versions_FULL"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "File_To_Table",
+        "dependsOn": [
+          {
+            "activity": "MYSGSEU_tbl_job_versions_parquet",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "1383c43e-0bdf-96f4-4c89-8f7e31b3ba18",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "in_mode": {
+              "value": "FULL",
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_job_versions_Notebook",
+        "dependsOn": [
+          {
+            "activity": "File_To_Table",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_job_versions"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_job_versions\";",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_job_versions",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "SYS_CHANGE_VERSION",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SYS_CHANGE_VERSION",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SYS_CHANGE_OPERATION",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SYS_CHANGE_OPERATION",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobVersionId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobVersionId",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobId",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobVersion",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobVersion",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobStatus",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobStatus",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PackagingReference",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PackagingReference",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "BookedDateTime",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "BookedDateTime",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobRangeId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobRangeId",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "Retailer",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Retailer",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "Brand",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Brand",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "Variety",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Variety",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "Promotion",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Promotion",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "Weight",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Weight",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "LanguageDesc",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "LanguageDesc",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PlateSizeUnitId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PlateSizeUnitId",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TransferMethod",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TransferMethod",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TransferNotes",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TransferNotes",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SessionId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SessionId",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "LegacyDesignNo",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "LegacyDesignNo",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "DespatchNotes",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "DespatchNotes",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ProjectId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ProjectId",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "MAPSDesignRef",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "MAPSDesignRef",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "MAPSBriefId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "MAPSBriefId",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "MAPSLinked",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "MAPSLinked",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "Priority",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Priority",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "FormattedJobNumber",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "FormattedJobNumber",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ClonedJobVersionId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ClonedJobVersionId",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ArtReceived",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ArtReceived",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "EndUserInfoReceived",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "EndUserInfoReceived",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PrinterInfoReceived",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PrinterInfoReceived",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "LastInfoReceived",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "LastInfoReceived",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "OrderTypeId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "OrderTypeId",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PackTypeId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PackTypeId",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobRelationshipId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobRelationshipId",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ImportedContentSource",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ImportedContentSource",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "OverallJobDueDate",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "OverallJobDueDate",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobRelationship",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobRelationship",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ISOLanguageCodes",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ISOLanguageCodes",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "WordCount",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "WordCount",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "LanguageCount",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "LanguageCount",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "InvoicingStatusId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "InvoicingStatusId",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_SF_tbl_job_versions",
+        "dependsOn": [
+          {
+            "activity": "tbl_job_versions_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_job_versions"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_job_versions\";",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_job_versions",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_Dev_SF_tbl_job_versions",
+        "dependsOn": [
+          {
+            "activity": "tbl_job_versions_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

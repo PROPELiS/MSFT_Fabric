@@ -1,0 +1,575 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT DISTINCT \nISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION\t   \nFROM CHANGETABLE(CHANGES [DBO].[tbl_login_profiles],0) CT\nLEFT JOIN [DBO].[tbl_login_profiles] F\n ON CT.[ProfileId] = F.[ProfileId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "SqlServerTable",
+            "typeProperties": {
+              "database": "MCGDataFactory"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupNew",
+        "dependsOn": []
+      },
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'tbl_login_profiles'",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "SqlServerTable",
+            "typeProperties": {
+              "database": "SGSEDW"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupOld",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "\nSELECT\n      CT.SYS_CHANGE_VERSION ,\n      CT.SYS_CHANGE_CREATION_VERSION ,\n      CT.SYS_CHANGE_OPERATION ,\n      CT.SYS_CHANGE_COLUMNS ,      \n      CT.SYS_CHANGE_CONTEXT ,\n      CT.[ProfileId] as CT_ProfileId,       \n      REPLACE(F.[ProfileId],'^','') AS [ProfileId]\n     ,REPLACE(F.[LoginId],'^','') AS [LoginId]\n     ,REPLACE(F.[FirstName],'^','') AS [FirstName]\n     ,REPLACE(F.[LastName],'^','') AS [LastName]\n     ,REPLACE(F.[ParentId],'^','') AS [ParentId]\n     ,REPLACE(F.[EmailUID],'^','') AS [EmailUID]\n     ,REPLACE(F.[EmailPWD],'^','') AS [EmailPWD]\n     ,REPLACE(F.[HeaderPreference],'^','') AS [HeaderPreference]\n     ,REPLACE(F.[AddressBookPreference],'^','') AS [AddressBookPreference]\n     ,REPLACE(F.[HelpPreference],'^','') AS [HelpPreference]\n     ,REPLACE(F.[LoggingLevel],'^','') AS [LoggingLevel]\n     ,REPLACE(F.[DefaultRefresh],'^','') AS [DefaultRefresh]\n     ,REPLACE(F.[DefaultRecordsetSize],'^','') AS [DefaultRecordsetSize]\n     ,REPLACE(F.[SiteId],'^','') AS [SiteId]\n     ,CASE\n    WHEN REPLACE(F.[UseThumbs], '^', '') = 'True' THEN 1\n    WHEN REPLACE(F.[UseThumbs], '^', '') = 'False' THEN 0\n    ELSE REPLACE(F.[UseThumbs], '^', '')\nEND AS [UseThumbs]\n     ,REPLACE(F.[LoginURL],'^','') AS [LoginURL]\n     ,CASE\n    WHEN REPLACE(F.[o365integration], '^', '') = 'True' THEN 1\n    WHEN REPLACE(F.[o365integration], '^', '') = 'False' THEN 0\n    ELSE REPLACE(F.[o365integration], '^', '')\nEND AS [o365integration]\n     ,REPLACE(F.[TimeZoneId],'^','') AS [TimeZoneId]\n     ,REPLACE(F.[DateFormatId],'^','') AS [DateFormatId]\n     ,REPLACE(F.[CreatedDate],'^','') AS [CreatedDate]\n     ,REPLACE(F.[UpdatedDate],'^','') AS [UpdatedDate]\n     ,REPLACE(F.[ActiveDirectoryId],'^','') AS [ActiveDirectoryId]\n     ,REPLACE(F.[ePADExUserName],'^','') AS [ePADExUserName]\n     ,CASE\n    WHEN REPLACE(F.[usedefaultemail], '^', '') = 'True' THEN 1\n    WHEN REPLACE(F.[usedefaultemail], '^', '') = 'False' THEN 0\n    ELSE REPLACE(F.[usedefaultemail], '^', '')\nEND AS [usedefaultemail]\n     ,REPLACE(F.[GreenlightSkin],'^','') AS [GreenlightSkin]\n     ,REPLACE(F.[GreenlightMeasurementUnits],'^','') AS [GreenlightMeasurementUnits]\n     ,CASE\n    WHEN REPLACE(F.[CollapseModules], '^', '') = 'True' THEN 1\n    WHEN REPLACE(F.[CollapseModules], '^', '') = 'False' THEN 0\n    ELSE REPLACE(F.[CollapseModules], '^', '')\nEND AS [CollapseModules]\n     ,REPLACE(F.[HistorySize],'^','') AS [HistorySize]\n     ,REPLACE(F.[UltiproId],'^','') AS [UltiproId]\n     ,REPLACE(F.[DefaultRecordsetSizeSGS5],'^','') AS [DefaultRecordsetSizeSGS5]\n     ,REPLACE(F.[EmployeeTypeId],'^','') AS [EmployeeTypeId]\n     ,CASE\n    WHEN REPLACE(F.[vlmexclusion], '^', '') = 'True' THEN 1\n    WHEN REPLACE(F.[vlmexclusion], '^', '') = 'False' THEN 0\n    ELSE REPLACE(F.[vlmexclusion], '^', '')\nEND AS [vlmexclusion]\n     ,REPLACE(F.[ChecklistLinkPreference],'^','') AS [ChecklistLinkPreference]\n     ,REPLACE(F.[DefaultIntegrationInstance],'^','') AS [DefaultIntegrationInstance]\n     ,REPLACE(F.[ThemeName],'^','') AS [ThemeName]\n     ,REPLACE(F.[HomepagePreference],'^','') AS [HomepagePreference]\n     ,REPLACE(F.[Layout],'^','') AS [Layout]    \n\n      FROM CHANGETABLE(CHANGES [DBO].[tbl_login_profiles],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n      LEFT JOIN [DBO].[tbl_login_profiles] F\n      ON F.[ProfileId] = CT.[ProfileId] \n      WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n      AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "quoteAllText": true,
+              "fileExtension": ".csv"
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Delta/Active",
+                  "fileName": {
+                    "value": "@concat('tbl_login_profiles','.csv')",
+                    "type": "Expression"
+                  }
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_login_profiles_DELTA_CSV",
+        "dependsOn": [
+          {
+            "activity": "LookupNew",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "LookupOld",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "\nSELECT\n      CT.SYS_CHANGE_VERSION ,\n      CT.SYS_CHANGE_CREATION_VERSION ,\n      CT.SYS_CHANGE_OPERATION ,\n      CT.SYS_CHANGE_COLUMNS ,      \n      CT.SYS_CHANGE_CONTEXT ,\n      CT.[ProfileId] as CT_ProfileId,       \n      REPLACE(F.[ProfileId],'^','') AS [ProfileId]\n     ,REPLACE(F.[LoginId],'^','') AS [LoginId]\n     ,REPLACE(F.[FirstName],'^','') AS [FirstName]\n     ,REPLACE(F.[LastName],'^','') AS [LastName]\n     ,REPLACE(F.[ParentId],'^','') AS [ParentId]\n     ,REPLACE(F.[EmailUID],'^','') AS [EmailUID]\n     ,REPLACE(F.[EmailPWD],'^','') AS [EmailPWD]\n     ,REPLACE(F.[HeaderPreference],'^','') AS [HeaderPreference]\n     ,REPLACE(F.[AddressBookPreference],'^','') AS [AddressBookPreference]\n     ,REPLACE(F.[HelpPreference],'^','') AS [HelpPreference]\n     ,REPLACE(F.[LoggingLevel],'^','') AS [LoggingLevel]\n     ,REPLACE(F.[DefaultRefresh],'^','') AS [DefaultRefresh]\n     ,REPLACE(F.[DefaultRecordsetSize],'^','') AS [DefaultRecordsetSize]\n     ,REPLACE(F.[SiteId],'^','') AS [SiteId]\n     ,CASE\n    WHEN REPLACE(F.[UseThumbs], '^', '') = 'True' THEN 1\n    WHEN REPLACE(F.[UseThumbs], '^', '') = 'False' THEN 0\n    ELSE REPLACE(F.[UseThumbs], '^', '')\nEND AS [UseThumbs]\n     ,REPLACE(F.[LoginURL],'^','') AS [LoginURL]\n     ,CASE\n    WHEN REPLACE(F.[o365integration], '^', '') = 'True' THEN 1\n    WHEN REPLACE(F.[o365integration], '^', '') = 'False' THEN 0\n    ELSE REPLACE(F.[o365integration], '^', '')\nEND AS [o365integration]\n     ,REPLACE(F.[TimeZoneId],'^','') AS [TimeZoneId]\n     ,REPLACE(F.[DateFormatId],'^','') AS [DateFormatId]\n     ,REPLACE(F.[CreatedDate],'^','') AS [CreatedDate]\n     ,REPLACE(F.[UpdatedDate],'^','') AS [UpdatedDate]\n     ,REPLACE(F.[ActiveDirectoryId],'^','') AS [ActiveDirectoryId]\n     ,REPLACE(F.[ePADExUserName],'^','') AS [ePADExUserName]\n     ,CASE\n    WHEN REPLACE(F.[usedefaultemail], '^', '') = 'True' THEN 1\n    WHEN REPLACE(F.[usedefaultemail], '^', '') = 'False' THEN 0\n    ELSE REPLACE(F.[usedefaultemail], '^', '')\nEND AS [usedefaultemail]\n     ,REPLACE(F.[GreenlightSkin],'^','') AS [GreenlightSkin]\n     ,REPLACE(F.[GreenlightMeasurementUnits],'^','') AS [GreenlightMeasurementUnits]\n     ,CASE\n    WHEN REPLACE(F.[CollapseModules], '^', '') = 'True' THEN 1\n    WHEN REPLACE(F.[CollapseModules], '^', '') = 'False' THEN 0\n    ELSE REPLACE(F.[CollapseModules], '^', '')\nEND AS [CollapseModules]\n     ,REPLACE(F.[HistorySize],'^','') AS [HistorySize]\n     ,REPLACE(F.[UltiproId],'^','') AS [UltiproId]\n     ,REPLACE(F.[DefaultRecordsetSizeSGS5],'^','') AS [DefaultRecordsetSizeSGS5]\n     ,REPLACE(F.[EmployeeTypeId],'^','') AS [EmployeeTypeId]\n     ,CASE\n    WHEN REPLACE(F.[vlmexclusion], '^', '') = 'True' THEN 1\n    WHEN REPLACE(F.[vlmexclusion], '^', '') = 'False' THEN 0\n    ELSE REPLACE(F.[vlmexclusion], '^', '')\nEND AS [vlmexclusion]\n     ,REPLACE(F.[ChecklistLinkPreference],'^','') AS [ChecklistLinkPreference]\n     ,REPLACE(F.[DefaultIntegrationInstance],'^','') AS [DefaultIntegrationInstance]\n     ,REPLACE(F.[ThemeName],'^','') AS [ThemeName]\n     ,REPLACE(F.[HomepagePreference],'^','') AS [HomepagePreference]\n     ,REPLACE(F.[Layout],'^','') AS [Layout]    \n\n      FROM CHANGETABLE(CHANGES [DBO].[tbl_login_profiles],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n      LEFT JOIN [DBO].[tbl_login_profiles] F\n      ON F.[ProfileId] = CT.[ProfileId] \n      WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n      AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "ParquetSink",
+            "formatSettings": {
+              "type": "ParquetWriteSettings",
+              "enableVertiParquet": true
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "Parquet",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Delta/Active",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_logins_profiles','.parquet')",
+                    "type": "Expression"
+                  }
+                },
+                "compressionCodec": "snappy"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_login_profiles_DELTA_PARQUET",
+        "dependsOn": [
+          {
+            "activity": "tbl_login_profiles_DELTA_CSV",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Script",
+        "typeProperties": {
+          "database": "SGSEDW",
+          "scripts": [
+            {
+              "text": {
+                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_job_items'",
+                "type": "Expression"
+              },
+              "type": "Query"
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        },
+        "externalReferences": {
+          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ChangeTracking_version_Update",
+        "dependsOn": [
+          {
+            "activity": "tbl_login_profiles_DELTA_PARQUET",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Delta/Active",
+                  "fileName": "MYSGSEU_tbl_login_profiles.csv"
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_login_profiles_DELTA"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "File_To_Table",
+        "dependsOn": [
+          {
+            "activity": "ChangeTracking_version_Update",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "80c19f0d-fc39-455d-9d45-502a95dde63c",
+          "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+          "parameters": {
+            "in_mode": {
+              "value": "DELTA",
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_login_profiles_Notebook",
+        "dependsOn": [
+          {
+            "activity": "File_To_Table",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_login_profiles"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_login_profiles\";  \n",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_login_profiles",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_to_SF_tbl_login_profiles",
+        "dependsOn": [
+          {
+            "activity": "tbl_login_profiles_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_login_profiles"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_login_profiles\";  \n",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_login_profiles",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_to_SF_tbl_login_profiles_dev",
+        "dependsOn": [
+          {
+            "activity": "tbl_login_profiles_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

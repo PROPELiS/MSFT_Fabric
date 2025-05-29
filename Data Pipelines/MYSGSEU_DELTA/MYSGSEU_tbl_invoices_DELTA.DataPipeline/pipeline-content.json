@@ -1,0 +1,575 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT \n\tCT.SYS_CHANGE_VERSION\n   ,CT.SYS_CHANGE_CREATION_VERSION\n   ,CT.SYS_CHANGE_OPERATION\n   ,CT.SYS_CHANGE_COLUMNS\n   ,CT.SYS_CHANGE_CONTEXT\n   ,CT.[InvoiceId] as CT_InvoiceId\n ,F.[InvoiceId]   \n ,F.[InvoiceDateTime]   \n ,F.[JobVersionId]  \n ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(F.[InvoiceTitle],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [InvoiceTitle] \n ,F.[JobContactId]  \n ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(F.[Address],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Address] \n ,F.[ExchangeRateId]   \n ,F.[ExchangeRateValue]  \n ,F.[TaxCodeId]   \n ,F.[TaxCodeRate]  \n ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(F.[Notes],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Notes] \n ,F.[InvoiceReadyForExport]   \n ,F.[InvoiceExported]   \n ,F.[InvoiceExportDateTime]  \n ,F.[RangeId]   \n ,F.[SessionId]  \n ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(F.[PostingAddress],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PostingAddress] \n ,F.[CurrencyId]   \n ,F.[ProForma]   \n ,F.[Reissued]  \n ,F.[OriginalInvoiceId]   \n ,F.[InvoiceTypeId]   \n ,F.[PurchaseOrderDate]  \n ,F.[AutomatedCreation]  \n ,F.[Paid]  \n ,F.[InvoiceScoroId]   \n ,F.[ExportStatus]  \n ,F.[EntityId]  \n ,F.[ProformaType]   \n ,F.[ProformaStatus]   \n ,F.[ProformaStatusChangedDateTime]  \n ,F.[ProformaStatusSentDateTime]  \n ,F.[VoucherNumber]  \n ,F.[VoucherAmount]\nFROM CHANGETABLE(CHANGES [dbo].[tbl_invoices],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT\nLEFT JOIN [dbo].[tbl_invoices] F\nON F.[InvoiceId] = CT.[InvoiceId]\n  WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n  AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "quoteAllText": true,
+              "fileExtension": ".csv"
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Delta/Active",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_invoices','.csv')",
+                    "type": "Expression"
+                  }
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_invoices_DELTA_CSV",
+        "dependsOn": [
+          {
+            "activity": "LookupNew",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "LookupOld",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT \n\tCT.SYS_CHANGE_VERSION\n   ,CT.SYS_CHANGE_CREATION_VERSION\n   ,CT.SYS_CHANGE_OPERATION\n   ,CT.SYS_CHANGE_COLUMNS\n   ,CT.SYS_CHANGE_CONTEXT\n   ,CT.[InvoiceId] as CT_InvoiceId\n ,F.[InvoiceId]   \n ,F.[InvoiceDateTime]   \n ,F.[JobVersionId]  \n ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(F.[InvoiceTitle],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [InvoiceTitle] \n ,F.[JobContactId]  \n ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(F.[Address],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Address] \n ,F.[ExchangeRateId]   \n ,F.[ExchangeRateValue]  \n ,F.[TaxCodeId]   \n ,F.[TaxCodeRate]  \n ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(F.[Notes],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Notes] \n ,F.[InvoiceReadyForExport]   \n ,F.[InvoiceExported]   \n ,F.[InvoiceExportDateTime]  \n ,F.[RangeId]   \n ,F.[SessionId]  \n ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(F.[PostingAddress],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PostingAddress] \n ,F.[CurrencyId]   \n ,F.[ProForma]   \n ,F.[Reissued]  \n ,F.[OriginalInvoiceId]   \n ,F.[InvoiceTypeId]   \n ,F.[PurchaseOrderDate]  \n ,F.[AutomatedCreation]  \n ,F.[Paid]  \n ,F.[InvoiceScoroId]   \n ,F.[ExportStatus]  \n ,F.[EntityId]  \n ,F.[ProformaType]   \n ,F.[ProformaStatus]   \n ,F.[ProformaStatusChangedDateTime]  \n ,F.[ProformaStatusSentDateTime]  \n ,F.[VoucherNumber]  \n ,F.[VoucherAmount]\nFROM CHANGETABLE(CHANGES [dbo].[tbl_invoices],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT\nLEFT JOIN [dbo].[tbl_invoices] F\nON F.[InvoiceId] = CT.[InvoiceId]\n  WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n  AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "ParquetSink",
+            "formatSettings": {
+              "type": "ParquetWriteSettings",
+              "enableVertiParquet": true
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "Parquet",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Delta/Active",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_invoices','.parquet')",
+                    "type": "Expression"
+                  }
+                },
+                "compressionCodec": "snappy"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_invoices_DELTA_PARQUET",
+        "dependsOn": [
+          {
+            "activity": "tbl_invoices_DELTA_CSV",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT DISTINCT \n\t\tISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION\t   \nFROM CHANGETABLE(CHANGES [dbo].[tbl_invoices],0) CT\nLEFT JOIN [dbo].[tbl_invoices] F\n ON CT.[InvoiceId] = F.[InvoiceId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "SqlServerTable",
+            "typeProperties": {
+              "database": "MCGDataFactory"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupNew",
+        "dependsOn": []
+      },
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'tbl_invoices'",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "SqlServerTable",
+            "typeProperties": {
+              "database": "SGSEDW"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupOld",
+        "dependsOn": []
+      },
+      {
+        "type": "Script",
+        "typeProperties": {
+          "database": "SGSEDW",
+          "scripts": [
+            {
+              "text": {
+                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_invoices'",
+                "type": "Expression"
+              },
+              "type": "Query"
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        },
+        "externalReferences": {
+          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ChangeTracking_version_Update",
+        "dependsOn": [
+          {
+            "activity": "tbl_invoices_DELTA_PARQUET",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Delta/Active",
+                  "fileName": "MYSGSEU_tbl_invoices.csv"
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_invoices_DELTA"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "File_To_Table",
+        "dependsOn": [
+          {
+            "activity": "ChangeTracking_version_Update",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "dc5ac4bb-25b3-4bb9-8933-8277e63067b4",
+          "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+          "parameters": {
+            "in_mode": {
+              "value": "DELTA",
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_invoices_Notebook",
+        "dependsOn": [
+          {
+            "activity": "File_To_Table",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_invoices"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_invoices\";",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_invoices",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_SF_tbl_invoices",
+        "dependsOn": [
+          {
+            "activity": "tbl_invoices_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_invoices"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_invoices\";",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_invoices",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_Dev_SF_tbl_invoices",
+        "dependsOn": [
+          {
+            "activity": "tbl_invoices_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -8,9 +8,17 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e",
+# META       "default_lakehouse": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
 # META       "default_lakehouse_name": "SILVER",
-# META       "default_lakehouse_workspace_id": "de3e35d4-28a5-4df0-a8d1-00feff73469d"
+# META       "default_lakehouse_workspace_id": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+# META       "known_lakehouses": [
+# META         {
+# META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
+# META         },
+# META         {
+# META           "id": "5db3d583-e11f-4ac4-9781-65ee3ee820a0"
+# META         }
+# META       ]
 # META     }
 # META   }
 # META }
@@ -156,6 +164,57 @@ else:
 
 df = spark.sql("SELECT count(*) FROM SILVER.dbo.job_jobstatus")
 display(df)
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+from pyspark.sql.functions import concat_ws, expr, sha2, size, lit, col, array, struct, udf, current_timestamp, max as spark_max
+from functools import reduce
+from pyspark.sql.types import *
+from pyspark.sql import *
+from delta.tables import *
+from pyspark.sql import SparkSession
+from delta.tables import DeltaTable
+from pyspark.sql.types import StructType, StructField, StringType, TimestampType
+
+# Define the schema for the order data
+orderSchema = StructType([
+    StructField("SYS_CHANGE_VERSION", StringType(), True),
+	StructField("SYS_CHANGE_CREATION_VERSION", StringType(), True),
+	StructField("SYS_CHANGE_OPERATION", StringType(), True),
+	StructField("SYS_CHANGE_COLUMNS", StringType(), True),
+	StructField("SYS_CHANGE_CONTEXT", StringType(), True),
+	StructField("CT_Id", StringType(), True),
+	StructField("Id", StringType(), True),
+    StructField("Status", StringType(), True)
+])
+
+# Initialize Spark session
+spark = SparkSession.builder \
+    .appName("Bronze to Silver Merge") \
+    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
+    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog") \
+    .getOrCreate()
+
+# Define the schema
+schema = StructType([
+   StructField("SYS_CHANGE_VERSION", StringType(), True),
+   StructField("SYS_CHANGE_OPERATION", StringType(), True),
+   StructField("Id", StringType(), True),
+   StructField("Status", StringType(), True)
+])
+
+# Create an empty DataFrame with the schema
+df = spark.createDataFrame([], schema)
+
+
+df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.Job_JobStatus")
 
 # METADATA ********************
 

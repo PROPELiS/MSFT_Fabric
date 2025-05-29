@@ -1,0 +1,575 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'tbl_job_items'\n",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "SqlServerTable",
+            "typeProperties": {
+              "database": "SGSEDW"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupOld",
+        "dependsOn": []
+      },
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT DISTINCT \n\t\tISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION\t   \nFROM CHANGETABLE(CHANGES [DBO].[tbl_job_items],0) CT\nLEFT JOIN [DBO].[tbl_job_items] F\n ON CT.[JobItemId] = F.[JobItemId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "SqlServerTable",
+            "typeProperties": {
+              "database": "MCGDataFactory"
+            },
+            "schema": [],
+            "externalReferences": {
+              "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "LookupNew",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT  CT.SYS_CHANGE_VERSION\n\t   ,CT.SYS_CHANGE_CREATION_VERSION\n\t   ,CT.SYS_CHANGE_OPERATION\n\t   ,CT.SYS_CHANGE_COLUMNS\n\t   ,CT.SYS_CHANGE_CONTEXT\n\t   ,CT.[JobItemId] AS CT_JobItemId\n      ,F.[JobItemId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([JobStageId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [JobStageId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PriceMatrixItemId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PriceMatrixItemId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PriceMatrixMultiplierId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PriceMatrixMultiplierId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([JobItemStatus],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [JobItemStatus]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([JobItemDescription],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [JobItemDescription]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([JobItemAlias],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [JobItemAlias]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Quantity],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Quantity]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Cost],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Cost]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PlateType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PlateType]\n      ,[ItemDueDateTime]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ItemDueReason],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ItemDueReason]\n      ,[ItemBookedDateTime]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ItemKPI],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ItemKPI]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ItemKPIDuration],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ItemKPIDuration]\n      ,[ItemCompletedDateTime]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([TargetDeadline],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [TargetDeadline]\n      ,[TargetDeadlineDate]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CurrencyId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CurrencyId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ExchangeRateValue],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ExchangeRateValue]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CurrencyCost],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CurrencyCost]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PriceMatrixItemSalesTaxCode],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PriceMatrixItemSalesTaxCode]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PriceMatrixItemSalesTaxExempt],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PriceMatrixItemSalesTaxExempt]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([OriginalJobItemId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [OriginalJobItemId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AccountManagerLoginId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AccountManagerLoginId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AssignedTo],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AssignedTo]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PriceMatrixVariantItemId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PriceMatrixVariantItemId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ItemOrder],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ItemOrder]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([WorkflowTemplateItemId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [WorkflowTemplateItemId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CreatedByInvoiceId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CreatedByInvoiceId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([POLineNumber],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [POLineNumber]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CreatedBy],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CreatedBy]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([UpdatedBy],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [UpdatedBy]\n      ,[UpdatedDateTime]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ItemComplexity],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ItemComplexity]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DimensionComments],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DimensionComments]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PatchConfirmationLoginId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PatchConfirmationLoginId]\n      ,[PatchConfirmationLoginDate]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DimensionsLocked],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DimensionsLocked]\n  FROM CHANGETABLE(CHANGES [DBO].[tbl_job_items],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT\n  LEFT JOIN [DBO].[tbl_job_items] F \nON F.[JobItemId] = CT.[JobItemId]\n WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n  AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "quoteAllText": true,
+              "fileExtension": ".csv"
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Delta/Active",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_job_items','.csv')",
+                    "type": "Expression"
+                  }
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_job_items_DELTA_CSV",
+        "dependsOn": [
+          {
+            "activity": "LookupNew",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "LookupOld",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT  CT.SYS_CHANGE_VERSION\n\t   ,CT.SYS_CHANGE_CREATION_VERSION\n\t   ,CT.SYS_CHANGE_OPERATION\n\t   ,CT.SYS_CHANGE_COLUMNS\n\t   ,CT.SYS_CHANGE_CONTEXT\n\t   ,CT.[JobItemId] AS CT_JobItemId\n      ,F.[JobItemId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([JobStageId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [JobStageId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PriceMatrixItemId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PriceMatrixItemId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PriceMatrixMultiplierId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PriceMatrixMultiplierId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([JobItemStatus],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [JobItemStatus]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([JobItemDescription],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [JobItemDescription]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([JobItemAlias],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [JobItemAlias]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Quantity],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Quantity]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Cost],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Cost]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PlateType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PlateType]\n      ,[ItemDueDateTime]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ItemDueReason],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ItemDueReason]\n      ,[ItemBookedDateTime]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ItemKPI],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ItemKPI]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ItemKPIDuration],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ItemKPIDuration]\n      ,[ItemCompletedDateTime]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([TargetDeadline],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [TargetDeadline]\n      ,[TargetDeadlineDate]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CurrencyId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CurrencyId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ExchangeRateValue],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ExchangeRateValue]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CurrencyCost],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CurrencyCost]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PriceMatrixItemSalesTaxCode],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PriceMatrixItemSalesTaxCode]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PriceMatrixItemSalesTaxExempt],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PriceMatrixItemSalesTaxExempt]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([OriginalJobItemId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [OriginalJobItemId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AccountManagerLoginId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AccountManagerLoginId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AssignedTo],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AssignedTo]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PriceMatrixVariantItemId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PriceMatrixVariantItemId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ItemOrder],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ItemOrder]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([WorkflowTemplateItemId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [WorkflowTemplateItemId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CreatedByInvoiceId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CreatedByInvoiceId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([POLineNumber],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [POLineNumber]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([CreatedBy],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [CreatedBy]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([UpdatedBy],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [UpdatedBy]\n      ,[UpdatedDateTime]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ItemComplexity],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ItemComplexity]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DimensionComments],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DimensionComments]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PatchConfirmationLoginId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PatchConfirmationLoginId]\n      ,[PatchConfirmationLoginDate]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DimensionsLocked],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DimensionsLocked]\n  FROM CHANGETABLE(CHANGES [DBO].[tbl_job_items],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT\n  LEFT JOIN [DBO].[tbl_job_items] F \nON F.[JobItemId] = CT.[JobItemId]\n WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n  AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "type": "Expression"
+            },
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "database": "MCGDataFactory"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "ParquetSink",
+            "formatSettings": {
+              "type": "ParquetWriteSettings",
+              "enableVertiParquet": true
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "type": "Parquet",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Delta/Active",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','tbl_job_items','.parquet')",
+                    "type": "Expression"
+                  }
+                },
+                "compressionCodec": "snappy"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_job_items_DELTA_PARQUET",
+        "dependsOn": [
+          {
+            "activity": "tbl_job_items_DELTA_CSV",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Script",
+        "typeProperties": {
+          "database": "SGSEDW",
+          "scripts": [
+            {
+              "text": {
+                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_job_items'",
+                "type": "Expression"
+              },
+              "type": "Query"
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        },
+        "externalReferences": {
+          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ChangeTracking_version_Update",
+        "dependsOn": [
+          {
+            "activity": "tbl_job_items_DELTA_PARQUET",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MYSGSEU/Delta/Active",
+                  "fileName": "MYSGSEU_tbl_job_items.csv"
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_job_items_DELTA"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "File_To_Table",
+        "dependsOn": [
+          {
+            "activity": "ChangeTracking_version_Update",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "5d5d24ca-5cac-44f4-905a-cd78cb88b86b",
+          "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+          "parameters": {
+            "in_mode": {
+              "value": "DELTA",
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_job_items_Notebook",
+        "dependsOn": [
+          {
+            "activity": "File_To_Table",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_job_items"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_job_items\";\n",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_job_items",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_SF_tbl_job_items",
+        "dependsOn": [
+          {
+            "activity": "tbl_job_items_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "tbl_job_items"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_job_items\";",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_job_items",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_Dev_SF_tbl_job_items",
+        "dependsOn": [
+          {
+            "activity": "tbl_job_items_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
