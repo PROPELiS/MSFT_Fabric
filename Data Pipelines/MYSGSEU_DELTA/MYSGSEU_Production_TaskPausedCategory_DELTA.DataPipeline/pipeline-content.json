@@ -390,8 +390,8 @@
       {
         "type": "TridentNotebook",
         "typeProperties": {
-          "notebookId": "711e4d87-7547-43c1-8250-5390ecc7be7f",
-          "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+          "notebookId": "ddcadeec-a081-9faf-417a-12a24c67ae38",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
           "parameters": {
             "in_mode": {
               "value": "DELTA",
@@ -424,7 +424,7 @@
             "datasetSettings": {
               "type": "LakehouseTable",
               "typeProperties": {
-                "schema": "dbo",
+                "schema": "MYSGSEU",
                 "table": "production_taskpausedcategory"
               },
               "schema": [],
@@ -484,6 +484,83 @@
           "secureOutput": false
         },
         "name": "Fabric_To_SF_Production_TaskPausedCategory",
+        "dependsOn": [
+          {
+            "activity": "Production_TaskPausedCategory_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "production_taskpausedcategory"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"Production_TaskPausedCategory\";  ",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "Production_TaskPausedCategory",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_SF_DEV_TaskPausedCategory",
         "dependsOn": [
           {
             "activity": "Production_TaskPausedCategory_Notebook",

@@ -8,9 +8,14 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e",
+# META       "default_lakehouse": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
 # META       "default_lakehouse_name": "SILVER",
-# META       "default_lakehouse_workspace_id": "de3e35d4-28a5-4df0-a8d1-00feff73469d"
+# META       "default_lakehouse_workspace_id": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+# META       "known_lakehouses": [
+# META         {
+# META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
+# META         }
+# META       ]
 # META     }
 # META   }
 # META }
@@ -72,8 +77,7 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
 
-bronze_Path ="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_kpi_types_FULL"
-silver_path="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/dbo/tbl_kpi_types"
+silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_kpi_types"
 silver_table = DeltaTable.forPath(
     spark, silver_path)
 # Parameters
@@ -81,12 +85,12 @@ param = ""  # Replace with the actual PARAM value
 
 # If-else logic to control the flow based on in_mode
 if in_mode == "FULL":
-    df.write.format("delta").mode("overwrite").saveAsTable("tbl_kpi_types")
+    df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_kpi_types")
     # Load Delta tables correctly
+    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_kpi_types_FULL"
+
     bronze_df = spark.read.format("delta").load(bronze_Path)
 
-    
-    
         # Merge data from Bronze Full to Silver
     silver_table.alias("target").merge(
         bronze_df.alias("source"),
@@ -110,10 +114,10 @@ if in_mode == "FULL":
     }).execute()
 else:
     # df = spark.createDataFrame([], schema)
-    df.write.format("delta").mode("append").saveAsTable("tbl_kpi_types")
+    df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_kpi_types")
     
    # Define paths
-    source_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_kpi_types_DELTA"
+    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_kpi_types_DELTA"
    # Read source and target as Delta Tables
     silver_df_delta = DeltaTable.forPath(spark, silver_path)
     source_df_delta = spark.read.format("delta").load(source_path)

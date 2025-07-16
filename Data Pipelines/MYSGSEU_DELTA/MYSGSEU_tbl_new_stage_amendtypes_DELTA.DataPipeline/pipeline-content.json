@@ -295,24 +295,27 @@
         "type": "Copy",
         "typeProperties": {
           "source": {
-            "type": "ParquetSource",
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
             "storeSettings": {
               "type": "LakehouseReadSettings",
               "recursive": true,
               "enablePartitionDiscovery": false
             },
-            "formatSettings": {
-              "type": "ParquetReadSettings"
-            },
             "datasetSettings": {
-              "type": "Parquet",
+              "type": "DelimitedText",
               "typeProperties": {
                 "location": {
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
-                  "fileName": "MYSGSEU_tbl_new_stage_amendtypes.parquet"
+                  "fileName": "MYSGSEU_tbl_new_stage_amendtypes.csv"
                 },
-                "compressionCodec": "snappy"
+                "columnDelimiter": ",",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
               },
               "schema": [],
               "linkedService": {
@@ -386,8 +389,8 @@
       {
         "type": "TridentNotebook",
         "typeProperties": {
-          "notebookId": "d40c636d-6a2f-435f-a5e4-e91be94f5b8e",
-          "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+          "notebookId": "b20c8928-ab88-bd56-4d26-dd9fdca7920f",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
           "parameters": {
             "in_mode": {
               "value": "DELTA",
@@ -420,7 +423,7 @@
             "datasetSettings": {
               "type": "LakehouseTable",
               "typeProperties": {
-                "schema": "dbo",
+                "schema": "MYSGSEU",
                 "table": "tbl_new_stage_amendtypes"
               },
               "schema": [],
@@ -497,7 +500,7 @@
             "datasetSettings": {
               "type": "LakehouseTable",
               "typeProperties": {
-                "schema": "dbo",
+                "schema": "MYSGSEU",
                 "table": "tbl_new_stage_amendtypes"
               },
               "schema": [],

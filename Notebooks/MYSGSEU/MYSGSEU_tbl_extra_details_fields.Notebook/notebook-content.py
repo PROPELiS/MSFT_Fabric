@@ -8,16 +8,21 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e",
+# META       "default_lakehouse": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
 # META       "default_lakehouse_name": "SILVER",
-# META       "default_lakehouse_workspace_id": "de3e35d4-28a5-4df0-a8d1-00feff73469d"
+# META       "default_lakehouse_workspace_id": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+# META       "known_lakehouses": [
+# META         {
+# META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
+# META         }
+# META       ]
 # META     }
 # META   }
 # META }
 
 # PARAMETERS CELL ********************
 
-in_mode = "FULL"  # Replace with the actual IN_MODE value
+in_mode = "FUL"  # Replace with the actual IN_MODE value
 
 # METADATA ********************
 
@@ -85,7 +90,7 @@ schema = StructType([
 ])
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
-silver_path="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/dbo/tbl_extra_details_fields"
+silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_extra_details_fields"
 silver_table = DeltaTable.forPath(spark, silver_path)
 # Parameters
 param = ""  # Replace with the actual PARAM value
@@ -93,8 +98,8 @@ param = ""  # Replace with the actual PARAM value
 # If-else logic to control the flow based on in_mode
 if in_mode == "FULL":
     # Write the DataFrame as a Delta table
-    df.write.format("delta").mode("overwrite").saveAsTable("tbl_extra_details_fields")
-    bronze_Path ="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_extra_details_fields_FULL"
+    df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_extra_details_fields")
+    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_extra_details_fields_FULL"
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
     
@@ -132,9 +137,9 @@ if in_mode == "FULL":
         "MLCValue": "source.MLCValue"
     }).execute()
 else:
-    df.write.format("delta").mode("append").saveAsTable("tbl_extra_details_fields")
+    df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_extra_details_fields")
     
-    source_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_extra_details_fields_DELTA"
+    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_extra_details_fields_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     # Filter the source DataFrame for "D" operations and select distinct CT_Id
@@ -206,18 +211,6 @@ else:
         "MLCValue": col("source.MLCValue")
     }).execute()
 
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df = spark.sql("SELECT COUNT(*) FROM SILVER.dbo.tbl_extra_details_fields")
-display(df)
 
 # METADATA ********************
 

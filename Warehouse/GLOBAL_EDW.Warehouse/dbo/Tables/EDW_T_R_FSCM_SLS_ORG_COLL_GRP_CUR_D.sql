@@ -1,0 +1,10 @@
+CREATE TABLE [dbo].[EDW_T_R_FSCM_SLS_ORG_COLL_GRP_CUR_D] (
+
+	[CMPNY_CODE] varchar(255) NULL, 
+	[SALES_ORG] varchar(255) NULL, 
+	[COLLCTN_GROUP] varchar(255) NULL, 
+	[COLLCTN_GROUP_NM] varchar(255) NULL, 
+	[BUSINSS_SGMNT] varchar(255) NULL, 
+	[REGION] varchar(255) NULL, 
+	[SALES_ORG_DESC] varchar(255) NULL
+);

@@ -1,0 +1,104 @@
+relationship f0bd3b7f-4e45-8197-fad8-98a8540f3084
+	fromColumn: FactEmployeeWageHoursForAllocation.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship db86a8f4-b127-0675-39ad-6f7f5a5baf5d
+	fromColumn: FactEmployeeWageHoursForAllocation.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship 3c64c7f9-6cd7-c09e-4d5a-46328885327f
+	fromColumn: FactEmployeeWageHoursForAllocation.HEXKeyEmployeeNumberWorkdate
+	toColumn: DimEmployeeHistory.HEXKeyEmployeeNumberWorkdate
+
+relationship 41a1d7a6-3656-8cec-68be-5695fc12da2e
+	fromColumn: FactEmployeeWageHoursForAllocation.HEXKeyLBCLocation
+	toColumn: DimLBCLocation.'zID - HEXKey LBC Location'
+
+relationship a20b953f-0a03-d072-7ab9-e8ae2b619be9
+	fromColumn: FactEmployeeWageHoursForAllocationNoWage.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship 4af5f90a-a460-cbae-babe-c0407be53aa3
+	fromColumn: FactEmployeeWageHoursForAllocationNoWage.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship 3c74133a-9a3c-bf4e-6947-af934cce010b
+	fromColumn: FactEmployeeWageHoursForAllocationNoWage.HEXKeyEmployeeNumber
+	toColumn: DimEmployeeNoWage.HEXKeyEmployeeNumber
+
+relationship 22cc4d2b-4678-6701-e6ac-67fb8c6e0d63
+	fromColumn: FactEmployeeWageHoursForAllocationNoWage.HEXKeyLBCLocation
+	toColumn: DimLBCLocation.'zID - HEXKey LBC Location'
+
+relationship e107bf17-7ebe-5b79-08e0-2139bb235109
+	fromColumn: FactSalesCostActual.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship 195a58bf-8123-2736-80a2-cb37ca70ab4f
+	fromColumn: FactSalesCostActual.HEXKeyCombineCustomer
+	toColumn: DimCustomerReporting.HEXKeyCombineCustomer
+
+relationship b875a909-ac17-20a0-42a7-edafc5c084b1
+	fromColumn: FactSalesCostActual.HEXKeyCombineCustomer
+	toColumn: DimCustomerBillto.HEXKeyCombineCustomer
+
+relationship 0672ec7d-f849-aeab-17b8-4776007cc108
+	fromColumn: FactSalesCostActual.'zID - HEXKey Department'
+	toColumn: DimDepartment.'zID - HEXKey Department'
+
+relationship ce5e3b9a-db5e-b0fe-e8e6-7b7447fef501
+	fromColumn: FactSalesCostActual.'zID - HEXKey Employee History'
+	toColumn: DimEmployeeHistory.HEXKeyEmployeeNumberWorkdate
+
+relationship 7ff4e3ce-7745-4d69-46f8-714e40104443
+	fromColumn: FactSalesCostActual.'zID - HEXKey Employees'
+	toColumn: DimEmployeeNoWage.HEXKeyEmployees
+
+relationship 2a8ce9cb-6631-57fb-4ca8-ebf24f47e36d
+	fromColumn: FactSalesCostActual.'zID - HEXKey Employees'
+	toColumn: DimEmployee.'zID - HEXKey Employee'
+
+relationship ed42ff6b-3a7c-433b-7803-172f0360ad2f
+	fromColumn: FactSalesCostActual.'zID - HEXKey GL Accounts Department'
+	toColumn: DimGLAccountsDepartment.'zID - HEXKey GL Accounts Department'
+
+relationship 40de71b4-5d9b-08a5-8a34-c051daf1d98a
+	fromColumn: FactSalesCostActual.'zID - HEXKey GLAccounts'
+	toColumn: DimGLAccounts.HEXKeyGLAccounts
+
+relationship 269c6ff8-9912-f713-a975-780420129620
+	fromColumn: FactSalesCostActual.'zID - HEXKey Invoice Date'
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship 4fde1826-e040-23de-1df9-62a51a8d9c8c
+	fromColumn: FactSalesCostActual.'zID - HEXKey Job Version'
+	toColumn: DimJobversion.HEXKeyJobVersion
+
+relationship 797e5622-8ed7-1de4-39f0-bd8d974e6e79
+	fromColumn: FactSalesCostActual.'zID - HEXKey Printer Customer'
+	toColumn: DimCustomerPrinter.HEXKeyCustomer
+
+relationship f4686519-820e-f8aa-5cc6-21b683d558c0
+	fromColumn: FactSalesCostActual.'zID - HEXKey LBC Location'
+	toColumn: DimLBCLocation.'zID - HEXKey LBC Location'
+
+relationship 26ec1a6c-33f7-4cc1-b549-23996f36ffed
+	fromColumn: FactSalesCostActual.'zID - HEXKey Product'
+	toColumn: DimProduct.'zID - HEXKey Product'
+
+relationship ab30c342-8d90-dec7-5681-02bb1ae0762c
+	fromColumn: FactSalesCostActual.'zID - HEXKey Shipto Customer'
+	toColumn: DimCustomerShipto.HEXKeyCustomer
+
+relationship 2d6e1c17-47aa-1055-a4fe-53361b1a91f3
+	fromColumn: FactSalesCostActual.'zID - HEXKey Soldto Customer'
+	toColumn: DimCustomerSoldto.HEXKeyCustomer
+
+relationship 6bed77e2-9283-b2e1-8d08-f29577edca24
+	fromColumn: FactEmployeeWageHoursForAllocation.HEXKeyEmployeeNumber
+	toColumn: DimEmployee.HEXKeyEmployeeNumber
+
+relationship 39a72edd-d1c9-b1b6-68eb-84e17cfbea02
+	fromColumn: FactEmployeeWageHoursForAllocationNoWage.HEXKeyEmployeeNumberWorkdate
+	toColumn: DimEmployeeHistoryNoWage.HEXKeyEmployeeNumberWorkdate
+

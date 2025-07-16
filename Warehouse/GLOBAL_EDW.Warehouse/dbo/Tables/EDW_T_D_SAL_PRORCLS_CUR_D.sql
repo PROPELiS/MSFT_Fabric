@@ -1,0 +1,12 @@
+CREATE TABLE [dbo].[EDW_T_D_SAL_PRORCLS_CUR_D] (
+
+	[PROD_ORDER_NUM] varchar(12) NOT NULL, 
+	[REVISION_LVL] varchar(4) NULL, 
+	[FIRST_PACK_DATE] date NULL, 
+	[ETL_SRC_SYS_CD] varchar(10) NULL, 
+	[ETL_EFFECTV_BEGIN_DATE] date NULL, 
+	[ETL_EFFECTV_END_DATE] date NULL, 
+	[ETL_CURR_RCD_IND] varchar(1) NULL, 
+	[ETL_CREATED_TS] datetime2(0) NULL, 
+	[ETL_UPDTD_TS] datetime2(0) NULL
+);

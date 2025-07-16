@@ -1,0 +1,17 @@
+CREATE TABLE [dbo].[EDW_T_F_FI_GLEXTRA_CUR_D] (
+
+	[FISCAL_YR] int NOT NULL, 
+	[DOCMT_NUM] varchar(10) NOT NULL, 
+	[LDGR] varchar(2) NOT NULL, 
+	[DOCMT_LINE_ITM] int NOT NULL, 
+	[CMPNY_KEY] int NOT NULL, 
+	[CHK_NUM] varchar(13) NULL, 
+	[DOCMT_HDR_TEXT] varchar(25) NULL, 
+	[ETL_SRC_SYS_CD] varchar(10) NULL, 
+	[ETL_CREATED_TS] datetime2(0) NULL, 
+	[ETL_UPDTD_TS] datetime2(0) NULL, 
+	[REVERSE_DOCMT_NUM] varchar(10) NULL, 
+	[REVERSE_DOCMT_FISCAL_YR] int NULL, 
+	[RSN_FOR_REVSL] varchar(2) NULL, 
+	[RSN_FOR_REVSL_DESC] varchar(40) NULL
+);

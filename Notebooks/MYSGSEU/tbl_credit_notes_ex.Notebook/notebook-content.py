@@ -8,15 +8,12 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e",
+# META       "default_lakehouse": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
 # META       "default_lakehouse_name": "SILVER",
-# META       "default_lakehouse_workspace_id": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+# META       "default_lakehouse_workspace_id": "c8d75176-b949-4f7e-a658-b996603ec8c3",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e"
-# META         },
-# META         {
-# META           "id": "59693f16-ceb1-40c6-b096-d37b5fbbbd26"
+# META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
 # META         }
 # META       ]
 # META     }
@@ -80,7 +77,7 @@ schema = StructType([
 # Write the DataFrame as a Delta table
 df = spark.createDataFrame([], schema)
 
-silver_table_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/dbo/tbl_credit_notes_ex"
+silver_table_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_ex"
 silver_table = DeltaTable.forPath(spark, silver_table_path)
 
 # Parameters
@@ -88,8 +85,8 @@ param = ""  # Replace with the actual PARAM value
 #in_mode = "FULL"  # Replace with the actual IN_MODE value
 
 if in_mode == "FULL":
-    df.write.format("delta").mode("overwrite").saveAsTable("tbl_credit_notes_ex")
-    bronze_Path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_ex_FULL"
+    df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_credit_notes_ex")
+    bronze_Path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_ex_FULL"
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
     
@@ -116,7 +113,7 @@ if in_mode == "FULL":
      }).execute()
 else:
     
-    source_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_ex_DELTA"
+    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_ex_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     filtered_source_df = source_df_delta.filter(source_df_delta["SYS_CHANGE_OPERATION"] == "D") \
@@ -165,42 +162,6 @@ else:
         "CreditNoteContactId": col("source.CreditNoteContactId")
     }).execute()
 
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df = spark.sql("SELECT count(*) FROM BRONZE.MYSGSEU.tbl_credit_notes_ex_FULL")
-display(df)
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df = spark.sql("SELECT count(*)FROM BRONZE.MYSGSEU.tbl_credit_notes_ex_DELTA ")
-display(df)
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df = spark.sql("SELECT *  FROM SILVER.dbo.tbl_credit_notes_ex")
-display(df)
 
 # METADATA ********************
 

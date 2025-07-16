@@ -103,7 +103,7 @@
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
                   "fileName": {
-                    "value": "@concat('MYSGSEU','_','tbl_exchange_rates','.csv')",
+                    "value": "@concat('MYSGSEU','_','tbl_invoice_taxrequest_itemtaxes','.csv')",
                     "type": "Expression"
                   }
                 },
@@ -146,7 +146,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "tbl_exchange_rates_CSV",
+        "name": "MYSGSEU_tbl_invoice_taxrequest_itemtaxes_CSV",
         "dependsOn": [
           {
             "activity": "LookupNew",
@@ -201,7 +201,7 @@
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
                   "fileName": {
-                    "value": "@concat('MYSGSEU','_','tbl_exchange_rates','.parquet')",
+                    "value": "@concat('MYSGSEU','_','tbl_invoice_taxrequest_itemtaxes','.parquet')",
                     "type": "Expression"
                   }
                 },
@@ -240,45 +240,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "tbl_exchange_rates_PARQUET",
+        "name": "MYSGSEU_tbl_invoice_taxrequest_itemtaxes_PARQUET",
         "dependsOn": [
           {
-            "activity": "tbl_exchange_rates_CSV",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Script",
-        "typeProperties": {
-          "database": "SGSEDW",
-          "scripts": [
-            {
-              "text": {
-                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_exchange_rates'",
-                "type": "Expression"
-              },
-              "type": "Query"
-            }
-          ],
-          "scriptBlockExecutionTimeout": "02:00:00"
-        },
-        "externalReferences": {
-          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "ChangeTracking_version_Update",
-        "dependsOn": [
-          {
-            "activity": "tbl_exchange_rates_PARQUET",
+            "activity": "MYSGSEU_tbl_invoice_taxrequest_itemtaxes_CSV",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -304,7 +269,7 @@
                 "location": {
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
-                  "fileName": "MYSGSEU_tbl_exchange_rates.csv"
+                  "fileName": "MYSGSEU_tbl_invoice_taxrequest_itemtaxes.csv"
                 },
                 "columnDelimiter": "^",
                 "rowDelimiter": "\r\n",
@@ -336,7 +301,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "tbl_exchange_rates_DELTA"
+                "table": "tbl_invoice_taxrequest_itemtaxes_DELTA"
               },
               "schema": [],
               "linkedService": {
@@ -374,36 +339,7 @@
         "name": "File_to_Table",
         "dependsOn": [
           {
-            "activity": "ChangeTracking_version_Update",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "TridentNotebook",
-        "typeProperties": {
-          "notebookId": "a6f8f81e-cffe-469c-8b61-68e02c1989d5",
-          "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
-          "parameters": {
-            "in_mode": {
-              "value": "DELTA",
-              "type": "string"
-            }
-          }
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "tbl_exchange_rates_Notebook",
-        "dependsOn": [
-          {
-            "activity": "File_to_Table",
+            "activity": "MYSGSEU_tbl_invoice_taxrequest_itemtaxes_PARQUET",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -418,8 +354,8 @@
             "datasetSettings": {
               "type": "LakehouseTable",
               "typeProperties": {
-                "schema": "dbo",
-                "table": "tbl_exchange_rates"
+                "schema": "MYSGSEU",
+                "table": "tbl_invoice_taxrequest_itemtaxes"
               },
               "schema": [],
               "linkedService": {
@@ -450,7 +386,7 @@
               "type": "SnowflakeTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "tbl_exchange_rates",
+                "table": "tbl_invoice_taxrequest_itemtaxes",
                 "database": "SILVER_FABRIC"
               },
               "schema": [],
@@ -558,6 +494,70 @@
         "dependsOn": [
           {
             "activity": "tbl_exchange_rates_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Script",
+        "typeProperties": {
+          "database": "SGSEDW",
+          "scripts": [
+            {
+              "text": {
+                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_exchange_rates'",
+                "type": "Expression"
+              },
+              "type": "Query"
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        },
+        "externalReferences": {
+          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ChangeTracking_version_Update_copy1",
+        "dependsOn": [
+          {
+            "activity": "File_to_Table",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "ad0df9cb-7416-8a7f-4787-9b2dd42e0540",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "in_mode": {
+              "value": "DELTA",
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_exchange_rates_Notebook",
+        "dependsOn": [
+          {
+            "activity": "ChangeTracking_version_Update_copy1",
             "dependencyConditions": [
               "Succeeded"
             ]

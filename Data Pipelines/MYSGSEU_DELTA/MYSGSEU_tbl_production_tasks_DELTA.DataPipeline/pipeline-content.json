@@ -33,8 +33,6 @@
           "secureOutput": false
         },
         "name": "LookupOld",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
         "dependsOn": []
       },
       {
@@ -69,8 +67,6 @@
           "secureOutput": false
         },
         "name": "LookupNew",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
         "dependsOn": []
       },
       {
@@ -129,8 +125,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "5db3d583-e11f-4ac4-9781-65ee3ee820a0",
-                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Files"
                   },
                   "annotations": []
@@ -157,8 +153,6 @@
           "secureOutput": false
         },
         "name": "tbl_production_tasks_DELTA_CSV",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "LookupNew",
@@ -225,8 +219,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "5db3d583-e11f-4ac4-9781-65ee3ee820a0",
-                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Files"
                   },
                   "annotations": []
@@ -253,8 +247,6 @@
           "secureOutput": false
         },
         "name": "tbl_production_tasks_DELTA_PARQUET",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "tbl_production_tasks_DELTA_CSV",
@@ -290,8 +282,6 @@
           "secureOutput": false
         },
         "name": "ChangeTracking_version_Update",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "tbl_production_tasks_DELTA_PARQUET",
@@ -334,8 +324,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "5db3d583-e11f-4ac4-9781-65ee3ee820a0",
-                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Files"
                   },
                   "annotations": []
@@ -360,8 +350,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "5db3d583-e11f-4ac4-9781-65ee3ee820a0",
-                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -388,8 +378,6 @@
           "secureOutput": false
         },
         "name": "File_To_Table",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "ChangeTracking_version_Update",
@@ -402,8 +390,8 @@
       {
         "type": "TridentNotebook",
         "typeProperties": {
-          "notebookId": "bdf32d15-c5ff-4f0c-910b-7d6240c4f52e",
-          "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+          "notebookId": "913e651b-888f-a6b2-4d6f-a30c6e10602b",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
           "parameters": {
             "in_mode": {
               "value": "DELTA",
@@ -419,8 +407,6 @@
           "secureOutput": false
         },
         "name": "tbl_production_tasks_Notebook",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "File_To_Table",
@@ -438,7 +424,7 @@
             "datasetSettings": {
               "type": "LakehouseTable",
               "typeProperties": {
-                "schema": "dbo",
+                "schema": "MYSGSEU",
                 "table": "tbl_production_tasks"
               },
               "schema": [],
@@ -447,8 +433,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
-                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -498,8 +484,6 @@
           "secureOutput": false
         },
         "name": "Fabric_to_SF_tbl_production_tasks",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "tbl_production_tasks_Notebook",
@@ -517,7 +501,7 @@
             "datasetSettings": {
               "type": "LakehouseTable",
               "typeProperties": {
-                "schema": "dbo",
+                "schema": "MYSGSEU",
                 "table": "tbl_production_tasks"
               },
               "schema": [],

@@ -1,0 +1,234 @@
+table DimProduct
+	lineageTag: 5b364449-7fa5-4760-9f93-e218a41e4632
+	sourceLineageTag: [dbo].[DimProduct]
+
+	column 'zID - HEXKey Product'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ac52eb6e-0163-4ba0-a78b-2a98a4708971
+		sourceLineageTag: HEXKeyProduct
+		summarizeBy: none
+		sourceColumn: HEXKeyProduct
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PROD - Revenue Stream'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7ed68f3b-e65f-4cea-ab7a-b981366b7ee8
+		sourceLineageTag: RevenueStream
+		summarizeBy: none
+		sourceColumn: RevenueStream
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PROD - Revenue Stream Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fb727ed5-8fa4-4d4a-8420-3fbfe15d6783
+		sourceLineageTag: RevenueStreamName
+		summarizeBy: none
+		sourceColumn: RevenueStreamName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PROD - Harmonized Revenue Stream'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f99ec59b-b9b1-4c26-a671-ec626ed1ce56
+		sourceLineageTag: HarmonizedRevenueStream
+		summarizeBy: none
+		sourceColumn: HarmonizedRevenueStream
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PROD - Level1RevenueStream'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: df28f8c9-50e5-4534-8b66-60a505b5de13
+		sourceLineageTag: Level1RevenueStream
+		summarizeBy: none
+		sourceColumn: Level1RevenueStream
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PROD - Level 2 Revenue Stream'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fb94d854-bdc3-4003-b649-e6dd45ff6637
+		sourceLineageTag: Level2RevenueStream
+		summarizeBy: none
+		sourceColumn: Level2RevenueStream
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PROD - Level 3 Revenue Stream'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f16d948a-aee9-4369-9e42-7556c6ce1801
+		sourceLineageTag: Level3RevenueStream
+		summarizeBy: none
+		sourceColumn: Level3RevenueStream
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column FromDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 10da2422-37d8-4e6d-b5da-b92b4d69fe55
+		sourceLineageTag: FromDate
+		summarizeBy: none
+		sourceColumn: FromDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ToDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: a233aaeb-22d6-4645-b29e-d006173563af
+		sourceLineageTag: ToDate
+		summarizeBy: none
+		sourceColumn: ToDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Group
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 89939f30-d6d9-48d0-9940-a27378d55d14
+		sourceLineageTag: Group
+		summarizeBy: none
+		sourceColumn: Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineofBusiness
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3ea65986-edee-41f4-a79e-948f0977f996
+		sourceLineageTag: LineofBusiness
+		summarizeBy: none
+		sourceColumn: LineofBusiness
+
+		annotation SummarizationSetBy = Automatic
+
+	column Service
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3d3d89d5-1f0c-4a9a-8630-9d8b723fb619
+		sourceLineageTag: Service
+		summarizeBy: none
+		sourceColumn: Service
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubService
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2ade2a13-d735-441f-bffd-4a5d2fda4534
+		sourceLineageTag: SubService
+		summarizeBy: none
+		sourceColumn: SubService
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 51ea2920-8acf-4e9d-b4bd-5446b46c1d8c
+		sourceLineageTag: GroupCode
+		summarizeBy: none
+		sourceColumn: GroupCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOBCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 1f568c58-029c-42b1-8213-6a7c9bb1abc9
+		sourceLineageTag: LOBCode
+		summarizeBy: none
+		sourceColumn: LOBCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 04afc7c9-d5c3-4f35-aba0-5f78e206feb5
+		sourceLineageTag: ServiceCode
+		summarizeBy: none
+		sourceColumn: ServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubServiceCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: a618aa5f-748d-46ee-b5d3-624d9c4f98f1
+		sourceLineageTag: SubServiceCode
+		summarizeBy: none
+		sourceColumn: SubServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLDepartmentCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 7a31b7b0-a594-499b-9d68-5510d960f427
+		sourceLineageTag: GLDepartmentCode
+		summarizeBy: none
+		sourceColumn: GLDepartmentCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLDepartmentDescription
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 547c140f-06ee-4bac-95fd-2f125b70b012
+		sourceLineageTag: GLDepartmentDescription
+		summarizeBy: none
+		sourceColumn: GLDepartmentDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4d39d654-ca35-4ee8-86e4-516a9041e544
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProduct = entity
+		mode: directLake
+		source
+			entityName: DimProduct
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

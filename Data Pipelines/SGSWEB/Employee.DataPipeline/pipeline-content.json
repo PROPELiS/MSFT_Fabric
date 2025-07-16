@@ -1,0 +1,345 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SnowflakeSource",
+            "query": {
+              "value": "SELECT \n   \"EmployeeNumber\",\n   \"rep_login\",\n   \"EmployeeName\",\n   \"EmailAddress\",\n   \"JobTitle\",\n   \"SUP_Level1_EmailAddress\",\n   \"SUP_Level2_emailaddress\",\n   \"SUP_Level3_emailaddress\",\n   \"SUP_Level4_emailaddress\",\n   \"SUP_Level5_emailaddress\",\n   \"SUP_Level6_emailaddress\",\n   \"SUP_Level7_emailaddress\",\n   \"SUP_Level8_emailaddress\"\n FROM \"SGSEDW\".\"DBO\".\"DimEmployee\"",
+              "type": "Expression"
+            },
+            "exportSettings": {
+              "type": "SnowflakeExportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "DBO",
+                "table": "DimEmployee",
+                "database": "SGSEDW"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "SGSWEB",
+                "table": "Employee"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "SF_TO_SILVER",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "SGSWEB",
+                "table": "Employee"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SqlMISink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE [sgsweb].[STG_LoadEmployee];\n",
+              "type": "Expression"
+            },
+            "sqlWriterUseTableLock": false,
+            "writeBehavior": "insert",
+            "datasetSettings": {
+              "type": "AzureSqlMITable",
+              "typeProperties": {
+                "schema": "sgsweb",
+                "table": "STG_LoadEmployee"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "0f006695-9425-4d34-b9cd-48f6736ec031"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "EmployeeNumber",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "EmployeeNumber",
+                  "physicalType": "nvarchar",
+                  "length": "10"
+                }
+              },
+              {
+                "source": {
+                  "name": "rep_login",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "rep_login",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "EmployeeName",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "EmployeeName",
+                  "physicalType": "nvarchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "EmailAddress",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "EmailAddress",
+                  "physicalType": "nvarchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobTitle",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobTitle",
+                  "physicalType": "nvarchar",
+                  "length": "25"
+                }
+              },
+              {
+                "source": {
+                  "name": "SUP_Level1_EmailAddress",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SUP_Level1_EmailAddress",
+                  "physicalType": "nvarchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "SUP_Level2_emailaddress",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SUP_Level2_EmailAddress",
+                  "physicalType": "nvarchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "SUP_Level3_emailaddress",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SUP_Level3_EmailAddress",
+                  "physicalType": "nvarchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "SUP_Level4_emailaddress",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SUP_Level4_EmailAddress",
+                  "physicalType": "nvarchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "SUP_Level5_emailaddress",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SUP_Level5_EmailAddress",
+                  "physicalType": "nvarchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "SUP_Level6_emailaddress",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SUP_Level6_EmailAddress",
+                  "physicalType": "nvarchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "SUP_Level7_emailaddress",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SUP_Level7_EmailAddress",
+                  "physicalType": "nvarchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "SUP_Level8_emailaddress",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SUP_Level8_EmailAddress",
+                  "physicalType": "nvarchar",
+                  "length": "50"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "SILVER_TO_SQL",
+        "dependsOn": [
+          {
+            "activity": "SF_TO_SILVER",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Script",
+        "typeProperties": {
+          "scripts": [
+            {
+              "text": {
+                "value": "EXEC [sgsweb].[proc_LoadEmployee]'','DELTA';",
+                "type": "Expression"
+              },
+              "type": "Query"
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        },
+        "externalReferences": {
+          "connection": "0f006695-9425-4d34-b9cd-48f6736ec031"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "TIMETRACKER",
+        "dependsOn": [
+          {
+            "activity": "SILVER_TO_SQL",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

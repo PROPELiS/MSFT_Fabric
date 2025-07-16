@@ -391,8 +391,8 @@
       {
         "type": "TridentNotebook",
         "typeProperties": {
-          "notebookId": "393bcfc4-6f91-41bc-8cda-f5a4090608b3",
-          "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+          "notebookId": "d41725dd-5bb8-885e-47e9-a2f13d2c0347",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
           "parameters": {
             "in_mode": {
               "value": "DELTA",
@@ -425,7 +425,7 @@
             "datasetSettings": {
               "type": "LakehouseTable",
               "typeProperties": {
-                "schema": "dbo",
+                "schema": "MYSGSEU",
                 "table": "tbl_tech_checklists"
               },
               "schema": [],
@@ -485,6 +485,79 @@
           "secureOutput": false
         },
         "name": "Fabric_To_SF_tbl_tech_checklists",
+        "dependsOn": [
+          {
+            "activity": "tbl_tech_checklists_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_tech_checklists"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_tech_checklists",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_SF_tbl_tech_checklists_dev",
         "dependsOn": [
           {
             "activity": "tbl_tech_checklists_Notebook",

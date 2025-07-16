@@ -8,9 +8,17 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e",
+# META       "default_lakehouse": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
 # META       "default_lakehouse_name": "SILVER",
-# META       "default_lakehouse_workspace_id": "de3e35d4-28a5-4df0-a8d1-00feff73469d"
+# META       "default_lakehouse_workspace_id": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+# META       "known_lakehouses": [
+# META         {
+# META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
+# META         },
+# META         {
+# META           "id": "5db3d583-e11f-4ac4-9781-65ee3ee820a0"
+# META         }
+# META       ]
 # META     }
 # META   }
 # META }
@@ -72,8 +80,8 @@ schema = StructType([
 df = spark.createDataFrame([], schema)
     # Write the DataFrame as a Delta table
 
-bronze_Path ="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_codes_FULL"
-silver_path="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/dbo/tbl_new_stage_reason_codes"
+bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_codes_FULL"
+silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_codes"
  # Load Silver table as a DeltaTable (not a DataFrame)
 silver_table = DeltaTable.forPath(spark, silver_path)
 
@@ -81,7 +89,7 @@ silver_table = DeltaTable.forPath(spark, silver_path)
 
 # If-else logic to control the flow based on in_mode
 if in_mode == "FULL":
-    df.write.format("delta").mode("overwrite").saveAsTable("tbl_new_stage_reason_codes")
+    df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_new_stage_reason_codes")
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
     
@@ -105,10 +113,10 @@ if in_mode == "FULL":
         "ReasonCodeInUse": "source.ReasonCodeInUse"
     }).execute()
 else:
-    df.write.format("delta").mode("append").saveAsTable("tbl_new_stage_reason_codes")
+    df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_new_stage_reason_codes")
     
    # Define paths
-    source_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_codes_DELTA"
+    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_codes_DELTA"
    # Read source and target as Delta Tables
     silver_df_delta = DeltaTable.forPath(spark, silver_path)
     source_df_delta = spark.read.format("delta").load(source_path)

@@ -1,0 +1,5 @@
+CREATE TABLE [dbo].[EDW_T_R_MST_SGK_SSP_PLNT_LST_CUR_D] (
+
+	[PLANT_ID] varchar(10) NULL, 
+	[SSP_FLAG] varchar(1) NULL
+);

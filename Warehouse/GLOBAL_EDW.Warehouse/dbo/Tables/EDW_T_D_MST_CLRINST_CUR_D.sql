@@ -1,0 +1,13 @@
+CREATE TABLE [dbo].[EDW_T_D_MST_CLRINST_CUR_D] (
+
+	[COLR_INSTRUCTION_KEY] int NOT NULL, 
+	[COLR_INSTRUCTION] varchar(21) NULL, 
+	[COLR_STD] varchar(12) NULL, 
+	[DESC] varchar(40) NULL, 
+	[ETL_SRC_SYS_CD] varchar(10) NULL, 
+	[ETL_EFFECTV_BEGIN_DATE] date NULL, 
+	[ETL_EFFECTV_END_DATE] date NULL, 
+	[ETL_CURR_RCD_IND] varchar(1) NULL, 
+	[ETL_CREATED_TS] datetime2(0) NULL, 
+	[ETL_UPDTD_TS] datetime2(0) NULL
+);

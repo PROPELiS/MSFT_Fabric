@@ -1,0 +1,211 @@
+table FactEmployeeWageHoursForAllocation
+	lineageTag: 092479c9-37f9-4d46-a352-c9baec64a1b2
+	sourceLineageTag: [dbo].[FactEmployeeWageHoursForAllocation]
+
+	measure 'AMT - Allocated Wage Measure' = SUM(FactEmployeeWageHoursForAllocation[AMT - Allocated Wage(USD)])
+		lineageTag: 32175e02-c58f-4656-afd5-d2836e1d7b3b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AMT - Allocated Wage(Cost of Goods Sold)' = CALCULATE(SUM(FactEmployeeWageHoursForAllocation[AMT - Allocated Wage(USD)]),FILTER(FactEmployeeWageHoursForAllocation,FactEmployeeWageHoursForAllocation[IND - Department Indicator] ="Gravure-DEPT" || FactEmployeeWageHoursForAllocation[IND - Department Indicator] ="NON-SG&A-RECONCILE" || FactEmployeeWageHoursForAllocation[IND - Department Indicator] ="OTHER-DEPT" || FactEmployeeWageHoursForAllocation[IND - Department Indicator] ="Plates-DEPT"))
+		lineageTag: ad9e5ded-5b35-40ad-a075-1b2cb83b7da4
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HEXKeyCalendarDate
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6d552b93-d84f-44d9-b3e0-e8266a9ff6ad
+		sourceLineageTag: HEXKeyCalendarDate
+		summarizeBy: none
+		sourceColumn: HEXKeyCalendarDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyCombineCustomer
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e742ca81-ebb6-4b56-b874-a6a98517a8fd
+		sourceLineageTag: HEXKeyCombineCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeyCombineCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyLBCLocation
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 79340a9f-fb9b-4518-8853-e5de2896b798
+		sourceLineageTag: HEXKeyLBCLocation
+		summarizeBy: none
+		sourceColumn: HEXKeyLBCLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyEmployeeNumber
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a7b3468c-cb60-4deb-833f-8e0c17291fbc
+		sourceLineageTag: HEXKeyEmployeeNumber
+		summarizeBy: none
+		sourceColumn: HEXKeyEmployeeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyEmployeeNumberWorkdate
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 881e4789-160d-4050-86e8-0531ed4b4f23
+		sourceLineageTag: HEXKeyEmployeeNumberWorkdate
+		summarizeBy: none
+		sourceColumn: HEXKeyEmployeeNumberWorkdate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hours
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 96642bcf-3bae-4fb7-b9f3-8edc7f77af0c
+		sourceLineageTag: Hours
+		summarizeBy: sum
+		sourceColumn: Hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PM - PM Points'
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: cef77822-06fe-4f0c-9971-03aa4ba48575
+		sourceLineageTag: PMPoints
+		summarizeBy: sum
+		sourceColumn: PMPoints
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AmountInUSD
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: ef869405-1c1e-4e81-b60a-67b444a0b100
+		sourceLineageTag: AmountInUSD
+		summarizeBy: sum
+		sourceColumn: AmountInUSD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PayRateMonthlySalaryInUSD
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: d06f6bf7-b14a-4583-82de-91226a09abdb
+		sourceLineageTag: PayRateMonthlySalaryInUSD
+		summarizeBy: sum
+		sourceColumn: PayRateMonthlySalaryInUSD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AllocationMethodolgy
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8281cca8-4e91-48ab-9921-e1ac44268475
+		sourceLineageTag: AllocationMethodolgy
+		summarizeBy: none
+		sourceColumn: AllocationMethodolgy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IND - Data Source'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 46c9e19b-a3ad-48da-9dbf-3d967479aa55
+		sourceLineageTag: DataSource
+		summarizeBy: none
+		sourceColumn: DataSource
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IND - Allocation Methodolgy'
+		dataType: double
+		sourceProviderType: decimal(17, 8)
+		lineageTag: 4bf75d47-76f6-4cd4-98f0-881e971b11ef
+		sourceLineageTag: AllocationPercentage
+		summarizeBy: sum
+		sourceColumn: AllocationPercentage
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'IND - Department Indicator'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f28aa84e-ba4a-459e-a362-c40474ed9754
+		sourceLineageTag: DepartmentIndicator
+		summarizeBy: none
+		sourceColumn: DepartmentIndicator
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IND - Allocation Percentage UN Allocated Ind'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4cc5da34-285e-4939-b4ef-b02befb62f5d
+		sourceLineageTag: AllocationPercentageUNAllocatedInd
+		summarizeBy: none
+		sourceColumn: AllocationPercentageUNAllocatedInd
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AMT - Allocated Wage(USD)'
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: b4432a18-b9b0-4721-a5e7-11ce34e3abca
+		sourceLineageTag: AllocatedWageUSD
+		summarizeBy: sum
+		sourceColumn: AllocatedWageUSD
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d5307a9c-da9b-48ad-b065-5b451c9abd41
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactEmployeeWageHoursForAllocation = entity
+		mode: directLake
+		source
+			entityName: FactEmployeeWageHoursForAllocation
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

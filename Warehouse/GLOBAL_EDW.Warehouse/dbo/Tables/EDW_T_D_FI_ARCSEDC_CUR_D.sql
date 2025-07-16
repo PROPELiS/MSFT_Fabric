@@ -1,0 +1,17 @@
+CREATE TABLE [dbo].[EDW_T_D_FI_ARCSEDC_CUR_D] (
+
+	[AR_CMPNY_CD] varchar(4) NOT NULL, 
+	[AR_DOCMT_NUM] varchar(10) NOT NULL, 
+	[AR_DOCMT_LINE_ITM] int NOT NULL, 
+	[AR_FISCAL_YR] varchar(4) NOT NULL, 
+	[AR_FISCAL_PER] int NULL, 
+	[AR_RSN_CD] varchar(3) NULL, 
+	[AR_RSN_CD_DESC] varchar(40) NULL, 
+	[FSCM_CASE_GUID] varchar(32) NOT NULL, 
+	[ETL_SRC_SYS_CD] varchar(10) NULL, 
+	[ETL_EFFECTV_BEGIN_DATE] date NULL, 
+	[ETL_EFFECTV_END_DATE] date NULL, 
+	[ETL_CURR_RCD_IND] varchar(1) NULL, 
+	[ETL_CREATED_TS] datetime2(0) NULL, 
+	[ETL_UPDTD_TS] datetime2(0) NULL
+);

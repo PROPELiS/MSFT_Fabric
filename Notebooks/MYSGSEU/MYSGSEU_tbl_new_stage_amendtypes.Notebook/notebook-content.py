@@ -8,16 +8,21 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e",
+# META       "default_lakehouse": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
 # META       "default_lakehouse_name": "SILVER",
-# META       "default_lakehouse_workspace_id": "de3e35d4-28a5-4df0-a8d1-00feff73469d"
+# META       "default_lakehouse_workspace_id": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+# META       "known_lakehouses": [
+# META         {
+# META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
+# META         }
+# META       ]
 # META     }
 # META   }
 # META }
 
 # PARAMETERS CELL ********************
 
-in_mode = "FULL"  # Replace with the actual IN_MODE value
+in_mode = "FUL"  # Replace with the actual IN_MODE value
 
 # METADATA ********************
 
@@ -71,16 +76,16 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
     # Write the DataFrame as a Delta table
-bronze_Path ="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_amendtypes_FULL"
-silver_path="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/dbo/tbl_new_stage_amendtypes"
+silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_new_stage_amendtypes"
 silver_table = DeltaTable.forPath(spark, silver_path)
-# Parameters
-in_mode = "FULL"  # Replace with the actual IN_MODE value
 
-# If-else logic to control the flow based on in_mode
+
+# If-else logc to control the flow based on in_mode
 if in_mode == "FULL":
-    df.write.format("delta").mode("overwrite").saveAsTable("tbl_new_stage_amendtypes")
+    df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_new_stage_amendtypes")
     # Load Delta tables correctly
+    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_amendtypes_FULL"
+
     bronze_df = spark.read.format("delta").load(bronze_Path)
   
     
@@ -102,10 +107,10 @@ if in_mode == "FULL":
         "AmendTypeDeleted": "source.AmendTypeDeleted"
         }).execute()
 else:
-    df.write.format("delta").mode("append").saveAsTable("tbl_new_stage_amendtypes")
+    df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_new_stage_amendtypes")
     
    # Define paths
-    source_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_amendtypes_DELTA"
+    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_amendtypes_DELTA"
    # Read source and target as Delta Tables
     silver_df_delta = DeltaTable.forPath(spark, silver_path)
     source_df_delta = spark.read.format("delta").load(source_path)

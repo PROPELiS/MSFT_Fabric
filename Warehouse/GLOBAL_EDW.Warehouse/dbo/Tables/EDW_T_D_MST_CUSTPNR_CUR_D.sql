@@ -1,0 +1,26 @@
+CREATE TABLE [dbo].[EDW_T_D_MST_CUSTPNR_CUR_D] (
+
+	[CUST_PRTNR_KEY] int NOT NULL, 
+	[CUST_ID] varchar(10) NULL, 
+	[SALES_ORGZTN] varchar(4) NULL, 
+	[SALES_ORG_DESC] varchar(20) NULL, 
+	[DISTRBN_CHNL] varchar(2) NULL, 
+	[DISTRBN_CHNL_DESC] varchar(20) NULL, 
+	[DIVISION] varchar(2) NULL, 
+	[DIVISION_DESC] varchar(20) NULL, 
+	[CUST_2_ID] varchar(10) NULL, 
+	[PRTNR_FUNCTION] varchar(2) NULL, 
+	[PRTNR_FUNCTION_DESC] varchar(20) NULL, 
+	[PERSONEL_ID] varchar(10) NULL, 
+	[PRTNR_COUNTER] int NULL, 
+	[ETL_SRC_SYS_CD] varchar(10) NULL, 
+	[ETL_EFFECTV_BEGIN_DATE] date NULL, 
+	[ETL_EFFECTV_END_DATE] date NULL, 
+	[ETL_CURR_RCD_IND] varchar(1) NULL, 
+	[ETL_CREATED_TS] datetime2(0) NULL, 
+	[ETL_UPDTD_TS] datetime2(0) NULL, 
+	[VNDR_ID] varchar(10) NULL, 
+	[CONTACT_PERSON_ID] varchar(10) NULL, 
+	[CUST_DESC_OF_PRTNR] varchar(30) NULL, 
+	[DEFAULT_PRTNR] varchar(1) NULL
+);

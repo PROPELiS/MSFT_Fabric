@@ -1,0 +1,16 @@
+CREATE TABLE [dbo].[EDW_T_D_MST_CUSTXMS_CUR_D] (
+
+	[CUST_TAX_MAST_KEY] int NOT NULL, 
+	[CUST_CD] varchar(10) NULL, 
+	[DEPARTURE_CNTRY] varchar(3) NULL, 
+	[TAX_CTGRY] varchar(4) NULL, 
+	[TAX_CTGRY_DESC] varchar(20) NULL, 
+	[TAX_CLSFTN_FOR_CUST] varchar(1) NULL, 
+	[TAX_CLSFTN_DESC] varchar(30) NULL, 
+	[ETL_SRC_SYS_CD] varchar(10) NULL, 
+	[ETL_EFFECTV_BEGIN_DATE] date NULL, 
+	[ETL_EFFECTV_END_DATE] date NULL, 
+	[ETL_CURR_RCD_IND] varchar(1) NULL, 
+	[ETL_CREATED_TS] datetime2(0) NULL, 
+	[ETL_UPDTD_TS] datetime2(0) NULL
+);

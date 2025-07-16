@@ -8,12 +8,12 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e",
+# META       "default_lakehouse": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
 # META       "default_lakehouse_name": "SILVER",
-# META       "default_lakehouse_workspace_id": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+# META       "default_lakehouse_workspace_id": "c8d75176-b949-4f7e-a658-b996603ec8c3",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e"
+# META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
 # META         }
 # META       ]
 # META     }
@@ -74,7 +74,7 @@ df = spark.createDataFrame([], Schema)
 
 
 
-silver_path="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/Ultipro/orglevel1"
+silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/ULTIPRO/tbl_orglevel1"
 silver_table = DeltaTable.forPath(spark, silver_path)
 # Parameters
 param = ""  # Replace with the actual PARAM value
@@ -83,8 +83,8 @@ param = ""  # Replace with the actual PARAM value
 # If-else logic to control the flow based on in_mode
 if in_mode == "FULL":
     # Write the DataFrame as a Delta table
-    df.write.format("delta").mode("overwrite").saveAsTable("Ultipro.orglevel1")
-    bronze_Path ="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro_/_OrgLevel1"
+    df.write.format("delta").mode("overwrite").saveAsTable("ULTIPRO.tbl_orglevel1")
+    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_OrgLevel1"
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
 
@@ -107,10 +107,10 @@ if in_mode == "FULL":
 }).execute()
 
 else :
- df.write.format("delta").mode("append").saveAsTable("Ultipro.orglevel1")
+ df.write.format("delta").mode("append").saveAsTable("ULTIPRO.tbl_orglevel1")
 
 
-source_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro_/_OrgLevel1"
+source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_OrgLevel1"
 source_df_delta = spark.read.format("delta").load(source_path).filter(col("ETL_ChangeTrackingOperation") != 'D')
 
 

@@ -390,8 +390,8 @@
       {
         "type": "TridentNotebook",
         "typeProperties": {
-          "notebookId": "e565168e-3ede-4b2c-9258-870983c7453f",
-          "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+          "notebookId": "b583fbd8-38f2-9907-4830-65b1f4f572ef",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
           "parameters": {
             "in_mode": {
               "value": "DELTA",
@@ -424,7 +424,84 @@
             "datasetSettings": {
               "type": "LakehouseTable",
               "typeProperties": {
-                "schema": "dbo",
+                "schema": "MYSGSEU",
+                "table": "tbl_plate_thickness"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_plate_thickness\";  ",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_plate_thickness",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_to_SF_tbl_plate_thickness",
+        "dependsOn": [
+          {
+            "activity": "tbl_plate_thickness_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
                 "table": "tbl_plate_thickness"
               },
               "schema": [],
@@ -483,7 +560,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_to_SF_tbl_plate_thickness",
+        "name": "Fabric_to_SF_tbl_plate_thickness_dev",
         "dependsOn": [
           {
             "activity": "tbl_plate_thickness_Notebook",

@@ -1,0 +1,184 @@
+table DimDepartment
+	lineageTag: 9981fd54-7d3c-4e1e-8f54-6dca008e5ba6
+	sourceLineageTag: [dbo].[DimDepartment]
+
+	column 'zID - HEXKey Department'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d8ee5929-bd51-48df-8c95-32f2cae9caab
+		sourceLineageTag: HEXKeyDepartment
+		summarizeBy: none
+		sourceColumn: HEXKeyDepartment
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DEPT - Department Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: eca1ebd8-e767-4ea4-824a-ee154dda960c
+		sourceLineageTag: DepartmentNumber
+		summarizeBy: none
+		sourceColumn: DepartmentNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DEPT - Department Text'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a4fae6f1-d04a-410e-8065-6eaa0de05e64
+		sourceLineageTag: DepartmentText
+		summarizeBy: none
+		sourceColumn: DepartmentText
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Function
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 53cdcd5a-0962-4fad-9645-2deae8e24236
+		sourceLineageTag: Function
+		summarizeBy: none
+		sourceColumn: Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column Function2
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 83a63362-4851-44b0-ac5d-1e6fa7754eb4
+		sourceLineageTag: Function2
+		summarizeBy: none
+		sourceColumn: Function2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Group
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: aaeeaa5e-0599-49d9-9188-da788714d4e9
+		sourceLineageTag: Group
+		summarizeBy: none
+		sourceColumn: Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineofBusiness
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9a31251c-894c-4991-a077-d11527742993
+		sourceLineageTag: LineofBusiness
+		summarizeBy: none
+		sourceColumn: LineofBusiness
+
+		annotation SummarizationSetBy = Automatic
+
+	column Service
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 72cb20e6-095b-4076-bcc3-85c8ec0e7af1
+		sourceLineageTag: Service
+		summarizeBy: none
+		sourceColumn: Service
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubService
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 28e7c5d3-9ffa-428c-8e2b-aa0de276142a
+		sourceLineageTag: SubService
+		summarizeBy: none
+		sourceColumn: SubService
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 33cee518-b7f5-47e9-8ad6-d87cca7dc326
+		sourceLineageTag: GroupCode
+		summarizeBy: none
+		sourceColumn: GroupCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOBCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 2e7ca686-e9e1-4582-ad41-d218fc2b8d4b
+		sourceLineageTag: LOBCode
+		summarizeBy: none
+		sourceColumn: LOBCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: c68cccd2-3ec8-4738-ba78-78a4f898d7a0
+		sourceLineageTag: ServiceCode
+		summarizeBy: none
+		sourceColumn: ServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubServiceCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: e1125b9b-a626-4d58-b51b-9e769e0b4f41
+		sourceLineageTag: SubServiceCode
+		summarizeBy: none
+		sourceColumn: SubServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLDepartmentCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 8cd83527-589f-47c8-926d-69a8ff6cf166
+		sourceLineageTag: GLDepartmentCode
+		summarizeBy: none
+		sourceColumn: GLDepartmentCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column GLDepartmentDescription
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 92507584-0862-46c6-944d-032cba591834
+		sourceLineageTag: GLDepartmentDescription
+		summarizeBy: none
+		sourceColumn: GLDepartmentDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 46e43157-00b6-4d3f-8198-b9e32b66cb92
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDepartment = entity
+		mode: directLake
+		source
+			entityName: DimDepartment
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -8,12 +8,12 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e",
+# META       "default_lakehouse": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
 # META       "default_lakehouse_name": "SILVER",
-# META       "default_lakehouse_workspace_id": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+# META       "default_lakehouse_workspace_id": "c8d75176-b949-4f7e-a658-b996603ec8c3",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e"
+# META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
 # META         }
 # META       ]
 # META     }
@@ -154,7 +154,7 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([],schema)
 
-silver_path="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/dbo/tbl_job_versions"
+silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_job_versions"
 
 # Initialize Delta Table reference
 silver_table = DeltaTable.forPath(spark, silver_path)
@@ -163,9 +163,9 @@ param = ""  # Replace with the actual PARAM value
 
 
 if in_mode == "FULL":
-    df.write.format("delta").mode("overwrite").saveAsTable("tbl_job_versions")
+    df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_job_versions")
    
-    bronze_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_job_versions_FULL"
+    bronze_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_job_versions_FULL"
    
     bronze_df = spark.read.format("delta").load(bronze_path) 
 
@@ -264,9 +264,9 @@ if in_mode == "FULL":
    
 else:
 
-    df.write.format("delta").mode("append").saveAsTable("tbl_job_versions")
+    df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_job_versions")
    
-    source_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_job_versions_DELTA"
+    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_job_versions_DELTA"
    # Read source and target as Delta Tables
     source_df_delta = spark.read.format("delta").load(source_path)
 

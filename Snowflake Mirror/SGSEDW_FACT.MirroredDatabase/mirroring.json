@@ -1,0 +1,60 @@
+{
+  "properties": {
+    "source": {
+      "type": "Snowflake",
+      "typeProperties": {
+        "connection": "0156338e-ebc8-4d0f-bf35-b317c7e54017",
+        "database": "SGSEDW"
+      }
+    },
+    "target": {
+      "type": "MountedRelationalDatabase",
+      "typeProperties": {
+        "defaultSchema": "dbo",
+        "format": "Delta"
+      }
+    },
+    "mountedTables": [
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactEmployeeWage"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactEmployeeWageHoursForAllocation"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactKPIIndexWage"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactSalesCostActual"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactSalesCostActualBackup"
+          }
+        }
+      }
+    ]
+  }
+}

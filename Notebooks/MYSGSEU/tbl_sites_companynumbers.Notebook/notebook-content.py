@@ -8,9 +8,14 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e",
+# META       "default_lakehouse": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
 # META       "default_lakehouse_name": "SILVER",
-# META       "default_lakehouse_workspace_id": "de3e35d4-28a5-4df0-a8d1-00feff73469d"
+# META       "default_lakehouse_workspace_id": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+# META       "known_lakehouses": [
+# META         {
+# META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
+# META         }
+# META       ]
 # META     }
 # META   }
 # META }
@@ -67,16 +72,16 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
 
-silver_path="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/dbo/tbl_sites_companynumbers"
+silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_sites_companynumbers"
 silver_table = DeltaTable.forPath(spark, silver_path)
 # Parameters
 param = ""  # Replace with the actual PARAM value
 # If-else logic to control the flow based on in_mode
 if in_mode == "FULL":
     # Write the DataFrame as a Delta table
-    df.write.format("delta").mode("overwrite").saveAsTable("tbl_sites_companynumbers")
+    df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_sites_companynumbers")
 
-    bronze_Path ="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_sites_companynumbers_FULL"
+    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_sites_companynumbers_FULL"
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
     
@@ -96,9 +101,9 @@ if in_mode == "FULL":
         "CompanyNumber": col("source.CompanyNumber")
         }).execute()
 else:
-    df.write.format("delta").mode("append").saveAsTable("tbl_sites_companynumbers")
+    df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_sites_companynumbers")
     
-    source_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_sites_companynumbers_DELTA"
+    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_sites_companynumbers_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     # Filter the source DataFrame for "D" operations and select distinct CT_CompanyNumberId
@@ -142,18 +147,6 @@ else:
         "CompanyNumberId": col("source.CompanyNumberId"),
         "CompanyNumber": col("source.CompanyNumber")
     }).execute()
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df = spark.sql("SELECT count(*) FROM SILVER.dbo.tbl_sites_companynumbers")
-display(df)
 
 # METADATA ********************
 

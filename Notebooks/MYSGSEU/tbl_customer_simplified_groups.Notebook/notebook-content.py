@@ -8,15 +8,15 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e",
+# META       "default_lakehouse": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
 # META       "default_lakehouse_name": "SILVER",
-# META       "default_lakehouse_workspace_id": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+# META       "default_lakehouse_workspace_id": "c8d75176-b949-4f7e-a658-b996603ec8c3",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e"
+# META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
 # META         },
 # META         {
-# META           "id": "59693f16-ceb1-40c6-b096-d37b5fbbbd26"
+# META           "id": "5db3d583-e11f-4ac4-9781-65ee3ee820a0"
 # META         }
 # META       ]
 # META     }
@@ -76,15 +76,15 @@ schema = StructType([
 # Create an empty DataFrame with the new schema
 df = spark.createDataFrame([], schema)
 
-silver_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/dbo/tbl_customer_simplified_groups"
+silver_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_customer_simplified_groups"
 silver_table = DeltaTable.forPath(spark, silver_path)
 
 # Parameters
-PARAM = " "
+
 if in_mode == "FULL":
-    df.write.format("delta").mode("overwrite").saveAsTable("tbl_customer_simplified_groups")
+    df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_customer_simplified_groups")
     
-    bronze_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_simplified_groups_FULL"
+    bronze_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_simplified_groups_FULL"
     bronze_df = spark.read.format("delta").load(bronze_path)
     silver_table.alias("target").merge(
         bronze_df.alias("source"),
@@ -103,8 +103,8 @@ if in_mode == "FULL":
         "Deleted": col("source.Deleted")
     }).execute()
 else:
-    df.write.format("delta").mode("append").saveAsTable("tbl_customer_simplified_groups")
-    source_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_simplified_groups_DELTA"
+    df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_customer_simplified_groups")
+    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_simplified_groups_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     filtered_source_df = source_df_delta.filter(source_df_delta["SYS_CHANGE_OPERATION"] == "D") \
@@ -147,79 +147,6 @@ else:
         "Deleted": col("source.Deleted")
     }).execute()
 
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-from pyspark.sql.functions import concat_ws, expr, sha2, size, lit, col, array, struct, udf, current_timestamp, max as spark_max
-from pyspark.sql.types import *
-from pyspark.sql import *
-from delta.tables import *
-from pyspark.sql import SparkSession
-from delta.tables import DeltaTable
-from pyspark.sql.types import StructType, StructField, StringType, TimestampType
-# Initialize Spark session
-spark = SparkSession.builder \
-    .appName("Bronze to Silver Merge") \
-    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
-    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog") \
-    .getOrCreate()
-
-# Define the schema with new columns
-schema = StructType([
-    StructField("SYS_CHANGE_VERSION", StringType(), True),
-    StructField("SYS_CHANGE_OPERATION", StringType(), True),
-    StructField("SimplifiedGroupId", StringType(), True),
-    StructField("SimplifiedGroupName", StringType(), True),
-    StructField("Deleted", StringType(), True)
-])
-
-# Create an empty DataFrame with the new schema
-df = spark.createDataFrame([], schema)
-df.write.format("delta").mode("append").saveAsTable("tbl_customer_simplified_groups")
-
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df = spark.sql("SELECT * FROM BRONZE.MYSGSEU.tbl_customer_simplified_groups_DELTA")
-display(df)
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df = spark.sql("SELECT COUNT(*) FROM SILVER.dbo.tbl_customer_simplified_groups")
-display(df)
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df = spark.sql("SELECT COUNT(*) FROM BRONZE.MYSGSEU.tbl_customer_simplified_groups_FULL")
-display(df)
 
 # METADATA ********************
 

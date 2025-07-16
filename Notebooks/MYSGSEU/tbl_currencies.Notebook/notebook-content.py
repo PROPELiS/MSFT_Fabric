@@ -8,15 +8,15 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e",
+# META       "default_lakehouse": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
 # META       "default_lakehouse_name": "SILVER",
-# META       "default_lakehouse_workspace_id": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+# META       "default_lakehouse_workspace_id": "c8d75176-b949-4f7e-a658-b996603ec8c3",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e"
+# META           "id": "59693f16-ceb1-40c6-b096-d37b5fbbbd26"
 # META         },
 # META         {
-# META           "id": "59693f16-ceb1-40c6-b096-d37b5fbbbd26"
+# META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
 # META         }
 # META       ]
 # META     }
@@ -82,7 +82,7 @@ schema = StructType([
 df = spark.createDataFrame([], schema)
 
 # Paths for Silver and Bronze tables
-silver_table_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/dbo/tbl_currencies"
+silver_table_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_currencies"
 
 # Load the Silver data (Delta table)
 silver_table = DeltaTable.forPath(spark, silver_table_path)
@@ -92,8 +92,8 @@ param = ""  # Replace with the actual PARAM value
 # If-else logic to control the flow based on in_mode
 if in_mode == "FULL":
     # Write the DataFrame as a Delta table
-     df.write.format("delta").mode("overwrite").saveAsTable("tbl_currencies")
-     bronze_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_currencies_FULL"
+     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_currencies")
+     bronze_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_currencies_FULL"
 
 
      # Load Bronze data
@@ -122,9 +122,9 @@ if in_mode == "FULL":
      }).execute()
 
 else:          
-     df.write.format("delta").mode("append").saveAsTable("tbl_currencies")
+     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_currencies")
                                                    
-     source_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_currencies_DELTA"
+     source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_currencies_DELTA"
      source_df_delta = spark.read.format("delta").load(source_path)
 
      # Step 1: DELETE Records from Target based on SYS_CHANGE_OPERATION = 'D'
@@ -175,30 +175,6 @@ else:
         "CurrencyCode": col("source.CurrencyCode")
      }).execute()
 
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df = spark.sql("SELECT COUNT(*)FROM BRONZE.MYSGSEU.tbl_currencies_DELTA")
-display(df)
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df = spark.sql("SELECT * FROM SILVER.dbo.tbl_currencies")
-display(df)
 
 # METADATA ********************
 

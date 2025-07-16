@@ -7,7 +7,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT \n\t\t CT.SYS_CHANGE_VERSION\n\t    ,CT.SYS_CHANGE_CREATION_VERSION\n\t    ,CT.SYS_CHANGE_OPERATION\n\t    ,CT.SYS_CHANGE_COLUMNS\n\t    ,CT.SYS_CHANGE_CONTEXT\n\t    ,CT.[JobTechChecklistAmendId] AS CT_JobTechChecklistAmendId\n\t    ,F.[JobTechChecklistAmendId]\n        ,[JobTechChecklistResponseId]\n        ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AmendReason],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AmendReason]\n        ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AmendComments],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS  [AmendComments]\n        ,[TaskIdAtFault]\n        ,CASE\n             WHEN [Completed] = 'True' THEN 1      \n             WHEN [Completed] = 'False' THEN 0\n          ELSE [Completed]\n         END AS [Completed]\n        ,[CompletedBy]\n        ,[CompletedDate]\n        ,CASE\n             WHEN [Acknowledged] = 'True' THEN 1      \n             WHEN [Acknowledged] = 'False' THEN 0\n          ELSE [Acknowledged]\n         END AS [Acknowledged]\t\t\n        ,[AcknowledgedBy]\n        ,[AcknowledgedDate]\n        ,[SaveAgainstTaskHistoryId]\n        ,CASE\n             WHEN [AmendVoid] = 'True' THEN 1      \n             WHEN [AmendVoid] = 'False' THEN 0\n          ELSE [AmendVoid]\n         END AS [AmendVoid]\t\t\n        ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AmendVoidReason],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AmendVoidReason]\n        ,[AmendReasonCategory]    \n  FROM CHANGETABLE(CHANGES [dbo].[tbl_job_tech_spec_checklist_amends],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n  LEFT JOIN [dbo].[tbl_job_tech_spec_checklist_amends] F  \nON F.[JobTechChecklistAmendId] = CT.[JobTechChecklistAmendId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\nAND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\n\n\n\n\n\n\n\n\n",
+              "value": "SELECT \n\t\tCT.SYS_CHANGE_VERSION\n\t   ,CT.SYS_CHANGE_CREATION_VERSION\n\t   ,CT.SYS_CHANGE_OPERATION\n\t   ,CT.SYS_CHANGE_COLUMNS\n\t   ,CT.SYS_CHANGE_CONTEXT\n\t   ,CT.[JobTechChecklistResponseId] as CT_JobTechChecklistResponseId\n\t  ,F.[JobTechChecklistResponseId]\n      ,F.[ChecklistItemId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(F.[ResponseValue],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ResponseValue]\n      ,F.[ResponseBy]\n      ,F.[ResponseDateTime]\n      ,F.[ChecklistRevisionId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(F.[ItemText],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ItemText]\n FROM CHANGETABLE(CHANGES [dbo].[tbl_job_tech_spec_checklist_responses],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT\t  \n  LEFT JOIN [dbo].[tbl_job_tech_spec_checklist_responses] F\n  ON CT.[JobTechChecklistResponseId] = F.[JobTechChecklistResponseId]\n  WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n  AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\n\n\n\n\n\n\n\n",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -40,7 +40,7 @@
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
                   "fileName": {
-                    "value": "@concat('MYSGSEU','_','tbl_job_tech_spec_checklist_amends','.parquet')",
+                    "value": "@concat('MYSGSEU','_','tbl_job_tech_spec_checklist_responses','.parquet')",
                     "type": "Expression"
                   }
                 },
@@ -79,10 +79,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "tbl_job_tech_spec_checklist_amends_DELTA_PARQUET",
+        "name": "tbl_job_tech_spec_checklist_responses_DELTA_PARQUET",
         "dependsOn": [
           {
-            "activity": "tbl_job_tech_spec_checklist_amends_DELTA_CSV",
+            "activity": "tbl_job_tech_spec_checklist_responses_DELTA_CSV",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -95,7 +95,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT \n\t\t CT.SYS_CHANGE_VERSION\n\t    ,CT.SYS_CHANGE_CREATION_VERSION\n\t    ,CT.SYS_CHANGE_OPERATION\n\t    ,CT.SYS_CHANGE_COLUMNS\n\t    ,CT.SYS_CHANGE_CONTEXT\n\t    ,CT.[JobTechChecklistAmendId] AS CT_JobTechChecklistAmendId\n\t    ,F.[JobTechChecklistAmendId]\n        ,[JobTechChecklistResponseId]\n        ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AmendReason],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AmendReason]\n        ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AmendComments],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS  [AmendComments]\n        ,[TaskIdAtFault]\n        ,CASE\n             WHEN [Completed] = 'True' THEN 1      \n             WHEN [Completed] = 'False' THEN 0\n          ELSE [Completed]\n         END AS [Completed]\n        ,[CompletedBy]\n        ,[CompletedDate]\n        ,CASE\n             WHEN [Acknowledged] = 'True' THEN 1      \n             WHEN [Acknowledged] = 'False' THEN 0\n          ELSE [Acknowledged]\n         END AS [Acknowledged]\t\t\n        ,[AcknowledgedBy]\n        ,[AcknowledgedDate]\n        ,[SaveAgainstTaskHistoryId]\n        ,CASE\n             WHEN [AmendVoid] = 'True' THEN 1      \n             WHEN [AmendVoid] = 'False' THEN 0\n          ELSE [AmendVoid]\n         END AS [AmendVoid]\t\t\n        ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AmendVoidReason],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AmendVoidReason]\n        ,[AmendReasonCategory]    \n  FROM CHANGETABLE(CHANGES [dbo].[tbl_job_tech_spec_checklist_amends],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n  LEFT JOIN [dbo].[tbl_job_tech_spec_checklist_amends] F  \nON F.[JobTechChecklistAmendId] = CT.[JobTechChecklistAmendId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\nAND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\n\n\n\n\n\n\n\n\n",
+              "value": "SELECT \n\t\tCT.SYS_CHANGE_VERSION\n\t   ,CT.SYS_CHANGE_CREATION_VERSION\n\t   ,CT.SYS_CHANGE_OPERATION\n\t   ,CT.SYS_CHANGE_COLUMNS\n\t   ,CT.SYS_CHANGE_CONTEXT\n\t   ,CT.[JobTechChecklistResponseId] as CT_JobTechChecklistResponseId\n\t  ,F.[JobTechChecklistResponseId]\n      ,F.[ChecklistItemId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(F.[ResponseValue],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ResponseValue]\n      ,F.[ResponseBy]\n      ,F.[ResponseDateTime]\n      ,F.[ChecklistRevisionId]\n      ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(F.[ItemText],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ItemText]\n FROM CHANGETABLE(CHANGES [dbo].[tbl_job_tech_spec_checklist_responses],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT\t  \n  LEFT JOIN [dbo].[tbl_job_tech_spec_checklist_responses] F\n  ON CT.[JobTechChecklistResponseId] = F.[JobTechChecklistResponseId]\n  WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n  AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\n\n\n\n\n\n\n\n",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -129,7 +129,7 @@
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
                   "fileName": {
-                    "value": "@concat('MYSGSEU','_','tbl_job_tech_spec_checklist_amends','.csv')",
+                    "value": "@concat('MYSGSEU','_','tbl_job_tech_spec_checklist_responses','.csv')",
                     "type": "Expression"
                   }
                 },
@@ -172,7 +172,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "tbl_job_tech_spec_checklist_amends_DELTA_CSV",
+        "name": "tbl_job_tech_spec_checklist_responses_DELTA_CSV",
         "dependsOn": [
           {
             "activity": "LookupOld",
@@ -194,7 +194,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'tbl_job_tech_spec_checklist_amends'",
+              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'tbl_job_tech_spec_checklist_responses'",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -228,7 +228,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT DISTINCT \n\t\tISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION\t   \nFROM CHANGETABLE(CHANGES [dbo].[tbl_job_tech_spec_checklist_amends],0) CT\nLEFT JOIN [dbo].[tbl_job_tech_spec_checklist_amends] F\n ON CT.[JobTechChecklistAmendId] = F.[JobTechChecklistAmendId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
+              "value": "SELECT DISTINCT \n\t\tISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION\t   \nFROM CHANGETABLE(CHANGES [dbo].[tbl_job_tech_spec_checklist_responses],0) CT\nLEFT JOIN [dbo].[tbl_job_tech_spec_checklist_responses] F\n ON CT.[JobTechChecklistResponseId] = F.[JobTechChecklistResponseId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -257,13 +257,196 @@
         "dependsOn": []
       },
       {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "0ac03ff1-a728-92ea-4bb7-1bc1e302ffab",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "in_mode": {
+              "value": "DELTA",
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "tbl_job_tech_spec_checklist_responses",
+        "dependsOn": [
+          {
+            "activity": "ChangeTracking_version_Update",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_job_tech_spec_checklist_responses"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_job_tech_spec_checklist_amends\";\n",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_job_tech_spec_checklist_responses",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_SF_tbl_job_tech_spec_checklist_amends",
+        "dependsOn": [
+          {
+            "activity": "tbl_job_tech_spec_checklist_responses",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_job_tech_spec_checklist_responses"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_job_tech_spec_checklist_amends\";\n",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "tbl_job_tech_spec_checklist_responses",
+                "database": "SILVER_FABRIC"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_SF_DEV_tbl_job_tech_spec_checklist_amends",
+        "dependsOn": [
+          {
+            "activity": "tbl_job_tech_spec_checklist_responses",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
         "type": "Script",
         "typeProperties": {
           "database": "SGSEDW",
           "scripts": [
             {
               "text": {
-                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_job_tech_spec_checklist_amends'",
+                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_job_tech_spec_checklist_responses'",
                 "type": "Expression"
               },
               "type": "Query"
@@ -284,7 +467,7 @@
         "name": "ChangeTracking_version_Update",
         "dependsOn": [
           {
-            "activity": "tbl_job_tech_spec_checklist_amends_DELTA_PARQUET",
+            "activity": "File_To_Table",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -310,7 +493,7 @@
                 "location": {
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
-                  "fileName": "MYSGSEU_tbl_job_tech_spec_checklist_amends.csv"
+                  "fileName": "MYSGSEU_tbl_job_tech_spec_checklist_responses.csv"
                 },
                 "columnDelimiter": "^",
                 "rowDelimiter": "\r\n",
@@ -342,7 +525,7 @@
               "type": "LakehouseTable",
               "typeProperties": {
                 "schema": "MYSGSEU",
-                "table": "tbl_job_tech_spec_checklist_amends_DELTA"
+                "table": "tbl_job_tech_spec_checklist_responses_DELTA"
               },
               "schema": [],
               "linkedService": {
@@ -380,190 +563,7 @@
         "name": "File_To_Table",
         "dependsOn": [
           {
-            "activity": "ChangeTracking_version_Update",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "TridentNotebook",
-        "typeProperties": {
-          "notebookId": "898eceae-2115-4e81-9ce3-675c3b8a4594",
-          "workspaceId": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
-          "parameters": {
-            "in_mode": {
-              "value": "DELTA",
-              "type": "string"
-            }
-          }
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "tbl_job_tech_spec_checklist_amends_Notebook",
-        "dependsOn": [
-          {
-            "activity": "File_To_Table",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "LakehouseTableSource",
-            "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "dbo",
-                "table": "tbl_job_tech_spec_checklist_amends"
-              },
-              "schema": [],
-              "linkedService": {
-                "name": "SILVER",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Tables"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
-            }
-          },
-          "sink": {
-            "type": "SnowflakeSink",
-            "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_job_tech_spec_checklist_amends\";\n",
-              "type": "Expression"
-            },
-            "importSettings": {
-              "type": "SnowflakeImportCopyCommand"
-            },
-            "datasetSettings": {
-              "type": "SnowflakeTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "tbl_job_tech_spec_checklist_amends",
-                "database": "SILVER_FABRIC"
-              },
-              "schema": [],
-              "externalReferences": {
-                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
-              },
-              "annotations": []
-            }
-          },
-          "translator": {
-            "type": "TabularTranslator",
-            "typeConversion": true,
-            "typeConversionSettings": {
-              "allowDataTruncation": true,
-              "treatBooleanAsNumber": false
-            }
-          },
-          "enableStaging": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Fabric_To_SF_tbl_job_tech_spec_checklist_amends",
-        "dependsOn": [
-          {
-            "activity": "tbl_job_tech_spec_checklist_amends_Notebook",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "LakehouseTableSource",
-            "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "dbo",
-                "table": "tbl_job_tech_spec_checklist_amends"
-              },
-              "schema": [],
-              "linkedService": {
-                "name": "SILVER",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Tables"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
-            }
-          },
-          "sink": {
-            "type": "SnowflakeSink",
-            "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_job_tech_spec_checklist_amends\";\n",
-              "type": "Expression"
-            },
-            "importSettings": {
-              "type": "SnowflakeImportCopyCommand"
-            },
-            "datasetSettings": {
-              "type": "SnowflakeTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "tbl_job_tech_spec_checklist_amends",
-                "database": "SILVER_FABRIC"
-              },
-              "schema": [],
-              "externalReferences": {
-                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
-              },
-              "annotations": []
-            }
-          },
-          "translator": {
-            "type": "TabularTranslator",
-            "typeConversion": true,
-            "typeConversionSettings": {
-              "allowDataTruncation": true,
-              "treatBooleanAsNumber": false
-            }
-          },
-          "enableStaging": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Fabric_To_SF_DEV_tbl_job_tech_spec_checklist_amends",
-        "dependsOn": [
-          {
-            "activity": "tbl_job_tech_spec_checklist_amends_Notebook",
+            "activity": "tbl_job_tech_spec_checklist_responses_DELTA_PARQUET",
             "dependencyConditions": [
               "Succeeded"
             ]

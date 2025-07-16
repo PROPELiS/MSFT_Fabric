@@ -1,0 +1,28 @@
+CREATE TABLE [dbo].[EDW_T_D_MST_RESERVS_CUR_D] (
+
+	[RESRVTN_KEY] int NOT NULL, 
+	[RESRVTN] int NULL, 
+	[ITM_NUM_STK_TRSFR_RESRVTN] int NULL, 
+	[REQ_TYP] varchar(2) NULL, 
+	[MATRL] varchar(18) NULL, 
+	[PLNT] varchar(4) NULL, 
+	[STOR_LOC] varchar(4) NULL, 
+	[REQ_DATE] date NULL, 
+	[REQ_QTY] decimal(13,3) NULL, 
+	[DEBIT_CREDIT_IND] varchar(1) NULL, 
+	[PURCHS_REQZ] varchar(10) NULL, 
+	[ITM_OF_REQZ] int NULL, 
+	[INTERNL_ORDER] varchar(12) NULL, 
+	[MOVEMNT_TYP] varchar(3) NULL, 
+	[OBJ_NUM] varchar(22) NULL, 
+	[MATRL_GROUP] varchar(9) NULL, 
+	[LATEST_REQMNTS_DATE] date NULL, 
+	[ETL_SRC_SYS_CD] varchar(10) NULL, 
+	[ETL_EFFECTV_BEGIN_DATE] date NULL, 
+	[ETL_EFFECTV_END_DATE] date NULL, 
+	[ETL_CURR_RCD_IND] varchar(1) NULL, 
+	[ETL_CREATED_TS] datetime2(0) NULL, 
+	[ETL_UPDTD_TS] datetime2(0) NULL, 
+	[RCD_TYP] varchar(2) NULL, 
+	[CRNCY] varchar(5) NULL
+);
