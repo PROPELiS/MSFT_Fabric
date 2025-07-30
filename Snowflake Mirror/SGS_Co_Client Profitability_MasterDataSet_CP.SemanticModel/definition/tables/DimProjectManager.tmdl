@@ -1720,16 +1720,6 @@ table DimProjectManager
 
 		annotation SummarizationSetBy = Automatic
 
-	column PrimaryOrSecondaryIndicator
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: 8d4c2b06-980e-43c7-b02c-a6c47335c587
-		sourceLineageTag: PrimaryOrSecondaryIndicator
-		summarizeBy: none
-		sourceColumn: PrimaryOrSecondaryIndicator
-
-		annotation SummarizationSetBy = Automatic
-
 	column METADATA$ROW_ID
 		dataType: string
 		sourceProviderType: varchar(8000)
@@ -1740,12 +1730,28 @@ table DimProjectManager
 
 		annotation SummarizationSetBy = Automatic
 
+	column Classification
+		dataType: string
+		lineageTag: 31c975f5-2ce5-4cda-9d86-5da56ad9c032
+		sourceLineageTag: Classification
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: d9dfc5dd-ee49-4b3f-82ea-b522e616295c
+		sourceLineageTag: Category
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimProjectManager = entity
 		mode: directLake
 		source
 			entityName: DimProjectManager
 			schemaName: dbo
 			expressionSource: DatabaseQuery
-
-	annotation PBI_ResultType = Table
 

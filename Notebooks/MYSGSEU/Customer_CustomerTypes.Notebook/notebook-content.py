@@ -14,9 +14,6 @@
 # META       "known_lakehouses": [
 # META         {
 # META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
-# META         },
-# META         {
-# META           "id": "5db3d583-e11f-4ac4-9781-65ee3ee820a0"
 # META         }
 # META       ]
 # META     }
@@ -82,7 +79,7 @@ param = ""  # RDeplace with the actual PARAM value
 # If-else logic to control the flow based on in_mode
 if in_mode == "FULL":
     # Write the Dataframe as a Delta table
-    df.write.format("delta").mode("overwrite").saveAsTable("Customer_CustomerTypes")
+    df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.Customer_CustomerTypes")
     bronze_Path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Customer_CustomerTypes_FULL"
 
     # Load Delta tables correctly
@@ -105,7 +102,7 @@ if in_mode == "FULL":
         }).execute()
 else:
     
-    df.write.format("delta").mode("append").saveAsTable("customer_customertypes")
+    df.write.format("delta").mode("append").saveAsTable("MYSGSEU.customer_customertypes")
     
     source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Customer_CustomerTypes_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)

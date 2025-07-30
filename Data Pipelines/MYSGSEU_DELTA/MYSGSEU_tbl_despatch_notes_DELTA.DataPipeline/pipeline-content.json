@@ -16,11 +16,11 @@
           "datasetSettings": {
             "type": "SqlServerTable",
             "typeProperties": {
-              "database": "SGSEDW"
+              "database": "SGSWEB"
             },
             "schema": [],
             "externalReferences": {
-              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+              "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
             },
             "annotations": []
           }
@@ -75,7 +75,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT \n        CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.DespatchNoteId AS CT_DespatchNoteId\n      , F.DespatchNoteId\n       ,[JobVersionId]\n\t   ,[JobContactId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ContactName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ContactName]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchAddress],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchAddress]\n\t   ,[ExpectedDespatchDateTime]\n\t   ,[DespatchMethod]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchReference],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchReference]\n\t   ,[ActualDespatchDateTime]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Notes],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Notes]\n\t   ,[RangeId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([SessionId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [SessionId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchNotePONo],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchNotePONo]\n\t   ,[RMSDespatchNumber]\n\t   ,[SiteId]\n\t   ,[ReceiptRequired]\n\t   ,[ReceivedBy]\n\t   ,[ReceivedDate]\n\t   ,[RejectReason]\n\t   ,[ContactId]\n\t   ,[CustomerId]\n\t   ,[CreatedBy]\n\t   ,[UpdatedBy]\n\t   ,[CreatedDate]\n\t   ,[UpdatedDate]\n\t   ,[SGSContact]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AlternativeCustomerName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AlternativeCustomerName]\n\t   ,[AddressVerified]\n\t   ,[CountryId]\n     FROM  CHANGETABLE(CHANGES [dbo].[tbl_despatch_notes],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n     LEFT JOIN [dbo].[tbl_despatch_notes] F\n     ON CT.DespatchNoteId = F.DespatchNoteId\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "value": "SELECT \r\n        CT.SYS_CHANGE_VERSION\r\n       ,CT.SYS_CHANGE_CREATION_VERSION\r\n       ,CT.SYS_CHANGE_OPERATION\r\n       ,CT.SYS_CHANGE_COLUMNS\r\n       ,CT.SYS_CHANGE_CONTEXT\r\n       ,CT.DespatchNoteId AS CT_DespatchNoteId\r\n      , F.DespatchNoteId\r\n       ,[JobVersionId]\r\n\t   ,[JobContactId]\r\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ContactName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ContactName]\r\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchAddress],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchAddress]\r\n\t   ,[ExpectedDespatchDateTime]\r\n\t   ,[DespatchMethod]\r\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchReference],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchReference]\r\n\t   ,[ActualDespatchDateTime]\r\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Notes],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Notes]\r\n\t   ,[RangeId]\r\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([SessionId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [SessionId]\r\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchNotePONo],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchNotePONo]\r\n\t   ,[RMSDespatchNumber]\r\n\t   ,[SiteId]\r\n\t   ,CASE \r\n        WHEN [ReceiptRequired] = 'True' THEN 1\r\n        WHEN [ReceiptRequired] = 'False' THEN 0\r\n        ELSE NULL\r\n    END AS [ReceiptRequired]\r\n\t   ,[ReceivedBy]\r\n\t   ,[ReceivedDate]\r\n\t   ,[RejectReason]\r\n\t   ,[ContactId]\r\n\t   ,[CustomerId]\r\n\t   ,[CreatedBy]\r\n\t   ,[UpdatedBy]\r\n\t   ,[CreatedDate]\r\n\t   ,[UpdatedDate]\r\n\t   ,[SGSContact]\r\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AlternativeCustomerName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AlternativeCustomerName]\r\n\t   ,CASE \r\n        WHEN [AddressVerified] = 'True' THEN 1\r\n        WHEN [AddressVerified] = 'False' THEN 0\r\n        ELSE NULL\r\n    END AS [AddressVerified]\r\n\t   ,[CountryId]\r\n     FROM  CHANGETABLE(CHANGES [dbo].[tbl_despatch_notes],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \r\n     LEFT JOIN [dbo].[tbl_despatch_notes] F\r\n     ON CT.DespatchNoteId = F.DespatchNoteId\r\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\r\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -166,7 +166,7 @@
       {
         "type": "Script",
         "typeProperties": {
-          "database": "SGSEDW",
+          "database": "SGSWEB",
           "scripts": [
             {
               "text": {
@@ -179,7 +179,7 @@
           "scriptBlockExecutionTimeout": "02:00:00"
         },
         "externalReferences": {
-          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+          "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
         },
         "policy": {
           "timeout": "0.12:00:00",
@@ -389,83 +389,6 @@
           "secureOutput": false
         },
         "name": "Fabric_To_SF_tbl_despatch_notes",
-        "dependsOn": [
-          {
-            "activity": "tbl_despatch_notes_Notebook",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "LakehouseTableSource",
-            "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "tbl_despatch_notes"
-              },
-              "schema": [],
-              "linkedService": {
-                "name": "SILVER",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Tables"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
-            }
-          },
-          "sink": {
-            "type": "SnowflakeSink",
-            "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_despatch_notes\";  \n",
-              "type": "Expression"
-            },
-            "importSettings": {
-              "type": "SnowflakeImportCopyCommand"
-            },
-            "datasetSettings": {
-              "type": "SnowflakeTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "tbl_despatch_notes",
-                "database": "SILVER_FABRIC"
-              },
-              "schema": [],
-              "externalReferences": {
-                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
-              },
-              "annotations": []
-            }
-          },
-          "translator": {
-            "type": "TabularTranslator",
-            "typeConversion": true,
-            "typeConversionSettings": {
-              "allowDataTruncation": true,
-              "treatBooleanAsNumber": false
-            }
-          },
-          "enableStaging": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Fabric_To_Dev_SF_tbl_despatch_notes",
         "dependsOn": [
           {
             "activity": "tbl_despatch_notes_Notebook",

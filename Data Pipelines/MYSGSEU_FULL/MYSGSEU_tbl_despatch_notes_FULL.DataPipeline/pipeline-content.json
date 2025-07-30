@@ -7,7 +7,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT NULL AS SYS_CHANGE_VERSION\n       ,NULL AS SYS_CHANGE_CREATION_VERSION\n       ,NULL AS SYS_CHANGE_OPERATION\n       ,NULL AS SYS_CHANGE_COLUMNS\n       ,NULL AS SYS_CHANGE_CONTEXT\n       ,NULL AS CT_DespatchNoteId\n       ,[DespatchNoteId]\n\t   ,[JobVersionId]\n\t   ,[JobContactId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ContactName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ContactName]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchAddress],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchAddress]\n\t   ,[ExpectedDespatchDateTime]\n\t   ,[DespatchMethod]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchReference],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchReference]\n\t   ,[ActualDespatchDateTime]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Notes],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Notes]\n\t   ,[RangeId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([SessionId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [SessionId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchNotePONo],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchNotePONo]\n\t   ,[RMSDespatchNumber]\n\t   ,[SiteId]\n\t   ,[ReceiptRequired]\n\t   ,[ReceivedBy]\n\t   ,[ReceivedDate]\n\t   ,[RejectReason]\n\t   ,[ContactId]\n\t   ,[CustomerId]\n\t   ,[CreatedBy]\n\t   ,[UpdatedBy]\n\t   ,[CreatedDate]\n\t   ,[UpdatedDate]\n\t   ,[SGSContact]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AlternativeCustomerName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AlternativeCustomerName]\n\t   ,[AddressVerified]\n\t   ,[CountryId]\n FROM [dbo].[tbl_despatch_notes]",
+              "value": "SELECT \n    NULL AS SYS_CHANGE_VERSION,\n    NULL AS SYS_CHANGE_CREATION_VERSION,\n    NULL AS SYS_CHANGE_OPERATION,\n    NULL AS SYS_CHANGE_COLUMNS,\n    NULL AS SYS_CHANGE_CONTEXT,\n    NULL AS CT_DespatchNoteId,\n    [DespatchNoteId],\n    [JobVersionId],\n    [JobContactId],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ContactName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ContactName],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchAddress],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchAddress],\n    [ExpectedDespatchDateTime],\n    [DespatchMethod],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchReference],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchReference],\n    [ActualDespatchDateTime],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Notes],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Notes],\n    [RangeId],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([SessionId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [SessionId],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchNotePONo],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchNotePONo],\n    [RMSDespatchNumber],\n    [SiteId],\n    CASE \n        WHEN [ReceiptRequired] = 'True' THEN 1\n        WHEN [ReceiptRequired] = 'False' THEN 0\n        ELSE NULL\n    END AS [ReceiptRequired],\n    [ReceivedBy],\n    [ReceivedDate],\n    [RejectReason],\n    [ContactId],\n    [CustomerId],\n    [CreatedBy],\n    [UpdatedBy],\n    [CreatedDate],\n    [UpdatedDate],\n    [SGSContact],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AlternativeCustomerName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AlternativeCustomerName],\n    CASE \n        WHEN [AddressVerified] = 'True' THEN 1\n        WHEN [AddressVerified] = 'False' THEN 0\n        ELSE NULL\n    END AS [AddressVerified],\n    [CountryId]\nFROM \n    [dbo].[tbl_despatch_notes];\n",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -93,7 +93,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT NULL AS SYS_CHANGE_VERSION\n       ,NULL AS SYS_CHANGE_CREATION_VERSION\n       ,NULL AS SYS_CHANGE_OPERATION\n       ,NULL AS SYS_CHANGE_COLUMNS\n       ,NULL AS SYS_CHANGE_CONTEXT\n       ,NULL AS CT_DespatchNoteId\n       ,[DespatchNoteId]\n\t   ,[JobVersionId]\n\t   ,[JobContactId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ContactName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ContactName]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchAddress],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchAddress]\n\t   ,[ExpectedDespatchDateTime]\n\t   ,[DespatchMethod]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchReference],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchReference]\n\t   ,[ActualDespatchDateTime]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Notes],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Notes]\n\t   ,[RangeId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([SessionId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [SessionId]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchNotePONo],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchNotePONo]\n\t   ,[RMSDespatchNumber]\n\t   ,[SiteId]\n\t   ,[ReceiptRequired]\n\t   ,[ReceivedBy]\n\t   ,[ReceivedDate]\n\t   ,[RejectReason]\n\t   ,[ContactId]\n\t   ,[CustomerId]\n\t   ,[CreatedBy]\n\t   ,[UpdatedBy]\n\t   ,[CreatedDate]\n\t   ,[UpdatedDate]\n\t   ,[SGSContact]\n\t   ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AlternativeCustomerName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AlternativeCustomerName]\n\t   ,[AddressVerified]\n\t   ,[CountryId]\n FROM [dbo].[tbl_despatch_notes]",
+              "value": "SELECT \n    NULL AS SYS_CHANGE_VERSION,\n    NULL AS SYS_CHANGE_CREATION_VERSION,\n    NULL AS SYS_CHANGE_OPERATION,\n    NULL AS SYS_CHANGE_COLUMNS,\n    NULL AS SYS_CHANGE_CONTEXT,\n    NULL AS CT_DespatchNoteId,\n    [DespatchNoteId],\n    [JobVersionId],\n    [JobContactId],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([ContactName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [ContactName],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchAddress],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchAddress],\n    [ExpectedDespatchDateTime],\n    [DespatchMethod],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchReference],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchReference],\n    [ActualDespatchDateTime],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([Notes],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [Notes],\n    [RangeId],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([SessionId],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [SessionId],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([DespatchNotePONo],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [DespatchNotePONo],\n    [RMSDespatchNumber],\n    [SiteId],\n    CASE \n        WHEN [ReceiptRequired] = 'True' THEN 1\n        WHEN [ReceiptRequired] = 'False' THEN 0\n        ELSE NULL\n    END AS [ReceiptRequired],\n    [ReceivedBy],\n    [ReceivedDate],\n    [RejectReason],\n    [ContactId],\n    [CustomerId],\n    [CreatedBy],\n    [UpdatedBy],\n    [CreatedDate],\n    [UpdatedDate],\n    [SGSContact],\n    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AlternativeCustomerName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AlternativeCustomerName],\n    CASE \n        WHEN [AddressVerified] = 'True' THEN 1\n        WHEN [AddressVerified] = 'False' THEN 0\n        ELSE NULL\n    END AS [AddressVerified],\n    [CountryId]\nFROM \n    [dbo].[tbl_despatch_notes];\n",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -317,8 +317,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -330,7 +330,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_despatch_notes\";  \n",
+              "value": "TRUNCATE TABLE \"SILVER\".\"MYSGSEU\".\"tbl_despatch_notes\";  \n",
               "type": "Expression"
             },
             "importSettings": {
@@ -341,7 +341,7 @@
               "typeProperties": {
                 "schema": "MYSGSEU",
                 "table": "tbl_despatch_notes",
-                "database": "SILVER_FABRIC"
+                "database": "SILVER"
               },
               "schema": [],
               "externalReferences": {
@@ -368,6 +368,8 @@
           "secureOutput": false
         },
         "name": "Fabric_To_SF_tbl_despatch_notes",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "tbl_despatch_notes_FULL",
@@ -407,7 +409,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_despatch_notes\";  \n",
+              "value": "TRUNCATE TABLE \"SILVER\".\"MYSGSEU\".\"tbl_despatch_notes\";",
               "type": "Expression"
             },
             "importSettings": {
@@ -418,7 +420,7 @@
               "typeProperties": {
                 "schema": "MYSGSEU",
                 "table": "tbl_despatch_notes",
-                "database": "SILVER_FABRIC"
+                "database": "SILVER"
               },
               "schema": [],
               "externalReferences": {

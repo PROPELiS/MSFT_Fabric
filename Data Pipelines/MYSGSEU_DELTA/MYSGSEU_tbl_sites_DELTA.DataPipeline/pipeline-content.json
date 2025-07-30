@@ -6,18 +6,21 @@
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
-            "sqlReaderQuery": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'tbl_sites'",
+            "sqlReaderQuery": {
+              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'tbl_sites'",
+              "type": "Expression"
+            },
             "partitionOption": "None",
             "queryTimeout": "02:00:00"
           },
           "datasetSettings": {
             "type": "SqlServerTable",
             "typeProperties": {
-              "database": "SGSEDW"
+              "database": "SGSWEB"
             },
             "schema": [],
             "externalReferences": {
-              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+              "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
             },
             "annotations": []
           }
@@ -37,7 +40,10 @@
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
-            "sqlReaderQuery": "SELECT DISTINCT \r\n\t\tISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION\t   \r\nFROM CHANGETABLE(CHANGES [dbo].[tbl_sites],0) CT\r\nLEFT JOIN [dbo].[tbl_sites] F\r\n ON CT.[SiteId] = F.[SiteId]\r\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
+            "sqlReaderQuery": {
+              "value": "SELECT DISTINCT \n\t\tISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION\t   \nFROM CHANGETABLE(CHANGES [dbo].[tbl_sites],0) CT\nLEFT JOIN [dbo].[tbl_sites] F\n ON CT.[SiteId] = F.[SiteId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
+              "type": "Expression"
+            },
             "partitionOption": "None",
             "queryTimeout": "02:00:00"
           },
@@ -154,7 +160,7 @@
       {
         "type": "Script",
         "typeProperties": {
-          "database": "SGSEDW",
+          "database": "SGSWEB",
           "scripts": [
             {
               "text": {
@@ -167,7 +173,7 @@
           "scriptBlockExecutionTimeout": "02:00:00"
         },
         "externalReferences": {
-          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+          "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
         },
         "policy": {
           "timeout": "0.12:00:00",
@@ -190,24 +196,28 @@
         "type": "Copy",
         "typeProperties": {
           "source": {
-            "type": "ParquetSource",
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
             "storeSettings": {
               "type": "LakehouseReadSettings",
               "recursive": true,
               "enablePartitionDiscovery": false
             },
-            "formatSettings": {
-              "type": "ParquetReadSettings"
-            },
             "datasetSettings": {
-              "type": "Parquet",
+              "type": "DelimitedText",
               "typeProperties": {
                 "location": {
                   "type": "LakehouseLocation",
                   "folderPath": "MYSGSEU/Delta/Active",
-                  "fileName": "MYSGSEU_tbl_sites.parquet"
+                  "fileName": "MYSGSEU_tbl_sites.csv"
                 },
-                "compressionCodec": "snappy"
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
               },
               "schema": [],
               "linkedService": {
@@ -315,7 +325,7 @@
             "datasetSettings": {
               "type": "LakehouseTable",
               "typeProperties": {
-                "schema": "dbo",
+                "schema": "MYSGSEU",
                 "table": "tbl_sites"
               },
               "schema": [],
@@ -324,8 +334,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -337,7 +347,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_sites\";  ",
+              "value": "TRUNCATE TABLE \"SILVER\".\"MYSGSEU\".\"tbl_sites\";  ",
               "type": "Expression"
             },
             "importSettings": {
@@ -348,7 +358,7 @@
               "typeProperties": {
                 "schema": "MYSGSEU",
                 "table": "tbl_sites",
-                "database": "SILVER_FABRIC"
+                "database": "SILVER"
               },
               "schema": [],
               "externalReferences": {
@@ -375,6 +385,8 @@
           "secureOutput": false
         },
         "name": "Fabric_To_SF_tbl_sites",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "tbl_sites_Notebook",
@@ -422,7 +434,7 @@
               "typeProperties": {
                 "location": {
                   "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Delta",
+                  "folderPath": "MYSGSEU/Delta/Active",
                   "fileName": {
                     "value": "@concat('MYSGSEU','_','tbl_sites','.csv')",
                     "type": "Expression"
@@ -491,7 +503,7 @@
             "datasetSettings": {
               "type": "LakehouseTable",
               "typeProperties": {
-                "schema": "dbo",
+                "schema": "MYSGSEU",
                 "table": "tbl_sites"
               },
               "schema": [],
@@ -513,7 +525,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_sites\";  ",
+              "value": "TRUNCATE TABLE \"SILVER\".\"MYSGSEU\".\"tbl_sites\";  ",
               "type": "Expression"
             },
             "importSettings": {
@@ -524,7 +536,7 @@
               "typeProperties": {
                 "schema": "MYSGSEU",
                 "table": "tbl_sites",
-                "database": "SILVER_FABRIC"
+                "database": "SILVER"
               },
               "schema": [],
               "externalReferences": {
@@ -550,7 +562,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_Dev_SF_tbl_sites",
+        "name": "Fabric_To_DEVSF_tbl_sites_copy1",
         "dependsOn": [
           {
             "activity": "tbl_sites_Notebook",

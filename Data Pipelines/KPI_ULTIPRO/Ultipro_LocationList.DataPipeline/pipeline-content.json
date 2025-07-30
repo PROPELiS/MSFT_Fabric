@@ -284,8 +284,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -335,6 +335,8 @@
           "secureOutput": false
         },
         "name": "Fabric_To_SF_Ultipro_LocationList",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "LocationList",
@@ -351,7 +353,7 @@
           "workspaceId": "00000000-0000-0000-0000-000000000000",
           "parameters": {
             "in_mode": {
-              "value": "DELTA",
+              "value": "FULL",
               "type": "string"
             }
           }
@@ -403,7 +405,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"Ultipro\".\"LocationList\";  \n",
+              "value": "TRUNCATE TABLE \"SILVER\".\"ULTIPRO\".\"LocationList\";  \n",
               "type": "Expression"
             },
             "importSettings": {
@@ -412,9 +414,9 @@
             "datasetSettings": {
               "type": "SnowflakeTable",
               "typeProperties": {
-                "schema": "Ultipro",
+                "schema": "ULTIPRO",
                 "table": "LocationList",
-                "database": "SILVER_FABRIC"
+                "database": "SILVER"
               },
               "schema": [],
               "externalReferences": {

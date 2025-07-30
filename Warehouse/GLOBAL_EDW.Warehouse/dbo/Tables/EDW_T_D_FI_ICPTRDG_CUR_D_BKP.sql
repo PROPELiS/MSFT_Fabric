@@ -1,0 +1,5 @@
+CREATE TABLE [dbo].[EDW_T_D_FI_ICPTRDG_CUR_D_BKP] (
+
+	[PROFT_CNTR_ID] varchar(30) NULL, 
+	[TRADING_PRTNR] varchar(30) NULL
+);

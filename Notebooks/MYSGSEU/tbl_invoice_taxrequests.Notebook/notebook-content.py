@@ -13,9 +13,6 @@
 # META       "default_lakehouse_workspace_id": "c8d75176-b949-4f7e-a658-b996603ec8c3",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e"
-# META         },
-# META         {
 # META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
 # META         }
 # META       ]
@@ -155,7 +152,7 @@ if in_mode == "FULL":
         "AvalaraCode": col("source.AvalaraCode")
         }).execute()
 else:
-    df.write.format("delta").mode("append").saveAsTable("tbl_invoice_taxrequests")
+    df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_invoice_taxrequests")
     
     source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_invoice_taxrequests_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)

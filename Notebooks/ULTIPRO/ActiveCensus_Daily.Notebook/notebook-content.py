@@ -33,8 +33,7 @@ in_mode = "FULL"
 
 # CELL ********************
 
-# Welcome to your new notebook
-# Type here in the cell editor to add code!
+
 from pyspark.sql.functions import concat_ws, expr, sha2, size, lit, col, array, struct, udf, current_timestamp, max as spark_max
 from functools import reduce
 from pyspark.sql.types import *

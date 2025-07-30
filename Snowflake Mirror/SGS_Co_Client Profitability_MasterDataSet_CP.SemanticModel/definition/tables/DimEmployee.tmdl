@@ -1720,16 +1720,6 @@ table DimEmployee
 
 		annotation SummarizationSetBy = Automatic
 
-	column PrimaryOrSecondaryIndicator
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: 2f2bb479-9d83-4db0-b767-bf9c3c6ef224
-		sourceLineageTag: PrimaryOrSecondaryIndicator
-		summarizeBy: none
-		sourceColumn: PrimaryOrSecondaryIndicator
-
-		annotation SummarizationSetBy = Automatic
-
 	column METADATA$ROW_ID
 		dataType: string
 		sourceProviderType: varchar(8000)
@@ -1740,12 +1730,28 @@ table DimEmployee
 
 		annotation SummarizationSetBy = Automatic
 
+	column Classification
+		dataType: string
+		lineageTag: f09814f9-cdb7-42a4-98c6-da50b0ca44f1
+		sourceLineageTag: Classification
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 90c76748-cf2b-40f5-959d-f1130a2fedb8
+		sourceLineageTag: Category
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimEmployee = entity
 		mode: directLake
 		source
 			entityName: DimEmployee
 			schemaName: dbo
 			expressionSource: DatabaseQuery
-
-	annotation PBI_ResultType = Table
 

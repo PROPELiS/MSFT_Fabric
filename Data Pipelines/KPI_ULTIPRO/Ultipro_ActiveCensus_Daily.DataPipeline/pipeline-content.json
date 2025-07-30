@@ -288,8 +288,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -339,6 +339,8 @@
           "secureOutput": false
         },
         "name": "Fabric_To_SF_Ultipro_ActiveCensus_Daily",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "ActiveCensus_Daily",
@@ -407,7 +409,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"Ultipro\".\"ActiveCensus_Daily\";  \n",
+              "value": "TRUNCATE TABLE \"SILVER\".\"ULTIPRO\".\"ActiveCensus_Daily\";  \n",
               "type": "Expression"
             },
             "importSettings": {
@@ -416,9 +418,9 @@
             "datasetSettings": {
               "type": "SnowflakeTable",
               "typeProperties": {
-                "schema": "Ultipro",
+                "schema": "ULTIPRO",
                 "table": "ActiveCensus_Daily",
-                "database": "SILVER_FABRIC"
+                "database": "SILVER"
               },
               "schema": [],
               "externalReferences": {
@@ -429,6 +431,444 @@
           },
           "translator": {
             "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "FileDate",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "FileDate",
+                  "type": "DateTime",
+                  "physicalType": "DATE"
+                }
+              },
+              {
+                "source": {
+                  "name": "EmployeeNumber",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "EmployeeNumber",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "EmployeeName",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "EmployeeName",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CompanyCode",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "CompanyCode",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PlantLBC",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PlantLBC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "Department",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Department",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "HRGrouping",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "HRGrouping",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SupervisorName",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SupervisorName",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SupervisorJobCode",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SupervisorJobCode",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "EmployeeJobCode",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "EmployeeJobCode",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobFamilyCode",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobFamilyCode",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobSubFamilyCode",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobSubFamilyCode",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobSubFamily",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobSubFamily",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SalaryGrade",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SalaryGrade",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SalaryRangeCurrency",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SalaryRangeCurrency",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "AnnualMinimum",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "AnnualMinimum",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 19
+                }
+              },
+              {
+                "source": {
+                  "name": "AnnualMidpoint",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "AnnualMidpoint",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 19
+                }
+              },
+              {
+                "source": {
+                  "name": "AnnualMaximum",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "AnnualMaximum",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 19
+                }
+              },
+              {
+                "source": {
+                  "name": "LocationCode",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "LocationCode",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SalaryDifferentialValue",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SalaryDifferentialValue",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 19
+                }
+              },
+              {
+                "source": {
+                  "name": "EmailAddress",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "EmailAddress",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "WageType",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "WageType",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "EmployeeStatus",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "EmployeeStatus",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TerminationDate",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TerminationDate",
+                  "type": "DateTime",
+                  "physicalType": "DATE"
+                }
+              },
+              {
+                "source": {
+                  "name": "ScheduledAnnualHours",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ScheduledAnnualHours",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 19
+                }
+              },
+              {
+                "source": {
+                  "name": "HourlyPayRate",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "HourlyPayRate",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 19
+                }
+              },
+              {
+                "source": {
+                  "name": "AnnualSalary",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "AnnualSalary",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 4,
+                  "precision": 19
+                }
+              },
+              {
+                "source": {
+                  "name": "SalaryCurrency",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SalaryCurrency",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "EffectiveDate",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "EffectiveDate",
+                  "type": "DateTime",
+                  "physicalType": "DATE"
+                }
+              },
+              {
+                "source": {
+                  "name": "InternationalSystemID",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "InternationalSystemID",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ETL_BatchId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ETL_BatchId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "ETL_ChangeTrackingOperation",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ETL_ChangeTrackingOperation",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "GLDepartment",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "GLDepartment",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TerminationType",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TerminationType",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TotalSalary",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TotalSalary",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              }
+            ],
             "typeConversion": true,
             "typeConversionSettings": {
               "allowDataTruncation": true,

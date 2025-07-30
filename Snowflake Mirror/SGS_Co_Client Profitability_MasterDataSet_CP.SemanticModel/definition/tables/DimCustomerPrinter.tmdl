@@ -732,7 +732,7 @@ table DimCustomerPrinter
 
 		annotation SummarizationSetBy = Automatic
 
-	column CPParentId
+	column 'CUST - MD Harmonized Level1 ID'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 5226f220-d676-48d6-b26e-e35b8b52cffe
@@ -740,9 +740,11 @@ table DimCustomerPrinter
 		summarizeBy: none
 		sourceColumn: CPParentId
 
+		changedProperty = Name
+
 		annotation SummarizationSetBy = Automatic
 
-	column CPChildId
+	column 'CUST - MD Harmonized Level2 ID'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: ccb2b499-4782-42ca-bf28-4354e8d96aec
@@ -750,9 +752,11 @@ table DimCustomerPrinter
 		summarizeBy: none
 		sourceColumn: CPChildId
 
+		changedProperty = Name
+
 		annotation SummarizationSetBy = Automatic
 
-	column CPParent
+	column 'CUST - MD Harmonized Level1'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 502afecb-5f72-49ee-8a33-02b140776cc7
@@ -760,9 +764,11 @@ table DimCustomerPrinter
 		summarizeBy: none
 		sourceColumn: CPParent
 
+		changedProperty = Name
+
 		annotation SummarizationSetBy = Automatic
 
-	column CPChild
+	column 'CUST - MD Harmonized Level2'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: bfb83f55-30ac-45b6-868b-27dea2e90205
@@ -770,15 +776,19 @@ table DimCustomerPrinter
 		summarizeBy: none
 		sourceColumn: CPChild
 
+		changedProperty = Name
+
 		annotation SummarizationSetBy = Automatic
 
-	column CPChildCPParentFromGRDCustomer1
+	column 'CUST - MD Harmonized Level1&2/GRD Customer1'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 87dd6921-bd8d-45c3-8b18-9e7042cb277a
 		sourceLineageTag: CPChildCPParentFromGRDCustomer1
 		summarizeBy: none
 		sourceColumn: CPChildCPParentFromGRDCustomer1
+
+		changedProperty = Name
 
 		annotation SummarizationSetBy = Automatic
 
@@ -1256,6 +1266,4 @@ table DimCustomerPrinter
 			entityName: DimCustomerPrinter
 			schemaName: dbo
 			expressionSource: DatabaseQuery
-
-	annotation PBI_ResultType = Table
 

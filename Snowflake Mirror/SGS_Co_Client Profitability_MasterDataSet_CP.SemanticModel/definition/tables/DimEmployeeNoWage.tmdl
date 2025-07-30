@@ -1714,16 +1714,6 @@ table DimEmployeeNoWage
 
 		annotation SummarizationSetBy = Automatic
 
-	column PrimaryOrSecondaryIndicator
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: babcfc23-514c-423a-a5bc-e9c21946f5d7
-		sourceLineageTag: PrimaryOrSecondaryIndicator
-		summarizeBy: none
-		sourceColumn: PrimaryOrSecondaryIndicator
-
-		annotation SummarizationSetBy = Automatic
-
 	column METADATA$ROW_ID
 		dataType: string
 		sourceProviderType: varchar(8000)
@@ -1734,12 +1724,28 @@ table DimEmployeeNoWage
 
 		annotation SummarizationSetBy = Automatic
 
+	column Classification
+		dataType: string
+		lineageTag: bbff599e-aa15-469f-9b51-a241d23625c7
+		sourceLineageTag: Classification
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 9e8def15-55a8-4f95-9072-f874bbc8c46a
+		sourceLineageTag: Category
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimEmployeeNoWage = entity
 		mode: directLake
 		source
 			entityName: DimEmployeeNoWage
 			schemaName: dbo
 			expressionSource: DatabaseQuery
-
-	annotation PBI_ResultType = Table
 

@@ -1,0 +1,103 @@
+table EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D
+	lineageTag: b70a17dd-dffc-41db-b3f4-7401dc59be41
+	sourceLineageTag: [dbo].[EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D]
+
+	column OPERATION_DESCRIPTION
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: b798a002-a28f-4544-8101-f74bda9ea658
+		sourceLineageTag: OPERATION_DESCRIPTION
+		summarizeBy: none
+		sourceColumn: OPERATION_DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column STANDARD_TEXT_KEY
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 4de8bc37-cbad-4745-9437-bce55edf972b
+		sourceLineageTag: STANDARD_TEXT_KEY
+		summarizeBy: none
+		sourceColumn: STANDARD_TEXT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY2023_SS_TASKS
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: a07a2580-e624-4d18-9038-0cead308da99
+		sourceLineageTag: FY2023_SS_TASKS
+		summarizeBy: none
+		sourceColumn: FY2023_SS_TASKS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SSP_PREFERRED_TASK
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 935a10bc-9564-4aa5-a017-da6d55300ad9
+		sourceLineageTag: SSP_PREFERRED_TASK
+		summarizeBy: none
+		sourceColumn: SSP_PREFERRED_TASK
+
+		annotation SummarizationSetBy = Automatic
+
+	column CSR_TASKS
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: e93914ec-77a9-4de7-878e-19e077999062
+		sourceLineageTag: CSR_TASKS
+		summarizeBy: none
+		sourceColumn: CSR_TASKS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALL_TASKS
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: ac88bde1-64d4-4312-80a1-43d7024c0193
+		sourceLineageTag: ALL_TASKS
+		summarizeBy: none
+		sourceColumn: ALL_TASKS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_GROUP
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: f9b065b8-978a-49cc-8a71-d7ae87969c64
+		sourceLineageTag: ACTIVITY_GROUP
+		summarizeBy: none
+		sourceColumn: ACTIVITY_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_WITH_STATUS
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 5ed454c9-dc0b-4e21-a139-43ca37328ad7
+		sourceLineageTag: ACTIVITY_WITH_STATUS
+		summarizeBy: none
+		sourceColumn: ACTIVITY_WITH_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column AUTOMATION_GROUPS
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 55d8c9b0-0fa1-4763-a473-b4b7a800a7bc
+		sourceLineageTag: AUTOMATION_GROUPS
+		summarizeBy: none
+		sourceColumn: AUTOMATION_GROUPS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

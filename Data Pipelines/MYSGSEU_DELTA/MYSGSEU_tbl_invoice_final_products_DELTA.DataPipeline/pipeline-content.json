@@ -16,11 +16,11 @@
           "datasetSettings": {
             "type": "SqlServerTable",
             "typeProperties": {
-              "database": "SGSEDW"
+              "database": "SGSWEB"
             },
             "schema": [],
             "externalReferences": {
-              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+              "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
             },
             "annotations": []
           }
@@ -259,7 +259,7 @@
       {
         "type": "Script",
         "typeProperties": {
-          "database": "SGSEDW",
+          "database": "SGSWEB",
           "scripts": [
             {
               "text": {
@@ -272,7 +272,7 @@
           "scriptBlockExecutionTimeout": "02:00:00"
         },
         "externalReferences": {
-          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+          "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
         },
         "policy": {
           "timeout": "0.12:00:00",
@@ -616,215 +616,6 @@
           "secureOutput": false
         },
         "name": "Fabric_To_SF_tbl_invoice_final_products",
-        "dependsOn": [
-          {
-            "activity": "tbl_invoice_final_products_Notebook",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "LakehouseTableSource",
-            "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "tbl_invoice_final_products"
-              },
-              "schema": [],
-              "linkedService": {
-                "name": "SILVER",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Tables"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
-            }
-          },
-          "sink": {
-            "type": "SnowflakeSink",
-            "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_invoice_final_products\";  ",
-              "type": "Expression"
-            },
-            "importSettings": {
-              "type": "SnowflakeImportCopyCommand"
-            },
-            "datasetSettings": {
-              "type": "SnowflakeTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "tbl_invoice_final_products",
-                "database": "SILVER_FABRIC"
-              },
-              "schema": [],
-              "externalReferences": {
-                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
-              },
-              "annotations": []
-            }
-          },
-          "translator": {
-            "type": "TabularTranslator",
-            "mappings": [
-              {
-                "source": {
-                  "name": "SYS_CHANGE_VERSION",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "SYS_CHANGE_VERSION",
-                  "type": "String",
-                  "physicalType": "VARCHAR"
-                }
-              },
-              {
-                "source": {
-                  "name": "SYS_CHANGE_CREATION_VERSION",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "SYS_CHANGE_CREATION_VERSION",
-                  "type": "String",
-                  "physicalType": "VARCHAR"
-                }
-              },
-              {
-                "source": {
-                  "name": "SYS_CHANGE_OPERATION",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "SYS_CHANGE_OPERATION",
-                  "type": "String",
-                  "physicalType": "VARCHAR"
-                }
-              },
-              {
-                "source": {
-                  "name": "SYS_CHANGE_COLUMNS",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "SYS_CHANGE_COLUMNS",
-                  "type": "String",
-                  "physicalType": "VARCHAR"
-                }
-              },
-              {
-                "source": {
-                  "name": "SYS_CHANGE_CONTEXT",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "SYS_CHANGE_CONTEXT",
-                  "type": "String",
-                  "physicalType": "VARCHAR"
-                }
-              },
-              {
-                "source": {
-                  "name": "CT_InvoiceFinalProductId",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "CT_InvoiceFinalProductId",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 0,
-                  "precision": 38
-                }
-              },
-              {
-                "source": {
-                  "name": "InvoiceFinalProductId",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "InvoiceFinalProductId",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 0,
-                  "precision": 38
-                }
-              },
-              {
-                "source": {
-                  "name": "InvoiceId",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "InvoiceId",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 0,
-                  "precision": 38
-                }
-              },
-              {
-                "source": {
-                  "name": "JobItemId",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "JobItemId",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 0,
-                  "precision": 38
-                }
-              },
-              {
-                "source": {
-                  "name": "DespatchNoteId",
-                  "type": "String",
-                  "physicalType": "string"
-                },
-                "sink": {
-                  "name": "DespatchNoteId",
-                  "type": "Int64",
-                  "physicalType": "NUMBER",
-                  "scale": 0,
-                  "precision": 38
-                }
-              }
-            ],
-            "typeConversion": true,
-            "typeConversionSettings": {
-              "allowDataTruncation": true,
-              "treatBooleanAsNumber": false
-            }
-          },
-          "enableStaging": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Fabric_To_SF_tbl_invoice_final_products_dev",
         "dependsOn": [
           {
             "activity": "tbl_invoice_final_products_Notebook",

@@ -1,0 +1,148 @@
+table EDW_T_D_MST_CUSTCNT_CUR_D
+	lineageTag: 20669c24-1c2c-439b-ad73-aee35caf0009
+	sourceLineageTag: [dbo].[EDW_T_D_MST_CUSTCNT_CUR_D]
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d65fba10-7b9b-422b-8a58-d2827faafd92
+		sourceLineageTag: CUST_CONTACT_KEY
+		summarizeBy: sum
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTACT_PERSON_ID
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 37711ea6-cc7a-45d5-9f96-b4fd9e06a85f
+		sourceLineageTag: CONTACT_PERSON_ID
+		summarizeBy: none
+		sourceColumn: CONTACT_PERSON_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_ID
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: eb44ea75-ef7c-42cd-9baf-06b280659717
+		sourceLineageTag: CUST_ID
+		summarizeBy: none
+		sourceColumn: CUST_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FIRST_NAME
+		dataType: string
+		sourceProviderType: varchar(35)
+		lineageTag: 09c04843-349f-45dd-8010-32795923a42f
+		sourceLineageTag: FIRST_NAME
+		summarizeBy: none
+		sourceColumn: FIRST_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column NAME
+		dataType: string
+		sourceProviderType: varchar(35)
+		lineageTag: c4204ce6-2951-44b2-83c1-d3c6eca9c6d5
+		sourceLineageTag: NAME
+		summarizeBy: none
+		sourceColumn: NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTACT_PERSON_DEPT
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: faffb348-7ea6-4b49-934c-d28a822456f3
+		sourceLineageTag: CONTACT_PERSON_DEPT
+		summarizeBy: none
+		sourceColumn: CONTACT_PERSON_DEPT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5de5d8ff-14c2-441a-9c8c-87bb01198c51
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTACT_PERSON_DEPT_NAME
+		dataType: string
+		sourceProviderType: varchar(35)
+		lineageTag: f6cbdb5d-7991-4a94-bae1-49b175adff84
+		sourceLineageTag: CONTACT_PERSON_DEPT_NAME
+		summarizeBy: none
+		sourceColumn: CONTACT_PERSON_DEPT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 170ef735-e6e6-49b1-95fd-b3b4d6bee4d6
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: e9d00fbc-01c0-40db-8ed0-567c1213f4cf
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 78e6b014-8b58-44b3-9c84-f46031b25669
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: e7a9d36f-4810-4f5e-b519-847c6ed22656
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 680dbc7d-5975-47d1-87f4-925fc9f4ac05
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_CUSTCNT_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_CUSTCNT_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

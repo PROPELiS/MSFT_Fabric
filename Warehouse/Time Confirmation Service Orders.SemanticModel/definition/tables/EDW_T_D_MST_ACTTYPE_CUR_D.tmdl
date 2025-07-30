@@ -1,0 +1,168 @@
+table EDW_T_D_MST_ACTTYPE_CUR_D
+	lineageTag: ffa4360c-12d2-43e0-9df7-74419b73500f
+	sourceLineageTag: [dbo].[EDW_T_D_MST_ACTTYPE_CUR_D]
+
+	column ACTIVITY_TYP_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 72fa097d-ed92-44bc-8fb1-83609108ed2c
+		sourceLineageTag: ACTIVITY_TYP_KEY
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_TYP_ID
+		dataType: string
+		sourceProviderType: varchar(6)
+		lineageTag: 7985e8f6-ac3f-431a-94bc-3be822bc981c
+		sourceLineageTag: ACTIVITY_TYP_ID
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_TYP_DESC
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: f9adab32-9b20-4728-b0cd-f9a9a7c94b96
+		sourceLineageTag: ACTIVITY_TYP_DESC
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_TYP_DESC_2
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 64650966-aa32-423a-8135-08a2347ce802
+		sourceLineageTag: ACTIVITY_TYP_DESC_2
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_DESC_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTROLLING_AREA
+		dataType: string
+		sourceProviderType: varchar(3)
+		lineageTag: c6a1823b-14ba-4284-b759-081540fee014
+		sourceLineageTag: CONTROLLING_AREA
+		summarizeBy: none
+		sourceColumn: CONTROLLING_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_UNIT
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: 62241728-2a78-41d0-81b3-3ab93ef9d237
+		sourceLineageTag: ACTIVITY_UNIT
+		summarizeBy: none
+		sourceColumn: ACTIVITY_UNIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 756de892-4a80-4018-a193-38e1e23a2e90
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTROLLING_AREA_DESC
+		dataType: string
+		sourceProviderType: varchar(25)
+		lineageTag: 15fbe0f3-d1e8-4652-9a7f-7c4fef2e90c5
+		sourceLineageTag: CONTROLLING_AREA_DESC
+		summarizeBy: none
+		sourceColumn: CONTROLLING_AREA_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_TYP_CTGRY_DESC
+		dataType: string
+		sourceProviderType: varchar(60)
+		lineageTag: 1b424599-acba-4f08-a698-56ed3ba94309
+		sourceLineageTag: ACTIVITY_TYP_CTGRY_DESC
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_CTGRY_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_TYP_CTGRY
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 4116419f-6d54-4761-924a-272befce101a
+		sourceLineageTag: ACTIVITY_TYP_CTGRY
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_CTGRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: eb030742-91f0-4a64-830e-fe9237244e57
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 52d60105-0b9f-4ba8-960f-31ec3b15f117
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: eedbfe35-7951-4cfe-bf67-093091a6c314
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: d552e27a-49e7-417d-a460-82d09a31cf59
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 3b3c7ab2-9abd-4e21-ad25-e224f8a55a2c
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_ACTTYPE_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_ACTTYPE_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

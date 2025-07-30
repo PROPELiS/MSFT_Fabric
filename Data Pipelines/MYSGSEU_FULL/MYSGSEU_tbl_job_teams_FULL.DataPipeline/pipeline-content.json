@@ -330,7 +330,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_job_teams\";\n",
+              "value": "TRUNCATE TABLE \"SILVER\".\"MYSGSEU\".\"tbl_job_teams\";\n",
               "type": "Expression"
             },
             "importSettings": {
@@ -341,7 +341,7 @@
               "typeProperties": {
                 "schema": "MYSGSEU",
                 "table": "tbl_job_teams",
-                "database": "SILVER_FABRIC"
+                "database": "SILVER"
               },
               "schema": [],
               "externalReferences": {
@@ -501,7 +501,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_job_teams\";\n",
+              "value": "TRUNCATE TABLE \"SILVER\".\"MYSGSEU\".\"tbl_job_teams\";",
               "type": "Expression"
             },
             "importSettings": {
@@ -512,7 +512,7 @@
               "typeProperties": {
                 "schema": "MYSGSEU",
                 "table": "tbl_job_teams",
-                "database": "SILVER_FABRIC"
+                "database": "SILVER"
               },
               "schema": [],
               "externalReferences": {
@@ -523,6 +523,100 @@
           },
           "translator": {
             "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "SYS_CHANGE_VERSION",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SYS_CHANGE_VERSION",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SYS_CHANGE_OPERATION",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SYS_CHANGE_OPERATION",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "Primary",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Primary",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobTeamId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobTeamId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "JobVersionId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "JobVersionId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "TeamId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "TeamId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "SiteId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SiteId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              }
+            ],
             "typeConversion": true,
             "typeConversionSettings": {
               "allowDataTruncation": true,

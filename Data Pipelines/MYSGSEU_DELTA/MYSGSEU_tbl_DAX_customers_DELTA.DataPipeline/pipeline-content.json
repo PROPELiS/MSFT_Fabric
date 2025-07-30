@@ -16,11 +16,11 @@
           "datasetSettings": {
             "type": "SqlServerTable",
             "typeProperties": {
-              "database": "SGSEDW"
+              "database": "SGSWEB"
             },
             "schema": [],
             "externalReferences": {
-              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+              "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
             },
             "annotations": []
           }
@@ -259,11 +259,11 @@
       {
         "type": "Script",
         "typeProperties": {
-          "database": "SGSEDW",
+          "database": "SGSWEB",
           "scripts": [
             {
               "text": {
-                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_DAX_customer_contacts'",
+                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_DAX_customers'",
                 "type": "Expression"
               },
               "type": "Query"
@@ -272,7 +272,7 @@
           "scriptBlockExecutionTimeout": "02:00:00"
         },
         "externalReferences": {
-          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+          "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
         },
         "policy": {
           "timeout": "0.12:00:00",
@@ -336,7 +336,7 @@
           },
           "sink": {
             "type": "LakehouseTableSink",
-            "tableActionOption": "Append",
+            "tableActionOption": "OverwriteSchema",
             "partitionOption": "None",
             "datasetSettings": {
               "type": "LakehouseTable",
@@ -405,7 +405,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "tbl_DAX_customer_Notebook",
+        "name": "tbl_DAX_customers_Notebook",
         "dependsOn": [
           {
             "activity": "File_To_Table",
@@ -482,87 +482,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_SF_tbl_DAX_customer",
+        "name": "Fabric_To_SF_tbl_DAX_customers",
         "dependsOn": [
           {
-            "activity": "tbl_DAX_customer_Notebook",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "LakehouseTableSource",
-            "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "tbl_dax_customers"
-              },
-              "schema": [],
-              "linkedService": {
-                "name": "SILVER",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Tables"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
-            }
-          },
-          "sink": {
-            "type": "SnowflakeSink",
-            "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_DAX_customers\";",
-              "type": "Expression"
-            },
-            "importSettings": {
-              "type": "SnowflakeImportCopyCommand"
-            },
-            "datasetSettings": {
-              "type": "SnowflakeTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "tbl_DAX_customers",
-                "database": "SILVER_FABRIC"
-              },
-              "schema": [],
-              "externalReferences": {
-                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
-              },
-              "annotations": []
-            }
-          },
-          "translator": {
-            "type": "TabularTranslator",
-            "typeConversion": true,
-            "typeConversionSettings": {
-              "allowDataTruncation": true,
-              "treatBooleanAsNumber": false
-            }
-          },
-          "enableStaging": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Fabric_To_Dev_SF_tbl_DAX_customers",
-        "dependsOn": [
-          {
-            "activity": "tbl_DAX_customer_Notebook",
+            "activity": "tbl_DAX_customers_Notebook",
             "dependencyConditions": [
               "Succeeded"
             ]

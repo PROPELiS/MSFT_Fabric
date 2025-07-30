@@ -5,11 +5,11 @@
         "type": "Copy",
         "typeProperties": {
           "source": {
-            "type": "AzureSqlSource",
+            "type": "SqlServerSource",
             "partitionOption": "None",
             "queryTimeout": "02:00:00",
             "datasetSettings": {
-              "type": "AzureSqlTable",
+              "type": "SqlServerTable",
               "typeProperties": {
                 "schema": "KPI",
                 "table": "Hierarchy",
@@ -17,7 +17,7 @@
               },
               "schema": [],
               "externalReferences": {
-                "connection": "87afe2b9-95d3-4dbc-9e22-0bb4197dcc52"
+                "connection": "ac03e674-24fe-47fa-a6fa-1c8664bea5ba"
               },
               "annotations": []
             }
@@ -313,8 +313,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -1061,7 +1061,9 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_SF_KPI__Hierarchy",
+        "name": "Fabric_To_SF_KPI_Hierarchy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "KPI_Hierarchy",
@@ -1101,7 +1103,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"KPI\".\"Hierarchy\";",
+              "value": "TRUNCATE TABLE \"SILVER\".\"KPI\".\"Hierarchy\";",
               "type": "Expression"
             },
             "importSettings": {
@@ -1112,7 +1114,7 @@
               "typeProperties": {
                 "schema": "KPI",
                 "table": "Hierarchy",
-                "database": "SILVER_FABRIC"
+                "database": "SILVER"
               },
               "schema": [],
               "externalReferences": {
@@ -1836,7 +1838,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_Dev_SF_KPI__Hierarchy",
+        "name": "Fabric_To_Dev_SF_KPI_Hierarchy",
         "dependsOn": [
           {
             "activity": "KPI_Hierarchy",

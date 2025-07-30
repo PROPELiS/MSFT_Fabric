@@ -136,3 +136,15 @@ silver_table.alias("target") \
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# CELL ********************
+
+df = spark.sql("SELECT COUNT(*) FROM SILVER.KPI.tbl_stgnonultipro_combined_employee_workdate")
+display(df)
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }

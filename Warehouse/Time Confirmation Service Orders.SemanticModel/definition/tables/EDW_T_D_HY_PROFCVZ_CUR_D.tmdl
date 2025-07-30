@@ -1,0 +1,84 @@
+table EDW_T_D_HY_PROFCVZ_CUR_D
+	lineageTag: db2935ad-f39a-4602-8dfb-512b09847606
+	sourceLineageTag: [dbo].[EDW_T_D_HY_PROFCVZ_CUR_D]
+
+	column PARNT_DESC
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: fe1380e7-a590-41b0-9ea8-ab943ed75267
+		sourceLineageTag: PARNT_DESC
+		summarizeBy: none
+		sourceColumn: PARNT_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CHILD_ID
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: f16c22f8-d705-4ad4-81b5-48cfa64ab1b4
+		sourceLineageTag: CHILD_ID
+		summarizeBy: none
+		sourceColumn: CHILD_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CHILD_DESC
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 92aeda20-c8db-4dfa-861a-88586e2de5a9
+		sourceLineageTag: CHILD_DESC
+		summarizeBy: none
+		sourceColumn: CHILD_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column LVL
+		dataType: string
+		sourceProviderType: varchar(24)
+		lineageTag: 3fddb598-d184-499a-988c-ee6077fcc2d8
+		sourceLineageTag: LVL
+		summarizeBy: none
+		sourceColumn: LVL
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ff09b028-0d63-47bc-8bbf-c42ef7db04ad
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTROLLING_AREA_ID
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: 5b2c80a9-4c3e-4786-8570-64dc58930ef2
+		sourceLineageTag: CONTROLLING_AREA_ID
+		summarizeBy: none
+		sourceColumn: CONTROLLING_AREA_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARNT_ID
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: c12aba75-87b3-41f5-824e-8e1f22b0618b
+		sourceLineageTag: PARNT_ID
+		summarizeBy: none
+		sourceColumn: PARNT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_HY_PROFCVZ_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_HY_PROFCVZ_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

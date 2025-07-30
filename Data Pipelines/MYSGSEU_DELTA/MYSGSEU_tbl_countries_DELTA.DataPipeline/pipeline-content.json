@@ -50,11 +50,11 @@
           "datasetSettings": {
             "type": "SqlServerTable",
             "typeProperties": {
-              "database": "SGSEDW"
+              "database": "SGSWEB"
             },
             "schema": [],
             "externalReferences": {
-              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+              "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
             },
             "annotations": []
           }
@@ -259,7 +259,7 @@
       {
         "type": "Script",
         "typeProperties": {
-          "database": "SGSEDW",
+          "database": "SGSWEB",
           "scripts": [
             {
               "text": {
@@ -272,7 +272,7 @@
           "scriptBlockExecutionTimeout": "02:00:00"
         },
         "externalReferences": {
-          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+          "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
         },
         "policy": {
           "timeout": "0.12:00:00",
@@ -432,8 +432,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -445,7 +445,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_countries\";  ",
+              "value": "TRUNCATE TABLE \"SILVER\".\"MYSGSEU\".\"tbl_countries\";  ",
               "type": "Expression"
             },
             "importSettings": {
@@ -456,7 +456,7 @@
               "typeProperties": {
                 "schema": "MYSGSEU",
                 "table": "tbl_countries",
-                "database": "SILVER_FABRIC"
+                "database": "SILVER"
               },
               "schema": [],
               "externalReferences": {
@@ -483,6 +483,8 @@
           "secureOutput": false
         },
         "name": "Fabric_To_SF_tbl_countries",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "tbl_countries_Notebook",
@@ -522,7 +524,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_countries\";  ",
+              "value": "TRUNCATE TABLE \"SILVER\".\"MYSGSEU\".\"tbl_countries\";  ",
               "type": "Expression"
             },
             "importSettings": {
@@ -533,7 +535,7 @@
               "typeProperties": {
                 "schema": "MYSGSEU",
                 "table": "tbl_countries",
-                "database": "SILVER_FABRIC"
+                "database": "SILVER"
               },
               "schema": [],
               "externalReferences": {
@@ -559,7 +561,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_Dev_SF_tbl_countries",
+        "name": "Fabric_To_DEV_SF_tbl_countries",
         "dependsOn": [
           {
             "activity": "tbl_countries_Notebook",

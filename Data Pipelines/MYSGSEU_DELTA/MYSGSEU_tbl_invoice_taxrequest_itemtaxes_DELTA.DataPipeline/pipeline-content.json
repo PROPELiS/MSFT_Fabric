@@ -6,18 +6,21 @@
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
-            "sqlReaderQuery": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'tbl_exchange_rates'",
+            "sqlReaderQuery": {
+              "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'tbl_invoice_taxrequest_itemtaxes'",
+              "type": "Expression"
+            },
             "partitionOption": "None",
             "queryTimeout": "02:00:00"
           },
           "datasetSettings": {
             "type": "SqlServerTable",
             "typeProperties": {
-              "database": "SGSEDW"
+              "database": "SGSWEB"
             },
             "schema": [],
             "externalReferences": {
-              "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+              "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
             },
             "annotations": []
           }
@@ -37,7 +40,10 @@
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
-            "sqlReaderQuery": "SELECT DISTINCT\nISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION    \nFROM CHANGETABLE(CHANGES dbo.tbl_exchange_rates,0) CT\nLEFT JOIN dbo.tbl_exchange_rates F\n ON CT.[ExchangeRateId] = F.[ExchangeRateId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
+            "sqlReaderQuery": {
+              "value": "SELECT DISTINCT\n        ISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION    \nFROM CHANGETABLE(CHANGES [dbo].[tbl_invoice_taxrequest_itemtaxes],0) CT\nLEFT JOIN [dbo].[tbl_invoice_taxrequest_itemtaxes] F\n ON CT.[TaxRequestItemTaxId] = F.[TaxRequestItemTaxId]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
+              "type": "Expression"
+            },
             "partitionOption": "None",
             "queryTimeout": "02:00:00"
           },
@@ -69,7 +75,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT  CT.SYS_CHANGE_VERSION\r\n         ,CT.SYS_CHANGE_CREATION_VERSION\r\n         ,CT.SYS_CHANGE_OPERATION\r\n         ,CT.SYS_CHANGE_COLUMNS\r\n         ,CT.SYS_CHANGE_CONTEXT\r\n         ,CT.[ExchangeRateId] AS CT_ExchangeRateId\r\n        ,F.[ExchangeRateId]\r\n        ,[CurrencyId]\r\n        ,[ExchangeRate]\r\n        ,[BaseCurrencyID]\r\n FROM CHANGETABLE(CHANGES dbo.tbl_exchange_rates,@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT\r\nLEFT JOIN dbo.tbl_exchange_rates F\r\n ON F.[ExchangeRateId] = CT.[ExchangeRateId]\r\nWHERE CT.SYS_CHANGE_VERSION IS NOT NULL\r\nAND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "value": "SELECT\n        CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.TaxRequestItemTaxId AS CT_TaxRequestItemTaxId\n       ,F.TaxRequestItemTaxId\n       ,[TaxRequestId]\n       ,[InvoiceItemId]\n       ,[CreditNoteItemId]\n       ,[DespatchNoteId]\n       ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AuthorityName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AuthorityName]\n       ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AuthorityType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AuthorityType]\n       ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([TaxName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [TaxName]\n       ,[TaxApplied]\n       ,[FeeApplied]\n       ,[TaxableAmount]\n       ,[TaxableQuantity]\n       ,[ExemptQty]\n       ,[ExemptAmt]\n       ,[TaxRate]\n       ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([BaseType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [BaseType]\n       ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PassFlag],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PassFlag]\n       ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PassType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PassType]\n       ,[TransferItemId]\n       ,[Quantity]\n       FROM  CHANGETABLE(CHANGES [dbo].[tbl_invoice_taxrequest_itemtaxes],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT\n     LEFT JOIN [dbo].[tbl_invoice_taxrequest_itemtaxes] F\n     ON CT.TaxRequestItemTaxId = F.TaxRequestItemTaxId\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\n ",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -168,7 +174,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT  CT.SYS_CHANGE_VERSION\n         ,CT.SYS_CHANGE_CREATION_VERSION\n         ,CT.SYS_CHANGE_OPERATION\n         ,CT.SYS_CHANGE_COLUMNS\n         ,CT.SYS_CHANGE_CONTEXT\n         ,CT.[ExchangeRateId] AS CT_ExchangeRateId\n        ,F.[ExchangeRateId]\n        ,[CurrencyId]\n        ,[ExchangeRate]\n        ,[BaseCurrencyID]\n FROM CHANGETABLE(CHANGES dbo.tbl_exchange_rates,@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT\nLEFT JOIN dbo.tbl_exchange_rates F\n ON F.[ExchangeRateId] = CT.[ExchangeRateId]\nWHERE CT.SYS_CHANGE_VERSION IS NOT NULL\nAND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "value": "SELECT\n        CT.SYS_CHANGE_VERSION\n       ,CT.SYS_CHANGE_CREATION_VERSION\n       ,CT.SYS_CHANGE_OPERATION\n       ,CT.SYS_CHANGE_COLUMNS\n       ,CT.SYS_CHANGE_CONTEXT\n       ,CT.TaxRequestItemTaxId AS CT_TaxRequestItemTaxId\n       ,F.TaxRequestItemTaxId\n       ,[TaxRequestId]\n       ,[InvoiceItemId]\n       ,[CreditNoteItemId]\n       ,[DespatchNoteId]\n       ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AuthorityName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AuthorityName]\n       ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([AuthorityType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [AuthorityType]\n       ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([TaxName],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [TaxName]\n       ,[TaxApplied]\n       ,[FeeApplied]\n       ,[TaxableAmount]\n       ,[TaxableQuantity]\n       ,[ExemptQty]\n       ,[ExemptAmt]\n       ,[TaxRate]\n       ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([BaseType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [BaseType]\n       ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PassFlag],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PassFlag]\n       ,REPLACE(REPLACE(REPLACE(REPLACE(REPLACE([PassType],'^',''),'\"',''),'\\',''),CHAR(10),''),CHAR(13),'') AS [PassType]\n       ,[TransferItemId]\n       ,[Quantity]\n       FROM  CHANGETABLE(CHANGES [dbo].[tbl_invoice_taxrequest_itemtaxes],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT\n     LEFT JOIN [dbo].[tbl_invoice_taxrequest_itemtaxes] F\n     ON CT.TaxRequestItemTaxId = F.TaxRequestItemTaxId\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\n ",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -339,7 +345,7 @@
         "name": "File_to_Table",
         "dependsOn": [
           {
-            "activity": "MYSGSEU_tbl_invoice_taxrequest_itemtaxes_PARQUET",
+            "activity": "ChangeTracking_version_Update",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -376,7 +382,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_exchange_rates\";\n",
+              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_invoice_taxrequest_itemtaxes\";\n",
               "type": "Expression"
             },
             "importSettings": {
@@ -413,87 +419,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_SF_tbl_exchange_rates",
+        "name": "Fabric_To_SF_tbl_invoice_taxrequest_itemtaxes",
         "dependsOn": [
           {
-            "activity": "tbl_exchange_rates_Notebook",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "LakehouseTableSource",
-            "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "dbo",
-                "table": "tbl_exchange_rates"
-              },
-              "schema": [],
-              "linkedService": {
-                "name": "SILVER",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Tables"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
-            }
-          },
-          "sink": {
-            "type": "SnowflakeSink",
-            "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_exchange_rates\";\n",
-              "type": "Expression"
-            },
-            "importSettings": {
-              "type": "SnowflakeImportCopyCommand"
-            },
-            "datasetSettings": {
-              "type": "SnowflakeTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "tbl_exchange_rates",
-                "database": "SILVER_FABRIC"
-              },
-              "schema": [],
-              "externalReferences": {
-                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
-              },
-              "annotations": []
-            }
-          },
-          "translator": {
-            "type": "TabularTranslator",
-            "typeConversion": true,
-            "typeConversionSettings": {
-              "allowDataTruncation": true,
-              "treatBooleanAsNumber": false
-            }
-          },
-          "enableStaging": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Fabric_To_dev_SF_tbl_exchange_rates_copy1",
-        "dependsOn": [
-          {
-            "activity": "tbl_exchange_rates_Notebook",
+            "activity": "tbl_invoice_taxrequest_itemtaxes_Notebook",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -503,11 +432,11 @@
       {
         "type": "Script",
         "typeProperties": {
-          "database": "SGSEDW",
+          "database": "SGSWEB",
           "scripts": [
             {
               "text": {
-                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_exchange_rates'",
+                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_invoice_taxrequest_itemtaxes'",
                 "type": "Expression"
               },
               "type": "Query"
@@ -516,7 +445,7 @@
           "scriptBlockExecutionTimeout": "02:00:00"
         },
         "externalReferences": {
-          "connection": "ff095757-8473-4556-8458-e2e46c574e03"
+          "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
         },
         "policy": {
           "timeout": "0.12:00:00",
@@ -525,10 +454,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "ChangeTracking_version_Update_copy1",
+        "name": "ChangeTracking_version_Update",
         "dependsOn": [
           {
-            "activity": "File_to_Table",
+            "activity": "MYSGSEU_tbl_invoice_taxrequest_itemtaxes_PARQUET",
             "dependencyConditions": [
               "Succeeded"
             ]
@@ -554,10 +483,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "tbl_exchange_rates_Notebook",
+        "name": "tbl_invoice_taxrequest_itemtaxes_Notebook",
         "dependsOn": [
           {
-            "activity": "ChangeTracking_version_Update_copy1",
+            "activity": "File_to_Table",
             "dependencyConditions": [
               "Succeeded"
             ]

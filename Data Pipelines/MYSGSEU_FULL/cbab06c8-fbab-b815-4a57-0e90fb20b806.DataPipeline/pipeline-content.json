@@ -48,6 +48,53 @@
         },
         "name": "MYSGSEU_FULL_combine_III",
         "dependsOn": []
+      },
+      {
+        "type": "Script",
+        "typeProperties": {
+          "database": "SGSWEB",
+          "scripts": [
+            {
+              "text": {
+                "value": "UPDATE X\r\nSET SYS_CHANGE_VERSION = 0\r\nFROM [dbo].[ChangeTracking_Fabric_Update] X",
+                "type": "Expression"
+              },
+              "type": "Query"
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        },
+        "externalReferences": {
+          "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Reset_ChangeTracking_Fabric_Update",
+        "dependsOn": [
+          {
+            "activity": "MYSGSEU_FULL_combine_I",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "MYSGSEU_FULL_combine_II",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "MYSGSEU_FULL_combine_III",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
       }
     ]
   }

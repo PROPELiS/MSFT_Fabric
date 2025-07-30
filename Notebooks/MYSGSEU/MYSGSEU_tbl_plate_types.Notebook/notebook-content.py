@@ -106,7 +106,7 @@ if in_mode == "FULL":
         "Deleted": "source.Deleted"
         }).execute()
 else:
-    df.write.format("delta").mode("append").saveAsTable("tbl_plate_types")
+    df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_plate_types")
     
     source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_plate_types_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)

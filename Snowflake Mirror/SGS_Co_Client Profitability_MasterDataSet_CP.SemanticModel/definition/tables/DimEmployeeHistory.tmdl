@@ -436,16 +436,6 @@ table DimEmployeeHistory
 
 		annotation SummarizationSetBy = Automatic
 
-	column PrimaryOrSecondaryIndicator
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: d969a909-08f3-4273-9b83-18406254921c
-		sourceLineageTag: PrimaryOrSecondaryIndicator
-		summarizeBy: none
-		sourceColumn: PrimaryOrSecondaryIndicator
-
-		annotation SummarizationSetBy = Automatic
-
 	column METADATA$ROW_ID
 		dataType: string
 		sourceProviderType: varchar(8000)
@@ -456,12 +446,28 @@ table DimEmployeeHistory
 
 		annotation SummarizationSetBy = Automatic
 
+	column Classification
+		dataType: string
+		lineageTag: 9df975f0-14f1-4b53-9b7c-0404bc127233
+		sourceLineageTag: Classification
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: d531f00b-bde2-42b1-ab85-b1b355d5d21d
+		sourceLineageTag: Category
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimEmployeeHistory = entity
 		mode: directLake
 		source
 			entityName: DimEmployeeHistory
 			schemaName: dbo
 			expressionSource: DatabaseQuery
-
-	annotation PBI_ResultType = Table
 

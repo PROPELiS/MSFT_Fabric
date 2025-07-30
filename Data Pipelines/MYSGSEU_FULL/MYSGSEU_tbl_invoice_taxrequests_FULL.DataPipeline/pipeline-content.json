@@ -317,8 +317,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -330,7 +330,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_invoice_taxrequests\";",
+              "value": "TRUNCATE TABLE \"SILVER\".\"MYSGSEU\".\"tbl_invoice_taxrequests\";",
               "type": "Expression"
             },
             "importSettings": {
@@ -341,7 +341,7 @@
               "typeProperties": {
                 "schema": "MYSGSEU",
                 "table": "tbl_invoice_taxrequests",
-                "database": "SILVER_FABRIC"
+                "database": "SILVER"
               },
               "schema": [],
               "externalReferences": {
@@ -594,6 +594,8 @@
           "secureOutput": false
         },
         "name": "Fabric_To_SF_tbl_invoice_taxrequests",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "tbl_invoice_taxrequests_Notebook",
@@ -633,7 +635,7 @@
           "sink": {
             "type": "SnowflakeSink",
             "preCopyScript": {
-              "value": "TRUNCATE TABLE \"SILVER_FABRIC\".\"MYSGSEU\".\"tbl_invoice_taxrequests\";",
+              "value": "TRUNCATE TABLE \"SILVER\".\"MYSGSEU\".\"tbl_invoice_taxrequests\";",
               "type": "Expression"
             },
             "importSettings": {
@@ -644,7 +646,7 @@
               "typeProperties": {
                 "schema": "MYSGSEU",
                 "table": "tbl_invoice_taxrequests",
-                "database": "SILVER_FABRIC"
+                "database": "SILVER"
               },
               "schema": [],
               "externalReferences": {

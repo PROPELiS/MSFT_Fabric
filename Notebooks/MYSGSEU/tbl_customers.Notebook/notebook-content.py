@@ -263,7 +263,7 @@ if in_mode == "FULL":
     "ServiceChargeExempt": col("source.ServiceChargeExempt")
     }).execute()
 else:
-    df.write.format("delta").mode("append").saveAsTable("tbl_customers")
+    df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_customers")
 source_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customers_DELTA"
 source_df_delta = spark.read.format("delta").load(source_path)
 

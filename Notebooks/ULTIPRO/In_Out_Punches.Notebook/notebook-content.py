@@ -34,9 +34,6 @@ in_mode = "FULL"
 # CELL ********************
 
 
-# Welcome to your new notebook
-# Type here in the cell editor to add code!
-
 from pyspark.sql.functions import concat_ws, expr, sha2, size, lit, col, array, struct, udf, current_timestamp, max as spark_max
 from functools import reduce
 from pyspark.sql.types import *
@@ -115,7 +112,7 @@ param = ""  # Replace with the actual PARAM value
 # If-else logic to control the flow based on in_mode
 if in_mode == "FULL":
     # Write the DataFrame as a Delta table
-    # df.write.format("delta").mode("overwrite").saveAsTable("ULTIPRO.tbl_In_Out_Punches")
+    df.write.format("delta").mode("overwrite").saveAsTable("ULTIPRO.tbl_In_Out_Punches")
     bronze_Path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_In_Out_Punches"
 
     # Load Delta tables correctly

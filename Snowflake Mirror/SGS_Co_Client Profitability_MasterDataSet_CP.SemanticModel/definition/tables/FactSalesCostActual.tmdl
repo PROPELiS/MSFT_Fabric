@@ -47,11 +47,11 @@ table FactSalesCostActual
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'AMT - % of Revenue (Cost of Goods Sold)' = ```
+	measure 'AMT - % of Revenue(Cost of Goods Sold)' = ```
 			
 			DIVIDE(
 			    [AMT - P&L Total Wages(Cost of Goods Sold)],
-			    [AMT - P&L Net Sales]
+			    [AMT - P&L Net Sales],0
 			)
 			
 			```
@@ -63,14 +63,7 @@ table FactSalesCostActual
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'AMT - Gross Margin %' = ```
-			
-			[AMT - P&L Net Sales] - [AMT - P&L Total COGS] + 0
-			
-			
-			
-			
-			```
+	measure 'AMT - Gross Margin %' = [AMT - P&L Net Sales] - [AMT - P&L Total COGS] + 0
 		lineageTag: cfff4061-2bc9-48c5-b72e-8457c3513220
 
 		changedProperty = Name
@@ -453,10 +446,7 @@ table FactSalesCostActual
 
 		changedProperty = IsHidden
 
-	measure 'AMT - P&L Management Incentive Taxes' = ```
-			0
-			
-			```
+	measure 'AMT - P&L Management Incentive Taxes' = 0
 		formatString: 0
 		lineageTag: 1f06da08-7900-4c29-a6ed-172739bf6688
 
@@ -1241,13 +1231,7 @@ table FactSalesCostActual
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'MAPPED AMT - P&L (Selling, General and Administrative)' =
-			
-			SUMX(
-			    FactSalesCostActual,
-			    FactSalesCostActual[MAPPED AMT - P&L Total Selling Expence] +
-			    FactSalesCostActual[MAPPED AMT - P&L Total G&A]
-			)
+	measure 'MAPPED AMT - P&L (Selling, General and Administrative)' = [MAPPED AMT - P&L Total Selling Expence] + [MAPPED AMT - P&L Total G&A]
 		lineageTag: 112289a4-d86d-4d08-9b5c-17412f967827
 
 		changedProperty = Name
@@ -1827,19 +1811,13 @@ table FactSalesCostActual
 
 	measure 'MAPPED AMT - P&L Total COGS' =
 			
-			CALCULATE(
-			    SUMX(
-			        FactSalesCostActual,
-			        FactSalesCostActual[AMT - Mapped Cost Actual LC] +
-			        FactSalesCostActual[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]
-			    ),
+			CALCULATE('FactSalesCostActual'[AMT - Mapped Cost Actual LC(M)] +
+			        FactSalesCostActual[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)],
 			    DimGLAccountsDepartment[GL - GL Level 2] = "Cost of Goods Sold"
 			) + 0
 		lineageTag: d883c6fd-10e7-44a8-ac79-766dab914a24
 
 		changedProperty = Name
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'MAPPED AMT - P&L Total G&A' =
 			
@@ -1928,7 +1906,7 @@ table FactSalesCostActual
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'MAPPED AMT - P&L Total Selling Expence' = ```
+	measure 'MAPPED AMT - P&L Total Selling Expence' =
 			
 			CALCULATE(
 			    [AMT - Mapped Cost Actual(USD)],
@@ -1944,9 +1922,6 @@ table FactSalesCostActual
 			        DimGLAccountsDepartment[GL - GL Level 2] = "Selling Expense"
 			    )
 			) + 0
-			
-			
-			```
 		lineageTag: d220dad0-853f-49c8-921d-570217c17651
 
 		changedProperty = Name
@@ -1998,11 +1973,8 @@ table FactSalesCostActual
 	measure 'MAPPED AMT - P&L Total Wages(Selling Expence)' = ```
 			
 			CALCULATE(
-			    SUMX(
-			        FactSalesCostActual,
-			        FactSalesCostActual[AMT - Mapped Cost Actual LC] + 
-			        FactSalesCostActual[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]
-			    ),
+			    SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]) + 
+			    SUM([AMT - UnMapped Cost Actual LC(W/O Hr)]),
 			    FILTER(
 			        DimGLAccountsDepartment,
 			        DimGLAccountsDepartment[GL - GL Level 2] = "Selling Expense" &&
@@ -2163,6 +2135,13 @@ table FactSalesCostActual
 			    )
 			) + 0
 		lineageTag: 92343d9c-b4e6-4a2e-a2e4-89dd331d1958
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AMT - Mapped Cost Actual LC(M)' = SUM('FactSalesCostActual'[AMT - Mapped Cost Actual LC])
+		lineageTag: 736d7528-e389-433a-8182-e6d65e7bbae7
 
 		changedProperty = Name
 
@@ -3610,6 +3589,4 @@ table FactSalesCostActual
 			expressionSource: DatabaseQuery
 
 	changedProperty = IsHidden
-
-	annotation PBI_ResultType = Table
 

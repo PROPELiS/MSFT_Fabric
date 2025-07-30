@@ -103,7 +103,7 @@ if in_mode == "FULL":
 else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.Production_TaskPausedReason")
     
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Production_TaskPausedReason_DELTA"
+    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Production_TaskPausedReasons_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     # Filter the source DataFrame for "D" operations and select distinct CT_TaskPausedReasonId
@@ -147,6 +147,18 @@ else:
         "TaskPausedReasonId": col("source.TaskPausedReasonId"),
         "ReasonDescription": col("source.ReasonDescription")
     }).execute()
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+df = spark.sql("SELECT COUNT(*) FROM SILVER.MYSGSEU.production_taskpausedreasons")
+display(df)
 
 # METADATA ********************
 

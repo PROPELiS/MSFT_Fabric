@@ -54,42 +54,10 @@ spark = SparkSession.builder \
     .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
     .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog") \
     .getOrCreate()
-    
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-from pyspark.sql.functions import concat_ws, expr, sha2, size, lit, col, array, struct, udf, current_timestamp, max as spark_max
-from functools import reduce
-from pyspark.sql.types import *
-from pyspark.sql import *
-from delta.tables import *
-from pyspark.sql import SparkSession
-from delta.tables import DeltaTable
-from pyspark.sql.types import StructType, StructField, StringType, TimestampType
-
-# Define the schema for the order data
-orderSchema = StructType([
-    StructField("JobSubFamilyName", StringType(), True),
-    StructField("JobRoleGroup", StringType(), True)
-])
-
-# Initialize Spark session
-spark = SparkSession.builder \
-    .appName("Bronze to Silver Merge") \
-    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
-    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog") \
-    .getOrCreate()
 
 param = ""
 # File paths
-silver_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/KPI/stgtransjobsubfamilyjobrolegroup"
+silver_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/KPI/tbl_stgtransjobsubfamilyjobrolegroup"
 bronze_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/KPI/stgTransJobSubFamilyJobRoleGroup"
 
 if in_mode == "FULL":
