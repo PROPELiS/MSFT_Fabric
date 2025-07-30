@@ -1,0 +1,158 @@
+table EDW_T_D_MST_CUSTMINR_CUR_D
+	lineageTag: 7f5b70f3-1d82-4c99-bea7-f62de268c7c6
+	sourceLineageTag: [dbo].[EDW_T_D_MST_CUSTMINR_CUR_D]
+
+	column CUST_MATRL_INFO_RCD_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c4714610-0734-4231-9987-13006a348c9f
+		sourceLineageTag: CUST_MATRL_INFO_RCD_KEY
+		summarizeBy: sum
+		sourceColumn: CUST_MATRL_INFO_RCD_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_ORGZTN
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: e5680ace-babe-45f7-95cb-1202bee7f843
+		sourceLineageTag: SALES_ORGZTN
+		summarizeBy: none
+		sourceColumn: SALES_ORGZTN
+
+		annotation SummarizationSetBy = Automatic
+
+	column DISTRBN_CHNL
+		dataType: string
+		sourceProviderType: varchar(2)
+		lineageTag: 27887e42-da68-4473-8072-397d92b82b81
+		sourceLineageTag: DISTRBN_CHNL
+		summarizeBy: none
+		sourceColumn: DISTRBN_CHNL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_ID
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 05a031ad-a087-4102-959b-cd9769343626
+		sourceLineageTag: CUST_ID
+		summarizeBy: none
+		sourceColumn: CUST_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_ID
+		dataType: string
+		sourceProviderType: varchar(18)
+		lineageTag: 5a4d5cbc-7be1-411d-bdad-fc4862e5aa00
+		sourceLineageTag: MATRL_ID
+		summarizeBy: none
+		sourceColumn: MATRL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_MATRL_ID
+		dataType: string
+		sourceProviderType: varchar(35)
+		lineageTag: 71fbc83a-b90d-45b4-b05c-4e2399c8e295
+		sourceLineageTag: CUST_MATRL_ID
+		summarizeBy: none
+		sourceColumn: CUST_MATRL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BASE_UOM
+		dataType: string
+		sourceProviderType: varchar(3)
+		lineageTag: dd4ce20b-9309-4013-bc55-5439012b5766
+		sourceLineageTag: BASE_UOM
+		summarizeBy: none
+		sourceColumn: BASE_UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: f21f3b9e-31f6-45bb-a91e-4fad67f38ae3
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: d497f4a5-105e-44d3-9041-ae0fa2df6aa1
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 6e2a0529-4ae7-4f38-8b12-98bc9b079bb6
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 8a20a670-3fa4-49bb-80af-61a044053ddb
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 54f342ea-8baf-4015-a098-54a4fbf9acae
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: b21c0a5c-1c7a-43f7-8dcb-c39813938347
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_DESC
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 8d3a8dbb-baee-4b17-af84-29b7c5fda5c5
+		sourceLineageTag: CUST_DESC
+		summarizeBy: none
+		sourceColumn: CUST_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_CUSTMINR_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_CUSTMINR_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

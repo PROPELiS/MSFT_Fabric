@@ -1,0 +1,43 @@
+table MAINTENANCE_PLANT_REGION
+	lineageTag: 261e30ea-bbda-42e4-9a1f-e6ff0f4c253f
+	sourceLineageTag: [Propelis].[MAINTENANCE_PLANT_REGION]
+
+	column BUSINESS_FUNCTION
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 31a204af-074d-4f92-875e-e2d2f84dfded
+		sourceLineageTag: BUSINESS_FUNCTION
+		summarizeBy: none
+		sourceColumn: BUSINESS_FUNCTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGION
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 424c3849-ee6d-4006-bc39-c6639140ba1c
+		sourceLineageTag: REGION
+		summarizeBy: none
+		sourceColumn: REGION
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANT
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 6360b9e6-1907-45f5-a143-6f319fa3700f
+		sourceLineageTag: PLANT
+		summarizeBy: none
+		sourceColumn: PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MAINTENANCE_PLANT_REGION = entity
+		mode: directLake
+		source
+			entityName: MAINTENANCE_PLANT_REGION
+			schemaName: Propelis
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

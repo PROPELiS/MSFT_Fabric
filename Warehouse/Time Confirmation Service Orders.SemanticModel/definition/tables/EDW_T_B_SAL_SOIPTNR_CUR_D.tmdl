@@ -275,6 +275,16 @@ table EDW_T_B_SAL_SOIPTNR_CUR_D
 
 		annotation SummarizationSetBy = Automatic
 
+	column SOIPTNR_KEY
+		dataType: string
+		sourceProviderType: varchar(15)
+		lineageTag: 3cce840e-b799-4423-a63f-9b0153f0e8a0
+		sourceLineageTag: SOIPTNR_KEY
+		summarizeBy: none
+		sourceColumn: SOIPTNR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
 	partition EDW_T_B_SAL_SOIPTNR_CUR_D = entity
 		mode: directLake
 		source

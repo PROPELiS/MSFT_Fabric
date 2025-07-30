@@ -2,7 +2,12 @@ table DimCalendarDate
 	lineageTag: f97f0ee8-d5f6-41bc-8a33-0028b9a0ac89
 	sourceLineageTag: [dbo].[DimCalendarDate]
 
-	measure MonthNum
+	measure MonthNum = ```
+			
+			FORMAT(SELECTEDVALUE('DimCalendarDate'[CAL - Month Number]), "00") 
+			& " - " & 
+			SELECTEDVALUE('DimCalendarDate'[CAL - Month Name])
+			```
 		lineageTag: e437efe4-5d60-4002-9a16-45c474904587
 
 		changedProperty = Name

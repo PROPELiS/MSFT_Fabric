@@ -1,0 +1,610 @@
+table ACTUAL_FINISH_EXEC_DATE
+	lineageTag: 757e5cbc-4804-40fe-80a9-d87a4ebe0f4e
+	sourceLineageTag: [Propelis].[ACTUAL_FINISH_EXEC_DATE]
+
+	column DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 35dab5b9-5147-49fd-bd00-318a0b3d7d6e
+		sourceLineageTag: DATE_KEY
+		summarizeBy: sum
+		sourceColumn: DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column THE_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 2a7263b6-a558-4676-8ac1-2e79159e11eb
+		sourceLineageTag: THE_DATE
+		summarizeBy: none
+		sourceColumn: THE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FISCAL_YR
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f0df4e6a-0aab-4fb5-bf95-636022a4507f
+		sourceLineageTag: FISCAL_YR
+		summarizeBy: sum
+		sourceColumn: FISCAL_YR
+
+		annotation SummarizationSetBy = Automatic
+
+	column FISCAL_PER_NUM
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d366d951-8212-4350-b364-c358c7b46566
+		sourceLineageTag: FISCAL_PER_NUM
+		summarizeBy: sum
+		sourceColumn: FISCAL_PER_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column FISCAL_PER_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: f5b4c822-a47a-4d40-bf9e-6a218570ef8e
+		sourceLineageTag: FISCAL_PER_CD
+		summarizeBy: none
+		sourceColumn: FISCAL_PER_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column FISCAL_QTR_NUM
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7fc6a940-ee6b-41e7-a310-992fa373a763
+		sourceLineageTag: FISCAL_QTR_NUM
+		summarizeBy: sum
+		sourceColumn: FISCAL_QTR_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column FISCAL_QTR_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 311e22cd-37fb-4516-a7c5-339a6d141eb7
+		sourceLineageTag: FISCAL_QTR_CD
+		summarizeBy: none
+		sourceColumn: FISCAL_QTR_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_YR
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2e59e734-4b9b-42c5-b833-57edb5c2f349
+		sourceLineageTag: CLNDR_YR
+		summarizeBy: sum
+		sourceColumn: CLNDR_YR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_MNTH_NUM
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 300ffbc1-d05f-441e-b995-283220d1a2a2
+		sourceLineageTag: CLNDR_MNTH_NUM
+		summarizeBy: sum
+		sourceColumn: CLNDR_MNTH_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_MNTH_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: f5aff3fa-c1f6-4313-8edc-2435dc7592ac
+		sourceLineageTag: CLNDR_MNTH_CD
+		summarizeBy: none
+		sourceColumn: CLNDR_MNTH_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_MNTH_DESC
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 87ac1125-306f-46f8-9a30-1238f356e91f
+		sourceLineageTag: CLNDR_MNTH_DESC
+		summarizeBy: none
+		sourceColumn: CLNDR_MNTH_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_QTR_NUM
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b1d94a17-aa9d-41dd-8ac3-66f8f6ffc244
+		sourceLineageTag: CLNDR_QTR_NUM
+		summarizeBy: sum
+		sourceColumn: CLNDR_QTR_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_QTR_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: bf2dcdbf-9487-4cb7-b009-cd8cd0fbb1da
+		sourceLineageTag: CLNDR_QTR_CD
+		summarizeBy: none
+		sourceColumn: CLNDR_QTR_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_WEEKDAY_NUM
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7278021d-e5d5-424c-81b2-fc8aa44aa561
+		sourceLineageTag: CLNDR_WEEKDAY_NUM
+		summarizeBy: sum
+		sourceColumn: CLNDR_WEEKDAY_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_WEEKDAY_NAME
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 5c4257c7-642a-4b9b-a11a-80f5a661c2a8
+		sourceLineageTag: CLNDR_WEEKDAY_NAME
+		summarizeBy: none
+		sourceColumn: CLNDR_WEEKDAY_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_DAY_IN_MNTH
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 844342d3-596f-4bce-8eda-bdf1cd5b7b83
+		sourceLineageTag: CLNDR_DAY_IN_MNTH
+		summarizeBy: sum
+		sourceColumn: CLNDR_DAY_IN_MNTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_DAY_IN_YR
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6f54b8cf-2c0a-40d7-bf98-9710d68ca210
+		sourceLineageTag: CLNDR_DAY_IN_YR
+		summarizeBy: sum
+		sourceColumn: CLNDR_DAY_IN_YR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_WK
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9d54f989-f512-4b89-b864-548fa9ad85aa
+		sourceLineageTag: CLNDR_WK
+		summarizeBy: sum
+		sourceColumn: CLNDR_WK
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_MNTH_IN_QTR_NUM
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 001334e2-4265-42d9-a152-134fd5f29ea0
+		sourceLineageTag: CLNDR_MNTH_IN_QTR_NUM
+		summarizeBy: sum
+		sourceColumn: CLNDR_MNTH_IN_QTR_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_DAYS_IN_MNTH
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 78eba24d-dc62-40fe-8f9c-308ef3e0b316
+		sourceLineageTag: CLNDR_DAYS_IN_MNTH
+		summarizeBy: sum
+		sourceColumn: CLNDR_DAYS_IN_MNTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 38ff41ed-ebb3-479c-8ba5-d1d8e79093b0
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: a477c4fc-0642-4bb8-ad97-d9259ccb8a70
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ce2e3f62-a170-43a2-bf94-f4c2aad07235
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_DAY_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6878173d-a649-4b95-89a1-2089a0d8d155
+		sourceLineageTag: CURR_DAY_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_DAY_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_DAY_MINUS_1_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 064f2207-489f-424d-a0ea-fecd82794709
+		sourceLineageTag: CURR_DAY_MINUS_1_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_DAY_MINUS_1_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_CLNDR_WK_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ca0ea07b-c8bb-4715-8f80-d638fa6002e6
+		sourceLineageTag: CURR_CLNDR_WK_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_CLNDR_WK_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_CLNDR_WK_MINUS_1_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 25e463e2-94f0-4952-890d-fd2c760773ba
+		sourceLineageTag: CURR_CLNDR_WK_MINUS_1_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_CLNDR_WK_MINUS_1_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_MNTH_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 92541e90-6411-4148-a77e-6ad935bc970b
+		sourceLineageTag: CURR_MNTH_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_MNTH_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_MNTH_MINUS_1_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1b9ede27-79d0-4b08-b09d-08a47f4830a4
+		sourceLineageTag: CURR_MNTH_MINUS_1_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_MNTH_MINUS_1_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_MNTH_MINUS_12_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b1457df0-9583-44d1-a2f1-f141a08edb56
+		sourceLineageTag: CURR_MNTH_MINUS_12_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_MNTH_MINUS_12_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_QTR_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c7f0aca3-9af8-4fcb-ad62-06297ab6d577
+		sourceLineageTag: CURR_QTR_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_QTR_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_QTR_MINUS_1_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0ad32421-202e-4590-8e40-9a446e51aa26
+		sourceLineageTag: CURR_QTR_MINUS_1_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_QTR_MINUS_1_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_QTR_MINUS_4_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: db91380b-429c-456e-8929-6652304ead1b
+		sourceLineageTag: CURR_QTR_MINUS_4_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_QTR_MINUS_4_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_CLNDR_YR_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8c9964e3-e5d9-4841-bda6-abf5a698c8fd
+		sourceLineageTag: CURR_CLNDR_YR_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_CLNDR_YR_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_CLNDR_YR_MINUS_1_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 39379ef4-6549-4946-a9d6-ac7f4f688597
+		sourceLineageTag: CURR_CLNDR_YR_MINUS_1_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_CLNDR_YR_MINUS_1_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_CLNDR_YR_MINUS_2_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 66dcf046-a393-447c-8d28-1c3039893a18
+		sourceLineageTag: CURR_CLNDR_YR_MINUS_2_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_CLNDR_YR_MINUS_2_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_FISCAL_YR_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f56f5a3b-ba49-4827-b487-3288d163e6e4
+		sourceLineageTag: CURR_FISCAL_YR_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_FISCAL_YR_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_FISCAL_YR_MINUS_1_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8ace4026-f6e6-498d-bce7-b6c8d6ca2e39
+		sourceLineageTag: CURR_FISCAL_YR_MINUS_1_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_FISCAL_YR_MINUS_1_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_FISCAL_YR_MINUS_2_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2cca7b85-0bec-4ce4-bd24-acfdb3f9ed56
+		sourceLineageTag: CURR_FISCAL_YR_MINUS_2_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_FISCAL_YR_MINUS_2_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_CLNDR_YR_PLUS_1_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: eccb490c-c7f4-4f3e-8d90-35dd83ef2122
+		sourceLineageTag: CURR_CLNDR_YR_PLUS_1_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_CLNDR_YR_PLUS_1_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_FISCAL_YR_PLUS_1_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a5d70eff-83ff-46f5-a51f-275eb3b934f4
+		sourceLineageTag: CURR_FISCAL_YR_PLUS_1_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_FISCAL_YR_PLUS_1_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAY_IN_FISCAL_YR
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e592d42d-dbdb-43c6-b2c1-53107b90dba5
+		sourceLineageTag: DAY_IN_FISCAL_YR
+		summarizeBy: sum
+		sourceColumn: DAY_IN_FISCAL_YR
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_WEEKDAY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5a528cd3-c43b-447a-839a-26bb34a4624d
+		sourceLineageTag: IS_WEEKDAY
+		summarizeBy: sum
+		sourceColumn: IS_WEEKDAY
+
+		annotation SummarizationSetBy = Automatic
+
+	column FISCAL_WK
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8f8b3a31-5b1b-4bf4-b8aa-a77010ec10c0
+		sourceLineageTag: FISCAL_WK
+		summarizeBy: sum
+		sourceColumn: FISCAL_WK
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_FISCAL_WK_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 89bfacc0-9113-42b1-ab2d-f38efd4a5adf
+		sourceLineageTag: CURR_FISCAL_WK_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_FISCAL_WK_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_FISCAL_WK_MINUS_1_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1ef375d6-cbe9-41d6-b501-011ba3513d79
+		sourceLineageTag: CURR_FISCAL_WK_MINUS_1_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_FISCAL_WK_MINUS_1_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column FISCAL_WEEKDAY_NUM
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cc6d070a-856c-421e-bc16-3a9f19cf0723
+		sourceLineageTag: FISCAL_WEEKDAY_NUM
+		summarizeBy: sum
+		sourceColumn: FISCAL_WEEKDAY_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column FISCAL_WEEKDAY_NAME
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 04d9253d-6af7-42a0-b54a-5c8a68bb8b8b
+		sourceLineageTag: FISCAL_WEEKDAY_NAME
+		summarizeBy: none
+		sourceColumn: FISCAL_WEEKDAY_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_MNTH_MINUS_2_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f68c830c-fd99-46cf-8c05-4a7268124cc4
+		sourceLineageTag: CURR_MNTH_MINUS_2_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_MNTH_MINUS_2_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_FISCAL_WK_MINUS_2_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1a9d79e4-fc96-4f48-929d-10ae92ea62c7
+		sourceLineageTag: CURR_FISCAL_WK_MINUS_2_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_FISCAL_WK_MINUS_2_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_FISCAL_WK_MINUS_6_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 54b6d9f4-e8f9-43b5-9546-06c847ed8302
+		sourceLineageTag: CURR_FISCAL_WK_MINUS_6_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_FISCAL_WK_MINUS_6_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_FISCAL_WK_MINUS_3_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6c8b92a7-9fde-4bcb-9bdf-90e14b752070
+		sourceLineageTag: CURR_FISCAL_WK_MINUS_3_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_FISCAL_WK_MINUS_3_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_FISCAL_WK_MINUS_4_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 123939c0-b7c3-4863-8950-0adb5d60af14
+		sourceLineageTag: CURR_FISCAL_WK_MINUS_4_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_FISCAL_WK_MINUS_4_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_FISCAL_WK_MINUS_5_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 10a67433-8f7a-48a9-a22d-cfe8b703b310
+		sourceLineageTag: CURR_FISCAL_WK_MINUS_5_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_FISCAL_WK_MINUS_5_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_FISCAL_WK_MINUS_7_FLG
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b00226f0-82c0-42cb-ae48-d174774a1fe0
+		sourceLineageTag: CURR_FISCAL_WK_MINUS_7_FLG
+		summarizeBy: sum
+		sourceColumn: CURR_FISCAL_WK_MINUS_7_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ACTUAL_FINISH_EXEC_DATE = entity
+		mode: directLake
+		source
+			entityName: ACTUAL_FINISH_EXEC_DATE
+			schemaName: Propelis
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

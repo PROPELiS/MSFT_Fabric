@@ -1,0 +1,332 @@
+table EDW_T_D_MST_PERSONL_CUR_D
+	lineageTag: 5e022305-89f6-4c11-8533-d84575465f55
+	sourceLineageTag: [dbo].[EDW_T_D_MST_PERSONL_CUR_D]
+
+	column PERSONEL_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9df4c954-872b-4bb6-9228-29658ef27a48
+		sourceLineageTag: PERSONEL_KEY
+		summarizeBy: sum
+		sourceColumn: PERSONEL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSONEL_NUM
+		dataType: string
+		sourceProviderType: varchar(8)
+		lineageTag: 810bd8d6-7e81-4bcb-bb2f-d2083bd51c95
+		sourceLineageTag: PERSONEL_NUM
+		summarizeBy: none
+		sourceColumn: PERSONEL_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CD
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: 0dbb45f4-e847-46e1-88e5-2213a2b141c1
+		sourceLineageTag: CMPNY_CD
+		summarizeBy: none
+		sourceColumn: CMPNY_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_ID
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: eca2abbe-a234-4083-824b-fe4cf8524c0e
+		sourceLineageTag: PLNT_ID
+		summarizeBy: none
+		sourceColumn: PLNT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_CNTR_ID
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 51b7272b-bd4a-41c6-98e1-791df25f5309
+		sourceLineageTag: COST_CNTR_ID
+		summarizeBy: none
+		sourceColumn: COST_CNTR_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUCCESS_FACTORS_ID
+		dataType: string
+		sourceProviderType: varchar(8)
+		lineageTag: 60c44927-3f9f-4e64-be94-1f8bfda63514
+		sourceLineageTag: SUCCESS_FACTORS_ID
+		summarizeBy: none
+		sourceColumn: SUCCESS_FACTORS_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_DESC
+		dataType: string
+		sourceProviderType: varchar(30)
+		lineageTag: d9a99d54-939c-4a20-ac98-317aa93d74e0
+		sourceLineageTag: PLNT_DESC
+		summarizeBy: none
+		sourceColumn: PLNT_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 68b73971-b4fa-4b59-8461-96f6354d761a
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 1d28eb16-505c-4fdf-a0c1-97100f727d29
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 20275469-d29f-4bf4-9df2-2ed1fa0bdcbf
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: b97f87c8-2664-4c68-a662-26bd5ae7cf54
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 77f620ac-1375-4597-83a3-4e3b37638e3c
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_DESC
+		dataType: string
+		sourceProviderType: varchar(25)
+		lineageTag: 7edee011-d45b-4967-bffb-8005d6c426bd
+		sourceLineageTag: CMPNY_DESC
+		summarizeBy: none
+		sourceColumn: CMPNY_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMAIL_ADDR
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 45d74321-f275-4ab1-9fa1-2df619a44213
+		sourceLineageTag: EMAIL_ADDR
+		summarizeBy: none
+		sourceColumn: EMAIL_ADDR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREATED_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: f99d904c-31f5-4914-b423-af8a641a3631
+		sourceLineageTag: CREATED_DATE
+		summarizeBy: none
+		sourceColumn: CREATED_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREATED_USR_ID
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 9f622cc0-4270-47a7-ba2b-08bc9be38dcd
+		sourceLineageTag: CREATED_USR_ID
+		summarizeBy: none
+		sourceColumn: CREATED_USR_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column UPDTD_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 4321b092-bde7-4fe6-aeb1-5a995f8ec930
+		sourceLineageTag: UPDTD_DATE
+		summarizeBy: none
+		sourceColumn: UPDTD_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column UPDTD_USR_ID
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 86e859cb-908c-415b-8392-1ca80bf25632
+		sourceLineageTag: UPDTD_USR_ID
+		summarizeBy: none
+		sourceColumn: UPDTD_USR_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 1b535505-a43c-4810-a3b5-552b189b9509
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_GROUP_ID
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: ecaf4eba-a501-4e4a-9450-44f7ba91fdb3
+		sourceLineageTag: EMPL_GROUP_ID
+		summarizeBy: none
+		sourceColumn: EMPL_GROUP_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_GROUP_DESC
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: fcb922ba-89c2-4687-9efc-856908fec277
+		sourceLineageTag: EMPL_GROUP_DESC
+		summarizeBy: none
+		sourceColumn: EMPL_GROUP_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_SUBGRP_ID
+		dataType: string
+		sourceProviderType: varchar(2)
+		lineageTag: 8897faa7-efe3-4da8-872b-fc1337e6755e
+		sourceLineageTag: EMPL_SUBGRP_ID
+		summarizeBy: none
+		sourceColumn: EMPL_SUBGRP_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_SUBGRP_DESC
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 5fb69347-64b4-4c12-a2ff-8d7d4e94ccdc
+		sourceLineageTag: EMPL_SUBGRP_DESC
+		summarizeBy: none
+		sourceColumn: EMPL_SUBGRP_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_TEL_1
+		dataType: string
+		sourceProviderType: varchar(16)
+		lineageTag: 914c3c40-363c-441a-9c92-8a3233562d69
+		sourceLineageTag: EMPL_TEL_1
+		summarizeBy: none
+		sourceColumn: EMPL_TEL_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_TEL_2
+		dataType: string
+		sourceProviderType: varchar(16)
+		lineageTag: 0c340ec0-83a1-42b5-82e5-72f17915d38f
+		sourceLineageTag: EMPL_TEL_2
+		summarizeBy: none
+		sourceColumn: EMPL_TEL_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_FIRST_NAME
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: aef46858-9dc1-4401-b971-b43ccdbac38a
+		sourceLineageTag: EMPL_FIRST_NAME
+		summarizeBy: none
+		sourceColumn: EMPL_FIRST_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_LAST_NAME
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 3391466e-6ee7-472b-ad75-0d14b744433b
+		sourceLineageTag: EMPL_LAST_NAME
+		summarizeBy: none
+		sourceColumn: EMPL_LAST_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_FULL_NAME
+		dataType: string
+		sourceProviderType: varchar(80)
+		lineageTag: 4616dc53-519a-46fa-8439-78bed552dbb7
+		sourceLineageTag: EMPL_FULL_NAME
+		summarizeBy: none
+		sourceColumn: EMPL_FULL_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_STATUS_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 2b17e481-6e85-49f6-9fa5-6adde63ec5c5
+		sourceLineageTag: EMPL_STATUS_IND
+		summarizeBy: none
+		sourceColumn: EMPL_STATUS_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPLNT_START_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: fe74f001-fd3d-427f-93c7-30ba11a23908
+		sourceLineageTag: EMPLNT_START_DATE
+		summarizeBy: none
+		sourceColumn: EMPLNT_START_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPLNT_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 03f69e16-d599-46ca-bde1-634b1a769d95
+		sourceLineageTag: EMPLNT_END_DATE
+		summarizeBy: none
+		sourceColumn: EMPLNT_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_PERSONL_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_PERSONL_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

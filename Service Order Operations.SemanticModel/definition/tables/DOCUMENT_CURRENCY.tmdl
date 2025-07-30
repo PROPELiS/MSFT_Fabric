@@ -1,0 +1,118 @@
+table DOCUMENT_CURRENCY
+	lineageTag: 45ef8e0b-2216-459f-a29b-2005859d99be
+	sourceLineageTag: [Propelis].[DOCUMENT_CURRENCY]
+
+	column CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7038c723-d986-4ea9-bcd5-f84aba953011
+		sourceLineageTag: CRNCY_KEY
+		summarizeBy: sum
+		sourceColumn: CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRNCY_CD
+		dataType: string
+		sourceProviderType: varchar(5)
+		lineageTag: ace1a9cb-58d6-4b7e-9fd2-ad1f489832e4
+		sourceLineageTag: CRNCY_CD
+		summarizeBy: none
+		sourceColumn: CRNCY_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: f64c3f0a-d4ca-48b2-873d-2442a0ab5bd8
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 80000556-e8c3-4abb-9bfc-548481fcd57c
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 9fa640bc-c623-4eb9-9985-63b401b7cc26
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: a9cbebe2-9d59-4167-9943-d34de01e4fab
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: fa735bc6-5b02-470c-8cdf-8ea8e55dffc9
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 41ce1217-c1f5-444b-893e-11b0c15e8d51
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHORT_DESC
+		dataType: string
+		sourceProviderType: varchar(15)
+		lineageTag: a6b894ec-0c92-449d-85bc-1e85ed5b442d
+		sourceLineageTag: SHORT_DESC
+		summarizeBy: none
+		sourceColumn: SHORT_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column LONG_DESC
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: b03e3df7-1c40-45ec-b236-58c90e213c08
+		sourceLineageTag: LONG_DESC
+		summarizeBy: none
+		sourceColumn: LONG_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DOCUMENT_CURRENCY = entity
+		mode: directLake
+		source
+			entityName: DOCUMENT_CURRENCY
+			schemaName: Propelis
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

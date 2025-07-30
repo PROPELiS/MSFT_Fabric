@@ -30,5 +30,6 @@ CREATE TABLE [Propelis].[PERSONNEL_NUMBER] (
 	[ETL_CREATED_TS] datetime2(0) NULL, 
 	[ETL_UPDTD_TS] datetime2(0) NULL, 
 	[CMPNY_DESC] varchar(25) NULL, 
-	[PLNT_DESC] varchar(30) NULL
+	[PLNT_DESC] varchar(30) NULL, 
+	[COST_CNTR_ID_4STRING] varchar(10) NULL
 );

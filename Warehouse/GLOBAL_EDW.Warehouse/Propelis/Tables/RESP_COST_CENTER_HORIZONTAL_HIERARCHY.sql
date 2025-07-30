@@ -1,7 +1,7 @@
 CREATE TABLE [Propelis].[RESP_COST_CENTER_HORIZONTAL_HIERARCHY] (
 
-	[WRK_CNTR_KEY] int NULL, 
-	[PLNT_ID] varchar(4) NULL, 
+	[COST_CNTR_KEY] int NULL, 
+	[CONTROLLING_AREA_ID] varchar(4) NULL, 
 	[LEAF_LVL] int NULL, 
 	[LVL_0_ID] varchar(12) NULL, 
 	[LVL_0_DESC] varchar(64) NULL, 

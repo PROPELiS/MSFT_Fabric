@@ -1,0 +1,118 @@
+table EDW_T_D_MST_CRNCY_CUR_D
+	lineageTag: e768b4e5-da1b-48a5-96c1-e6c74a2d6b93
+	sourceLineageTag: [dbo].[EDW_T_D_MST_CRNCY_CUR_D]
+
+	column CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1eccface-c979-43cd-9de4-b3a632617ede
+		sourceLineageTag: CRNCY_KEY
+		summarizeBy: sum
+		sourceColumn: CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRNCY_CD
+		dataType: string
+		sourceProviderType: varchar(5)
+		lineageTag: 93d5d895-b9c7-457b-ad2b-34f9759185f1
+		sourceLineageTag: CRNCY_CD
+		summarizeBy: none
+		sourceColumn: CRNCY_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 3171e60b-2863-46f9-96cb-c3c881cf20da
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 984a0ef2-e61e-41fa-a8fd-aed2f6dfcc89
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: be15baa9-2da0-47d6-b4f6-c8eb280bc521
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 8d71308e-471a-40d2-8356-d93a7ab0fbe6
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: e00a73b8-2e6a-4fd7-ba9c-770490648d46
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: d020d0d3-2fa0-447e-8422-de98bb51e1fd
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHORT_DESC
+		dataType: string
+		sourceProviderType: varchar(15)
+		lineageTag: 5c336e52-f2c2-47f2-ae8e-4137a98c49ed
+		sourceLineageTag: SHORT_DESC
+		summarizeBy: none
+		sourceColumn: SHORT_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column LONG_DESC
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: f220623b-5b06-4513-a5ed-d69ace65325b
+		sourceLineageTag: LONG_DESC
+		summarizeBy: none
+		sourceColumn: LONG_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_CRNCY_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_CRNCY_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

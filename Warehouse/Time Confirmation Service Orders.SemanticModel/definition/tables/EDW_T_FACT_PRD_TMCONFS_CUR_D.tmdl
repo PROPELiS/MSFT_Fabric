@@ -247,6 +247,28 @@ table EDW_T_FACT_PRD_TMCONFS_CUR_D
 
 		changedProperty = FormatString
 
+	measure 'Percentage Planning Plant' =
+			DIVIDE(
+			    [Planning Plant Hours],
+			    [Actual Work in Hours]
+			) +0
+		lineageTag: 6c85915d-8a1f-45f4-a336-0e09d2adbf6d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Percentage Flex Force' =
+			DIVIDE(
+			    [Flex Force Hours],
+			    [Actual Work in Hours]
+			) +0
+		lineageTag: b9fcb995-c3a7-4b58-92d3-cc9d0057be1d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column SEG_CD_KEY
 		dataType: int64
 		formatString: 0
@@ -339,7 +361,7 @@ table EDW_T_FACT_PRD_TMCONFS_CUR_D
 		sourceProviderType: int
 		lineageTag: 78c9a944-45d4-42b6-8f67-354bde05a768
 		sourceLineageTag: SALES_ORDER_ITM_NBR
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: SALES_ORDER_ITM_NBR
 
 		annotation SummarizationSetBy = Automatic
@@ -1003,6 +1025,27 @@ table EDW_T_FACT_PRD_TMCONFS_CUR_D
 		sourceLineageTag: SALES_PERSON_PERSONEL_KEY
 		summarizeBy: none
 		sourceColumn: SALES_PERSON_PERSONEL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOIPTNR_KEY
+		dataType: string
+		sourceProviderType: varchar(15)
+		lineageTag: 1f48dc65-bda1-4cb6-a1a4-b217f4bb1732
+		sourceLineageTag: SOIPTNR_KEY
+		summarizeBy: none
+		sourceColumn: SOIPTNR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRDT_VARIANT_CONFIG_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b45506cb-6f2d-405c-8c67-72622cbdabc0
+		sourceLineageTag: PRDT_VARIANT_CONFIG_KEY
+		summarizeBy: none
+		sourceColumn: PRDT_VARIANT_CONFIG_KEY
 
 		annotation SummarizationSetBy = Automatic
 

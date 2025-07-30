@@ -1,0 +1,63 @@
+table EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D
+	lineageTag: 07955abf-99cb-4e2f-aa49-cbff1ff0424f
+	sourceLineageTag: [dbo].[EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D]
+
+	column SALES_ORG
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: a72bfe0b-2088-4851-b272-7b2e80fe9acb
+		sourceLineageTag: SALES_ORG
+		summarizeBy: none
+		sourceColumn: SALES_ORG
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANT
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 689acd57-e5b3-4c74-9f7a-cc65859fa3c9
+		sourceLineageTag: PLANT
+		summarizeBy: none
+		sourceColumn: PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUSTOMER
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: bddef5a5-f125-462f-84f7-db8acb04ecb3
+		sourceLineageTag: CUSTOMER
+		summarizeBy: none
+		sourceColumn: CUSTOMER
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOLD_TO
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: d63fec59-2e81-43de-968b-f75603c66c9d
+		sourceLineageTag: SOLD_TO
+		summarizeBy: none
+		sourceColumn: SOLD_TO
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATUS
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 0e98b590-ba39-4b65-9f4e-10169526ba94
+		sourceLineageTag: STATUS
+		summarizeBy: none
+		sourceColumn: STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,84 @@
+table EDW_T_D_HY_WORKCVZ_CUR_D
+	lineageTag: ca047f98-7f6a-46e2-819a-708915c5c621
+	sourceLineageTag: [dbo].[EDW_T_D_HY_WORKCVZ_CUR_D]
+
+	column WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8d4e712f-0af4-4e9d-b2d5-74c13fd4b9c8
+		sourceLineageTag: WRK_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_ID
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: 17a5bc04-25c7-4463-8d5c-b805c054aaf5
+		sourceLineageTag: PLNT_ID
+		summarizeBy: none
+		sourceColumn: PLNT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARNT_ID
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: d5667cd1-0b66-476b-905b-0eb1aa900b5a
+		sourceLineageTag: PARNT_ID
+		summarizeBy: none
+		sourceColumn: PARNT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARNT_DESC
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 8b13d230-c014-4eda-91fd-1e4b55f15624
+		sourceLineageTag: PARNT_DESC
+		summarizeBy: none
+		sourceColumn: PARNT_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CHILD_ID
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: f059ba51-bf5c-4bb5-a89f-e6668b6c1d94
+		sourceLineageTag: CHILD_ID
+		summarizeBy: none
+		sourceColumn: CHILD_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CHILD_DESC
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 103a7c4e-6155-4e76-8207-d8a8844cfc05
+		sourceLineageTag: CHILD_DESC
+		summarizeBy: none
+		sourceColumn: CHILD_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column LVL
+		dataType: string
+		sourceProviderType: varchar(24)
+		lineageTag: 559ef326-37d6-4a6a-adb8-c717d8f3a856
+		sourceLineageTag: LVL
+		summarizeBy: none
+		sourceColumn: LVL
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_HY_WORKCVZ_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_HY_WORKCVZ_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
