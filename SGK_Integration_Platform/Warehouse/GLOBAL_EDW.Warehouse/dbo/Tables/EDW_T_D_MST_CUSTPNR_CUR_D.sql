@@ -1,0 +1,26 @@
+CREATE TABLE [dbo].[EDW_T_D_MST_CUSTPNR_CUR_D] (
+
+	[CUST_PRTNR_KEY] int NOT NULL, 
+	[Customer Partner Customer ID] varchar(max) NULL, 
+	[Customer Partner Sales Organization] varchar(max) NULL, 
+	[Customer Partner Sales Organization Description] varchar(max) NULL, 
+	[Customer Partner Distribution Channel] varchar(max) NULL, 
+	[Customer Partner Distribution Channel Description] varchar(max) NULL, 
+	[Customer Partner Division] varchar(max) NULL, 
+	[Customer Partner Division Description] varchar(max) NULL, 
+	[Customer Partner Customer Number of Business Partner] varchar(max) NULL, 
+	[Customer Partner Function] varchar(max) NULL, 
+	[Customer Partner Function Description] varchar(max) NULL, 
+	[Customer Partner Personel ID] varchar(max) NULL, 
+	[Customer Partner Counter] int NULL, 
+	[ETL_SRC_SYS_CD] varchar(max) NULL, 
+	[ETL_EFFECTV_BEGIN_DATE] date NULL, 
+	[ETL_EFFECTV_END_DATE] date NULL, 
+	[Current Record Indicator of Customer Partner] varchar(max) NULL, 
+	[ETL_CREATED_TS] datetime2(0) NULL, 
+	[ETL_UPDTD_TS] datetime2(0) NULL, 
+	[Customer Partner Vendor ID] varchar(max) NULL, 
+	[Customer Partner Contact Person ID] varchar(max) NULL, 
+	[Customer Partner Description] varchar(max) NULL, 
+	[Customer Partner Default Partner] varchar(max) NULL
+);

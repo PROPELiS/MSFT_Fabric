@@ -1,0 +1,150 @@
+table 'CUSTOMER PROJECT MANAGER'
+	lineageTag: 3ef2daa2-f912-447f-a7bf-08e794ad1e63
+	sourceLineageTag: [Propelis].[CUSTOMER_PROJECT_MANAGER]
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c7659f0b-7712-4ce6-9fb6-1640d9362cf3
+		sourceLineageTag: CUST_CONTACT_KEY
+		summarizeBy: none
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Contact Person ID'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 810e26af-f46f-44f0-8260-f1db62b1422c
+		sourceLineageTag: Customer Project Manager Contact Person ID
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Customer ID'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 95bedd94-10f4-4539-8b41-da8a08bd88cd
+		sourceLineageTag: Customer Project Manager Customer ID
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager First Name'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: d65af375-0ab2-4cba-a5f0-ee9b21965da7
+		sourceLineageTag: Customer Project Manager First Name
+		summarizeBy: none
+		sourceColumn: Customer Project Manager First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Name'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: ddae0586-6537-431e-b99e-8c9c508dd64c
+		sourceLineageTag: Customer Project Manager Name
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Contact Person Dept'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 6ebe7bb2-4699-471a-881d-c3d215f11c4b
+		sourceLineageTag: Customer Project Manager Contact Person Dept
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person Dept
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Contact Person Dept Name'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: f574f816-bbb5-4c4e-9502-37e2e68a7a95
+		sourceLineageTag: Customer Project Manager Contact Person Dept Name
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person Dept Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 913ad56b-1d58-4315-8768-170144c34262
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 9c26cb28-1e09-49d6-917f-662e7f71c687
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 82b0576a-b607-4cab-a01f-38520ff4ba92
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: f23bcd94-cebe-460d-8395-c40d21ee8bd6
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5eb083ec-42c2-4801-978b-84ca0385793b
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: b07c0dda-2ec9-4073-ad0f-70ff6738893b
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'CUSTOMER PROJECT MANAGER' = entity
+		mode: directLake
+		source
+			entityName: CUSTOMER_PROJECT_MANAGER
+			schemaName: Propelis
+			expressionSource: DatabaseQuery
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

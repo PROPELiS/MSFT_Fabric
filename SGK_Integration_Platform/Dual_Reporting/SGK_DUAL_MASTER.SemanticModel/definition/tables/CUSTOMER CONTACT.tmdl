@@ -1,0 +1,146 @@
+table 'CUSTOMER CONTACT'
+	lineageTag: 784c0363-d842-41bb-8999-620bc331ecf2
+	sourceLineageTag: 6bb1c999-635e-40e7-94d5-967d37fc52c5
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 73e5f572-79b4-4456-a7c7-e86495cea8af
+		sourceLineageTag: 311d2ce7-6be1-41ec-a4a7-f8528ba4c03a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Contact Person ID'
+		dataType: string
+		lineageTag: 4f61a47f-8165-4e56-b945-9942141639bb
+		sourceLineageTag: 850830db-df08-4ceb-b174-ff97afb74452
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Contact Person ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Contact Customer ID'
+		dataType: string
+		lineageTag: 6f846e57-428b-4e27-9ebf-ab2ba67d738a
+		sourceLineageTag: ee53f7bb-f54e-4743-8e2d-cf8ca4910bee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Contact Customer ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Contact First Name'
+		dataType: string
+		lineageTag: 7d97308f-2c34-48d1-85c8-4ebfb613b187
+		sourceLineageTag: f4a51519-d208-4608-9c23-5310ca98df35
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Contact First Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Contact Name'
+		dataType: string
+		lineageTag: 19506530-add0-4f04-869a-f71fcbfb7940
+		sourceLineageTag: 490c8433-34f5-4df1-b7fc-9994f62756bc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Contact Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Contact Contact Person Dept'
+		dataType: string
+		lineageTag: c42a2022-eeaa-42f0-bcff-62d819b6b210
+		sourceLineageTag: 6e2c8070-9813-4680-912c-bb4ad8762540
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Contact Contact Person Dept
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Contact Contact Person Dept Name'
+		dataType: string
+		lineageTag: acb91d76-ced6-44c2-b682-eeb60c968a7c
+		sourceLineageTag: b2009b82-a36b-4ed1-89d3-b8982a2c58ea
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Contact Contact Person Dept Name
+
+		annotation SummarizationSetBy = User
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: fc7ca1ea-0e0b-418f-ae28-b192c9010511
+		sourceLineageTag: e910e20f-3cec-4a9b-ae85-59827f7e219c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = User
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: deb65853-1fd6-4065-baad-331f93dde374
+		sourceLineageTag: 3f6eba0e-aa73-4a2c-a217-34859f54ac07
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = User
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 3832b005-ea8e-4852-91fd-eedab6f3a2e8
+		sourceLineageTag: 388a04aa-fdca-44c5-b5fc-bfad67529985
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = User
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: 06596274-ae49-4914-819c-37cfb82d45a1
+		sourceLineageTag: 257f6340-744a-4f79-883d-0cf8aef8fe5a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = User
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 97cb6d1f-82d0-466a-8ad3-c580d0d20635
+		sourceLineageTag: a1ac7073-578b-49f3-a13d-ce6b78dbe9e3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = User
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: d1c5dcde-5592-407f-ab82-5e1a16baf671
+		sourceLineageTag: a1399b84-bd45-4f37-9178-e88827c5b36a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = User
+
+	partition 'CUSTOMER CONTACT' = entity
+		mode: directQuery
+		source
+			entityName: CUSTOMER CONTACT
+			expressionSource: 'DirectQuery to AS - Time Confirmation Service Orders'
+

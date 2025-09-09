@@ -1,0 +1,41 @@
+table PERSONNEL_PLANT_REGION
+	lineageTag: 09808ff6-9333-470e-bcf3-c460ec32093f
+	sourceLineageTag: bd3f0e44-b2d2-4427-8eec-8a2529005c2e
+
+	column 'Personnel Business Function'
+		dataType: string
+		lineageTag: e7455fbe-0b12-478a-957d-a84df1acb63d
+		sourceLineageTag: 9da7c831-9d13-478b-83a3-3e2387da0867
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Personnel Business Function
+
+		annotation SummarizationSetBy = User
+
+	column 'Personnel Plant Region'
+		dataType: string
+		lineageTag: 9e15604c-6dc0-49de-940b-2b5d791b2729
+		sourceLineageTag: 4aad8eb9-467e-4a2b-ad14-1793651fc306
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Personnel Plant Region
+
+		annotation SummarizationSetBy = User
+
+	column 'Personnel Plant'
+		dataType: string
+		isNullable: false
+		lineageTag: 232ad985-d506-4163-b761-d9400ba1eb17
+		sourceLineageTag: aa42abe0-69af-4286-a225-b977e108e57e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Personnel Plant
+
+		annotation SummarizationSetBy = User
+
+	partition PERSONNEL_PLANT_REGION = entity
+		mode: directQuery
+		source
+			entityName: PERSONNEL_PLANT_REGION
+			expressionSource: 'DirectQuery to AS - Time Confirmation Service Orders'
+

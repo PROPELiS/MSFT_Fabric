@@ -1,0 +1,22 @@
+expression 'DirectQuery to AS - Time Confirmation Service Orders' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/SGK-Integrations", "Time Confirmation Service Orders"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: 56e213bf-bd87-4fde-b633-7de2feee9329
+
+	annotation PBI_IncludeFutureArtifacts = True
+
+expression 'DirectQuery to AS - Time_Confirmation_Dual_Master' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/SGK-Integrations", "Time_Confirmation_Dual_Master"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: bb957115-e11e-4843-bd0a-972c76ac0c4b
+
+	annotation PBI_IncludeFutureArtifacts = True
+

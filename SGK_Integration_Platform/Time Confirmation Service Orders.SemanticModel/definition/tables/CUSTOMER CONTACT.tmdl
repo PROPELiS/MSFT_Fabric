@@ -1,0 +1,150 @@
+table 'CUSTOMER CONTACT'
+	lineageTag: 6bb1c999-635e-40e7-94d5-967d37fc52c5
+	sourceLineageTag: [Propelis].[CUST_CONTACT]
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 311d2ce7-6be1-41ec-a4a7-f8528ba4c03a
+		sourceLineageTag: CUST_CONTACT_KEY
+		summarizeBy: none
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Person ID'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 850830db-df08-4ceb-b174-ff97afb74452
+		sourceLineageTag: Customer Contact Person ID
+		summarizeBy: none
+		sourceColumn: Customer Contact Person ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Customer ID'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: ee53f7bb-f54e-4743-8e2d-cf8ca4910bee
+		sourceLineageTag: Customer Contact Customer ID
+		summarizeBy: none
+		sourceColumn: Customer Contact Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact First Name'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: f4a51519-d208-4608-9c23-5310ca98df35
+		sourceLineageTag: Customer Contact First Name
+		summarizeBy: none
+		sourceColumn: Customer Contact First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Name'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 490c8433-34f5-4df1-b7fc-9994f62756bc
+		sourceLineageTag: Customer Contact Name
+		summarizeBy: none
+		sourceColumn: Customer Contact Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Contact Person Dept'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 6e2c8070-9813-4680-912c-bb4ad8762540
+		sourceLineageTag: Customer Contact Contact Person Dept
+		summarizeBy: none
+		sourceColumn: Customer Contact Contact Person Dept
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Contact Person Dept Name'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: b2009b82-a36b-4ed1-89d3-b8982a2c58ea
+		sourceLineageTag: Customer Contact Contact Person Dept Name
+		summarizeBy: none
+		sourceColumn: Customer Contact Contact Person Dept Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: e910e20f-3cec-4a9b-ae85-59827f7e219c
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 3f6eba0e-aa73-4a2c-a217-34859f54ac07
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 388a04aa-fdca-44c5-b5fc-bfad67529985
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 257f6340-744a-4f79-883d-0cf8aef8fe5a
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: a1ac7073-578b-49f3-a13d-ce6b78dbe9e3
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: a1399b84-bd45-4f37-9178-e88827c5b36a
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'CUSTOMER CONTACT' = entity
+		mode: directLake
+		source
+			entityName: CUST_CONTACT
+			schemaName: Propelis
+			expressionSource: DatabaseQuery
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

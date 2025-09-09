@@ -1,0 +1,913 @@
+table 'FACT TIME CONFIRMATION SERVICE ORDERS'
+	lineageTag: e2f760d0-962e-4375-af04-7db52cc63297
+	sourceLineageTag: b45c4769-135d-4b73-8871-b9378fc8a11b
+
+	measure Actual_Work = EXTERNALMEASURE("Actual_Work", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: 8737332f-b842-48c8-b60d-8e6dd326b0b4
+		sourceLineageTag: 9956a6f6-2d7e-4706-8e3e-04febafddec1
+		dataCategory: Uncategorized
+
+	measure Actual_Work_in_Hours = EXTERNALMEASURE("Actual_Work_in_Hours", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: 3326825e-ce27-4b10-bca7-05decae7908c
+		sourceLineageTag: c41bd35e-e73c-4a61-8842-85d6c4b18c33
+		dataCategory: Uncategorized
+
+	measure Flex_Force_Hours = EXTERNALMEASURE("Flex_Force_Hours", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: 27c0ee3d-506f-437c-aaf9-6f18658f6822
+		sourceLineageTag: 8f7fc28a-a818-407c-969a-61854968ab16
+		dataCategory: Uncategorized
+
+	measure Hours_of_Approval = EXTERNALMEASURE("Hours_of_Approval", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: 509efca5-ccbb-40ff-9e64-1a147f032086
+		sourceLineageTag: d37e61f4-ba5c-4d04-9acf-4922e9e05241
+		dataCategory: Uncategorized
+
+	measure Hours_of_Change = EXTERNALMEASURE("Hours_of_Change", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: a8076fc3-22b5-4367-98be-dd1550b6737d
+		sourceLineageTag: affabcb9-2402-4a3d-be05-719f54ff3e8b
+		dataCategory: Uncategorized
+
+	measure Hours_of_Original = EXTERNALMEASURE("Hours_of_Original", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: 17ecdbcf-48de-4a8d-b71c-a8740cf0606f
+		sourceLineageTag: ad2c2d13-10ae-4043-9cf0-65bcbf5e7a1d
+		dataCategory: Uncategorized
+
+	measure Hours_of_Rework_Ext_w/Change = EXTERNALMEASURE("Hours_of_Rework_Ext_w/Change", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: 5db11a0c-8ab4-4bc6-8d88-76d4ad7554e9
+		sourceLineageTag: bdecab6e-ab58-4b0b-b255-8f45e96e769e
+		dataCategory: Uncategorized
+
+	measure Hours_of_Rework_External = EXTERNALMEASURE("Hours_of_Rework_External", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: dc448fb4-f4d9-4e0d-b255-ef72c1329b4a
+		sourceLineageTag: d2cb3a42-42c8-40af-a2bd-9427465f7b43
+		dataCategory: Uncategorized
+
+	measure Planning_Plant_Hours = EXTERNALMEASURE("Planning_Plant_Hours", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: a0e79ab6-9adc-4af8-8297-bb242b170362
+		sourceLineageTag: 0fa79722-e413-48df-9ec6-c0bec46b49c4
+		dataCategory: Uncategorized
+
+	measure Percentage_Planning_Plant = EXTERNALMEASURE("Percentage_Planning_Plant", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2aed4c40-941b-4bf7-b708-74fbc4197833
+		sourceLineageTag: d16d703e-025b-42c2-ad1e-f59b8c9002d7
+		dataCategory: Uncategorized
+
+	measure Smart_Sourced_Hours_Low_Cost = EXTERNALMEASURE("Smart_Sourced_Hours_Low_Cost", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: 6878e2ce-dfa8-4ba3-a235-fc360bebfdd9
+		sourceLineageTag: e895cb75-0238-4642-b5b4-c7a77818c1dd
+		dataCategory: Uncategorized
+
+	measure Smart_Sourced_Hours_Other = EXTERNALMEASURE("Smart_Sourced_Hours_Other", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: e791a971-dbaf-49a4-9f79-3e9077113ee1
+		sourceLineageTag: 01bc7cef-0bb9-4349-afe6-db0652af177b
+		dataCategory: Uncategorized
+
+	measure Percentage_Smart_Sourced = EXTERNALMEASURE("Percentage_Smart_Sourced", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7fa3cdd0-edd5-4a2e-a9f3-04ce5b6e7210
+		sourceLineageTag: f7d1a27d-49a9-4d96-bb83-35a7f4e51a7b
+		dataCategory: Uncategorized
+
+	measure %SmartSourced = EXTERNALMEASURE("%SmartSourced", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0c3a3ded-2e95-4f37-bc59-ea07cd8eb28a
+		sourceLineageTag: 4f60e81e-e8a6-4738-ad0a-96ed108b0fd0
+		dataCategory: Uncategorized
+
+	measure Hours_of_Rework_Internal = EXTERNALMEASURE("Hours_of_Rework_Internal", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: 9de208b6-0177-4b6b-a188-4abc016ea0d8
+		sourceLineageTag: 32ff8ecc-5181-4bb3-9805-521f5a994d6c
+		dataCategory: Uncategorized
+
+	measure Percentage_Flex_Force = EXTERNALMEASURE("Percentage_Flex_Force", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4ab36153-1b8d-465b-99ee-218639f2cd17
+		sourceLineageTag: 5e8f16f7-ed3e-477e-92bb-f7ecdd01d5ae
+		dataCategory: Uncategorized
+
+	measure Remaining_Work = EXTERNALMEASURE("Remaining_Work", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: a99c7187-b9d3-4ab5-bb0c-2429caabf579
+		sourceLineageTag: 2aa4d44b-705a-473f-a2cc-3dc660ee66bb
+		dataCategory: Uncategorized
+
+	measure Remaining_Work_in_Hours = EXTERNALMEASURE("Remaining_Work_in_Hours", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: 50778bc4-587f-422c-83c5-0bbd80bbc45e
+		sourceLineageTag: 5edbaa0e-659a-4948-b4c7-df828f627816
+		dataCategory: Uncategorized
+
+	measure ACTUAL_WRK_MTD = EXTERNALMEASURE("ACTUAL_WRK_MTD", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: c439b110-371d-4285-85c2-698f5ed936a0
+		sourceLineageTag: f7b11d96-b911-41c0-b245-28dcccb5bc4c
+		dataCategory: Uncategorized
+
+	measure ACTUAL_WRK_QTD = EXTERNALMEASURE("ACTUAL_WRK_QTD", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: bdf1bb9e-24dd-4ec7-9ebb-504dfdc454c1
+		sourceLineageTag: c4596fcc-256e-47c6-8be5-804ad78c48ab
+		dataCategory: Uncategorized
+
+	measure ACTUAL_WRK_YTD = EXTERNALMEASURE("ACTUAL_WRK_YTD", DOUBLE, "DirectQuery to AS - Time Confirmation Service Orders")
+		formatString: #,0.00
+		lineageTag: 8f56e647-5856-438e-a9ad-4e9e2d838ac0
+		sourceLineageTag: 445f4c9f-fb65-471b-8eb8-9972b2e9507e
+		dataCategory: Uncategorized
+
+	column SEG_CD_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 50da7b34-cc2f-4a3d-99cc-afa347d6d6df
+		sourceLineageTag: bca5e479-0c3b-4326-9ed9-98f22e1c8726
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SEG_CD_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Operation Task List ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2fef153d-d735-48f8-a140-390b58f36547
+		sourceLineageTag: d278a769-3297-4c3c-8740-6306a615b7ae
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Operation Task List ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Operation Counter ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f0ce9d7-de1a-40b6-b0f0-e397a4f0560e
+		sourceLineageTag: bfa0a295-cde8-4f0e-bde1-337773a7e16c
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Operation Counter ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Operation Activity ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 842c88e9-9878-4c1d-afd9-f84e28b7dcf0
+		sourceLineageTag: 9f7fc85d-e70d-455c-8092-81877495ded9
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Operation Activity ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Operation Confirmation ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: b858ee17-705c-49be-b048-33b78dbe4198
+		sourceLineageTag: be708bac-8b46-4829-95a9-469820a0fbab
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Operation Confirmation ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Operation Sequence ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: ba9c3728-d83c-4501-a6ad-e079d921d903
+		sourceLineageTag: 1f0d9782-2944-4149-8948-84c03b736bbe
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Operation Sequence ID
+
+		annotation SummarizationSetBy = User
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: b70d0b2c-d097-40f4-95b9-d056364cee5a
+		sourceLineageTag: 187143f3-2f01-40be-9971-19260bc309df
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = User
+
+	column SALES_ORDER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 91a48c0c-59b1-4c35-8591-b3d84e6938b0
+		sourceLineageTag: 2b92174a-2c82-42d8-b318-bea1fe61eb5d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SALES_ORDER_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales Order Item Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a464c33-8a35-432f-95ba-fd462c4a4766
+		sourceLineageTag: 96b09eae-3551-4a08-ad83-ba64c80d024b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sales Order Item Number
+
+		annotation SummarizationSetBy = User
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 8fea7d4c-1582-45ad-890f-cd98c0b9b6b5
+		sourceLineageTag: 97a326cb-4a10-4aa4-9ce2-62bcefca6866
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = User
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: cdfcf573-bcbd-4826-85a5-bd44821c3f80
+		sourceLineageTag: 9db38b34-07ef-488a-9167-4025977331f2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Operation Short Text'
+		dataType: string
+		lineageTag: 4ce91791-3974-46b5-a395-994d2dc471fd
+		sourceLineageTag: 95761ce2-b26a-4da8-aeff-869a9ffea8f8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Operation Short Text
+
+		annotation SummarizationSetBy = User
+
+	column PSTNG_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0eae5dae-3088-4c97-b866-c5440b915842
+		sourceLineageTag: 5997edd3-4f5b-4c06-802a-818c9c37f540
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PSTNG_DATE_KEY
+
+		annotation SummarizationSetBy = User
+
+	column PLNG_PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: f6647723-ad96-474c-b73d-dfa46521e3bf
+		sourceLineageTag: 15ef3d02-156f-4e4f-8d83-ad3466f83814
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PLNG_PLNT_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Entry Create Date'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: c9a10756-4355-47ff-9576-6e1e65e081f2
+		sourceLineageTag: 32163709-bc92-4b01-a3b2-7daa24349808
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Entry Create Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Person Who Entererd'
+		dataType: string
+		lineageTag: 2c4753b5-aadd-43f2-8c7c-c06a94f7fcf2
+		sourceLineageTag: 7bb6c998-93a7-4388-baa9-070d50d4ec5b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Person Who Entererd
+
+		annotation SummarizationSetBy = User
+
+	column 'Operation Confirm Counter'
+		dataType: int64
+		formatString: 0
+		lineageTag: c63e7e30-1809-4e71-9c48-30936bb364ac
+		sourceLineageTag: 426c1f99-02e6-4043-b2d4-5c37fce44a05
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Operation Confirm Counter
+
+		annotation SummarizationSetBy = User
+
+	column 'Actual Work'
+		dataType: double
+		lineageTag: ea082415-df90-4c14-bddc-ecba177bd8f3
+		sourceLineageTag: 43536291-1fb7-4bdc-9cf2-b365c92b3b83
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Actual Work
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Actual Work UOM'
+		dataType: string
+		lineageTag: 93215ea2-b65e-46c0-8607-d3da64506960
+		sourceLineageTag: 2188024e-4bb4-4e7c-a575-32142463f16b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Actual Work UOM
+
+		annotation SummarizationSetBy = User
+
+	column 'Accounting Indicator'
+		dataType: string
+		lineageTag: d0929b77-078b-4aec-865d-1113a16911a6
+		sourceLineageTag: 5c8033b6-a733-4019-9b53-8faf7965b9f0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Indicator
+
+		annotation SummarizationSetBy = User
+
+	column 'Remaining Work'
+		dataType: double
+		lineageTag: 58e7aed1-f1e1-4271-8a27-c3c6b180528f
+		sourceLineageTag: 51c41377-fbc0-4dfa-9ffd-2150e92ecc89
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Remaining Work
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Remaining Work UOM'
+		dataType: string
+		lineageTag: 6ec9f2b6-46cf-4ce0-a04f-6dad7ed38486
+		sourceLineageTag: c1a2d522-f78e-4699-9984-a3398654d946
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Remaining Work UOM
+
+		annotation SummarizationSetBy = User
+
+	column 'Actual Work in Hours'
+		dataType: double
+		lineageTag: d5ce261d-e238-4451-bfac-ca72c54fdb1b
+		sourceLineageTag: 1e786a66-ede5-4727-be8c-94eb5d0f3518
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Actual Work in Hours
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Remaining Work in Hours'
+		dataType: double
+		lineageTag: 81a0d773-0509-4097-9bf2-b813657a4f0e
+		sourceLineageTag: aefac313-f158-4e44-9249-2350a7faa8e3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Remaining Work in Hours
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Work In Hours UOM'
+		dataType: string
+		lineageTag: 769c67ca-3356-4cae-b434-78afaba01922
+		sourceLineageTag: 06a19fcc-4fd0-4e93-a727-c19428e7f113
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work In Hours UOM
+
+		annotation SummarizationSetBy = User
+
+	column ACTIVITY_TYP_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 928646a9-034f-42dd-9eb6-3d9b2c4a6fc8
+		sourceLineageTag: b46541d8-6c53-4ac9-93be-c3fa250fc403
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Operation Confirm Text'
+		dataType: string
+		lineageTag: 09801742-3200-4ecd-bffe-b9b5171d9535
+		sourceLineageTag: 3c6a0c70-3fd9-460a-a394-e07a5fe92090
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Operation Confirm Text
+
+		annotation SummarizationSetBy = User
+
+	column 'Reason for Variance'
+		dataType: string
+		lineageTag: c12b2529-bbb2-4ff6-ac7d-20c46da6d3d9
+		sourceLineageTag: fe6a2c3a-38da-4cb1-be71-3d66d7399e26
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Reason for Variance
+
+		annotation SummarizationSetBy = User
+
+	column 'Confirm  Counter  Of  Cancelled  Confirmation'
+		dataType: int64
+		formatString: 0
+		lineageTag: 61301f0f-832d-4c5d-9456-b7ce88fe6f19
+		sourceLineageTag: 780c0e5a-f376-47d0-af50-dd76284a5ead
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Confirm  Counter  Of  Cancelled  Confirmation
+
+		annotation SummarizationSetBy = User
+
+	column SOLD_TO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 44d618ce-fdf6-4370-86c9-eb418a69692f
+		sourceLineageTag: 55a739b7-550e-40e9-b020-42116b6e04a0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SOLD_TO_CUST_KEY
+
+		annotation SummarizationSetBy = User
+
+	column PERSONEL_NUM_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f5b8013-c309-4234-b4a2-ac6d5d9df2e8
+		sourceLineageTag: f5005959-7c27-46b2-9b29-aec30d6700fa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONEL_NUM_KEY
+
+		annotation SummarizationSetBy = User
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: d020e66b-4fde-4e1f-87fa-d173805cf78b
+		sourceLineageTag: 5b4c160f-b882-461f-add9-d7eff758c46d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = User
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 0c6f3806-764a-488c-9012-5eca94d75668
+		sourceLineageTag: 5cc77784-a343-4bc1-aed5-1ab4065f0b51
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = User
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 3b91ddda-1d5d-482f-bbb4-9b1b03df6df1
+		sourceLineageTag: 31aee3d5-28f8-4802-8157-cb9f2573fbdb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = User
+
+	column SERVC_ORDER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ba13204e-6a17-4d68-a7eb-57aee4058e17
+		sourceLineageTag: d9c06d19-e4d8-4c04-b5c5-afc7dabd83cf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SERVC_ORDER_KEY
+
+		annotation SummarizationSetBy = User
+
+	column SALES_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: d1818e95-5bbf-43d0-808b-4b81d81ddeec
+		sourceLineageTag: 542facdc-2716-4152-96c6-234deca94fee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SALES_AREA_KEY
+
+		annotation SummarizationSetBy = User
+
+	column SERVC_ORDER_CREATE_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 8efcd6d5-1b71-4379-b6d0-18c1283fb493
+		sourceLineageTag: 73ce35da-702c-4d66-b418-586f227f2e00
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SERVC_ORDER_CREATE_DATE_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Account Indicator'
+		dataType: string
+		lineageTag: b2f07e58-23cc-4e59-b23b-775899fdf28c
+		sourceLineageTag: 8857a031-4fe7-46c6-9efa-7432dc00a8db
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Account Indicator
+
+		annotation SummarizationSetBy = User
+
+	column PARNT_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e69c9cd-0525-46a1-83c6-a499bd818b22
+		sourceLineageTag: 71aa4838-cd4e-47be-b867-33befe903a3b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PARNT_CUST_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Reason for Variance Description'
+		dataType: string
+		lineageTag: 64c5b641-4792-41b2-874e-07fdf1b5ee23
+		sourceLineageTag: 3b2feee5-ad80-4627-a531-93e007c0f18f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Reason for Variance Description
+
+		annotation SummarizationSetBy = User
+
+	column 'Partial Final Confirm'
+		dataType: string
+		lineageTag: 011d62e8-7a5d-4b59-9ba2-7335fceace41
+		sourceLineageTag: bebaddf2-b912-4b12-a537-c7b1ae7cbeb4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Partial Final Confirm
+
+		annotation SummarizationSetBy = User
+
+	column TCHNCL_COMPLETION_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 52609757-d072-40af-92fc-65c8b84c5999
+		sourceLineageTag: 1074ad58-6751-4062-aaf9-7c8d68243eda
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TCHNCL_COMPLETION_DATE_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Accounting Indicator Description'
+		dataType: string
+		lineageTag: a4834860-85c9-4ce7-bbae-a222246c12b3
+		sourceLineageTag: 9998190f-e159-4f68-9bfa-48c681bcca38
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Indicator Description
+
+		annotation SummarizationSetBy = User
+
+	column SERV_ORDER_INVOICE_CREATED_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ed879bbe-24a2-40d2-83d4-7f3e1a5e128a
+		sourceLineageTag: 7bf46715-2a62-4f77-9bc7-3478dbb1c7d4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SERV_ORDER_INVOICE_CREATED_DATE_KEY
+
+		annotation SummarizationSetBy = User
+
+	column OPERATING_PLANT_REGION_PLANT
+		dataType: string
+		lineageTag: bf118047-f9ac-4ac0-a51d-440f703da305
+		sourceLineageTag: 246202ce-7b44-4c56-b742-5d0ae78180a4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OPERATING_PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = User
+
+	column PLANNING_PLANT_REGION_PLANT
+		dataType: string
+		lineageTag: bdb536ce-0b42-4c71-be32-45938c627e9d
+		sourceLineageTag: 4cbb368a-bd5c-41f7-a0e5-7aa804e3a905
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PLANNING_PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = User
+
+	column PERSONNEL_PLANT_REGION_PLANT
+		dataType: string
+		lineageTag: 5b9b2a86-b746-4721-bd4a-29439e6cd7cd
+		sourceLineageTag: 93011b03-287f-48a4-9948-9642d90af430
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONNEL_PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = User
+
+	column PARENT_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 68a18670-ab47-459d-af62-9f60c8285c28
+		sourceLineageTag: a7298509-3e97-46c7-aed2-27831b9e3d5d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PARENT_CUST_KEY
+
+		annotation SummarizationSetBy = User
+
+	column PAYER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: b00fa842-93da-47ec-97e1-e589e8a62af6
+		sourceLineageTag: ebedd87c-ca4d-437e-bd98-934d8746081e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PAYER_CUST_KEY
+
+		annotation SummarizationSetBy = User
+
+	column SHIP_TO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 6887c779-95d1-4443-be03-f7e8fac4e831
+		sourceLineageTag: 978d32f4-f321-4895-9583-1688221c5c53
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SHIP_TO_CUST_KEY
+
+		annotation SummarizationSetBy = User
+
+	column BRAND_OWNER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 19674931-3969-44b4-91c3-535c01987369
+		sourceLineageTag: c02b2c22-efe0-4ea7-ad1b-9c1744bc5c76
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BRAND_OWNER_CUST_KEY
+
+		annotation SummarizationSetBy = User
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e50bf46-9975-40e2-9626-147e2fb2b84b
+		sourceLineageTag: 6d2aebb1-7790-4b42-bbc1-14339a4737af
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = User
+
+	column PERSON_RESP_PERSONNEL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: eeef36bf-8a7c-4f1f-9ead-385d4ddfc775
+		sourceLineageTag: 159c8391-4dac-438e-8348-154aafa4496d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSON_RESP_PERSONNEL_KEY
+
+		annotation SummarizationSetBy = User
+
+	column CYLINDER_OWNER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 8fafeb76-2192-46a1-bc10-66aaf445f6ac
+		sourceLineageTag: 408a2239-ec9d-4bde-bc0e-371b4f067a1f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CYLINDER_OWNER_CUST_KEY
+
+		annotation SummarizationSetBy = User
+
+	column AGENCY_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: f77579a7-8520-4a27-82b3-8407b8a42700
+		sourceLineageTag: 0fd25fd9-c8b5-4cae-937f-f4d3ec5fd91a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: AGENCY_CUST_KEY
+
+		annotation SummarizationSetBy = User
+
+	column PRINTER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: c10eabbd-7add-4871-b8cb-5db13495fd43
+		sourceLineageTag: 87b4f167-bae2-4b23-be59-0457d883a4d1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRINTER_CUST_KEY
+
+		annotation SummarizationSetBy = User
+
+	column SUPPLIER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 49a6985b-4a5e-4214-adf3-31b4b52bd2b3
+		sourceLineageTag: 1b617a42-5b82-4f3c-b6d5-3c7d19d37261
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SUPPLIER_CUST_KEY
+
+		annotation SummarizationSetBy = User
+
+	column EMPLOYEE_RESP_PERSONEL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 60b4c206-7e40-4981-96c3-324261faca87
+		sourceLineageTag: fc1a074a-a514-4155-9e8a-8cd4fb5c0d5f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EMPLOYEE_RESP_PERSONEL_KEY
+
+		annotation SummarizationSetBy = User
+
+	column EMPLOYEE_RESP_2_PERSONEL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 8c6b2037-93b0-48bc-a906-d87ee0a3a39b
+		sourceLineageTag: 6335ad3e-d21b-44db-81f1-d10b73a75931
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EMPLOYEE_RESP_2_PERSONEL_KEY
+
+		annotation SummarizationSetBy = User
+
+	column FORWARDING_AGENT_VENDOR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ed13d97-3884-4c4b-b68b-de67551ea3e6
+		sourceLineageTag: f57980f8-559f-409b-af1a-78c3bd9135b6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FORWARDING_AGENT_VENDOR_KEY
+
+		annotation SummarizationSetBy = User
+
+	column UNITIZATION_AGENT_VENDOR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: f18409c0-27a8-4893-9a0c-2e41d8ab1011
+		sourceLineageTag: da28156b-630f-436f-b161-2dcd6e32ad71
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: UNITIZATION_AGENT_VENDOR_KEY
+
+		annotation SummarizationSetBy = User
+
+	column ORDER_FOR_CUSTOMER_ADDR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 17d95c61-dbaf-4aaf-b2d1-171b157ae18b
+		sourceLineageTag: e97c86b2-fc19-493c-938f-5ce543f529bd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ORDER_FOR_CUSTOMER_ADDR_KEY
+
+		annotation SummarizationSetBy = User
+
+	column SO_PARENT_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: de41058f-1e75-46d5-a7d8-7091fa52b04f
+		sourceLineageTag: 43c6787f-145a-4f42-bef7-551243752445
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SO_PARENT_CUST_KEY
+
+		annotation SummarizationSetBy = User
+
+	column BILL_TO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5059ff94-2d99-4bf0-9b2a-df78b48fa0c7
+		sourceLineageTag: 072fff08-1e44-4bce-8a50-0deac394d545
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BILL_TO_CUST_KEY
+
+		annotation SummarizationSetBy = User
+
+	column CUSTOMER_PROJECT_MANAGER_CUST_CONTACT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 10b4c114-7292-4d43-9a97-a7e6c9af365d
+		sourceLineageTag: 8bab4f17-96bd-48d8-be2e-54e316d9c78f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CUSTOMER_PROJECT_MANAGER_CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = User
+
+	column SALES_PERSON_PERSONEL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 70fd30f3-28b1-4667-9a18-9853efb29930
+		sourceLineageTag: 416087d0-1122-45ff-a006-d42b03491e56
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SALES_PERSON_PERSONEL_KEY
+
+		annotation SummarizationSetBy = User
+
+	column SOIPTNR_KEY
+		dataType: string
+		lineageTag: 3257a374-9a5d-4c2c-acaa-d3cfd03be7f3
+		sourceLineageTag: 2e3a50b7-78c7-43a6-86b8-1d12a82ad234
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SOIPTNR_KEY
+
+		annotation SummarizationSetBy = User
+
+	column PRDT_VARIANT_CONFIG_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: baedf789-e897-492c-8de5-15057e793506
+		sourceLineageTag: 7d425e4c-9287-4579-b7ba-8bbef2f78d39
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PRDT_VARIANT_CONFIG_KEY
+
+		annotation SummarizationSetBy = User
+
+	column WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 6100dd62-5b5e-46d5-b7b4-60bcd0464c55
+		sourceLineageTag: 2687290c-8a76-41a0-8029-d59ce46c9dcf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = User
+
+	column OPERATING_PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fb9e194-4f7c-4c29-9e3e-a71a0fd0139f
+		sourceLineageTag: 0b07a7dc-035c-4290-91d8-24610fc3e88b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OPERATING_PLNT_KEY
+
+		annotation SummarizationSetBy = User
+
+	column OPERATION_STD_TEXT
+		dataType: string
+		lineageTag: 9e4f2ea1-b881-4581-987e-e1088491626d
+		sourceLineageTag: 7342e35f-0b2e-421a-b32f-131e957188bc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OPERATION_STD_TEXT
+
+		annotation SummarizationSetBy = User
+
+	column SALES_ORDER_ID
+		dataType: string
+		lineageTag: c17969fa-0994-4ecb-88e4-f30f4251b002
+		sourceLineageTag: 328998c3-2ecb-417b-a9e7-9cc27e61d86d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SALES_ORDER_ID
+
+		annotation SummarizationSetBy = User
+
+	partition 'FACT TIME CONFIRMATION SERVICE ORDERS' = entity
+		mode: directQuery
+		source
+			entityName: FACT TIME CONFIRMATION SERVICE ORDERS
+			expressionSource: 'DirectQuery to AS - Time Confirmation Service Orders'
+

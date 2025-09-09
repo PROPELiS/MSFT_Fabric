@@ -1,0 +1,101 @@
+table 'STANDARD TEXT KEY REFERENCE'
+	lineageTag: 23b988f1-ae74-42ca-bc5f-ae74ca1ea9b6
+	sourceLineageTag: c0eeb594-79f3-4b71-b106-2c45f6e50467
+
+	column 'Operation Description'
+		dataType: string
+		lineageTag: 4d93fa44-caa5-43f2-88bc-e2ad1da099f4
+		sourceLineageTag: dfb8851e-88dc-42b4-8ee3-483c88958869
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Operation Description
+
+		annotation SummarizationSetBy = User
+
+	column 'SSP Preferred Task'
+		dataType: string
+		lineageTag: eb186233-7f29-4bb2-985c-fefe4bcc209e
+		sourceLineageTag: 396ee921-5915-411e-b808-083ffbe8ca20
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SSP Preferred Task
+
+		annotation SummarizationSetBy = User
+
+	column 'Activity Group'
+		dataType: string
+		lineageTag: 8909a299-3e22-4b6f-8121-117d251fe13c
+		sourceLineageTag: 40705e4f-a686-4f57-a32f-07ca7d366331
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Activity Group
+
+		annotation SummarizationSetBy = User
+
+	column 'CSR Tasks'
+		dataType: string
+		lineageTag: 36f57f63-7f60-41d0-9885-0cdb861c6eab
+		sourceLineageTag: f2830947-240b-48ed-a7b0-e641dd510adf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CSR Tasks
+
+		annotation SummarizationSetBy = User
+
+	column 'Activity With Status'
+		dataType: string
+		lineageTag: 34719ceb-b54b-414f-8cba-52e82a5464d0
+		sourceLineageTag: ac232909-0e94-4ff6-b8c8-2d0f60fccf92
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Activity With Status
+
+		annotation SummarizationSetBy = User
+
+	column 'FY 2023 SS Tasks'
+		dataType: string
+		lineageTag: a7e18923-599b-4078-a223-339899b97a4a
+		sourceLineageTag: ad35d5cd-ddb7-40ed-9c54-02a00057faad
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FY 2023 SS Tasks
+
+		annotation SummarizationSetBy = User
+
+	column 'All Tasks'
+		dataType: string
+		lineageTag: 334c405a-26ad-4b5d-b32a-6c2e58613192
+		sourceLineageTag: 97ebbfcb-9d7a-43f1-8849-4a9ab7e5dc83
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: All Tasks
+
+		annotation SummarizationSetBy = User
+
+	column 'Automation Groups'
+		dataType: string
+		lineageTag: b2503e57-99ff-47be-b78c-958688f05b4e
+		sourceLineageTag: bbb9e44e-c129-4d0b-b189-54cc9c90aa77
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Automation Groups
+
+		annotation SummarizationSetBy = User
+
+	column STANDARD_TEXT_KEY
+		dataType: string
+		isNullable: false
+		lineageTag: 44ac6fdc-2d20-4655-ba33-b9275f405270
+		sourceLineageTag: 272cb99c-68f5-4c20-bc87-3c6d7858f960
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: STANDARD_TEXT_KEY
+
+		annotation SummarizationSetBy = User
+
+	partition 'STANDARD TEXT KEY REFERENCE' = entity
+		mode: directQuery
+		source
+			entityName: STANDARD TEXT KEY REFERENCE
+			expressionSource: 'DirectQuery to AS - Time Confirmation Service Orders'
+

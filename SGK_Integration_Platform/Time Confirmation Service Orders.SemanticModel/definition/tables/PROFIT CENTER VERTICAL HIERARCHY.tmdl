@@ -1,0 +1,86 @@
+table 'PROFIT CENTER VERTICAL HIERARCHY'
+	lineageTag: 243ddf27-65d5-45c5-8a2d-f3b86e2d84b4
+	sourceLineageTag: [dbo].[EDW_T_D_HY_PROFCVZ_CUR_D]
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 439dfc92-3e3b-4408-9d55-0f1cd0b26e4f
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Controlling Area ID VH'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: f6430b33-34ce-4b4e-9a3b-440555bb45e4
+		sourceLineageTag: Profit Center Controlling Area ID VH
+		summarizeBy: none
+		sourceColumn: Profit Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: f4ff94ff-e7fa-439b-9ed4-1344c9ddbfb7
+		sourceLineageTag: Profit Center Parent ID VH
+		summarizeBy: none
+		sourceColumn: Profit Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 799246f6-e893-4e51-a688-54a291738f04
+		sourceLineageTag: Profit Center Parent Description VH
+		summarizeBy: none
+		sourceColumn: Profit Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 7794078e-603e-47c5-b943-d8fec0cbf8b4
+		sourceLineageTag: Profit Center Child ID VH
+		summarizeBy: none
+		sourceColumn: Profit Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Child ID Description VH'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 097d0368-656d-43b5-a538-e16341d09632
+		sourceLineageTag: Profit Center Child ID Description VH
+		summarizeBy: none
+		sourceColumn: Profit Center Child ID Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Level VH'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 419ec506-ebae-4a93-b994-05df5ffc9383
+		sourceLineageTag: Profit Center Level VH
+		summarizeBy: none
+		sourceColumn: Profit Center Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'PROFIT CENTER VERTICAL HIERARCHY' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_HY_PROFCVZ_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

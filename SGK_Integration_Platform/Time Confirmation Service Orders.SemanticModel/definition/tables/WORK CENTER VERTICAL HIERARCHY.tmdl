@@ -1,0 +1,86 @@
+table 'WORK CENTER VERTICAL HIERARCHY'
+	lineageTag: 3d00f4ad-f388-446e-b62e-a41db60db5f4
+	sourceLineageTag: [dbo].[EDW_T_D_HY_WORKCVZ_CUR_D]
+
+	column WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: be5f47f9-0a01-4211-ba26-99448037f06d
+		sourceLineageTag: WRK_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Plant ID'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 9c312a16-38f5-4484-a7c1-84808711b18d
+		sourceLineageTag: Work Center Plant ID
+		summarizeBy: none
+		sourceColumn: Work Center Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 1a0279e1-6628-4705-8d34-5034548a26b7
+		sourceLineageTag: Work Center Parent ID VH
+		summarizeBy: none
+		sourceColumn: Work Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: b1995a25-2f64-45fe-9b18-35b05cbf2036
+		sourceLineageTag: Work Center Parent Description VH
+		summarizeBy: none
+		sourceColumn: Work Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 0ee5c818-18e3-4b23-a3b1-208e686769da
+		sourceLineageTag: Work Center Child ID VH
+		summarizeBy: none
+		sourceColumn: Work Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Child Description VH'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 21c33d11-e423-4950-9620-589ecb2209c3
+		sourceLineageTag: Work Center Child Description VH
+		summarizeBy: none
+		sourceColumn: Work Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Level VH'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 798fbeaf-edf4-49ce-9ed1-f192c5dba52a
+		sourceLineageTag: Work Center Level VH
+		summarizeBy: none
+		sourceColumn: Work Center Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'WORK CENTER VERTICAL HIERARCHY' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_HY_WORKCVZ_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

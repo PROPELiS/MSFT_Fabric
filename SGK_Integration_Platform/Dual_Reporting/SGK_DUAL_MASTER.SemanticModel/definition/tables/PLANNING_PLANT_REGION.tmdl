@@ -1,0 +1,41 @@
+table PLANNING_PLANT_REGION
+	lineageTag: bbff29c3-12f1-4eb3-8fa1-c215bccad3b3
+	sourceLineageTag: b03310c9-b4c9-47b4-a8ad-db935f9952b0
+
+	column 'Planning Plant Business Function'
+		dataType: string
+		lineageTag: 07a646fe-9e29-4273-a618-f5c5f77e25d7
+		sourceLineageTag: 130bcc2d-cb25-4670-965e-24ee4954d92a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Planning Plant Business Function
+
+		annotation SummarizationSetBy = User
+
+	column 'Planning Plant Region'
+		dataType: string
+		lineageTag: 7a05cbd3-0ce7-4dcf-a762-b668df9b10de
+		sourceLineageTag: 6e5229ae-62ed-4777-bf40-36710c279ecb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Planning Plant Region
+
+		annotation SummarizationSetBy = User
+
+	column 'Planning Plant'
+		dataType: string
+		isNullable: false
+		lineageTag: 6875e7a7-2669-48bb-9515-db9df7918201
+		sourceLineageTag: dc66c626-269d-41dc-a4bd-edc2c2d31132
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Planning Plant
+
+		annotation SummarizationSetBy = User
+
+	partition PLANNING_PLANT_REGION = entity
+		mode: directQuery
+		source
+			entityName: PLANNING_PLANT_REGION
+			expressionSource: 'DirectQuery to AS - Time Confirmation Service Orders'
+

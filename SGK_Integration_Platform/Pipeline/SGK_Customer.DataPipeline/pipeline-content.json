@@ -1,0 +1,1798 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "SGK_Customer",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "GLOBAL_EDW",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "c2rbjb2faruufollpwcl3w3nue-feefbiy345wundqovzkg2prxpu.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "7e390e64-f585-4e92-8174-98cefb90e713",
+                    "workspaceId": "a3500829-e71b-466d-8e0e-ae546d3e377d"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "SGK_Customer"
+              }
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE \"SILVER\".\"MDS\".\"SGK_Customer\";  ",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "type": "SnowflakeTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "MDS",
+                "table": "SGK_Customer",
+                "database": "SILVER"
+              },
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "CUST_ID",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_ID",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "LGCY_CUST_ID",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "LGCY_CUST_ID",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_NAME",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_NAME",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_LINE_2_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_LINE_2_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CNTRY_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CNTRY_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PLNT_ID",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PLNT_ID",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SEG_ID",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "SEG_ID",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "INDUS",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "INDUS",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "VNDR_ID",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "VNDR_ID",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_GROUP_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_GROUP_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_ACCT_GROUP_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_ACCT_GROUP_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TITLE",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TITLE",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SEARCH_TERM",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "SEARCH_TERM",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "STR",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "STR",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CITY_NAME",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CITY_NAME",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ZIP_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "ZIP_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ST_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "ST_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "REGN_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "REGN_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TEL_NUM_1_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TEL_NUM_1_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TEL_NUM_2_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TEL_NUM_2_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "FAX_NUM_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "FAX_NUM_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TAX_NUM_1_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TAX_NUM_1_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TAX_NUM_2_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TAX_NUM_2_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "VAT_NUM_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "VAT_NUM_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "EXPRESS_STATION",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "EXPRESS_STATION",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TRANSTN_ZONE",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TRANSTN_ZONE",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PRINTER_LOC_CHARS",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PRINTER_LOC_CHARS",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PRINTER_REGN_CHARS",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PRINTER_REGN_CHARS",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PRINTER_SITE_CHARS",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PRINTER_SITE_CHARS",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CREATED_DATE",
+                  "type": "DateTime",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "CREATED_DATE",
+                  "type": "DateTime",
+                  "physicalType": "DATE"
+                }
+              },
+              {
+                "source": {
+                  "name": "CREATED_USR_ID",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CREATED_USR_ID",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "UPDTD_DATE",
+                  "type": "DateTime",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "UPDTD_DATE",
+                  "type": "DateTime",
+                  "physicalType": "DATE"
+                }
+              },
+              {
+                "source": {
+                  "name": "UPDTD_USR_ID",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "UPDTD_USR_ID",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PYMT_TRMS_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PYMT_TRMS_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SALES_DISTR",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "SALES_DISTR",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ORDER_BLK_FOR_SALES_AREA",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "ORDER_BLK_FOR_SALES_AREA",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "DLVRY_BLK_FOR_SALES_AREA",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "DLVRY_BLK_FOR_SALES_AREA",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ETL_SRC_SYS_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "ETL_SRC_SYS_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ETL_EFFECTV_BEGIN_DATE",
+                  "type": "DateTime",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "ETL_EFFECTV_BEGIN_DATE",
+                  "type": "DateTime",
+                  "physicalType": "DATE"
+                }
+              },
+              {
+                "source": {
+                  "name": "ETL_EFFECTV_END_DATE",
+                  "type": "DateTime",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "ETL_EFFECTV_END_DATE",
+                  "type": "DateTime",
+                  "physicalType": "DATE"
+                }
+              },
+              {
+                "source": {
+                  "name": "ETL_CURR_RCD_IND",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "ETL_CURR_RCD_IND",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ETL_CREATED_TS",
+                  "type": "DateTime",
+                  "physicalType": "datetime2",
+                  "precision": 6
+                },
+                "sink": {
+                  "name": "ETL_CREATED_TS",
+                  "type": "DateTime",
+                  "physicalType": "TIMESTAMP_NTZ"
+                }
+              },
+              {
+                "source": {
+                  "name": "ETL_UPDTD_TS",
+                  "type": "DateTime",
+                  "physicalType": "datetime2",
+                  "precision": 6
+                },
+                "sink": {
+                  "name": "ETL_UPDTD_TS",
+                  "type": "DateTime",
+                  "physicalType": "TIMESTAMP_NTZ"
+                }
+              },
+              {
+                "source": {
+                  "name": "CORPORATE_GROUP",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CORPORATE_GROUP",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_CLSFTN",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_CLSFTN",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_CLSFTN_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_CLSFTN_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PRINTER_LOC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PRINTER_LOC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PRINTER_SITE",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PRINTER_SITE",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PRINTER_REGN",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PRINTER_REGN",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_01",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_01",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_02",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_02",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_03",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_03",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_04",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_04",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_05",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_05",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_06",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_06",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_07",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_07",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_08",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_08",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_09",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_09",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_10",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_10",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_11",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_11",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_12",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_12",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_13",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_13",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_14",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_14",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_15",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_15",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_16",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_16",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_17",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_17",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_18",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_18",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_19",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_19",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_20",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_SPECIFIC_FLD_LBL_20",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_COND_GROUP_1",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_COND_GROUP_1",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "INDUS_CD_1",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "INDUS_CD_1",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "INDUS_CD_2",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "INDUS_CD_2",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "INDUS_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "INDUS_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "INDUS_CD_1_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "INDUS_CD_1_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "INDUS_CD_2_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "INDUS_CD_2_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ASSIGN_TO_HIERCHY",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "ASSIGN_TO_HIERCHY",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_ACCT_GROUP_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_ACCT_GROUP_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "REGN_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "REGN_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CNTRY_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CNTRY_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TRANSTN_ZONE_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TRANSTN_ZONE_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PLNT_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PLNT_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CUST_COND_GROUP_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CUST_COND_GROUP_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CENTRAL_BILLING_BLK",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CENTRAL_BILLING_BLK",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CENTRAL_BILLING_BLK_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CENTRAL_BILLING_BLK_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CENTRAL_DLVRY_BLK",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CENTRAL_DLVRY_BLK",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CENTRAL_DLVRY_BLK_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CENTRAL_DLVRY_BLK_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "DELETION_IND",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "DELETION_IND",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CENTRAL_PSTNG_BLK",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CENTRAL_PSTNG_BLK",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TAX_JRSDCTN",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TAX_JRSDCTN",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CENTRAL_SALES_BLK",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CENTRAL_SALES_BLK",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CENTRAL_DELETION_IND",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CENTRAL_DELETION_IND",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "LANG_KEY",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "LANG_KEY",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TRADING_PRTNR",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TRADING_PRTNR",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TRADING_PRTNR_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TRADING_PRTNR_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ANNUAL_SALES_YR",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "ANNUAL_SALES_YR",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "SALES_CRNCY",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "SALES_CRNCY",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SALES_CRNCY_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "SALES_CRNCY_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ONE_TM_CUST_ACCT_GROUP",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "ONE_TM_CUST_ACCT_GROUP",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ONE_TM_CUST_ACCT_GROUP_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "ONE_TM_CUST_ACCT_GROUP_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ONE_TM_CUST_IND",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "ONE_TM_CUST_IND",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "INDUS_TYP",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "INDUS_TYP",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "BIZ_TYP",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "BIZ_TYP",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "DUNS_NUM",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "DUNS_NUM",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "DUNS_PLUS_4",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "DUNS_PLUS_4",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CITY_COORDINATES",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CITY_COORDINATES",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TAX_NUM_4_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TAX_NUM_4_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ATTRIB_3",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "ATTRIB_3",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ATTRIB_3_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "ATTRIB_3_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "E_MAIL_ADDR",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "E_MAIL_ADDR",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "MOBILE_NUM",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "MOBILE_NUM",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "SEARCH_TERM_2",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "SEARCH_TERM_2",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "STR_2",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "STR_2",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "STR_3",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "STR_3",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "STR_4",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "STR_4",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "STR_5",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "STR_5",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PO_BOX",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PO_BOX",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PO_BOX_POSTAL_CD",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PO_BOX_POSTAL_CD",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PO_BOX_CITY",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PO_BOX_CITY",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "REGN_FOR_PO_BOX",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "REGN_FOR_PO_BOX",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PO_BOX_CNTRY",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PO_BOX_CNTRY",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TRNSPRT_ZONE",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TRNSPRT_ZONE",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ADDR_NOTES",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "ADDR_NOTES",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TAX_NUM_3",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TAX_NUM_3",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "TAX_NUM_5",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "TAX_NUM_5",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "INDUS_CD_3",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "INDUS_CD_3",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "INDUS_CD_3_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "INDUS_CD_3_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "INDUS_CD_4",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "INDUS_CD_4",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "INDUS_CD_4_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "INDUS_CD_4_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "INDUS_CD_5",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "INDUS_CD_5",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "INDUS_CD_5_DESC",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "INDUS_CD_5_DESC",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "CENTRAL_ORDER_BLK_FOR_CUST",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "CENTRAL_ORDER_BLK_FOR_CUST",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "PYMT_BLK",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "PYMT_BLK",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

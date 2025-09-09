@@ -1,0 +1,43 @@
+table OPERATING_PLANT_REGION
+	lineageTag: 544f452e-c6cd-4d2e-8f91-39d3ece64e52
+	sourceLineageTag: [Propelis].[OPERATING_PLANT_REGION]
+
+	column 'Operating Plant Business Function'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 16a7a505-7bc3-494c-b3be-13ef83cf4aba
+		sourceLineageTag: Operating Plant Business Function
+		summarizeBy: none
+		sourceColumn: Operating Plant Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Plant Region'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: a0895377-19dc-433f-948b-35c17227dfc1
+		sourceLineageTag: Operating Plant Region
+		summarizeBy: none
+		sourceColumn: Operating Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Plant'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 252b1608-2536-4824-8321-c9c830a4540c
+		sourceLineageTag: Operating Plant
+		summarizeBy: none
+		sourceColumn: Operating Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition OPERATING_PLANT_REGION = entity
+		mode: directLake
+		source
+			entityName: OPERATING_PLANT_REGION
+			schemaName: Propelis
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

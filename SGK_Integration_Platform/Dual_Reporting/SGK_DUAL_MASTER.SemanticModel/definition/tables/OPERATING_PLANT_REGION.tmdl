@@ -1,0 +1,41 @@
+table OPERATING_PLANT_REGION
+	lineageTag: f5c89dd8-c876-4c88-9c60-37fcc828846b
+	sourceLineageTag: 544f452e-c6cd-4d2e-8f91-39d3ece64e52
+
+	column 'Operating Plant Business Function'
+		dataType: string
+		lineageTag: 3469cc70-d557-4137-bab1-6835c7e6bfbc
+		sourceLineageTag: 16a7a505-7bc3-494c-b3be-13ef83cf4aba
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Operating Plant Business Function
+
+		annotation SummarizationSetBy = User
+
+	column 'Operating Plant Region'
+		dataType: string
+		lineageTag: 68a08275-c498-42d8-9a58-2d3d8a223e85
+		sourceLineageTag: a0895377-19dc-433f-948b-35c17227dfc1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Operating Plant Region
+
+		annotation SummarizationSetBy = User
+
+	column 'Operating Plant'
+		dataType: string
+		isNullable: false
+		lineageTag: 4716bab7-f780-4d48-b6fe-3466409478af
+		sourceLineageTag: 252b1608-2536-4824-8321-c9c830a4540c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Operating Plant
+
+		annotation SummarizationSetBy = User
+
+	partition OPERATING_PLANT_REGION = entity
+		mode: directQuery
+		source
+			entityName: OPERATING_PLANT_REGION
+			expressionSource: 'DirectQuery to AS - Time Confirmation Service Orders'
+

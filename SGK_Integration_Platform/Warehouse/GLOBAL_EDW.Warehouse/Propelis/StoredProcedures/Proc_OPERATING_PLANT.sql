@@ -1,0 +1,121 @@
+CREATE   PROCEDURE [Propelis].[Proc_OPERATING_PLANT]
+AS
+BEGIN
+    -- Update existing records
+    UPDATE T
+    SET 
+        T.[Operating Plant ID] = S.[PLNT_ID],
+        T.[Legacy Operating Plant ID] = S.[LGCY_PLNT_ID],
+        T.[Operating Plant Name] = S.[PLNT_NAME],
+        T.[Operating Plant Company Code] = S.[CMPNY_CD],
+        T.[Operating Plant Sales Organization] = S.[SALES_ORGZTN],
+        T.[Operating Plant Purchasing Organization] = S.[PURNG_ORGZTN],
+        T.[Operating Plant Valuation Area] = S.[VALTN_AREA],
+        T.[Operating Plant Customer Number] = S.[CUST_NUM_OF_PLNT],
+        T.[Operating Plant Vendor Number] = S.[VNDR_NUM_OF_PLNT],
+        T.[Operating Plant Factory Calendar Key] = S.[FACTORY_CLNDR_KEY],
+        T.[Operating Plant Line 1 Description] = S.[PLNT_LINE_1_DESC],
+        T.[Operating Plant Line 2 Description] = S.[PLNT_LINE_2_DESC],
+        T.[Operating Plant City Name] = S.[PLNT_CITY_NAME],
+        T.[Operating Plant Zip Code] = S.[PLNT_ZIP_CD],
+        T.[Operating Plant Country Code] = S.[PLNT_CNTRY_CD],
+        T.[Operating Plant Country Name] = S.[PLNT_CNTRY_NAME],
+        T.[Operating Plant Tax Jurisdiction] = S.[TAX_JRSDCTN],
+        T.[ETL SRC SYS CD] = S.[ETL_SRC_SYS_CD],
+        T.[ETL EFFECTV BEGIN DATE] = S.[ETL_EFFECTV_BEGIN_DATE],
+        T.[ETL EFFECTV END DATE] = S.[ETL_EFFECTV_END_DATE],
+        T.[ETL CURR RCD IND] = S.[ETL_CURR_RCD_IND],
+        T.[ETL CREATED TS] = S.[ETL_CREATED_TS],
+        T.[ETL UPDTD TS] = S.[ETL_UPDTD_TS],
+        T.[Operating Plant IS P001] = S.[IS_P001],
+        T.[Operating Plant IS P002] = S.[IS_P002],
+        T.[Operating Plant Company Description] = S.[CMPNY_DESC],
+        T.[Operating Plant Sales Organization Description] = S.[SALES_ORG_DESC],
+        T.[Operating Plant Factory Calendar Description] = S.[FACTORY_CLNDR_DESC],
+        T.[Operating Plant Purchasing Organization Description] = S.[PURNG_ORGZTN_DESC],
+        T.[Operating Plant Tax Indicator] = S.[PLNT_TAX_IND],
+        T.[Operating Plant Tax Indicator Description] = S.[PLNT_TAX_IND_DESC],
+        T.[Operating Plant Shipping Receiving Point] = S.[SHIPG_RECVNG_PNT],
+        T.[Operating Plant Shipping Receiving Point Description] = S.[SHIPG_RECVNG_PNT_DESC]
+    FROM [GLOBAL_EDW].[Propelis].[OPERATING_PLANT] AS T
+    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PLANT_CUR_D] AS S
+        ON T.[PLNT_KEY] = S.[PLNT_KEY];
+
+    -- Insert new records
+    INSERT INTO [GLOBAL_EDW].[Propelis].[OPERATING_PLANT] 
+    (
+        [PLNT_KEY],
+        [Operating Plant ID],
+        [Legacy Operating Plant ID],
+        [Operating Plant Name],
+        [Operating Plant Company Code],
+        [Operating Plant Sales Organization],
+        [Operating Plant Purchasing Organization],
+        [Operating Plant Valuation Area],
+        [Operating Plant Customer Number],
+        [Operating Plant Vendor Number],
+        [Operating Plant Factory Calendar Key],
+        [Operating Plant Line 1 Description],
+        [Operating Plant Line 2 Description],
+        [Operating Plant City Name],
+        [Operating Plant Zip Code],
+        [Operating Plant Country Code],
+        [Operating Plant Country Name],
+        [Operating Plant Tax Jurisdiction],
+        [ETL SRC SYS CD],
+        [ETL EFFECTV BEGIN DATE],
+        [ETL EFFECTV END DATE],
+        [ETL CURR RCD IND],
+        [ETL CREATED TS],
+        [ETL UPDTD TS],
+        [Operating Plant IS P001],
+        [Operating Plant IS P002],
+        [Operating Plant Company Description],
+        [Operating Plant Sales Organization Description],
+        [Operating Plant Factory Calendar Description],
+        [Operating Plant Purchasing Organization Description],
+        [Operating Plant Tax Indicator],
+        [Operating Plant Tax Indicator Description],
+        [Operating Plant Shipping Receiving Point],
+        [Operating Plant Shipping Receiving Point Description]
+    )
+    SELECT 
+        S.[PLNT_KEY],
+        S.[PLNT_ID],
+        S.[LGCY_PLNT_ID],
+        S.[PLNT_NAME],
+        S.[CMPNY_CD],
+        S.[SALES_ORGZTN],
+        S.[PURNG_ORGZTN],
+        S.[VALTN_AREA],
+        S.[CUST_NUM_OF_PLNT],
+        S.[VNDR_NUM_OF_PLNT],
+        S.[FACTORY_CLNDR_KEY],
+        S.[PLNT_LINE_1_DESC],
+        S.[PLNT_LINE_2_DESC],
+        S.[PLNT_CITY_NAME],
+        S.[PLNT_ZIP_CD],
+        S.[PLNT_CNTRY_CD],
+        S.[PLNT_CNTRY_NAME],
+        S.[TAX_JRSDCTN],
+        S.[ETL_SRC_SYS_CD],
+        S.[ETL_EFFECTV_BEGIN_DATE],
+        S.[ETL_EFFECTV_END_DATE],
+        S.[ETL_CURR_RCD_IND],
+        S.[ETL_CREATED_TS],
+        S.[ETL_UPDTD_TS],
+        S.[IS_P001],
+        S.[IS_P002],
+        S.[CMPNY_DESC],
+        S.[SALES_ORG_DESC],
+        S.[FACTORY_CLNDR_DESC],
+        S.[PURNG_ORGZTN_DESC],
+        S.[PLNT_TAX_IND],
+        S.[PLNT_TAX_IND_DESC],
+        S.[SHIPG_RECVNG_PNT],
+        S.[SHIPG_RECVNG_PNT_DESC]
+    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PLANT_CUR_D] AS S
+    LEFT JOIN [GLOBAL_EDW].[Propelis].[OPERATING_PLANT] AS T
+        ON T.[PLNT_KEY] = S.[PLNT_KEY]
+    WHERE T.[PLNT_KEY] IS NULL;
+END;

@@ -1,0 +1,82 @@
+table 'PROFIT CENTER VERTICAL HIERARCHY'
+	lineageTag: 740d01f5-f139-4cd7-9293-75bc08261b1a
+	sourceLineageTag: 243ddf27-65d5-45c5-8a2d-f3b86e2d84b4
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 528b1fb6-6758-4551-b1ac-6a3fffeece19
+		sourceLineageTag: 439dfc92-3e3b-4408-9d55-0f1cd0b26e4f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Profit Center Controlling Area ID VH'
+		dataType: string
+		lineageTag: 8ecfec6d-edb9-4729-baa6-4c82e1da6e2a
+		sourceLineageTag: f6430b33-34ce-4b4e-9a3b-440555bb45e4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Profit Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Profit Center Parent ID VH'
+		dataType: string
+		lineageTag: 97eb02b0-7a49-4215-8c00-04f8bf1ece8a
+		sourceLineageTag: f4ff94ff-e7fa-439b-9ed4-1344c9ddbfb7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Profit Center Parent ID VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Profit Center Parent Description VH'
+		dataType: string
+		lineageTag: 9089853a-5a14-49da-8c5b-d2a975069ec3
+		sourceLineageTag: 799246f6-e893-4e51-a688-54a291738f04
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Profit Center Parent Description VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Profit Center Child ID VH'
+		dataType: string
+		lineageTag: f8f4188f-776b-4050-80c9-9624d5a60172
+		sourceLineageTag: 7794078e-603e-47c5-b943-d8fec0cbf8b4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Profit Center Child ID VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Profit Center Child ID Description VH'
+		dataType: string
+		lineageTag: 541e59ce-2dbc-40dd-a84b-da09abd74c7c
+		sourceLineageTag: 097d0368-656d-43b5-a538-e16341d09632
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Profit Center Child ID Description VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Profit Center Level VH'
+		dataType: string
+		lineageTag: 0ed2cd34-bea6-4bb4-a964-d4c4b3bec3e4
+		sourceLineageTag: 419ec506-ebae-4a93-b994-05df5ffc9383
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Profit Center Level VH
+
+		annotation SummarizationSetBy = User
+
+	partition 'PROFIT CENTER VERTICAL HIERARCHY' = entity
+		mode: directQuery
+		source
+			entityName: PROFIT CENTER VERTICAL HIERARCHY
+			expressionSource: 'DirectQuery to AS - Time Confirmation Service Orders'
+

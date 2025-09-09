@@ -1,0 +1,82 @@
+table 'COST CENTER VERTICAL HIERARCHY'
+	lineageTag: 70c00941-556b-40e0-b394-bfff9883e955
+	sourceLineageTag: 43e5c9fd-fe3e-4c10-9deb-daa40d7ea634
+
+	column COST_CNTR_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 03e96ad3-4f25-4ce3-8966-e646bba23c1f
+		sourceLineageTag: 5482cebc-d4ee-4a97-b20d-d891130448d8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Cost Center Controlling Area ID VH'
+		dataType: string
+		lineageTag: 8223f6d6-d51f-4803-8a31-e46a3f05adac
+		sourceLineageTag: b853254b-2aec-44a9-b9c2-e7c7cc403ff2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Cost Center Parent ID VH'
+		dataType: string
+		lineageTag: 2414be77-e9d7-4432-bc82-efcbdba04658
+		sourceLineageTag: 42fe772b-f02c-4237-b218-44bb5efc75ce
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost Center Parent ID VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Cost Center Parent Description VH'
+		dataType: string
+		lineageTag: f1bfffe6-0cab-4d6e-9f71-a68685ad3c35
+		sourceLineageTag: 3dc0e257-f1d8-4b0b-b10e-5c04af9c4af7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost Center Parent Description VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Cost Center Child ID VH'
+		dataType: string
+		lineageTag: 4c39c16f-cfa7-45f0-b165-4912c65cf50c
+		sourceLineageTag: 2ce932ba-b941-4518-98f2-4b311da93b74
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost Center Child ID VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Cost Center Child Description VH'
+		dataType: string
+		lineageTag: 44935fa4-844a-487d-9499-675fec00cbb9
+		sourceLineageTag: 2e0f7593-d1d0-465e-94aa-af4a7a92d074
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost Center Child Description VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Cost Center Hierarchical Level VH'
+		dataType: string
+		lineageTag: eaa3f4b3-3315-4223-9b47-b55a4bf82b4e
+		sourceLineageTag: 8541b51f-a05e-483b-af76-687c83d147fc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost Center Hierarchical Level VH
+
+		annotation SummarizationSetBy = User
+
+	partition 'COST CENTER VERTICAL HIERARCHY' = entity
+		mode: directQuery
+		source
+			entityName: COST CENTER VERTICAL HIERARCHY
+			expressionSource: 'DirectQuery to AS - Time Confirmation Service Orders'
+

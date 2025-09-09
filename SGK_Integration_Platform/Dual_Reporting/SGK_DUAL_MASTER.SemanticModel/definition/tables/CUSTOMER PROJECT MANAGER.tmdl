@@ -1,0 +1,146 @@
+table 'CUSTOMER PROJECT MANAGER'
+	lineageTag: 9a3b6163-298c-4612-93ed-9bf74bed3f71
+	sourceLineageTag: 3ef2daa2-f912-447f-a7bf-08e794ad1e63
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 0f2f4348-b9bd-4589-9dbb-86cf509c4c48
+		sourceLineageTag: c7659f0b-7712-4ce6-9fb6-1640d9362cf3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Project Manager Contact Person ID'
+		dataType: string
+		lineageTag: 34c8670a-c968-4d3c-a968-99510b5f573a
+		sourceLineageTag: 810e26af-f46f-44f0-8260-f1db62b1422c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Project Manager Customer ID'
+		dataType: string
+		lineageTag: 5b113027-036e-4760-8d82-ada9a9ec062f
+		sourceLineageTag: 95bedd94-10f4-4539-8b41-da8a08bd88cd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Customer ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Project Manager First Name'
+		dataType: string
+		lineageTag: e001af2c-d662-4237-929f-251df5ecc10f
+		sourceLineageTag: d65af375-0ab2-4cba-a5f0-ee9b21965da7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Project Manager First Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Project Manager Name'
+		dataType: string
+		lineageTag: 255e27e9-2824-4180-b692-4fc9a52fb2e5
+		sourceLineageTag: ddae0586-6537-431e-b99e-8c9c508dd64c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Project Manager Contact Person Dept'
+		dataType: string
+		lineageTag: 50cbb5de-c19f-47ca-afa3-496b5f3a809e
+		sourceLineageTag: 6ebe7bb2-4699-471a-881d-c3d215f11c4b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person Dept
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Project Manager Contact Person Dept Name'
+		dataType: string
+		lineageTag: 5b58afeb-abfa-4528-ba59-2fb82968632b
+		sourceLineageTag: f574f816-bbb5-4c4e-9502-37e2e68a7a95
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person Dept Name
+
+		annotation SummarizationSetBy = User
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: a0541c11-9b05-4a32-bb52-7ff2217e7f5b
+		sourceLineageTag: 913ad56b-1d58-4315-8768-170144c34262
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = User
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: e093f4ff-b4bb-4eda-a06c-4e8a9cfaafcd
+		sourceLineageTag: 9c26cb28-1e09-49d6-917f-662e7f71c687
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = User
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 83e0ae98-bca7-424e-bc06-294e92a34949
+		sourceLineageTag: 82b0576a-b607-4cab-a01f-38520ff4ba92
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = User
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: 70934d69-9a27-4b5c-bb7a-50a023db41d8
+		sourceLineageTag: f23bcd94-cebe-460d-8395-c40d21ee8bd6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = User
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: c4ea3d4a-0161-49c8-b544-38a024c0fcd7
+		sourceLineageTag: 5eb083ec-42c2-4801-978b-84ca0385793b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = User
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: fd37d6b2-9bc9-47a2-adb5-7511c31609fc
+		sourceLineageTag: b07c0dda-2ec9-4073-ad0f-70ff6738893b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = User
+
+	partition 'CUSTOMER PROJECT MANAGER' = entity
+		mode: directQuery
+		source
+			entityName: CUSTOMER PROJECT MANAGER
+			expressionSource: 'DirectQuery to AS - Time Confirmation Service Orders'
+

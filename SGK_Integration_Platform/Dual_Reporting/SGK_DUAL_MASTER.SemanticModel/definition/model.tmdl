@@ -1,0 +1,78 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DirectQuery to AS - Time Confirmation Service Orders","DirectQuery to AS - Time_Confirmation_Dual_Master"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.143.878.0 (25.05)+b20aa3b866ec1b70879135a4e60e4b1301c75b21
+
+ref table 'SALES ORDER HEADER'
+ref table EDW_T_D_MST_CUSTCNT_CUR_D
+ref table 'SERVICE ORDER'
+ref table EDW_T_D_MST_PLANT_CUR_D
+ref table EDW_T_B_PRD_SVORDPTR_CUR_D
+ref table EDW_T_D_MST_CUSTOMR_CUR_D
+ref table EDW_T_D_MST_DATE_CUR_D
+ref table SEGMENT
+ref table COMPANY
+ref table 'COST CENTER'
+ref table EDW_T_D_MST_VENDOR_CUR_D
+ref table 'PROFIT CENTER'
+ref table 'PRODUCT VARIANT CONFIGURATION'
+ref table PERSONNEL
+ref table 'SALES AREA'
+ref table 'PROFIT CENTER VERTICAL HIERARCHY'
+ref table EDW_T_R_SGK_OPERREG_CUR_D
+ref table 'STANDARD TEXT KEY REFERENCE'
+ref table 'ACTIVITY TYPE'
+ref table EDW_T_D_SAL_ADDRESS_CUR_D
+ref table 'PROFIT CENTER HORIZONTAL HIERARCHY'
+ref table 'WORK CENTER'
+ref table EDW_T_B_SAL_SOIPTNR_CUR_D
+ref table 'COST CENTER VERTICAL HIERARCHY'
+ref table 'HUBX PROJECT'
+ref table 'COST CENTER HORIZONTAL HIERARCHY'
+ref table PERSONNEL_PLANT_REGION
+ref table 'PAYER CUSTOMER'
+ref table 'SHIP TO CUSTOMER'
+ref table 'FORWARDING AGENT VENDOR'
+ref table 'SO PARENT CUSTOMER'
+ref table 'BRAND OWNER CUSTOMER'
+ref table 'SUPPLIER CUSTOMER'
+ref table 'CUSTOMER PROJECT MANAGER'
+ref table 'CUSTOMER CONTACT'
+ref table 'PERSON RESPONSIBLE PERSONNEL'
+ref table 'WORK CENTER HORIZONTAL HIERARCHY'
+ref table 'WORK CENTER VERTICAL HIERARCHY'
+ref table 'POSTING DATE'
+ref table 'PRINTER CUSTOMER'
+ref table 'SALES PERSON PERSONNEL'
+ref table 'FACT TIME CONFIRMATION SERVICE ORDERS'
+ref table 'SERVICE ORDER CREATE DATE'
+ref table 'OPERATING PLANT'
+ref table 'PLANNING PLANT'
+ref table 'PARENT CUSTOMER'
+ref table 'SERVICE ORDER INVOICE CREATED DATE'
+ref table 'UNITIZATION AGENT VENDOR'
+ref table 'ORDER FOR CUSTOMER'
+ref table 'AGENCY CUSTOMER'
+ref table OPERATING_PLANT_REGION
+ref table 'EMPLOYEE RESPONSIBLE PERSONNEL'
+ref table 'TECHNICAL COMPLETION DATE'
+ref table 'CYLINDER OWNER CUSTOMER'
+ref table 'EMPLOYEE RESPONSIBLE PERSONNEL 2'
+ref table 'SOLD TO CUSTOMER'
+ref table 'BILL TO CUSTOMER'
+ref table PLANNING_PLANT_REGION
+ref table EDW_T_FACT_PRD_TMCONFS_CUR_D_GK
+ref table BILL_TO_CUST_GK
+ref table AGENCY_CUST_GK
+
+ref cultureInfo en-US
+

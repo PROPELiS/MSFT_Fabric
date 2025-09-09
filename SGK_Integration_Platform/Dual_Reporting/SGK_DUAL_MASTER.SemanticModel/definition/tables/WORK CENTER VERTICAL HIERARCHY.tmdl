@@ -1,0 +1,82 @@
+table 'WORK CENTER VERTICAL HIERARCHY'
+	lineageTag: 7e8d1ffe-62be-4686-b460-f65b4fa7eba2
+	sourceLineageTag: 3d00f4ad-f388-446e-b62e-a41db60db5f4
+
+	column WRK_CNTR_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 73d935a0-9eb5-4baa-b44b-0fac80466820
+		sourceLineageTag: be5f47f9-0a01-4211-ba26-99448037f06d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Center Plant ID'
+		dataType: string
+		lineageTag: 7750a49b-36b2-4ab6-9440-f0b909f1e3cb
+		sourceLineageTag: 9c312a16-38f5-4484-a7c1-84808711b18d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work Center Plant ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Center Parent ID VH'
+		dataType: string
+		lineageTag: 879a53a3-b644-4b46-a221-a3e02a8f8c07
+		sourceLineageTag: 1a0279e1-6628-4705-8d34-5034548a26b7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work Center Parent ID VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Center Parent Description VH'
+		dataType: string
+		lineageTag: 8c8223cf-7f6f-408c-8311-9d79a276d79f
+		sourceLineageTag: b1995a25-2f64-45fe-9b18-35b05cbf2036
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work Center Parent Description VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Center Child ID VH'
+		dataType: string
+		lineageTag: e633afcf-47d9-4093-a31b-8cddc651bd1e
+		sourceLineageTag: 0ee5c818-18e3-4b23-a3b1-208e686769da
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work Center Child ID VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Center Child Description VH'
+		dataType: string
+		lineageTag: 16eceb73-a290-4368-aa4c-cd010550526e
+		sourceLineageTag: 21c33d11-e423-4950-9620-589ecb2209c3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work Center Child Description VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Center Level VH'
+		dataType: string
+		lineageTag: 26f6a93c-fdf1-4049-a58d-e6c2e5916e3d
+		sourceLineageTag: 798fbeaf-edf4-49ce-9ed1-f192c5dba52a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work Center Level VH
+
+		annotation SummarizationSetBy = User
+
+	partition 'WORK CENTER VERTICAL HIERARCHY' = entity
+		mode: directQuery
+		source
+			entityName: WORK CENTER VERTICAL HIERARCHY
+			expressionSource: 'DirectQuery to AS - Time Confirmation Service Orders'
+

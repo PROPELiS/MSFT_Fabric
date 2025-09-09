@@ -1,0 +1,41 @@
+table EDW_T_R_SGK_OPERREG_CUR_D
+	lineageTag: 10356208-e8d1-4279-b2b1-8f56ae09fd65
+	sourceLineageTag: 9e8fb4f7-b36c-4377-b28c-d0188fa1b210
+
+	column 'Plant Business Function'
+		dataType: string
+		lineageTag: 8c6e0c01-c748-4939-9949-5d86187984f5
+		sourceLineageTag: 0f39ac59-b5de-4a7f-b294-58f64dd8a732
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Plant Business Function
+
+		annotation SummarizationSetBy = User
+
+	column 'Plant Region'
+		dataType: string
+		lineageTag: 4a2a27d3-0fa5-447a-aa12-a3c9cef02055
+		sourceLineageTag: 3dea57da-260d-41be-84f3-dee87538d84e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Plant Region
+
+		annotation SummarizationSetBy = User
+
+	column PLANT
+		dataType: string
+		isNullable: false
+		lineageTag: 4bc96b91-1c48-44a0-968a-c20c561a7710
+		sourceLineageTag: 0f16636a-842d-4bae-930d-32b21a7bd9d4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PLANT
+
+		annotation SummarizationSetBy = User
+
+	partition EDW_T_R_SGK_OPERREG_CUR_D = entity
+		mode: directQuery
+		source
+			entityName: EDW_T_R_SGK_OPERREG_CUR_D
+			expressionSource: 'DirectQuery to AS - Time Confirmation Service Orders'
+

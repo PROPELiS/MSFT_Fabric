@@ -1,0 +1,172 @@
+table 'ACTIVITY TYPE'
+	lineageTag: eb4ce60f-0799-42df-a7f7-64b26b6dc26e
+	sourceLineageTag: [dbo].[EDW_T_D_MST_ACTTYPE_CUR_D]
+
+	column ACTIVITY_TYP_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c749b39b-e596-450e-9099-5a51939b1865
+		sourceLineageTag: ACTIVITY_TYP_KEY
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type ID'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 72fdc17e-8205-4a5d-aa39-f17d9dc2aeb9
+		sourceLineageTag: Activity Type ID
+		summarizeBy: none
+		sourceColumn: Activity Type ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Description'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: b5c61e57-497d-4d64-880b-22a11ebbe729
+		sourceLineageTag: Activity Type Description
+		summarizeBy: none
+		sourceColumn: Activity Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Description 2'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 52d0da26-5245-485c-9596-83f16156c16d
+		sourceLineageTag: Activity Type Description 2
+		summarizeBy: none
+		sourceColumn: Activity Type Description 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Controlling Area'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: d8d2db24-afc7-4b1a-bbf0-556698e1cf58
+		sourceLineageTag: Activity Type Controlling Area
+		summarizeBy: none
+		sourceColumn: Activity Type Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Unit'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 9a231f06-05cf-4f14-a0c0-dfe3be3749d7
+		sourceLineageTag: Activity Type Unit
+		summarizeBy: none
+		sourceColumn: Activity Type Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Category'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 62a3743c-6c00-480f-8fad-b8014840da57
+		sourceLineageTag: Activity Type Category
+		summarizeBy: none
+		sourceColumn: Activity Type Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: abaf1fa4-ab2a-4a4c-8b14-21abff27a827
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: a9663792-d4f5-4d42-933a-6aeb02fb3066
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 53c31fbb-1fdd-4561-b754-048cd00076fa
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: a8b78774-3997-443b-88d2-f5deb4d26b54
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 94ea521c-441a-4eab-a9a9-1a94143d3d86
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c836e7db-477f-4caf-a9bd-d30aa7a703ef
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Controlling Area Description'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 94b4d41d-642d-4b3f-a21b-b12af17197f4
+		sourceLineageTag: Activity Type Controlling Area Description
+		summarizeBy: none
+		sourceColumn: Activity Type Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Category Description'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 8a955e0b-629c-4ba8-8db9-4a27770e6474
+		sourceLineageTag: Activity Type Category Description
+		summarizeBy: none
+		sourceColumn: Activity Type Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'ACTIVITY TYPE' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_ACTTYPE_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

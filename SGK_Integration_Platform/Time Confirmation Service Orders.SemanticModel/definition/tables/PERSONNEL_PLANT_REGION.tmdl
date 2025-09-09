@@ -1,0 +1,43 @@
+table PERSONNEL_PLANT_REGION
+	lineageTag: bd3f0e44-b2d2-4427-8eec-8a2529005c2e
+	sourceLineageTag: [Propelis].[PERSONNEL_PLANT_REGION]
+
+	column 'Personnel Business Function'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 9da7c831-9d13-478b-83a3-3e2387da0867
+		sourceLineageTag: Personnel Business Function
+		summarizeBy: none
+		sourceColumn: Personnel Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Personnel Plant Region'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 4aad8eb9-467e-4a2b-ad14-1793651fc306
+		sourceLineageTag: Personnel Plant Region
+		summarizeBy: none
+		sourceColumn: Personnel Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Personnel Plant'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: aa42abe0-69af-4286-a225-b977e108e57e
+		sourceLineageTag: Personnel Plant
+		summarizeBy: none
+		sourceColumn: Personnel Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PERSONNEL_PLANT_REGION = entity
+		mode: directLake
+		source
+			entityName: PERSONNEL_PLANT_REGION
+			schemaName: Propelis
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,43 @@
+table EDW_T_R_SGK_OPERREG_CUR_D
+	lineageTag: 9e8fb4f7-b36c-4377-b28c-d0188fa1b210
+	sourceLineageTag: [dbo].[EDW_T_R_SGK_OPERREG_CUR_D]
+
+	column 'Plant Business Function'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 0f39ac59-b5de-4a7f-b294-58f64dd8a732
+		sourceLineageTag: Plant Business Function
+		summarizeBy: none
+		sourceColumn: Plant Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Region'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 3dea57da-260d-41be-84f3-dee87538d84e
+		sourceLineageTag: Plant Region
+		summarizeBy: none
+		sourceColumn: Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANT
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 0f16636a-842d-4bae-930d-32b21a7bd9d4
+		sourceLineageTag: PLANT
+		summarizeBy: none
+		sourceColumn: PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_R_SGK_OPERREG_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_R_SGK_OPERREG_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
