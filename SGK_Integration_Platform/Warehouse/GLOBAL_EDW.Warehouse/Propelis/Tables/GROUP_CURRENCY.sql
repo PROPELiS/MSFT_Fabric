@@ -1,4 +1,4 @@
-CREATE TABLE [Propelis].[GROUP_CRNCY] (
+CREATE TABLE [Propelis].[GROUP_CURRENCY] (
 
 	[CRNCY_KEY] int NOT NULL, 
 	[Group Code Currency] varchar(max) NULL, 
