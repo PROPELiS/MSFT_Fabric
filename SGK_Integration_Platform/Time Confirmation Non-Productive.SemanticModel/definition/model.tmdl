@@ -1,0 +1,31 @@
+model Model
+	culture: en-US
+	collation: Latin1_General_100_BIN2_UTF8
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["DatabaseQuery"]
+
+annotation PBI_ProTooling = ["WebModelingEdit"]
+
+ref table PERSONNEL_PLANT_REGION
+ref table DOCUMENT_DATE
+ref table 'PLANT_REGION '
+ref table EDW_T_D_HY_PROFCVZ_CUR_D
+ref table EDW_T_D_HY_PROFCHZ_CUR_D
+ref table POSTING_DATE
+ref table EDW_T_D_MST_PLANT_CUR_D
+ref table EDW_T_D_MST_PROFCTR_CUR_D
+ref table EDW_T_D_MST_ACTTYPE_CUR_D
+ref table EDW_T_D_MST_DATE_CUR_D
+ref table EDW_T_FACT_SAL_TMCONFN_CUR_D
+ref table EDW_T_D_MST_COSCNTR_CUR_D
+ref table EDW_T_D_MST_PERSONL_CUR_D
+ref table EDW_T_D_HY_COSTCVZ_CUR_D
+ref table EDW_T_D_HY_COSTCHZ_CUR_D
+

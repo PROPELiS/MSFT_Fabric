@@ -1,4 +1,4 @@
-CREATE     PROCEDURE dbo.Proc_EDW_T_R_SGK_OPERREG_CUR_D
+CREATE   PROCEDURE [Propelis].[Proc_LOCATION_PLANT_REGION]
 AS
 BEGIN
 
@@ -27,27 +27,28 @@ BEGIN
     ------------------------------------------------------------------
     UPDATE T
     SET 
-        [Business Function] = S.[BUSINESS_FUNCTION],
-        [SGK Plant Region]            = S.[REGION]
-    FROM [GLOBAL_EDW].[dbo].[EDW_T_R_SGK_OPERREG_CUR_D] AS T
+        [Location Plant Business Function] = S.[BUSINESS_FUNCTION],
+        [Location Plant Region]            = S.[REGION],
+		[Location Plant]                   = S.[PLANT]
+    FROM [GLOBAL_EDW].[Propelis].[LOCATION_PLANT_REGION] AS T
     INNER JOIN #SourceData AS S
-        ON T.[PLANT] = S.[PLANT]
+        ON T.[Location Plant] = S.[PLANT]
     WHERE HASHBYTES('SHA2_256', 
             CONCAT(
-                ISNULL(T.[Business Function], ''), '|',
-                ISNULL(T.[SGK Plant Region], ''), '|',
-                ISNULL(T.[PLANT], '')
+                ISNULL(T.[Location Plant Business Function], ''), '|',
+                ISNULL(T.[Location Plant Region], ''), '|',
+                ISNULL(T.[Location Plant], '')
             )
         ) <> S.HashKey;
 
     ------------------------------------------------------------------
     -- Step 3: Insert only new rows not already in target
     ------------------------------------------------------------------
-    INSERT INTO [GLOBAL_EDW].[dbo].[EDW_T_R_SGK_OPERREG_CUR_D_TRIAL]
+    INSERT INTO [GLOBAL_EDW].[Propelis].[LOCATION_PLANT_REGION]
     (
-        [Business Function],
-        [SGK Plant Region],
-        [PLANT]
+        [Location Plant Business Function],
+        [Location Plant Region],
+        [Location Plant]
     )
     SELECT 
         S.[BUSINESS_FUNCTION],
@@ -56,14 +57,8 @@ BEGIN
     FROM #SourceData AS S
     WHERE NOT EXISTS (
         SELECT 1
-        FROM [GLOBAL_EDW].[dbo].[EDW_T_R_SGK_OPERREG_CUR_D] AS T
-        WHERE T.[PLANT] = S.[PLANT]
+        FROM [GLOBAL_EDW].[Propelis].[LOCATION_PLANT_REGION] AS T
+        WHERE T.[Location Plant] = S.[PLANT]
     );
 
-    ------------------------------------------------------------------
-    -- Step 4: Confirmation
-    ------------------------------------------------------------------
-    PRINT 'Incremental load completed – updated changed rows and inserted new rows.';
-
-END;
-exec dbo.Proc_EDW_T_R_SGK_OPERREG_CUR_D
+  END;

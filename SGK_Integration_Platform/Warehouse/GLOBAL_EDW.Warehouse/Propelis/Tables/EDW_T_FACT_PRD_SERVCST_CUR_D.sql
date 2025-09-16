@@ -42,6 +42,7 @@ CREATE TABLE [Propelis].[EDW_T_FACT_PRD_SERVCST_CUR_D] (
 	[Transaction Type Description] varchar(max) NULL, 
 	[Controlling Area Description] varchar(max) NULL, 
 	[Is Internal  Posting] varchar(max) NULL, 
+	[ACTIVITY_TYP_KEY] varchar(max) NULL, 
 	[Posting Row] int NOT NULL, 
 	[Is INTER Company Posting] varchar(max) NULL, 
 	[Is INTRA Company Posting] varchar(max) NULL, 
@@ -49,5 +50,9 @@ CREATE TABLE [Propelis].[EDW_T_FACT_PRD_SERVCST_CUR_D] (
 	[TCHNCL_COMPLETION_DATE_KEY] int NULL, 
 	[DOCMT_DATE_KEY] int NULL, 
 	[CREATION_DATE_KEY] int NULL, 
-	[Posting Creation Date Timestamp] datetime2(0) NULL
+	[Posting Creation Date Timestamp] datetime2(0) NULL, 
+	[PERSONNEL_PLANT_REGION_PLANT] varchar(max) NULL, 
+	[PLANT_REGION_PLANT] varchar(max) NULL, 
+	[LOCATION_PLANT_REGION_PLANT] varchar(max) NULL, 
+	[PRODUCING_PLANT_REGION_PLANT] varchar(max) NULL
 );

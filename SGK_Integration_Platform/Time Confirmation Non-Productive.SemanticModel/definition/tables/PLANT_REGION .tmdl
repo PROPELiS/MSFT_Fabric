@@ -1,0 +1,45 @@
+table 'PLANT_REGION '
+	lineageTag: acfcb9e5-2773-4f1c-b803-dabbcadc6b6d
+	sourceLineageTag: [Propelis].[PLANT_REGION ]
+
+	column 'Plant Business Function'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: e841bfd0-6152-41f5-bdb3-a903be7efe4b
+		sourceLineageTag: Plant Business Function
+		summarizeBy: none
+		sourceColumn: Plant Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Region'
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: a9203192-b528-4d6d-9c7c-0855a580f781
+		sourceLineageTag: Plant Region
+		summarizeBy: none
+		sourceColumn: Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANT
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 5f76e80b-ebcb-4345-af54-40c13159ec75
+		sourceLineageTag: PLANT
+		summarizeBy: none
+		sourceColumn: PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'PLANT_REGION ' = entity
+		mode: directLake
+		source
+			entityName = ```
+				PLANT_REGION 
+				```
+			schemaName: Propelis
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

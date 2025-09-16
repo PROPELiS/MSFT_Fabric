@@ -1,4 +1,4 @@
-CREATE     PROCEDURE dbo.Proc_EDW_T_R_SGK_OPERREG_CUR_D
+CREATE   PROCEDURE [Propelis].[Proc_PLANT_REGION]
 AS
 BEGIN
 
@@ -27,15 +27,16 @@ BEGIN
     ------------------------------------------------------------------
     UPDATE T
     SET 
-        [Business Function] = S.[BUSINESS_FUNCTION],
-        [SGK Plant Region]            = S.[REGION]
-    FROM [GLOBAL_EDW].[dbo].[EDW_T_R_SGK_OPERREG_CUR_D] AS T
+        [Plant Business Function] = S.[BUSINESS_FUNCTION],
+        [Plant Region]            = S.[REGION],
+        [PLANT]                   = S.[PLANT]
+    FROM [GLOBAL_EDW].[Propelis].[PLANT_REGION] AS T
     INNER JOIN #SourceData AS S
-        ON T.[PLANT] = S.[PLANT]
+        ON T.[PLANT] = S.[PLANT]   -- join on business key (PLANT)
     WHERE HASHBYTES('SHA2_256', 
             CONCAT(
-                ISNULL(T.[Business Function], ''), '|',
-                ISNULL(T.[SGK Plant Region], ''), '|',
+                ISNULL(T.[Plant Business Function], ''), '|',
+                ISNULL(T.[Plant Region], ''), '|',
                 ISNULL(T.[PLANT], '')
             )
         ) <> S.HashKey;
@@ -43,10 +44,10 @@ BEGIN
     ------------------------------------------------------------------
     -- Step 3: Insert only new rows not already in target
     ------------------------------------------------------------------
-    INSERT INTO [GLOBAL_EDW].[dbo].[EDW_T_R_SGK_OPERREG_CUR_D_TRIAL]
+    INSERT INTO [GLOBAL_EDW].[Propelis].[PLANT_REGION]
     (
-        [Business Function],
-        [SGK Plant Region],
+        [Plant Business Function],
+        [Plant Region],
         [PLANT]
     )
     SELECT 
@@ -56,7 +57,7 @@ BEGIN
     FROM #SourceData AS S
     WHERE NOT EXISTS (
         SELECT 1
-        FROM [GLOBAL_EDW].[dbo].[EDW_T_R_SGK_OPERREG_CUR_D] AS T
+        FROM [GLOBAL_EDW].[Propelis].[PLANT_REGION] AS T
         WHERE T.[PLANT] = S.[PLANT]
     );
 
@@ -66,4 +67,3 @@ BEGIN
     PRINT 'Incremental load completed – updated changed rows and inserted new rows.';
 
 END;
-exec dbo.Proc_EDW_T_R_SGK_OPERREG_CUR_D

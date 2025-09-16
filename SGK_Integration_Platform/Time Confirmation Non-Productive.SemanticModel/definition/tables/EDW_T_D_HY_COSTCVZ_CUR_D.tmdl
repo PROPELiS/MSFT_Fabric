@@ -1,0 +1,84 @@
+table EDW_T_D_HY_COSTCVZ_CUR_D
+	lineageTag: 1ac232ca-571e-4d88-8548-233414522e79
+	sourceLineageTag: [dbo].[EDW_T_D_HY_COSTCVZ_CUR_D]
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d915def1-f33a-4b58-bf88-b7c7f14c2176
+		sourceLineageTag: COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Controlling Area ID VH'
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: 401a2a76-8c73-4372-bd26-0f0098d53d2c
+		sourceLineageTag: Cost Center Controlling Area ID VH
+		summarizeBy: none
+		sourceColumn: Cost Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 3ad1c472-8245-4a73-bfcf-15b339f5a190
+		sourceLineageTag: Cost Center Parent ID VH
+		summarizeBy: none
+		sourceColumn: Cost Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 6054820b-7faa-4a10-816a-92be94c6e59f
+		sourceLineageTag: Cost Center Parent Description VH
+		summarizeBy: none
+		sourceColumn: Cost Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: c2a4ec15-a5ab-49f6-983e-9628165aceb2
+		sourceLineageTag: Cost Center Child ID VH
+		summarizeBy: none
+		sourceColumn: Cost Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Child Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: a76f5f3e-6e2b-41ed-bd8e-1b1aaa16e5f5
+		sourceLineageTag: Cost Center Child Description VH
+		summarizeBy: none
+		sourceColumn: Cost Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Hierarchical Level VH'
+		dataType: string
+		sourceProviderType: varchar(24)
+		lineageTag: 9d7397db-d475-4905-bf08-40ff472c1293
+		sourceLineageTag: Cost Center Hierarchical Level VH
+		summarizeBy: none
+		sourceColumn: Cost Center Hierarchical Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_HY_COSTCVZ_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_HY_COSTCVZ_CUR_D
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -19,15 +19,17 @@ CREATE TABLE [Propelis].[EDW_T_FACT_SAL_TMCONFN_CUR_D] (
 	[Business Transaction] varchar(max) NULL, 
 	[PERSONEL_NUM_KEY] int NULL, 
 	[Activity UOM] varchar(max) NULL, 
-	[ACTIVITY_QTY] date NULL, 
+	[ACTIVITY_QTY] decimal(38,10) NULL, 
 	[Actual Work UOM] varchar(max) NULL, 
-	[ACTUAL_WRK] date NULL, 
-	[ACTUAL_WRK_IN_HRS] date NULL, 
+	[ACTUAL_WRK] decimal(38,10) NULL, 
+	[ACTUAL_WRK_IN_HRS] decimal(38,10) NULL, 
 	[Actual Work in Hours UOM] varchar(max) NULL, 
 	[Object Number] varchar(max) NULL, 
 	[Description] varchar(max) NULL, 
 	[ETL_SRC_SYS_CD] varchar(max) NULL, 
 	[ETL_CREATED_TS] datetime2(0) NULL, 
 	[ETL_UPDTD_TS] datetime2(0) NULL, 
-	[PROFT_CNTR_KEY] int NULL
+	[PROFT_CNTR_KEY] int NULL, 
+	[PLANT_REGION_PLANT] varchar(max) NULL, 
+	[PERSONNEL_PLANT_REGION_PLANT] varchar(max) NULL
 );
