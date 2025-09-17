@@ -1,0 +1,43 @@
+table DimSubRegion
+	lineageTag: aec29a7a-dcd2-440f-917d-bc8ac44c3bb2
+	sourceLineageTag: [dbo].[DimSubRegion]
+
+	column HEXKeySubRegion
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d2e77ccb-6720-4869-bc94-89e37b757e40
+		sourceLineageTag: HEXKeySubRegion
+		summarizeBy: none
+		sourceColumn: HEXKeySubRegion
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubRegionCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4d149b7b-7c47-4254-aada-b71f407584ef
+		sourceLineageTag: SubRegionCode
+		summarizeBy: none
+		sourceColumn: SubRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a8e9c750-d9bc-4ea1-84ff-ceaabd88b7ce
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimSubRegion = entity
+		mode: directLake
+		source
+			entityName: DimSubRegion
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

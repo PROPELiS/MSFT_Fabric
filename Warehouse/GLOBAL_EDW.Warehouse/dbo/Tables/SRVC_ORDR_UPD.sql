@@ -1,6 +1,0 @@
-CREATE TABLE [dbo].[SRVC_ORDR_UPD] (
-
-	[SERVC_ORDER] varchar(12) NULL, 
-	[SERVC_ORDER_KEY] int NULL, 
-	[ETL_UPDTD_TS_MIN] datetime2(0) NULL
-);

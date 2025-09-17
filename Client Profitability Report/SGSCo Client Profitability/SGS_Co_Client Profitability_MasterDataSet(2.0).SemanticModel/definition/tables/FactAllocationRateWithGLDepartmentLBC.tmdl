@@ -1,0 +1,137 @@
+table FactAllocationRateWithGLDepartmentLBC
+	lineageTag: fdc0116a-4122-48cc-b411-ddd324d36dc4
+	sourceLineageTag: [dbo].[FactAllocationRateWithGLDepartmentLBCOutBound]
+
+	column HEXKeyCalendarDate
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 664e17c8-efc4-4ef1-8a3a-b98314e28053
+		sourceLineageTag: HEXKeyCalendarDate
+		summarizeBy: none
+		sourceColumn: HEXKeyCalendarDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeySubService
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 19dbc387-9ef9-4a5a-a0bb-3b6cfa29ccb6
+		sourceLineageTag: HEXKeySubService
+		summarizeBy: none
+		sourceColumn: HEXKeySubService
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyCustomer
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7d5dfcb5-87d9-4f71-a463-07b2b801e18b
+		sourceLineageTag: HEXKeyCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeyCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyLBCLocation
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: dc736899-b09a-49b2-a0c1-de31e549e058
+		sourceLineageTag: HEXKeyLBCLocation
+		summarizeBy: none
+		sourceColumn: HEXKeyLBCLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyGLAccounts
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 069aa8ab-5696-40f4-998c-e9523fd098cb
+		sourceLineageTag: HEXKeyGLAccounts
+		summarizeBy: none
+		sourceColumn: HEXKeyGLAccounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyDepartment
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 29793119-25ba-4438-beb3-98b8fce9ceaf
+		sourceLineageTag: HEXKeyDepartment
+		summarizeBy: none
+		sourceColumn: HEXKeyDepartment
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyGLAccountsDepartment
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9741f43f-fb5e-41ae-9d43-90950b15f855
+		sourceLineageTag: HEXKeyGLAccountsDepartment
+		summarizeBy: none
+		sourceColumn: HEXKeyGLAccountsDepartment
+
+		annotation SummarizationSetBy = Automatic
+
+	column AllocationRate
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: 958c6147-9c70-4b50-b957-2110ed15bacc
+		sourceLineageTag: AllocationRate
+		summarizeBy: sum
+		sourceColumn: AllocationRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AllocationMethodolgy
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2fe30a0d-7ee7-4e9f-a9a2-902f54e59a7e
+		sourceLineageTag: AllocationMethodolgy
+		summarizeBy: none
+		sourceColumn: AllocationMethodolgy
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDAllocationMappingNotAvailableDefaultUsed
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 86afa6fe-267f-4d4e-bb5d-0211e93d637b
+		sourceLineageTag: INDAllocationMappingNotAvailableDefaultUsed
+		summarizeBy: none
+		sourceColumn: INDAllocationMappingNotAvailableDefaultUsed
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimaryOrSecondaryIndicator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7b48f47e-d6cb-4236-8886-9bc14d5a6572
+		sourceLineageTag: PrimaryOrSecondaryIndicator
+		summarizeBy: none
+		sourceColumn: PrimaryOrSecondaryIndicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: dbe613b5-f42a-4e58-8e43-af8a5effd2eb
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactAllocationRateWithGLDepartmentLBC = entity
+		mode: directLake
+		source
+			entityName: FactAllocationRateWithGLDepartmentLBCOutBound
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

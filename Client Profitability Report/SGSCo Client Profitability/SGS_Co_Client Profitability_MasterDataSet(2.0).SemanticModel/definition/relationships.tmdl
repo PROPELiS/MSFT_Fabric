@@ -1,0 +1,216 @@
+relationship 2c19293c-72e0-d66f-39b0-d9d1e05faccb
+	fromColumn: FactSalesCostActual.HEXKeyAllocationMethodology
+	toColumn: DimCostAllocationMethodologyCategory.HEXKeyAllocationMethodology
+
+relationship a7fe16d0-54cf-83a6-48c2-fc7dfa8855a6
+	fromColumn: FactSalesCostActual.HEXKeyPrimaryContactCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship 5d42c3d1-6b4e-0b0e-47f9-88933231e124
+	fromColumn: FactSalesCostActual.'zID - HEXKey Billto Customer'
+	toColumn: DimCustomerBillto.'zID - HEXKey Billto Customer'
+
+relationship b9184747-1381-cc49-fa41-ab2c274c2d68
+	fromColumn: FactSalesCostActual.'zID - HEXKey Printer Customer'
+	toColumn: DimCustomerPrinter.'zID - HEXKey Printer Customer'
+
+relationship 1b40e5d7-5257-ac95-0c80-01e7bd2081e7
+	fromColumn: FactSalesCostActual.'zID - HEXKey Reporting Customer'
+	toColumn: DimCustomerReporting.'zID - HEXKeyReportingCustomer'
+
+relationship d9784453-d349-ece5-394f-31a3fbefdafb
+	fromColumn: FactSalesCostActual.'zID - HEXKey Department'
+	toColumn: DimDepartment.'zID - HEXKey Department'
+
+relationship d0878bff-b41e-2c8e-8ce1-39ccca8addcd
+	fromColumn: FactSalesCostActual.'zID - HEXKey GLAccounts'
+	toColumn: DimGLAccounts.'zID - HEXKey GL Accounts'
+
+relationship 0fda9814-6c58-ffe4-e6b4-67eb7a2558b0
+	fromColumn: FactSalesCostActual.HEXKeySubService
+	toColumn: DimSubService.HEXKeySubService
+
+relationship 955974bf-f6e4-1e88-1261-1bb45965ab8c
+	fromColumn: FactSalesCostActual.HEXKeySubRegion
+	toColumn: DimSubRegion.HEXKeySubRegion
+
+relationship 361db7b0-b8db-fbd5-552f-849cfe8dc77d
+	fromColumn: FactSalesCostActual.'zID - HEXKey Job Version'
+	toColumn: DimJobversion.HEXKeyJobVersion
+
+relationship 31b5dcab-6aac-4616-3cf7-8459af42e909
+	fromColumn: FactSalesCostActual.'zID - HEXKey Project Manager'
+	toColumn: DimProjectManager.HEXKeyEmployees
+
+relationship 57b5c806-b959-305e-8580-a60e9d3e8b3d
+	fromColumn: FactSalesCostActual.'zID - HEXKey GL Accounts Department'
+	toColumn: DimGLAccountsDepartment.'zID - HEXKey GL Accounts Department'
+
+relationship a3294614-8359-94c9-a849-f6fcbfdb4610
+	fromColumn: FactSalesCostActual.'zID - HEXKey Product'
+	toColumn: DimProduct.'zID - HEXKey Product'
+
+relationship 6320a313-fe30-6b99-55d1-8f0463304d50
+	fromColumn: FactAllocationRateSubServiceGlobal.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship 82b3feb1-4431-201a-3f13-34d106b501fe
+	fromColumn: FactAllocationRateSubServiceGlobal.HEXKeySubService
+	toColumn: DimSubService.HEXKeySubService
+
+relationship 48ff891a-eaf5-68e6-1996-8cbbc19da186
+	fromColumn: FactAllocationRateSubServiceGlobal.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship 08ee4353-c224-df39-aaa2-babc97fe1ef0
+	fromColumn: FactAllocationRateSubServiceLBC.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship eca323a1-a03d-7fd5-868f-00b16653048a
+	fromColumn: FactAllocationRateSubServiceLBC.HEXKeyLBCLocation
+	toColumn: DimLBCLocation.'zID - HEXKey LBC Location'
+
+relationship 00b3ec34-0569-0797-13ae-25550da2ce1d
+	fromColumn: FactAllocationRateSubServiceLBC.HEXKeySubService
+	toColumn: DimSubService.HEXKeySubService
+
+relationship 6cec1a61-ce34-cdd7-05b5-ebc47b01c9c7
+	fromColumn: FactAllocationRateSubServiceLBC.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship d1d34482-4706-02a6-e0c3-324108f5762b
+	fromColumn: FactAllocationSubServiceSubRegion.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship 1c64ff3f-3e7a-dd12-9281-7b9d5ea2048f
+	fromColumn: FactAllocationSubServiceSubRegion.HEXKeyLBCLocation
+	toColumn: DimLBCLocation.'zID - HEXKey LBC Location'
+
+relationship ab5770b6-deb6-074e-0fca-4c8d9651975e
+	fromColumn: FactAllocationSubServiceSubRegion.HEXKeySubRegion
+	toColumn: DimSubRegion.HEXKeySubRegion
+
+relationship 3a897183-560f-1d46-4244-b1680e97f1f6
+	fromColumn: FactAllocationSubServiceSubRegion.HEXKeySubService
+	toColumn: DimSubService.HEXKeySubService
+
+relationship bc0dab72-1e43-d795-93c3-36064761be22
+	fromColumn: FactAllocationSubServiceSubRegion.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship eb5823b2-70ea-d5ad-1773-b8787ccc7dbb
+	fromColumn: FactSalesCostActual.'zID - HEXKey Soldto Customer'
+	toColumn: DimCustomerSoldto.'zID - HEXKey Soldto Customer'
+
+relationship 7d1cc530-e90b-a99d-87e7-8aee995295a6
+	fromColumn: FactSalesCostActual.'zID - HEXKey Shipto Customer'
+	toColumn: DimCustomerShipto.'zID - HEXKey Shipto Customer'
+
+relationship cc85fa39-da46-a464-163e-97db84144f06
+	fromColumn: FactSalesCostActual.'zID - HEXKey Employee History'
+	toColumn: DimEmployeeHistory.HEXKeyEmployeeNumberWorkdate
+
+relationship 0109cd56-cae2-7f07-1020-1dd28ff91c4e
+	fromColumn: FactSalesCostActual.'zID - HEXKey Invoice Date'
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship 158247f5-df45-170c-bee2-deb326f21577
+	fromColumn: FactSalesCostActual.'zID - HEXKey LBC Location'
+	toColumn: DimLBCLocation.'zID - HEXKey LBC Location'
+
+relationship 060685be-3af6-9abc-544b-b2cd24f8e8f1
+	fromColumn: FactAllocationRateServiceGlobal.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship f7ac7daf-e764-dcf3-b2b0-7a81b67c22ef
+	fromColumn: FactAllocationRateServiceGlobal.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship a9c433de-c4ca-e6c3-b3c8-965bbf36f4c3
+	fromColumn: FactAllocationRateServiceGlobal.HEXKeyService
+	toColumn: DimService.HEXKeyService
+
+relationship c057ef4d-5674-bcd5-872f-aa711a2f527b
+	fromColumn: FactAllocationRateServiceLBC.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship 7a152c01-1433-03ee-7673-3c50a7001ea5
+	fromColumn: FactAllocationRateServiceLBC.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship d99c22c0-e887-01a5-6f57-b3a44111fd8e
+	fromColumn: FactAllocationRateServiceLBC.HEXKeyLBCLocation
+	toColumn: DimLBCLocation.'zID - HEXKey LBC Location'
+
+relationship b95defaa-e158-43a0-5fa2-26ac270d0771
+	fromColumn: FactAllocationRateServiceLBC.HEXKeyService
+	toColumn: DimService.HEXKeyService
+
+relationship a3dafca0-121b-6c5e-1c28-ccc53b6298a4
+	fromColumn: FactAllocationServiceSubRegion.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship 6abdf090-3ad0-0e9f-8063-c0fdc2a19389
+	fromColumn: FactAllocationServiceSubRegion.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship eb717641-9237-1590-5d49-bba6fc0fd480
+	fromColumn: FactAllocationServiceSubRegion.HEXKeyLBCLocation
+	toColumn: DimLBCLocation.'zID - HEXKey LBC Location'
+
+relationship f5a98edd-9720-1842-6c02-e4004e3b2adf
+	fromColumn: FactAllocationServiceSubRegion.HEXKeyService
+	toColumn: DimService.HEXKeyService
+
+relationship 597991ef-5b48-34d4-aa14-85de3bdf001c
+	fromColumn: FactAllocationServiceSubRegion.HEXKeySubRegion
+	toColumn: DimSubRegion.HEXKeySubRegion
+
+relationship b33ea2f6-7bba-3a9c-d501-dceea158ce04
+	fromColumn: FactSalesCostActual.HEXKeyService
+	toColumn: DimService.HEXKeyService
+
+relationship b481fa82-abf6-bc01-0925-f839d0448048
+	fromColumn: FactAllocationRateGlobal.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship 4d29c396-0769-b1f9-a2f6-391819e73689
+	fromColumn: FactAllocationRateGlobal.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship 496326e5-b8f8-7203-c4de-901777cf4a59
+	fromColumn: FactAllocationRateWithGLDepartmentLBC.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship c47d7132-b2f7-0f09-a06c-545004eabf82
+	fromColumn: FactAllocationRateWithGLDepartmentLBC.HEXKeyDepartment
+	toColumn: DimDepartment.'zID - HEXKey Department'
+
+relationship 511447c8-2dc2-b0b1-85f5-c1958d7373eb
+	fromColumn: FactAllocationRateWithGLDepartmentLBC.HEXKeyGLAccounts
+	toColumn: DimGLAccounts.'zID - HEXKey GL Accounts'
+
+relationship b584e3e8-bf63-3aa9-fffd-544b433afdf7
+	fromColumn: FactAllocationRateWithGLDepartmentLBC.HEXKeyLBCLocation
+	toColumn: DimLBCLocation.'zID - HEXKey LBC Location'
+
+relationship a3ee75b3-fe2f-a3de-eea5-a4e0ff70238a
+	fromColumn: FactAllocationRateWithGLDepartmentLBC.HEXKeySubService
+	toColumn: DimSubService.HEXKeySubService
+
+relationship 5efa7989-ae31-dd38-b146-2d87dd239fa7
+	fromColumn: FactAllocationRateWithGLDepartmentLBC.HEXKeyCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship 801b5603-c280-0889-e3f1-4905f90a9ca2
+	fromColumn: FactSalesCostActual.HEXKeyLineOfBusiness
+	toColumn: DimLOB.HEXKeyLineOfBusiness
+
+relationship 8712d1a1-1d13-9cd5-5047-63e665a698fb
+	fromColumn: FactSalesCostActual.'zID - HEXKey Employees'
+	toColumn: DimEmployee.'zID - HEXKey Employees'
+
+relationship c7035696-bf0b-0a03-a110-389905089bac
+	fromColumn: FactAllocationRateWithGLDepartmentLBC.HEXKeyGLAccountsDepartment
+	toColumn: DimGLAccountsDepartment.'zID - HEXKey GL Accounts Department'
+

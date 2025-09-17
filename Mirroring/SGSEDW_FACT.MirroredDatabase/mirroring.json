@@ -1,0 +1,117 @@
+{
+  "properties": {
+    "source": {
+      "type": "Snowflake",
+      "typeProperties": {
+        "connection": "0156338e-ebc8-4d0f-bf35-b317c7e54017",
+        "database": "SGSEDW"
+      }
+    },
+    "target": {
+      "type": "MountedRelationalDatabase",
+      "typeProperties": {
+        "defaultSchema": "dbo",
+        "format": "Delta",
+        "retentionInDays": 30
+      }
+    },
+    "mountedTables": [
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactAllocationRateGlobal"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactAllocationRateServiceGlobal"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactAllocationRateServiceLBC"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactAllocationRateSubServiceGlobal"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactAllocationRateSubServiceLBC"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactAllocationRateWithGLDepartmentLBCOutBound"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactAllocationServiceSubRegion"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactAllocationSubServiceSubRegion"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactEmployeeWageHoursForAllocationNoWageOutBound"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactEmployeeWageHoursForAllocationOutBound"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactJobItem"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactSalesCostActualOutBound"
+          }
+        }
+      }
+    ]
+  }
+}

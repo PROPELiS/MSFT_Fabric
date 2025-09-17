@@ -1,0 +1,74 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "MasterData_ServiceTypes_FULL",
+        "type": "Copy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT\n\t[Code] ,\n\t[ServiceType],\n\t[Active],\n\t[DateAdded],\n\t[AddedBy],\n\t[LastModifiedDate],\n\t[LastModifiedBy],\n\t[System],\n\t[ETL_BatchId],\n\t[ETL_ChangeTrackingOperation]\nFROM [MYSGSEU].[MasterData_ServiceTypes]",
+              "type": "Expression"
+            },
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "type": "SqlServerTable",
+              "schema": [],
+              "typeProperties": {
+                "database": "Warehouse_Staging"
+              },
+              "externalReferences": {
+                "connection": "ac03e674-24fe-47fa-a6fa-1c8664bea5ba"
+              }
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "preCopyScript": {
+              "value": "truncate table SILVER.MYSGSEU.MASTERDATA_SERVICETYPES",
+              "type": "Expression"
+            },
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "type": "SnowflakeTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "MASTERDATA_SERVICETYPES",
+                "database": "SILVER"
+              },
+              "externalReferences": {
+                "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

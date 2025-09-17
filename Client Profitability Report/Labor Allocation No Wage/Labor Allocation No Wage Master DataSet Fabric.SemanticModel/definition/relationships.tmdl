@@ -1,0 +1,48 @@
+relationship a4e8fc1b-2c8e-30cb-f861-ddb9dfb2b08f
+	fromColumn: FactEmployeeWageHoursForAllocation.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.HEXKeyCalendarDate
+
+relationship 0fca3488-647f-438e-9530-29f5e41da09c
+	fromColumn: FactEmployeeWageHoursForAllocation.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.HEXKeyCombineCustomer
+
+relationship 6f55e1e5-bf5b-4305-1c2e-ba730f297fb8
+	fromColumn: FactEmployeeWageHoursForAllocation.HEXKeyEmployees
+	toColumn: DimEmployee.HEXKeyEmployees
+
+relationship 2dc0b669-616e-b214-dcd6-72131ff92eb6
+	fromColumn: FactEmployeeWageHoursForAllocation.HEXKeyLBCLocation
+	toColumn: DimLBCLocation.HEXKeyLBCLocation
+
+relationship f040001c-db33-c8a3-0178-2a814d45f7dd
+	fromColumn: FactEmployeeWageHoursForAllocationNoWage.HEXKeyCalendarDateNoWage
+	toColumn: DimCalendarDate.HEXKeyCalendarDate
+
+relationship 1929bab9-ba80-3ecd-9d6a-6018730c937e
+	fromColumn: FactEmployeeWageHoursForAllocationNoWage.HEXKeyCombineCustomerNoWage
+	toColumn: DimCustomerPrimaryContact.HEXKeyCombineCustomer
+
+relationship aea023ab-34b4-cf72-ddae-e174449ec7c9
+	fromColumn: FactEmployeeWageHoursForAllocationNoWage.HEXKeyEmployeeNoWage
+	toColumn: DimEmployee.HEXKeyEmployees
+
+relationship 62a88f7d-accd-a14d-546f-5f35cc6f2a96
+	fromColumn: FactEmployeeWageHoursForAllocation.HEXKeyEmployeeNumberWorkdate
+	toColumn: DimEmployeeHistory.HEXKeyEmployeeNumberWorkdate
+
+relationship 90522916-ca92-97ad-ffee-6f0dcd2012ce
+	fromColumn: FactEmployeeWageHoursForAllocation.HEXKeyEmployeeNumberWorkdate
+	toColumn: DimEmployeeHistoryNoWage.HEXKeyEmployeeNumberWorkdate
+
+relationship 0dc2d3c5-5184-8863-8637-e0d3264caa13
+	fromColumn: FactEmployeeWageHoursForAllocationNoWage.HEXKeyEmployeeHistoryNoWage
+	toColumn: DimEmployeeHistory.HEXKeyEmployeeNumberWorkdate
+
+relationship a630176c-ec2e-fae3-7090-9749136f6445
+	fromColumn: FactEmployeeWageHoursForAllocationNoWage.HEXKeyEmployeeHistoryNoWage
+	toColumn: DimEmployeeHistoryNoWage.HEXKeyEmployeeNumberWorkdate
+
+relationship f9d4ee34-fae6-447b-5a77-0c3e40629bb4
+	fromColumn: FactEmployeeWageHoursForAllocationNoWage.HEXKeyLBCLocationNoWage
+	toColumn: DimLBCLocation.HEXKeyLBCLocation
+

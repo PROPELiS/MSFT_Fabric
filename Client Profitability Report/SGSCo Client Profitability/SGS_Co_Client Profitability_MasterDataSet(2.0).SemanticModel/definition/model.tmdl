@@ -1,0 +1,49 @@
+model Model
+	culture: en-US
+	collation: Latin1_General_100_BIN2_UTF8
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["DatabaseQuery"]
+
+annotation PBI_ProTooling = ["WebModelingEdit"]
+
+ref table FactAllocationSubServiceSubRegion
+ref table FactSalesCostActual
+ref table FactAllocationRateSubServiceGlobal
+ref table FactAllocationRateSubServiceLBC
+ref table DimSubRegion
+ref table DimCalendarDate
+ref table DimLBCLocation
+ref table DimJobversion
+ref table DimEmployee
+ref table CPSecurityCustomerIdUser
+ref table DimCostAllocationMethodologyCategory
+ref table DimGLAccounts
+ref table DimEmployeeHistory
+ref table DimSubService
+ref table DimProduct
+ref table DimGLAccountsDepartment
+ref table DimDepartment
+ref table DimCustomerPrimaryContact
+ref table DimCustomerPrinter
+ref table DimCustomerBillto
+ref table DimCustomerReporting
+ref table DimCustomerShipto
+ref table DimCustomerSoldto
+ref table DimProjectManager
+ref table DimService
+ref table FactAllocationRateServiceLBC
+ref table FactAllocationRateServiceGlobal
+ref table FactAllocationServiceSubRegion
+ref table FactAllocationRateGlobal
+ref table FactAllocationRateWithGLDepartmentLBC
+ref table DimLOB
+
+ref cultureInfo en-US
+

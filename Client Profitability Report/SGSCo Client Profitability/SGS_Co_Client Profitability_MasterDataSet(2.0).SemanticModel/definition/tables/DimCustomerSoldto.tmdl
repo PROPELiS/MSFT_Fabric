@@ -1,0 +1,1275 @@
+table DimCustomerSoldto
+	lineageTag: a0be88f7-d717-479c-915b-29a7cf9a7aaf
+	sourceLineageTag: [dbo].[DimCustomerSoldto]
+
+	column HEXKeyCombineCustomer
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fab4cd50-4667-4d1b-83d3-da0dc2ab4a2f
+		sourceLineageTag: HEXKeyCombineCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeyCombineCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Customer Id'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: c56cf599-ec4a-4553-ae7c-39b568ba217d
+		sourceLineageTag: CustomerId
+		summarizeBy: none
+		sourceColumn: CustomerId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CUST - Customer Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8bbc550c-8d2b-48b1-a518-f1588f45feb6
+		sourceLineageTag: CustomerName
+		summarizeBy: none
+		sourceColumn: CustomerName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Name Alias'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 66f11a99-f923-4a36-a075-9dd12a38cb77
+		sourceLineageTag: NameAlias
+		summarizeBy: none
+		sourceColumn: NameAlias
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountNumber
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6aa45c20-b4f8-4223-b3a2-12a05516dcb8
+		sourceLineageTag: AccountNumber
+		summarizeBy: none
+		sourceColumn: AccountNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Invoice Account Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e2b09927-eced-4f50-b610-247e5a52af4e
+		sourceLineageTag: InvoiceAccountNumber
+		summarizeBy: none
+		sourceColumn: InvoiceAccountNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Street
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 57c492c8-b38b-496f-aabc-cbce0d85e4c9
+		sourceLineageTag: Street
+		summarizeBy: none
+		sourceColumn: Street
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - City'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ac1fda10-74d3-4745-bf49-8a28ed596e34
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - County'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 52912aac-41c9-4897-9012-4eb113776870
+		sourceLineageTag: County
+		summarizeBy: none
+		sourceColumn: County
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - State'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 33602b17-b989-48bd-8f23-5a83735b6ee8
+		sourceLineageTag: State
+		summarizeBy: none
+		sourceColumn: State
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Postal Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 09386f2f-9d75-438e-9fba-7c37268c34ae
+		sourceLineageTag: PostalCode
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Country'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b1b2f860-d523-47b3-ac27-6b7cf01628b7
+		sourceLineageTag: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Is Bill To'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1bb2476e-9a18-44e6-afa0-d0333f0cdbd4
+		sourceLineageTag: IsBillTo
+		summarizeBy: none
+		sourceColumn: IsBillTo
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Is Sold To'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f233243f-d682-4a06-8f43-17ba869d0a51
+		sourceLineageTag: IsSoldTo
+		summarizeBy: none
+		sourceColumn: IsSoldTo
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Is Printer'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7366caa8-1b15-427a-8fd1-7b16002eeaeb
+		sourceLineageTag: IsPrinter
+		summarizeBy: none
+		sourceColumn: IsPrinter
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Is End User'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 229d3e01-c799-43d0-9e81-3fbdae673ace
+		sourceLineageTag: IsEndUser
+		summarizeBy: none
+		sourceColumn: IsEndUser
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Is Ship To'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1cf869ec-f0a5-4b5f-ac26-1f2d72e63330
+		sourceLineageTag: IsShipTo
+		summarizeBy: none
+		sourceColumn: IsShipTo
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Is Active'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ce36e9be-7f00-481a-8dc6-c2d94ccc82b0
+		sourceLineageTag: IsActive
+		summarizeBy: none
+		sourceColumn: IsActive
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Group Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 63568819-d7c0-4cbb-8c0b-93e7b9fd7c3b
+		sourceLineageTag: GroupName
+		summarizeBy: none
+		sourceColumn: GroupName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IND - Grouping Indicator'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3d0f18a1-87b8-4118-883b-14c42cdc6320
+		sourceLineageTag: INDForGrouping
+		summarizeBy: none
+		sourceColumn: INDForGrouping
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Customer Type'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 682c0f1c-f910-4510-a4c4-f0c67c991646
+		sourceLineageTag: CustomerType
+		summarizeBy: none
+		sourceColumn: CustomerType
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'IND - PO Required'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6e195ef5-bc2c-4bed-894f-6ad09389a941
+		sourceLineageTag: PORequired
+		summarizeBy: none
+		sourceColumn: PORequired
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - VAT Code No'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: badbc742-0542-4de8-913e-244e7d1dd7f6
+		sourceLineageTag: VATCodeNo
+		summarizeBy: none
+		sourceColumn: VATCodeNo
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Terms'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8b7831a6-c729-4fe0-aa16-f15f75300ad9
+		sourceLineageTag: Terms
+		summarizeBy: none
+		sourceColumn: Terms
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Default Invoice Address'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 5d8a96a5-24cb-450d-ab54-42ec5507a8af
+		sourceLineageTag: DefaultInvoiceAddress
+		summarizeBy: none
+		sourceColumn: DefaultInvoiceAddress
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CUST - Default Shipping Address'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: ac746ca5-160a-41cf-a30a-38e8d9f87cb9
+		sourceLineageTag: DefaultShippingAddress
+		summarizeBy: none
+		sourceColumn: DefaultShippingAddress
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CUST - Abbreviated Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d6fbe11f-5b8f-4301-8144-304fdb927db1
+		sourceLineageTag: AbbreviatedName
+		summarizeBy: none
+		sourceColumn: AbbreviatedName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - DefaultInvoice Posting Address'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: a29fa864-4ecb-4f6e-9db5-755954871223
+		sourceLineageTag: DefaultInvoicePostingAddress
+		summarizeBy: none
+		sourceColumn: DefaultInvoicePostingAddress
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CUST - Approval System'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 3c9c8a8c-67cb-4539-a658-589b1dbc374a
+		sourceLineageTag: ApprovalSystem
+		summarizeBy: none
+		sourceColumn: ApprovalSystem
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CUST - Default Legal Entity Address'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: aeceb54a-f36d-44ac-b87d-ee032780e88b
+		sourceLineageTag: DefaultLegalEntityAddress
+		summarizeBy: none
+		sourceColumn: DefaultLegalEntityAddress
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CUST - OB10 Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 35b5769f-bfa1-4e80-a971-8f6244a80708
+		sourceLineageTag: OB10Number
+		summarizeBy: none
+		sourceColumn: OB10Number
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IND - Customer Deleted'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a24ea0a3-0008-4804-beec-40aa08eb7ddb
+		sourceLineageTag: CustomerDeleted
+		summarizeBy: none
+		sourceColumn: CustomerDeleted
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - CreatedDate'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f00911d6-a2b1-4870-99f7-d990702918f2
+		sourceLineageTag: CreatedDate
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - Updated Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 8ee8d3ae-f4f4-4439-9adb-2090b2bf84b9
+		sourceLineageTag: UpdatedDate
+		summarizeBy: none
+		sourceColumn: UpdatedDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - GS1 Entity GLIN'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d0f1c591-b3fe-444b-ace8-56976cc22980
+		sourceLineageTag: GS1EntityGLIN
+		summarizeBy: none
+		sourceColumn: GS1EntityGLIN
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - GS1 Company Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5b5bef7a-1d87-484f-8a0f-605535cccacc
+		sourceLineageTag: GS1CompanyName
+		summarizeBy: none
+		sourceColumn: GS1CompanyName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - GS1 Updated On'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f0d62019-352e-4d07-9d60-ca166f8fa506
+		sourceLineageTag: GS1UpdatedOn
+		summarizeBy: none
+		sourceColumn: GS1UpdatedOn
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - GS1 Updated By'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 4fbe5ad5-980a-4503-a852-afa5e5474966
+		sourceLineageTag: GS1UpdatedBy
+		summarizeBy: none
+		sourceColumn: GS1UpdatedBy
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CUST - GS1 Updated From'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: ebc442fb-86ea-4940-ae69-c4027ca117a3
+		sourceLineageTag: GS1UpdatedFrom
+		summarizeBy: none
+		sourceColumn: GS1UpdatedFrom
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CUST - Show Tax Quote'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 277cead8-cba0-49dd-b83f-0fa44b2d30f6
+		sourceLineageTag: ShowTaxQuote
+		summarizeBy: none
+		sourceColumn: ShowTaxQuote
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - EDI Account Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b9230411-1135-4a87-9900-16c9c4a08d36
+		sourceLineageTag: EDIAccountNumber
+		summarizeBy: none
+		sourceColumn: EDIAccountNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - AutoInvoice'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: dcee65cc-37a0-4949-8de8-dfaf01ce5a8d
+		sourceLineageTag: AutoInvoice
+		summarizeBy: none
+		sourceColumn: AutoInvoice
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CUST - Checklist Exception'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: eb00b40a-5794-4a7b-98e3-7eb8225a6ff3
+		sourceLineageTag: ChecklistException
+		summarizeBy: none
+		sourceColumn: ChecklistException
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Portfolio Group Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d3b4fe75-2718-49fa-bba7-16b73f9068e4
+		sourceLineageTag: PortfolioGroupName
+		summarizeBy: none
+		sourceColumn: PortfolioGroupName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Simplified Group Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 045d5fa4-fc3f-490e-9204-b376fc625fd6
+		sourceLineageTag: SimplifiedGroupName
+		summarizeBy: none
+		sourceColumn: SimplifiedGroupName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Address'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 267bdf73-67d7-4ada-9fff-4f3723f669cf
+		sourceLineageTag: Address
+		summarizeBy: none
+		sourceColumn: Address
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Customer Industry'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 79cc22bc-29b9-4aa2-96a4-c3b6c5c4442c
+		sourceLineageTag: CustomerIndustry
+		summarizeBy: none
+		sourceColumn: CustomerIndustry
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Reporting Customer2'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d625345b-f603-4bc0-8bb3-779b485e7ead
+		sourceLineageTag: ReportingCustomer2
+		summarizeBy: none
+		sourceColumn: ReportingCustomer2
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdatedBy
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4a873f4b-57bf-4075-92b3-66fa55f14038
+		sourceLineageTag: UpdatedBy
+		summarizeBy: none
+		sourceColumn: UpdatedBy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Portfolio Group Simplified Group Reporting Customer2'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1d22c56b-0ba1-44d6-bdb0-1e4b59bfd40a
+		sourceLineageTag: PortfolioGroupSimplifiedGrouReportingCustomer2
+		summarizeBy: none
+		sourceColumn: PortfolioGroupSimplifiedGrouReportingCustomer2
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Portfolio Group Id'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f9bc72d7-860f-42a6-b7cb-d859b9b9e5a3
+		sourceLineageTag: PortfolioGroupId
+		summarizeBy: none
+		sourceColumn: PortfolioGroupId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Simplified Group Id'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7277a1cc-0eda-45e8-99a4-a4f65649f627
+		sourceLineageTag: SimplifiedGroupId
+		summarizeBy: none
+		sourceColumn: SimplifiedGroupId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Customer1 Group'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 784b5851-7e71-4595-8c66-15963fbd9ed9
+		sourceLineageTag: Customer1Group
+		summarizeBy: none
+		sourceColumn: Customer1Group
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ResolvedInMDSYesorNo
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cab3914d-b512-4680-8bd5-0282fe9aed08
+		sourceLineageTag: ResolvedInMDSYesorNo
+		summarizeBy: none
+		sourceColumn: ResolvedInMDSYesorNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column InsertedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 63a573e7-f065-4366-b3c5-736f929b74a7
+		sourceLineageTag: InsertedDate
+		summarizeBy: none
+		sourceColumn: InsertedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Simplified Group Name(FromMySGS)'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 89772a5e-d2a2-4ddb-bcdd-9c7e33f6d088
+		sourceLineageTag: FromMySGSSimplifiedGroupName
+		summarizeBy: none
+		sourceColumn: FromMySGSSimplifiedGroupName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Portfolio Group Name(FromMySGS)'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a846cdbd-7de5-479a-861e-cbe88cd9969f
+		sourceLineageTag: FromMySGSPortfolioGroupName
+		summarizeBy: none
+		sourceColumn: FromMySGSPortfolioGroupName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Customer3(FromGRD)'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8507bfad-6538-470c-b94e-c00fc3cc7280
+		sourceLineageTag: FromGRDCustomer3
+		summarizeBy: none
+		sourceColumn: FromGRDCustomer3
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Customer2(FromGRD)'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 36cdf7f5-7bb6-4f78-b0cb-cd49391b7814
+		sourceLineageTag: FromGRDCustomer2
+		summarizeBy: none
+		sourceColumn: FromGRDCustomer2
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Customer1(FromGRD)'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 91597f51-0d39-4aec-b13a-c6bf558431c1
+		sourceLineageTag: FromGRDCustomer1
+		summarizeBy: none
+		sourceColumn: FromGRDCustomer1
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - MD Harmonized Level1 ID'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 372ff68f-9028-4a7b-bdaa-a851705704ab
+		sourceLineageTag: CPParentId
+		summarizeBy: none
+		sourceColumn: CPParentId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - MD Harmonized Level2 ID'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d8e55ee2-5958-44f0-81dc-0bdab3779de6
+		sourceLineageTag: CPChildId
+		summarizeBy: none
+		sourceColumn: CPChildId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - MD Harmonized Level1'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1fcc8f38-6eb7-4ce2-bdb9-71a4139518ed
+		sourceLineageTag: CPParent
+		summarizeBy: none
+		sourceColumn: CPParent
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - MD Harmonized Level2'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7a182538-6733-4997-8c0d-c645d01c7f54
+		sourceLineageTag: CPChild
+		summarizeBy: none
+		sourceColumn: CPChild
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - MD Harmonized Level1&2/GRD Customer1'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 94ed6abf-d12e-40fd-a92c-726eca5505aa
+		sourceLineageTag: CPChildCPParentFromGRDCustomer1
+		summarizeBy: none
+		sourceColumn: CPChildCPParentFromGRDCustomer1
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IND - S&OP Client'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c0f55fc1-97bf-4116-81ed-d86fff599740
+		sourceLineageTag: S&OPClient
+		summarizeBy: none
+		sourceColumn: S&OPClient
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column BatchTag
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5331399d-62b5-4e98-823f-1e7aa1ad0dc9
+		sourceLineageTag: BatchTag
+		summarizeBy: none
+		sourceColumn: BatchTag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ImportType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e3ca599e-91c3-4c91-93ee-d4cea5e4fe61
+		sourceLineageTag: ImportType
+		summarizeBy: none
+		sourceColumn: ImportType
+
+		annotation SummarizationSetBy = Automatic
+
+	column VendorManagedAccounts
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1ad48b80-ab37-43d6-9e58-96da86584b63
+		sourceLineageTag: VendorManagedAccounts
+		summarizeBy: none
+		sourceColumn: VendorManagedAccounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhotonCustomerId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9a10141c-ce1d-4ead-b943-ff365886fb66
+		sourceLineageTag: PhotonCustomerId
+		summarizeBy: none
+		sourceColumn: PhotonCustomerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Soldto Customer'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 962c0b42-09ba-408b-8e7f-76efbef70776
+		sourceLineageTag: HEXKeyCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeyCustomer
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportingClient2Subsidiary
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1602397d-bb9a-4a34-92f4-55739ce350d4
+		sourceLineageTag: ReportingClient2Subsidiary
+		summarizeBy: none
+		sourceColumn: ReportingClient2Subsidiary
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientReportingType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cd9266b1-0f62-4b85-9c36-654675515ebe
+		sourceLineageTag: ClientReportingType
+		summarizeBy: none
+		sourceColumn: ClientReportingType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientRevenueSegment
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 562eeae3-df86-4c39-b763-07225c922565
+		sourceLineageTag: ClientRevenueSegment
+		summarizeBy: none
+		sourceColumn: ClientRevenueSegment
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientPortfolio
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8b9df606-ce9e-4750-b609-228782fa7e30
+		sourceLineageTag: ClientPortfolio
+		summarizeBy: none
+		sourceColumn: ClientPortfolio
+
+		annotation SummarizationSetBy = Automatic
+
+	column CommercialClassification
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b18cdc24-b5f5-4ee4-8d68-21e9cbc26f7f
+		sourceLineageTag: CommercialClassification
+		summarizeBy: none
+		sourceColumn: CommercialClassification
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndMarketType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ada64931-ca45-4a47-aaf2-a5a6f1ff24ab
+		sourceLineageTag: EndMarketType
+		summarizeBy: none
+		sourceColumn: EndMarketType
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndMarketType2
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 075a01c8-04b0-4c90-8548-bb76633851be
+		sourceLineageTag: EndMarketType2
+		summarizeBy: none
+		sourceColumn: EndMarketType2
+
+		annotation SummarizationSetBy = Automatic
+
+	column MultiNational
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 745f6113-6798-4bee-8968-587a765f5cf0
+		sourceLineageTag: MultiNational
+		summarizeBy: none
+		sourceColumn: MultiNational
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuotaY/N
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9450e222-30c3-4ce4-94b3-d3f27369785b
+		sourceLineageTag: QuotaY/N
+		summarizeBy: none
+		sourceColumn: QuotaY/N
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportingClient3Parent
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 26b2ba06-f6bb-4f2c-851f-1b0f3209676e
+		sourceLineageTag: ReportingClient3Parent
+		summarizeBy: none
+		sourceColumn: ReportingClient3Parent
+
+		annotation SummarizationSetBy = Automatic
+
+	column S&OPCustomerName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e94e7912-eae4-4f74-9321-a66932191eee
+		sourceLineageTag: S&OPCustomerName
+		summarizeBy: none
+		sourceColumn: S&OPCustomerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column S&OPConsolidatedName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7b6a97b3-8165-4cd4-8a49-35e38e6e0e2b
+		sourceLineageTag: S&OPConsolidatedName
+		summarizeBy: none
+		sourceColumn: S&OPConsolidatedName
+
+		annotation SummarizationSetBy = Automatic
+
+	column S&OPProductionPillar
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0c2493a4-4c30-43c4-a620-8265d5916617
+		sourceLineageTag: S&OPProductionPillar
+		summarizeBy: none
+		sourceColumn: S&OPProductionPillar
+
+		annotation SummarizationSetBy = Automatic
+
+	column S&OPRegion
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b2927d91-3dbc-4e53-8f13-d9f84cbb0c8b
+		sourceLineageTag: S&OPRegion
+		summarizeBy: none
+		sourceColumn: S&OPRegion
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientDivision
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cb601cbc-733e-4572-a156-0823b2b22db3
+		sourceLineageTag: ClientDivision
+		summarizeBy: none
+		sourceColumn: ClientDivision
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientRegion
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6bb74529-a28f-4d14-891d-877d4c7da1ab
+		sourceLineageTag: ClientRegion
+		summarizeBy: none
+		sourceColumn: ClientRegion
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrinterType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e80827c7-3dbf-4263-bd65-2b6b2a7f8d19
+		sourceLineageTag: PrinterType
+		summarizeBy: none
+		sourceColumn: PrinterType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveFlagByRevenue
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9164a724-b24b-4d1d-8b81-4752c4013838
+		sourceLineageTag: ActiveFlagByRevenue
+		summarizeBy: none
+		sourceColumn: ActiveFlagByRevenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveFlagByTask
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c49c10a6-3379-4423-bbdc-b599999fb070
+		sourceLineageTag: ActiveFlagByTask
+		summarizeBy: none
+		sourceColumn: ActiveFlagByTask
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveLastInvoiceDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: fd44441b-8264-4207-9deb-c3d5996af698
+		sourceLineageTag: ActiveLastInvoiceDate
+		summarizeBy: none
+		sourceColumn: ActiveLastInvoiceDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveLastTaskDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 32be8f17-7447-49db-a15d-0eda9bdaa7d4
+		sourceLineageTag: ActiveLastTaskDate
+		summarizeBy: none
+		sourceColumn: ActiveLastTaskDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientRank
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 50a774d7-e875-4040-951f-a412ef0a0482
+		sourceLineageTag: ClientRank
+		summarizeBy: none
+		sourceColumn: ClientRank
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column S&OP_CUST
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1766baa4-02de-40bd-8aab-bbebf5e661fa
+		sourceLineageTag: S&OP_CUST
+		summarizeBy: none
+		sourceColumn: S&OP_CUST
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e2640e3b-99d5-47a9-b2b5-d24d89c84c02
+		sourceLineageTag: Region
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductionPillar
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0c6c6d3a-9726-413e-ad81-bdf2d0b6497c
+		sourceLineageTag: ProductionPillar
+		summarizeBy: none
+		sourceColumn: ProductionPillar
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConsolidatedName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3413e47c-0cec-42d0-96cb-cd166c05fe5b
+		sourceLineageTag: ConsolidatedName
+		summarizeBy: none
+		sourceColumn: ConsolidatedName
+
+		annotation SummarizationSetBy = Automatic
+
+	column S&OP_Consolidated_Name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f6fb9b61-d542-4bbf-976f-ba0d0eb4d903
+		sourceLineageTag: S&OP_Consolidated_Name
+		summarizeBy: none
+		sourceColumn: S&OP_Consolidated_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column AI_OnlyClient
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 29ec76b7-193f-4530-8e23-d637eda6999b
+		sourceLineageTag: AI_OnlyClient
+		summarizeBy: none
+		sourceColumn: AI_OnlyClient
+
+		annotation SummarizationSetBy = Automatic
+
+	column REMOVE
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 211907be-4221-46bc-b761-4dc5139853de
+		sourceLineageTag: REMOVE
+		summarizeBy: none
+		sourceColumn: REMOVE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOPRANKREVENUEWISE
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: a9df6db2-2e71-44a4-9749-a40b04f6691c
+		sourceLineageTag: TOPRANKREVENUEWISE
+		summarizeBy: none
+		sourceColumn: TOPRANKREVENUEWISE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Cell Manager'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 99026e5a-76df-4414-accf-7601072f9e90
+		sourceLineageTag: Cell Manager
+		summarizeBy: none
+		sourceColumn: Cell Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cell_Manager_GPN
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 51a0f3e2-3a99-445a-9269-9cbc7ebfdafb
+		sourceLineageTag: Cell_Manager_GPN
+		summarizeBy: none
+		sourceColumn: Cell_Manager_GPN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cell_ManagerRegion
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a0c231e1-a201-4fe7-9b7c-c11567771991
+		sourceLineageTag: Cell_ManagerRegion
+		summarizeBy: none
+		sourceColumn: Cell_ManagerRegion
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cell_ManagerCountry
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ddd15676-8c5e-415f-bfe1-3c2d1d4deb3a
+		sourceLineageTag: Cell_ManagerCountry
+		summarizeBy: none
+		sourceColumn: Cell_ManagerCountry
+
+		annotation SummarizationSetBy = Automatic
+
+	column CellManagerRegionGPN
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5a3c9cd3-96c6-4d41-851b-4e4dbd0165ac
+		sourceLineageTag: CellManagerRegionGPN
+		summarizeBy: none
+		sourceColumn: CellManagerRegionGPN
+
+		annotation SummarizationSetBy = Automatic
+
+	column CellManagerCountryGPN
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 40882d6d-798c-46d9-94b5-c6b85c80b848
+		sourceLineageTag: CellManagerCountryGPN
+		summarizeBy: none
+		sourceColumn: CellManagerCountryGPN
+
+		annotation SummarizationSetBy = Automatic
+
+	column CellManagerGPN2
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 067dfbc8-66e8-4a0a-b000-38408b5b46ef
+		sourceLineageTag: CellManagerGPN2
+		summarizeBy: none
+		sourceColumn: CellManagerGPN2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CellManagerRegionGPN2
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 88f315f5-80c6-4ff5-8493-a6215ff5d9cc
+		sourceLineageTag: CellManagerRegionGPN2
+		summarizeBy: none
+		sourceColumn: CellManagerRegionGPN2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CellManagerCountryGPN2
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e38e5819-1963-4e80-a04c-d2707a7447bc
+		sourceLineageTag: CellManagerCountryGPN2
+		summarizeBy: none
+		sourceColumn: CellManagerCountryGPN2
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7a25391e-d0eb-4927-a477-a5120769ccb7
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomerSoldto = entity
+		mode: directLake
+		source
+			entityName: DimCustomerSoldto
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,8 +1,0 @@
-CREATE TABLE [dbo].[SERVICE_ORDERS_AWS_EXT] (
-
-	[UUID] varchar(255) NULL, 
-	[SERVICEORDER] varchar(255) NULL, 
-	[WHITEPAPERLOGGING] varchar(255) NULL, 
-	[TOTALSAVING] varchar(255) NULL, 
-	[DATESTAMP] datetime2(0) NULL
-);

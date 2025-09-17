@@ -1,0 +1,83 @@
+table DimSubService
+	lineageTag: 78c252cc-4781-4a73-b3f3-bccab568796b
+	sourceLineageTag: [dbo].[DimSubService]
+
+	column HEXKeySubService
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6131b94f-d3ec-4bf0-a84f-d7bcdb2fc09c
+		sourceLineageTag: HEXKeySubService
+		summarizeBy: none
+		sourceColumn: HEXKeySubService
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubServiceCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8da30094-f247-4423-8fd2-29f79d67df2c
+		sourceLineageTag: SubServiceCode
+		summarizeBy: none
+		sourceColumn: SubServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubService
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7f3f8719-9dcf-451f-ad64-deaab42c0a12
+		sourceLineageTag: SubService
+		summarizeBy: none
+		sourceColumn: SubService
+
+		annotation SummarizationSetBy = Automatic
+
+	column Service
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7ac22759-0327-4e23-b1d2-845e8e44bc57
+		sourceLineageTag: Service
+		summarizeBy: none
+		sourceColumn: Service
+
+		annotation SummarizationSetBy = Automatic
+
+	column Group
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ad1ba3ec-707c-4fac-8f84-37b5cf5b285f
+		sourceLineageTag: Group
+		summarizeBy: none
+		sourceColumn: Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineOfBusiness
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b2b5d29f-fb1a-4e21-b0b6-f9fe29f483a3
+		sourceLineageTag: LineOfBusiness
+		summarizeBy: none
+		sourceColumn: LineOfBusiness
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bf340d8f-01bc-44ab-98ff-d6c9128a59e0
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimSubService = entity
+		mode: directLake
+		source
+			entityName: DimSubService
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

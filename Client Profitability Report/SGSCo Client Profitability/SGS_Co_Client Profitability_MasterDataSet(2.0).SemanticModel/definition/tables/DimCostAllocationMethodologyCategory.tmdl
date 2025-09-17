@@ -1,0 +1,83 @@
+table DimCostAllocationMethodologyCategory
+	lineageTag: fa946ef7-3427-4a7c-93d4-9fbd55e3dcab
+	sourceLineageTag: [dbo].[DimCostAllocationMethodologyCategory]
+
+	column HEXKeyAllocationMethodology
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 36e34084-6840-4865-8a37-fd9d69a4937c
+		sourceLineageTag: HEXKeyAllocationMethodology
+		summarizeBy: none
+		sourceColumn: HEXKeyAllocationMethodology
+
+		annotation SummarizationSetBy = Automatic
+
+	column AllocationMethodology
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 334d8c12-d061-456a-a136-6b9027bcad2d
+		sourceLineageTag: AllocationMethodology
+		summarizeBy: none
+		sourceColumn: AllocationMethodology
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataSource
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 90c949d4-b4f5-4f1c-ae6f-f4f258313eb2
+		sourceLineageTag: DataSource
+		summarizeBy: none
+		sourceColumn: DataSource
+
+		annotation SummarizationSetBy = Automatic
+
+	column RoleType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9cd1d5fc-1bb9-48e7-9866-ae697dbc434b
+		sourceLineageTag: RoleType
+		summarizeBy: none
+		sourceColumn: RoleType
+
+		annotation SummarizationSetBy = Automatic
+
+	column RoleSummaryType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6dd3f6e9-1422-41ee-be10-516e7fd0e7b0
+		sourceLineageTag: RoleSummaryType
+		summarizeBy: none
+		sourceColumn: RoleSummaryType
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2d8b99fb-5e27-44c4-923d-0b03db7650c5
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Note
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ea94a04f-239b-4c10-8634-93d18a811933
+		sourceLineageTag: Note
+		summarizeBy: none
+		sourceColumn: Note
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCostAllocationMethodologyCategory = entity
+		mode: directLake
+		source
+			entityName: DimCostAllocationMethodologyCategory
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

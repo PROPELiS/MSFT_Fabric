@@ -1,6 +1,0 @@
-CREATE TABLE [Propelis].[OPERATING_PLANT_REGION] (
-
-	[BUSINESS_FUNCTION] varchar(255) NULL, 
-	[REGION] varchar(255) NULL, 
-	[PLANT] varchar(255) NULL
-);

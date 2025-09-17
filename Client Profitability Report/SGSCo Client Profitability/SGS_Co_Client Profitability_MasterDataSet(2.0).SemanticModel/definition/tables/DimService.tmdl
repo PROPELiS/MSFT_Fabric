@@ -1,0 +1,93 @@
+table DimService
+	lineageTag: 2d77dd24-abdb-4428-bbc1-b23a4f5e1078
+	sourceLineageTag: [dbo].[DimService]
+
+	column HEXKeyService
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 85f66645-fdad-4539-86f9-d7c2f10e9bad
+		sourceLineageTag: HEXKeyService
+		summarizeBy: none
+		sourceColumn: HEXKeyService
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1bfeb3c1-0380-400c-9f1c-707a69077e81
+		sourceLineageTag: ServiceCode
+		summarizeBy: none
+		sourceColumn: ServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Service
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c7bd1e1a-5201-4bf2-b389-06319908a85c
+		sourceLineageTag: Service
+		summarizeBy: none
+		sourceColumn: Service
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c9217c92-a7d6-476e-a80a-d172471d4673
+		sourceLineageTag: GroupCode
+		summarizeBy: none
+		sourceColumn: GroupCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Group
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 86b610f3-38d3-41e9-83dd-02f7754ec1d4
+		sourceLineageTag: Group
+		summarizeBy: none
+		sourceColumn: Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOBCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 55767659-4f1c-419b-920a-0ee67e085324
+		sourceLineageTag: LOBCode
+		summarizeBy: none
+		sourceColumn: LOBCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineOfBusiness
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9afd76c3-da31-49ae-86bb-080a4caf3ab5
+		sourceLineageTag: LineOfBusiness
+		summarizeBy: none
+		sourceColumn: LineOfBusiness
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 75c80668-c8eb-4008-94c0-1c20264bd2b2
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimService = entity
+		mode: directLake
+		source
+			entityName: DimService
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

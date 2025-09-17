@@ -1,0 +1,1781 @@
+table DimEmployee
+	lineageTag: 77a63fbc-1a3b-4bfe-9c34-948e8d78990a
+	sourceLineageTag: [dbo].[DimEmployee]
+
+	column 'zID - HEXKey Employees'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 811fe01b-1495-4bc3-8274-43aa588dce7d
+		sourceLineageTag: HEXKeyEmployees
+		summarizeBy: none
+		sourceColumn: HEXKeyEmployees
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Employee Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4e3f485d-0f8f-420c-ab7c-83864963d067
+		sourceLineageTag: EmployeeNumber
+		summarizeBy: none
+		sourceColumn: EmployeeNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Employee Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 51ed9a6a-971d-4ac7-ba31-d05320835163
+		sourceLineageTag: EmployeeName
+		summarizeBy: none
+		sourceColumn: EmployeeName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Department Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6d8e72e9-8d2b-4b61-9800-5909ae356f67
+		sourceLineageTag: DepartmentCode
+		summarizeBy: none
+		sourceColumn: DepartmentCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Department Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: adf772db-960f-4221-94ab-5265871f0a32
+		sourceLineageTag: DepartmentName
+		summarizeBy: none
+		sourceColumn: DepartmentName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Job Family Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ebf8397f-3897-4c1f-9c97-ed982ddebd7e
+		sourceLineageTag: JobFamilyCode
+		summarizeBy: none
+		sourceColumn: JobFamilyCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Job Family Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 704daf0d-52b3-41fd-8be0-d993424bb9a4
+		sourceLineageTag: JobFamilyName
+		summarizeBy: none
+		sourceColumn: JobFamilyName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Job Sub Family Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0b810ac8-b074-42c1-85a3-d38aaa8d8e8c
+		sourceLineageTag: JobSubFamilyCode
+		summarizeBy: none
+		sourceColumn: JobSubFamilyCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Job Sub Family Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 40132b76-e95a-441e-9680-a67e3ac33e91
+		sourceLineageTag: JobSubFamilyName
+		summarizeBy: none
+		sourceColumn: JobSubFamilyName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Job Title Shortt'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 78285a1b-9902-4d6a-9e86-2c7d3a52ace4
+		sourceLineageTag: JobTitleShort
+		summarizeBy: none
+		sourceColumn: JobTitleShort
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Job Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 29c109bc-e765-42d9-a02a-ec7ecf6fc585
+		sourceLineageTag: JobCode
+		summarizeBy: none
+		sourceColumn: JobCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Job Title'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f029cdc2-d4ab-4580-a54f-54baaf554855
+		sourceLineageTag: JobTitle
+		summarizeBy: none
+		sourceColumn: JobTitle
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Login Id'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 19364d55-1c85-4ad5-beb2-d4bdf0b97586
+		sourceLineageTag: LoginId
+		summarizeBy: none
+		sourceColumn: LoginId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Site Id'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 66c34a19-ac14-4791-87ac-7eded0b7100d
+		sourceLineageTag: SiteId
+		summarizeBy: none
+		sourceColumn: SiteId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'EMP - Site LBC'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 57da59aa-e7f1-4b97-b15a-44c78dfd301b
+		sourceLineageTag: SiteLBC
+		summarizeBy: none
+		sourceColumn: SiteLBC
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'EMP - Site Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b89843d3-cb2e-4b05-b18f-611b82ee2b48
+		sourceLineageTag: SiteName
+		summarizeBy: none
+		sourceColumn: SiteName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Country ISO 3'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 18a736bd-c4a8-4669-af3f-f0c2853fb7f6
+		sourceLineageTag: CountryISO3
+		summarizeBy: none
+		sourceColumn: CountryISO3
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Country Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9fb5fab4-4177-42b1-9c7d-11b0a9d2dcd9
+		sourceLineageTag: CountryName
+		summarizeBy: none
+		sourceColumn: CountryName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Region Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3a5dc230-800e-4fe4-a502-4c2ab384e701
+		sourceLineageTag: RegionCode
+		summarizeBy: none
+		sourceColumn: RegionCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Region Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5a0caca1-fc3b-4105-b19d-22724d80ccf1
+		sourceLineageTag: RegionName
+		summarizeBy: none
+		sourceColumn: RegionName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Work Date Latest'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: d82e40d2-1925-470b-9e55-f68c0328ab02
+		sourceLineageTag: WorkDateLatest
+		summarizeBy: none
+		sourceColumn: WorkDateLatest
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Census Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 2fb381df-6b5d-421e-a21c-e5c4fd9047a6
+		sourceLineageTag: CensusDate
+		summarizeBy: none
+		sourceColumn: CensusDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Company Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1f090047-7cd8-4c18-923f-fa58fa7521aa
+		sourceLineageTag: CompanyCode
+		summarizeBy: none
+		sourceColumn: CompanyCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Company Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4b71bb08-14d4-4b6a-aabb-c6fbb26c53e9
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedBy
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e719549d-b73d-4374-bb4f-c840794b0448
+		sourceLineageTag: CreatedBy
+		summarizeBy: none
+		sourceColumn: CreatedBy
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 97a49630-9416-4255-8ab7-890bbd9cc067
+		sourceLineageTag: CreatedDate
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastUpdatedBy
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7bcd3f1f-5e2a-4ae1-bcbd-1bfd884d3428
+		sourceLineageTag: LastUpdatedBy
+		summarizeBy: none
+		sourceColumn: LastUpdatedBy
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastUpdatedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: c127d4ca-c0c1-484a-b364-d740e9f67504
+		sourceLineageTag: LastUpdatedDate
+		summarizeBy: none
+		sourceColumn: LastUpdatedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - PlantCode'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3c1c7aae-c2a0-4909-af0c-2ca694f2aee3
+		sourceLineageTag: PlantCode
+		summarizeBy: none
+		sourceColumn: PlantCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Plant Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1b976ac9-d637-4dc2-958c-0d87b79f7fc7
+		sourceLineageTag: PlantName
+		summarizeBy: none
+		sourceColumn: PlantName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 7a690d0a-bf76-47f8-bf87-1f53f4a91a7d
+		sourceLineageTag: WorkDate
+		summarizeBy: none
+		sourceColumn: WorkDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 59fedc8a-586e-4da4-8718-68e70fee42ab
+		sourceLineageTag: EmailAddress
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Employee Job Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d630e044-c5ef-4d8e-af4d-a2d80c415a93
+		sourceLineageTag: EmployeeJobCode
+		summarizeBy: none
+		sourceColumn: EmployeeJobCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Employee Job Title'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4d1ead32-b469-45ee-9f48-d88485deb522
+		sourceLineageTag: EmployeeJobTitle
+		summarizeBy: none
+		sourceColumn: EmployeeJobTitle
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Location Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0c946265-6e91-4422-b773-5de93e506bdf
+		sourceLineageTag: LocationCode
+		summarizeBy: none
+		sourceColumn: LocationCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Location Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9e25092b-22df-483a-ae1b-e8c705a75e06
+		sourceLineageTag: LocationName
+		summarizeBy: none
+		sourceColumn: LocationName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 1 Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 08e114b5-56b2-4a4b-ad96-9c00050e0dfb
+		sourceLineageTag: SUP_Level1_Name
+		summarizeBy: none
+		sourceColumn: SUP_Level1_Name
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 1 Employee Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1ddb3bb4-0267-4331-b6ff-981e1e945586
+		sourceLineageTag: SUP_Level1_EmployeeNumber
+		summarizeBy: none
+		sourceColumn: SUP_Level1_EmployeeNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 1 Email Address'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9baab104-ecc4-41d0-bb1a-6cbca0e83773
+		sourceLineageTag: SUP_Level1_EmailAddress
+		summarizeBy: none
+		sourceColumn: SUP_Level1_EmailAddress
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 1 Employee Job Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fa163c5c-c8e7-4e7b-835b-82d17abf7a67
+		sourceLineageTag: SUP_Level1_EmployeeJobCode
+		summarizeBy: none
+		sourceColumn: SUP_Level1_EmployeeJobCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 1 Employee Jode Title'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2c3264cb-d35a-498b-bae7-16f37d9a6b61
+		sourceLineageTag: SUP_Level1_EmployeeJodeTitle
+		summarizeBy: none
+		sourceColumn: SUP_Level1_EmployeeJodeTitle
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 1 Location Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b3219bad-446d-467a-b420-3dfe7aae403d
+		sourceLineageTag: SUP_Level1_LocationCode
+		summarizeBy: none
+		sourceColumn: SUP_Level1_LocationCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 1 Location Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c12c8338-5590-4046-8039-0e93c2a38845
+		sourceLineageTag: SUP_Level1_LocationName
+		summarizeBy: none
+		sourceColumn: SUP_Level1_LocationName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 2 Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 79b94013-eb3a-4445-81e7-da8b735dd95d
+		sourceLineageTag: SUP_Level2_Name
+		summarizeBy: none
+		sourceColumn: SUP_Level2_Name
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 2 Employee Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1150096f-c653-49e2-9970-781680e4d472
+		sourceLineageTag: SUP_Level2_EmployeeNumber
+		summarizeBy: none
+		sourceColumn: SUP_Level2_EmployeeNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 2 Employee Job Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ecb2d0e0-a713-49f7-9727-8ec1dd4823ce
+		sourceLineageTag: SUP_Level2_EmployeeJobCode
+		summarizeBy: none
+		sourceColumn: SUP_Level2_EmployeeJobCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 2 Employee JodeTitle'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bab4a537-b46e-4a04-98ce-d3b34978641c
+		sourceLineageTag: SUP_Level2_EmployeeJodeTitle
+		summarizeBy: none
+		sourceColumn: SUP_Level2_EmployeeJodeTitle
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 2 email address'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: dac31b61-4742-476c-919e-bba4518c9dbb
+		sourceLineageTag: SUP_Level2_emailaddress
+		summarizeBy: none
+		sourceColumn: SUP_Level2_emailaddress
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 3 Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4c450f09-96c7-4ce0-a9fe-c03615435666
+		sourceLineageTag: SUP_Level3_Name
+		summarizeBy: none
+		sourceColumn: SUP_Level3_Name
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 3Employee Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 33934317-166a-4583-8245-9126218e7b6c
+		sourceLineageTag: SUP_Level3_EmployeeNumber
+		summarizeBy: none
+		sourceColumn: SUP_Level3_EmployeeNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 3 Employee JobCode'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e881f371-290b-4a98-b199-d6db89a00533
+		sourceLineageTag: SUP_Level3_EmployeeJobCode
+		summarizeBy: none
+		sourceColumn: SUP_Level3_EmployeeJobCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 3 Employee Jode Title'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 502c7a96-223e-4296-b12c-32391d136033
+		sourceLineageTag: SUP_Level3_EmployeeJodeTitle
+		summarizeBy: none
+		sourceColumn: SUP_Level3_EmployeeJodeTitle
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 3 email address'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bea15d35-6210-465d-b915-e5c198938b22
+		sourceLineageTag: SUP_Level3_emailaddress
+		summarizeBy: none
+		sourceColumn: SUP_Level3_emailaddress
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 4 Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f1a476fe-96b8-49a7-8f02-ffa71a9d4808
+		sourceLineageTag: SUP_Level4_Name
+		summarizeBy: none
+		sourceColumn: SUP_Level4_Name
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 4 Employee Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9577bf54-6de0-4c44-a5bf-ab887c920ca1
+		sourceLineageTag: SUP_Level4_EmployeeNumber
+		summarizeBy: none
+		sourceColumn: SUP_Level4_EmployeeNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 4 Employee Job Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 832f123c-c93d-466c-9961-a0bab55afec4
+		sourceLineageTag: SUP_Level4_EmployeeJobCode
+		summarizeBy: none
+		sourceColumn: SUP_Level4_EmployeeJobCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 4 Employee Jode Title'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8c6788cf-ba73-4378-bb8f-1ff02e31d669
+		sourceLineageTag: SUP_Level4_EmployeeJodeTitle
+		summarizeBy: none
+		sourceColumn: SUP_Level4_EmployeeJodeTitle
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 4 email address'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c82a4f7b-4c64-4954-847f-de5506616c7d
+		sourceLineageTag: SUP_Level4_emailaddress
+		summarizeBy: none
+		sourceColumn: SUP_Level4_emailaddress
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 5 Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 43412041-0da4-4a53-ba0b-f5351bb623de
+		sourceLineageTag: SUP_Level5_Name
+		summarizeBy: none
+		sourceColumn: SUP_Level5_Name
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 5 Employee Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a4c45b05-3f1d-4e00-96fd-419523906bf0
+		sourceLineageTag: SUP_Level5_EmployeeNumber
+		summarizeBy: none
+		sourceColumn: SUP_Level5_EmployeeNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 5 Employee Job Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d6ed921b-b9ca-47a5-a0fa-658ea32496a3
+		sourceLineageTag: SUP_Level5_EmployeeJobCode
+		summarizeBy: none
+		sourceColumn: SUP_Level5_EmployeeJobCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 5 Employee Jode Title'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 27fbfc0c-1ab8-4d8f-a264-138474a6e777
+		sourceLineageTag: SUP_Level5_EmployeeJodeTitle
+		summarizeBy: none
+		sourceColumn: SUP_Level5_EmployeeJodeTitle
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP  - SUP Level 5 email address'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 59fa2a76-6f96-4a06-b56f-d0acfed16608
+		sourceLineageTag: SUP_Level5_emailaddress
+		summarizeBy: none
+		sourceColumn: SUP_Level5_emailaddress
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 6 Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f2ce5a1e-ebe7-4ace-865d-39a526b36f16
+		sourceLineageTag: SUP_Level6_Name
+		summarizeBy: none
+		sourceColumn: SUP_Level6_Name
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 6 Employee Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2d8872cf-68c1-43b0-bf8c-dc58009b25c0
+		sourceLineageTag: SUP_Level6_EmployeeNumber
+		summarizeBy: none
+		sourceColumn: SUP_Level6_EmployeeNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 6 Employee Job Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: aa4f49d4-fe2b-4050-9d2e-3da588c2f38c
+		sourceLineageTag: SUP_Level6_EmployeeJobCode
+		summarizeBy: none
+		sourceColumn: SUP_Level6_EmployeeJobCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 6 Employee Jode Title'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ea6b0246-a360-48c1-a316-b338d858cdd7
+		sourceLineageTag: SUP_Level6_EmployeeJodeTitle
+		summarizeBy: none
+		sourceColumn: SUP_Level6_EmployeeJodeTitle
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 6 email address'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6b16b8ed-2a1f-46a9-9a84-4e153e8d0d60
+		sourceLineageTag: SUP_Level6_emailaddress
+		summarizeBy: none
+		sourceColumn: SUP_Level6_emailaddress
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 7 Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8eb96e33-839c-4953-9d5f-55d905e6d183
+		sourceLineageTag: SUP_Level7_Name
+		summarizeBy: none
+		sourceColumn: SUP_Level7_Name
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 7 Employee Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 485414fd-e89e-4d2e-9ecf-aaaf6432e764
+		sourceLineageTag: SUP_Level7_EmployeeNumber
+		summarizeBy: none
+		sourceColumn: SUP_Level7_EmployeeNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 7 Employee Job Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 77ba4789-9fdd-4b57-9af8-497bd5273450
+		sourceLineageTag: SUP_Level7_EmployeeJobCode
+		summarizeBy: none
+		sourceColumn: SUP_Level7_EmployeeJobCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 7 Employee Jode Title'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b19ea127-1c85-4410-b2aa-66554f5f287d
+		sourceLineageTag: SUP_Level7_EmployeeJodeTitle
+		summarizeBy: none
+		sourceColumn: SUP_Level7_EmployeeJodeTitle
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 7 email address'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1f1dba9d-a0d4-4bab-aace-582c3f5432bb
+		sourceLineageTag: SUP_Level7_emailaddress
+		summarizeBy: none
+		sourceColumn: SUP_Level7_emailaddress
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 8 Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8fc586c6-8f86-466b-a1de-4338a23f52c7
+		sourceLineageTag: SUP_Level8_Name
+		summarizeBy: none
+		sourceColumn: SUP_Level8_Name
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 8 Employee Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1b58623d-3db7-4cad-8e04-dd9c907df46e
+		sourceLineageTag: SUP_Level8_EmployeeNumber
+		summarizeBy: none
+		sourceColumn: SUP_Level8_EmployeeNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 8 Employee Job Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f433d64a-15ac-4b8d-a450-fd5941269048
+		sourceLineageTag: SUP_Level8_EmployeeJobCode
+		summarizeBy: none
+		sourceColumn: SUP_Level8_EmployeeJobCode
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 8 Employee Jode Title'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9a541ce6-34a9-4351-985c-2c96c1010967
+		sourceLineageTag: SUP_Level8_EmployeeJodeTitle
+		summarizeBy: none
+		sourceColumn: SUP_Level8_EmployeeJodeTitle
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 8 email address'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f8bd46f2-9b0e-457e-a87e-cfdbc9bba49b
+		sourceLineageTag: SUP_Level8_emailaddress
+		summarizeBy: none
+		sourceColumn: SUP_Level8_emailaddress
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - rep login'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 800c567f-77db-4428-bdce-2da0ebd3f5c3
+		sourceLineageTag: rep_login
+		summarizeBy: none
+		sourceColumn: rep_login
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 1 login'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5445ba6d-1e39-4b23-9f6e-565fb4b7df46
+		sourceLineageTag: SUP_Level1_login
+		summarizeBy: none
+		sourceColumn: SUP_Level1_login
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 2 login'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 373d9437-44b4-4417-8721-e92a51a3f32d
+		sourceLineageTag: SUP_Level2_login
+		summarizeBy: none
+		sourceColumn: SUP_Level2_login
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 3 login'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d83e3881-3049-4f21-8269-59a604cc1162
+		sourceLineageTag: SUP_Level3_login
+		summarizeBy: none
+		sourceColumn: SUP_Level3_login
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 4 login'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4881afc7-a921-4ade-b0fb-411349deed8f
+		sourceLineageTag: SUP_Level4_login
+		summarizeBy: none
+		sourceColumn: SUP_Level4_login
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 5 login'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 05480f1c-cea2-4c55-9cc4-6dad1020375f
+		sourceLineageTag: SUP_Level5_login
+		summarizeBy: none
+		sourceColumn: SUP_Level5_login
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 6 login'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 300c3872-cbea-42c0-a7ff-8a11d39fc390
+		sourceLineageTag: SUP_Level6_login
+		summarizeBy: none
+		sourceColumn: SUP_Level6_login
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 7 login'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6bf96de9-eb68-4993-8334-d237ff1ff711
+		sourceLineageTag: SUP_Level7_login
+		summarizeBy: none
+		sourceColumn: SUP_Level7_login
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - SUP Level 8 login'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cea0f81d-ae5f-42d6-bdc5-eedc83a96b67
+		sourceLineageTag: SUP_Level8_login
+		summarizeBy: none
+		sourceColumn: SUP_Level8_login
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IND - GDPR Restricted'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 513a2d35-93df-41e2-954f-431706b4229e
+		sourceLineageTag: GDPRRestricted
+		summarizeBy: none
+		sourceColumn: GDPRRestricted
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - First name Short'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: af3e70e7-b98c-470b-8ba6-7745dc53099a
+		sourceLineageTag: FirstnameShort
+		summarizeBy: none
+		sourceColumn: FirstnameShort
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Job Role Group'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 764c241d-e773-487f-a84f-f86038f7014a
+		sourceLineageTag: JobRoleGroup
+		summarizeBy: none
+		sourceColumn: JobRoleGroup
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Employee Full Name(First, Last)'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1cf47481-bf28-47fe-a550-2a9a25cf5930
+		sourceLineageTag: EmployeeFullName
+		summarizeBy: none
+		sourceColumn: EmployeeFullName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst11'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7240ee5f-634b-4d5c-8fb7-673a7cc86d5a
+		sourceLineageTag: LoginAnalyst11
+		summarizeBy: none
+		sourceColumn: LoginAnalyst11
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst12'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7bbbcbd6-cedc-4a48-a79d-5cab1823e07d
+		sourceLineageTag: LoginAnalyst12
+		summarizeBy: none
+		sourceColumn: LoginAnalyst12
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst13'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3e2e2f8d-073b-48f9-aa1c-fbfa4377dda6
+		sourceLineageTag: LoginAnalyst13
+		summarizeBy: none
+		sourceColumn: LoginAnalyst13
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst14'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 399c2835-bde8-4615-ac6d-651673523568
+		sourceLineageTag: LoginAnalyst14
+		summarizeBy: none
+		sourceColumn: LoginAnalyst14
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst15'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a5aea656-aa1c-4448-a6ff-29ff77ba71b7
+		sourceLineageTag: LoginAnalyst15
+		summarizeBy: none
+		sourceColumn: LoginAnalyst15
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst21'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fc090ad5-95c2-46df-b3eb-a111f2a88287
+		sourceLineageTag: LoginAnalyst21
+		summarizeBy: none
+		sourceColumn: LoginAnalyst21
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst22'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9d183a9d-661c-476d-8eb2-18b1e83baaaa
+		sourceLineageTag: LoginAnalyst22
+		summarizeBy: none
+		sourceColumn: LoginAnalyst22
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst23'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 12743e5d-b551-4375-8b79-a99e6aac2cc7
+		sourceLineageTag: LoginAnalyst23
+		summarizeBy: none
+		sourceColumn: LoginAnalyst23
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst24'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b153cc84-5069-4271-89d5-57c4ad1b5aac
+		sourceLineageTag: LoginAnalyst24
+		summarizeBy: none
+		sourceColumn: LoginAnalyst24
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst25'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e88b8eed-8d42-43d7-807c-245e629b0934
+		sourceLineageTag: LoginAnalyst25
+		summarizeBy: none
+		sourceColumn: LoginAnalyst25
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst31'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 980435c7-08ba-4146-b96d-667d9a5ec3c6
+		sourceLineageTag: LoginAnalyst31
+		summarizeBy: none
+		sourceColumn: LoginAnalyst31
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst32'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a6e70bed-0e01-4eb8-87ed-9a0d1e97dc7f
+		sourceLineageTag: LoginAnalyst32
+		summarizeBy: none
+		sourceColumn: LoginAnalyst32
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst33'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 57040560-8044-47c9-ba58-6827ca5c40be
+		sourceLineageTag: LoginAnalyst33
+		summarizeBy: none
+		sourceColumn: LoginAnalyst33
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst34'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d4fa5086-1917-4dc7-b7fc-ed6706d37353
+		sourceLineageTag: LoginAnalyst34
+		summarizeBy: none
+		sourceColumn: LoginAnalyst34
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst35'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ba41b169-26cc-4849-b569-d99a68bdbf9b
+		sourceLineageTag: LoginAnalyst35
+		summarizeBy: none
+		sourceColumn: LoginAnalyst35
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst41'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7191d558-1c43-45c6-926f-12efc411d136
+		sourceLineageTag: LoginAnalyst41
+		summarizeBy: none
+		sourceColumn: LoginAnalyst41
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst42'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 14cefa8e-7891-419f-8f0c-d207a6520610
+		sourceLineageTag: LoginAnalyst42
+		summarizeBy: none
+		sourceColumn: LoginAnalyst42
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst43'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 45fdccf7-de2f-434a-83e6-5c38d5692f32
+		sourceLineageTag: LoginAnalyst43
+		summarizeBy: none
+		sourceColumn: LoginAnalyst43
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst44'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 348abfbf-7125-4d1d-bd75-90e101e58d04
+		sourceLineageTag: LoginAnalyst44
+		summarizeBy: none
+		sourceColumn: LoginAnalyst44
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst45'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f1911337-4bc9-40b5-90ea-3765ec35c198
+		sourceLineageTag: LoginAnalyst45
+		summarizeBy: none
+		sourceColumn: LoginAnalyst45
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst51'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 889869c7-0991-4967-b2c8-cb88bb1a8086
+		sourceLineageTag: LoginAnalyst51
+		summarizeBy: none
+		sourceColumn: LoginAnalyst51
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst52'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 261eb524-d7a3-434b-bfbf-3da9e16996c1
+		sourceLineageTag: LoginAnalyst52
+		summarizeBy: none
+		sourceColumn: LoginAnalyst52
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst53'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 01ba0058-0e98-4f69-b706-94a289ae7cff
+		sourceLineageTag: LoginAnalyst53
+		summarizeBy: none
+		sourceColumn: LoginAnalyst53
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst54'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9129a06f-f6d2-4490-a801-13b9aed96e13
+		sourceLineageTag: LoginAnalyst54
+		summarizeBy: none
+		sourceColumn: LoginAnalyst54
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst55'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f80e15b7-2b07-4f49-bebd-bc6f87f1a7f1
+		sourceLineageTag: LoginAnalyst55
+		summarizeBy: none
+		sourceColumn: LoginAnalyst55
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst61'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 660294d6-d064-4dcd-bdeb-d0d38bb94275
+		sourceLineageTag: LoginAnalyst61
+		summarizeBy: none
+		sourceColumn: LoginAnalyst61
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst62'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 70f13b6b-80d1-463e-94cc-a715dc875352
+		sourceLineageTag: LoginAnalyst62
+		summarizeBy: none
+		sourceColumn: LoginAnalyst62
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst63'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 41d1fe34-5a27-421f-bb86-546bf56c3419
+		sourceLineageTag: LoginAnalyst63
+		summarizeBy: none
+		sourceColumn: LoginAnalyst63
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst64'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4199be79-e719-4256-b5bb-ad4d2f868131
+		sourceLineageTag: LoginAnalyst64
+		summarizeBy: none
+		sourceColumn: LoginAnalyst64
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst65'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2044a3a7-7966-4dfd-a8cb-24fb68bb36ce
+		sourceLineageTag: LoginAnalyst65
+		summarizeBy: none
+		sourceColumn: LoginAnalyst65
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst71'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 106193b3-8365-435f-8b44-b4269db1f9c1
+		sourceLineageTag: LoginAnalyst71
+		summarizeBy: none
+		sourceColumn: LoginAnalyst71
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst72'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0d5017dd-8c61-4366-9f1e-ccfd0360baa6
+		sourceLineageTag: LoginAnalyst72
+		summarizeBy: none
+		sourceColumn: LoginAnalyst72
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst73'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5bf62e27-f96e-4892-a7c8-b14d6b84e940
+		sourceLineageTag: LoginAnalyst73
+		summarizeBy: none
+		sourceColumn: LoginAnalyst73
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst74'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1ae3efbf-1633-471d-a7f3-cc725fae79e5
+		sourceLineageTag: LoginAnalyst74
+		summarizeBy: none
+		sourceColumn: LoginAnalyst74
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst75'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 45b4ae81-5a7d-4dbc-abbd-18a56e9f954f
+		sourceLineageTag: LoginAnalyst75
+		summarizeBy: none
+		sourceColumn: LoginAnalyst75
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst81'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8f6d67d2-d5fc-468b-83ee-54bbea2f7219
+		sourceLineageTag: LoginAnalyst81
+		summarizeBy: none
+		sourceColumn: LoginAnalyst81
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst82'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 31753a69-02dd-409e-80fc-4213275b6c8a
+		sourceLineageTag: LoginAnalyst82
+		summarizeBy: none
+		sourceColumn: LoginAnalyst82
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst83'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1b989ed0-7ad1-4a70-be3d-169e44cca625
+		sourceLineageTag: LoginAnalyst83
+		summarizeBy: none
+		sourceColumn: LoginAnalyst83
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst84'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bbbe4bc4-5083-4831-9205-23d2a45403c8
+		sourceLineageTag: LoginAnalyst84
+		summarizeBy: none
+		sourceColumn: LoginAnalyst84
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Analyst85'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f60f2992-69aa-48ce-8088-17dbdcab32c7
+		sourceLineageTag: LoginAnalyst85
+		summarizeBy: none
+		sourceColumn: LoginAnalyst85
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoginStatus
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 58d69e92-e709-4bbf-a926-a27ea0c2b4ee
+		sourceLineageTag: LoginStatus
+		summarizeBy: none
+		sourceColumn: LoginStatus
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EmployeeNameCombined
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b8cfe1aa-e3b0-4945-ad85-9d5fbbd2a7de
+		sourceLineageTag: EmployeeNameCombined
+		summarizeBy: none
+		sourceColumn: EmployeeNameCombined
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Employee Status'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 14fac642-00a7-4589-aaae-bb23ab8c7a3e
+		sourceLineageTag: EmployeeStatus
+		summarizeBy: none
+		sourceColumn: EmployeeStatus
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Work Date Earliest'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 6d002501-bed1-4824-a3cd-e1363fd96925
+		sourceLineageTag: WorkDateEarliest
+		summarizeBy: none
+		sourceColumn: WorkDateEarliest
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionSiteLBC
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 673dc213-a175-41ba-bb86-438558849492
+		sourceLineageTag: RegionSiteLBC
+		summarizeBy: none
+		sourceColumn: RegionSiteLBC
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyEmployeeLoginId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 66944779-f2bc-44c1-9627-b3a92b404f4a
+		sourceLineageTag: HEXKeyEmployeeLoginId
+		summarizeBy: none
+		sourceColumn: HEXKeyEmployeeLoginId
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyEmployeeNumber
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e760973b-7a4a-4e69-9606-206bac62badc
+		sourceLineageTag: HEXKeyEmployeeNumber
+		summarizeBy: none
+		sourceColumn: HEXKeyEmployeeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column HistoricalLoginId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d78f5797-7bd9-4533-9ae2-4c5aceb6ffe8
+		sourceLineageTag: HistoricalLoginId
+		summarizeBy: none
+		sourceColumn: HistoricalLoginId
+
+		annotation SummarizationSetBy = Automatic
+
+	column UltiproDepartmentMapping
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 70940b6a-9ef7-466d-9095-be2dbb174508
+		sourceLineageTag: UltiproDepartmentMapping
+		summarizeBy: none
+		sourceColumn: UltiproDepartmentMapping
+
+		annotation SummarizationSetBy = Automatic
+
+	column HistoricalSiteLBC
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e7198dee-69f6-49e4-bfdd-aab6fed7d5fd
+		sourceLineageTag: HistoricalSiteLBC
+		summarizeBy: none
+		sourceColumn: HistoricalSiteLBC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryFromLocation
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 31e810d6-1362-4be9-adfd-95433d3e7433
+		sourceLineageTag: CountryFromLocation
+		summarizeBy: none
+		sourceColumn: CountryFromLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmpStartDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: d8915824-39c1-41cc-ba0f-0dc4a3ed5133
+		sourceLineageTag: EmpStartDate
+		summarizeBy: none
+		sourceColumn: EmpStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmpExitDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 67ac2913-7721-4448-9cb0-48cc8472c846
+		sourceLineageTag: EmpExitDate
+		summarizeBy: none
+		sourceColumn: EmpExitDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobRoleGroup_Current
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 21b06d5a-7d01-444f-8c1b-04893685b6f4
+		sourceLineageTag: JobRoleGroup_Current
+		summarizeBy: none
+		sourceColumn: JobRoleGroup_Current
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentNumber
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 453411f7-03af-404b-8dd7-30a4215443d5
+		sourceLineageTag: DepartmentNumber
+		summarizeBy: none
+		sourceColumn: DepartmentNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classification
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 34ab792e-2e60-4e69-94bf-8f14e52488f2
+		sourceLineageTag: Classification
+		summarizeBy: none
+		sourceColumn: Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c733b267-482f-4eff-9a84-e803188e4874
+		sourceLineageTag: Category
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 97ca4dd9-d9fc-49c2-8819-738451e871ab
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column HRGrouping
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e314ac8e-b443-4fce-8d57-25853ecd6be2
+		sourceLineageTag: HRGrouping
+		summarizeBy: none
+		sourceColumn: HRGrouping
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimEmployee = entity
+		mode: directLake
+		source
+			entityName: DimEmployee
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

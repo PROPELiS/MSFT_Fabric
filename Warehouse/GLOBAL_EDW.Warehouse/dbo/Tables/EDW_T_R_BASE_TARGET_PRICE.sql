@@ -1,7 +1,0 @@
-CREATE TABLE [dbo].[EDW_T_R_BASE_TARGET_PRICE] (
-
-	[SALES_ORDER] varchar(10) NOT NULL, 
-	[CURRENCY] varchar(10) NULL, 
-	[PRICE] decimal(18,2) NULL, 
-	[PRICE_DATE] date NULL
-);

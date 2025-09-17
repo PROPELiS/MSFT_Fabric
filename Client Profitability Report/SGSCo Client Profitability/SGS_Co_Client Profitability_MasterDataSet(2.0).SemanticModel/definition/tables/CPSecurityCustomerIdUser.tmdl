@@ -1,0 +1,76 @@
+table CPSecurityCustomerIdUser
+	lineageTag: 2a82ac15-d5f8-4937-b6bc-06fef440ac06
+	sourceLineageTag: [dbo].[CPSecurityCustomerIdUser]
+
+	column HEXKeyCombineCustomer
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 968d58f2-275d-4419-8dce-d4a54681d39f
+		sourceLineageTag: HEXKeyCombineCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeyCombineCustomer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PortfolioGroupName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d354f97e-3284-4562-b699-f60b31561601
+		sourceLineageTag: PortfolioGroupName
+		summarizeBy: none
+		sourceColumn: PortfolioGroupName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeUserLogin
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 51d12d66-320d-4f6e-9d66-cc46bebe15ed
+		sourceLineageTag: EmployeeUserLogin
+		summarizeBy: none
+		sourceColumn: EmployeeUserLogin
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastUpdatedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 55f2120a-3d91-466b-9979-1d09663079d0
+		sourceLineageTag: LastUpdatedDate
+		summarizeBy: none
+		sourceColumn: LastUpdatedDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bb783856-bb61-414b-b46d-0cb0be363c6a
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CPSecurityCustomerIdUser = entity
+		mode: directLake
+		source
+			entityName: CPSecurityCustomerIdUser
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

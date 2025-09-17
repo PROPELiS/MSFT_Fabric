@@ -1,8 +1,0 @@
-CREATE TABLE [dbo].[EDW_T_R_MST_MATGRPM_CUR_D] (
-
-	[SAP_GROUP_CODE] varchar(255) NULL, 
-	[SAP_MATERIAL_GROUP] varchar(255) NULL, 
-	[PART_NO] varchar(255) NULL, 
-	[PART_DESC] varchar(255) NULL, 
-	[MATERIAL_GROUP_MODIFIED] varchar(255) NULL
-);

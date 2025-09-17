@@ -100,13 +100,9 @@ param = ""  # Replace with the actual PARAM value
 if in_mode == "FULL":
     # Load Delta tables correctly
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_CreditNote_FinancialSequentialNumber")
-    bronze_Path ="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_CreditNote_FinancialSequentialNumber_FULL"
-
-
+    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_CreditNote_FinancialSequentialNumber_FULL"
     bronze_df = spark.read.format("delta").load(bronze_Path)
-    
-  
-        # Merge data from Bronze Full to Silver
+    # Merge data from Bronze Full to Silver
     silver_table.alias("target").merge(
     bronze_df.alias("source"),
     "target.Id = source.Id"

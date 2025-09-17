@@ -1,0 +1,2869 @@
+table FactSalesCostActual
+	lineageTag: 51c23763-770b-440f-bead-a3582b4a6d49
+	sourceLineageTag: [dbo].[FactSalesCostActualOutBound]
+
+	measure 'AMT - Gross Margin %' = DIVIDE('FactSalesCostActual'[AMT - P&L Gross Margin],'FactSalesCostActual'[AMT - P&L Net Sales])
+		lineageTag: 4d361070-8d85-4acc-bd4d-29eebb6fc4a2
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+	measure 'AMT - P&L (Selling, General and Administrative)' = ```
+			'FactSalesCostActual'[AMT - P&L Total Selling Expence] + 'FactSalesCostActual'[AMT - P&L Total G&A] 
+			```
+		lineageTag: 14192afe-e48c-4333-a3fb-56ccc383b0db
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+	measure 'AMT - P&L % of Revenue (Adjusted EBITA Pre-IC)' = DIVIDE('FactSalesCostActual'[AMT - P&L Adjusted EBITA (Pre-IC)],'FactSalesCostActual'[AMT - P&L Net Sales])+0
+		lineageTag: 9971a6e6-9af9-4940-a373-edd46a980e5a
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+	measure 'AMT - P&L % of Revenue(Adjusted EBITDA)' = DIVIDE('FactSalesCostActual'[AMT - P&L Adjusted EBITDA],'FactSalesCostActual'[AMT - P&L Net Sales])+0
+		lineageTag: e16f174b-7b50-4277-8ea8-8e837e516d87
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+	measure 'AMT - P&L % of Revenue(SG&A)' = DIVIDE([AMT - Total P&L SG&A],[AMT - P&L Net Sales])+0
+		lineageTag: 88057814-6e47-45de-bc90-ff8a9f790f4d
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT-Total Mapped Actual Cost (USD)' = CALCULATE(SUM('FactSalesCostActual'[AMT - Mapped Cost Actual(USD)])+SUM('FactSalesCostActual'[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]))
+		lineageTag: 8303c54e-4fb2-4947-91ab-dca732af51a9
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Adjusted EBITA (Pre-IC)' = 'FactSalesCostActual'[AMT - P&L Gross Margin] -'FactSalesCostActual'[AMT - Total P&L SG&A]
+		lineageTag: bbb6cf67-b662-4540-99ac-357d8dd7dcf7
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Adjusted EBITDA' = 'FactSalesCostActual'[AMT - P&L Adjusted EBITA (Pre-IC)]-'FactSalesCostActual'[AMT - P&L Incentive Compensation]
+		lineageTag: de947d27-c959-4e4b-914a-3ea7a9d2e2b9
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Capitalization of IT Costs(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment, DimGLAccountsDepartment[GL - GL Department Key]= "69001499-71*" || DimGLAccountsDepartment[GL - GL Department Key]= "69001499-76*"))+0
+		lineageTag: 1a6f85dc-4ae9-4f9a-bd33-c24d57aea81f
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Capitalization of IT Costs(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Department Key]= "69001499-81*"))+0
+		lineageTag: ee5ae40f-5b4d-4c3d-ab02-a3606903d6ed
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Capitalization of IT Costs(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Department Key]= "69001499-80*"))+0
+		lineageTag: c014de43-5655-4700-b92a-fc9a0f7a81e0
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Cost of Goods Sold' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold"))+0
+		lineageTag: 2ecdb746-bfa1-4dac-949e-bb46d7f2e643
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Freight(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3]= "Freight"))+0
+		lineageTag: 9cdd4e68-64b7-4821-a2a3-4f4bdaef34c8
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Freight(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Freight"))+0
+		lineageTag: 037e0a02-51cb-4c32-9d3d-47c27cb4d155
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Freight(Selling Expence)' = CALCULATE(SUM('FactSalesCostActual'[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Freight"))+0
+		lineageTag: 7f3a8b68-a2e3-4e16-b8fe-5d9e3de1232d
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Freight(SG&A)' = 'FactSalesCostActual'[AMT - P&L Freight(G&A)]+'FactSalesCostActual'[AMT - P&L Freight(Selling Expence)]
+		formatString: 0
+		lineageTag: 22e27b12-b35d-4e36-bdb2-5fe685ca23e0
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Gross Margin' = 'FactSalesCostActual'[AMT - P&L Net Sales] - 'FactSalesCostActual'[AMT - P&L Total COGS]+0
+		lineageTag: dbbd9317-7f95-4ab6-83f4-f406605a4c51
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Gross Sales' =
+			CALCULATE(SUM(FactSalesCostActual[AMT - Revenue (USD)])
+			,FILTER(DimGLAccounts,DimGLAccounts[IND - Is Gross Sales]="Yes"))
+		lineageTag: 9fd33de7-3be2-4ea7-90cd-dd451a37385f
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Health and Welfare(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Health and Welfare"))+0
+		lineageTag: b5fc5973-0d3b-42c9-a090-5e9b913c06d8
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Health and Welfare(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Health and Welfare"))+0
+		lineageTag: f452c8cf-5a8f-451f-ae47-a226e65e8ecb
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Health and Welfare(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Health and Welfare"))+0
+		lineageTag: 1daeb12b-b8bc-49a7-98ff-e94c2035a01d
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Health and Welfare(SG&A)' = 'FactSalesCostActual'[AMT - P&L Health and Welfare(G&A)]+'FactSalesCostActual'[AMT - P&L Health and Welfare(Selling Expence)]
+		formatString: 0
+		lineageTag: d7bf4627-0f5f-4907-a311-54efae876f98
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Incentive Compensation' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Management Incentive Compensation"))+0
+		lineageTag: 9b583b73-5188-421a-a0b4-f14af4592c66
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Information System(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Information Systems"))+0
+		lineageTag: 2b5818c4-a318-4d4c-98e6-80206884adea
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Information Systems(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Information Systems"))+0
+		lineageTag: 32e74b06-4c0b-4f8b-b55f-7eb5de9f3fd0
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Information Systems(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Information Systems"))+0
+		lineageTag: cf06d094-ddaf-493a-9ece-6fa43d30fbe2
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Information Systems(SG&A)' = 'FactSalesCostActual'[AMT - P&L Information Systems(G&A)]+'FactSalesCostActual'[AMT - P&L Information Systems(Selling Expence)]
+		formatString: 0
+		lineageTag: e2d9439c-58f5-4a52-8363-c6665766dfc9
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Management Incentive Taxes' = 0
+		formatString: 0
+		lineageTag: 0cc2d4c3-ef0c-43b1-89dc-d8fe2fd1aa80
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Mapped Cost(2019)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimCalendarDate, DimCalendarDate[CAL - Year Number(YYYY)] = 2019))+0
+		lineageTag: 0d4e265c-7b4f-4a9e-b4d2-a1f3dde4c131
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Mapped Cost(2020)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimCalendarDate, DimCalendarDate[CAL - Year Number(YYYY)] = 2020))+0
+		lineageTag: 85542db1-c7e9-43e5-a656-41e20b27e9a0
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Materials(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Materials"))+0
+		lineageTag: f7f1ffd0-76b1-43fe-bc2e-338a99a66b2c
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Materials(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Materials"))+0
+		lineageTag: 3c33b843-00b8-48b5-9b86-df23f283793c
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Materials(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Materials"))+0
+		lineageTag: b010abb5-f9cf-4a5c-b54a-888fc3c0dc62
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Materials(SG&A)' = 'FactSalesCostActual'[AMT - P&L Materials(G&A)]+'FactSalesCostActual'[AMT - P&L Materials(Selling Expence)]
+		formatString: 0
+		lineageTag: e313b4bf-1801-48df-bcef-9090732f9f8d
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Metrics' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Metrics"))+0
+		lineageTag: e082e7f5-9504-420a-93e1-fb8061894898
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Net Sales' = 'FactSalesCostActual'[AMT - P&L Gross Sales] + 'FactSalesCostActual'[AMT - P&L Net Sales With No Gross Sales]
+		lineageTag: dd33968f-f00f-44d1-ae4c-f391cbaa0d8a
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Net Sales With No Gross Sales' =
+			CALCULATE(SUM(FactSalesCostActual[AMT - Revenue (USD)])
+			,FILTER(DimGLAccounts,DimGLAccounts[IND - Is Gross Sales]="No" && DimGLAccounts[IND - Is Net Sales] = "Yes"))
+		formatString: #,0.00
+		lineageTag: 052025de-291f-4c2e-884c-6f3375efbd94
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'AMT - P&L Non-People Costs(G&A)' = 'FactSalesCostActual'[AMT - P&L Outside Services(G&A)]+'FactSalesCostActual'[AMT - P&L Materials(G&A)]+'FactSalesCostActual'[AMT - P&L Freight(G&A)]+'FactSalesCostActual'[AMT - P&L Rent(G&A)]+'FactSalesCostActual'[AMT - P&L Utilities/Network/Phone(G&A)]+'FactSalesCostActual'[AMT - P&L Information Systems(G&A)]+'FactSalesCostActual'[AMT - P&L Repairs & Maintenance(G&A)]+'FactSalesCostActual'[AMT - P&L Taxes and Duties(G&A)]+'FactSalesCostActual'[AMT - P&L Other(G&A)]+'FactSalesCostActual'[AMT - P&L Professional Fees(G&A)]
+		lineageTag: d122dda7-a049-4e6c-8167-7770c434c187
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Non-People Costs(Selling Expence)' = 'FactSalesCostActual'[AMT - P&L Outside Services(Selling Expence)]+'FactSalesCostActual'[AMT - P&L Materials(Selling Expence)]+'FactSalesCostActual'[AMT - P&L Freight(Selling Expence)]+'FactSalesCostActual'[AMT - P&L Rent(Selling Expence)]+'FactSalesCostActual'[AMT - P&L Utilities/Network/Phone(Selling Expence)]+'FactSalesCostActual'[AMT - P&L Information Systems(Selling Expence)]+'FactSalesCostActual'[AMT - P&L Repairs & Maintenance(Selling Expence)]+'FactSalesCostActual'[AMT - P&L Taxes and Duties(Selling Expence)]+'FactSalesCostActual'[AMT - P&L Other(Selling Expence)]+'FactSalesCostActual'[AMT - P&L Professional Fees(Selling Expence)]
+		lineageTag: a027afd3-0e49-4db4-8307-bb6a4e7239d5
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Non-People Costs(SG&A)' = 'FactSalesCostActual'[AMT - P&L Non-People Costs(G&A)]+'FactSalesCostActual'[AMT - P&L Non-People Costs(Selling Expence)]
+		formatString: 0
+		lineageTag: ff9ba412-4b43-4f0e-bfcd-5121598b111f
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Other Benefits(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Other Benefits"))+0
+		lineageTag: 5b9c8fe0-a11d-43cc-a0da-9f173f8e4feb
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Other Benefits(G&A)' = CALCULATE(SUM('FactSalesCostActual'[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Other Benefits"))+0
+		lineageTag: 35904450-8778-47f1-9fe3-54db81e77353
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Other Benefits(Selling Expence)' = CALCULATE(SUM('FactSalesCostActual'[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Other Benefits"))+0
+		lineageTag: 0aa0b9ff-7753-4c67-97d7-7b55ecb26347
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Other Benefits(SG&A)' = 'FactSalesCostActual'[AMT - P&L Other Benefits(G&A)]+'FactSalesCostActual'[AMT - P&L Other Benefits(Selling Expence)]
+		formatString: 0
+		lineageTag: 724a4a99-ad28-4c6b-a557-2b4f16490703
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Other(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Other" ))+0
+		lineageTag: 5e839334-c02f-4490-b75d-b79b60cec636
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Other(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Other"))+0
+		lineageTag: 2e6f344d-a7e4-4b22-b867-bf4726d9c5d8
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Other(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Other"))+0
+		lineageTag: c76934fb-f81a-42c0-9a67-5e2ea9debf3f
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Other(SG&A)' = [AMT - P&L Other(G&A)]+[AMT - P&L Other(Selling Expence)]
+		formatString: 0
+		lineageTag: 7f00a38b-4381-43b8-9fc3-8c033be411b7
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Others(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Other" && DimGLAccountsDepartment[GL - GL Level 4] = "Other"))+0
+		lineageTag: 72d07ae5-e43a-4ad1-a526-a07be8b966e0
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Others(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Other" && DimGLAccountsDepartment[GL - GL Level 4] = "Other"))+0
+		lineageTag: 9dd120a8-c944-445e-9a09-a393532a3dac
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Outside Services(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Outside Services"))+0
+		lineageTag: d5adc4bb-be91-446d-b7f3-d3d3824bd9e4
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Outside Services(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Outside Services"))+0
+		lineageTag: b691c1c7-4435-4fe4-90c0-dbd1f172af54
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Outside Services(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Outside Services"))+0
+		lineageTag: f9ce94db-614c-4005-a2a5-aaf245f233ec
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Outside Services(SG&A)' = [AMT - P&L Outside Services(G&A)]+[AMT - P&L Outside Services(Selling Expence)]
+		formatString: 0
+		lineageTag: 08ee38be-5df7-48c3-8791-519ab597b029
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Overtime(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Overtime"))+0
+		lineageTag: 62389cae-73bc-48a5-bd14-763cb7ad3f73
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Overtime(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Overtime"))+0
+		lineageTag: 5a15eb24-fc1d-4ca3-9ead-651d69c4a68a
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Overtime(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Overtime"))+0
+		lineageTag: 0e461c0e-2966-4769-8eed-096b9e3f64c7
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Overtime(SG&A)' = 'FactSalesCostActual'[AMT - P&L Overtime(G&A)] + 'FactSalesCostActual'[AMT - P&L Overtime(Selling Expence)]
+		formatString: 0
+		lineageTag: 260fcb9a-4fcb-4020-b445-92fc7ed315ab
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Payroll Taxes(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Payroll Taxes"))+0
+		lineageTag: 550a8078-9dcb-4664-983f-569a8cd9f2d1
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Payroll Taxes(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Payroll Taxes"))+0
+		lineageTag: 2e731cd8-6569-423d-a441-648d0f5a4316
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Payroll Taxes(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Payroll Taxes"))+0
+		lineageTag: 3febb906-9fed-4b39-b54b-fdb978e84323
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Payroll Taxes(SG&A)' = 'FactSalesCostActual'[AMT - P&L Payroll Taxes(G&A)]+'FactSalesCostActual'[AMT - P&L Payroll Taxes(Selling Expence)]
+		formatString: 0
+		lineageTag: be5ee143-9e87-491b-9da2-737b6ab6fce3
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Professional Fees(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3]= "Professional Fees"))+0
+		lineageTag: 6800904e-e5bf-41f3-baf7-3d2b6f6dbe7e
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Professional Fees(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Professional Fees"))+0
+		lineageTag: 1e874dcd-bcae-4586-9ed0-37750db04e63
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Professional Fees(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Professional Fees"))+0
+		lineageTag: 9f6f93a8-88e3-43da-96fa-41b0a4198ecb
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Professional Fees(SG&A)' = [AMT - P&L Professional Fees(G&A)]+[AMT - P&L Professional Fees(Selling Expence)]
+		formatString: 0
+		lineageTag: f0d8ce66-52d6-44c7-bc44-cee6d728eb56
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Rent(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Rent"))+0
+		lineageTag: 483c7b65-a2e0-4bee-827d-4f0b2e6dfbcb
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Rent(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Rent"))+0
+		lineageTag: 98ee37ef-e3a1-4ad6-8ce8-70c3e8d75180
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Rent(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Rent"))+0
+		lineageTag: ebb62718-3d32-490a-aeae-07a2d0f8273f
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Rent(SG&A)' = [AMT - P&L Rent(G&A)]+[AMT - P&L Rent(Selling Expence)]
+		formatString: 0
+		lineageTag: 18c9aec7-b287-4298-aa64-620f0607c300
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Repairs & Maintenance(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Repairs & Maintenance"))+0
+		lineageTag: 1f08c06b-ffcd-4517-8f48-e3ff488f9176
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Repairs & Maintenance(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Repairs & Maintenance"))+0
+		lineageTag: 524f956d-6727-4651-9b63-343073dfefa5
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Repairs & Maintenance(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Repairs & Maintenance"))+0
+		lineageTag: 8feaf95e-ffb9-4175-8e8c-78864c903a71
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Repairs & Maintenance(SG&A)' = [AMT - P&L Repairs & Maintenance(G&A)]+[AMT - P&L Repairs & Maintenance(Selling Expence)]
+		formatString: 0
+		lineageTag: 792bcb94-93f4-462e-9637-de785e2aec0f
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Sales Incentive(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Non-Management Incentive"))+0
+		lineageTag: 4e2f173c-0b54-4fd5-9278-5b0ed552e6c0
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Sales Incentive(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Non-Management Incentive"))+0
+		lineageTag: c0cce2c0-b025-4769-ab0a-ab2bf13ffe34
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Sales Incentive(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Non-Management Incentive"))+0
+		lineageTag: 14a2bfa7-a036-41fe-a8b4-e7618fbe5bb3
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Sales Incentive(SG&A)' = 'FactSalesCostActual'[AMT - P&L Sales Incentive(G&A)]+'FactSalesCostActual'[AMT - P&L Sales Incentive(Selling Expence)]
+		formatString: 0
+		lineageTag: 6f26f6d0-02ac-4824-a4a2-1816ad7c3eec
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Severences(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Severences"))+0
+		lineageTag: efdc7b69-0c94-4667-aa3c-76e9396bd7c7
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Severences(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Severences"))+0
+		lineageTag: 05b74c6f-7673-4244-8db3-69332f4e85f5
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Severences(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Severences"))+0
+		lineageTag: 5ef21bfa-770b-4c8a-a56a-135d2045c9cd
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Severences(SG&A)' = 'FactSalesCostActual'[AMT - P&L Severences(G&A)] + 'FactSalesCostActual'[AMT - P&L Severences(Selling Expence)]
+		formatString: 0
+		lineageTag: 7f4302c7-ef3c-4393-8383-62cb6fc95eea
+
+		changedProperty = Name
+
+	measure 'AMT - P&L T&E(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "T&E"))+0
+		lineageTag: 1a1a0c33-4dd8-4670-97ee-7f0ef93cefa1
+
+		changedProperty = Name
+
+	measure 'AMT - P&L T&E(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "T&E"))+0
+		lineageTag: f0bf6064-d5a2-48c0-93b6-de1dc8c340db
+
+		changedProperty = Name
+
+	measure 'AMT - P&L T&E(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "T&E"))+0
+		lineageTag: 118558f4-76d1-42c9-97ff-53a1d0545c15
+
+		changedProperty = Name
+
+	measure 'AMT - P&L T&E(SG&A)' = 'FactSalesCostActual'[AMT - P&L T&E(G&A)]+'FactSalesCostActual'[AMT - P&L T&E(Selling Expence)]
+		formatString: 0
+		lineageTag: f275f2c2-0b0d-4850-9baa-67645b3a709c
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Taxes & Duties(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Taxes and Duties"))+0
+		lineageTag: 7a050b10-b122-436d-8651-22e7d5a4733e
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Taxes and Duties(G&A)' = CALCULATE(SUM('FactSalesCostActual'[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Taxes and Duties"))+0
+		lineageTag: 706cbccc-ee0b-4004-86a5-577042bf1f91
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Taxes and Duties(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Taxes and Duties"))+0
+		lineageTag: d30f948b-62fc-41db-b00b-e4a4310ca0df
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Taxes and Duties(SG&A)' = [AMT - P&L Taxes and Duties(G&A)]+[AMT - P&L Taxes and Duties(Selling Expence)]
+		formatString: 0
+		lineageTag: 9a726451-820c-4062-858f-eaf365adcff9
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Temp Labor/Freelancer(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Temp Labor/Freelancer"))+0
+		lineageTag: 726c84f1-5dbe-4d35-9156-ca66c5ec94bf
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Temp Labor/Freelancer(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Temp Labor/Freelancer"))+0
+		lineageTag: 62711383-39fa-4543-97e5-db4380c66ea8
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Temp Labor/Freelancer(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Temp Labor/Freelancer"))+0
+		lineageTag: b12665fd-6434-4c34-90ae-03beb37a49ec
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Temp Labor/Freelancer(SG&A)' = 'FactSalesCostActual'[AMT - P&L Temp Labor/Freelancer(G&A)]+'FactSalesCostActual'[AMT - P&L Temp Labor/Freelancer(Selling Expence)]
+		formatString: 0
+		lineageTag: 7bdc44cc-1394-4ec8-af05-4e81ef850351
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Total COGS' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold"))+0
+		lineageTag: 3ee746b9-9e92-436b-a60d-cdf3848bee33
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Total G&A' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense"))+0
+		lineageTag: 754fc44e-95d4-4d98-b888-b0ab0c86e188
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Total People Cost(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost"))+0
+		lineageTag: a51ffa7f-1f91-4af9-b66c-7b35878607ed
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Total People Cost(Selling Expence)' = ```
+			CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost"))+0
+			
+			```
+		lineageTag: a69bb898-902b-4a17-982c-141c763c73a9
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Total People Cost(SG&A)' = 'FactSalesCostActual'[AMT - P&L Total People Cost(Selling Expence)]+'FactSalesCostActual'[AMT - P&L Total People Cost(G&A)]
+		formatString: 0
+		lineageTag: ef980610-765c-4316-ac7b-0116be2b78bf
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Total People Costs(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost"))+0
+		lineageTag: 48463415-e045-4e85-b3c8-373e3bb38173
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Total Selling Expence' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense"))+0
+		lineageTag: 51662ef5-745a-4507-ac23-2f428cfa9a1f
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Total Wages(Cost of Goods Sold)' =
+			
+			CALCULATE(
+			    SUM(
+			       FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]
+			    ),
+			    FILTER(
+			        DimGLAccountsDepartment,
+			        DimGLAccountsDepartment[GL - GL Level 2] = "Cost of Goods Sold"
+			            && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost"
+			            && DimGLAccountsDepartment[GL - GL Level 4] = "Wages"
+			    )
+			) + 0
+		lineageTag: 51268cba-17d1-4a70-9a04-a18e5b5cbcb0
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Utilities/Network/Phone(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Utilities/Network/Phone"))+0
+		lineageTag: 13ffaa0f-c1b3-44df-8032-b32ad020472c
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Utilities/Network/Phone(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Utilities/Network/Phone"))+0
+		lineageTag: f1921158-93fb-41f0-b3af-d6c2bf4bf841
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Utilities/Network/Phone(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Utilities/Network/Phone"))+0
+		lineageTag: ac9d68fe-c32e-45a2-9740-15127a11176d
+
+		changedProperty = Name
+
+	measure 'AMT - P&L Utilities/Network/Phone(SG&A)' = [AMT - P&L Utilities/Network/Phone(G&A)]+[AMT - P&L Utilities/Network/Phone(Selling Expence)]
+		formatString: 0
+		lineageTag: 97ce9ea2-c093-431d-8c53-23ebb6ec97dc
+
+		changedProperty = Name
+
+	measure 'AMT - Revenue (USD) PY' = CALCULATE(SUM(FactSalesCostActual[AMT - Revenue (USD)]), YEAR(DimCalendarDate[Date - Calendar Date])=YEAR(TODAY()) - 1)
+		lineageTag: b3396313-8a52-4bd5-8166-ec07a76f4fe3
+
+		changedProperty = Name
+
+	measure 'AMT - Total P&L SG&A' = 'FactSalesCostActual'[AMT - P&L Total Selling Expence] + 'FactSalesCostActual'[AMT - P&L Total G&A]
+		formatString: 0
+		lineageTag: 8374be0b-c6bf-4c70-bd4b-9c8da81873fa
+
+		changedProperty = Name
+
+	measure 'AMT - Variable Costs' = 'FactSalesCostActual'[AMT - P&L Total People Costs(Cost of Goods Sold)]  + 'FactSalesCostActual'[AMT - P&L Materials(Cost of Goods Sold)]+'FactSalesCostActual'[AMT - P&L Total People Cost(Selling Expence)] + 'FactSalesCostActual'[AMT - P&L Freight(Cost of Goods Sold)]
+		formatString: 0
+		lineageTag: 5e9f4e35-465f-4bff-a05a-5ea23ab8c378
+
+		changedProperty = Name
+
+	measure 'AMT – P&L Transfer People Costs (G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment, DimGLAccountsDepartment[GL - GL Department Key]= "69001498-81*" || DimGLAccountsDepartment[GL - GL Department Key]= "69001496-81*"))+0
+		lineageTag: 65614e52-21ee-4746-abb2-9ef6196e58c2
+
+		changedProperty = Name
+
+	measure 'AMT – P&L Transfer People Costs (Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment, DimGLAccountsDepartment[GL - GL Department Key]= "69001498-80*" || DimGLAccountsDepartment[GL - GL Department Key]= "69001496-80*"))+0
+		lineageTag: 6a0af308-25b5-43e7-9548-aa9385f7bf41
+
+		changedProperty = Name
+
+	measure 'AMT – Revenue (USD) PY' = CALCULATE(SUM(FactSalesCostActual[AMT - Revenue (USD)]),  YEAR(DimCalendarDate[DATE - Calendar Date])=YEAR(TODAY()) - 1)
+		lineageTag: cfaae403-2942-4304-9186-70887df6c85a
+
+		changedProperty = Name
+
+	measure 'AMT – Revenue (USD) PYTD' = CALCULATE(SUM(FactSalesCostActual[AMT - Revenue (USD)]), DATESBETWEEN(DimCalendarDate[DATE - Calendar Date],DATE(YEAR(TODAY())-1,01,01),DATE(YEAR(TODAY())-1,MONTH(TODAY()),DAY(TODAY()))))
+		lineageTag: bb0786c9-baf8-42ad-96ca-b2f41e0d33e8
+
+		changedProperty = Name
+
+	measure 'AMT – Revenue (USD) R6' = CALCULATE(SUM(FactSalesCostActual[AMT - Revenue (USD)]), DATESINPERIOD(DimCalendarDate[DATE - Calendar Date],DATE(IF(MONTH(TODAY()) <= 6, YEAR(TODAY())-1,YEAR(TODAY())),IF(MONTH(TODAY()) <= 6, MONTH(TODAY())+6,MONTH(TODAY())-6),01),6,month))
+		lineageTag: e0154971-473f-41d5-a1c0-6fa748a7c5ab
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - % of Revenue(Cost of Goods Sold)' = DIVIDE([MAPPED AMT - P&L Total Wages(Cost of Goods Sold)],[MAPPED AMT - P&L Net Sales])+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d17835f8-faf7-41b5-8b2c-1764323138bf
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'MAPPED AMT - P&L (Selling, General and Administrative)' = [MAPPED AMT - P&L Total Selling Expence] + [MAPPED AMT - P&L Total G&A]
+		lineageTag: a204014e-6a29-4789-b2c7-287593faf012
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L % of Revenue (Adjusted EBITA Pre-IC)' = DIVIDE('FactSalesCostActual'[MAPPED AMT - P&L Adjusted EBITA (Pre-IC)],'FactSalesCostActual'[MAPPED AMT - P&L Net Sales])+0
+		lineageTag: f8d3c88b-de45-4302-b05e-86d25bdbdeb7
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L % of Revenue(Adjusted EBITDA)' = DIVIDE('FactSalesCostActual'[MAPPED AMT - P&L Adjusted EBITDA],'FactSalesCostActual'[MAPPED AMT - P&L Net Sales])+0
+		lineageTag: b43b334b-2058-4337-bfc6-066d0606929a
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L % of Revenue(SG&A)' = DIVIDE('FactSalesCostActual'[MAPPED AMT - Total P&L SG&A],'FactSalesCostActual'[MAPPED AMT - P&L Net Sales])+0
+		lineageTag: 282ff81f-d922-4cb2-a021-c496281f826b
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Adjusted EBITA (Pre-IC)' = 'FactSalesCostActual'[MAPPED AMT - P&L Gross Margin] -'FactSalesCostActual'[MAPPED AMT - Total P&L SG&A]
+		lineageTag: eb5e1bf3-5b94-4433-a7e7-dcfe1b71953a
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Adjusted EBITDA' = 'FactSalesCostActual'[MAPPED AMT - P&L Adjusted EBITA (Pre-IC)]-'FactSalesCostActual'[MAPPED AMT - P&L Incentive Compensation]
+		lineageTag: 9e36a723-2f64-4ec1-a1ff-52a1aff1a253
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Cost of Goods Sold' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC])+SUM(FactSalesCostActual[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold"))+0
+		lineageTag: 59c3e1f5-a648-4c48-80ec-4dd0ae6c9ec0
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Freight(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3]= "Freight"))+0
+		lineageTag: d9c6f240-f2f8-48f6-ac6d-2d36b57c98c7
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Freight(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Freight"))+0
+		lineageTag: 4be0b850-add1-4f8f-82e3-513f17be6b6c
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Freight(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Freight"))+0
+		lineageTag: 7ea1932a-8629-4cef-9251-46a1f488b253
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Freight(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Freight(G&A)]+'FactSalesCostActual'[MAPPED AMT - P&L Freight(Selling Expence)]
+		formatString: 0
+		lineageTag: b6578007-fdc0-4fc2-a365-0d4e2507c3c5
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Gross Margin' = 'FactSalesCostActual'[MAPPED AMT - P&L Net Sales] - 'FactSalesCostActual'[MAPPED AMT - P&L Total COGS]+0
+		lineageTag: f7e94c40-1f26-4e01-8067-64973d63a1a7
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'MAPPED AMT - P&L Health and Welfare(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Health and Welfare"))+0
+		lineageTag: 1bf5a979-969b-47cd-b403-d6951fe2f1e8
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Health and Welfare(G&A)' = CALCULATE(SUM('FactSalesCostActual'[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Health and Welfare"))+0
+		lineageTag: 9e61b6b3-6962-4361-a1e3-1ad8c0edb1e0
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Health and Welfare(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Health and Welfare"))+0
+		lineageTag: 25c26912-6b3e-4423-b58d-ec53d7e6b68e
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Health and Welfare(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Health and Welfare(G&A)]+'FactSalesCostActual'[MAPPED AMT - P&L Health and Welfare(Selling Expence)]
+		formatString: 0
+		lineageTag: d97f0832-e20a-4d29-b05e-3eaf91e154a7
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Incentive Compensation' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Management Incentive Compensation"))+0
+		lineageTag: 772ff43c-ca88-4107-a4df-6ad6d669636d
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Information Systems(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Information Systems"))+0
+		lineageTag: f02c1335-1bee-46ac-ae27-bab53de79414
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Information Systems(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Information Systems"))+0
+		lineageTag: 72b2a418-a9fb-4c83-8f7f-6d92afed17a6
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Information Systems(SG&A)' = [MAPPED AMT - P&L Information Systems(G&A)]+[MAPPED AMT - P&L Information Systems(Selling Expence)]
+		formatString: 0
+		lineageTag: 793d72dc-bdfe-4941-9b3e-98d3db41c822
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Management Incentive Taxes' = 0
+		formatString: 0
+		lineageTag: 7e85fe0d-057e-46cf-b1a2-1e679868fece
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Mapped Cost(2019)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimCalendarDate, DimCalendarDate[CAL - Year Number(YYYY)] = 2019))+0
+		lineageTag: 4f41ad97-79a8-4386-82f2-4fd73b7aa21e
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Mapped Cost(2020)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimCalendarDate, DimCalendarDate[CAL - Year Number(YYYY)] = 2020))+0
+		lineageTag: 34fa4dd3-5098-4182-a8d4-7a676e35ecd2
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Materials(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Materials"))+0
+		lineageTag: acd09648-7a60-4a53-9df9-6f24dfc1773a
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Materials(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Materials"))+0
+		lineageTag: f30ae41d-743d-4244-a01f-f9fc0149da2f
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Materials(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Materials"))+0
+		lineageTag: ea1bd7c1-3ba8-4a32-9383-85800b09afef
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Materials(SG&A)' = [MAPPED AMT - P&L Materials(G&A)]+[MAPPED AMT - P&L Materials(Selling Expence)]
+		formatString: 0
+		lineageTag: 57feb95a-6101-4cd4-99c7-40419fcbd4bd
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Metrics' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Metrics"))+0
+		lineageTag: 0f274899-3857-46c4-ac31-33b2444040f3
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Net Sales' = ('FactSalesCostActual'[AMT - P&L Gross Sales] + 'FactSalesCostActual'[AMT - P&L Net Sales With No Gross Sales])
+		formatString: 0.00
+		lineageTag: 85021707-9bbb-46f5-8d28-f9552f3e67c3
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'MAPPED AMT - P&L Non-People Costs(G&A)' =
+			[MAPPED AMT - P&L Outside Services(G&A)]+[MAPPED AMT - P&L Materials(G&A)]+[MAPPED AMT - P&L Freight(G&A)]+[MAPPED AMT - P&L Rent(G&A)]+[MAPPED AMT - P&L Utilities/Network/Phone(G&A)]+[MAPPED AMT - P&L Information Systems(G&A)]+[MAPPED AMT - P&L Repairs & Maintenance(G&A)]+[MAPPED AMT - P&L Taxes and Duties(G&A)]+[MAPPED AMT - P&L Other(G&A)]+
+			[MAPPED AMT - P&L Professional Fees(G&A)]
+		lineageTag: 1028dac5-d882-4996-871d-c5189fe89cfd
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Non-People Costs(Selling Expence)' =
+			[MAPPED AMT - P&L Outside Services(Selling Expence)]+[MAPPED AMT - P&L Materials(Selling Expence)]+[MAPPED AMT - P&L Freight(Selling Expence)]+[MAPPED AMT - P&L Rent(Selling Expence)]+[MAPPED AMT - P&L Utilities/Network/Phone(Selling Expence)]+[MAPPED AMT - P&L Information Systems(Selling Expence)]+[MAPPED AMT - P&L Repairs & Maintenance(Selling Expence)]+[MAPPED AMT - P&L Taxes and Duties(Selling Expence)]+[MAPPED AMT - P&L Other(Selling Expence)]+
+			[MAPPED AMT - P&L Professional Fees(Selling Expence)]
+		lineageTag: 1582d86f-d6dc-4395-955a-c6a983d37f0a
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Non-People Costs(SG&A)' = [MAPPED AMT - P&L Non-People Costs(G&A)]+[MAPPED AMT - P&L Non-People Costs(Selling Expence)]
+		formatString: 0
+		lineageTag: 3542cb8e-f117-4dff-afac-3457df8e32d2
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Other Benefits(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Other Benefits"))+0
+		lineageTag: c9873893-a0ee-4cab-abe0-469b7462bb4e
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Other Benefits(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Other Benefits"))+0
+		lineageTag: 2cf891dc-75d0-40f6-84b4-2b88cd9ef1d7
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Other Benefits(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Other Benefits"))+0
+		lineageTag: 9288119c-0f84-40e3-b92a-f64a440a955c
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Other Benefits(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Other Benefits(G&A)]+'FactSalesCostActual'[MAPPED AMT - P&L Other Benefits(Selling Expence)]
+		formatString: 0
+		lineageTag: 60eff0bb-1aeb-4754-92b9-0cd4622ceddb
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Other(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Other" && DimGLAccountsDepartment[GL - GL Level 4] = "Other"))+0
+		lineageTag: 01ba7090-2777-4b3b-996e-14ad8e94fbed
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Other(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Other"))+0
+		lineageTag: e96490c2-0dd8-4db6-87d1-e83d199169ba
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Other(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Other"))+0
+		lineageTag: 381337b6-2544-422b-951a-84c6dd705361
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Other(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Other(G&A)]+'FactSalesCostActual'[MAPPED AMT - P&L Other(Selling Expence)]
+		formatString: 0
+		lineageTag: 7e7c511a-705f-452a-b181-90d7e849e9f5
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Others(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Other"))+0
+		lineageTag: 83187a3a-1b52-4b7e-8cc5-77b674168bfb
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Outside Services(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Outside Services"))+0
+		lineageTag: 3c3b0f7f-8751-4727-8102-3e75b534ebc4
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Outside Services(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Outside Services"))+0
+		lineageTag: 4fb61ba6-767a-4bcb-8676-7ba510da6ce0
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Outside Services(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Outside Services"))+0
+		lineageTag: 53b54670-2594-4c3c-a87a-18a73700657c
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Outside Services(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Outside Services(G&A)]+'FactSalesCostActual'[MAPPED AMT - P&L Outside Services(Selling Expence)]
+		formatString: 0
+		lineageTag: 60a24fb1-a367-4a65-98ef-d2deb1159157
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Overtime(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Overtime"))+0
+		lineageTag: 95770ff0-f065-477d-bce3-060c90e67e3d
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Overtime(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Overtime"))+0
+		lineageTag: 924fc9ea-56ca-497a-be5a-5f3e5617cb74
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Overtime(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Overtime"))+0
+		lineageTag: f3bbc06e-04f0-4080-bcf5-bc8823a5f182
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Overtime(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Overtime(G&A)] +'FactSalesCostActual'[MAPPED AMT - P&L Overtime(Selling Expence)]
+		formatString: 0
+		lineageTag: e0421aaa-1d8f-4b2e-bef5-7791e9d35079
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Payroll Taxes(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Payroll Taxes"))+0
+		lineageTag: 7b7111f2-b66e-4c62-990e-ce9c685077a0
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Payroll Taxes(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Payroll Taxes"))+0
+		lineageTag: afe13395-a1ac-474c-a5fb-5d99a862e38a
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Payroll Taxes(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Payroll Taxes"))+0
+		lineageTag: c8a97131-03b5-4e11-adc2-822a8093a975
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Professional Fees(Cost of Goods Sold)' =
+			CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),
+			FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3]= "Professional Fees"))+0
+		lineageTag: f9f5a8aa-9fd2-4e9e-afd9-be2d6b96a5b0
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Professional Fees(G&A)' =
+			CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),
+			FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Professional Fees"))+0
+		lineageTag: 69607c9d-3c3c-48e2-beae-8d417c7dcc7f
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Professional Fees(Selling Expence)' =
+			
+			CALCULATE(SUM('FactSalesCostActual'[AMT - Mapped Cost Actual LC]),
+			FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Professional Fees"))+0
+		lineageTag: 7598ca07-986e-407d-bb89-d1a2d6786f24
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Rent(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Rent"))+0
+		lineageTag: 345ac9a3-d525-48f7-ac88-78c4a415917e
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Rent(G&A)' = CALCULATE(SUM('FactSalesCostActual'[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Rent"))+0
+		lineageTag: a38254ab-048a-4771-ab7e-2b8158378705
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Rent(Selling Expence)' = CALCULATE(SUM('FactSalesCostActual'[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Rent"))+0
+		lineageTag: a6ac21eb-51c2-4eee-b356-84b328cf105f
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Rent(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Rent(G&A)]+'FactSalesCostActual'[MAPPED AMT - P&L Rent(Selling Expence)]
+		formatString: 0
+		lineageTag: 9c774a36-f915-452f-80ce-97e8820dab1d
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Repairs & Maintenance(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Repairs & Maintenance"))+0
+		lineageTag: ca4c922a-808b-4bb7-893f-2c99fc1e1f3e
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Repairs & Maintenance(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Repairs & Maintenance"))+0
+		lineageTag: f6e9e6a9-9917-4885-af6e-67a922e24e89
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Repairs & Maintenance(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Repairs & Maintenance"))+0
+		lineageTag: e6554092-d005-4310-8dc8-59456ab3fc2a
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Repairs & Maintenance(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Repairs & Maintenance(G&A)]+'FactSalesCostActual'[MAPPED AMT - P&L Repairs & Maintenance(Selling Expence)]
+		formatString: 0
+		lineageTag: 8b0f60f7-cb2c-440d-8f02-452c5e20ffdc
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Sales Incentive(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Non-Management Incentive"))+0
+		lineageTag: 7639ca70-4a39-49cb-aa76-9805f51d2b6f
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Sales Incentive(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Non-Management Incentive"))+0
+		lineageTag: de5e83dc-2074-4bd0-9963-6f947d52991d
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Sales Incentive(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Non-Management Incentive"))+0
+		lineageTag: 9b870139-b22b-4a58-9914-6893933dec08
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Sales Incentive(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Sales Incentive(G&A)]+'FactSalesCostActual'[MAPPED AMT - P&L Sales Incentive(Selling Expence)]
+		formatString: 0
+		lineageTag: f8ffe6de-df47-420b-89c1-15654534b0d6
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Severences(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Severences"))+0
+		lineageTag: 9a5e46a1-d3ff-4cac-ae10-f90cf1732d31
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Severences(G&A)' =
+			
+			CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Severences"))+0
+		lineageTag: 76f05247-c88c-4bf0-965e-1abb745a4fa3
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Severences(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Severences"))+0
+		lineageTag: 83f20e06-0d8a-4d94-87fb-ca42428b4c69
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Severences(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Severences(G&A)] + 'FactSalesCostActual'[MAPPED AMT - P&L Severences(Selling Expence)]
+		formatString: 0
+		lineageTag: 1b3fdffb-52fb-48b9-be32-07cfd4af1786
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L T&E(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "T&E"))+0
+		lineageTag: ea1b8fd0-1ee9-4bec-ae08-094301bade1c
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L T&E(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "T&E"))+0
+		lineageTag: 9a56607a-6639-4484-820e-beceef0b7152
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L T&E(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "T&E"))+0
+		lineageTag: 90a7ac70-73dd-4460-b1af-d953a80aacec
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L T&E(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L T&E(G&A)]+'FactSalesCostActual'[MAPPED AMT - P&L T&E(Selling Expence)]
+		formatString: 0
+		lineageTag: f688f6b1-d7b8-4056-839a-9c923d7515d0
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Taxes & Duties(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Taxes and Duties"))+0
+		lineageTag: 4d5efe94-a787-4069-bd5b-ee7d9084c9ee
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Taxes and Duties(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Taxes and Duties"))+0
+		lineageTag: 5840dfe4-ea05-47f1-899b-2019cc449dba
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Taxes and Duties(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Taxes and Duties"))+0
+		lineageTag: 354cdf60-5281-4db8-8b87-bc3f54198ca6
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Taxes and Duties(SG&A)' = [MAPPED AMT - P&L Taxes and Duties(G&A)]+[MAPPED AMT - P&L Taxes and Duties(Selling Expence)]
+		formatString: 0
+		lineageTag: 37cda260-9b9c-42d3-b5a5-81b87f1cebc3
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Temp Labor/Freelancer(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Temp Labor/Freelancer"))+0
+		lineageTag: 90bf1ce8-d1a7-4fbf-8691-63731bd0ac8c
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Temp Labor/Freelancer(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Temp Labor/Freelancer"))+0
+		lineageTag: 69fadad1-3bbf-42a0-9b6f-16aef5319969
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Temp Labor/Freelancer(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3]= "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Temp Labor/Freelancer"))+0
+		lineageTag: ff2ab494-dfa4-4e03-91e9-40bbefeafda4
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Temp Labor/Freelancer(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Temp Labor/Freelancer(G&A)]+'FactSalesCostActual'[MAPPED AMT - P&L Temp Labor/Freelancer(Selling Expence)]
+		formatString: 0
+		lineageTag: 22a863aa-39be-4560-a96f-a34de1e179bf
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Total COGS' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC])+SUM(FactSalesCostActual[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold"))+0
+		lineageTag: 9b7484e1-460e-4e50-84f3-15d7c28d160b
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Total G&A' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC])+SUM(FactSalesCostActual[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense"))+0
+		lineageTag: ce1e2ab6-c3eb-4567-8adb-6ea5e1cc1265
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Total Incentive Compensation' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Management Incentive Compensation"))+0
+		lineageTag: 7f4252a5-9c92-4aea-8e5d-65f3bb344bb5
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Total People Cost(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]) +  SUM(FactSalesCostActual[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost"))+0
+		lineageTag: 04021955-ad8a-4877-9e92-28abf6ae8531
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Total People Cost(Selling Expence)' =
+			
+			CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC] )+ SUM(FactSalesCostActual[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost"))+0
+		lineageTag: 14355c66-85a7-41bf-ab52-33bd9ea29f59
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Total People Cost(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Total People Cost(Selling Expence)]+'FactSalesCostActual'[MAPPED AMT - P&L Total People Cost(G&A)]
+		formatString: 0
+		lineageTag: 4226e389-a936-4809-9b41-d48f47f8f63d
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Total People Costs(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]) + SUM(FactSalesCostActual[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost"))+0
+		lineageTag: e47b51ea-43c0-46f3-9bdd-b5fa649235b0
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Total Selling Expence' = CALCULATE(SUM('FactSalesCostActual'[AMT - Mapped Cost Actual LC])+SUM('FactSalesCostActual'[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense"))+0
+		lineageTag: 7bf29ef0-f92f-4014-a170-a6be755ad94d
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Total Third Party Labor(Cost of Goods Sold)' =
+			
+			CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC])+
+			SUM(FactSalesCostActual[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]),
+			FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Third Party Labor"))
+		lineageTag: 4dbf25fb-ba9b-4ec9-9567-650001756a3e
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Total Wages(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC])+SUM(FactSalesCostActual[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Wages"))
+		lineageTag: cd81b550-3894-41b2-b322-f9fccff64df7
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Total Wages(G&A)' = CALCULATE(SUM('FactSalesCostActual'[AMT - Mapped Cost Actual LC])+SUM(FactSalesCostActual[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Wages"))+0
+		lineageTag: fdab258a-bc55-4860-b992-899039f437ea
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Total Wages(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC])+SUM(FactSalesCostActual[AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Total People Cost" && DimGLAccountsDepartment[GL - GL Level 4] = "Wages"))+0
+		lineageTag: 70649fed-9454-4746-b878-a42b43bdcb2f
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Total Wages(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Total Wages(G&A)]+'FactSalesCostActual'[MAPPED AMT - P&L Total Wages(Selling Expence)]
+		formatString: 0
+		lineageTag: 5e70b6a7-ca70-4985-b3de-534b3a2ea136
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Utilities/Network/Phone(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Utilities/Network/Phone"))+0
+		lineageTag: 5765bf39-383a-4eb8-aeaa-7f4034724b17
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Utilities/Network/Phone(G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="General and Administrative Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Utilities/Network/Phone"))+0
+		lineageTag: ef456a23-ef9b-423c-998a-a4e6f533a408
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Utilities/Network/Phone(Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Selling Expense" && DimGLAccountsDepartment[GL - GL Level 3] = "Utilities/Network/Phone"))+0
+		lineageTag: b938b1eb-1aa3-487e-9476-d59eb499bf80
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - P&L Utilities/Network/Phone(SG&A)' = 'FactSalesCostActual'[MAPPED AMT - P&L Utilities/Network/Phone(G&A)]+'FactSalesCostActual'[MAPPED AMT - P&L Utilities/Network/Phone(Selling Expence)]
+		formatString: 0
+		lineageTag: 06dae8a8-54fa-4ab5-b382-d82b39df54b7
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT - Total P&L SG&A' = 'FactSalesCostActual'[MAPPED AMT - P&L Total Selling Expence] + 'FactSalesCostActual'[MAPPED AMT - P&L Total G&A]
+		formatString: 0
+		lineageTag: be6b7482-cb83-4f2c-9276-0a37047eef1f
+
+		changedProperty = Name
+
+	measure 'MAPPED AMT – P&L Transfer People Costs (Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment, DimGLAccountsDepartment[GL - GL Department Key]= "69001498-71*" || DimGLAccountsDepartment[GL - GL Department Key]= "69001496-71*" || DimGLAccountsDepartment[GL - GL Department Key]= "69001496-76*" || DimGLAccountsDepartment[GL - GL Department Key]= "69001498-76*"))+0
+		lineageTag: 8b555549-de21-4323-9622-bafece49b0e7
+
+		changedProperty = Name
+
+	measure 'MAPPED Gross Margin %' = ```
+			
+			VAR RawMargin = DIVIDE('FactSalesCostActual'[MAPPED AMT - P&L Gross Margin],'FactSalesCostActual'[MAPPED AMT - P&L Net Sales])
+			RETURN 
+			  MIN(1,MAX(0,RawMargin))
+			```
+		formatString: #,0.00%;-#,0.00%;#,0.00%
+		lineageTag: f66ed4f0-56e8-4256-9540-e7784af89498
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'MAPPED P&L Capitalization of IT Costs(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Department Key]= "69001499-71*" || DimGLAccountsDepartment[GL - GL Department Key]= "69001499-76*"))+0
+		lineageTag: 4cc1bf63-421a-4e99-873d-cf4888f71ca0
+
+		changedProperty = Name
+
+	measure 'MAPPED Variable Contribution Margin' = 'FactSalesCostActual'[MAPPED AMT - P&L Net Sales]-'FactSalesCostActual'[MAPPED Variable Costs]
+		lineageTag: 11ffc1ad-98b6-4327-9c8d-003aef8b51fe
+
+		changedProperty = Name
+
+	measure 'MAPPED Variable Contribution Margin %' = ```
+			
+			 VAR VariableContributionMargin = IF ('FactSalesCostActual'[MAPPED AMT - P&L Net Sales] < 0 , -1, 1) * DIVIDE('FactSalesCostActual'[MAPPED Variable Contribution Margin],'FactSalesCostActual'[MAPPED AMT - P&L Net Sales])
+			 RETURN 
+			    MIN(1,MAX(0,VariableContributionMargin))
+			```
+		formatString: #,0.00%;-#,0.00%;#,0.00%
+		lineageTag: 4443074f-7bf7-4782-a3ef-fa258018cded
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'MAPPED Variable Costs' =
+			
+			'FactSalesCostActual'[MAPPED AMT - P&L Total People Costs(Cost of Goods Sold)]  + 'FactSalesCostActual'[MAPPED AMT - P&L Materials(Cost of Goods Sold)]+
+			'FactSalesCostActual'[MAPPED AMT - P&L Total People Cost(Selling Expence)] + 'FactSalesCostActual'[MAPPED AMT - P&L Freight(Cost of Goods Sold)]
+		formatString: 0
+		lineageTag: fe4660d6-7020-44f1-9e10-a218684ff44e
+
+		changedProperty = Name
+
+	measure 'Variable Contribution Margin' = 'FactSalesCostActual'[AMT - P&L Net Sales]-'FactSalesCostActual'[AMT - Variable Costs]
+		formatString: 0
+		lineageTag: bb71acf1-9762-4400-beda-2982ebf8c665
+
+		changedProperty = Name
+
+	measure 'Variable Contribution Margin %' = IF ('FactSalesCostActual'[MAPPED AMT - P&L Net Sales] < 0 , -1, 1) * DIVIDE('FactSalesCostActual'[Variable Contribution Margin],'FactSalesCostActual'[AMT - P&L Net Sales])
+		lineageTag: 1995ec95-3b9b-4fb4-8a70-06d71f216b2d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'MAPPED AMT - P&L Information System(Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment,DimGLAccountsDepartment[GL - GL Level 2]="Cost of Goods Sold" && DimGLAccountsDepartment[GL - GL Level 3] = "Information Systems"))+0
+		lineageTag: e0d425de-9078-430d-9800-784d5edd7a26
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AMT - % of Revenue(Cost of Goods Sold)' = DIVIDE('FactSalesCostActual'[AMT - P&L Total Wages(Cost of Goods Sold)],'FactSalesCostActual'[AMT - P&L Net Sales])+0
+		lineageTag: a629991d-92ca-4850-ac3f-0e02188e36b8
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HEXKeyPrimaryContactCustomer
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 462b0451-73b8-4430-8d6c-87c61be14d9d
+		sourceLineageTag: HEXKeyPrimaryContactCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeyPrimaryContactCustomer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey LBC Location'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4e4a567e-1b4e-4e73-b6b4-d6845490603e
+		sourceLineageTag: HEXKeyLBCLocation
+		summarizeBy: none
+		sourceColumn: HEXKeyLBCLocation
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey GLAccounts'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e2da0e62-727a-4ecb-a0ff-2304ebf45966
+		sourceLineageTag: HEXKeyGLAccounts
+		summarizeBy: none
+		sourceColumn: HEXKeyGLAccounts
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Product'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 43f7a78d-97e6-4b64-8ee2-6ef2486414f0
+		sourceLineageTag: HEXKeyProduct
+		summarizeBy: none
+		sourceColumn: HEXKeyProduct
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Company'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c2c2658c-ef7d-4fcf-9a8c-6f13dff75386
+		sourceLineageTag: HEXKeyCompany
+		summarizeBy: none
+		sourceColumn: HEXKeyCompany
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Price Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e6168be1-a64f-458d-8b25-ec9723571e67
+		sourceLineageTag: HEXKeyPriceCode
+		summarizeBy: none
+		sourceColumn: HEXKeyPriceCode
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Invoice Date'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b9605621-e2f0-4c15-827e-84a5430ee197
+		sourceLineageTag: HEXKeyInvoiceDate
+		summarizeBy: none
+		sourceColumn: HEXKeyInvoiceDate
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Job Version'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c219c28a-c039-4398-8788-33d354b4457d
+		sourceLineageTag: HEXKeyJobVersion
+		summarizeBy: none
+		sourceColumn: HEXKeyJobVersion
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Sales Person'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 850e0c12-7e69-470d-81c1-65478f122fcf
+		sourceLineageTag: HEXKeySalesPerson
+		summarizeBy: none
+		sourceColumn: HEXKeySalesPerson
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Sites'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3e1ab7ca-a9e3-4eb7-9399-e34b6b102269
+		sourceLineageTag: HEXKeySites
+		summarizeBy: none
+		sourceColumn: HEXKeySites
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Billto Customer'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2513970f-2e04-4b55-a8e9-ed3afbeae9b2
+		sourceLineageTag: HEXKeyBilltoCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeyBilltoCustomer
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Shipto Customer'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 84973f14-3512-41d9-b10f-aab96acd11ee
+		sourceLineageTag: HEXKeyShiptoCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeyShiptoCustomer
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Soldto Customer'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b6aab9f7-0bfc-4117-ad9b-ee868515b8eb
+		sourceLineageTag: HEXKeySoldtoCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeySoldtoCustomer
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Printer Customer'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4275c661-4374-485a-9a54-781febbe37a1
+		sourceLineageTag: HEXKeyPrinterCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeyPrinterCustomer
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Project Manager'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0009dfe9-32f4-4fca-93d5-ff3dd0f9d9a2
+		sourceLineageTag: HEXKeyProjectManager
+		summarizeBy: none
+		sourceColumn: HEXKeyProjectManager
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Job Primary Team'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a96fba4c-d274-4493-9009-f1ee5af55c65
+		sourceLineageTag: HEXKeyJobPrimaryTeam
+		summarizeBy: none
+		sourceColumn: HEXKeyJobPrimaryTeam
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Department'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 45bf7e05-0f15-4283-9fbf-fadda81ece01
+		sourceLineageTag: HEXKeyDepartment
+		summarizeBy: none
+		sourceColumn: HEXKeyDepartment
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey GL Accounts Department'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 923d01dc-d2ea-40ad-8d47-863ccfc1caf2
+		sourceLineageTag: HEXKeyGLAccountsDepartment
+		summarizeBy: none
+		sourceColumn: HEXKeyGLAccountsDepartment
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Employee History'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 35fb82aa-b353-4da5-9280-9797cc96c4d1
+		sourceLineageTag: HEXKeyEmployeeHistory
+		summarizeBy: none
+		sourceColumn: HEXKeyEmployeeHistory
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Employees'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a481dd88-ffe2-4e2f-93e1-68b94db2052c
+		sourceLineageTag: HEXKeyEmployees
+		summarizeBy: none
+		sourceColumn: HEXKeyEmployees
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QNTY - Employee Allocation Percentage'
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: e74fe7e7-4f77-4e71-a721-c07b20a44801
+		sourceLineageTag: EmployeeAllocationPercentage
+		summarizeBy: sum
+		sourceColumn: EmployeeAllocationPercentage
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EmployeeDepartmentIndicator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: caabd218-9937-401b-94f3-5a49d85be71c
+		sourceLineageTag: EmployeeDepartmentIndicator
+		summarizeBy: none
+		sourceColumn: EmployeeDepartmentIndicator
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Reporting Customer'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a1092c7c-afdd-4826-a160-500ab858ba27
+		sourceLineageTag: HEXKeyReportingCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeyReportingCustomer
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey End User Customer'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 61ca187d-ad6c-4ae7-9cbe-52e3a4761c29
+		sourceLineageTag: HEXKeyEndUserCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeyEndUserCustomer
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Ledger Category'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 58af5a43-dead-4abe-bf4b-057784cb2ada
+		sourceLineageTag: HEXKeyLedgerCategory
+		summarizeBy: none
+		sourceColumn: HEXKeyLedgerCategory
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Budget Category'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4a983ec3-43b5-40c7-a6be-d1adaa2ddfe1
+		sourceLineageTag: HEXKeyBudgetCategory
+		summarizeBy: none
+		sourceColumn: HEXKeyBudgetCategory
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Customer Summary'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7fb1b46d-00cf-470b-8acc-34fe3e4a47cf
+		sourceLineageTag: HEXKeyCustomerSummary
+		summarizeBy: none
+		sourceColumn: HEXKeyCustomerSummary
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HEXKey Commercial Assignments Grid'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7d3e5c91-7eaf-4074-a1ed-0a927740b4b8
+		sourceLineageTag: HEXKeyCommercialAssignmentsGrid
+		summarizeBy: none
+		sourceColumn: HEXKeyCommercialAssignmentsGrid
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyReportingCustomerNumber
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 65916649-45e0-40b0-9e04-05341c43faf2
+		sourceLineageTag: HEXKeyReportingCustomerNumber
+		summarizeBy: none
+		sourceColumn: HEXKeyReportingCustomerNumber
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column HexKeyLBCRevenueStream
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c307383e-344e-42c8-83bd-6bc3de792342
+		sourceLineageTag: HexKeyLBCRevenueStream
+		summarizeBy: none
+		sourceColumn: HexKeyLBCRevenueStream
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'zID - HexKey Year Month'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c018da0d-e7f7-4245-b1b0-02131409f4e9
+		sourceLineageTag: HexKeyYearMonth
+		summarizeBy: none
+		sourceColumn: HexKeyYearMonth
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyAllocationMethodology
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 290ca98f-7080-4fbe-9a05-b262174e0b06
+		sourceLineageTag: HEXKeyAllocationMethodology
+		summarizeBy: none
+		sourceColumn: HEXKeyAllocationMethodology
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeySubService
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7e14cd0b-83c6-48e3-9e44-4ff21066f3e7
+		sourceLineageTag: HEXKeySubService
+		summarizeBy: none
+		sourceColumn: HEXKeySubService
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeySubRegion
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 29a2a92e-e85d-4c0e-b9dc-089e8b069e89
+		sourceLineageTag: HEXKeySubRegion
+		summarizeBy: none
+		sourceColumn: HEXKeySubRegion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - Partition Month'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6bc0f6a7-bfe5-43d1-aac6-d77afbcf2296
+		sourceLineageTag: PartitionMonth
+		summarizeBy: none
+		sourceColumn: PartitionMonth
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceLineItemAmountLC
+		dataType: double
+		sourceProviderType: decimal(38, 6)
+		lineageTag: d67a530e-9606-4a3f-88e1-38b212ec5bc1
+		sourceLineageTag: InvoiceLineItemAmountLC
+		summarizeBy: sum
+		sourceColumn: InvoiceLineItemAmountLC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ExchangeRateToUSD
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: f6781dde-121f-4fb2-99c0-685520cc8359
+		sourceLineageTag: ExchangeRateToUSD
+		summarizeBy: sum
+		sourceColumn: ExchangeRateToUSD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AMT - Revenue (USD)'
+		dataType: double
+		sourceProviderType: decimal(38, 6)
+		lineageTag: 03f50e6d-3bb6-421e-98d0-31ea28eda004
+		sourceLineageTag: RevenueUSD
+		summarizeBy: sum
+		sourceColumn: RevenueUSD
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AMT - Mapped Cost With Mapped Rate(USD)'
+		dataType: double
+		sourceProviderType: decimal(38, 6)
+		lineageTag: 0bd79377-3173-4278-a315-34ff2dedef69
+		sourceLineageTag: MappedCostWithMappedRateUSD
+		summarizeBy: sum
+		sourceColumn: MappedCostWithMappedRateUSD
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AMT - Mapped Cost With Mapped Rate(USD) MA'
+		dataType: double
+		sourceProviderType: decimal(38, 6)
+		lineageTag: 97b518b6-1ac6-43ad-a1e1-4c6e39f70465
+		sourceLineageTag: MappedCostWithMappedRateUSDMA
+		summarizeBy: sum
+		sourceColumn: MappedCostWithMappedRateUSDMA
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AMT - Total Cost (USD)'
+		dataType: double
+		sourceProviderType: decimal(38, 6)
+		lineageTag: 5a35295c-ea17-436b-9405-a0e7e0450f68
+		sourceLineageTag: TotalCostUSD
+		summarizeBy: sum
+		sourceColumn: TotalCostUSD
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AMT - Mapped Cost Actual(USD)'
+		dataType: double
+		sourceProviderType: decimal(38, 6)
+		lineageTag: 5031d2ff-d450-482e-be17-2b10452fa6db
+		sourceLineageTag: MappedCostActualUSD
+		summarizeBy: sum
+		sourceColumn: MappedCostActualUSD
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AMT - UnMapped Cost Actual(USD)'
+		dataType: double
+		sourceProviderType: decimal(38, 6)
+		lineageTag: 94be2abc-5e32-457e-a832-db8c34025343
+		sourceLineageTag: UnMappedCostActualUSD
+		summarizeBy: sum
+		sourceColumn: UnMappedCostActualUSD
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AMT - Unmapped Cost Actual(W/0 Hr+ W/o Cust)'
+		dataType: double
+		sourceProviderType: decimal(38, 6)
+		lineageTag: 337a4a64-07b0-4e80-869b-3026abb0dec3
+		sourceLineageTag: UnmappedCostActualWithOutHr+WithoutCustomer
+		summarizeBy: sum
+		sourceColumn: UnmappedCostActualWithOutHr+WithoutCustomer
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MappedNegativeAndPositiveCostInUSD
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(17, 4)
+		lineageTag: 4e8ae00b-c9d4-48b9-85b0-87f369433224
+		sourceLineageTag: MappedNegativeAndPositiveCostInUSD
+		summarizeBy: sum
+		sourceColumn: MappedNegativeAndPositiveCostInUSD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column MappedActualNegativeAndPositiveCostInUSD
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(17, 4)
+		lineageTag: 5100f118-32db-4487-bb0e-26eaddd7c47a
+		sourceLineageTag: MappedActualNegativeAndPositiveCostInUSD
+		summarizeBy: sum
+		sourceColumn: MappedActualNegativeAndPositiveCostInUSD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column BudgetRevenue
+		dataType: double
+		sourceProviderType: decimal(38, 6)
+		lineageTag: 98e15193-40bb-482a-b01e-850b9fa18938
+		sourceLineageTag: BudgetRevenue
+		summarizeBy: sum
+		sourceColumn: BudgetRevenue
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ForecastedRevenue
+		dataType: double
+		sourceProviderType: decimal(38, 6)
+		lineageTag: d941285e-943c-4436-ae71-510b27cd6801
+		sourceLineageTag: ForecastedRevenue
+		summarizeBy: sum
+		sourceColumn: ForecastedRevenue
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'SYST - Data Source'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f07d86e0-fa02-445b-ac3b-abe8d0bf776f
+		sourceLineageTag: DataSource
+		summarizeBy: none
+		sourceColumn: DataSource
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COST - Sales Person Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cc75a56d-c32d-416a-ad90-11e36cf2f4dc
+		sourceLineageTag: SalespersonName
+		summarizeBy: none
+		sourceColumn: SalespersonName
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d67ee947-09dd-41d1-b21a-10d94bfc58d5
+		sourceLineageTag: InvoiceID
+		summarizeBy: none
+		sourceColumn: InvoiceID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IntercompanyInvoiceReference
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fa731411-1150-4598-9b2f-8e87be1901ee
+		sourceLineageTag: IntercompanyInvoiceReference
+		summarizeBy: none
+		sourceColumn: IntercompanyInvoiceReference
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 53457f73-49e3-4954-8dcc-99dd319ca1f0
+		sourceLineageTag: InvoiceType
+		summarizeBy: none
+		sourceColumn: InvoiceType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'REV - Purchase Order1'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4e10c314-57a1-46bb-ae48-81412893d084
+		sourceLineageTag: PurchaseOrder1
+		summarizeBy: none
+		sourceColumn: PurchaseOrder1
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'REV - Purchase Order2'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2c508dde-ab3c-41ff-b9c9-db942b6b9d0d
+		sourceLineageTag: PurchaseOrder2
+		summarizeBy: none
+		sourceColumn: PurchaseOrder2
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'REV - Order Description'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6e22618b-1bd3-4359-914b-6624f8916fc4
+		sourceLineageTag: OrderDescription
+		summarizeBy: none
+		sourceColumn: OrderDescription
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column MySGSAdditionalInvoiceDescription
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4aad60fa-cb80-4e6b-9447-160c012e8d3b
+		sourceLineageTag: MySGSAdditionalInvoiceDescription
+		summarizeBy: none
+		sourceColumn: MySGSAdditionalInvoiceDescription
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COST - Order Contact Person Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b9c2ca96-3677-4966-b3a2-49c9cc359517
+		sourceLineageTag: OrderContactPersonName
+		summarizeBy: none
+		sourceColumn: OrderContactPersonName
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - Order Created Date'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 991a8651-1c8a-4ac0-afff-b875f35f0fd9
+		sourceLineageTag: OrderCreatedDate
+		summarizeBy: none
+		sourceColumn: OrderCreatedDate
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QNTY - Quantity'
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 018790d2-8a7b-4a5a-8816-9ff8ed81fe8b
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceLC
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: d75c14bd-694f-4916-87c8-1a90a9ed68f8
+		sourceLineageTag: PriceLC
+		summarizeBy: sum
+		sourceColumn: PriceLC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ExtendedPriceLC
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 4704e961-647a-4dfe-8dc9-fab2168b346f
+		sourceLineageTag: ExtendedPriceLC
+		summarizeBy: sum
+		sourceColumn: ExtendedPriceLC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'REV - Rollup Item ID'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0b9749f3-0d42-4fb2-a7ca-9d1322abbd11
+		sourceLineageTag: RollupItemID
+		summarizeBy: none
+		sourceColumn: RollupItemID
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AMT - Tax Amount LC'
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 9c4d4e5c-1907-4a3b-9b10-1cb496730fb4
+		sourceLineageTag: TaxAmountLC
+		summarizeBy: sum
+		sourceColumn: TaxAmountLC
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'TAX - Tax Code Description'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a419a802-0243-44e4-a84e-19b1ce057fb0
+		sourceLineageTag: TaxcodeDescription
+		summarizeBy: none
+		sourceColumn: TaxcodeDescription
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COST - CSR Customer Service Representative'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d07c45f1-ce35-4277-8d4f-ad0fe8de26bc
+		sourceLineageTag: CSRCustomerServiceRepresentative
+		summarizeBy: none
+		sourceColumn: CSRCustomerServiceRepresentative
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COST - Department'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a0259f95-4e2f-45e5-a154-412ecf5f9fe7
+		sourceLineageTag: Department
+		summarizeBy: none
+		sourceColumn: Department
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'REV - Order Type'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5f189974-1497-4530-abe2-95e554b081d4
+		sourceLineageTag: OrderType
+		summarizeBy: none
+		sourceColumn: OrderType
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'REV - Final Product Type'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 056bab73-469e-4bdb-b47f-5ded3c034510
+		sourceLineageTag: FinalProductType
+		summarizeBy: none
+		sourceColumn: FinalProductType
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Customer Specific ID'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fa5d1e97-fc4f-453d-ab74-8bd4f32b3448
+		sourceLineageTag: CustomerSpecificID
+		summarizeBy: none
+		sourceColumn: CustomerSpecificID
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'REV - Charge Type'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4b8ee98a-bb4f-401c-8a09-515958cb1a23
+		sourceLineageTag: ChargeType
+		summarizeBy: none
+		sourceColumn: ChargeType
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'REV - Company Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a13b97d3-39a9-4b7d-82d6-a49997d2f31e
+		sourceLineageTag: CompanyNumber
+		summarizeBy: none
+		sourceColumn: CompanyNumber
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'REV - Local Currency Code'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 130eeaa6-d74f-466e-be0c-73af16b0e88d
+		sourceLineageTag: LocalCurrencyCode
+		summarizeBy: none
+		sourceColumn: LocalCurrencyCode
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'REV - Order Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8707e513-975a-44c1-a577-2083e8368f0d
+		sourceLineageTag: OrderNumber
+		summarizeBy: none
+		sourceColumn: OrderNumber
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'REV - Originating Plant'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cf4d22da-3741-4202-8177-2fe4f56e7241
+		sourceLineageTag: OriginatingPlant
+		summarizeBy: none
+		sourceColumn: OriginatingPlant
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column AllocationRate
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: ae08dfc6-fefa-4357-819c-bd5e5c7d6847
+		sourceLineageTag: AllocationRate
+		summarizeBy: sum
+		sourceColumn: AllocationRate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AMT - Total Cost LC'
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: 47b408eb-cc4c-4048-91df-da2ba09dae25
+		sourceLineageTag: TotalCostLocCurrency
+		summarizeBy: sum
+		sourceColumn: TotalCostLocCurrency
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AMT - Mapped Cost LC'
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: 22503c39-3e69-4715-ae37-af985ae4dac5
+		sourceLineageTag: MappedCostLocCurrency
+		summarizeBy: sum
+		sourceColumn: MappedCostLocCurrency
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'IND - Allocation Methodolgy'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ab25e3b4-6340-45d4-94ef-92615b8f68ed
+		sourceLineageTag: AllocationMethodolgy
+		summarizeBy: none
+		sourceColumn: AllocationMethodolgy
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AMT - Mapped Cost Actual LC'
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: 083e4d9b-f0cb-4762-be87-a5aeb0622c67
+		sourceLineageTag: MappedCostActualLocCurrency
+		summarizeBy: sum
+		sourceColumn: MappedCostActualLocCurrency
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnMappedCostActualLocCurrency
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: 10d0f973-b36d-416f-8bc1-28415f203c05
+		sourceLineageTag: UnMappedCostActualLocCurrency
+		summarizeBy: sum
+		sourceColumn: UnMappedCostActualLocCurrency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnMappedCostActualLCWithoutCustomer
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: 28cc22d4-5315-4489-a865-870c010e97c0
+		sourceLineageTag: UnMappedCostActualLCWithoutCustomer
+		summarizeBy: sum
+		sourceColumn: UnMappedCostActualLCWithoutCustomer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RevenueIndicator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3a77ece6-6f5c-49c5-909d-5a6f09c4bc3a
+		sourceLineageTag: RevenueIndicator
+		summarizeBy: none
+		sourceColumn: RevenueIndicator
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4fcb4a51-8c58-45bc-b367-c7d31ba7b737
+		sourceLineageTag: PriceCode
+		summarizeBy: none
+		sourceColumn: PriceCode
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceCodeDescription1
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 87d05fe8-0021-42ba-9a8d-56455a5bbabd
+		sourceLineageTag: PriceCodeDescription1
+		summarizeBy: none
+		sourceColumn: PriceCodeDescription1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceCodeDescription2
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 644027b1-1745-4cb0-893f-d6c8d34dfb28
+		sourceLineageTag: PriceCodeDescription2
+		summarizeBy: none
+		sourceColumn: PriceCodeDescription2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillToAttribute1
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2bf9fa62-038c-4366-8e30-f4413f836d86
+		sourceLineageTag: BillToAttribute1
+		summarizeBy: none
+		sourceColumn: BillToAttribute1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillToAttribute2
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c3e29bff-bf20-45df-974a-d49e22b33b27
+		sourceLineageTag: BillToAttribute2
+		summarizeBy: none
+		sourceColumn: BillToAttribute2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillToAttribute3
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7cd670f8-4288-4d5b-9750-b741a1454191
+		sourceLineageTag: BillToAttribute3
+		summarizeBy: none
+		sourceColumn: BillToAttribute3
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillToAttribute4
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f2a88b98-a67a-4947-a52e-51449fdc92ef
+		sourceLineageTag: BillToAttribute4
+		summarizeBy: none
+		sourceColumn: BillToAttribute4
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FacilityLBCHelper
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 23a7297b-b29a-4feb-9a25-949800a4dd92
+		sourceLineageTag: FacilityLBCHelper
+		summarizeBy: none
+		sourceColumn: FacilityLBCHelper
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceDate
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: dcea6e2c-a6f7-4297-ae8b-1114bf0c553c
+		sourceLineageTag: InvoiceDate
+		summarizeBy: none
+		sourceColumn: InvoiceDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualFXRateBudget
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: 89bbe63a-be31-4492-9673-d25c373adf74
+		sourceLineageTag: ActualFXRateBudget
+		summarizeBy: sum
+		sourceColumn: ActualFXRateBudget
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BudgetReportingFxRate
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: 16c426e7-7c74-4d2a-9be1-f8e08e0b3064
+		sourceLineageTag: BudgetReportingFxRate
+		summarizeBy: sum
+		sourceColumn: BudgetReportingFxRate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ActualFXRateForecast
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: 070b5477-5e2e-4390-9f86-5e8c1fb466b6
+		sourceLineageTag: ActualFXRateForecast
+		summarizeBy: sum
+		sourceColumn: ActualFXRateForecast
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ForecastReportingFxRate
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: 7086405c-de37-4991-bd26-1b068b78e506
+		sourceLineageTag: ForecastReportingFxRate
+		summarizeBy: sum
+		sourceColumn: ForecastReportingFxRate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ForecastFXRateBudget
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: 16776e81-a4cd-4266-adde-4b1737af2e6e
+		sourceLineageTag: ForecastFXRateBudget
+		summarizeBy: sum
+		sourceColumn: ForecastFXRateBudget
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BudgetReportingCurrency
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c1c6e948-de7e-4cd7-8a86-ad561bb031d0
+		sourceLineageTag: BudgetReportingCurrency
+		summarizeBy: none
+		sourceColumn: BudgetReportingCurrency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForecastReportingCurrency
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 485805a2-1475-4912-a189-ecba843c43ea
+		sourceLineageTag: ForecastReportingCurrency
+		summarizeBy: none
+		sourceColumn: ForecastReportingCurrency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportingFxRate
+		dataType: double
+		sourceProviderType: decimal(17, 15)
+		lineageTag: fd7dd6b8-08ef-4713-ba38-2ca26796c107
+		sourceLineageTag: ReportingFxRate
+		summarizeBy: sum
+		sourceColumn: ReportingFxRate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ReportingCurrency
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1ab743aa-45ea-467c-be47-3dc8ff629f79
+		sourceLineageTag: ReportingCurrency
+		summarizeBy: none
+		sourceColumn: ReportingCurrency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrentBudgetFXRateActuals
+		dataType: double
+		sourceProviderType: decimal(17, 15)
+		lineageTag: d192cafb-e4a6-49ca-94d4-b46f55aaab1b
+		sourceLineageTag: CurrentBudgetFXRateActuals
+		summarizeBy: sum
+		sourceColumn: CurrentBudgetFXRateActuals
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Region
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1828b25e-3355-43d2-b188-6e96dc424a47
+		sourceLineageTag: Region
+		summarizeBy: none
+		sourceColumn: Region
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LBCCurrencyCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 483b25ca-9e3e-4f6e-8e34-d29113d483d7
+		sourceLineageTag: LBCCurrencyCode
+		summarizeBy: none
+		sourceColumn: LBCCurrencyCode
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CYFxRate
+		dataType: double
+		sourceProviderType: decimal(17, 15)
+		lineageTag: ca3900ab-c133-43d5-86de-06209df01264
+		sourceLineageTag: CYFxRate
+		summarizeBy: sum
+		sourceColumn: CYFxRate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ForecastFXRateActuals
+		dataType: double
+		sourceProviderType: decimal(17, 15)
+		lineageTag: 0f1fd91d-477f-4ec1-a508-72897dbcc9fc
+		sourceLineageTag: ForecastFXRateActuals
+		summarizeBy: sum
+		sourceColumn: ForecastFXRateActuals
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ReportingCustomer2Subsidiary
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 19052291-f216-4fda-a181-1f3684b3c5dc
+		sourceLineageTag: ReportingCustomer2Subsidiary
+		summarizeBy: none
+		sourceColumn: ReportingCustomer2Subsidiary
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BudgetVersion
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d97c929f-8fe3-422e-9bf0-d6db0ca8e2d8
+		sourceLineageTag: BudgetVersion
+		summarizeBy: none
+		sourceColumn: BudgetVersion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BudgetScenario
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 042ec182-f46e-4fde-9a58-443a1f64f407
+		sourceLineageTag: BudgetScenario
+		summarizeBy: none
+		sourceColumn: BudgetScenario
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForecastScenario
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 011981b3-78f5-4013-9020-5166d71473a2
+		sourceLineageTag: ForecastScenario
+		summarizeBy: none
+		sourceColumn: ForecastScenario
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BatchLoadMonth
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4135b36c-59fd-4451-8c30-ef961cd57c1c
+		sourceLineageTag: BatchLoadMonth
+		summarizeBy: none
+		sourceColumn: BatchLoadMonth
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FactSalesCostActualSeqId
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 2062579f-d98d-4ca2-8b5d-bab3926e7b26
+		sourceLineageTag: FactSalesCostActualSeqId
+		summarizeBy: count
+		sourceColumn: FactSalesCostActualSeqId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column JobStatus
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8875932d-a304-4006-b13b-021b4b060dc4
+		sourceLineageTag: JobStatus
+		summarizeBy: none
+		sourceColumn: JobStatus
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimaryOrSecondaryIndicator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: de005cab-6c4c-417c-a92a-bd49a9eb7342
+		sourceLineageTag: PrimaryOrSecondaryIndicator
+		summarizeBy: none
+		sourceColumn: PrimaryOrSecondaryIndicator
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d4f526b7-905d-4750-98c1-4d6402a2ecb6
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyService
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 38a2ee38-28bb-44ae-9940-338f27d9a284
+		sourceLineageTag: HEXKeyService
+		summarizeBy: none
+		sourceColumn: HEXKeyService
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyLineOfBusiness
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 936a3a95-7f9c-4db5-ae66-5a23a947d666
+		sourceLineageTag: HEXKeyLineOfBusiness
+		summarizeBy: none
+		sourceColumn: HEXKeyLineOfBusiness
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactSalesCostActual = entity
+		mode: directLake
+		source
+			entityName: FactSalesCostActualOutBound
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	changedProperty = Name
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

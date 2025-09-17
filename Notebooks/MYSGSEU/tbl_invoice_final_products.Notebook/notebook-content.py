@@ -63,11 +63,7 @@ spark = SparkSession.builder \
 # Define the schema
 schema = StructType([
 StructField("SYS_CHANGE_VERSION", StringType(), True),
-StructField("SYS_CHANGE_CREATION_VERSION", StringType(), True),
 StructField("SYS_CHANGE_OPERATION", StringType(), True),
-StructField("SYS_CHANGE_COLUMNS", StringType(), True),
-StructField("SYS_CHANGE_CONTEXT", StringType(), True),
-StructField("CT_InvoiceFinalProductId", StringType(), True),
 StructField("InvoiceFinalProductId", StringType(), True),
 StructField("InvoiceId", StringType(), True),
 StructField("JobItemId", StringType(), True),

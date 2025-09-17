@@ -80,7 +80,7 @@ param = ""  # Replace with the actual PARAM value
 # If-else logic to control the flow based on in_mode
 if in_mode == "FULL":
     # Write the DataFrame as a Delta table
-    df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.Production_TaskPausedReasons")
+    df.write.format("delta").mode("overwrite").save(silver_path)
     bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Production_TaskPausedReason_FULL"
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
@@ -147,18 +147,6 @@ else:
         "TaskPausedReasonId": col("source.TaskPausedReasonId"),
         "ReasonDescription": col("source.ReasonDescription")
     }).execute()
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df = spark.sql("SELECT COUNT(*) FROM SILVER.MYSGSEU.production_taskpausedreasons")
-display(df)
 
 # METADATA ********************
 

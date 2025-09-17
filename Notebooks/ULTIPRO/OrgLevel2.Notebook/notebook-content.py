@@ -22,7 +22,7 @@
 
 # PARAMETERS CELL ********************
 
-in_mode = "FULL"
+in_mode = "DELTA"
 
 # METADATA ********************
 

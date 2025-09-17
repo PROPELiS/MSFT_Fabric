@@ -1,0 +1,706 @@
+table DimJobversion
+	lineageTag: fdc698f9-2cc3-4ff7-9c4e-9c23ef381397
+	sourceLineageTag: [dbo].[DimJobversion]
+
+	column HEXKeyJobVersion
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 508b87e6-68ee-4b0b-b0f8-5ffaeb149916
+		sourceLineageTag: HEXKeyJobVersion
+		summarizeBy: none
+		sourceColumn: HEXKeyJobVersion
+
+		annotation SummarizationSetBy = Automatic
+
+	column BatchStatus
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 89aba210-1023-463c-9208-57739a9a3b67
+		sourceLineageTag: BatchStatus
+		summarizeBy: none
+		sourceColumn: BatchStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Job Version Id'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 0398d07d-4b5d-4cb4-a5c5-c72039b9df20
+		sourceLineageTag: JobVersionId
+		summarizeBy: none
+		sourceColumn: JobVersionId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Formatted Job Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 36a8da10-7ccc-4e8b-9232-e09b46d2f9f1
+		sourceLineageTag: FormattedJobNumber
+		summarizeBy: none
+		sourceColumn: FormattedJobNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Brand'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 43573dba-3476-46ab-ac53-a95eeeb98329
+		sourceLineageTag: Brand
+		summarizeBy: none
+		sourceColumn: Brand
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Variety'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cb8466e0-3d79-431d-8286-b77c4f324983
+		sourceLineageTag: Variety
+		summarizeBy: none
+		sourceColumn: Variety
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Job Booked Date Time'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 3271adb0-2a65-451f-9d37-4c77a6699e98
+		sourceLineageTag: JobBookedDateTime
+		summarizeBy: none
+		sourceColumn: JobBookedDateTime
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Job Status'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 363e275a-582e-4600-aa0f-30cf0c34624c
+		sourceLineageTag: JobStatus
+		summarizeBy: none
+		sourceColumn: JobStatus
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date - Job Invoice Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 76e59ea8-c25b-4926-a3d0-f37ee2b9db33
+		sourceLineageTag: JobInvoiceDate
+		summarizeBy: none
+		sourceColumn: JobInvoiceDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Latest Job Status By Login Id'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 1dbfafe9-62d3-40b5-bb12-a87f4b84b1a7
+		sourceLineageTag: LatestJobStatusByLoginId
+		summarizeBy: none
+		sourceColumn: LatestJobStatusByLoginId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Latest Job Status By Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6804746a-b301-4599-a73c-2555358c685c
+		sourceLineageTag: LatestJobStatusByName
+		summarizeBy: none
+		sourceColumn: LatestJobStatusByName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimaryContact_CustomerId
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 69e0b747-9576-408f-9113-ef095fb013b1
+		sourceLineageTag: PrimaryContact_CustomerId
+		summarizeBy: none
+		sourceColumn: PrimaryContact_CustomerId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Is Job Right First Time'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 10802f2e-2669-4d73-a59a-551a101c3d73
+		sourceLineageTag: IsJobRightFirstTime
+		summarizeBy: none
+		sourceColumn: IsJobRightFirstTime
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Job Team Id'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 4c5c72d2-8176-4e0c-b83a-971667f4f34a
+		sourceLineageTag: JobTeamId
+		summarizeBy: none
+		sourceColumn: JobTeamId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Project Manager Login Id'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 83f96dca-e1da-4a9f-a046-f54c9086b026
+		sourceLineageTag: ProjectManagerLoginId
+		summarizeBy: none
+		sourceColumn: ProjectManagerLoginId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Is Multi Plant Job'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 37140f5d-fdda-49ce-b3e4-f5470694019b
+		sourceLineageTag: IsMultiPlantJob
+		summarizeBy: none
+		sourceColumn: IsMultiPlantJob
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectManagerSiteId
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 16d04149-c9b4-4ce8-bbb3-e667fee6abf3
+		sourceLineageTag: ProjectManagerSiteId
+		summarizeBy: none
+		sourceColumn: ProjectManagerSiteId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Package Type'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1124d5f4-9ae9-4fd0-8cbb-a57664e32b77
+		sourceLineageTag: PackageType
+		summarizeBy: none
+		sourceColumn: PackageType
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Order Type'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 33579f6a-a4d8-4bb4-bb7d-18c72a3c527f
+		sourceLineageTag: OrderType
+		summarizeBy: none
+		sourceColumn: OrderType
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Job Relationship'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7b8434c3-376a-4a33-ac8f-38343af23b1a
+		sourceLineageTag: JobRelationship
+		summarizeBy: none
+		sourceColumn: JobRelationship
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Job Print Process'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d21b61b8-f90c-49bc-bf25-30da85386fda
+		sourceLineageTag: JobPrintProcess
+		summarizeBy: none
+		sourceColumn: JobPrintProcess
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Job Description'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 93d2cb0f-0901-472d-bcf2-80f17f4c2de5
+		sourceLineageTag: JobDescription
+		summarizeBy: none
+		sourceColumn: JobDescription
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column NoOfColors
+		dataType: double
+		sourceProviderType: decimal(17, 6)
+		lineageTag: 1bdf89de-4025-4c62-be38-1196582f4a25
+		sourceLineageTag: NoOfColors
+		summarizeBy: none
+		sourceColumn: NoOfColors
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Customer Design Ref'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2f245040-72d2-46da-9fbf-d438cdb408a9
+		sourceLineageTag: CustomerDesignRef
+		summarizeBy: none
+		sourceColumn: CustomerDesignRef
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Contact Type'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 58a5e9c1-e7ca-4248-b037-28846980cb56
+		sourceLineageTag: ContactType
+		summarizeBy: none
+		sourceColumn: ContactType
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Contact Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f4c48d5a-3df2-44a5-b4c2-5931027f6def
+		sourceLineageTag: ContactName
+		summarizeBy: none
+		sourceColumn: ContactName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - Overall Job Due Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 910104bb-5ec6-4a35-9777-635aa150c50c
+		sourceLineageTag: OverallJobDueDate
+		summarizeBy: none
+		sourceColumn: OverallJobDueDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Invoice Ids'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2d90ccc2-2587-4ff0-9c46-9e839a73f9a0
+		sourceLineageTag: InvoiceIds
+		summarizeBy: none
+		sourceColumn: InvoiceIds
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Project Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 886f2a55-01c7-45e0-8114-e0fa62e9c93e
+		sourceLineageTag: ProjectName
+		summarizeBy: none
+		sourceColumn: ProjectName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Range Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e9da11fc-6128-47eb-afd1-5c904e9ba4a5
+		sourceLineageTag: RangeName
+		summarizeBy: none
+		sourceColumn: RangeName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Promotion'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bbe948e4-c2eb-46b9-96df-c343cd9a9388
+		sourceLineageTag: Promotion
+		summarizeBy: none
+		sourceColumn: Promotion
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EMP - Login Id'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 735f836c-f00c-4088-894b-c08a2762c5db
+		sourceLineageTag: LoginId
+		summarizeBy: none
+		sourceColumn: LoginId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Job Opened By'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 87c58bc8-c399-4001-b761-23b24b0277fd
+		sourceLineageTag: JobOpenedBy
+		summarizeBy: none
+		sourceColumn: JobOpenedBy
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - Job Opened Date'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 809b7f97-935e-4ab7-8a05-75bab729cba2
+		sourceLineageTag: JobOpenedDate
+		summarizeBy: none
+		sourceColumn: JobOpenedDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimaryContactCustomerId
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 27332040-cc30-4734-99c4-4da368b13c93
+		sourceLineageTag: PrimaryContactCustomerId
+		summarizeBy: none
+		sourceColumn: PrimaryContactCustomerId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PlateCount
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 41211ca9-2c1f-41fe-873a-c96149a80cfa
+		sourceLineageTag: PlateCount
+		summarizeBy: none
+		sourceColumn: PlateCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Color Count Used For Plating Calculation'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c13c765f-dbfc-4ec5-89a0-eead66b93405
+		sourceLineageTag: ColorCountUsedForPlatingCalculation
+		summarizeBy: none
+		sourceColumn: ColorCountUsedForPlatingCalculation
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Color Count Used For Engraving Calculation'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5e4eaf1c-fdcf-4007-ad09-253601607722
+		sourceLineageTag: ColorCountUsedForEngravingCalculation
+		summarizeBy: none
+		sourceColumn: ColorCountUsedForEngravingCalculation
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Total Plate SqInch (Billing)'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5e942a7d-1a50-48f3-8d81-1196351f133b
+		sourceLineageTag: TotalPlateInSqInch
+		summarizeBy: none
+		sourceColumn: TotalPlateInSqInch
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Imported Source Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 44050f71-8ddc-4144-807e-d592c6b0f81f
+		sourceLineageTag: ImportedSourceName
+		summarizeBy: none
+		sourceColumn: ImportedSourceName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Imported Source ID'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 35a1a21c-b5b9-4670-a70f-c2bb930ce65f
+		sourceLineageTag: ImportedSourceID
+		summarizeBy: none
+		sourceColumn: ImportedSourceID
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhotonEligibilityIndicator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ed49b444-cc2b-4912-8606-7cca2f58da53
+		sourceLineageTag: PhotonEligibilityIndicator
+		summarizeBy: none
+		sourceColumn: PhotonEligibilityIndicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobPhase
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 398447f4-ad9c-4ad7-aae9-169d7307aa48
+		sourceLineageTag: JobPhase
+		summarizeBy: none
+		sourceColumn: JobPhase
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlateType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 15f280eb-0c3e-4903-b307-62a9c4b314a1
+		sourceLineageTag: PlateType
+		summarizeBy: none
+		sourceColumn: PlateType
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlateThickness
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 94c0dadd-4e7c-4250-8888-bcb782f62b28
+		sourceLineageTag: PlateThickness
+		summarizeBy: none
+		sourceColumn: PlateThickness
+
+		annotation SummarizationSetBy = Automatic
+
+	column GBU
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8be3285a-f91b-4c16-bdc5-3fc0ba8b3743
+		sourceLineageTag: GBU
+		summarizeBy: none
+		sourceColumn: GBU
+
+		annotation SummarizationSetBy = Automatic
+
+	column HeightInSqInch
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: e7167b9b-88b6-4ede-be2d-1325d845c231
+		sourceLineageTag: HeightInSqInch
+		summarizeBy: none
+		sourceColumn: HeightInSqInch
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column WidthInSqInch
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: ebbf86cb-5f41-4f60-a5b0-64150cc79dc1
+		sourceLineageTag: WidthInSqInch
+		summarizeBy: none
+		sourceColumn: WidthInSqInch
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Weight
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 051a636f-2630-4f85-b6fc-065ef7a8b02a
+		sourceLineageTag: Weight
+		summarizeBy: none
+		sourceColumn: Weight
+
+		annotation SummarizationSetBy = Automatic
+
+	column Laguage
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5db4b50f-b96c-41e8-8bb2-c03695e58c1e
+		sourceLineageTag: Laguage
+		summarizeBy: none
+		sourceColumn: Laguage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Packgingreference
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 58b26738-2b84-42d2-9056-9741017fe252
+		sourceLineageTag: Packgingreference
+		summarizeBy: none
+		sourceColumn: Packgingreference
+
+		annotation SummarizationSetBy = Automatic
+
+	column Projectreference
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: c224e139-e602-46f0-909c-ed4a9f978153
+		sourceLineageTag: Projectreference
+		summarizeBy: none
+		sourceColumn: Projectreference
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Archived
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: f177d63a-4d06-461e-822d-378ff6cc633d
+		sourceLineageTag: Archived
+		summarizeBy: none
+		sourceColumn: Archived
+
+		annotation SummarizationSetBy = Automatic
+
+	column Projectcreateddate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 0e3bbb6d-5d3a-431c-a6f8-664007730712
+		sourceLineageTag: Projectcreateddate
+		summarizeBy: none
+		sourceColumn: Projectcreateddate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ArtReceived
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 367731bf-927a-42be-8091-7fa9dce30af9
+		sourceLineageTag: ArtReceived
+		summarizeBy: none
+		sourceColumn: ArtReceived
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndUserInfoReceived
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 6033c626-877a-4dfe-965e-d0859103e0a3
+		sourceLineageTag: EndUserInfoReceived
+		summarizeBy: none
+		sourceColumn: EndUserInfoReceived
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrinterInfoReceived
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: fe3cb3df-e231-4a26-ad80-a2d5d921893e
+		sourceLineageTag: PrinterInfoReceived
+		summarizeBy: none
+		sourceColumn: PrinterInfoReceived
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastInfoReceived
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5730d113-6e28-495f-b83d-653d08e9a3e6
+		sourceLineageTag: LastInfoReceived
+		summarizeBy: none
+		sourceColumn: LastInfoReceived
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 80c72037-97c7-4d69-9919-ec792e1522e6
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimJobversion = entity
+		mode: directLake
+		source
+			entityName: DimJobversion
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

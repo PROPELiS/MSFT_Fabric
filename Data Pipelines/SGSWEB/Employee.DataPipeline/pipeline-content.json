@@ -101,22 +101,19 @@
             }
           },
           "sink": {
-            "type": "SqlMISink",
-            "preCopyScript": {
-              "value": "TRUNCATE TABLE [sgsweb].[STG_LoadEmployee];\n",
-              "type": "Expression"
-            },
+            "type": "SqlServerSink",
             "sqlWriterUseTableLock": false,
             "writeBehavior": "insert",
             "datasetSettings": {
-              "type": "AzureSqlMITable",
+              "type": "SqlServerTable",
               "typeProperties": {
                 "schema": "sgsweb",
-                "table": "STG_LoadEmployee"
+                "table": "STG_LoadEmployee",
+                "database": "SGSEDW"
               },
               "schema": [],
               "externalReferences": {
-                "connection": "0f006695-9425-4d34-b9cd-48f6736ec031"
+                "connection": "19bf7180-654c-4b5e-b009-45795ab1a08b"
               },
               "annotations": []
             }
@@ -309,6 +306,7 @@
       {
         "type": "Script",
         "typeProperties": {
+          "database": "SGSEDW",
           "scripts": [
             {
               "text": {
@@ -321,7 +319,7 @@
           "scriptBlockExecutionTimeout": "02:00:00"
         },
         "externalReferences": {
-          "connection": "0f006695-9425-4d34-b9cd-48f6736ec031"
+          "connection": "19bf7180-654c-4b5e-b009-45795ab1a08b"
         },
         "policy": {
           "timeout": "0.12:00:00",

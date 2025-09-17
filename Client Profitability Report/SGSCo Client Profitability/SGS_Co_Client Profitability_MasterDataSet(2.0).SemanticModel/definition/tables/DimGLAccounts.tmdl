@@ -1,0 +1,345 @@
+table DimGLAccounts
+	lineageTag: 29c7a09f-46e7-4012-8f9a-467c9faddccf
+	sourceLineageTag: [dbo].[DimGLAccounts]
+
+	column 'zID - HEXKey GL Accounts'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 06231a32-29ca-4956-b5fa-927472e9dd87
+		sourceLineageTag: HEXKeyGLAccounts
+		summarizeBy: none
+		sourceColumn: HEXKeyGLAccounts
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL - Ledger Account Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6a4ff2f7-3b6f-4b07-bc13-05e8212c4f16
+		sourceLineageTag: LedgerAccountNumber
+		summarizeBy: none
+		sourceColumn: LedgerAccountNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL - Ledger Account Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a056fe90-c432-4252-8e74-1f9e354d0067
+		sourceLineageTag: LedgerAccountName
+		summarizeBy: none
+		sourceColumn: LedgerAccountName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL - GL Account Type Ind'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9649dcdf-73b0-4d36-b4f0-4679b95331f8
+		sourceLineageTag: AccountTypeInd
+		summarizeBy: none
+		sourceColumn: AccountTypeInd
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL - Revenue Category'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4887d188-96c8-466e-84f7-154252986a19
+		sourceLineageTag: RevenueCategory
+		summarizeBy: none
+		sourceColumn: RevenueCategory
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IND - Is Gross Sales'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d1cf894e-80da-4d9a-98d8-769990061acf
+		sourceLineageTag: IsGrossSales
+		summarizeBy: none
+		sourceColumn: IsGrossSales
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IND - Is Net Sales'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 61098164-5d46-4e80-a0b9-2a35f1312337
+		sourceLineageTag: IsNetSales
+		summarizeBy: none
+		sourceColumn: IsNetSales
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IND - Is Interco'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7165e1b9-add5-4d1b-8a70-23c81b293510
+		sourceLineageTag: IsInterco
+		summarizeBy: none
+		sourceColumn: IsInterco
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column LandscapeSection
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 38964142-919c-4597-8ee6-441a494360e7
+		sourceLineageTag: LandscapeSection
+		summarizeBy: none
+		sourceColumn: LandscapeSection
+
+		annotation SummarizationSetBy = Automatic
+
+	column LandscapeSectionSortOrder
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 5eca4579-0c75-4646-85db-0289f7bfc54a
+		sourceLineageTag: LandscapeSectionSortOrder
+		summarizeBy: sum
+		sourceColumn: LandscapeSectionSortOrder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LandscapeCategory
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 59a25668-e6bf-4022-bbd2-0a18ef9bc1bf
+		sourceLineageTag: LandscapeCategory
+		summarizeBy: none
+		sourceColumn: LandscapeCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column LandscapeCategorySortOrder
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 762ebd51-86bc-4fdd-9409-8d03512eab04
+		sourceLineageTag: LandscapeCategorySortOrder
+		summarizeBy: sum
+		sourceColumn: LandscapeCategorySortOrder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LandscapeSubCategory
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a35b995b-ca2e-47eb-9102-271334932f55
+		sourceLineageTag: LandscapeSubCategory
+		summarizeBy: none
+		sourceColumn: LandscapeSubCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column LandscapeSubCategorySortOrder
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 3c775a52-12a2-4982-bf80-8de397a43b4c
+		sourceLineageTag: LandscapeSubCategorySortOrder
+		summarizeBy: sum
+		sourceColumn: LandscapeSubCategorySortOrder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LandscapeLineItem
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 27f93fe5-dd1a-4a16-a898-c5b547536dd6
+		sourceLineageTag: LandscapeLineItem
+		summarizeBy: none
+		sourceColumn: LandscapeLineItem
+
+		annotation SummarizationSetBy = Automatic
+
+	column LandscapeLineItemSortOrder
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: a83d38d0-57f0-4171-bf0b-71ce2aec9e1b
+		sourceLineageTag: LandscapeLineItemSortOrder
+		summarizeBy: sum
+		sourceColumn: LandscapeLineItemSortOrder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MainAccountText
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d4a39860-6c9e-4a33-831f-89c0bca0200f
+		sourceLineageTag: MainAccountText
+		summarizeBy: none
+		sourceColumn: MainAccountText
+
+		annotation SummarizationSetBy = Automatic
+
+	column MainAccountRecId
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 80f5692f-0875-4b40-a742-659fffdabe65
+		sourceLineageTag: MainAccountRecId
+		summarizeBy: count
+		sourceColumn: MainAccountRecId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'GL - CONV Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 507a2c29-e44b-4113-a7c8-223399af950b
+		sourceLineageTag: CONVNumber
+		summarizeBy: none
+		sourceColumn: CONVNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL - CONV Text'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 964c27a5-1854-4062-8ac0-6805f0abf864
+		sourceLineageTag: CONVText
+		summarizeBy: none
+		sourceColumn: CONVText
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL - CONV Rec Id'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 35f2fb28-b636-4698-aa85-3061464dcb9e
+		sourceLineageTag: CONVRecId
+		summarizeBy: count
+		sourceColumn: CONVRecId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RevenueStreamNumber
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c2bc4141-eb3c-4f73-87c9-a82f6147e8fc
+		sourceLineageTag: RevenueStreamNumber
+		summarizeBy: none
+		sourceColumn: RevenueStreamNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL - Revenue Stream Text'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 13685d7a-026e-4564-8aa2-aca469d00fff
+		sourceLineageTag: RevenueStreamText
+		summarizeBy: none
+		sourceColumn: RevenueStreamText
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column RevenueStreamRecId
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 6c0bed6c-2ae4-44d7-9896-5d5b66e9bba3
+		sourceLineageTag: RevenueStreamRecId
+		summarizeBy: count
+		sourceColumn: RevenueStreamRecId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CustomerNumber
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 507d5f92-f6f4-49e0-9876-a0844f84dadb
+		sourceLineageTag: CustomerNumber
+		summarizeBy: none
+		sourceColumn: CustomerNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerText
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b55194de-a3da-47b9-a0b9-acd2583457ee
+		sourceLineageTag: CustomerText
+		summarizeBy: none
+		sourceColumn: CustomerText
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerRecId
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: b0441003-bcc3-4419-b7da-bb3b982eb30f
+		sourceLineageTag: CustomerRecId
+		summarizeBy: count
+		sourceColumn: CustomerRecId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'IND - Inter Company Indicator'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 416ffda2-0a72-422f-9300-60bbe47fa171
+		sourceLineageTag: InterCompanyIndicator
+		summarizeBy: none
+		sourceColumn: InterCompanyIndicator
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0bfbea54-818d-4c2a-8c9a-c56a8cd7b5ef
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimGLAccounts = entity
+		mode: directLake
+		source
+			entityName: DimGLAccounts
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

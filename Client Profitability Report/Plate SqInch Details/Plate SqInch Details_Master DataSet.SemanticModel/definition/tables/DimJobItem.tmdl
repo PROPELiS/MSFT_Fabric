@@ -1,0 +1,566 @@
+table DimJobItem
+	lineageTag: 9e124db5-f4ba-489a-af66-10d43926d0dc
+	sourceLineageTag: [dbo].[DimJobItem]
+
+	column HEXKeyJobItemId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 77ef1f8b-360c-4c25-ab5f-e8abd902935b
+		sourceLineageTag: HEXKeyJobItemId
+		summarizeBy: none
+		sourceColumn: HEXKeyJobItemId
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Job Stage Id'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 949bc008-840c-400b-92e6-7b48960ee8b9
+		sourceLineageTag: JobStageId
+		summarizeBy: none
+		sourceColumn: JobStageId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Job Item Id'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 78649463-ee15-4255-bc5f-28f1d684205b
+		sourceLineageTag: JobItemId
+		summarizeBy: count
+		sourceColumn: JobItemId
+
+		changedProperty = Name
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Job Item Description'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fdc184e6-ab65-4f18-b5d8-2f762e2a099a
+		sourceLineageTag: JobItemDescription
+		summarizeBy: none
+		sourceColumn: JobItemDescription
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Job Item Alias'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 75c9fcc0-ab9a-408d-ab35-c227a23bfcc7
+		sourceLineageTag: JobItemAlias
+		summarizeBy: none
+		sourceColumn: JobItemAlias
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - Job Item Booked Date Time'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f6d282be-6b7f-499b-94bc-883d1de1ed8e
+		sourceLineageTag: JobItemBookedDateTime
+		summarizeBy: none
+		sourceColumn: JobItemBookedDateTime
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - Is Multi Plant Job Item'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: dd11c85d-ed1a-4bbe-9e3a-eda0f862e272
+		sourceLineageTag: IsMultiPlantJobItem
+		summarizeBy: none
+		sourceColumn: IsMultiPlantJobItem
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'DATE - Job Item Due Date Time'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 700951fd-9907-4667-867c-6ad9eb8b6802
+		sourceLineageTag: JobItemDueDateTime
+		summarizeBy: none
+		sourceColumn: JobItemDueDateTime
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - Job Item Completed Date Time'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 995f2c45-1233-41ee-be98-fdea489689db
+		sourceLineageTag: JobItemCompletedDateTime
+		summarizeBy: none
+		sourceColumn: JobItemCompletedDateTime
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IND - Is Job Item On Time'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 22b22a54-ccaf-490e-b117-30d1e21cd01b
+		sourceLineageTag: IsJobItemOnTime
+		summarizeBy: none
+		sourceColumn: IsJobItemOnTime
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Job Item Assigned To'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 30b7b6ad-c31a-4cf9-a1dc-c5c061b292b1
+		sourceLineageTag: JobItemAssignedTo
+		summarizeBy: none
+		sourceColumn: JobItemAssignedTo
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Job Item Manager Login Id'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 98b8da54-038c-4254-b49d-116ad6812983
+		sourceLineageTag: JobItemManagerLoginId
+		summarizeBy: none
+		sourceColumn: JobItemManagerLoginId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'DATE - Job Item Due Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: cb6bb1db-c311-4442-a81e-a9fadf5aa340
+		sourceLineageTag: JobItemDueDate
+		summarizeBy: none
+		sourceColumn: JobItemDueDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Latest Item Status'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ccaa1f4f-6b8e-4475-9fcc-3836d30a9ce8
+		sourceLineageTag: LatestItemStatus
+		summarizeBy: none
+		sourceColumn: LatestItemStatus
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Item Opened By'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 48519653-f9b6-4e09-ad9a-6430dccc0d1d
+		sourceLineageTag: ItemOpenedBy
+		summarizeBy: none
+		sourceColumn: ItemOpenedBy
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Login Id'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 54826b43-b9c5-4c70-a955-64ca9f1843fd
+		sourceLineageTag: LoginId
+		summarizeBy: none
+		sourceColumn: LoginId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'DATE - Date Time Stamp'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5a58bbb2-9a6f-4887-8a1f-ec25f09c6382
+		sourceLineageTag: DateTimeStamp
+		summarizeBy: none
+		sourceColumn: DateTimeStamp
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - Last Updated Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 6131441e-a1e1-462d-b8ce-bc093b3e1101
+		sourceLineageTag: LastUpdatedDate
+		summarizeBy: none
+		sourceColumn: LastUpdatedDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QNTY - Plate Count (Actual)'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: d56af407-5c14-4f63-9e1a-190772ac3015
+		sourceLineageTag: PlateCount
+		summarizeBy: sum
+		sourceColumn: PlateCount
+
+		changedProperty = Name
+
+		changedProperty = SummarizeBy
+
+		changedProperty = FormatString
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - KPI Type Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c6dc341a-ebf4-4a9e-a4f9-1204ec6fa55c
+		sourceLineageTag: KPITypeName
+		summarizeBy: none
+		sourceColumn: KPITypeName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QNTY - No Of Colors For Gravure Cylinder'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: b5cf0868-c57c-45a4-9391-4a95fd8cb932
+		sourceLineageTag: NoOfColorsForGravureCylinder
+		summarizeBy: none
+		sourceColumn: NoOfColorsForGravureCylinder
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Price Matrix Item Id'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: a06902b0-4a01-4f51-860d-8c98cdf078ee
+		sourceLineageTag: PriceMatrixItemId
+		summarizeBy: none
+		sourceColumn: PriceMatrixItemId
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Price Matrix Multiplie rDesc'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ac0d58e4-3c10-4977-beb2-3f03ede9688e
+		sourceLineageTag: PriceMatrixMultiplierDesc
+		summarizeBy: none
+		sourceColumn: PriceMatrixMultiplierDesc
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AMT - Cost'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 058751f5-1db4-42d3-884e-8d5d62476e33
+		sourceLineageTag: Cost
+		summarizeBy: none
+		sourceColumn: Cost
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QNTY - Quantity'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6d472e3b-d6c8-4f87-8b67-c6c28a40df26
+		sourceLineageTag: Quantity
+		summarizeBy: none
+		sourceColumn: Quantity
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AMT - Currency Cost'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1b4e8e48-2e00-4970-906b-6c464fdfa4b0
+		sourceLineageTag: CurrencyCost
+		summarizeBy: none
+		sourceColumn: CurrencyCost
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AMT - Exchange Rate Value'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7141fadf-d73c-4737-8546-51c724dc46ec
+		sourceLineageTag: ExchangeRateValue
+		summarizeBy: none
+		sourceColumn: ExchangeRateValue
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CURR - Currency Desc'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 12bf975a-daa2-4206-83f6-1d06bb8f6d48
+		sourceLineageTag: CurrencyDesc
+		summarizeBy: none
+		sourceColumn: CurrencyDesc
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CURR - Currency Symbol'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 06817db4-03ad-4038-b5e4-f69c21805dbf
+		sourceLineageTag: CurrencySymbol
+		summarizeBy: none
+		sourceColumn: CurrencySymbol
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB  - Invoice Ids'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 29793084-03a7-4121-8558-054e90489796
+		sourceLineageTag: InvoiceIds
+		summarizeBy: none
+		sourceColumn: InvoiceIds
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Item Completion Date Direct'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 9d53679d-818a-48c0-9f86-78a0dde49b67
+		sourceLineageTag: ItemCompletionDateDirect
+		summarizeBy: none
+		sourceColumn: ItemCompletionDateDirect
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IND - Is Job Item On Date'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: b6b67fd6-e418-4eca-83e7-3e1727469766
+		sourceLineageTag: IsJobItemOnDate
+		summarizeBy: none
+		sourceColumn: IsJobItemOnDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'IND - Plate SqInch Default Indicator'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 66f1cd0d-5b06-4058-b950-255a9f0aabba
+		sourceLineageTag: PlateSqInchDefaultIndicator
+		summarizeBy: none
+		sourceColumn: PlateSqInchDefaultIndicator
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QNTY - Height For SqInch(Actual)'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2885b210-c413-42e5-84f4-efc873e1cf31
+		sourceLineageTag: Height
+		summarizeBy: none
+		sourceColumn: Height
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QNTY - Width For SqInch(Actual)'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 15f8f768-78ad-4a01-9c68-ae7eddee3f65
+		sourceLineageTag: Width
+		summarizeBy: none
+		sourceColumn: Width
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - Job Item Due Date Time By Local Item Site'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c58cccc5-f64a-43c9-8c5a-54296a760675
+		sourceLineageTag: JobItemDueDateTimeByLocalItemSite
+		summarizeBy: none
+		sourceColumn: JobItemDueDateTimeByLocalItemSite
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - Job Item Completed Date Time By Local Item Site'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3a78a005-a0a2-4633-835a-64d2e68806b4
+		sourceLineageTag: JobItemCompletedDateTimeByLocalItemSite
+		summarizeBy: none
+		sourceColumn: JobItemCompletedDateTimeByLocalItemSite
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IND - Is Job Item On Date By Local Item'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: cfde32f0-e622-448f-a816-1388f2d27101
+		sourceLineageTag: IsJobItemOnDateByLocalItem
+		summarizeBy: none
+		sourceColumn: IsJobItemOnDateByLocalItem
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'IND - Is Job Item On Time By Local Item'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 4c045d61-ab47-4bf3-94bf-ffb2786a312f
+		sourceLineageTag: IsJobItemOnTimeByLocalItem
+		summarizeBy: none
+		sourceColumn: IsJobItemOnTimeByLocalItem
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB - Item Due Reason'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cd3140d6-842d-4954-8fba-5ca6140d895a
+		sourceLineageTag: ItemDueReason
+		summarizeBy: none
+		sourceColumn: ItemDueReason
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - KPI Days'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: cbf30932-a017-42e2-937f-f27454463a69
+		sourceLineageTag: KPIDays
+		summarizeBy: none
+		sourceColumn: KPIDays
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'JOB- Item Complexity'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1b08e017-851f-48b9-b9a5-649749b7de12
+		sourceLineageTag: ItemComplexity
+		summarizeBy: none
+		sourceColumn: ItemComplexity
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d0a9a2f3-993f-4f4d-9238-1c30297a6fac
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimJobItem = entity
+		mode: directLake
+		source
+			entityName: DimJobItem
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

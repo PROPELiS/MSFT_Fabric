@@ -7,7 +7,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT NULL AS SYS_CHANGE_VERSION\n\n\t   ,NULL AS SYS_CHANGE_CREATION_VERSION\n\n\t   ,NULL AS SYS_CHANGE_OPERATION\n\n\t   ,NULL AS SYS_CHANGE_COLUMNS\n\n\t   ,NULL AS SYS_CHANGE_CONTEXT\n\n\t   ,NULL AS CT_InvoiceFinalProductId\n\n\t,[InvoiceFinalProductId]\n\n\t,[InvoiceId]\n\n\t,[JobItemId]\n\n\t,[DespatchNoteId]\n\nFROM [dbo].[tbl_invoice_final_products]\n ",
+              "value": "SELECT NULL AS SYS_CHANGE_VERSION\n,NULL AS SYS_CHANGE_CREATION_VERSION\n,NULL AS SYS_CHANGE_OPERATION\n,NULL AS SYS_CHANGE_COLUMNS\n,NULL AS SYS_CHANGE_CONTEXT\n,NULL AS CT_InvoiceFinalProductId\n,[InvoiceFinalProductId]\n,[InvoiceId]\n,[JobItemId]\n,[DespatchNoteId]\nFROM [dbo].[tbl_invoice_final_products]\n ",
               "type": "Expression"
             },
             "partitionOption": "None",
@@ -69,6 +69,128 @@
           },
           "translator": {
             "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "SYS_CHANGE_VERSION",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "SYS_CHANGE_VERSION",
+                  "type": "String",
+                  "physicalType": "String"
+                }
+              },
+              {
+                "source": {
+                  "name": "SYS_CHANGE_CREATION_VERSION",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "SYS_CHANGE_CREATION_VERSION",
+                  "type": "String",
+                  "physicalType": "String"
+                }
+              },
+              {
+                "source": {
+                  "name": "SYS_CHANGE_OPERATION",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "SYS_CHANGE_OPERATION",
+                  "type": "String",
+                  "physicalType": "String"
+                }
+              },
+              {
+                "source": {
+                  "name": "SYS_CHANGE_COLUMNS",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "SYS_CHANGE_COLUMNS",
+                  "type": "String",
+                  "physicalType": "String"
+                }
+              },
+              {
+                "source": {
+                  "name": "SYS_CHANGE_CONTEXT",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "SYS_CHANGE_CONTEXT",
+                  "type": "String",
+                  "physicalType": "String"
+                }
+              },
+              {
+                "source": {
+                  "name": "CT_InvoiceFinalProductId",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "CT_InvoiceFinalProductId",
+                  "type": "String",
+                  "physicalType": "String"
+                }
+              },
+              {
+                "source": {
+                  "name": "InvoiceFinalProductId",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "InvoiceFinalProductId",
+                  "type": "String",
+                  "physicalType": "String"
+                }
+              },
+              {
+                "source": {
+                  "name": "InvoiceId",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "InvoiceId",
+                  "type": "String",
+                  "physicalType": "String"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobItemId",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "JobItemId",
+                  "type": "String",
+                  "physicalType": "String"
+                }
+              },
+              {
+                "source": {
+                  "name": "DespatchNoteId",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "DespatchNoteId",
+                  "type": "String",
+                  "physicalType": "String"
+                }
+              }
+            ],
             "typeConversion": true,
             "typeConversionSettings": {
               "allowDataTruncation": true,
@@ -93,7 +215,7 @@
           "source": {
             "type": "SqlServerSource",
             "sqlReaderQuery": {
-              "value": "SELECT NULL AS SYS_CHANGE_VERSION\n\n\t   ,NULL AS SYS_CHANGE_CREATION_VERSION\n\n\t   ,NULL AS SYS_CHANGE_OPERATION\n\n\t   ,NULL AS SYS_CHANGE_COLUMNS\n\n\t   ,NULL AS SYS_CHANGE_CONTEXT\n\n\t   ,NULL AS CT_InvoiceFinalProductId\n\n\t,[InvoiceFinalProductId]\n\n\t,[InvoiceId]\n\n\t,[JobItemId]\n\n\t,[DespatchNoteId]\n\nFROM [dbo].[tbl_invoice_final_products]\n ",
+              "value": "SELECT NULL AS SYS_CHANGE_VERSION\n,NULL AS SYS_CHANGE_CREATION_VERSION\n,NULL AS SYS_CHANGE_OPERATION\n,NULL AS SYS_CHANGE_COLUMNS\n,NULL AS SYS_CHANGE_CONTEXT\n,NULL AS CT_InvoiceFinalProductId\n,[InvoiceFinalProductId]\n,[InvoiceId]\n,[JobItemId]\n,[DespatchNoteId]\nFROM [dbo].[tbl_invoice_final_products]\n ",
               "type": "Expression"
             },
             "partitionOption": "None",

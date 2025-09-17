@@ -20,7 +20,7 @@
 # META   }
 # META }
 
-# CELL ********************
+# PARAMETERS CELL ********************
 
 in_mode = "FULL"  # Replace with the actual IN_MODE value
 
@@ -85,7 +85,7 @@ param = ""  # Replace with the actual PARAM value
 
 # If-else logic to control the flow based on in_mode
 if in_mode == "FULL":
-    df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_kpi_types")
+    df.write.format("delta").mode("overwrite").save(silver_path)
     # Load Delta tables correctly
     bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_kpi_types_FULL"
 

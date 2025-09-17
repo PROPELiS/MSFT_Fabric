@@ -56,7 +56,7 @@
           "scripts": [
             {
               "text": {
-                "value": "UPDATE X\r\nSET SYS_CHANGE_VERSION = 0\r\nFROM [dbo].[ChangeTracking_Fabric_Update] X",
+                "value": "UPDATE X\n\nSET SYS_CHANGE_VERSION = 0\n\nFROM [dbo].[ChangeTracking_Fabric_Update] X",
                 "type": "Expression"
               },
               "type": "Query"
@@ -75,26 +75,9 @@
           "secureOutput": false
         },
         "name": "Reset_ChangeTracking_Fabric_Update",
-        "dependsOn": [
-          {
-            "activity": "MYSGSEU_FULL_combine_I",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          },
-          {
-            "activity": "MYSGSEU_FULL_combine_II",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          },
-          {
-            "activity": "MYSGSEU_FULL_combine_III",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
       }
     ]
   }

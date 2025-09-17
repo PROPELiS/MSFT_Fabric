@@ -1,0 +1,252 @@
+table DimLBCLocation
+	lineageTag: d6efbee9-e9ac-486f-b207-d422d1f8441a
+	sourceLineageTag: [dbo].[DimLBCLocation]
+
+	column 'zID - HEXKey LBC Location'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 94d5b622-996d-49e0-81c8-dbbb11f8a85f
+		sourceLineageTag: HEXKeyLBCLocation
+		summarizeBy: none
+		sourceColumn: HEXKeyLBCLocation
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LOC - Facility LBC'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1c96bc8d-5652-402a-9772-d74354918af5
+		sourceLineageTag: FacilityLBC
+		summarizeBy: none
+		sourceColumn: FacilityLBC
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LOC - Facility Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7221836b-84aa-424f-9edb-e0a22034885d
+		sourceLineageTag: FacilityName
+		summarizeBy: none
+		sourceColumn: FacilityName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LOC - Originating Plant Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ef932ed0-7980-4202-a52f-69eba04d73de
+		sourceLineageTag: OriginatingPlantName
+		summarizeBy: none
+		sourceColumn: OriginatingPlantName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LOC - Facility LBC Helper'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 14a84c40-5e3b-47ab-a5f1-9b2664c76b2d
+		sourceLineageTag: FacilityLBCHelper
+		summarizeBy: none
+		sourceColumn: FacilityLBCHelper
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LOC - Subregion'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 80de1248-031f-431a-9bf1-1de6308c7ae1
+		sourceLineageTag: Subregion
+		summarizeBy: none
+		sourceColumn: Subregion
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LOC - Region'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5dfa3330-e51a-4a15-b055-5b81cd5fce80
+		sourceLineageTag: Region
+		summarizeBy: none
+		sourceColumn: Region
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LOC - Pillar Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 31b59671-c8f5-4151-82dd-ae549d205a87
+		sourceLineageTag: PillarName
+		summarizeBy: none
+		sourceColumn: PillarName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LOC - Facility LBC And Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4eed69fb-e854-4150-87bb-def561e0453b
+		sourceLineageTag: FacilityLBCAndName
+		summarizeBy: none
+		sourceColumn: FacilityLBCAndName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column LBCCurrencyCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9ba2a3fb-7a66-4061-8609-d575e627fd5b
+		sourceLineageTag: LBCCurrencyCode
+		summarizeBy: none
+		sourceColumn: LBCCurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ResolvedInMDSYesorNo
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: eaf8f946-d6e4-4fd9-a166-4169a072b235
+		sourceLineageTag: ResolvedInMDSYesorNo
+		summarizeBy: none
+		sourceColumn: ResolvedInMDSYesorNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column MDSLastUpdatedBy
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8e63a7e3-bdc4-4d60-bfeb-3d113256a112
+		sourceLineageTag: MDSLastUpdatedBy
+		summarizeBy: none
+		sourceColumn: MDSLastUpdatedBy
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastUpdatedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 7de04750-29ed-4be0-841c-d6986c33ba4c
+		sourceLineageTag: LastUpdatedDate
+		summarizeBy: none
+		sourceColumn: LastUpdatedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportingPillar
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8c8652bc-cb33-4d7b-afed-b3dca1a91372
+		sourceLineageTag: ReportingPillar
+		summarizeBy: none
+		sourceColumn: ReportingPillar
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a8c4f862-9c75-456e-9621-b9056332207b
+		sourceLineageTag: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyNumber
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 34ad66f5-4004-497d-94b5-0c70c5dc799c
+		sourceLineageTag: CompanyNumber
+		summarizeBy: none
+		sourceColumn: CompanyNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ad1a8555-0d88-4a26-abac-0c6544adee69
+		sourceLineageTag: CompanyCode
+		summarizeBy: none
+		sourceColumn: CompanyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d3cbe2ae-0120-4981-80dc-041d59312055
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Segment
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7aef0c1d-9e8a-4707-b9f6-2a362542c3b3
+		sourceLineageTag: Segment
+		summarizeBy: none
+		sourceColumn: Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3782d562-621b-4a79-838c-cb6253807eab
+		sourceLineageTag: CostType
+		summarizeBy: none
+		sourceColumn: CostType
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostGroup
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b91c0807-bb4f-430a-ae68-f806d6613ea1
+		sourceLineageTag: CostGroup
+		summarizeBy: none
+		sourceColumn: CostGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9daebeca-e84b-4571-a38f-274c861fc99c
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimLBCLocation = entity
+		mode: directLake
+		source
+			entityName: DimLBCLocation
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

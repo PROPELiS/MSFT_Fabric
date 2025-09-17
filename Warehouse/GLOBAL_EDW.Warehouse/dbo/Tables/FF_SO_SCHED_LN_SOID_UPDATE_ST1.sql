@@ -1,8 +1,0 @@
-CREATE TABLE [dbo].[FF_SO_SCHED_LN_SOID_UPDATE_ST1] (
-
-	[SALES_ORDER_KEY] int NULL, 
-	[SALES_ORDER_ID] varchar(10) NULL, 
-	[SALES_ORDER_ITM_ID] varchar(10) NULL, 
-	[SCHL_ITM_ID] varchar(10) NULL, 
-	[CMPNY_KEY] int NULL
-);

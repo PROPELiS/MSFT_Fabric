@@ -264,7 +264,7 @@
           "scripts": [
             {
               "text": {
-                "value": "UPDATE ChangeTracking_Fabric_Update\r\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\r\nWHERE [TableName] = 'tbl_accounts_export'",
+                "value": "UPDATE ChangeTracking_Fabric_Update\n\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\n\nWHERE [TableName] = 'tbl_accounts_export'",
                 "type": "Expression"
               },
               "type": "Query"

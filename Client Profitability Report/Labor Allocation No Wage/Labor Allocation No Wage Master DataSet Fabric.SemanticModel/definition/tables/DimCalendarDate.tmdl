@@ -1,0 +1,486 @@
+table DimCalendarDate
+	lineageTag: c3e6ebee-8dfa-4461-bb80-6fdcee128418
+	sourceLineageTag: [dbo].[DimCalendarDate]
+
+	column HEXKeyCalendarDate
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a7b8e1d9-61ab-49bf-a514-30d2580f9cc7
+		sourceLineageTag: HEXKeyCalendarDate
+		summarizeBy: none
+		sourceColumn: HEXKeyCalendarDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - Calendar Date_YYYYMMDD'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 02bd059a-3d7e-4c85-95cf-b552d7b00392
+		sourceLineageTag: CalendarDate_YYYYMMDD
+		summarizeBy: sum
+		sourceColumn: CalendarDate_YYYYMMDD
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'DATE - Calendar Date_YYYY-MM-DD'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 27279b3c-1a72-4805-9190-8d9120bd2b93
+		sourceLineageTag: CalendarDate_YYYY-MM-DD
+		summarizeBy: none
+		sourceColumn: CalendarDate_YYYY-MM-DD
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE - CalendarDate'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: fc2a5167-0863-44bf-88cb-3135955f48df
+		sourceLineageTag: CalendarDate
+		summarizeBy: none
+		sourceColumn: CalendarDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KPI - Accounts Receivable Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: e2518ecb-4d7d-41d7-b643-a48b3125ecc7
+		sourceLineageTag: AccountsReceivableDate
+		summarizeBy: none
+		sourceColumn: AccountsReceivableDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearNumber_YYYY
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 1cd62512-1ff4-4de5-b688-77564df451a0
+		sourceLineageTag: YearNumber_YYYY
+		summarizeBy: sum
+		sourceColumn: YearNumber_YYYY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAL - Quarter Number'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 37880727-57d2-47d3-b94b-b2ff3f5989e6
+		sourceLineageTag: QuarterNumber
+		summarizeBy: sum
+		sourceColumn: QuarterNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAL - Quarter Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 677339bc-c34e-43bd-b4e0-505e04b15177
+		sourceLineageTag: QuarterName
+		summarizeBy: none
+		sourceColumn: QuarterName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Year And Quarter Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ce757412-7da9-4d19-a283-9d9a894fe17b
+		sourceLineageTag: YearAndQuarterName
+		summarizeBy: none
+		sourceColumn: YearAndQuarterName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Month Number'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: bfe0a81b-4cd7-4097-a699-7ce32fed4a2f
+		sourceLineageTag: MonthNumber
+		summarizeBy: sum
+		sourceColumn: MonthNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAL - Month Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: da169152-62d0-4640-8090-f5bf96c1dcf2
+		sourceLineageTag: MonthName
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Month Name Abbreviated'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d1e219e8-4751-4f00-ad04-aed6b9640ab5
+		sourceLineageTag: MonthNameAbbreviated
+		summarizeBy: none
+		sourceColumn: MonthNameAbbreviated
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Month Name Day And Year'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cc77b758-d906-444b-876c-643ff227c7a4
+		sourceLineageTag: MonthNameDayAndYear
+		summarizeBy: none
+		sourceColumn: MonthNameDayAndYear
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Month Name And Year'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9cd46343-9bbd-4498-9148-b5e19d13ead3
+		sourceLineageTag: MonthNameAndYear
+		summarizeBy: none
+		sourceColumn: MonthNameAndYear
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Day Of Month Number'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 4e0c08b4-1dc0-40c5-aaae-83cb7243c595
+		sourceLineageTag: DayOfMonthNumber
+		summarizeBy: sum
+		sourceColumn: DayOfMonthNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAL - Week Of Month Number'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 0a5c36ff-35a0-4944-aee7-7e88fcfac186
+		sourceLineageTag: WeekOfMonthNumber
+		summarizeBy: sum
+		sourceColumn: WeekOfMonthNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAL - Day Of Week Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3633ed4b-fa4b-4b69-8943-21dca271357b
+		sourceLineageTag: DayOfWeekName
+		summarizeBy: none
+		sourceColumn: DayOfWeekName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Day Of Week Name Abbreviated'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 223a285a-14fe-4418-8eda-f4651f7e77b1
+		sourceLineageTag: DayOfWeekNameAbbreviated
+		summarizeBy: none
+		sourceColumn: DayOfWeekNameAbbreviated
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Day Of Week Number'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 385a8904-6155-4f9b-afd5-4ebe23c335bf
+		sourceLineageTag: DayOfWeekNumber
+		summarizeBy: sum
+		sourceColumn: DayOfWeekNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAL - Day Of Year Number'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: c093cc09-c0e9-4ffd-918e-54528716148b
+		sourceLineageTag: DayOfYearNumber
+		summarizeBy: sum
+		sourceColumn: DayOfYearNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAL - Week Of Year Number'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: c60de35b-8760-4560-b937-cdcb68f1c9f0
+		sourceLineageTag: WeekOfYearNumber
+		summarizeBy: sum
+		sourceColumn: WeekOfYearNumber
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAL - Is Weekday'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8eb41923-e0c9-4879-8637-3c5e8a10fbae
+		sourceLineageTag: IsWeekday
+		summarizeBy: none
+		sourceColumn: IsWeekday
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Is Current Month'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2b4b5d93-1523-4459-94e6-18019c0469bc
+		sourceLineageTag: IsCurrentMonth
+		summarizeBy: none
+		sourceColumn: IsCurrentMonth
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Is Current Year'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: af60eef1-69df-44ca-9831-94e596c6c3c4
+		sourceLineageTag: IsCurrentYear
+		summarizeBy: none
+		sourceColumn: IsCurrentYear
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Is Previous Month'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 29d96e32-df84-4bb8-92e9-b6b4d10b0cbb
+		sourceLineageTag: IsPreviousMonth
+		summarizeBy: none
+		sourceColumn: IsPreviousMonth
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Is Previous Year'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5e701a2d-9bbc-4090-b77f-b1a4fed20376
+		sourceLineageTag: IsPreviousYear
+		summarizeBy: none
+		sourceColumn: IsPreviousYear
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Is Year To Date'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 22eb2e1c-deb2-40b9-8fe5-3e344c7d3dc3
+		sourceLineageTag: IsYearToDate
+		summarizeBy: none
+		sourceColumn: IsYearToDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Is Month To Date'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ba2d5c4b-591e-4378-b0f9-286c012486c9
+		sourceLineageTag: IsMonthToDate
+		summarizeBy: none
+		sourceColumn: IsMonthToDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Is Previous Year To Date'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 803a5408-55e5-471a-b569-78ff82a1f421
+		sourceLineageTag: IsPreviousYearToDate
+		summarizeBy: none
+		sourceColumn: IsPreviousYearToDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Is Previous Year Month To Date'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2867d6eb-7a0d-4f98-b832-9dd492213ff2
+		sourceLineageTag: IsPreviousYearMonthToDate
+		summarizeBy: none
+		sourceColumn: IsPreviousYearMonthToDate
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Is Last Day Of Month'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9b61d89b-e435-4e8e-92ff-fc01baf7087e
+		sourceLineageTag: IsLastDayOfMonth
+		summarizeBy: none
+		sourceColumn: IsLastDayOfMonth
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Is Last Day Of Quarter'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1baf1039-696e-4e57-b557-317c4432afcc
+		sourceLineageTag: IsLastDayOfQuarter
+		summarizeBy: none
+		sourceColumn: IsLastDayOfQuarter
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Is Last Day Of Week'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3261c684-bc74-4a7c-b320-6bf6886b0c10
+		sourceLineageTag: IsLastDayOfWeek
+		summarizeBy: none
+		sourceColumn: IsLastDayOfWeek
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - Is Last Day Of Year'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 26fcca13-2598-4ceb-84fa-aeedecbe5f06
+		sourceLineageTag: IsLastDayOfYear
+		summarizeBy: none
+		sourceColumn: IsLastDayOfYear
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - YYYYMM'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5b9f1575-d145-4040-8b1a-0b3e4deaab42
+		sourceLineageTag: YYYYMM
+		summarizeBy: none
+		sourceColumn: YYYYMM
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL -  ISO Yr Week'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 5f7c7371-3a39-415e-89f7-fec52e7eca9c
+		sourceLineageTag: ISOYrWeek
+		summarizeBy: sum
+		sourceColumn: ISOYrWeek
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAL - Month Num And Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4f99f425-62a0-40c2-a684-1b452bbe13c4
+		sourceLineageTag: MonthNumAndName
+		summarizeBy: none
+		sourceColumn: MonthNumAndName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1d5f916d-cb5d-418b-9fc9-7e036c6c6dd7
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCalendarDate = entity
+		mode: directLake
+		source
+			entityName: DimCalendarDate
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

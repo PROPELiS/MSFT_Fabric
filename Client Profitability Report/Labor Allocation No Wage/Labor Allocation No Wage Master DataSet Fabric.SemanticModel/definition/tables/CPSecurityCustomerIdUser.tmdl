@@ -1,0 +1,82 @@
+table CPSecurityCustomerIdUser
+	isHidden
+	lineageTag: 037ded37-5a6b-447d-8a43-3bbb36a9ee80
+	sourceLineageTag: [dbo].[CPSecurityCustomerIdUser]
+
+	column HEXKeyCombineCustomer
+		dataType: string
+		isHidden
+		sourceProviderType: varchar(8000)
+		lineageTag: 781d6764-b5ec-4db7-9be6-2144c879c8dc
+		sourceLineageTag: HEXKeyCombineCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeyCombineCustomer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PortfolioGroupName
+		dataType: string
+		isHidden
+		sourceProviderType: varchar(8000)
+		lineageTag: de4ed9ec-dbcd-44f8-a721-2633c4439a46
+		sourceLineageTag: PortfolioGroupName
+		summarizeBy: none
+		sourceColumn: PortfolioGroupName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeUserLogin
+		dataType: string
+		isHidden
+		sourceProviderType: varchar(8000)
+		lineageTag: ead0d3bf-b0f0-4a72-9440-1e76dea7afa0
+		sourceLineageTag: EmployeeUserLogin
+		summarizeBy: none
+		sourceColumn: EmployeeUserLogin
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastUpdatedDate
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 84920c1d-5d24-4dd3-b9f5-d123b8b6d693
+		sourceLineageTag: LastUpdatedDate
+		summarizeBy: none
+		sourceColumn: LastUpdatedDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		isHidden
+		sourceProviderType: varchar(8000)
+		lineageTag: 508019d6-25ce-4e73-b510-9d22b4e00b2a
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CPSecurityCustomerIdUser = entity
+		mode: directLake
+		source
+			entityName: CPSecurityCustomerIdUser
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
