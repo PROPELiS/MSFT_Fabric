@@ -1,0 +1,27 @@
+CREATE TABLE [dbo].[EDW_T_D_SAL_DCHAREN_CUR_D] (
+
+	[DOCMT_CHARS_ENCOWAY_JS_HDR_KEY] int NOT NULL, 
+	[Object Number] varchar(max) NULL, 
+	[Class Type] varchar(max) NULL, 
+	[Class Number] varchar(max) NULL, 
+	[Class Status] varchar(max) NULL, 
+	[G Printer ID] varchar(max) NULL, 
+	[G Brand Owner] varchar(max) NULL, 
+	[G TD Description] varchar(max) NULL, 
+	[G SU Width] varchar(max) NULL, 
+	[G SU Height] varchar(max) NULL, 
+	[G Item Number] varchar(max) NULL, 
+	[G Job Type] varchar(max) NULL, 
+	[G Country ID] varchar(max) NULL, 
+	[G Is Security] varchar(max) NULL, 
+	[G Roto Technology] varchar(max) NULL, 
+	[ETL_SRC_SYS_CD] varchar(max) NULL, 
+	[ETL_EFFECTV_BEGIN_DATE] date NULL, 
+	[ETL_EFFECTV_END_DATE] date NULL, 
+	[ETL_CURR_RCD_IND] varchar(max) NULL, 
+	[ETL_CREATED_TS] datetime2(0) NULL, 
+	[ETL_UPDTD_TS] datetime2(0) NULL, 
+	[G Supplied Files Min Date] date NULL, 
+	[G Supplied Files Max Date] date NULL, 
+	[SequenceID] int NOT NULL
+);

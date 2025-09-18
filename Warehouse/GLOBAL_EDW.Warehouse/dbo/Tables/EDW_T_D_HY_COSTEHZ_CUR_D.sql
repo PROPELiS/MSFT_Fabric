@@ -1,0 +1,25 @@
+CREATE TABLE [dbo].[EDW_T_D_HY_COSTEHZ_CUR_D] (
+
+	[COST_ELEMNT_KEY] int NOT NULL, 
+	[Cost Element Controlling Area ID HH] varchar(max) NULL, 
+	[Cost Element ID Leaf level HH] varchar(max) NULL, 
+	[Cost Element Level 0 ID HH] varchar(max) NULL, 
+	[Cost Element Level 0 Description HH] varchar(max) NULL, 
+	[Cost Element Level 1 ID HH] varchar(max) NULL, 
+	[Cost Element Level 1 Description HH] varchar(max) NULL, 
+	[Cost Element Level 2 ID HH] varchar(max) NULL, 
+	[Cost Element Level 2 Description HH] varchar(max) NULL, 
+	[Cost Element Level 3 ID HH] varchar(max) NULL, 
+	[Cost Element Level 3 Description HH] varchar(max) NULL, 
+	[Cost Element Level 4 ID HH] varchar(max) NULL, 
+	[Cost Element Level 4 Description HH] varchar(max) NULL, 
+	[Cost Element Level 5 ID HH] varchar(max) NULL, 
+	[Cost Element Level 5 Description HH] varchar(max) NULL, 
+	[Cost Element Level 6 ID HH] varchar(max) NULL, 
+	[Cost Element Level 6 Description HH] varchar(max) NULL, 
+	[Cost Element Level 7 ID HH] varchar(max) NULL, 
+	[Cost Element Level 7 Description HH] varchar(max) NULL, 
+	[Cost Element Level 8 ID HH] varchar(max) NULL, 
+	[Cost Element Level 8 Description HH] varchar(max) NULL, 
+	[Chart of Accounts] varchar(max) NULL
+);
