@@ -76,7 +76,7 @@ schema = StructType([
 df = spark.createDataFrame([], schema)
     # Write the DataFrame as a Delta table
 
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_new_stage_categories"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_new_stage_categories"
 silver_table = DeltaTable.forPath(spark, silver_path)
 # Parameters
 param = ""  # Replace with the actual PARAM value
@@ -86,7 +86,7 @@ param = ""  # Replace with the actual PARAM value
 if in_mode == "FULL":
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_new_stage_categories")
     # Load Delta tables correctly
-    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_categories_FULL"
+    bronze_Path ="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_categories_FULL"
 
     bronze_df = spark.read.format("delta").load(bronze_Path)
     
@@ -113,7 +113,7 @@ else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_new_stage_categories")
     
    # Define paths
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_categories_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_categories_DELTA"
    # Read source and target as Delta Tables
     silver_df_delta = DeltaTable.forPath(spark, silver_path)
     source_df_delta = spark.read.format("delta").load(source_path)

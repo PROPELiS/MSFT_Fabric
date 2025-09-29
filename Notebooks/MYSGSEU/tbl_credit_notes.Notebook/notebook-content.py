@@ -118,7 +118,7 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
 
-silver_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_credit_notes"
+silver_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_credit_notes"
 silver_table = DeltaTable.forPath(spark, silver_path)
 
 # Parameters
@@ -128,7 +128,7 @@ param = ""  # Replace with the actual PARAM value
 if in_mode == "FULL":
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_credit_notes")
     # Load Delta tables correctly
-    bronze_Path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_FULL"
+    bronze_Path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_FULL"
     bronze_df = spark.read.format("delta").load(bronze_Path)
 
     silver_table.alias("target").merge(
@@ -194,7 +194,7 @@ if in_mode == "FULL":
 else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_credit_notes")
 
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_DELTA"
     
     source_df_delta = spark.read.format("delta").load(source_path)
 

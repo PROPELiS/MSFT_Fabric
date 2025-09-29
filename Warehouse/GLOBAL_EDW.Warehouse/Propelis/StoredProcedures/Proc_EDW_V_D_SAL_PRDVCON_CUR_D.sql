@@ -1,4 +1,4 @@
-CREATE     PROCEDURE [Propelis].[Proc_EDW_V_D_SAL_PRDVCON_CUR_D]
+CREATE       PROCEDURE [Propelis].[Proc_EDW_V_D_SAL_PRDVCON_CUR_D]
 AS
 BEGIN
     
@@ -349,8 +349,8 @@ BEGIN
 	T.[ZLP AG F Line Screen 19 Description]                     =  S.[ZLP AG F Line Screen 19 Description]                ,
 	T.[ZLP AG F Line Screen 20 Description]                     =  S.[ZLP AG F Line Screen 20 Description]                ,
 	T.[ZLP Order Type]	                                        =  S.[ZLP Order Type]	                                  ,
-	T.[ZLP Order Type Description]                              =  S.[ZLP Order Type Description]                        
-
+	T.[ZLP Order Type Description]                              =  S.[ZLP Order Type Description]                         ,
+    T.[PRDVCON_KEY]                                             =  CONCAT(S.[SALES_ORDER_ID],'-',S.[SALES_ORDER_ITM_ID])
 
 
 FROM [GLOBAL_EDW].[Propelis].[EDW_V_D_SAL_PRDVCON_CUR_D] T
@@ -703,7 +703,8 @@ FROM [GLOBAL_EDW].[Propelis].[EDW_V_D_SAL_PRDVCON_CUR_D] T
 [ZLP AG F Line Screen 19 Description]                     ,
 [ZLP AG F Line Screen 20 Description]                     ,
 [ZLP Order Type]	                                      ,
-[ZLP Order Type Description]                              
+[ZLP Order Type Description]                              ,
+[PRDVCON_KEY]
 )
 SELECT
 
@@ -1051,7 +1052,8 @@ S.[ZLP AG F Line Screen 18 Description]                ,
 S.[ZLP AG F Line Screen 19 Description]                ,
 S.[ZLP AG F Line Screen 20 Description]                ,
 S.[ZLP Order Type]	                                  ,
-S.[ZLP Order Type Description]                        
+S.[ZLP Order Type Description]                        ,
+CONCAT(S.[SALES_ORDER_ID],'-',S.[SALES_ORDER_ITM_ID])
 
 FROM [GLOBAL_EDW].[dbo].[EDW_T_D_SAL_PRDVCON_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[EDW_V_D_SAL_PRDVCON_CUR_D] T

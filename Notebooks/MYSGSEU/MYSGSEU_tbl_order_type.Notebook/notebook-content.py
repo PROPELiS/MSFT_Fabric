@@ -76,8 +76,8 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
     
-bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_order_type_FULL"
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_order_type"
+bronze_Path ="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_order_type_FULL"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_order_type"
     # Load Silver table as a DeltaTable (not a DataFrame)
 silver_table = DeltaTable.forPath(spark, silver_path)
 # Parameters
@@ -123,7 +123,7 @@ else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_order_type")
     
    # Define paths
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_order_type_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_order_type_DELTA"
    # Read source and target as Delta Tables
     silver_df_delta = DeltaTable.forPath(spark, silver_path)
     source_df_delta = spark.read.format("delta").load(source_path)

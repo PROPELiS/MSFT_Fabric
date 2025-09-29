@@ -13,7 +13,7 @@ table DimCustomerPrinter
 		annotation SummarizationSetBy = Automatic
 
 	column 'CUST - Customer Id'
-		dataType: double
+		dataType: int64
 		sourceProviderType: decimal(38, 0)
 		lineageTag: b8158381-2b3b-42e5-b66f-00edce24f85b
 		sourceLineageTag: CustomerId
@@ -21,6 +21,8 @@ table DimCustomerPrinter
 		sourceColumn: CustomerId
 
 		changedProperty = Name
+
+		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
 
@@ -89,18 +91,6 @@ table DimCustomerPrinter
 		sourceLineageTag: City
 		summarizeBy: none
 		sourceColumn: City
-
-		changedProperty = Name
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'CUST - County'
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: 921a9f3c-5d9f-4405-9253-a0efdbcadec1
-		sourceLineageTag: County
-		summarizeBy: none
-		sourceColumn: County
 
 		changedProperty = Name
 
@@ -1263,6 +1253,18 @@ table DimCustomerPrinter
 		sourceColumn: METADATA$ROW_ID
 
 		annotation SummarizationSetBy = Automatic
+
+	column R12RevenueUSD
+		dataType: double
+		sourceProviderType: decimal(17, 2)
+		lineageTag: a390dbce-4207-454f-a798-629dae749136
+		sourceLineageTag: R12RevenueUSD
+		summarizeBy: none
+		sourceColumn: R12RevenueUSD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition DimCustomerPrinter = entity
 		mode: directLake

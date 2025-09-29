@@ -73,8 +73,8 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
 
-bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_package_type_FULL"
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_package_type"
+bronze_Path ="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_package_type_FULL"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_package_type"
 silver_table = DeltaTable.forPath(spark, silver_path)
 # Parameters
 param = ""  # Replace with the actual PARAM value
@@ -106,7 +106,7 @@ else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_package_type")
     
    # Define paths
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_package_type_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_package_type_DELTA"
    # Read source and target as Delta Tables
     silver_df_delta = DeltaTable.forPath(spark, silver_path)
     source_df_delta = spark.read.format("delta").load(source_path)

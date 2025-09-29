@@ -110,46 +110,59 @@ table DimProduct
 
 	column Group
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: 2238f307-4f49-4542-916d-25c512df122f
 		sourceLineageTag: Group
 		summarizeBy: none
 		sourceColumn: Group
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column LineofBusiness
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: b4fceb61-6584-4420-a1f2-2dcb89e2b2d7
 		sourceLineageTag: LineofBusiness
 		summarizeBy: none
 		sourceColumn: LineofBusiness
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Service
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: 026ab704-aa10-41a8-b5f4-88a89cfaa42f
 		sourceLineageTag: Service
 		summarizeBy: none
 		sourceColumn: Service
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column SubService
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: 152538f5-9949-4aa8-8ee8-a62f3aa79db3
 		sourceLineageTag: SubService
 		summarizeBy: none
 		sourceColumn: SubService
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column GroupCode
 		dataType: int64
+		isHidden
 		formatString: 0
 		sourceProviderType: decimal(10, 0)
 		lineageTag: 87144437-a647-4e24-be04-a99c8d13a0d9
@@ -157,10 +170,13 @@ table DimProduct
 		summarizeBy: none
 		sourceColumn: GroupCode
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column LOBCode
 		dataType: int64
+		isHidden
 		formatString: 0
 		sourceProviderType: decimal(10, 0)
 		lineageTag: b4cb59c2-ccb8-48c1-9145-89eebebc22ec
@@ -168,10 +184,13 @@ table DimProduct
 		summarizeBy: none
 		sourceColumn: LOBCode
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ServiceCode
 		dataType: int64
+		isHidden
 		formatString: 0
 		sourceProviderType: decimal(10, 0)
 		lineageTag: eb7de44b-950b-4669-9a8a-9d6fbcbfd036
@@ -179,16 +198,21 @@ table DimProduct
 		summarizeBy: none
 		sourceColumn: ServiceCode
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column SubServiceCode
 		dataType: int64
+		isHidden
 		formatString: 0
 		sourceProviderType: decimal(10, 0)
 		lineageTag: d6091de7-ee3d-4369-83ef-d4aec49ac0d7
 		sourceLineageTag: SubServiceCode
 		summarizeBy: none
 		sourceColumn: SubServiceCode
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

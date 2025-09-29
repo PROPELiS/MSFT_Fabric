@@ -214,3 +214,51 @@ relationship c7035696-bf0b-0a03-a110-389905089bac
 	fromColumn: FactAllocationRateWithGLDepartmentLBC.HEXKeyGLAccountsDepartment
 	toColumn: DimGLAccountsDepartment.'zID - HEXKey GL Accounts Department'
 
+relationship 1b6286cc-5ab6-f39a-8a38-1ee57b2c790a
+	fromColumn: FactAllocationRateLineOfBusinessGlobal.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship 46824a57-ffd9-85e2-d065-f69fc4a0e4f0
+	fromColumn: FactAllocationRateLineOfBusinessGlobal.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship e3d19bdb-88fa-1068-26ef-001e08c61a18
+	fromColumn: FactAllocationRateLineOfBusinessGlobal.HEXKeyLineOfBusiness
+	toColumn: DimLOB.HEXKeyLineOfBusiness
+
+relationship c048c599-97df-9e36-7fbd-331c20fc977e
+	fromColumn: FactAllocationRateLineOfBusinessLBC.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship 23cb3923-9aef-9278-cb7b-6a337a6d12cc
+	fromColumn: FactAllocationRateLineOfBusinessLBC.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship 764c8160-c438-60db-73b7-1722f3b57174
+	fromColumn: FactAllocationRateLineOfBusinessLBC.HEXKeyLBCLocation
+	toColumn: DimLBCLocation.'zID - HEXKey LBC Location'
+
+relationship cc507f55-ae37-345a-9b3d-8bd7f2609bfd
+	fromColumn: FactAllocationRateLineOfBusinessLBC.HEXKeyLineOfBusiness
+	toColumn: DimLOB.HEXKeyLineOfBusiness
+
+relationship ed350801-c746-079d-42a9-6b0fc311f84f
+	fromColumn: FactAllocationRateLineOfBusinessSubRegion.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+
+relationship 112134d3-aa84-daaf-d230-fb7ac9c29249
+	fromColumn: FactAllocationRateLineOfBusinessSubRegion.HEXKeyCombineCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship 29ce0bbf-74f9-ef35-a850-c1d0529273ae
+	fromColumn: FactAllocationRateLineOfBusinessSubRegion.HEXKeyLineOfBusiness
+	toColumn: DimLBCLocation.'zID - HEXKey LBC Location'
+
+relationship ebc0ddd3-3ade-0c56-84e4-a683fa055f30
+	fromColumn: FactAllocationRateLineOfBusinessSubRegion.HEXKeyLineOfBusiness
+	toColumn: DimLOB.HEXKeyLineOfBusiness
+
+relationship 529d18ca-923e-0bfa-6002-7c645a2117df
+	fromColumn: FactAllocationRateLineOfBusinessSubRegion.HEXKeySubRegion
+	toColumn: DimSubRegion.HEXKeySubRegion
+

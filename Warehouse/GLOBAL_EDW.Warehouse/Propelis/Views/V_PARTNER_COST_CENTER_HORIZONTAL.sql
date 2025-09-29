@@ -1,0 +1,48 @@
+-- Auto Generated (Do not modify) 66FAA208D9F90A63FF5C83DD7F3835C7C033DD9DEB2D1DFEED08CD5C0A661BD3
+CREATE  view [Propelis].[V_PARTNER_COST_CENTER_HORIZONTAL](
+ [COST_CNTR_KEY],
+[Partner Cost Center Controlling Area ID HH],
+[Partner Cost Center ID Leaf level HH],
+[Partner Cost Center Level 0 ID HH],
+[Partner Cost Center Level 0 Description HH],
+[Partner Cost Center Level 1 ID HH],
+[Partner Cost Center Level 1 Description HH],
+[Partner Cost Center Level 2 ID HH],
+[Partner Cost Center Level 2 Description HH],
+[Partner Cost Center Level 3 ID HH],
+[Partner Cost Center Level 3 Description HH],
+[Partner Cost Center Level 4 ID HH],
+[Partner Cost Center Level 4 Description HH],
+[Partner Cost Center Level 5 ID HH],
+[Partner Cost Center Level 5 Description HH],
+[Partner Cost Center Level 6 ID HH],
+[Partner Cost Center Level 6 Description HH],
+[Partner Cost Center Level 7 ID HH],
+[Partner Cost Center Level 7 Description HH],
+[Partner Cost Center Level 8 ID HH],
+[Partner Cost Center Level 8 Description HH]
+
+) AS
+SELECT 
+  [COST_CNTR_KEY],
+[CONTROLLING_AREA_ID],
+[Cost Center ID Leaf level HH],
+[LVL_0_ID],
+[LVL_0_DESC],
+[Cost Center Level 1 ID HH],
+[Cost Center Level 1 Description HH],
+[Cost Center Level 2 ID HH],
+[Cost Center Level 2 Description HH],
+[Cost Center Level 3 ID HH],
+[Cost Center Level 3 Description HH],
+[Cost Center Level 4 ID HH],
+[Cost Center Level 4 Description HH],
+[Cost Center Level 5 ID HH],
+[Cost Center Level 5 Description HH],
+[Cost Center Level 6 ID HH],
+[Cost Center Level 6 Description HH],
+[Cost Center Level 7 ID HH],
+[Cost Center Level 7 Description HH],
+[Cost Center Level 8 ID HH],
+[Cost Center Level 8 Description HH]
+FROM [GLOBAL_EDW].[dbo].[EDW_T_D_HY_COSTCHZ_CUR_D];

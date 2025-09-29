@@ -34,31 +34,40 @@ table DimSubService
 
 	column Service
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: 7ac22759-0327-4e23-b1d2-845e8e44bc57
 		sourceLineageTag: Service
 		summarizeBy: none
 		sourceColumn: Service
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Group
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: ad1ba3ec-707c-4fac-8f84-37b5cf5b285f
 		sourceLineageTag: Group
 		summarizeBy: none
 		sourceColumn: Group
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column LineOfBusiness
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: b2b5d29f-fb1a-4e21-b0b6-f9fe29f483a3
 		sourceLineageTag: LineOfBusiness
 		summarizeBy: none
 		sourceColumn: LineOfBusiness
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

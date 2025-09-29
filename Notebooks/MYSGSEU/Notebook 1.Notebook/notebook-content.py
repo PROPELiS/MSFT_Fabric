@@ -72,7 +72,7 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
 
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/Administration_TimeTrackingCategoriesCategories"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/Administration_TimeTrackingCategoriesCategories"
 silver_table = DeltaTable.forPath(spark, silver_path)
 
 # Parameters
@@ -81,7 +81,7 @@ param = ""  # RDeplace with the actual PARAM value
 if in_mode == "FULL":
     # Write the Dataframe as a Delta table
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.Administration_TimeTrackingCategories")
-    bronze_Path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Administration_TimeTrackingCategories_FULL"
+    bronze_Path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Administration_TimeTrackingCategories_FULL"
 
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
@@ -117,7 +117,7 @@ else:
     
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.Administration_TimeTrackingCategories")
     
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Administration_TimeTrackingCategories_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Administration_TimeTrackingCategories_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     # Perform the MERGE operation

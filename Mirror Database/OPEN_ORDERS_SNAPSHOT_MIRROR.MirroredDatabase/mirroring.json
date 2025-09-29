@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "source": {
+      "type": "Snowflake",
+      "typeProperties": {
+        "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac",
+        "database": "SILVER"
+      }
+    },
+    "target": {
+      "type": "MountedRelationalDatabase",
+      "typeProperties": {
+        "defaultSchema": "dbo",
+        "format": "Delta",
+        "retentionInDays": 1
+      }
+    },
+    "mountedTables": [
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "MYSGSEU",
+            "tableName": "OPEN_ORDERS_SNAPSHOT"
+          }
+        }
+      }
+    ]
+  }
+}

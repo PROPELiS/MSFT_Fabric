@@ -255,6 +255,26 @@ table FactEmployeeWageHoursForAllocationNoWage
 
 		annotation SummarizationSetBy = Automatic
 
+	column HEXKeyService
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ff8d2eca-111a-49c4-8614-62a93e7c9b33
+		sourceLineageTag: HEXKeyService
+		summarizeBy: none
+		sourceColumn: HEXKeyService
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyLineOfBusiness
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 18d68f8e-1f01-434c-8682-38503299b5d6
+		sourceLineageTag: HEXKeyLineOfBusiness
+		summarizeBy: none
+		sourceColumn: HEXKeyLineOfBusiness
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactEmployeeWageHoursForAllocationNoWage = entity
 		mode: directLake
 		source

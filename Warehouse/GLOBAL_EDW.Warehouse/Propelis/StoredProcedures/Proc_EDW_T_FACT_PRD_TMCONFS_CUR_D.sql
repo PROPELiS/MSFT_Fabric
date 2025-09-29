@@ -1,6 +1,6 @@
 -- Create or alter the stored procedure for updating and inserting records 
 -- into the EDW_T_FACT_PRD_TMCONFS_CUR_D table in the Propelis schema
-CREATE   PROCEDURE [Propelis].[Proc_EDW_T_FACT_PRD_TMCONFS_CUR_D]
+CREATE     PROCEDURE [Propelis].[Proc_EDW_T_FACT_PRD_TMCONFS_CUR_D]
 AS
 BEGIN
     

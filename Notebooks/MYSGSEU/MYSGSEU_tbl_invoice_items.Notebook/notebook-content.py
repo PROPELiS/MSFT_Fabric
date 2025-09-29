@@ -82,7 +82,7 @@ schema = StructType([
 df = spark.createDataFrame([], schema)
 
 # Paths for Silver and Bronze tables
-silver_table_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_invoice_items"
+silver_table_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_invoice_items"
 
 # Load the Silver data (Delta table)
 silver_table = DeltaTable.forPath(spark, silver_table_path)
@@ -93,7 +93,7 @@ param = ""  # Replace with the actual PARAM value
 if in_mode == "FULL":
     # Write the DataFrame as a Delta table
      df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_invoice_items")
-     bronze_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_invoice_items_FULL"
+     bronze_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_invoice_items_FULL"
 
 
      # Load Bronze data
@@ -128,7 +128,7 @@ if in_mode == "FULL":
 else:          
      df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_invoice_items")
                                                    
-     source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_invoice_items_DELTA"
+     source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_invoice_items_DELTA"
      source_df_delta = spark.read.format("delta").load(source_path)
 
      # Step 1: DELETE Records from Target based on SYS_CHANGE_OPERATION = 'D'

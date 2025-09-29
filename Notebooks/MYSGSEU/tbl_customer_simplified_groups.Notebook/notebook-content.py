@@ -76,7 +76,7 @@ schema = StructType([
 # Create an empty DataFrame with the new schema
 df = spark.createDataFrame([], schema)
 
-silver_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_customer_simplified_groups"
+silver_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_customer_simplified_groups"
 silver_table = DeltaTable.forPath(spark, silver_path)
 
 # Parameters
@@ -84,7 +84,7 @@ silver_table = DeltaTable.forPath(spark, silver_path)
 if in_mode == "FULL":
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_customer_simplified_groups")
     
-    bronze_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_simplified_groups_FULL"
+    bronze_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_simplified_groups_FULL"
     bronze_df = spark.read.format("delta").load(bronze_path)
     silver_table.alias("target").merge(
         bronze_df.alias("source"),
@@ -104,7 +104,7 @@ if in_mode == "FULL":
     }).execute()
 else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_customer_simplified_groups")
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_simplified_groups_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_simplified_groups_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     filtered_source_df = source_df_delta.filter(source_df_delta["SYS_CHANGE_OPERATION"] == "D") \

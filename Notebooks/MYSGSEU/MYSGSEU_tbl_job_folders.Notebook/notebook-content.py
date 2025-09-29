@@ -83,7 +83,7 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
    
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_job_folders"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_job_folders"
 silver_table = DeltaTable.forPath(spark, silver_path)
 
 # Parameters
@@ -93,7 +93,7 @@ param = ""
 if in_mode == "FULL":
      # Write the DataFrame as a Delta table
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_job_folders")
-    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_job_folders_FULL"
+    bronze_Path ="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_job_folders_FULL"
 
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)    
@@ -129,7 +129,7 @@ else:
   
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_job_folders")
 
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_job_folders_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_job_folders_DELTA"
 
     # Read full Silver table and Delta source table
     source_df_delta = spark.read.format("delta").load(source_path)

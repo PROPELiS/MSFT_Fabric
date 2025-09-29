@@ -74,7 +74,7 @@ Schema = StructType([
 
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], Schema)
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/ULTIPRO/tbl_locationlist"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/ULTIPRO/tbl_locationlist"
 silver_table = DeltaTable.forPath(spark, silver_path)
 # Parameters
 param = ""  # Replace with the actual PARAM value
@@ -84,7 +84,7 @@ param = ""  # Replace with the actual PARAM value
 if in_mode == "FULL":
     # Write the DataFrame as a Delta table
     df.write.format("delta").mode("overwrite").saveAsTable("ULTIPRO.tbl_locationlist")
-    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_LocationList"
+    bronze_Path ="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_LocationList"
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
 
@@ -113,7 +113,7 @@ else :
  df.write.format("delta").mode("append").saveAsTable("ULTIPRO.tbl_locationlist")
 
 
-source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_LocationList"
+source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_LocationList"
 source_df_delta = spark.read.format("delta").load(source_path).filter(col("ETL_ChangeTrackingOperation") != 'D')
 
 

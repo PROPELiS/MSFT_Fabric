@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_TEMP_EDW_T_FACT_PRD_TMCONFS_CUR_D]
+CREATE     PROCEDURE [Propelis].[Proc_TEMP_EDW_T_FACT_PRD_TMCONFS_CUR_D]
 AS
 BEGIN
         -- Step 1: Truncate the temp table (truncate is faster than delete)

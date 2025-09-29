@@ -80,8 +80,8 @@ schema = StructType([
 df = spark.createDataFrame([], schema)
     # Write the DataFrame as a Delta table
 
-bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_codes_FULL"
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_codes"
+
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_codes"
  # Load Silver table as a DeltaTable (not a DataFrame)
 silver_table = DeltaTable.forPath(spark, silver_path)
 
@@ -90,6 +90,7 @@ silver_table = DeltaTable.forPath(spark, silver_path)
 # If-else logic to control the flow based on in_mode
 if in_mode == "FULL":
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_new_stage_reason_codes")
+    bronze_Path ="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_codes_FULL"
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
     
@@ -116,7 +117,7 @@ else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_new_stage_reason_codes")
     
    # Define paths
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_codes_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_codes_DELTA"
    # Read source and target as Delta Tables
     silver_df_delta = DeltaTable.forPath(spark, silver_path)
     source_df_delta = spark.read.format("delta").load(source_path)

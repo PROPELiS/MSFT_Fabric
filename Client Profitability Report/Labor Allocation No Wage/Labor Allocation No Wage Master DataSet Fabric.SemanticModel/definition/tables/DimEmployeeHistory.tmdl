@@ -558,6 +558,16 @@ table DimEmployeeHistory
 
 		annotation SummarizationSetBy = Automatic
 
+	column HRGrouping
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 004d9201-e37a-496b-875a-616c536ce7ab
+		sourceLineageTag: HRGrouping
+		summarizeBy: none
+		sourceColumn: HRGrouping
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimEmployeeHistory = entity
 		mode: directLake
 		source

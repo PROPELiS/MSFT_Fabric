@@ -72,7 +72,7 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
 
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/job_printprocess"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/job_printprocess"
 silver_table = DeltaTable.forPath(spark, silver_path)
 
 # Parameters
@@ -82,7 +82,7 @@ if in_mode == "FULL":
 
     # Write the DataFrame as a Delta table
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.Job_PrintProcess")
-    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Job_PrintProcess_FULL"
+    bronze_Path ="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Job_PrintProcess_FULL"
 
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
@@ -107,7 +107,7 @@ else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.Job_PrintProcess")
     
     # Define paths
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Job_PrintProcess_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Job_PrintProcess_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     # Filter the source DataFrame for "D" operations and select distinct CT_JobFolderId

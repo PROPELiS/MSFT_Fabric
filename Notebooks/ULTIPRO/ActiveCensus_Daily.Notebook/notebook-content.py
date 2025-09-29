@@ -132,7 +132,7 @@ df = spark.createDataFrame([], Schema)
 
 
 
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/ULTIPRO/tbl_activecensus_daily"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/ULTIPRO/tbl_activecensus_daily"
 silver_table = DeltaTable.forPath(spark, silver_path)
 # Parameters
 param = ""  # Replace with the actual PARAM value
@@ -141,7 +141,7 @@ param = ""  # Replace with the actual PARAM value
 # If-else logic to control the flow based on in_mode
 if in_mode == "FULL":
     #df.write.format("delta").mode("overwrite").saveAsTable("ULTIPRO.tbl_ActiveCensus_Daily")
-    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/ActiveCensus_Daily"
+    bronze_Path ="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/ActiveCensus_Daily"
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
 

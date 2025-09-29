@@ -90,7 +90,7 @@ schema = StructType([
 df = spark.createDataFrame([], schema)
 
 # Overwrite the existing Delta table with the new schema
-silver_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_dax_customer_contacts"
+silver_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_dax_customer_contacts"
 silver_table = DeltaTable.forPath(spark, silver_path)
 
 # Parameters
@@ -102,7 +102,7 @@ if in_mode == "FULL":
     # Write the DataFrame as a Delta table
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_DAX_customer_contacts")
     
-    bronze_Path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_DAX_customer_contacts_FULL"
+    bronze_Path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_DAX_customer_contacts_FULL"
     
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
@@ -144,7 +144,7 @@ if in_mode == "FULL":
 
 else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_DAX_customer_contacts")
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_DAX_customer_contacts_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_DAX_customer_contacts_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     # Filter the source DataFrame for "D" operations and select distinct CT_DAXContactId

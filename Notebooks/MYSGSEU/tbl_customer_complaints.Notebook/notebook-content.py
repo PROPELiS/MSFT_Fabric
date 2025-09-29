@@ -120,7 +120,7 @@ schema = StructType([
 df = spark.createDataFrame([], schema)
 
 # Define the Silver Delta Table Path
-silver_table_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_customer_complaints"
+silver_table_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_customer_complaints"
 
 # Load the Silver Table as a Delta Table
 silver_table = DeltaTable.forPath(spark, silver_table_path)
@@ -130,7 +130,7 @@ PARAM = ""
 if in_mode == "FULL":
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_customer_complaints")
     # Define the Bronze Table Path
-    bronze_table_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_complaints_FULL"
+    bronze_table_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_complaints_FULL"
 
  # Read the Bronze Delta Table
     bronze_df = spark.read.format("delta").load(bronze_table_path)
@@ -195,7 +195,7 @@ if in_mode == "FULL":
       }).execute()
 else:
      df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_customer_complaints")
-     source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_complaints_DELTA"
+     source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_complaints_DELTA"
      source_df_delta = spark.read.format("delta").load(source_path)
 
      filtered_source_df = source_df_delta.filter(source_df_delta["SYS_CHANGE_OPERATION"] == "D") \

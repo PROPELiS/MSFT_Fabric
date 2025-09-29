@@ -77,7 +77,7 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
 
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_job_account_managers"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_job_account_managers"
 silver_table = DeltaTable.forPath(spark, silver_path)
 # Parameters
 param = ""  # Replace with the actual PARAM value
@@ -85,7 +85,7 @@ param = ""  # Replace with the actual PARAM value
 if in_mode == "FULL":
     # Write the DataFrame as a Delta table
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_job_account_managers")
-    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_job_account_managers_FULL"
+    bronze_Path ="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_job_account_managers_FULL"
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
     
@@ -114,7 +114,7 @@ if in_mode == "FULL":
 else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_job_account_managers")
     
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_job_account_managers_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_job_account_managers_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     # Filter the source DataFrame for "D" operations and select distinct CT_JobAccountManagerId

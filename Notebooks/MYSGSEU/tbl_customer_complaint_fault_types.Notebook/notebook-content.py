@@ -72,7 +72,7 @@ schema = StructType([
 df = spark.createDataFrame([], schema)
 
 # Define paths
-silver_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_customer_complaint_fault_types"
+silver_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_customer_complaint_fault_types"
 silver_table = DeltaTable.forPath(spark, silver_path)
 
 # Parameters
@@ -82,7 +82,7 @@ if in_mode == "FULL":
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_customer_complaint_fault_types")
 
     # Read Bronze Delta Table
-    bronze_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_complaint_fault_types_FULL"
+    bronze_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_complaint_fault_types_FULL"
 
     bronze_df = spark.read.format("delta").load(bronze_path)
 
@@ -107,7 +107,7 @@ else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_customer_complaint_fault_types")
 
     # Read Delta source
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_complaint_fault_types_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_customer_complaint_fault_types_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     # DELETE: Remove records marked as 'D' in SYS_CHANGE_OPERATION

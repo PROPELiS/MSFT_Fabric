@@ -57,8 +57,8 @@ spark = SparkSession.builder \
 
 param = ""
 # File paths
-silver_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/KPI/tbl_stgtransjobsubfamilyjobrolegroup"
-bronze_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/KPI/stgTransJobSubFamilyJobRoleGroup"
+silver_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/KPI/tbl_stgtransjobsubfamilyjobrolegroup"
+bronze_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/KPI/stgTransJobSubFamilyJobRoleGroup"
 
 if in_mode == "FULL":
     # Load bronze data

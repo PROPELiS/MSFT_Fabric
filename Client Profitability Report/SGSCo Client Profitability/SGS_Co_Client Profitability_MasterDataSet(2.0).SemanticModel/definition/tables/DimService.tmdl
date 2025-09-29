@@ -34,41 +34,53 @@ table DimService
 
 	column GroupCode
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: c9217c92-a7d6-476e-a80a-d172471d4673
 		sourceLineageTag: GroupCode
 		summarizeBy: none
 		sourceColumn: GroupCode
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Group
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: 86b610f3-38d3-41e9-83dd-02f7754ec1d4
 		sourceLineageTag: Group
 		summarizeBy: none
 		sourceColumn: Group
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column LOBCode
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: 55767659-4f1c-419b-920a-0ee67e085324
 		sourceLineageTag: LOBCode
 		summarizeBy: none
 		sourceColumn: LOBCode
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column LineOfBusiness
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: 9afd76c3-da31-49ae-86bb-080a4caf3ab5
 		sourceLineageTag: LineOfBusiness
 		summarizeBy: none
 		sourceColumn: LineOfBusiness
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

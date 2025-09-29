@@ -34,22 +34,28 @@ table DimLOB
 
 	column Group
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: d7f700b5-8043-4ec0-916a-d678d4359f53
 		sourceLineageTag: Group
 		summarizeBy: none
 		sourceColumn: Group
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column GroupCode
 		dataType: int64
+		isHidden
 		formatString: 0
 		sourceProviderType: decimal(10, 0)
 		lineageTag: 798394ed-d0ef-4043-9d6f-df9d56414450
 		sourceLineageTag: GroupCode
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: GroupCode
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

@@ -79,9 +79,9 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
 #df.write.format("delta").mode("overwrite").saveAsTable("KPI.tbl_stgNonUltiPro_Combined_Employee_Wage")
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/KPI/tbl_stgnonultipro_combined_employee_wage"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/KPI/tbl_stgnonultipro_combined_employee_wage"
 silver_table = DeltaTable.forPath(spark, silver_path)
-bronze_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/KPI/stgNonUltiPro_Combined_Employee_Wage"
+bronze_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/KPI/stgNonUltiPro_Combined_Employee_Wage"
 # Parameters
 param = ""  # Replace with the actual PARAM value
 

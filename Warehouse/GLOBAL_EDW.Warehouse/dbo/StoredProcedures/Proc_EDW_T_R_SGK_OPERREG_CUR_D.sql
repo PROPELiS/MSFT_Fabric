@@ -1,4 +1,4 @@
-CREATE     PROCEDURE dbo.Proc_EDW_T_R_SGK_OPERREG_CUR_D
+CREATE       PROCEDURE dbo.Proc_EDW_T_R_SGK_OPERREG_CUR_D
 AS
 BEGIN
 
@@ -27,7 +27,7 @@ BEGIN
     ------------------------------------------------------------------
     UPDATE T
     SET 
-        [Business Function] = S.[BUSINESS_FUNCTION],
+        [Business Function] =  S.[BUSINESS_FUNCTION],
         [SGK Plant Region]            = S.[REGION]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_R_SGK_OPERREG_CUR_D] AS T
     INNER JOIN #SourceData AS S
@@ -43,7 +43,7 @@ BEGIN
     ------------------------------------------------------------------
     -- Step 3: Insert only new rows not already in target
     ------------------------------------------------------------------
-    INSERT INTO [GLOBAL_EDW].[dbo].[EDW_T_R_SGK_OPERREG_CUR_D_TRIAL]
+    INSERT INTO [GLOBAL_EDW].[dbo].[EDW_T_R_SGK_OPERREG_CUR_D]
     (
         [Business Function],
         [SGK Plant Region],
@@ -66,4 +66,3 @@ BEGIN
     PRINT 'Incremental load completed – updated changed rows and inserted new rows.';
 
 END;
-exec dbo.Proc_EDW_T_R_SGK_OPERREG_CUR_D

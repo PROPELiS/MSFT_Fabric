@@ -77,7 +77,7 @@ schema = StructType([
 # Write the DataFrame as a Delta table
 df = spark.createDataFrame([], schema)
 
-silver_table_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_ex"
+silver_table_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_ex"
 silver_table = DeltaTable.forPath(spark, silver_table_path)
 
 # Parameters
@@ -86,7 +86,7 @@ param = ""  # Replace with the actual PARAM value
 
 if in_mode == "FULL":
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_credit_notes_ex")
-    bronze_Path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_ex_FULL"
+    bronze_Path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_ex_FULL"
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
     
@@ -113,7 +113,7 @@ if in_mode == "FULL":
      }).execute()
 else:
     
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_ex_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_credit_notes_ex_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     filtered_source_df = source_df_delta.filter(source_df_delta["SYS_CHANGE_OPERATION"] == "D") \

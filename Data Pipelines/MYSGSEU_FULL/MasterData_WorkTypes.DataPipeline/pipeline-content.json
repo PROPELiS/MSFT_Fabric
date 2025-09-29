@@ -1,0 +1,186 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data1",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "type": "SqlServerTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "MasterData_WorkTypes",
+                "database": "Warehouse_Staging"
+              },
+              "externalReferences": {
+                "connection": "ac03e674-24fe-47fa-a6fa-1c8664bea5ba"
+              }
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "type": "SnowflakeTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "MasterData_WorkTypes",
+                "database": "SILVER"
+              },
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "Code",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "Code",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "WorkType",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "100"
+                },
+                "sink": {
+                  "name": "Worktype",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "Active",
+                  "type": "Boolean",
+                  "physicalType": "bit"
+                },
+                "sink": {
+                  "name": "Active",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "DateAdded",
+                  "type": "DateTime",
+                  "physicalType": "datetime2",
+                  "precision": 7
+                },
+                "sink": {
+                  "name": "DateAdded",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "AddedBy",
+                  "type": "String",
+                  "physicalType": "nvarchar",
+                  "length": "255"
+                },
+                "sink": {
+                  "name": "AddedBy",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "LastModifiedDate",
+                  "type": "DateTime",
+                  "physicalType": "datetime2",
+                  "precision": 7
+                },
+                "sink": {
+                  "name": "LastModifiedDate",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "LastModifiedBy",
+                  "type": "String",
+                  "physicalType": "nvarchar",
+                  "length": "255"
+                },
+                "sink": {
+                  "name": "LastModifiedBy",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ETL_BatchId",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "Etl_BatchId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "ETL_ChangeTrackingOperation",
+                  "type": "String",
+                  "physicalType": "nchar",
+                  "length": "1"
+                },
+                "sink": {
+                  "name": "Etl_ChangeTrackingOperation",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

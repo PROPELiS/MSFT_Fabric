@@ -60,46 +60,59 @@ table DimDepartment
 
 	column Group
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: 4b4a61c7-176b-4b7b-b8eb-3b936bef6845
 		sourceLineageTag: Group
 		summarizeBy: none
 		sourceColumn: Group
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column LineofBusiness
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: 337ad0ce-136c-481d-a72b-79df5e40c473
 		sourceLineageTag: LineofBusiness
 		summarizeBy: none
 		sourceColumn: LineofBusiness
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Service
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: d42871b0-76f1-41d8-a201-b240c2d5b932
 		sourceLineageTag: Service
 		summarizeBy: none
 		sourceColumn: Service
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column SubService
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: a3487e49-7277-4835-9177-dacb6147763b
 		sourceLineageTag: SubService
 		summarizeBy: none
 		sourceColumn: SubService
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column GroupCode
 		dataType: int64
+		isHidden
 		formatString: 0
 		sourceProviderType: decimal(10, 0)
 		lineageTag: 968a9775-beb5-4a2b-9a36-0342bfba249e
@@ -107,10 +120,13 @@ table DimDepartment
 		summarizeBy: count
 		sourceColumn: GroupCode
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column LOBCode
 		dataType: int64
+		isHidden
 		formatString: 0
 		sourceProviderType: decimal(10, 0)
 		lineageTag: c6024021-a0de-4304-ba3b-7033b1a4009f
@@ -118,10 +134,13 @@ table DimDepartment
 		summarizeBy: count
 		sourceColumn: LOBCode
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ServiceCode
 		dataType: int64
+		isHidden
 		formatString: 0
 		sourceProviderType: decimal(10, 0)
 		lineageTag: 064e14dd-bc6a-4389-8947-e71c3a552f51
@@ -129,16 +148,21 @@ table DimDepartment
 		summarizeBy: count
 		sourceColumn: ServiceCode
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column SubServiceCode
 		dataType: int64
+		isHidden
 		formatString: 0
 		sourceProviderType: decimal(10, 0)
 		lineageTag: 09934689-30ae-40af-a868-7cee0bc9cb98
 		sourceLineageTag: SubServiceCode
 		summarizeBy: count
 		sourceColumn: SubServiceCode
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

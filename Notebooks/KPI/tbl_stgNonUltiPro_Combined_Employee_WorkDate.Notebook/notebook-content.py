@@ -80,8 +80,8 @@ df = spark.createDataFrame([], schema)
 
 param = ""
 
-bronze_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/KPI/stgNonUltiPro_Combined_Employee_WorkDate"
-silver_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/KPI/tbl_stgnonultipro_combined_employee_workdate"
+bronze_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/KPI/stgNonUltiPro_Combined_Employee_WorkDate"
+silver_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/KPI/tbl_stgnonultipro_combined_employee_workdate"
 silver_table = DeltaTable.forPath(spark, silver_path)
 # Read Bronze
 bronze_df = spark.read.format("delta").load(bronze_path)

@@ -71,7 +71,7 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
 
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/customer_customertypes"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/customer_customertypes"
 silver_table = DeltaTable.forPath(spark, silver_path)
 
 # Parameters
@@ -80,7 +80,7 @@ param = ""  # RDeplace with the actual PARAM value
 if in_mode == "FULL":
     # Write the Dataframe as a Delta table
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.Customer_CustomerTypes")
-    bronze_Path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Customer_CustomerTypes_FULL"
+    bronze_Path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Customer_CustomerTypes_FULL"
 
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
@@ -104,7 +104,7 @@ else:
     
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.customer_customertypes")
     
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Customer_CustomerTypes_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Customer_CustomerTypes_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     # Filter for "D" (DELETE) operations

@@ -15,7 +15,7 @@ table DimCustomerPrimaryContact
 		annotation SummarizationSetBy = Automatic
 
 	column 'CUST - Customer Id'
-		dataType: double
+		dataType: int64
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 23902f4e-51e1-4a24-9423-769977a3bffc
 		sourceLineageTag: CustomerId
@@ -23,6 +23,8 @@ table DimCustomerPrimaryContact
 		sourceColumn: CustomerId
 
 		changedProperty = Name
+
+		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
 
@@ -91,18 +93,6 @@ table DimCustomerPrimaryContact
 		sourceLineageTag: City
 		summarizeBy: none
 		sourceColumn: City
-
-		changedProperty = Name
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'CUST - County'
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: df3edc3c-795e-4fac-bf32-0d71959d391a
-		sourceLineageTag: County
-		summarizeBy: none
-		sourceColumn: County
 
 		changedProperty = Name
 
@@ -1263,6 +1253,18 @@ table DimCustomerPrimaryContact
 		sourceColumn: METADATA$ROW_ID
 
 		annotation SummarizationSetBy = Automatic
+
+	column R12RevenueUSD
+		dataType: double
+		sourceProviderType: decimal(17, 2)
+		lineageTag: 57ec2643-14aa-4c21-a00a-178f54af55ff
+		sourceLineageTag: R12RevenueUSD
+		summarizeBy: sum
+		sourceColumn: R12RevenueUSD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition DimCustomerPrimaryContact = entity
 		mode: directLake

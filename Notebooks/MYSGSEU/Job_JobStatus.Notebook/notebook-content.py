@@ -14,9 +14,6 @@
 # META       "known_lakehouses": [
 # META         {
 # META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
-# META         },
-# META         {
-# META           "id": "5db3d583-e11f-4ac4-9781-65ee3ee820a0"
 # META         }
 # META       ]
 # META     }
@@ -76,7 +73,7 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
 
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/job_jobstatus"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/job_jobstatus"
 silver_table = DeltaTable.forPath(spark, silver_path)
 
 # Parameters
@@ -85,7 +82,7 @@ param = ""  # Replace with the actual PARAM value
 if in_mode == "FULL":
     # Write the DataFrame as a Delta table
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.Job_JobStatus")
-    bronze_Path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Job_JobStatus_FULL"
+    bronze_Path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Job_JobStatus_FULL"
 
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
@@ -108,7 +105,7 @@ if in_mode == "FULL":
 else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.Job_JobStatus")
    # Define paths
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Job_JobStatus_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/Job_JobStatus_DELTA"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     # Filter the source DataFrame for "D" operations and select distinct CT_CustomerTypeId
@@ -152,18 +149,6 @@ else:
     }).execute()   
 
             
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-df = spark.sql("SELECT * FROM SILVER.MYSGSEU.job_jobstatus LIMIT 1000")
-display(df)
 
 # METADATA ********************
 

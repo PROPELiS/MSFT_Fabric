@@ -77,63 +77,7 @@ schema = StructType([
 df = spark.createDataFrame([], schema)
     # Write the DataFrame as a Delta table
 
-
-df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_new_stage_reason_found_on")
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-# Welcome to your new notebook
-# Type here in the cell editor to add code!
-from pyspark.sql.functions import concat_ws, expr, sha2, size, lit, col, array, struct, udf, current_timestamp, max as spark_max
-from functools import reduce
-from pyspark.sql.types import *
-from pyspark.sql import *
-from delta.tables import *
-from pyspark.sql import SparkSession
-from delta.tables import DeltaTable
-from pyspark.sql.types import StructType, StructField, StringType, TimestampType
-
-# Define the schema for the order data
-orderSchema = StructType([
-    StructField("SYS_CHANGE_VERSION", StringType(), True),
-    StructField("SYS_CHANGE_CREATION_VERSION", StringType(), True),
-    StructField("SYS_CHANGE_OPERATION", StringType(), True),
-    StructField("SYS_CHANGE_COLUMNS", StringType(), True),
-    StructField("SYS_CHANGE_CONTEXT", StringType(), True),
-    StructField("CT_FoundOnId", StringType(), True),
-    StructField("FoundOnId", StringType(), True),
-    StructField("FoundOnDesc", StringType(), True),
-    StructField("Deleted", StringType(), True)
-])
-
-# Initialize Spark session
-spark = SparkSession.builder \
-    .appName("Bronze to Silver Merge") \
-    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
-    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog") \
-    .getOrCreate()
-
-    # Define the schema
-schema = StructType([
-   StructField("SYS_CHANGE_VERSION", StringType(), True),
-   StructField("SYS_CHANGE_OPERATION", StringType(), True),
-   StructField("FoundOnId", StringType(), True),
-   StructField("FoundOnDesc", StringType(), True),
-   StructField("Deleted", StringType(), True)
-])
-
-# Create an empty DataFrame with the schema
-df = spark.createDataFrame([], schema)
-    # Write the DataFrame as a Delta table
-
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_found_on"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_found_on"
 silver_table = DeltaTable.forPath(spark, silver_path)
 # Parameters
 
@@ -141,7 +85,7 @@ silver_table = DeltaTable.forPath(spark, silver_path)
 if in_mode == "FULL":
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_new_stage_reason_found_on")
     # Load Delta tables correctly
-    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_found_on_FULL"
+    bronze_Path ="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_found_on_FULL"
 
     bronze_df = spark.read.format("delta").load(bronze_Path)
 
@@ -167,7 +111,7 @@ else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_new_stage_reason_found_on")
     
    # Define paths
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_found_on_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_new_stage_reason_found_on_DELTA"
    # Read source and target as Delta Tables
     silver_df_delta = DeltaTable.forPath(spark, silver_path)
     source_df_delta = spark.read.format("delta").load(source_path)

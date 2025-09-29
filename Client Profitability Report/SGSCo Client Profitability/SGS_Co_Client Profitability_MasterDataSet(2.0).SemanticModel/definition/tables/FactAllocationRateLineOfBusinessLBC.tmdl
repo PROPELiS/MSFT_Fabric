@@ -1,0 +1,274 @@
+table FactAllocationRateLineOfBusinessLBC
+	lineageTag: 773401ec-b1af-4849-8121-d89224f7eb38
+	sourceLineageTag: [dbo].[FactAllocationRateLineOfBusinessLBC]
+
+	column HEXKeyCalendarDate
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5616f29a-dbd0-4c5f-8922-1b931f55a99d
+		sourceLineageTag: HEXKeyCalendarDate
+		summarizeBy: none
+		sourceColumn: HEXKeyCalendarDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyLineOfBusiness
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: faf2ab9d-d392-46ba-8d54-e63a2367abfa
+		sourceLineageTag: HEXKeyLineOfBusiness
+		summarizeBy: none
+		sourceColumn: HEXKeyLineOfBusiness
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyCombineCustomer
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7bf2a208-cddb-420c-ac97-f9ca2176efde
+		sourceLineageTag: HEXKeyCombineCustomer
+		summarizeBy: none
+		sourceColumn: HEXKeyCombineCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyLBCLocation
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bac13c0d-5a3f-4bae-a430-9f1694784771
+		sourceLineageTag: HEXKeyLBCLocation
+		summarizeBy: none
+		sourceColumn: HEXKeyLBCLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthlySalesByCustomer
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(17, 4)
+		lineageTag: bce05ecc-1a4c-4e5e-a6b2-59fd0f91c473
+		sourceLineageTag: MonthlySalesByCustomer
+		summarizeBy: sum
+		sourceColumn: MonthlySalesByCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column MonthlySalesAllCustomer
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(17, 4)
+		lineageTag: 1df90317-a0e1-4b05-b231-b78f91aa9451
+		sourceLineageTag: MonthlySalesAllCustomer
+		summarizeBy: sum
+		sourceColumn: MonthlySalesAllCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column AllocationRateByGlobalRevenue
+		dataType: double
+		sourceProviderType: float
+		lineageTag: c519e52e-8875-4106-b8e0-d39484acb01d
+		sourceLineageTag: AllocationRateByGlobalRevenue
+		summarizeBy: sum
+		sourceColumn: AllocationRateByGlobalRevenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MonthlySalesByAllNonBlankCustomer
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(17, 4)
+		lineageTag: a56793a6-7cfc-4ba3-9931-e2c34f8871f2
+		sourceLineageTag: MonthlySalesByAllNonBlankCustomer
+		summarizeBy: sum
+		sourceColumn: MonthlySalesByAllNonBlankCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column MonthlyPlatingTaskAndcolorsByCustomer
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(17, 4)
+		lineageTag: e9fdccb6-2b26-4827-861f-dc33eb9b1073
+		sourceLineageTag: MonthlyPlatingTaskAndcolorsByCustomer
+		summarizeBy: sum
+		sourceColumn: MonthlyPlatingTaskAndcolorsByCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column MonthlyPlatingTaskAndcolorsAllCustomer
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(17, 4)
+		lineageTag: 6c8e08ea-87ed-437f-bb9f-c1316370f252
+		sourceLineageTag: MonthlyPlatingTaskAndcolorsAllCustomer
+		summarizeBy: sum
+		sourceColumn: MonthlyPlatingTaskAndcolorsAllCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column AllocationRateByPlatingTaskAndcolors
+		dataType: double
+		sourceProviderType: float
+		lineageTag: dda5edad-37fd-40db-83c0-9c2c439a1f42
+		sourceLineageTag: AllocationRateByPlatingTaskAndcolors
+		summarizeBy: sum
+		sourceColumn: AllocationRateByPlatingTaskAndcolors
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MonthlyPlatingTaskAndcolorsByAllNonBlankCustomer
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(17, 4)
+		lineageTag: 51f02fb3-835d-4d8a-b540-0e8d4a52675b
+		sourceLineageTag: MonthlyPlatingTaskAndcolorsByAllNonBlankCustomer
+		summarizeBy: sum
+		sourceColumn: MonthlyPlatingTaskAndcolorsByAllNonBlankCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column MonthlyEngravingTaskAndcolorsByCustomer
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(17, 4)
+		lineageTag: 2d2fc5e4-13bc-4c18-8d3f-8e2d4c4fa3fb
+		sourceLineageTag: MonthlyEngravingTaskAndcolorsByCustomer
+		summarizeBy: sum
+		sourceColumn: MonthlyEngravingTaskAndcolorsByCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column MonthlyEngravingTaskAndcolorsAllCustomer
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(17, 4)
+		lineageTag: cf8425e8-a1b8-4960-85ea-ec5fca3404c4
+		sourceLineageTag: MonthlyEngravingTaskAndcolorsAllCustomer
+		summarizeBy: sum
+		sourceColumn: MonthlyEngravingTaskAndcolorsAllCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column AllocationRateByEngravingTaskAndcolors
+		dataType: double
+		sourceProviderType: float
+		lineageTag: cc4772ce-f82d-4ed6-a2cb-50f2ccbf918f
+		sourceLineageTag: AllocationRateByEngravingTaskAndcolors
+		summarizeBy: sum
+		sourceColumn: AllocationRateByEngravingTaskAndcolors
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MonthlyEngravingTaskAndcolorsByAllNonBlankCustomer
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(17, 4)
+		lineageTag: d95fd638-9c7d-45bc-b86c-071629094bab
+		sourceLineageTag: MonthlyEngravingTaskAndcolorsByAllNonBlankCustomer
+		summarizeBy: sum
+		sourceColumn: MonthlyEngravingTaskAndcolorsByAllNonBlankCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column AllocationRateByLabor
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 583e8d5c-946e-4ffa-9fa6-13f433562c2e
+		sourceLineageTag: AllocationRateByLabor
+		summarizeBy: sum
+		sourceColumn: AllocationRateByLabor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MonthlyLaborDollarsByAllNonBlankCustomer
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(17, 4)
+		lineageTag: f7cac184-2d4e-49a4-afdc-5a228c2d2a64
+		sourceLineageTag: MonthlyLaborDollarsByAllNonBlankCustomer
+		summarizeBy: sum
+		sourceColumn: MonthlyLaborDollarsByAllNonBlankCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column MonthlyLaborDollarsByCustomer
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(17, 4)
+		lineageTag: 80304a9e-797a-4eeb-9d1f-dd1541ca00bc
+		sourceLineageTag: MonthlyLaborDollarsByCustomer
+		summarizeBy: sum
+		sourceColumn: MonthlyLaborDollarsByCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column AllocationSource
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e17abc01-c0e0-4100-b8c4-3e31dbda903a
+		sourceLineageTag: AllocationSource
+		summarizeBy: none
+		sourceColumn: AllocationSource
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimaryOrSecondaryIndicator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 56b5b86c-07a8-44a0-963f-665af6b956cd
+		sourceLineageTag: PrimaryOrSecondaryIndicator
+		summarizeBy: none
+		sourceColumn: PrimaryOrSecondaryIndicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4fb963a7-045c-45e0-829e-2757f11e252d
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactAllocationRateLineOfBusinessLBC = entity
+		mode: directLake
+		source
+			entityName: FactAllocationRateLineOfBusinessLBC
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

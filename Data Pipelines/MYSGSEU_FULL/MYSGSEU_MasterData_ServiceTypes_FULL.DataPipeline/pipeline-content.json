@@ -2,69 +2,81 @@
   "properties": {
     "activities": [
       {
+        "name": "MYSGSEU_MasterData_ServiceTypes_CSV",
         "type": "Copy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
-            "partitionOption": "None",
             "queryTimeout": "02:00:00",
+            "partitionOption": "None",
             "datasetSettings": {
+              "annotations": [],
               "type": "SqlServerTable",
+              "schema": [],
               "typeProperties": {
                 "schema": "MYSGSEU",
                 "table": "MasterData_ServiceTypes",
                 "database": "Warehouse_Staging"
               },
-              "schema": [],
               "externalReferences": {
                 "connection": "ac03e674-24fe-47fa-a6fa-1c8664bea5ba"
-              },
-              "annotations": []
+              }
             }
           },
           "sink": {
             "type": "DelimitedTextSink",
-            "formatSettings": {
-              "type": "DelimitedTextWriteSettings",
-              "quoteAllText": true,
-              "fileExtension": ".txt"
-            },
             "storeSettings": {
               "type": "LakehouseWriteSettings"
             },
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "fileExtension": ".txt",
+              "quoteAllText": true
+            },
             "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "annotations": [],
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "5db3d583-e11f-4ac4-9781-65ee3ee820a0",
+                    "rootFolder": "Files"
+                  }
+                }
+              },
               "type": "DelimitedText",
               "typeProperties": {
                 "location": {
                   "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Full",
                   "fileName": {
                     "value": "@concat('MYSGSEU','_','MasterData_ServiceTypes','.csv')",
                     "type": "Expression"
-                  }
+                  },
+                  "folderPath": "MYSGSEU/Full"
                 },
                 "columnDelimiter": ",",
                 "rowDelimiter": "\r\n",
-                "quoteChar": "\"",
                 "escapeChar": "\\",
-                "firstRowAsHeader": true
+                "firstRowAsHeader": true,
+                "quoteChar": "\""
               },
-              "schema": [],
-              "linkedService": {
-                "name": "BRONZE",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Files"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
+              "schema": []
             }
           },
+          "enableStaging": false,
           "translator": {
             "type": "TabularTranslator",
             "typeConversion": true,
@@ -72,96 +84,14 @@
               "allowDataTruncation": true,
               "treatBooleanAsNumber": false
             }
-          },
-          "enableStaging": false
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "MYSGSEU_MasterData_ServiceTypes_CSV",
-        "dependsOn": []
+          }
+        }
       },
       {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "SqlServerSource",
-            "partitionOption": "None",
-            "queryTimeout": "02:00:00",
-            "datasetSettings": {
-              "type": "SqlServerTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "MasterData_ServiceTypes",
-                "database": "Warehouse_Staging"
-              },
-              "schema": [],
-              "externalReferences": {
-                "connection": "ac03e674-24fe-47fa-a6fa-1c8664bea5ba"
-              },
-              "annotations": []
-            }
-          },
-          "sink": {
-            "type": "ParquetSink",
-            "formatSettings": {
-              "type": "ParquetWriteSettings",
-              "enableVertiParquet": true
-            },
-            "storeSettings": {
-              "type": "LakehouseWriteSettings"
-            },
-            "datasetSettings": {
-              "type": "Parquet",
-              "typeProperties": {
-                "location": {
-                  "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Full",
-                  "fileName": {
-                    "value": "@concat('MYSGSEU','_','MasterData_ServiceTypes','.parquet')",
-                    "type": "Expression"
-                  }
-                },
-                "compressionCodec": "snappy"
-              },
-              "schema": [],
-              "linkedService": {
-                "name": "BRONZE",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Files"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
-            }
-          },
-          "translator": {
-            "type": "TabularTranslator",
-            "typeConversion": true,
-            "typeConversionSettings": {
-              "allowDataTruncation": true,
-              "treatBooleanAsNumber": false
-            }
-          },
-          "enableStaging": false
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
         "name": "MYSGSEU_MasterData_ServiceTypes_Parquet",
+        "type": "Copy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "MYSGSEU_MasterData_ServiceTypes_CSV",
@@ -169,76 +99,72 @@
               "Succeeded"
             ]
           }
-        ]
-      },
-      {
-        "type": "Copy",
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
         "typeProperties": {
           "source": {
-            "type": "DelimitedTextSource",
-            "formatSettings": {
-              "type": "DelimitedTextReadSettings"
-            },
-            "storeSettings": {
-              "type": "LakehouseReadSettings",
-              "recursive": true,
-              "enablePartitionDiscovery": false
-            },
+            "type": "SqlServerSource",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
             "datasetSettings": {
-              "type": "DelimitedText",
-              "typeProperties": {
-                "location": {
-                  "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Full",
-                  "fileName": "MYSGSEU_MasterData_ServiceTypes.csv"
-                },
-                "columnDelimiter": ",",
-                "quoteChar": "\"",
-                "escapeChar": "\\",
-                "firstRowAsHeader": true
-              },
+              "annotations": [],
+              "type": "SqlServerTable",
               "schema": [],
-              "linkedService": {
-                "name": "BRONZE",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Files"
-                  },
-                  "annotations": []
-                }
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "MasterData_ServiceTypes",
+                "database": "Warehouse_Staging"
               },
-              "annotations": []
+              "externalReferences": {
+                "connection": "ac03e674-24fe-47fa-a6fa-1c8664bea5ba"
+              }
             }
           },
           "sink": {
-            "type": "LakehouseTableSink",
-            "tableActionOption": "OverwriteSchema",
-            "partitionOption": "None",
+            "type": "ParquetSink",
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "formatSettings": {
+              "type": "ParquetWriteSettings",
+              "enableVertiParquet": true
+            },
             "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "MYSGSEU_MasterData_ServiceTypes"
-              },
-              "schema": [],
+              "annotations": [],
               "linkedService": {
                 "name": "BRONZE",
                 "properties": {
+                  "annotations": [],
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Tables"
-                  },
-                  "annotations": []
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "5db3d583-e11f-4ac4-9781-65ee3ee820a0",
+                    "rootFolder": "Files"
+                  }
                 }
               },
-              "annotations": []
+              "type": "Parquet",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','MasterData_ServiceTypes','.parquet')",
+                    "type": "Expression"
+                  },
+                  "folderPath": "MYSGSEU/Full"
+                },
+                "compressionCodec": "snappy"
+              },
+              "schema": []
             }
           },
+          "enableStaging": false,
           "translator": {
             "type": "TabularTranslator",
             "typeConversion": true,
@@ -246,17 +172,14 @@
               "allowDataTruncation": true,
               "treatBooleanAsNumber": false
             }
-          },
-          "enableStaging": false
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
+          }
+        }
+      },
+      {
         "name": "File_To_Table",
+        "type": "Copy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "MYSGSEU_MasterData_ServiceTypes_Parquet",
@@ -264,28 +187,94 @@
               "Succeeded"
             ]
           }
-        ]
-      },
-      {
-        "type": "TridentNotebook",
-        "typeProperties": {
-          "notebookId": "5a173161-7b94-4833-a630-8d1ad6107a33",
-          "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
-          "parameters": {
-            "in_mode": {
-              "value": "DELTA",
-              "type": "string"
-            }
-          }
-        },
+        ],
         "policy": {
           "timeout": "0.12:00:00",
           "retry": 0,
           "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
+          "secureOutput": false,
+          "secureInput": false
         },
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "annotations": [],
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "5db3d583-e11f-4ac4-9781-65ee3ee820a0",
+                    "rootFolder": "Files"
+                  }
+                }
+              },
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "fileName": "MYSGSEU_MasterData_ServiceTypes.csv",
+                  "folderPath": "MYSGSEU/Full"
+                },
+                "columnDelimiter": ",",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true,
+                "quoteChar": "\""
+              },
+              "schema": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "annotations": [],
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "5db3d583-e11f-4ac4-9781-65ee3ee820a0",
+                    "rootFolder": "Tables"
+                  }
+                }
+              },
+              "type": "LakehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "MYSGSEU_MasterData_ServiceTypes"
+              }
+            }
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      },
+      {
         "name": "KPI_Hierarchy",
+        "type": "TridentNotebook",
         "state": "Inactive",
         "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
@@ -295,33 +284,68 @@
               "Succeeded"
             ]
           }
-        ]
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "notebookId": "5a173161-7b94-4833-a630-8d1ad6107a33",
+          "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+          "parameters": {
+            "in_mode": {
+              "value": "DELTA",
+              "type": "string"
+            }
+          }
+        }
       },
       {
+        "name": "Fabric_To_SF_KPI_Hierarchy",
         "type": "Copy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "KPI_Hierarchy",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
         "typeProperties": {
           "source": {
             "type": "LakehouseTableSource",
             "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "KPI",
-                "table": "tbl_hierarchy"
-              },
-              "schema": [],
+              "annotations": [],
               "linkedService": {
                 "name": "SILVER",
                 "properties": {
+                  "annotations": [],
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
                     "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
                     "rootFolder": "Tables"
-                  },
-                  "annotations": []
+                  }
                 }
               },
-              "annotations": []
+              "type": "LakehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "KPI",
+                "table": "tbl_hierarchy"
+              }
             }
           },
           "sink": {
@@ -334,19 +358,20 @@
               "type": "SnowflakeImportCopyCommand"
             },
             "datasetSettings": {
+              "annotations": [],
               "type": "SnowflakeTable",
+              "schema": [],
               "typeProperties": {
                 "schema": "KPI",
                 "table": "Hierarchy",
                 "database": "SILVER_FABRIC"
               },
-              "schema": [],
               "externalReferences": {
                 "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
-              },
-              "annotations": []
+              }
             }
           },
+          "enableStaging": true,
           "translator": {
             "type": "TabularTranslator",
             "mappings": [
@@ -1052,17 +1077,12 @@
               "allowDataTruncation": true,
               "treatBooleanAsNumber": false
             }
-          },
-          "enableStaging": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Fabric_To_SF_KPI_Hierarchy",
+          }
+        }
+      },
+      {
+        "name": "Fabric_To_Dev_SF_KPI_Hierarchy",
+        "type": "Copy",
         "state": "Inactive",
         "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
@@ -1072,33 +1092,37 @@
               "Succeeded"
             ]
           }
-        ]
-      },
-      {
-        "type": "Copy",
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
         "typeProperties": {
           "source": {
             "type": "LakehouseTableSource",
             "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "KPI",
-                "table": "tbl_hierarchy"
-              },
-              "schema": [],
+              "annotations": [],
               "linkedService": {
                 "name": "SILVER",
                 "properties": {
+                  "annotations": [],
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
                     "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
                     "rootFolder": "Tables"
-                  },
-                  "annotations": []
+                  }
                 }
               },
-              "annotations": []
+              "type": "LakehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "KPI",
+                "table": "tbl_hierarchy"
+              }
             }
           },
           "sink": {
@@ -1111,19 +1135,20 @@
               "type": "SnowflakeImportCopyCommand"
             },
             "datasetSettings": {
+              "annotations": [],
               "type": "SnowflakeTable",
+              "schema": [],
               "typeProperties": {
                 "schema": "KPI",
                 "table": "Hierarchy",
                 "database": "SILVER"
               },
-              "schema": [],
               "externalReferences": {
                 "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
-              },
-              "annotations": []
+              }
             }
           },
+          "enableStaging": true,
           "translator": {
             "type": "TabularTranslator",
             "mappings": [
@@ -1829,27 +1854,200 @@
               "allowDataTruncation": true,
               "treatBooleanAsNumber": false
             }
-          },
-          "enableStaging": true
-        },
+          }
+        }
+      },
+      {
+        "name": "Copy data1",
+        "type": "Copy",
+        "dependsOn": [],
         "policy": {
           "timeout": "0.12:00:00",
           "retry": 0,
           "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
+          "secureOutput": false,
+          "secureInput": false
         },
-        "name": "Fabric_To_Dev_SF_KPI_Hierarchy",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
-        "dependsOn": [
-          {
-            "activity": "KPI_Hierarchy",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "type": "SqlServerTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "MasterData_ServiceTypes",
+                "database": "Warehouse_Staging"
+              },
+              "externalReferences": {
+                "connection": "ac03e674-24fe-47fa-a6fa-1c8664bea5ba"
+              }
+            }
+          },
+          "sink": {
+            "type": "SnowflakeSink",
+            "importSettings": {
+              "type": "SnowflakeImportCopyCommand"
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "type": "SnowflakeTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "MasterData_ServiceTypes",
+                "database": "SILVER"
+              },
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "Code",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "Code",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "ServiceType",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "100"
+                },
+                "sink": {
+                  "name": "ServiceType",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "Active",
+                  "type": "Boolean",
+                  "physicalType": "bit"
+                },
+                "sink": {
+                  "name": "Active",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "DateAdded",
+                  "type": "DateTime",
+                  "physicalType": "datetime2",
+                  "precision": 7
+                },
+                "sink": {
+                  "name": "DateAdded",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "AddedBy",
+                  "type": "String",
+                  "physicalType": "nvarchar",
+                  "length": "255"
+                },
+                "sink": {
+                  "name": "AddedBy",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "LastModifiedDate",
+                  "type": "DateTime",
+                  "physicalType": "datetime2",
+                  "precision": 7
+                },
+                "sink": {
+                  "name": "LastModifiedDate",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "LastModifiedBy",
+                  "type": "String",
+                  "physicalType": "nvarchar",
+                  "length": "255"
+                },
+                "sink": {
+                  "name": "LastModifiedBy",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "System",
+                  "type": "Boolean",
+                  "physicalType": "bit"
+                },
+                "sink": {
+                  "name": "System",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              },
+              {
+                "source": {
+                  "name": "ETL_BatchId",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "Etl_BatchId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "ETL_ChangeTrackingOperation",
+                  "type": "String",
+                  "physicalType": "nchar",
+                  "length": "1"
+                },
+                "sink": {
+                  "name": "Etl_ChangeTrackingOperation",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
           }
-        ]
+        }
       }
     ]
   }

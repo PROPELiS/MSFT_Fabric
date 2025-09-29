@@ -1796,6 +1796,16 @@ table DimEmployee
 
 		annotation SummarizationSetBy = Automatic
 
+	column HRGrouping
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4fe6f398-4356-4b2f-9e28-0834b2c783f9
+		sourceLineageTag: HRGrouping
+		summarizeBy: none
+		sourceColumn: HRGrouping
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimEmployee = entity
 		mode: directLake
 		source

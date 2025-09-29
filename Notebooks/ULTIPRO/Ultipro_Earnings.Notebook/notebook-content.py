@@ -98,14 +98,14 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
 
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/ULTIPRO/tbl_earnings"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/ULTIPRO/tbl_earnings"
 silver_table = DeltaTable.forPath(spark, silver_path)
 # Parameters
 param = ""  # Replace with the actual PARAM value
 
 # If-else logic to control the flow based on in_mode
 if in_mode == "FULL":
-    bronze_Path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_Earnings"
+    bronze_Path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_Earnings"
     bronze_df = spark.read.format("delta").load(bronze_Path)
     
     # Overwrite Silver with Bronze
@@ -114,7 +114,7 @@ if in_mode == "FULL":
 else:
     df.write.format("delta").mode("append").saveAsTable("ULTIPRO.tbl_earnings")
     
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_Earnings"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_Earnings"
     source_df_delta = spark.read.format("delta").load(source_path)
 
     # Perform the MERGE operation 

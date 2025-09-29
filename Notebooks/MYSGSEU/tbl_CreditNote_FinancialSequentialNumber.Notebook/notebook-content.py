@@ -90,7 +90,7 @@ schema = StructType([
 df = spark.createDataFrame([], schema)
     # Write the DataFrame as a Delta table
 
-silver_table_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_creditnote_financialsequentialnumber"
+silver_table_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/MYSGSEU/tbl_creditnote_financialsequentialnumber"
 silver_table = DeltaTable.forPath(spark, silver_table_path)
 
 
@@ -100,7 +100,7 @@ param = ""  # Replace with the actual PARAM value
 if in_mode == "FULL":
     # Load Delta tables correctly
     df.write.format("delta").mode("overwrite").saveAsTable("MYSGSEU.tbl_CreditNote_FinancialSequentialNumber")
-    bronze_Path ="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_CreditNote_FinancialSequentialNumber_FULL"
+    bronze_Path ="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_CreditNote_FinancialSequentialNumber_FULL"
     bronze_df = spark.read.format("delta").load(bronze_Path)
     # Merge data from Bronze Full to Silver
     silver_table.alias("target").merge(
@@ -134,7 +134,7 @@ if in_mode == "FULL":
 else:
     df.write.format("delta").mode("append").saveAsTable("MYSGSEU.tbl_CreditNote_FinancialSequentialNumber")
     # Define paths
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_CreditNote_FinancialSequentialNumber_DELTA"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/MYSGSEU/tbl_CreditNote_FinancialSequentialNumber_DELTA"
    # Read source and target as Delta Tables
     source_df_delta = spark.read.format("delta").load(source_path)
 

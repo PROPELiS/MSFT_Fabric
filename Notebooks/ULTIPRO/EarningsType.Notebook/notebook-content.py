@@ -71,7 +71,7 @@ schema = StructType([
 # Create an empty DataFrame with the schema
 df = spark.createDataFrame([], schema)
 
-silver_path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/ULTIPRO/tbl_earningstype"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/ULTIPRO/tbl_earningstype"
 silver_table = DeltaTable.forPath(spark, silver_path)
 
 # Parameters
@@ -80,7 +80,7 @@ param = ""  # Replace with the actual PARAM value
 if in_mode == "FULL":
     # Write the DataFrame as a Delta table
     df.write.format("delta").mode("overwrite").saveAsTable("ULTIPRO.tbl_earningstype")
-    bronze_Path="abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_EarningsType"
+    bronze_Path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_EarningsType"
 
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
@@ -103,7 +103,7 @@ if in_mode == "FULL":
 else:
     df.write.format("delta").mode("append").saveAsTable("ULTIPRO.tbl_earningstype")
    # Define paths
-    source_path = "abfss://Propelis_Fabric_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_EarningsType"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/Ultipro/_EarningsType"
     source_df_delta = spark.read.format("delta").load(source_path)
     
 # Perform the MERGE operation

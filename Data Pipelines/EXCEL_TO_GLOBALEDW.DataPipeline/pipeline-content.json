@@ -1,0 +1,96 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "ExcelSource",
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "Excel",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "MDM SGK INTEGRATION EXCEL FILES",
+                  "fileName": "Master Standard Text Key_Current SSP Tasks Only.xlsx"
+                },
+                "sheetName": "Sheet2",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "tableOption": "autoCreate",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "type": "DataWarehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "Master_Standard_Text_Key_Current_SSP_Tasks_Only"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "GLOBAL_EDW",
+                "properties": {
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "artifactId": "175895f8-4d92-40a3-9ccd-68e8e9fa96b7",
+                    "endpoint": "c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com",
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true,
+          "stagingSettings": {
+            "path": "fabric",
+            "externalReferences": {
+              "connection": "6e349cd7-cb12-4f34-b8a6-54215ff16442"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy data1",
+        "dependsOn": []
+      }
+    ]
+  }
+}
