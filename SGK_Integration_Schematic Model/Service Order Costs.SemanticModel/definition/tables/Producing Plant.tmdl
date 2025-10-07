@@ -322,11 +322,11 @@ table 'Producing Plant'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_PRODUCING_PLANT = Source{[Schema="Propelis",Item="V_PRODUCING_PLANT"]}[Data]
+				    Propelis_PRODUCING_PLANT = Source{[Schema="Propelis",Item="PRODUCING_PLANT"]}[Data]
 				in
-				    Propelis_V_PRODUCING_PLANT
-
-	changedProperty = Name
+				    Propelis_PRODUCING_PLANT
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

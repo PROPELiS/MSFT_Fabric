@@ -106,11 +106,11 @@ table 'Document Currency'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_DOCUMENT_CURRENCY = Source{[Schema="Propelis",Item="V_DOCUMENT_CURRENCY"]}[Data]
+				    Propelis_DOCUMENT_CURRENCY = Source{[Schema="Propelis",Item="DOCUMENT_CURRENCY"]}[Data]
 				in
-				    Propelis_V_DOCUMENT_CURRENCY
-
-	changedProperty = Name
+				    Propelis_DOCUMENT_CURRENCY
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

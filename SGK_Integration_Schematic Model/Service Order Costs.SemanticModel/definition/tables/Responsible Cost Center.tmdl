@@ -493,11 +493,11 @@ table 'Responsible Cost Center'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_RESP_COST_CENTER = Source{[Schema="Propelis",Item="V_RESP_COST_CENTER"]}[Data]
+				    Propelis_RESP_COST_CENTER = Source{[Schema="Propelis",Item="RESP_COST_CENTER"]}[Data]
 				in
-				    Propelis_V_RESP_COST_CENTER
-
-	changedProperty = Name
+				    Propelis_RESP_COST_CENTER
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 
