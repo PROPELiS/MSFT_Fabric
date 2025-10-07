@@ -1,0 +1,106 @@
+table 'EDW_T_D_MST_FUNCTAR_CUR_D 3'
+	lineageTag: ec1a309a-9b08-4dc0-8078-278bccdfd344
+	sourceLineageTag: 09b618e4-0964-43ea-ac4f-fa7e68ac8e08
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 4a48047a-2f47-4286-8cb0-206e4f27a359
+		sourceLineageTag: 156a8fe6-e4ad-4eb3-8a28-eeae12f99fef
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Functional Area ID'
+		dataType: string
+		lineageTag: 2c67d0dc-cd6a-46c8-9bf9-0d22d936de34
+		sourceLineageTag: 7681e25a-b5c3-423d-bd06-58f06e8eb293
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Functional Area ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Functional Area Description'
+		dataType: string
+		lineageTag: f58fb627-fe78-4a4e-acef-1f272923b446
+		sourceLineageTag: 5931e12e-fbf0-47e4-8314-ca2505138b1b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Functional Area Description
+
+		annotation SummarizationSetBy = User
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 27ec66ee-d3c7-4323-bbf8-f755220d9faf
+		sourceLineageTag: e70f4292-4dc0-4757-ad1f-0b17e1f28c3d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = User
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b40cec30-2117-48f7-ab26-eaf1731cad3a
+		sourceLineageTag: 8f387dd5-e130-435d-8f80-5e05bcabeea3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = User
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 56b3983a-9ffa-48d2-986e-70fedb8e71d9
+		sourceLineageTag: 5109761b-15fe-4eba-bd64-2387ac45d17c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = User
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: ee70abd6-b690-4574-bf43-5382b63bf005
+		sourceLineageTag: 5d9d6ef0-2fcb-4210-8909-21b2891cca0d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = User
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 1a5055ee-14ab-4c04-beee-e55365a50a29
+		sourceLineageTag: 7c2f206a-31e8-435a-bfe0-4112d0771a11
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = User
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 91978c47-d517-4c55-945a-2150bf57bbe5
+		sourceLineageTag: 3daa892d-2793-41b4-b6a5-a8332320bbcc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = User
+
+	partition 'EDW_T_D_MST_FUNCTAR_CUR_D 3' = entity
+		mode: directQuery
+		source
+			entityName: EDW_T_D_MST_FUNCTAR_CUR_D
+			expressionSource: 'DirectQuery to AS - TimeCards_CATSDB 2'
+

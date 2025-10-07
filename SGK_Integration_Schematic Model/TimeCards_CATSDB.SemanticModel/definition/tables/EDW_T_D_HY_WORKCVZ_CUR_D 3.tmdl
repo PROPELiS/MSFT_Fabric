@@ -1,0 +1,81 @@
+table 'EDW_T_D_HY_WORKCVZ_CUR_D 3'
+	lineageTag: 539139f2-1e63-4b05-b4cd-c1d298da277a
+	sourceLineageTag: 42667302-bfff-483a-8d86-629388753a9d
+
+	column WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: b1999f65-fe89-4eec-97af-3b109cd78f70
+		sourceLineageTag: 02663d94-fc66-4ae8-b6a0-33e5483edea6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Center Plant ID'
+		dataType: string
+		lineageTag: 19b6357e-f105-4d79-8161-0bb13c95e780
+		sourceLineageTag: 31690d35-7dc6-4f75-9af4-4164b237dc83
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work Center Plant ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Center Parent ID VH'
+		dataType: string
+		lineageTag: 1d3284b9-514d-445d-b467-c2d46c9a4b5e
+		sourceLineageTag: 599b137e-35a1-48fe-81f2-c6e5232e8401
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work Center Parent ID VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Center Parent Description VH'
+		dataType: string
+		lineageTag: 50a9c1b5-ff16-4ef3-8ecc-ca7edf54ae97
+		sourceLineageTag: 39cefa43-4b0c-4ff3-b602-d27b1e488c6c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work Center Parent Description VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Center Child ID VH'
+		dataType: string
+		lineageTag: 44748e3e-dada-4dce-9124-bd5a8fc1b82a
+		sourceLineageTag: 3ab6ead5-ba09-4660-8e35-510e72b4c6b3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work Center Child ID VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Center Child Description VH'
+		dataType: string
+		lineageTag: 262bfdf1-c962-4beb-97bc-56552c41f028
+		sourceLineageTag: 3b9c8b68-87b0-4ef4-bef3-e444742ec0b9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work Center Child Description VH
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Center Level VH'
+		dataType: string
+		lineageTag: ccf034b6-e6ec-425f-b900-685274bf2e4c
+		sourceLineageTag: eb8f1503-71bf-4e2f-bd57-bcbf4c600391
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work Center Level VH
+
+		annotation SummarizationSetBy = User
+
+	partition 'EDW_T_D_HY_WORKCVZ_CUR_D 3' = entity
+		mode: directQuery
+		source
+			entityName: EDW_T_D_HY_WORKCVZ_CUR_D
+			expressionSource: 'DirectQuery to AS - TimeCards_CATSDB 2'
+

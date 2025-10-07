@@ -1,0 +1,106 @@
+table 'Receiving Functional Area 2'
+	lineageTag: 54863850-3057-48b1-a3b3-6c1decdd2ab6
+	sourceLineageTag: d191953b-01b5-4d42-96ad-41676521a493
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 86a93800-3b26-4227-8ec0-66bda9699c32
+		sourceLineageTag: 2ac9a5f9-bbf8-4aee-9941-2352edf86599
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Receiving Functional Area ID'
+		dataType: string
+		lineageTag: bb0c0d9d-ad03-4095-bc9e-c5591ac211e9
+		sourceLineageTag: 8de3d415-028f-4664-8ac8-bfdab509681d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Receiving Functional Area ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Receiving Functional Area Description'
+		dataType: string
+		lineageTag: ea5492d9-4556-4958-af2a-cdaf58a3ae51
+		sourceLineageTag: edb01287-2f3e-49d7-97f5-bee29b2eebaf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Receiving Functional Area Description
+
+		annotation SummarizationSetBy = User
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 2574163b-f367-4ec7-bc77-b6a5186fdfdf
+		sourceLineageTag: b53872e9-2d99-4fff-b459-ddc643651aa8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = User
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9e9ce960-0fd7-43de-9c5b-e04e59a2db0f
+		sourceLineageTag: da89e872-c221-4be8-98e8-8adaa448444d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = User
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: fa82a381-99d2-4e0a-bf3c-0f9dc3a9d6fd
+		sourceLineageTag: e8d44776-2e89-484b-b4aa-ae3e5b9804f5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = User
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: 369b4187-3ccb-4b1c-ad92-7fb099d3660b
+		sourceLineageTag: f350eacc-1b07-47b9-9d66-7f883022148a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = User
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: f22cf58e-adc0-4678-b83b-f56bf59e9c01
+		sourceLineageTag: 135116e4-8696-4e25-a1b9-214a650b7be1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = User
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 6e04a383-6b01-43f6-8aef-da15df8405ff
+		sourceLineageTag: 0456a40a-8ee4-4601-9611-0fbcc0f52569
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = User
+
+	partition 'Receiving Functional Area 2' = entity
+		mode: directQuery
+		source
+			entityName: Receiving Functional Area
+			expressionSource: 'DirectQuery to AS - TimeCards_CATSDB'
+

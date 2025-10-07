@@ -1,0 +1,632 @@
+table 'Fact Cats DB 2'
+	lineageTag: 40920593-20c9-4db6-a961-fb84e8812891
+	sourceLineageTag: 2e5734e1-b53c-4e4b-a3b6-d5017782b127
+
+	measure 'CATS Amount 2' = EXTERNALMEASURE("CATS Amount", DOUBLE, "DirectQuery to AS - TimeCards_CATSDB")
+		lineageTag: 4fa02b67-de69-4106-b239-b773d1dbff61
+		sourceLineageTag: cb8e05e7-16b9-4e1d-ac8f-d2887f62d8aa
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'CATS Quantity 2' = EXTERNALMEASURE("CATS Quantity", DOUBLE, "DirectQuery to AS - TimeCards_CATSDB")
+		lineageTag: 955af6f7-941a-4754-81f4-6507737cbc85
+		sourceLineageTag: 3182eb36-9880-44b7-a959-29a3df95c6f9
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hours 2' = EXTERNALMEASURE("Hours", DOUBLE, "DirectQuery to AS - TimeCards_CATSDB")
+		lineageTag: 4b426ac0-86a6-4631-8069-702d1de6048f
+		sourceLineageTag: 96b8b343-ad66-4cce-afee-24690411dddf
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Measure 2' = EXTERNALMEASURE("Measure", INTEGER, "DirectQuery to AS - TimeCards_CATSDB")
+		formatString: 0
+		lineageTag: b8f86a79-8a7c-4f40-ab91-794fdda87f74
+		sourceLineageTag: fcbf280e-a69e-44aa-b94f-ab33043aa50f
+		dataCategory: Uncategorized
+
+	column PERSONEL_NUM_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 52450057-bfb1-4dd1-93f1-5771e14eaec5
+		sourceLineageTag: dc947c59-adff-4452-af41-0ac956f7e6cc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERSONEL_NUM_KEY
+
+		annotation SummarizationSetBy = User
+
+	column WRK_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a1ca6583-05a5-4feb-803d-7316d5b63f16
+		sourceLineageTag: 474fd0be-ae0b-44fc-8b42-2c73971c67b9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: WRK_DATE_KEY
+
+		annotation SummarizationSetBy = User
+
+	column Counter
+		dataType: string
+		isNullable: false
+		lineageTag: 59039a18-9a7c-4c61-b7c1-94c19b94ea03
+		sourceLineageTag: b828eb81-99c2-44f1-9cb6-63476b21c472
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Counter
+
+		annotation SummarizationSetBy = User
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e39ec81-d343-49c8-a049-d613418ca40e
+		sourceLineageTag: 20fd81a1-e1a8-41e8-b37f-dac49496f98d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = User
+
+	column ACTIVITY_TYP_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: c3c4a0c5-f8ec-4726-b258-d760b86a0066
+		sourceLineageTag: 1b54df47-0fe3-4be8-ad8d-959140656fbc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_KEY
+
+		annotation SummarizationSetBy = User
+
+	column SERVC_ORDER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0bf3f2b9-e405-47e0-9a3d-5ee0ae36c6fe
+		sourceLineageTag: 04260b1e-4fb5-4ec1-b3f8-4aaeada98f4a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SERVC_ORDER_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Operation Task List'
+		dataType: int64
+		formatString: 0
+		lineageTag: 79fe41cb-9548-4929-9fcc-aaeec5727f78
+		sourceLineageTag: eaf4cf4b-6152-456e-8e8d-7a3aa0e27dfa
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Operation Task List
+
+		annotation SummarizationSetBy = User
+
+	column 'Operation Counter'
+		dataType: int64
+		formatString: 0
+		lineageTag: 88799a88-8a0f-4fac-8be2-3abc7b384555
+		sourceLineageTag: f4e96bf4-4b8f-4a0e-a86b-80b558b8bbaa
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Operation Counter
+
+		annotation SummarizationSetBy = User
+
+	column RECVNG_FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: aed0ed2f-68f4-41ab-a84f-155b49c516ed
+		sourceLineageTag: 85a02782-01f2-4e4e-a92c-873775480d6c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RECVNG_FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = User
+
+	column SENDING_FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a6d26c89-e236-4047-98a3-767c1e3f1c68
+		sourceLineageTag: f4245e90-ab67-45c4-bd4f-b21075f1db4e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SENDING_FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Attendance Or Absence Type'
+		dataType: string
+		lineageTag: c06bdd6e-005b-47f6-9719-384d0cb18e23
+		sourceLineageTag: abe349ce-252f-4335-b103-f0fa72024cd8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Attendance Or Absence Type
+
+		annotation SummarizationSetBy = User
+
+	column 'Controlling Area'
+		dataType: string
+		lineageTag: 0ca8f74e-37ab-417e-b539-a512a2fd03fe
+		sourceLineageTag: 7c97a980-8492-443a-88f8-3197f26cc51e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Controlling Area
+
+		annotation SummarizationSetBy = User
+
+	column 'Display UOM'
+		dataType: string
+		lineageTag: 0aef418b-d120-4955-92e2-5c921a3f6548
+		sourceLineageTag: 821f46bf-c272-4d1a-8f0f-55767cc0847c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Display UOM
+
+		annotation SummarizationSetBy = User
+
+	column WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 29f8b043-0fa8-46f7-b627-5c382eb4caa4
+		sourceLineageTag: e88cbf6e-baa6-44cf-adfe-14566a0b1708
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Order Category'
+		dataType: int64
+		formatString: 0
+		lineageTag: 70d0c4db-863d-498d-ae0f-2abfd7846d01
+		sourceLineageTag: fca9b346-2590-4277-8d69-d7752376ee67
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Order Category
+
+		annotation SummarizationSetBy = User
+
+	column 'Processing Status'
+		dataType: string
+		lineageTag: 8329537e-1424-469f-b9fe-0acf326da84d
+		sourceLineageTag: 0ce13916-ebd1-4076-8997-3951b961b409
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Processing Status
+
+		annotation SummarizationSetBy = User
+
+	column 'Document Number'
+		dataType: string
+		lineageTag: 7284af4b-b3a6-454a-8a99-44238c2b1a79
+		sourceLineageTag: 2530e2f1-50c5-4573-ad7d-d89460a5a8a2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Document Number
+
+		annotation SummarizationSetBy = User
+
+	column HRS
+		dataType: double
+		lineageTag: 0fc93fb3-77e2-4b00-91f1-665b93a8db06
+		sourceLineageTag: cdbc0b1a-981a-4624-9139-6bec73f47c64
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: HRS
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Start Time'
+		dataType: string
+		lineageTag: 99ab488e-bed0-4b6a-bcc0-fac425213574
+		sourceLineageTag: 02cbbc68-538d-496f-8744-965490f64b2d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Start Time
+
+		annotation SummarizationSetBy = User
+
+	column 'End Time'
+		dataType: string
+		lineageTag: dc36b24b-57f7-4234-89fd-9f018974901b
+		sourceLineageTag: 5b797f43-40c3-441a-bb9b-e95042fbdeaa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: End Time
+
+		annotation SummarizationSetBy = User
+
+	column CATS_AMT
+		dataType: double
+		lineageTag: ec0f7be6-ad79-4770-a8e4-f8eedbdca181
+		sourceLineageTag: 8c97c1ca-862c-476d-9b78-877db203a75e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CATS_AMT
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CATS_QTY
+		dataType: double
+		lineageTag: f78b6fc7-1e34-44ed-b315-e81452493728
+		sourceLineageTag: 3908aa15-3b16-4303-9821-701193a60fa0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CATS_QTY
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Change Text'
+		dataType: string
+		lineageTag: f5fb9f2e-87fe-4673-8e3d-435644c144c1
+		sourceLineageTag: e55bbcad-c212-43a9-902d-f7342db442bc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Change Text
+
+		annotation SummarizationSetBy = User
+
+	column 'Created Date'
+		dataType: string
+		lineageTag: 7170ab60-c444-4bda-bf9f-d5a2c628aa1d
+		sourceLineageTag: e9d8e8df-b5ec-4a6d-a2cd-895fc1485c3c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Created Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Created Time'
+		dataType: string
+		lineageTag: 3a1a6e5c-57c1-4c4f-9203-21d8b23b5dff
+		sourceLineageTag: 48d2ae20-28d8-4437-a40f-1751b3f5296b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Created Time
+
+		annotation SummarizationSetBy = User
+
+	column 'Changed Date'
+		dataType: string
+		lineageTag: bbad3ae3-452f-4b5b-9eac-01192a5e6f2e
+		sourceLineageTag: b86cf487-2272-4357-bab6-1df231782f04
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Changed Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Change Time'
+		dataType: string
+		lineageTag: 0a5f565a-6cb8-48be-8503-83640b08734f
+		sourceLineageTag: 2f33e4b8-80e7-4538-a913-767344e8b524
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Change Time
+
+		annotation SummarizationSetBy = User
+
+	column Comment
+		dataType: string
+		lineageTag: 55886c8e-4bb7-4f6b-a832-004ec68a5c68
+		sourceLineageTag: d1eb80eb-0f00-4753-b4f5-f6772c8bb86b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Comment
+
+		annotation SummarizationSetBy = User
+
+	column 'Header Comment'
+		dataType: string
+		lineageTag: d78120ce-fb57-44ec-819e-b270851c24c2
+		sourceLineageTag: 262d0a44-9a97-41a3-a916-1e3cf3a6cd0a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Header Comment
+
+		annotation SummarizationSetBy = User
+
+	column 'Short Text'
+		dataType: string
+		lineageTag: 232a1c38-b394-4c71-95a0-519a23c708a9
+		sourceLineageTag: bc83d030-bf8e-44fb-a3e0-e06e3b538639
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Short Text
+
+		annotation SummarizationSetBy = User
+
+	column 'Long Text'
+		dataType: string
+		lineageTag: cb7806ca-aac3-494b-b81d-bcb329a9ecbe
+		sourceLineageTag: 43a3b967-99c3-43f1-b29b-c620162338a7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Long Text
+
+		annotation SummarizationSetBy = User
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: d9279d2a-a120-463f-9e88-e0970e3aaede
+		sourceLineageTag: 9b1b6cda-41a8-4314-8945-b6f9780cc2cb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = User
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: d05bc82c-2c5d-42dc-9307-1fb8f7a6b33a
+		sourceLineageTag: e34b286c-2713-4416-8202-be1feeda9b75
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = User
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 6ef1064e-e8aa-418b-98c8-2ff4ec5086e8
+		sourceLineageTag: 52402064-5624-4534-acd9-a66949a30185
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = User
+
+	column PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: dde3347e-8394-4e61-a755-e65c95d1b1d5
+		sourceLineageTag: 147e6b32-6047-4ee1-9e92-2e61ea93c0f2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = User
+
+	column 'Controlling Area Description'
+		dataType: string
+		lineageTag: 65020be0-56b6-413b-b74e-a0a59f92ac75
+		sourceLineageTag: 6088fe09-62d6-4a5f-a1dc-c9597cdf3202
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Controlling Area Description
+
+		annotation SummarizationSetBy = User
+
+	column 'Order Category Description'
+		dataType: string
+		lineageTag: 672c7940-93c9-42c1-890a-7f6d307a5ed7
+		sourceLineageTag: 1d36f616-39fd-40bc-8c3b-8fc8da9c0c9c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Order Category Description
+
+		annotation SummarizationSetBy = User
+
+	column 'Processing Status Description'
+		dataType: string
+		lineageTag: 06a646a5-cd0c-4266-857d-f33d536bcb5e
+		sourceLineageTag: bdfc4f62-8529-4a4d-a1c1-21c2d5bc66ae
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Processing Status Description
+
+		annotation SummarizationSetBy = User
+
+	column 'Network Number'
+		dataType: string
+		lineageTag: a3a3be20-e3d5-4710-addf-d94d144a9ba7
+		sourceLineageTag: 42cf0f00-b85c-4104-b6ab-f02405dd137a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Network Number
+
+		annotation SummarizationSetBy = User
+
+	column UOM
+		dataType: string
+		lineageTag: 0deafe46-2ba7-4e79-b1f1-303f7729d35d
+		sourceLineageTag: 0d8610fd-ee63-49ac-ab28-7b4a50124b6b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: UOM
+
+		annotation SummarizationSetBy = User
+
+	column 'Created On'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e67bfcfc-0aee-4a59-882e-4411b18482d3
+		sourceLineageTag: 098614be-8a68-45ed-96ba-aa8e914dd709
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Created On
+
+		annotation SummarizationSetBy = User
+
+	column 'Time Of Entry'
+		dataType: string
+		lineageTag: b6cd1785-7a98-45e4-b57b-3f2c2d01ac79
+		sourceLineageTag: 51ac0c85-6a1b-4bcd-898d-c46746ea6813
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Time Of Entry
+
+		annotation SummarizationSetBy = User
+
+	column 'User Who Created Data Record'
+		dataType: string
+		lineageTag: b3dab712-393f-44eb-bd12-f7e2de2beecd
+		sourceLineageTag: 0ce5def0-2624-4469-8f7f-f98f42293774
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: User Who Created Data Record
+
+		annotation SummarizationSetBy = User
+
+	column 'Date Of Last Change'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6207f1cd-212b-41ba-be42-55a7b1d1f2d6
+		sourceLineageTag: be3793cb-9331-4275-81a8-365b7a5bcf56
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Date Of Last Change
+
+		annotation SummarizationSetBy = User
+
+	column 'Time of Last Change'
+		dataType: string
+		lineageTag: eae6a465-f52b-42bf-892a-f8f09b47f16d
+		sourceLineageTag: db3e8165-9813-4b1b-beff-0e170b8e65d3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Time of Last Change
+
+		annotation SummarizationSetBy = User
+
+	column 'Name Of Person Who Changed Object'
+		dataType: string
+		lineageTag: 7fb95334-56b7-4431-b37f-89ba233a8c31
+		sourceLineageTag: a39c52ad-55f7-4dec-b2fc-a0fef118219c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Name Of Person Who Changed Object
+
+		annotation SummarizationSetBy = User
+
+	column 'Name Of Person Who Apprvd Data'
+		dataType: string
+		lineageTag: 8d3e111a-041a-47b9-bf41-3246f24cda85
+		sourceLineageTag: 8dbf2c50-1e1f-4887-9640-1787f02d141e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Name Of Person Who Apprvd Data
+
+		annotation SummarizationSetBy = User
+
+	column 'Date Of Approval'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e701ed24-3f2a-4ce0-9b68-60c046269974
+		sourceLineageTag: 0e38a387-0f02-49c4-8a58-c6a847206b4b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Date Of Approval
+
+		annotation SummarizationSetBy = User
+
+	column 'Logical System'
+		dataType: string
+		lineageTag: ef2204a1-16fb-450e-8e5b-560bbcd4c9fc
+		sourceLineageTag: e269b1d8-013a-4579-a36f-0f3db5563758
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Logical System
+
+		annotation SummarizationSetBy = User
+
+	column 'Reference Counter for Record to be Changed'
+		dataType: string
+		lineageTag: 6fc5abb5-7ea6-44e0-9e3d-6e7a9060801d
+		sourceLineageTag: 9de22a09-4fcf-4f5b-ac7f-ad33752c08bf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Reference Counter for Record to be Changed
+
+		annotation SummarizationSetBy = User
+
+	column 'Partial Confirmation Indicator'
+		dataType: string
+		lineageTag: 2c44b62c-8e0d-4baf-81d9-ead74d3adbcd
+		sourceLineageTag: 3852524f-49b0-4d6c-bdae-d141d4b77bf0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Partial Confirmation Indicator
+
+		annotation SummarizationSetBy = User
+
+	column 'Receiver Order'
+		dataType: string
+		lineageTag: a82a6a0e-ddcc-4745-97e5-d24b31fd1a04
+		sourceLineageTag: bc19f783-52cf-4fd4-b00f-ef28c51c470e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Receiver Order
+
+		annotation SummarizationSetBy = User
+
+	column 'Project Description'
+		dataType: string
+		lineageTag: ff526c80-91b0-45b6-9912-26029cfee9a2
+		sourceLineageTag: d764f61f-cb22-46f8-9958-a5db967cb059
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Project Description
+
+		annotation SummarizationSetBy = User
+
+	column 'WBS Number'
+		dataType: string
+		lineageTag: 0a2f9cba-599a-444e-8f90-4a36076f9e91
+		sourceLineageTag: 2fd5baf0-8c9b-42b5-ac58-faee1275569d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: WBS Number
+
+		annotation SummarizationSetBy = User
+
+	column 'WBS Description'
+		dataType: string
+		lineageTag: 13a42a9b-7692-4909-8be4-9a1f9ca00771
+		sourceLineageTag: 0b47e1c9-9851-4d9b-aea8-dc855e9c4890
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: WBS Description
+
+		annotation SummarizationSetBy = User
+
+	column WBS_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 71b90601-76dc-4d02-b159-a612713d4144
+		sourceLineageTag: 68baf870-f13e-4ac3-9215-dd899123034c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: WBS_ELEMNT_KEY
+
+		annotation SummarizationSetBy = User
+
+	column SGK_OPERREG_PLANT
+		dataType: string
+		lineageTag: 9a83cd13-b405-4d18-861c-da5e9227498b
+		sourceLineageTag: dfc1ee7a-09d1-4e7e-9735-773c6fa06135
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SGK_OPERREG_PLANT
+
+		annotation SummarizationSetBy = User
+
+	partition 'Fact Cats DB 2' = entity
+		mode: directQuery
+		source
+			entityName: Fact Cats DB
+			expressionSource: 'DirectQuery to AS - TimeCards_CATSDB'
+

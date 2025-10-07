@@ -97,11 +97,11 @@ table 'Receiving Functional Area'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_RECEIVING_FUNCTIONAL_AREA = Source{[Schema="Propelis",Item="V_RECEIVING_FUNCTIONAL_AREA"]}[Data]
+				    Propelis_RECEIVING_FUNCTIONAL_AREA = Source{[Schema="Propelis",Item="RECEIVING_FUNCTIONAL_AREA"]}[Data]
 				in
-				    Propelis_V_RECEIVING_FUNCTIONAL_AREA
-
-	changedProperty = Name
+				    Propelis_RECEIVING_FUNCTIONAL_AREA
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

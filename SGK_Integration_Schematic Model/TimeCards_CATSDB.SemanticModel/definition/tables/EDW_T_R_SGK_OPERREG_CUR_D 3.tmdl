@@ -1,0 +1,40 @@
+table 'EDW_T_R_SGK_OPERREG_CUR_D 3'
+	lineageTag: fd8bf638-60fd-4d42-bc07-7ff32a3189e2
+	sourceLineageTag: f7e6698f-7a69-4c33-8fef-95ebbe199c23
+
+	column 'Business Function'
+		dataType: string
+		lineageTag: 40fd6cf3-4d30-4b39-aa34-b7ceb2dd6cb7
+		sourceLineageTag: df1e14d3-f0f1-4ba0-a048-c362c56ba97b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Business Function
+
+		annotation SummarizationSetBy = User
+
+	column 'SGK Plant Region'
+		dataType: string
+		lineageTag: 33c8a9a3-70d7-4ed6-8e7a-f18c90f557cf
+		sourceLineageTag: 16c00b79-c599-4737-bff4-046a9d61c23e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SGK Plant Region
+
+		annotation SummarizationSetBy = User
+
+	column PLANT
+		dataType: string
+		lineageTag: f79513ef-886c-4606-bf75-73396760dc50
+		sourceLineageTag: 3195a27a-e8a7-4793-a62f-6def257c8a24
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PLANT
+
+		annotation SummarizationSetBy = User
+
+	partition 'EDW_T_R_SGK_OPERREG_CUR_D 3' = entity
+		mode: directQuery
+		source
+			entityName: EDW_T_R_SGK_OPERREG_CUR_D
+			expressionSource: 'DirectQuery to AS - TimeCards_CATSDB 2'
+
