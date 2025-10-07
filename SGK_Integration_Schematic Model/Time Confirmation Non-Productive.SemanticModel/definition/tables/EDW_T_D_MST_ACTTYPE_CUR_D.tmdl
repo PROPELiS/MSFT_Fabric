@@ -1,0 +1,159 @@
+table EDW_T_D_MST_ACTTYPE_CUR_D
+	lineageTag: aa64dd16-c6d1-4215-995d-c71b6862b635
+
+	column ACTIVITY_TYP_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 31ebb7d3-61bb-4230-bf63-7dd45af72865
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ed4f473b-bf5c-489e-b088-70c30d80f998
+		summarizeBy: none
+		sourceColumn: Activity Type ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4bcf9b7f-3ba7-41f6-a744-dfe417bd1990
+		summarizeBy: none
+		sourceColumn: Activity Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Description 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0b4d703b-6299-4508-84a0-e9396ba0db52
+		summarizeBy: none
+		sourceColumn: Activity Type Description 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Controlling Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 95c732dc-405c-480a-ae71-ee2a05d7f20c
+		summarizeBy: none
+		sourceColumn: Activity Type Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Unit'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 00ee5e6e-9964-4f0e-87d2-bb369e98133d
+		summarizeBy: none
+		sourceColumn: Activity Type Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Category'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e5161657-d118-4f8e-aa83-6dda050245c6
+		summarizeBy: none
+		sourceColumn: Activity Type Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 20f66e37-85e4-4a66-93e6-6d217f7f1ed3
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 338b8d50-f5b1-48b7-8844-d5e5189015b9
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: b4919820-af64-4973-97a3-868fb1c2b840
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 54edace4-1671-487c-a481-65aa7ed63dad
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 52a628f0-3e6b-46d3-b15f-53af4b890e92
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 7f694fcf-4b90-430b-8faf-a64e596318b5
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Controlling Area Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 27892499-bfe4-4375-8ac7-69bc735375c5
+		summarizeBy: none
+		sourceColumn: Activity Type Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Type Category Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b4001b87-9210-4a15-81a5-3b1f56100bf8
+		summarizeBy: none
+		sourceColumn: Activity Type Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_ACTTYPE_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_ACTTYPE_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_ACTTYPE_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_ACTTYPE_CUR_D
+
+	annotation PBI_ResultType = Table
+

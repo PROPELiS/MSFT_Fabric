@@ -1,0 +1,80 @@
+table 'Partner Cost Center Vertical'
+	lineageTag: 1302ed23-2c0d-4ab4-a7ef-29ebaf3b13b3
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f1e68e70-0ae0-488e-9c2e-9f04e2847f9d
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Cost Center Controlling Area ID VH'
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: a77cb3ba-dfda-4dd2-9b2c-02bf58402450
+		summarizeBy: none
+		sourceColumn: Partner Cost Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Cost Center Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 4223d31e-08b2-4613-a13a-b2dac0abb072
+		summarizeBy: none
+		sourceColumn: Partner Cost Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Cost Center Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 6be6715c-936a-4b22-99ad-079d202f7876
+		summarizeBy: none
+		sourceColumn: Partner Cost Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Cost Center Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 58421066-ea17-4e84-b0e6-f9a44952f1a3
+		summarizeBy: none
+		sourceColumn: Partner Cost Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Cost Center Child Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 9c36abdc-638b-4c91-9dce-df939fc29173
+		summarizeBy: none
+		sourceColumn: Partner Cost Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Cost Center Hierarchical Level VH'
+		dataType: string
+		sourceProviderType: varchar(24)
+		lineageTag: 89b567d1-54aa-4003-9e18-cf982b093f7f
+		summarizeBy: none
+		sourceColumn: Partner Cost Center Hierarchical Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Partner Cost Center Vertical' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_V_PARTNER_COST_CENTER_VERTICAL = Source{[Schema="Propelis",Item="V_PARTNER_COST_CENTER_VERTICAL"]}[Data]
+				in
+				    Propelis_V_PARTNER_COST_CENTER_VERTICAL
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

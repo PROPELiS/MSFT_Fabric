@@ -1,0 +1,425 @@
+table 'Fact Time Card'
+	lineageTag: 52014830-cbc5-4256-bef8-72c523e15088
+
+	measure 'Absence Hours' = sum('Fact Time Card'[ABSNE_HRS])
+		lineageTag: 00179789-d31b-46eb-906d-5b1c707090f2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Annual Leave Hours' = sum('Fact Time Card'[ANNUAL_LEAVE_HRS])
+		lineageTag: 1adc5f88-1c59-4434-96ee-828ea4dfb7ae
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Approved Working Hours' = sum('Fact Time Card'[APPRVD_WORKING_HRS])
+		lineageTag: 1aef535b-d2cc-41e9-9fe6-4691a41a476d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Flex Bal TS' = sum('Fact Time Card'[FLEX_BAL_TS])
+		lineageTag: 4b55a515-a3b6-424a-b4f6-627953f6c9e8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Lunch Hours' = sum('Fact Time Card'[LUNCH_HRS])
+		lineageTag: d51043c9-3bd9-4018-be3b-125ec58382e3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Other Leave Hours' = sum('Fact Time Card'[OTHR_LEAVE_HRS])
+		lineageTag: 9c53175a-1efe-4006-a61e-ebdff114ea7c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Overtime Hours' = sum('Fact Time Card'[OVERTIME_HRS])
+		lineageTag: d135b990-beb7-4012-8e54-6890d8cc85fb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Paid Break' = sum('Fact Time Card'[PAID_BRK])
+		lineageTag: 367347c3-791a-4c03-8696-b0a204030326
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Punch In Out Hours' = sum('Fact Time Card'[PUNCH_IN_OUT_HRS])
+		lineageTag: 47a3dcb6-5048-4fa7-af7d-36f7a707ab43
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Regular Hours' =
+			
+			SUMX(
+			    'Fact Time Card',
+			    'Fact Time Card'[TOTAL_HRS]
+			    - 'Fact Time Card'[ABSNE_HRS]
+			    - 'Fact Time Card'[FLEX_BAL_TS]
+			    - 'Fact Time Card'[LUNCH_HRS]
+			    - 'Fact Time Card'[OVERTIME_HRS]
+			    - 'Fact Time Card'[PUNCH_IN_OUT_HRS]
+			)
+		lineageTag: 20344af4-efc0-4519-9e42-5ad4c6c0a2fe
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Shift End Time 2' = sum('Fact Time Card'[SHIFT_END_TM_2])
+		lineageTag: 7e46920f-a2fb-45ca-8161-576b0999b353
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Shift Start Time 2' = sum('Fact Time Card'[SHIFT_START_TM_2])
+		lineageTag: 5ac2349d-3784-4683-a648-dd28bd12020e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sick Leave Hours' = sum('Fact Time Card'[SICK_LEAVE_HRS])
+		lineageTag: e99b1878-db95-4687-9646-ab4316a4ac07
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Hours' = sum('Fact Time Card'[TOTAL_HRS])
+		lineageTag: a36ffb56-cbd7-4421-ae14-57091e4d5a0e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Unpaid Leave Hours' = sum('Fact Time Card'[UNPAID_LEAVE_HRS])
+		lineageTag: 635711cc-6520-4976-b4b3-4c72c7c29a07
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Work Hours' = sum('Fact Time Card'[WRK_HRS])
+		lineageTag: 53503404-7c4e-4715-a4a7-a0d7f5f74f50
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PERSONEL_NUM_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 17c2bdf3-9726-455a-ab23-af61ccc5c518
+		summarizeBy: none
+		sourceColumn: PERSONEL_NUM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATE_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 525b99c9-c791-41cc-a0a3-6fcafba57474
+		summarizeBy: none
+		sourceColumn: DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_HRS
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: 37a431dc-8930-4642-8fef-eab7d32941a5
+		summarizeBy: sum
+		sourceColumn: TOTAL_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column WRK_HRS
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: 175c3fe1-ac10-4430-97c9-5a7fc0962523
+		summarizeBy: sum
+		sourceColumn: WRK_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ABSNE_HRS
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: 040df9fb-ad9c-45f2-baff-cde6fe2d3e06
+		summarizeBy: sum
+		sourceColumn: ABSNE_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LUNCH_HRS
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: 352d17b2-569a-4431-930d-8b46e11b1813
+		summarizeBy: sum
+		sourceColumn: LUNCH_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OVERTIME_HRS
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: 2f6c5134-cda9-4d9a-8612-f3a56f5e0615
+		summarizeBy: sum
+		sourceColumn: OVERTIME_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Shift Start Time'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f338d512-a036-4959-8444-555712fc70a7
+		summarizeBy: none
+		sourceColumn: Shift Start Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHIFT_START_TM_2
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: 2f6f68b8-10ee-4b76-b882-bcdb9005b2b0
+		summarizeBy: sum
+		sourceColumn: SHIFT_START_TM_2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Shift End Time'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 142c6e0d-2632-4eaf-a60c-0d565cd9fb54
+		summarizeBy: none
+		sourceColumn: Shift End Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHIFT_END_TM_2
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: 8c6c654e-dfed-4326-b40f-cad91ab9623c
+		summarizeBy: sum
+		sourceColumn: SHIFT_END_TM_2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column APPRVD_WORKING_HRS
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: fc120b2a-ddfb-4c11-ab72-419928abcf73
+		summarizeBy: sum
+		sourceColumn: APPRVD_WORKING_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Shift Scheduled Start Time'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7a3eb1ef-baaa-40e9-946c-222bb2ff1d17
+		summarizeBy: none
+		sourceColumn: Shift Scheduled Start Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shift Scheduled End Time'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dc36c618-8168-4bce-9e25-e47b4fed3bce
+		summarizeBy: none
+		sourceColumn: Shift Scheduled End Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comments
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6ec69d69-21d2-4f45-97f0-00ddf05cb8e2
+		summarizeBy: none
+		sourceColumn: Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e7ea2d31-60cc-4214-8790-a67ee67626a6
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c4f00d4e-ab0b-46f9-b79f-83e30e6aab49
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: d473eb72-0a40-4161-a91d-da9bd61f2418
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0631fee5-98a2-4f83-af47-bd2c74ffa4f1
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1f4ea2cf-623d-4dcf-84d7-0b983ce0c520
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9bdc1fa9-45a9-47f1-a9be-2b33fa4db4ec
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSONEL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1df02135-5b24-48bc-a6e0-7b0ae46e4790
+		summarizeBy: none
+		sourceColumn: PERSONEL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column FLEX_BAL_TS
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: 4cfc7efd-62ce-4c5f-94c0-aa2ef015ff07
+		summarizeBy: sum
+		sourceColumn: FLEX_BAL_TS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Approver User ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 58eba140-38fc-42d7-b8a8-6c944386fffb
+		summarizeBy: none
+		sourceColumn: Approver User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAID_BRK
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: 6700cc8b-f98d-4b7a-9366-9180c7108360
+		summarizeBy: sum
+		sourceColumn: PAID_BRK
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ANNUAL_LEAVE_HRS
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: d67bf23a-f545-48bc-952a-228bc1169d0e
+		summarizeBy: sum
+		sourceColumn: ANNUAL_LEAVE_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OTHR_LEAVE_HRS
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: 89ca64e3-cd5a-4f60-93f2-94412462e90b
+		summarizeBy: sum
+		sourceColumn: OTHR_LEAVE_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SICK_LEAVE_HRS
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: aae0655b-c407-4392-9d65-86aa1335047f
+		summarizeBy: sum
+		sourceColumn: SICK_LEAVE_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNPAID_LEAVE_HRS
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: 451dcd1b-6f05-4076-8f7f-6a415db32882
+		summarizeBy: sum
+		sourceColumn: UNPAID_LEAVE_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PUNCH_IN_OUT_HRS
+		dataType: double
+		sourceProviderType: decimal(4, 2)
+		lineageTag: 2de01d3f-50d5-4fd1-bc6d-66fd9c20db79
+		summarizeBy: sum
+		sourceColumn: PUNCH_IN_OUT_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SGK_OPERREG_PLANT
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 34e13f84-9843-4701-8962-a8e481c41a23
+		summarizeBy: none
+		sourceColumn: SGK_OPERREG_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact Time Card' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_EDW_T_FACT_HR_TIMECRD_CUR_D = Source{[Schema="Propelis",Item="EDW_T_FACT_HR_TIMECRD_CUR_D"]}[Data]
+				in
+				    Propelis_EDW_T_FACT_HR_TIMECRD_CUR_D
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,80 @@
+table 'Responsible Cost Center Vertical'
+	lineageTag: 3117bd12-6786-494d-88ad-153f2fddcd4d
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 003faf60-947d-4b53-a203-c04347695f0d
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Controlling Area ID VH'
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: 55619bca-f512-4e29-b7d4-9f986fe7e0e5
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: d69c5cc7-42c5-41b0-926b-6fb21f93a1a7
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 8e825be7-790d-4830-bd0f-191a381e3475
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: b6d81986-df51-46ac-ad7a-2d80548c398d
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Child Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 5a3e99be-a5a0-40c4-9926-3a3aa1dfbb38
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Hierarchical Level VH'
+		dataType: string
+		sourceProviderType: varchar(24)
+		lineageTag: c0a556f5-b470-476a-9150-f0ca355288a1
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Hierarchical Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Responsible Cost Center Vertical' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_V_RESP_COST_CENTER_VERTICAL = Source{[Schema="Propelis",Item="V_RESP_COST_CENTER_VERTICAL"]}[Data]
+				in
+				    Propelis_V_RESP_COST_CENTER_VERTICAL
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

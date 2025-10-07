@@ -1,0 +1,41 @@
+table MAINTENANCE_PLANT_REGION
+	lineageTag: 92104623-1f43-4c7c-89be-9f39edd07bd9
+
+	column 'Maintenance Plant Business Function'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 073832a4-dbc2-4e81-ae09-1d672cffba9e
+		summarizeBy: none
+		sourceColumn: Maintenance Plant Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Maintenance Plant Region'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 60bd2264-15e9-493e-9dcc-4e9d3da07729
+		summarizeBy: none
+		sourceColumn: Maintenance Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Maintenance Plant'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 90c3ab10-bec0-4142-8d4d-3ad50f8c275a
+		summarizeBy: none
+		sourceColumn: Maintenance Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MAINTENANCE_PLANT_REGION = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_V_MAINTENANCE_PLANT_REGION = Source{[Schema="Propelis",Item="V_MAINTENANCE_PLANT_REGION"]}[Data]
+				in
+				    Propelis_V_MAINTENANCE_PLANT_REGION
+
+	annotation PBI_ResultType = Table
+

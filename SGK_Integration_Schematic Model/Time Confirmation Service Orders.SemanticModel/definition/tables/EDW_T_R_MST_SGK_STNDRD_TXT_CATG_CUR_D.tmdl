@@ -1,0 +1,93 @@
+table EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D
+	lineageTag: 6a58bb99-d6e5-4a4a-a85d-af4821c43b21
+
+	column 'Operation Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: e4adef69-9014-44b1-a3da-9b62be3f2251
+		summarizeBy: none
+		sourceColumn: Operation Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column STANDARD_TEXT_KEY
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 50a674f2-6155-4d58-a1f3-9e888fed0686
+		summarizeBy: none
+		sourceColumn: STANDARD_TEXT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SSP Preferred Task'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: d17ecdb1-b878-4384-8ab9-045cdc684678
+		summarizeBy: none
+		sourceColumn: SSP Preferred Task
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Group'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: d7027bc0-9ada-43d5-b4bd-fcff0c5a9551
+		summarizeBy: none
+		sourceColumn: Activity Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CSR Tasks'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 3e1933e8-5cdf-49ce-83fd-42203a860d6e
+		summarizeBy: none
+		sourceColumn: CSR Tasks
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity With Status'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: eb94e191-9823-416c-b18c-671034142633
+		summarizeBy: none
+		sourceColumn: Activity With Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FY 2023 SS Tasks'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 6653abf0-d7ea-4028-b25c-f3b46edcca8b
+		summarizeBy: none
+		sourceColumn: FY 2023 SS Tasks
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'All Tasks'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: cee011bc-4b57-4c03-8ecf-ceb2d6788333
+		summarizeBy: none
+		sourceColumn: All Tasks
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Automation Groups'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: b90f0e4c-6d05-45a9-8cc2-c79a464563fe
+		summarizeBy: none
+		sourceColumn: Automation Groups
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D = Source{[Schema="dbo",Item="EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D
+

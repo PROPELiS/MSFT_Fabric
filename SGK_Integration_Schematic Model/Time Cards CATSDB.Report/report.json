@@ -1,0 +1,168 @@
+{
+  "config": "{\"version\":\"5.66\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":{\"visual\":\"1.8.95\",\"report\":\"2.0.95\",\"page\":\"1.3.95\"},\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"allowInlineExploration\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"creationSource\":\"QuickCreate\"}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"dynamicConfig\":{\"quickExplore\":{\"selectedFields\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Plant\"}},\"Property\":\"Plant Vendor Number\"}},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Fact Cats DB\"}},\"Property\":\"CATS Quantity\"}}],\"visualContainerConfigurations\":[{\"name\":\"f150b9f84bb0b7a7c0dd\",\"fields\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Plant\"}},\"Property\":\"Plant Vendor Number\"}},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Fact Cats DB\"}},\"Property\":\"CATS Quantity\"}}]},{\"name\":\"e65e480820083dacb502\",\"fields\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Plant\"}},\"Property\":\"Plant Vendor Number\"}},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Fact Cats DB\"}},\"Property\":\"Hours\"}}]},{\"name\":\"1de82e4c924e6eae290d\",\"fields\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Plant\"}},\"Property\":\"Plant Vendor Number\"}},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Fact Cats DB\"}},\"Property\":\"Operation Task List\"}},\"Function\":0}}]},{\"name\":\"08c47956bab5d6332475\",\"fields\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Plant\"}},\"Property\":\"Plant Customer Number\"}},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Fact Cats DB\"}},\"Property\":\"CATS Quantity\"}}]},{\"name\":\"1673cc4142379bda2ce6\",\"fields\":[]},{\"name\":\"f735dff0840070d2cdce\",\"fields\":[]},{\"name\":\"fd0db0f8bb0e9d06c6d5\",\"fields\":[]},{\"name\":\"8c0f3b16395aca0248ce\",\"fields\":[]},{\"name\":\"898666c80e2c0884dab3\",\"fields\":[]},{\"name\":\"6410c81c295e9d6d7077\",\"fields\":[]},{\"name\":\"d4187d9271e00d419c88\",\"fields\":[]},{\"name\":\"e0315457c10985054a00\",\"fields\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Fact Cats DB\"}},\"Property\":\"CATS Quantity\"}}]},{\"name\":\"b66691a036be3ec90d45\",\"fields\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Fact Cats DB\"}},\"Property\":\"Hours\"}}]},{\"name\":\"a628bd7093d636b401d6\",\"fields\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Fact Cats DB\"}},\"Property\":\"Operation Task List\"}},\"Function\":0}}]},{\"name\":\"4fddc33d958bed7b483d\",\"fields\":[]}],\"layout\":{\"related\":{\"version\":1}}}}}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "872af0d6a791c3c609e5",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"08c47956bab5d6332475\",\"layouts\":[{\"id\":0,\"position\":{\"width\":289,\"height\":282,\"x\":971,\"y\":414,\"tabOrder\":0,\"z\":5000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Plant.Plant Customer Number\",\"active\":true}],\"Y\":[{\"queryRef\":\"Fact Cats DB.CATS Quantity\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Plant\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"Fact Cats DB\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Plant Customer Number\"},\"Name\":\"Plant.Plant Customer Number\",\"NativeReferenceName\":\"Plant Customer Number\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"CATS Quantity\"},\"Name\":\"Fact Cats DB.CATS Quantity\",\"NativeReferenceName\":\"CATS Quantity\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"CATS Quantity\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"axisType\":{\"expr\":{\"Literal\":{\"Value\":\"'Categorical'\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"showCopyVisualImageButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFilterRestatementButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFocusModeButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showPinButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 282.00,
+          "width": 289.00,
+          "x": 971.00,
+          "y": 414.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"1673cc4142379bda2ce6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":12,\"y\":84,\"width\":622,\"height\":624,\"tabOrder\":-2000,\"z\":1000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"4M\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#E6E6E6'\"}}}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"preset\":{\"expr\":{\"Literal\":{\"Value\":\"'Custom'\"}}},\"shadowBlur\":{\"expr\":{\"Literal\":{\"Value\":\"3M\"}}},\"shadowDistance\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"shadowSpread\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"87M\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 624.00,
+          "width": 622.00,
+          "x": 12.00,
+          "y": 84.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"1de82e4c924e6eae290d\",\"layouts\":[{\"id\":0,\"position\":{\"width\":289,\"height\":282,\"x\":654,\"y\":414,\"tabOrder\":1000,\"z\":6000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Plant.Plant Vendor Number\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Fact Cats DB.Operation Task List)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Plant\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"Fact Cats DB\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Plant Vendor Number\"},\"Name\":\"Plant.Plant Vendor Number\",\"NativeReferenceName\":\"Plant Vendor Number\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Operation Task List\"}},\"Function\":0},\"Name\":\"Sum(Fact Cats DB.Operation Task List)\",\"NativeReferenceName\":\"Sum of Operation Task List\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Operation Task List\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(Fact Cats DB.Operation Task List)\":{\"displayName\":\"Sum of Operation Task List\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"axisType\":{\"expr\":{\"Literal\":{\"Value\":\"'Categorical'\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"showCopyVisualImageButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFilterRestatementButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFocusModeButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showPinButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 282.00,
+          "width": 289.00,
+          "x": 654.00,
+          "y": 414.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"4fddc33d958bed7b483d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":12,\"y\":58,\"height\":26,\"width\":1256,\"tabOrder\":-1000,\"z\":0}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"outline\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}}},\"selector\":{\"id\":\"default\"}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 26.00,
+          "width": 1256.00,
+          "x": 12.00,
+          "y": 58.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"6410c81c295e9d6d7077\",\"layouts\":[{\"id\":0,\"position\":{\"x\":12,\"y\":2,\"height\":39,\"width\":306,\"tabOrder\":9000,\"z\":14000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Quick summary\",\"textStyle\":{\"fontSize\":\"16pt\"}}]}]}}]},\"vcObjects\":{}}}",
+          "filters": "[]",
+          "height": 39.00,
+          "width": 306.00,
+          "x": 12.00,
+          "y": 2.00,
+          "z": 14000.00
+        },
+        {
+          "config": "{\"name\":\"898666c80e2c0884dab3\",\"layouts\":[{\"id\":0,\"position\":{\"width\":305,\"height\":306,\"x\":963,\"y\":402,\"tabOrder\":-5000,\"z\":4000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"4M\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#E6E6E6'\"}}}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"preset\":{\"expr\":{\"Literal\":{\"Value\":\"'Custom'\"}}},\"shadowBlur\":{\"expr\":{\"Literal\":{\"Value\":\"3M\"}}},\"shadowDistance\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"shadowSpread\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"87M\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 306.00,
+          "width": 305.00,
+          "x": 963.00,
+          "y": 402.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"8c0f3b16395aca0248ce\",\"layouts\":[{\"id\":0,\"position\":{\"width\":305,\"height\":306,\"x\":646,\"y\":402,\"tabOrder\":-4000,\"z\":3000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"4M\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#E6E6E6'\"}}}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"preset\":{\"expr\":{\"Literal\":{\"Value\":\"'Custom'\"}}},\"shadowBlur\":{\"expr\":{\"Literal\":{\"Value\":\"3M\"}}},\"shadowDistance\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"shadowSpread\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"87M\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 306.00,
+          "width": 305.00,
+          "x": 646.00,
+          "y": 402.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"a628bd7093d636b401d6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1069,\"y\":12,\"height\":50,\"width\":199,\"tabOrder\":5000,\"z\":10000}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Fact Cats DB.Operation Task List)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact Cats DB\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Operation Task List\"}},\"Function\":0},\"Name\":\"Sum(Fact Cats DB.Operation Task List)\",\"NativeReferenceName\":\"Sum of Operation Task List\"}]},\"columnProperties\":{\"Sum(Fact Cats DB.Operation Task List)\":{\"displayName\":\"Sum of Operation Task List\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"card\":[{\"properties\":{\"barColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}},\"barWeight\":{\"expr\":{\"Literal\":{\"Value\":\"4L\"}}}}}],\"dataLabels\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'Segoe UI'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11L\"}}}}}],\"categoryLabels\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0.4}}}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11L\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"showCopyVisualImageButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFilterRestatementButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFocusModeButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showPinButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showPersonalizeVisualButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 50.00,
+          "width": 199.00,
+          "x": 1069.00,
+          "y": 12.00,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"b66691a036be3ec90d45\",\"layouts\":[{\"id\":0,\"position\":{\"x\":858,\"y\":12,\"height\":50,\"width\":199,\"tabOrder\":6000,\"z\":11000}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"Fact Cats DB.Hours\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact Cats DB\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Hours\"},\"Name\":\"Fact Cats DB.Hours\",\"NativeReferenceName\":\"Hours\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"card\":[{\"properties\":{\"barColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":3,\"Percent\":0}}}}},\"barWeight\":{\"expr\":{\"Literal\":{\"Value\":\"4L\"}}}}}],\"dataLabels\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'Segoe UI'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11L\"}}}}}],\"categoryLabels\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0.4}}}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11L\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"showCopyVisualImageButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFilterRestatementButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFocusModeButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showPinButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showPersonalizeVisualButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 50.00,
+          "width": 199.00,
+          "x": 858.00,
+          "y": 12.00,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"d4187d9271e00d419c88\",\"layouts\":[{\"id\":0,\"position\":{\"x\":12,\"y\":33,\"height\":32,\"width\":306,\"tabOrder\":8000,\"z\":13000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"TimeCards_CATSDB\",\"textStyle\":{\"fontSize\":\"12pt\",\"color\":\"#605e5c\"}}]}]}}]},\"vcObjects\":{}}}",
+          "filters": "[]",
+          "height": 32.00,
+          "width": 306.00,
+          "x": 12.00,
+          "y": 33.00,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"e0315457c10985054a00\",\"layouts\":[{\"id\":0,\"position\":{\"x\":647,\"y\":12,\"height\":50,\"width\":199,\"tabOrder\":7000,\"z\":12000}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"Fact Cats DB.CATS Quantity\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact Cats DB\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"CATS Quantity\"},\"Name\":\"Fact Cats DB.CATS Quantity\",\"NativeReferenceName\":\"CATS Quantity\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"card\":[{\"properties\":{\"barColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0}}}}},\"barWeight\":{\"expr\":{\"Literal\":{\"Value\":\"4L\"}}}}}],\"dataLabels\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'Segoe UI'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11L\"}}}}}],\"categoryLabels\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0.4}}}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11L\"}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"showCopyVisualImageButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFilterRestatementButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFocusModeButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showPinButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showPersonalizeVisualButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 50.00,
+          "width": 199.00,
+          "x": 647.00,
+          "y": 12.00,
+          "z": 12000.00
+        },
+        {
+          "config": "{\"name\":\"e65e480820083dacb502\",\"layouts\":[{\"id\":0,\"position\":{\"width\":606,\"height\":282,\"x\":654,\"y\":96,\"tabOrder\":2000,\"z\":7000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Plant.Plant Vendor Number\",\"active\":true}],\"Y\":[{\"queryRef\":\"Fact Cats DB.Hours\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Plant\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"Fact Cats DB\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Plant Vendor Number\"},\"Name\":\"Plant.Plant Vendor Number\",\"NativeReferenceName\":\"Plant Vendor Number\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Hours\"},\"Name\":\"Fact Cats DB.Hours\",\"NativeReferenceName\":\"Hours\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Hours\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"axisType\":{\"expr\":{\"Literal\":{\"Value\":\"'Categorical'\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":3,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"showCopyVisualImageButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFilterRestatementButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFocusModeButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showPinButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 282.00,
+          "width": 606.00,
+          "x": 654.00,
+          "y": 96.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"f150b9f84bb0b7a7c0dd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":96,\"width\":606,\"height\":458,\"tabOrder\":4000,\"z\":9000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Plant.Plant Vendor Number\",\"active\":true}],\"Y\":[{\"queryRef\":\"Fact Cats DB.CATS Quantity\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Plant\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"Fact Cats DB\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Plant Vendor Number\"},\"Name\":\"Plant.Plant Vendor Number\",\"NativeReferenceName\":\"Plant Vendor Number\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"CATS Quantity\"},\"Name\":\"Fact Cats DB.CATS Quantity\",\"NativeReferenceName\":\"CATS Quantity\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"CATS Quantity\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"axisType\":{\"expr\":{\"Literal\":{\"Value\":\"'Categorical'\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"showCopyVisualImageButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFilterRestatementButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showFocusModeButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showPinButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 458.00,
+          "width": 606.00,
+          "x": 20.00,
+          "y": 96.00,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"f735dff0840070d2cdce\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":566,\"width\":606,\"height\":129,\"tabOrder\":3000,\"z\":8000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 129.00,
+          "width": 606.00,
+          "x": 20.00,
+          "y": 566.00,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"fd0db0f8bb0e9d06c6d5\",\"layouts\":[{\"id\":0,\"position\":{\"width\":622,\"height\":306,\"x\":646,\"y\":84,\"tabOrder\":-3000,\"z\":2000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"4M\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#E6E6E6'\"}}}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"preset\":{\"expr\":{\"Literal\":{\"Value\":\"'Custom'\"}}},\"shadowBlur\":{\"expr\":{\"Literal\":{\"Value\":\"3M\"}}},\"shadowDistance\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"shadowSpread\":{\"expr\":{\"Literal\":{\"Value\":\"1M\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"87M\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 306.00,
+          "width": 622.00,
+          "x": 646.00,
+          "y": 84.00,
+          "z": 2000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["EDW_T_FACT_SAL_TMCONFN_CUR_D","EDW_T_D_MST_PLANT_CUR_D","EDW_T_D_MST_DATE_CUR_D","EDW_T_D_MST_COSCNTR_CUR_D","EDW_T_D_HY_COSTCHZ_CUR_D","EDW_T_D_HY_COSTCVZ_CUR_D","EDW_T_D_MST_ACTTYPE_CUR_D","EDW_T_D_MST_PERSONL_CUR_D","EDW_T_D_HY_PROFCHZ_CUR_D","EDW_T_D_HY_PROFCVZ_CUR_D","EDW_T_D_MST_PROFCTR_CUR_D","EDW_T_R_SGK_OPERREG_CUR_D","Document Date","Posting Date","Plant Region","Personnel Plant Region"]
+
+ref table EDW_T_FACT_SAL_TMCONFN_CUR_D
+ref table EDW_T_D_MST_PLANT_CUR_D
+ref table EDW_T_D_MST_DATE_CUR_D
+ref table EDW_T_D_MST_COSCNTR_CUR_D
+ref table EDW_T_D_HY_COSTCHZ_CUR_D
+ref table EDW_T_D_HY_COSTCVZ_CUR_D
+ref table EDW_T_D_MST_ACTTYPE_CUR_D
+ref table EDW_T_D_MST_PERSONL_CUR_D
+ref table EDW_T_D_HY_PROFCHZ_CUR_D
+ref table EDW_T_D_HY_PROFCVZ_CUR_D
+ref table EDW_T_D_MST_PROFCTR_CUR_D
+ref table EDW_T_R_SGK_OPERREG_CUR_D
+ref table 'Document Date'
+ref table 'Posting Date'
+ref table 'Plant Region'
+ref table 'Personnel Plant Region'
+
+ref cultureInfo en-IN
+

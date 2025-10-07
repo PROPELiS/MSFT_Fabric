@@ -1,0 +1,36 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Fact Time Card","Fact Cats DB","Sending Functional Area","Receiving Functional Area","Work Date","Personnel Area","Cost Center","EDW_T_D_HY_COSTCHZ_CUR_D","EDW_T_D_HY_COSTCVZ_CUR_D","Company Code","Plant","EDW_T_D_MST_PERAREA_CUR_D","EDW_T_R_SGK_OPERREG_CUR_D","Activity Type","EDW_T_D_MST_FUNCTAR_CUR_D","Work Center","Service Order","EDW_T_D_HY_WORKCHZ_CUR_D","EDW_T_D_HY_WORKCVZ_CUR_D"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["WebModelingEdit"]
+
+ref table 'Fact Time Card'
+ref table 'Fact Cats DB'
+ref table 'Sending Functional Area'
+ref table 'Receiving Functional Area'
+ref table 'Work Date'
+ref table 'Personnel Area'
+ref table 'Cost Center'
+ref table EDW_T_D_HY_COSTCHZ_CUR_D
+ref table EDW_T_D_HY_COSTCVZ_CUR_D
+ref table 'Company Code'
+ref table Plant
+ref table EDW_T_D_MST_PERAREA_CUR_D
+ref table EDW_T_R_SGK_OPERREG_CUR_D
+ref table 'Activity Type'
+ref table EDW_T_D_MST_FUNCTAR_CUR_D
+ref table 'Work Center'
+ref table 'Service Order'
+ref table EDW_T_D_HY_WORKCHZ_CUR_D
+ref table EDW_T_D_HY_WORKCVZ_CUR_D
+
+ref cultureInfo en-IN
+

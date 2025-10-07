@@ -1,0 +1,76 @@
+relationship 1f45cf96-7f8c-5a1a-91bd-8848bd2848de
+	fromColumn: EDW_T_D_HY_COSTCHZ_CUR_D.COST_CNTR_KEY
+	toColumn: 'Cost Center'.COST_CNTR_KEY
+
+relationship 88a06652-b7cd-41bc-ef5c-95010512a3c3
+	fromColumn: EDW_T_D_HY_COSTCVZ_CUR_D.COST_CNTR_KEY
+	toColumn: 'Cost Center'.COST_CNTR_KEY
+
+relationship a72b8514-76b4-cc45-91c4-97bef56fa14c
+	fromColumn: EDW_T_D_HY_WORKCHZ_CUR_D.WRK_CNTR_KEY
+	toColumn: 'Work Center'.WRK_CNTR_KEY
+
+relationship 00514c85-f8a3-17c3-b969-a84b6a3123bc
+	fromColumn: EDW_T_D_HY_WORKCVZ_CUR_D.WRK_CNTR_KEY
+	toColumn: 'Work Center'.WRK_CNTR_KEY
+
+relationship e76b57e2-ecad-b131-6254-baca77655ef6
+	fromColumn: 'Fact Cats DB'.ACTIVITY_TYP_KEY
+	toColumn: 'Activity Type'.ACTIVITY_TYP_KEY
+
+relationship c0c1afe2-d95e-7e05-d98c-67c5779dcd6d
+	fromColumn: 'Fact Cats DB'.COST_CNTR_KEY
+	toColumn: 'Cost Center'.COST_CNTR_KEY
+
+relationship 67c8792b-00a3-82d9-c856-8ab41a1f057e
+	fromColumn: 'Fact Cats DB'.PERSONEL_NUM_KEY
+	toColumn: 'Personnel Area'.PERSONEL_KEY
+
+relationship 4f14abd5-9a61-96af-4981-917adddab9c8
+	fromColumn: 'Fact Cats DB'.PLNT_KEY
+	toColumn: Plant.PLNT_KEY
+
+relationship 797c95b6-da49-2e4f-4db5-6eaaffb40885
+	fromColumn: 'Fact Cats DB'.RECVNG_FUNCTNL_AREA_KEY
+	toColumn: 'Receiving Functional Area'.FUNCTNL_AREA_KEY
+
+relationship f94d8926-c4ca-797d-acbf-76b907c8f4a8
+	fromColumn: 'Fact Cats DB'.SENDING_FUNCTNL_AREA_KEY
+	toColumn: 'Sending Functional Area'.FUNCTNL_AREA_KEY
+
+relationship 8dced84d-e9a1-739d-cca1-8c1de9570205
+	fromColumn: 'Fact Cats DB'.SERVC_ORDER_KEY
+	toColumn: 'Service Order'.SERVC_ORDER_KEY
+
+relationship 0ba55445-56d5-7e88-02a3-8010f0d29f54
+	fromColumn: 'Fact Cats DB'.WRK_CNTR_KEY
+	toColumn: 'Work Center'.WRK_CNTR_KEY
+
+relationship 6384d24b-7df9-a724-1eca-6c22d9b76d6a
+	fromColumn: 'Fact Cats DB'.WRK_DATE_KEY
+	toColumn: 'Work Date'.DATE_KEY
+
+relationship e82923db-91bc-4f4f-c462-0e8967d93a12
+	fromColumn: 'Fact Time Card'.CMPNY_KEY
+	toColumn: 'Company Code'.CMPNY_KEY
+
+relationship dcefc304-3cc3-44cb-4d9f-44220fd998b9
+	fromColumn: 'Fact Time Card'.COST_CNTR_KEY
+	toColumn: 'Cost Center'.COST_CNTR_KEY
+
+relationship 5cb1381a-038d-93a6-6db8-a88c033f8514
+	fromColumn: 'Fact Time Card'.DATE_KEY
+	toColumn: 'Work Date'.DATE_KEY
+
+relationship 0eb4273b-cd65-e331-529f-50e0a8e64e54
+	fromColumn: 'Fact Time Card'.PERSONEL_AREA_KEY
+	toColumn: EDW_T_D_MST_PERAREA_CUR_D.PERSONEL_AREA_KEY
+
+relationship f99b953f-29ad-1b02-a6f5-383e029cbe55
+	fromColumn: 'Fact Time Card'.PERSONEL_NUM_KEY
+	toColumn: 'Personnel Area'.PERSONEL_KEY
+
+relationship 155b88f7-0aeb-6e27-8b34-cf219c1a0244
+	fromColumn: 'Fact Time Card'.PLNT_KEY
+	toColumn: Plant.PLNT_KEY
+

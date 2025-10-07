@@ -1,0 +1,41 @@
+table EDW_T_R_SGK_OPERREG_CUR_D
+	lineageTag: f7e6698f-7a69-4c33-8fef-95ebbe199c23
+
+	column 'Business Function'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: df1e14d3-f0f1-4ba0-a048-c362c56ba97b
+		summarizeBy: none
+		sourceColumn: Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SGK Plant Region'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 16c00b79-c599-4737-bff4-046a9d61c23e
+		summarizeBy: none
+		sourceColumn: SGK Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANT
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3195a27a-e8a7-4793-a62f-6def257c8a24
+		summarizeBy: none
+		sourceColumn: PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_R_SGK_OPERREG_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_R_SGK_OPERREG_CUR_D = Source{[Schema="dbo",Item="EDW_T_R_SGK_OPERREG_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_R_SGK_OPERREG_CUR_D
+
+	annotation PBI_ResultType = Table
+

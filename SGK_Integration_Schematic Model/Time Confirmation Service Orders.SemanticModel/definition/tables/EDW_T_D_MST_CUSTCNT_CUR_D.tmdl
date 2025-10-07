@@ -1,0 +1,139 @@
+table EDW_T_D_MST_CUSTCNT_CUR_D
+	lineageTag: e2d957c4-63ae-44e2-81d7-e79eddb6896c
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 435fcd51-dc73-4ab1-895f-b30dd411cbbf
+		summarizeBy: sum
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Person ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 014d5400-8037-4749-9351-c4e6bd617937
+		summarizeBy: none
+		sourceColumn: Customer Contact Person ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Customer ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 86ab4e1f-2b98-4e66-b39b-23dd2f1720c7
+		summarizeBy: none
+		sourceColumn: Customer Contact Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact First Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ed8fd0e8-c500-434a-bb35-951964a29d92
+		summarizeBy: none
+		sourceColumn: Customer Contact First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 538d99d3-a145-44d7-b26d-9bc6293ddca1
+		summarizeBy: none
+		sourceColumn: Customer Contact Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Contact Person Dept'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: de4ac3b2-26d2-48d3-97ed-207204d9c2ee
+		summarizeBy: none
+		sourceColumn: Customer Contact Contact Person Dept
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Contact Person Dept Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2ccc4954-e3a5-4258-809a-2b0c162c769c
+		summarizeBy: none
+		sourceColumn: Customer Contact Contact Person Dept Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0a7bf78f-6df2-4aaa-9a9e-519cd0970d1b
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 375bbad0-721b-4e94-be6c-75848813928b
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: fdd96d33-af69-4acb-b8dc-3e18974b0d18
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f0ffb4fa-1973-4646-bc81-5c7d0368d01a
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 34a2f036-3bdb-4a4c-b5b1-1c31bd63975a
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 33562b25-7fc4-45f8-a0ed-c366f305c340
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_CUSTCNT_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_CUSTCNT_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_CUSTCNT_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_CUSTCNT_CUR_D
+

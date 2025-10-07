@@ -1,0 +1,80 @@
+table 'Person Resp Cost Center Vertical Hierarchy'
+	lineageTag: cb216479-8f65-435d-8f0d-251cf3381d15
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7ddb0987-1498-4625-9707-2efe346f3c0f
+		summarizeBy: sum
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Controlling Area ID VH'
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: e439d89d-61f0-4aec-99be-f416f69b2523
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: ce88516f-384d-4702-a687-47b0f8845780
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: c6f3db3a-d597-4e2d-9d46-9b29a53882e9
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 508e0414-3242-479d-bb2e-174c76cbb27b
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Child Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 21aa0c42-38ac-464f-9d6f-734ec763227a
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Hierarchical Level VH'
+		dataType: string
+		sourceProviderType: varchar(24)
+		lineageTag: c6f3caad-1714-431a-bb88-064a2cde4b79
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Hierarchical Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Person Resp Cost Center Vertical Hierarchy' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_V_PERSON_RESPNSBLE_COST_CNTR_V_HEIR = Source{[Schema="Propelis",Item="V_PERSON_RESPNSBLE_COST_CNTR_V_HEIR"]}[Data]
+				in
+				    Propelis_V_PERSON_RESPNSBLE_COST_CNTR_V_HEIR
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

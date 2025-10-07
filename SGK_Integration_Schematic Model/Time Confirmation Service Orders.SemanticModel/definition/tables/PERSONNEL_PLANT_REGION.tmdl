@@ -1,0 +1,41 @@
+table PERSONNEL_PLANT_REGION
+	lineageTag: 81efa7ce-4b31-415b-b303-f608fc2c374d
+
+	column 'Personnel Business Function'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 848591c0-1953-470c-b29f-170e74999b34
+		summarizeBy: none
+		sourceColumn: Personnel Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Personnel Plant Region'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1c3055ba-4492-43da-b85c-90039badf4e2
+		summarizeBy: none
+		sourceColumn: Personnel Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Personnel Plant'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1a2a22ba-066a-44d9-85e3-292a983bd261
+		summarizeBy: none
+		sourceColumn: Personnel Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PERSONNEL_PLANT_REGION = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_V_PERSONNEL_PLANT_REGION = Source{[Schema="Propelis",Item="V_PERSONNEL_PLANT_REGION"]}[Data]
+				in
+				    Propelis_V_PERSONNEL_PLANT_REGION
+
+	annotation PBI_ResultType = Table
+

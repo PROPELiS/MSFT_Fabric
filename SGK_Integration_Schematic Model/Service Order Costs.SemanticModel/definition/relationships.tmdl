@@ -1,0 +1,148 @@
+relationship 9268247c-6aa8-df15-967d-4ffb48b96ac8
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.ACTIVITY_TYP_KEY
+	toColumn: EDW_T_D_MST_ACTTYPE_CUR_D.ACTIVITY_TYP_KEY
+
+relationship 8b393bc8-fdb4-7508-dd89-a998a36e104c
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.CMPNY_KEY
+	toColumn: EDW_T_D_MST_CMPNYCD_CUR_D.CMPNY_KEY
+
+relationship 77bbb79a-b5e0-cc8b-2bab-9a9808ea84f8
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.CMPNY_CRNCY_KEY
+	toColumn: 'Company Currency'.CRNCY_KEY
+
+relationship 55b09f5f-2231-585d-a2c8-beb196b36b66
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.DOCMT_CRNCY_KEY
+	toColumn: 'Document Currency'.CRNCY_KEY
+
+relationship 9e97ca5c-f701-ac53-48b7-747423af4c4a
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.GROUP_CRNCY_KEY
+	toColumn: 'Group Currency'.CRNCY_KEY
+
+relationship 3e860be3-8ec3-ac33-fe79-8ff367f6986b
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.CMPNY_KEY
+	toColumn: Company.CMPNY_KEY
+
+relationship d72abf02-188d-293f-91ec-946b041360d7
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.COST_ELEMNT_KEY
+	toColumn: EDW_T_D_MST_COSTELM_CUR_D.COST_ELEMNT_KEY
+
+relationship 6e20c6b0-3364-5b21-d42b-cee8abb45376
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.CREATION_DATE_KEY
+	toColumn: 'Posting Creation Date'.DATE_KEY
+
+relationship 9bcfec65-c2aa-945d-fe63-d6aa246f6f94
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.DOCMT_DATE_KEY
+	toColumn: 'Posting Document Date'.DATE_KEY
+
+relationship 275ebd6b-160d-9224-00eb-3d9571052ac9
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.FUNCTNL_AREA_KEY
+	toColumn: EDW_T_D_MST_FUNCTAR_CUR_D.FUNCTNL_AREA_KEY
+
+relationship 5dc77b4c-64ba-a746-c10d-3375cdfb3faf
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.LOC_PLNT_KEY
+	toColumn: 'Location Plant'.PLNT_KEY
+
+relationship 6f3e071b-0e07-c48b-1631-e83c84c3700e
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.LOCATION_PLANT_REGION_PLANT
+	toColumn: 'Location Plant Region'.'Location Plant'
+
+relationship 4a395090-3dc7-aad1-da5b-eead7d86487e
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.MAINTENANCE_WRK_CNTR_KEY
+	toColumn: EDW_T_D_MST_WORKCTR_CUR_D.WRK_CNTR_KEY
+
+relationship 225a4c13-c99f-dd16-eb32-991a61e62e73
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.MATRL_KEY
+	toColumn: EDW_T_D_MST_MATERIAL_CUR_D.MATRL_KEY
+
+relationship cea230b5-892f-1b46-d045-727c31c29463
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.PERSONEL_NUM_KEY
+	toColumn: 'Personnel Number'.PERSONEL_KEY
+
+relationship 9309e300-0e9e-00b4-c1ae-c205fd1304b0
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.PERSONNEL_PLANT_REGION_PLANT
+	toColumn: 'Personnel Plant Region'.'Personnel Plant'
+
+relationship ec26feae-e1b8-fe09-c472-59ab9536168d
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.PLANT_REGION_PLANT
+	toColumn: 'Plant Region'.PLANT
+
+relationship 8a8ed79c-df25-d5f9-7172-4ec21e7f89ba
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.PLNT_KEY
+	toColumn: EDW_T_D_MST_PLANT_CUR_D.PLNT_KEY
+
+relationship 12a70a78-e6e2-3212-fcf8-6a652331b321
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.PRODUCING_PLANT_REGION_PLANT
+	toColumn: 'Producing Plant Region'.'Producing Plant'
+
+relationship d4348fd0-c6ea-87a9-a267-6f1607065445
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.PRODUCING_PLNT_KEY
+	toColumn: 'Producing Plant'.PLNT_KEY
+
+relationship 4b804b32-9271-7105-80eb-5ba6ab0a2d67
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship 5c5d03c7-c31c-460d-6ae2-8899ef7bf943
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.PRTNR_CMPNY_KEY
+	toColumn: 'Partner Company'.CMPNY_KEY
+
+relationship 807e57b5-42c9-7ef0-4b14-3e9933aeb369
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.PRTNR_COST_CNTR_KEY
+	toColumn: 'Partner Cost Center'.COST_CNTR_KEY
+
+relationship b379baeb-329c-149d-31c9-a9e3a259014b
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.PSTNG_DATE_KEY
+	toColumn: EDW_T_D_MST_DATE_CUR_D.DATE_KEY
+
+relationship ddb3af91-69a6-133d-4442-9d61b89513e5
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.RESPNSBLE_COST_CNTR_KEY
+	toColumn: 'Responsible Cost Center'.COST_CNTR_KEY
+
+relationship 50471bfb-440b-94a6-a948-76ab6ea2fb4c
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.SERVC_ORDER_KEY
+	toColumn: EDW_T_D_PRD_SERVORD_CUR_D.SERVC_ORDER_KEY
+
+relationship 410e7e92-4fdd-22b3-a5eb-59d32493f50e
+	fromColumn: EDW_T_FACT_PRD_SERVCST_CUR_D.TCHNCL_COMPLETION_DATE_KEY
+	toColumn: 'Technical Completion Date'.DATE_KEY
+
+relationship a020902b-9989-15d5-3ce8-6c2985b61a07
+	fromColumn: 'Partner Cost Center Horizontal'.COST_CNTR_KEY
+	toColumn: 'Partner Cost Center'.COST_CNTR_KEY
+
+relationship c06e86d6-a56c-222a-7f84-9e33fd6bbf3b
+	fromColumn: 'Partner Cost Center Vertical'.COST_CNTR_KEY
+	toColumn: 'Partner Cost Center'.COST_CNTR_KEY
+
+relationship 4534d322-4fa0-edc3-15e7-95a53a32ccab
+	fromColumn: 'Responsible Cost Center Horizontal'.COST_CNTR_KEY
+	toColumn: 'Responsible Cost Center'.COST_CNTR_KEY
+
+relationship 58812d82-eadb-89ec-8983-3fa05e98a3d9
+	fromColumn: 'Responsible Cost Center Vertical'.COST_CNTR_KEY
+	toColumn: 'Responsible Cost Center'.COST_CNTR_KEY
+
+relationship 1e04f585-08b6-de69-90bc-21da7690948e
+	fromColumn: EDW_T_D_HY_COSTEHZ_CUR_D.COST_ELEMNT_KEY
+	toColumn: EDW_T_D_MST_COSTELM_CUR_D.COST_ELEMNT_KEY
+
+relationship 8fba53dc-4b8e-61ba-2d49-7b1cf5f96da4
+	fromColumn: EDW_T_D_HY_COSTEVZ_CUR_D.COST_ELEMNT_KEY
+	toColumn: EDW_T_D_MST_COSTELM_CUR_D.COST_ELEMNT_KEY
+
+relationship a4f9f408-2e02-f609-c017-8ef77ba30043
+	fromColumn: EDW_T_D_HY_PROFCHZ_CUR_D.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship 0d0e4d0a-27e7-0e57-1d37-9d65f48cd029
+	fromColumn: EDW_T_D_HY_PROFCVZ_CUR_D.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship 56e63132-8f89-69cf-e38e-b4796141918b
+	fromColumn: EDW_T_D_HY_WORKCHZ_CUR_D.WRK_CNTR_KEY
+	toColumn: EDW_T_D_MST_WORKCTR_CUR_D.WRK_CNTR_KEY
+
+relationship 542210ff-231a-652d-2695-6196da504a4b
+	fromColumn: EDW_T_D_HY_WORKCVZ_CUR_D.WRK_CNTR_KEY
+	toColumn: EDW_T_D_MST_WORKCTR_CUR_D.WRK_CNTR_KEY
+
