@@ -1,0 +1,26 @@
+CREATE TABLE [Propelis].[PARTNER_PROFIT_CENTER_HORIZONTAL] (
+
+	[PROFIT_CNTR_KEY] int NULL, 
+	[Partner Profit Center Controlling Area ID of HH] varchar(max) NULL, 
+	[Partner Profit Center Leaf Level of HH] int NULL, 
+	[Partner Profit Center Level 0 ID of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 0 Description of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 1 ID of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 1 Description of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 2 ID of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 2 Description of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 3 ID of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 3 Description of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 4 ID of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 4 Description of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 5 ID of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 5 Description of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 6 ID of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 6 Description of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 7 ID of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 7 Description of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 8 ID of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 8 Description of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 9 ID of HH] varchar(max) NULL, 
+	[Partner Profit Center Level 9 Description of HH] varchar(max) NULL
+);

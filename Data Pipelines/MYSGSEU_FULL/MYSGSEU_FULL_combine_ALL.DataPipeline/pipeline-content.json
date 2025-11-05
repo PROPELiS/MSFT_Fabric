@@ -608,6 +608,54 @@
         },
         "name": "MYSGSEU_Administration_TimeTrackingCategories",
         "dependsOn": []
+      },
+      {
+        "type": "ExecutePipeline",
+        "typeProperties": {
+          "pipeline": {
+            "referenceName": "87b34646-b6dd-bb5c-4353-3f77b0f6b190",
+            "type": "PipelineReference"
+          },
+          "parameters": {},
+          "waitOnCompletion": true
+        },
+        "policy": {
+          "secureInput": false
+        },
+        "name": "MYSGSEU_Integrations_WorkfrontItems",
+        "dependsOn": []
+      },
+      {
+        "type": "ExecutePipeline",
+        "typeProperties": {
+          "pipeline": {
+            "referenceName": "fbe4d64d-af43-904d-4cc3-e73b2345c491",
+            "type": "PipelineReference"
+          },
+          "parameters": {},
+          "waitOnCompletion": true
+        },
+        "policy": {
+          "secureInput": false
+        },
+        "name": "MYSGSEU_Integrations_WorkfrontItemBatches",
+        "dependsOn": []
+      },
+      {
+        "type": "ExecutePipeline",
+        "typeProperties": {
+          "pipeline": {
+            "referenceName": "52823691-3884-ae97-4396-a034c963eb8c",
+            "type": "PipelineReference"
+          },
+          "parameters": {},
+          "waitOnCompletion": true
+        },
+        "policy": {
+          "secureInput": false
+        },
+        "name": "MYSGSEU_Integrations_WorkfrontDeliverableItems",
+        "dependsOn": []
       }
     ]
   }

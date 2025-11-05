@@ -48,6 +48,38 @@
         },
         "name": "MYSGSEU_DELTA_combine_III",
         "dependsOn": []
+      },
+      {
+        "type": "ExecutePipeline",
+        "typeProperties": {
+          "pipeline": {
+            "referenceName": "a45b3db0-5ec6-adaa-410c-25c236aabdcd",
+            "type": "PipelineReference"
+          },
+          "parameters": {},
+          "waitOnCompletion": true
+        },
+        "policy": {
+          "secureInput": false
+        },
+        "name": "MYSGSEU_DELTA_combine_IV",
+        "dependsOn": []
+      },
+      {
+        "type": "ExecutePipeline",
+        "typeProperties": {
+          "pipeline": {
+            "referenceName": "c341e313-efbd-b7d1-4b0d-b64cc00c4733",
+            "type": "PipelineReference"
+          },
+          "parameters": {},
+          "waitOnCompletion": true
+        },
+        "policy": {
+          "secureInput": false
+        },
+        "name": "MYSGSEU_DELTA_combine_V",
+        "dependsOn": []
       }
     ]
   }

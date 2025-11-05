@@ -245,11 +245,14 @@ table FactAllocationRateServiceLBC
 
 	column PrimaryOrSecondaryIndicator
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: 3d382ce3-df26-4d6f-9bca-1933eb8a4b6a
 		sourceLineageTag: PrimaryOrSecondaryIndicator
 		summarizeBy: none
 		sourceColumn: PrimaryOrSecondaryIndicator
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -260,6 +263,26 @@ table FactAllocationRateServiceLBC
 		sourceLineageTag: METADATA$ROW_ID
 		summarizeBy: none
 		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyEmployeeHistory
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f32f3bdb-832b-4a0d-8479-2dee30945a92
+		sourceLineageTag: HEXKeyEmployeeHistory
+		summarizeBy: none
+		sourceColumn: HEXKeyEmployeeHistory
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyEmployees
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a2cc1eef-4bc5-4a21-9fe8-1e9551a43e4b
+		sourceLineageTag: HEXKeyEmployees
+		summarizeBy: none
+		sourceColumn: HEXKeyEmployees
 
 		annotation SummarizationSetBy = Automatic
 

@@ -1,0 +1,109 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "DimJobVersion",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "SnowflakeSource",
+            "exportSettings": {
+              "type": "SnowflakeExportCopyCommand"
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "type": "SnowflakeTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "DBO",
+                "table": "DimJobversion",
+                "database": "SGSEDW"
+              },
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              }
+            }
+          },
+          "sink": {
+            "type": "SqlServerSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE SGSEDW.DBO.[DimJobVersion_BR]",
+              "type": "Expression"
+            },
+            "writeBehavior": "insert",
+            "sqlWriterUseTableLock": false,
+            "datasetSettings": {
+              "annotations": [],
+              "type": "SqlServerTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "DimJobVersion_BR",
+                "database": "SGSEDW"
+              },
+              "externalReferences": {
+                "connection": "19bf7180-654c-4b5e-b009-45795ab1a08b"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "JobVersionId",
+                  "type": "Int64",
+                  "physicalType": "NUMBER",
+                  "scale": 0,
+                  "precision": 38
+                },
+                "sink": {
+                  "name": "JobVersionId",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "JobDescription",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                },
+                "sink": {
+                  "name": "JobDescription",
+                  "physicalType": "nvarchar",
+                  "length": "500"
+                }
+              },
+              {
+                "source": {
+                  "name": "CustomerDesignRef",
+                  "type": "String",
+                  "physicalType": "VARCHAR"
+                },
+                "sink": {
+                  "name": "CustomerDesignRef",
+                  "physicalType": "nvarchar",
+                  "length": "300"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

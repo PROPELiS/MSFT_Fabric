@@ -56,5 +56,9 @@ CREATE TABLE [Propelis].[EDW_T_FACT_HR_CATSDB_CUR_D] (
 	[WBS Number] varchar(max) NULL, 
 	[WBS Description] varchar(max) NULL, 
 	[WBS_ELEMNT_KEY] int NULL, 
-	[SGK_OPERREG_PLANT] varchar(max) NULL
+	[SGK_OPERREG_PLANT] varchar(max) NULL, 
+	[COSTCVZ_COST_CNTR_KEY] int NULL, 
+	[COSTCHZ_COST_CNTR_KEY] int NULL, 
+	[WORKCHZ_WRK_CNTR_KEY] int NULL, 
+	[WORKCVZ_WRK_CNTR_KEY] int NULL
 );

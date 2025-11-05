@@ -15,7 +15,7 @@ table DimCalendarDate
 		annotation SummarizationSetBy = Automatic
 
 	column 'DATE - Calendar Date(YYYYMMDD)'
-		dataType: double
+		dataType: int64
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 6ecb2b36-e8b7-4328-a06e-c6062f51a3cc
 		sourceLineageTag: CalendarDate_YYYYMMDD
@@ -23,6 +23,8 @@ table DimCalendarDate
 		sourceColumn: CalendarDate_YYYYMMDD
 
 		changedProperty = Name
+
+		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
 
@@ -85,7 +87,7 @@ table DimCalendarDate
 		annotation SummarizationSetBy = Automatic
 
 	column 'CAL - Quarter Number'
-		dataType: double
+		dataType: int64
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 1145a04b-cb2e-4878-ad9f-8f15deea38f1
 		sourceLineageTag: QuarterNumber
@@ -93,6 +95,8 @@ table DimCalendarDate
 		sourceColumn: QuarterNumber
 
 		changedProperty = Name
+
+		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
 
@@ -123,7 +127,7 @@ table DimCalendarDate
 		annotation SummarizationSetBy = Automatic
 
 	column 'CAL - Month Number'
-		dataType: double
+		dataType: int64
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 17f63b65-061c-4cea-ab56-290a6be1d04e
 		sourceLineageTag: MonthNumber
@@ -131,6 +135,8 @@ table DimCalendarDate
 		sourceColumn: MonthNumber
 
 		changedProperty = Name
+
+		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
 
@@ -185,7 +191,7 @@ table DimCalendarDate
 		annotation SummarizationSetBy = Automatic
 
 	column 'CAL - Day Of Month Number'
-		dataType: double
+		dataType: int64
 		sourceProviderType: decimal(38, 0)
 		lineageTag: c3d2fb17-b254-4032-87d7-bb9f8554f016
 		sourceLineageTag: DayOfMonthNumber
@@ -194,12 +200,14 @@ table DimCalendarDate
 
 		changedProperty = Name
 
+		changedProperty = DataType
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'CAL - Week Of Month Number'
-		dataType: double
+		dataType: int64
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 6046aae7-668d-468e-a6f7-1a4d071a029d
 		sourceLineageTag: WeekOfMonthNumber
@@ -207,6 +215,8 @@ table DimCalendarDate
 		sourceColumn: WeekOfMonthNumber
 
 		changedProperty = Name
+
+		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
 
@@ -237,7 +247,7 @@ table DimCalendarDate
 		annotation SummarizationSetBy = Automatic
 
 	column 'CAL - Day Of Week Number'
-		dataType: double
+		dataType: int64
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 7f854e1e-0e98-483c-9cfb-8f70a81b49b1
 		sourceLineageTag: DayOfWeekNumber
@@ -246,12 +256,14 @@ table DimCalendarDate
 
 		changedProperty = Name
 
+		changedProperty = DataType
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'CAL - Day Of Year Number'
-		dataType: double
+		dataType: int64
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 512a1687-139e-40cc-90c8-a536d0b4b6cb
 		sourceLineageTag: DayOfYearNumber
@@ -260,12 +272,14 @@ table DimCalendarDate
 
 		changedProperty = Name
 
+		changedProperty = DataType
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'CAL - Week Of Year Number'
-		dataType: double
+		dataType: int64
 		sourceProviderType: decimal(38, 0)
 		lineageTag: ccbe90bc-7731-4d3a-8a1f-4c847b3e3bb6
 		sourceLineageTag: WeekOfYearNumber
@@ -273,6 +287,8 @@ table DimCalendarDate
 		sourceColumn: WeekOfYearNumber
 
 		changedProperty = Name
+
+		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
 
@@ -447,12 +463,14 @@ table DimCalendarDate
 		annotation SummarizationSetBy = Automatic
 
 	column ISOYrWeek
-		dataType: double
+		dataType: int64
 		sourceProviderType: decimal(38, 0)
 		lineageTag: dc508289-35e8-4e73-a43a-e86fe46b49bd
 		sourceLineageTag: ISOYrWeek
 		summarizeBy: sum
 		sourceColumn: ISOYrWeek
+
+		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
 

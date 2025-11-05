@@ -195,9 +195,12 @@ table FactSalesCostActual
 		changedProperty = Name
 
 	measure 'AMT - P&L Net Sales' = 'FactSalesCostActual'[AMT - P&L Gross Sales] + 'FactSalesCostActual'[AMT - P&L Net Sales With No Gross Sales]
+		formatString: 0
 		lineageTag: dd33968f-f00f-44d1-ae4c-f391cbaa0d8a
 
 		changedProperty = Name
+
+		changedProperty = FormatString
 
 	measure 'AMT - P&L Net Sales With No Gross Sales' =
 			CALCULATE(SUM(FactSalesCostActual[AMT - Revenue (USD)])
@@ -596,21 +599,49 @@ table FactSalesCostActual
 
 		changedProperty = Name
 
-	measure 'AMT - Variable Costs' = 'FactSalesCostActual'[AMT - P&L Total People Costs(Cost of Goods Sold)]  + 'FactSalesCostActual'[AMT - P&L Materials(Cost of Goods Sold)]+'FactSalesCostActual'[AMT - P&L Total People Cost(Selling Expence)] + 'FactSalesCostActual'[AMT - P&L Freight(Cost of Goods Sold)]
+	measure 'AMT - Variable Costs' = ```
+			
+			CALCULATE (
+			    ('FactSalesCostActual'[AMT - P&L Total People Costs(Cost of Goods Sold)]) + 
+			    ('FactSalesCostActual'[AMT - P&L Materials(Cost of Goods Sold)]) +
+			    ('FactSalesCostActual'[AMT - P&L Total People Cost(Selling Expence)]) + 
+			    ('FactSalesCostActual'[AMT - P&L Freight(Cost of Goods Sold)]) + 
+			    ('FactSalesCostActual'[AMT - P&L Outside Services(Cost of Goods Sold)]) + 
+			    ('FactSalesCostActual'[AMT - P&L Outside Services(Selling Expence)]),
+			    FILTER (
+			        'FactSalesCostActual',
+			        'FactSalesCostActual'[PrimaryOrSecondaryIndicator] ="Primary"
+			    )
+			)
+			```
 		formatString: 0
 		lineageTag: 5e9f4e35-465f-4bff-a05a-5ea23ab8c378
 
 		changedProperty = Name
 
-	measure 'AMT – P&L Transfer People Costs (G&A)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment, DimGLAccountsDepartment[GL - GL Department Key]= "69001498-81*" || DimGLAccountsDepartment[GL - GL Department Key]= "69001496-81*"))+0
+	measure 'AMT – P&L Transfer People Costs (G&A)' = ```
+			
+			 CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),
+			 FILTER(DimGLAccountsDepartment, DimGLAccountsDepartment[GL - GL Department Key]= "69001498-81*" 
+			 || DimGLAccountsDepartment[GL - GL Department Key]= "69001496-81*"|| DimGLAccountsDepartment[GL - GL Department Key]= "69001499-81*"))+0
+			```
 		lineageTag: 65614e52-21ee-4746-abb2-9ef6196e58c2
 
 		changedProperty = Name
 
-	measure 'AMT – P&L Transfer People Costs (Selling Expence)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment, DimGLAccountsDepartment[GL - GL Department Key]= "69001498-80*" || DimGLAccountsDepartment[GL - GL Department Key]= "69001496-80*"))+0
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AMT – P&L Transfer People Costs (Selling Expence)' = ```
+			
+			 CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost With Mapped Rate(USD)]),FILTER(DimGLAccountsDepartment, DimGLAccountsDepartment[GL - GL Department Key]= "69001498-80*" ||
+			 DimGLAccountsDepartment[GL - GL Department Key]= "69001496-80*"||
+			 DimGLAccountsDepartment[GL - GL Department Key]= "69001499-80*"))+0
+			```
 		lineageTag: 6a0af308-25b5-43e7-9548-aa9385f7bf41
 
 		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'AMT – Revenue (USD) PY' = CALCULATE(SUM(FactSalesCostActual[AMT - Revenue (USD)]),  YEAR(DimCalendarDate[DATE - Calendar Date])=YEAR(TODAY()) - 1)
 		lineageTag: cfaae403-2942-4304-9186-70887df6c85a
@@ -785,7 +816,7 @@ table FactSalesCostActual
 		changedProperty = Name
 
 	measure 'MAPPED AMT - P&L Net Sales' = ('FactSalesCostActual'[AMT - P&L Gross Sales] + 'FactSalesCostActual'[AMT - P&L Net Sales With No Gross Sales])
-		formatString: 0.00
+		formatString: #,0
 		lineageTag: 85021707-9bbb-46f5-8d28-f9552f3e67c3
 
 		changedProperty = Name
@@ -1187,10 +1218,18 @@ table FactSalesCostActual
 
 		changedProperty = Name
 
-	measure 'MAPPED AMT – P&L Transfer People Costs (Cost of Goods Sold)' = CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment, DimGLAccountsDepartment[GL - GL Department Key]= "69001498-71*" || DimGLAccountsDepartment[GL - GL Department Key]= "69001496-71*" || DimGLAccountsDepartment[GL - GL Department Key]= "69001496-76*" || DimGLAccountsDepartment[GL - GL Department Key]= "69001498-76*"))+0
+	measure 'MAPPED AMT – P&L Transfer People Costs (Cost of Goods Sold)' = ```
+			
+			   CALCULATE(SUM(FactSalesCostActual[AMT - Mapped Cost Actual LC]),FILTER(DimGLAccountsDepartment, DimGLAccountsDepartment[GL - GL Department Key]= "69001498-71*" 
+			    || DimGLAccountsDepartment[GL - GL Department Key]= "69001496-71*" 
+			    || DimGLAccountsDepartment[GL - GL Department Key]= "69001496-76*" || DimGLAccountsDepartment[GL - GL Department Key]= "69001498-76*"|| 
+			    DimGLAccountsDepartment[GL - GL Department Key]= "69001499-71*"|| DimGLAccountsDepartment[GL - GL Department Key]= "69001499-76*"))+0
+			```
 		lineageTag: 8b555549-de21-4323-9622-bafece49b0e7
 
 		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'MAPPED Gross Margin %' = ```
 			
@@ -1228,14 +1267,27 @@ table FactSalesCostActual
 
 		changedProperty = FormatString
 
-	measure 'MAPPED Variable Costs' =
+	measure 'MAPPED Variable Costs' = ```
 			
-			'FactSalesCostActual'[MAPPED AMT - P&L Total People Costs(Cost of Goods Sold)]  + 'FactSalesCostActual'[MAPPED AMT - P&L Materials(Cost of Goods Sold)]+
-			'FactSalesCostActual'[MAPPED AMT - P&L Total People Cost(Selling Expence)] + 'FactSalesCostActual'[MAPPED AMT - P&L Freight(Cost of Goods Sold)]
-		formatString: 0
+			CALCULATE (
+			    ('FactSalesCostActual'[MAPPED AMT - P&L Total People Costs(Cost of Goods Sold)]) + 
+			    ('FactSalesCostActual'[MAPPED AMT - P&L Materials(Cost of Goods Sold)]) +
+			    ('FactSalesCostActual'[MAPPED AMT - P&L Total People Cost(Selling Expence)]) + 
+			    ('FactSalesCostActual'[MAPPED AMT - P&L Freight(Cost of Goods Sold)]) + 
+			    ('FactSalesCostActual'[MAPPED AMT - P&L Outside Services(Cost of Goods Sold)]) + 
+			    ('FactSalesCostActual'[MAPPED AMT - P&L Outside Services(Selling Expence)]),
+			    FILTER (
+			        'FactSalesCostActual',
+			        'FactSalesCostActual'[PrimaryOrSecondaryIndicator] ="Primary"
+			    )
+			)
+			```
+		formatString: #,0
 		lineageTag: fe4660d6-7020-44f1-9e10-a218684ff44e
 
 		changedProperty = Name
+
+		changedProperty = FormatString
 
 	measure 'Variable Contribution Margin' = 'FactSalesCostActual'[AMT - P&L Net Sales]-'FactSalesCostActual'[AMT - Variable Costs]
 		formatString: 0
@@ -1259,6 +1311,27 @@ table FactSalesCostActual
 
 	measure 'AMT - % of Revenue(Cost of Goods Sold)' = DIVIDE('FactSalesCostActual'[AMT - P&L Total Wages(Cost of Goods Sold)],'FactSalesCostActual'[AMT - P&L Net Sales])+0
 		lineageTag: a629991d-92ca-4850-ac3f-0e02188e36b8
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'MAPPED Variable Costs without Secondary (with FILTER)' = ```
+			
+			CALCULATE (
+			    ('FactSalesCostActual'[MAPPED AMT - P&L Total People Costs(Cost of Goods Sold)]) + 
+			    ('FactSalesCostActual'[MAPPED AMT - P&L Materials(Cost of Goods Sold)]) +
+			    ('FactSalesCostActual'[MAPPED AMT - P&L Total People Cost(Selling Expence)]) + 
+			    ('FactSalesCostActual'[MAPPED AMT - P&L Freight(Cost of Goods Sold)]) + 
+			    ('FactSalesCostActual'[MAPPED AMT - P&L Outside Services(Cost of Goods Sold)]) + 
+			    ('FactSalesCostActual'[MAPPED AMT - P&L Outside Services(Selling Expence)]),
+			    FILTER (
+			        'FactSalesCostActual',
+			        'FactSalesCostActual'[PrimaryOrSecondaryIndicator] ="Primary"
+			    )
+			)
+			```
+		lineageTag: 77239ff2-9bef-4685-854c-39fbc7b15068
 
 		changedProperty = Name
 
@@ -2851,6 +2924,16 @@ table FactSalesCostActual
 		sourceLineageTag: HEXKeyLineOfBusiness
 		summarizeBy: none
 		sourceColumn: HEXKeyLineOfBusiness
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoadStep
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e887eeb9-2823-43b7-b0be-af0f5526cc7f
+		sourceLineageTag: LoadStep
+		summarizeBy: none
+		sourceColumn: LoadStep
 
 		annotation SummarizationSetBy = Automatic
 

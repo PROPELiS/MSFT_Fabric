@@ -1,0 +1,270 @@
+CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_HY_GLACTHZ_CUR_D]
+AS
+BEGIN
+
+    ------------------------------------------------------------------
+    -- Step 1: Load source data into a temp table with a hash key
+    ------------------------------------------------------------------
+    IF OBJECT_ID('tempdb..#SourceData') IS NOT NULL
+        DROP TABLE #SourceData;
+
+    SELECT 
+        S.[HIERCHY_GROUP],
+        S.[GL_CD],
+        S.[CHART_OF_ACCTS],
+        S.[FUNCTNL_AREA],
+        S.[LEAF_LVL],
+        S.[LVL_0_ID],
+        S.[LVL_0_DESC],
+        S.[LVL_1_ID],
+        S.[LVL_1_DESC],
+        S.[LVL_2_ID],
+        S.[LVL_2_DESC],
+        S.[LVL_3_ID],
+        S.[LVL_3_DESC],
+        S.[LVL_4_ID],
+        S.[LVL_4_DESC],
+        S.[LVL_5_ID],
+        S.[LVL_5_DESC],
+        S.[LVL_6_ID],
+        S.[LVL_6_DESC],
+        S.[LVL_1_NODEID],
+        S.[LVL_1_IOBJNM],
+        S.[LVL_1_NODENAME],
+        S.[LVL_2_NODEID],
+        S.[LVL_2_IOBJNM],
+        S.[LVL_2_NODENAME],
+        S.[LVL_3_NODEID],
+        S.[LVL_3_IOBJNM],
+        S.[LVL_3_NODENAME],
+        S.[LVL_4_NODEID],
+        S.[LVL_4_IOBJNM],
+        S.[LVL_4_NODENAME],
+        S.[LVL_5_NODEID],
+        S.[LVL_5_IOBJNM],
+        S.[LVL_5_NODENAME],
+        S.[LVL_6_NODEID],
+        S.[LVL_6_IOBJNM],
+        S.[LVL_6_NODENAME],
+        HASHBYTES('SHA2_256', CONCAT(
+            ISNULL(S.[HIERCHY_GROUP], ''), '|',
+            ISNULL(S.[GL_CD], ''), '|',
+            ISNULL(S.[CHART_OF_ACCTS], ''), '|',
+            ISNULL(S.[FUNCTNL_AREA], ''), '|',
+            ISNULL(S.[LEAF_LVL], ''), '|',
+            ISNULL(S.[LVL_0_ID], ''), '|',
+            ISNULL(S.[LVL_0_DESC], ''), '|',
+            ISNULL(S.[LVL_1_ID], ''), '|',
+            ISNULL(S.[LVL_1_DESC], ''), '|',
+            ISNULL(S.[LVL_2_ID], ''), '|',
+            ISNULL(S.[LVL_2_DESC], ''), '|',
+            ISNULL(S.[LVL_3_ID], ''), '|',
+            ISNULL(S.[LVL_3_DESC], ''), '|',
+            ISNULL(S.[LVL_4_ID], ''), '|',
+            ISNULL(S.[LVL_4_DESC], ''), '|',
+            ISNULL(S.[LVL_5_ID], ''), '|',
+            ISNULL(S.[LVL_5_DESC], ''), '|',
+            ISNULL(S.[LVL_6_ID], ''), '|',
+            ISNULL(S.[LVL_6_DESC], '|'),
+			ISNULL(S.[LVL_1_NODEID], '|'),
+			ISNULL(S.[LVL_1_IOBJNM], '|'),
+			ISNULL(S.[LVL_1_NODENAME], '|'),
+			ISNULL(S.[LVL_2_NODEID], '|'),
+			ISNULL(S.[LVL_2_IOBJNM], '|'),
+			ISNULL(S.[LVL_2_NODENAME], '|'),
+			ISNULL(S.[LVL_3_NODEID], '|'),
+			ISNULL(S.[LVL_3_IOBJNM], '|'),
+			ISNULL(S.[LVL_3_NODENAME], '|'),
+			ISNULL(S.[LVL_4_NODEID], '|'),
+			ISNULL(S.[LVL_4_IOBJNM], '|'),
+			ISNULL(S.[LVL_4_NODENAME], '|'),
+			ISNULL(S.[LVL_5_NODEID], '|'),
+			ISNULL(S.[LVL_5_IOBJNM], '|'),
+			ISNULL(S.[LVL_5_NODENAME], '|'),
+			ISNULL(S.[LVL_6_NODEID], '|'),
+			ISNULL(S.[LVL_6_IOBJNM], '|'),
+			ISNULL(S.[LVL_6_NODENAME], '')
+        )) AS HashKey
+    INTO #SourceData
+    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_HY_GLACTHZ_CUR_D] AS S;
+
+    ------------------------------------------------------------------
+    -- Step 2: Update changed rows in target (hash mismatch)
+    ------------------------------------------------------------------
+    UPDATE T
+    SET 
+        [General Ledger ID Hierarchy Group] = S.[HIERCHY_GROUP],
+        [GL_CD] = S.[GL_CD],
+        [CHART_OF_ACCTS] = S.[CHART_OF_ACCTS],
+        [FUNCTNL_AREA] = S.[FUNCTNL_AREA],
+        [General Ledger Leaf Level HH] = S.[LEAF_LVL],
+        [General Ledger Level 0 ID HH] = S.[LVL_0_ID],
+        [General Ledger Level 0 Description HH] = S.[LVL_0_DESC],
+        [General Ledger Level 1 ID HH] = S.[LVL_1_ID],
+        [General Ledger Level 1 Description HH] = S.[LVL_1_DESC],
+        [General Ledger Level 2 ID HH] = S.[LVL_2_ID],
+        [General Ledger Level 2 Description HH] = S.[LVL_2_DESC],
+        [General Ledger Level 3 ID HH] = S.[LVL_3_ID],
+        [General Ledger Level 3 Description HH] = S.[LVL_3_DESC],
+        [General Ledger Level 4 ID HH] = S.[LVL_4_ID],
+        [General Ledger Level 4 Description HH] = S.[LVL_4_DESC],
+        [General Ledger Level 5 ID HH] = S.[LVL_5_ID],
+        [General Ledger Level 5 Description HH] = S.[LVL_5_DESC],
+        [General Ledger Level 6 ID HH] = S.[LVL_6_ID],
+        [General Ledger Level 6 Description HH] = S.[LVL_6_DESC],
+        [General Ledger Level 1 NODEID] = S.[LVL_1_NODEID],
+        [General Ledger Level 1 IOBJNM] = S.[LVL_1_IOBJNM],
+        [General Ledger Level 1 NODENAME] = S.[LVL_1_NODENAME],
+        [General Ledger Level 2 NODEID] = S.[LVL_2_NODEID],
+        [General Ledger Level 2 IOBJNM] = S.[LVL_2_IOBJNM],
+        [General Ledger Level 2 NODENAME] = S.[LVL_2_NODENAME],
+        [General Ledger Level 3 NODEID] = S.[LVL_3_NODEID],
+        [General Ledger Level 3 IOBJNM] = S.[LVL_3_IOBJNM],
+        [General Ledger Level 3 NODENAME] = S.[LVL_3_NODENAME],
+        [General Ledger Level 4 NODEID] = S.[LVL_4_NODEID],
+        [General Ledger Level 4 IOBJNM] = S.[LVL_4_IOBJNM],
+        [General Ledger Level 4 NODENAME] = S.[LVL_4_NODENAME],
+        [General Ledger Level 5 NODEID] = S.[LVL_5_NODEID],
+        [General Ledger Level 5 IOBJNM] = S.[LVL_5_IOBJNM],
+        [General Ledger Level 5 NODENAME] = S.[LVL_5_NODENAME],
+        [General Ledger Level 6 NODEID] = S.[LVL_6_NODEID],
+        [General Ledger Level 6 IOBJNM] = S.[LVL_6_IOBJNM],
+        [General Ledger Level 6 NODENAME] = S.[LVL_6_NODENAME]
+    FROM [GLOBAL_EDW].[dbo].[EDW_T_D_HY_GLACTHZ_CUR_D] AS T
+    INNER JOIN #SourceData AS S
+        ON T.[GL_CD] = S.[GL_CD]
+    WHERE HASHBYTES('SHA2_256', CONCAT(
+            ISNULL(T.[General Ledger ID Hierarchy Group], ''), '|',
+            ISNULL(T.[GL_CD], ''), '|',
+            ISNULL(T.[CHART_OF_ACCTS], ''), '|',
+            ISNULL(T.[FUNCTNL_AREA], ''), '|',
+            ISNULL(T.[General Ledger Leaf Level HH], ''), '|',
+            ISNULL(T.[General Ledger Level 0 ID HH], ''), '|',
+            ISNULL(T.[General Ledger Level 0 Description HH], ''), '|',
+            ISNULL(T.[General Ledger Level 1 ID HH], ''), '|',
+            ISNULL(T.[General Ledger Level 1 Description HH], ''), '|',
+            ISNULL(T.[General Ledger Level 2 ID HH], ''), '|',
+            ISNULL(T.[General Ledger Level 2 Description HH], ''), '|',
+            ISNULL(T.[General Ledger Level 3 ID HH], ''), '|',
+            ISNULL(T.[General Ledger Level 3 Description HH], ''), '|',
+            ISNULL(T.[General Ledger Level 4 ID HH], ''), '|',
+            ISNULL(T.[General Ledger Level 4 Description HH], ''), '|',
+            ISNULL(T.[General Ledger Level 5 ID HH], ''), '|',
+            ISNULL(T.[General Ledger Level 5 Description HH], ''), '|',
+            ISNULL(T.[General Ledger Level 6 ID HH], ''), '|',
+            ISNULL(T.[General Ledger Level 6 Description HH], '|'),
+			ISNULL(T.[General Ledger Level 1 NODEID], '|'),
+			ISNULL(T.[General Ledger Level 1 IOBJNM], '|'),
+			ISNULL(T.[General Ledger Level 1 NODENAME], '|'),
+			ISNULL(T.[General Ledger Level 2 NODEID], '|'),
+			ISNULL(T.[General Ledger Level 2 IOBJNM], '|'),
+			ISNULL(T.[General Ledger Level 2 NODENAME], '|'),
+			ISNULL(T.[General Ledger Level 3 NODEID], '|'),
+			ISNULL(T.[General Ledger Level 3 IOBJNM], '|'),
+			ISNULL(T.[General Ledger Level 3 NODENAME], '|'),
+			ISNULL(T.[General Ledger Level 4 NODEID], '|'),
+			ISNULL(T.[General Ledger Level 4 IOBJNM], '|'),
+			ISNULL(T.[General Ledger Level 4 NODENAME], '|'),
+			ISNULL(T.[General Ledger Level 5 NODEID], '|'),
+			ISNULL(T.[General Ledger Level 5 IOBJNM], '|'),
+			ISNULL(T.[General Ledger Level 5 NODENAME], '|'),
+			ISNULL(T.[General Ledger Level 6 NODEID], '|'),
+			ISNULL(T.[General Ledger Level 6 IOBJNM], '|'),
+			ISNULL(T.[General Ledger Level 6 NODENAME], '|')
+        )) <> S.HashKey;
+		
+    ------------------------------------------------------------------
+    -- Step 3: Insert only new rows not already in target
+    ------------------------------------------------------------------
+	
+    INSERT INTO [GLOBAL_EDW].[dbo].[EDW_T_D_HY_GLACTHZ_CUR_D]
+    (
+        [General Ledger ID Hierarchy Group],
+        [GL_CD],
+        [CHART_OF_ACCTS],
+        [FUNCTNL_AREA],
+        [General Ledger Leaf Level HH],
+        [General Ledger Level 0 ID HH],
+        [General Ledger Level 0 Description HH],
+        [General Ledger Level 1 ID HH],
+        [General Ledger Level 1 Description HH],
+        [General Ledger Level 2 ID HH],
+        [General Ledger Level 2 Description HH],
+        [General Ledger Level 3 ID HH],
+        [General Ledger Level 3 Description HH],
+        [General Ledger Level 4 ID HH],
+        [General Ledger Level 4 Description HH],
+        [General Ledger Level 5 ID HH],
+        [General Ledger Level 5 Description HH],
+        [General Ledger Level 6 ID HH],
+        [General Ledger Level 6 Description HH],
+        [General Ledger Level 1 NODEID],
+        [General Ledger Level 1 IOBJNM],
+        [General Ledger Level 1 NODENAME],
+        [General Ledger Level 2 NODEID],
+        [General Ledger Level 2 IOBJNM],
+        [General Ledger Level 2 NODENAME],
+        [General Ledger Level 3 NODEID],
+        [General Ledger Level 3 IOBJNM],
+        [General Ledger Level 3 NODENAME],
+        [General Ledger Level 4 NODEID],
+        [General Ledger Level 4 IOBJNM],
+        [General Ledger Level 4 NODENAME],
+        [General Ledger Level 5 NODEID],
+        [General Ledger Level 5 IOBJNM],
+        [General Ledger Level 5 NODENAME],
+        [General Ledger Level 6 NODEID],
+        [General Ledger Level 6 IOBJNM],
+        [General Ledger Level 6 NODENAME]
+    )
+    SELECT 
+        S.[HIERCHY_GROUP],
+        S.[GL_CD],
+        S.[CHART_OF_ACCTS],
+        S.[FUNCTNL_AREA],
+        S.[LEAF_LVL],
+        S.[LVL_0_ID],
+        S.[LVL_0_DESC],
+        S.[LVL_1_ID],
+        S.[LVL_1_DESC],
+        S.[LVL_2_ID],
+        S.[LVL_2_DESC],
+        S.[LVL_3_ID],
+        S.[LVL_3_DESC],
+        S.[LVL_4_ID],
+        S.[LVL_4_DESC],
+        S.[LVL_5_ID],
+        S.[LVL_5_DESC],
+        S.[LVL_6_ID],
+        S.[LVL_6_DESC],
+        S.[LVL_1_NODEID],
+        S.[LVL_1_IOBJNM],
+        S.[LVL_1_NODENAME],
+        S.[LVL_2_NODEID],
+        S.[LVL_2_IOBJNM],
+        S.[LVL_2_NODENAME],
+        S.[LVL_3_NODEID],
+        S.[LVL_3_IOBJNM],
+        S.[LVL_3_NODENAME],
+        S.[LVL_4_NODEID],
+        S.[LVL_4_IOBJNM],
+        S.[LVL_4_NODENAME],
+        S.[LVL_5_NODEID],
+        S.[LVL_5_IOBJNM],
+        S.[LVL_5_NODENAME],
+        S.[LVL_6_NODEID],
+        S.[LVL_6_IOBJNM],
+        S.[LVL_6_NODENAME]
+    FROM #SourceData AS S
+    WHERE NOT EXISTS (
+        SELECT 1
+        FROM [GLOBAL_EDW].[dbo].[EDW_T_D_HY_GLACTHZ_CUR_D] AS T
+        WHERE T.[GL_CD] = S.[GL_CD]
+    );
+
+    ------------------------------------------------------------------
+    -- Step 4: Confirmation
+    ------------------------------------------------------------------
+    PRINT 'Incremental load completed – updated changed rows and inserted new rows.';
+
+END;

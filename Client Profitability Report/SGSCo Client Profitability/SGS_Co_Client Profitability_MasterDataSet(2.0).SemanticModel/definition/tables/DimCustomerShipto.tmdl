@@ -2,13 +2,15 @@ table DimCustomerShipto
 	lineageTag: e50dea65-bfcb-4610-9a16-d62b3b054e78
 	sourceLineageTag: [dbo].[DimCustomerShipto]
 
-	column HEXKeyCombineCustomer
+	column 'zID - HEXKey Shipto Customer'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 042b3513-8346-45fa-b2e0-07bf52f9ca5c
 		sourceLineageTag: HEXKeyCombineCustomer
 		summarizeBy: none
 		sourceColumn: HEXKeyCombineCustomer
+
+		changedProperty = Name
 
 		annotation SummarizationSetBy = Automatic
 
@@ -836,8 +838,9 @@ table DimCustomerShipto
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'zID - HEXKey Shipto Customer'
+	column 'zID - HEXKey Customer'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: 80ac3905-3888-44f3-b93b-e75cf2a8f5b4
 		sourceLineageTag: HEXKeyCustomer
@@ -845,6 +848,8 @@ table DimCustomerShipto
 		sourceColumn: HEXKeyCustomer
 
 		changedProperty = Name
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

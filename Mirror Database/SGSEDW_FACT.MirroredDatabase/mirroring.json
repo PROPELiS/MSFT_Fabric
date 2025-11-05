@@ -12,7 +12,7 @@
       "typeProperties": {
         "defaultSchema": "dbo",
         "format": "Delta",
-        "retentionInDays": 30
+        "retentionInDays": 7
       }
     },
     "mountedTables": [
@@ -125,6 +125,14 @@
           "typeProperties": {
             "schemaName": "DBO",
             "tableName": "FactJobItem"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "FactJobVersion"
           }
         }
       },

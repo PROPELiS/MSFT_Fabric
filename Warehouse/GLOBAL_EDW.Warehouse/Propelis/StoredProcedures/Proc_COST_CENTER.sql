@@ -1,184 +1,178 @@
-CREATE       PROCEDURE [Propelis].[Proc_COST_CENTER] 
+CREATE   PROCEDURE [Propelis].[Proc_COST_CENTER]
 AS
-BEGIN  
-    ----------------------------------------------------------------------
-    -- Update existing records
-    ----------------------------------------------------------------------
+BEGIN
+    -- ==============================================
+    -- STEP 1: UPDATE existing records in target
+    -- ==============================================
     UPDATE T
     SET
-       T.[COST_CNTR_KEY]		                                =    S.[COST_CNTR_KEY]                   
-       ,T.[Cost Center ID]		                                =    S.[COST_CNTR_ID]                    
-       ,T.[Cost Center Controlling Area ID]		                =    S.[CONTROLLING_AREA_ID]             
-       ,T.[Cost Center Language Type Code]		                =    S.[LANG_TYP_CD]                     
-       ,T.[Cost Center Category]		                        =    S.[COST_CNTR_CTGRY]                 
-       ,T.[Cost Center Hierarchy Area]		                    =    S.[HIERCHY_AREA]                    
-       ,T.[Cost Center Company Code]		                    =    S.[CMPNY_CD]                        
-       ,T.[Cost Center Plant]		                            =    S.[PLNT_ID]                         
-       ,T.[Cost Center Profit Center ID]		                =    S.[PROFT_CNTR_ID]                   
-       ,T.[Cost Center Currency Code]		                    =    S.[CRNCY_CD]                        
-       ,T.[Cost Center Address Line 1]		                    =    S.[ADRESS_LINE_1]                   
-       ,T.[Cost Center Address Line 2]		                    =    S.[ADRESS_LINE_2]                   
-       ,T.[Cost Center Address Line 3]		                    =    S.[ADRESS_LINE_3]                   
-       ,T.[Cost Center City Name]		                        =    S.[CITY_NAME]                       
-       ,T.[Cost Center District Name]		                    =    S.[DISTR_NAME]                      
-       ,T.[Cost Center Postal Code]		                        =    S.[POSTAL_CD]                       
-       ,T.[Cost Center Country]		                            =    S.[CNTRY_CD]                        
-       ,T.[Cost Center Region Code]		                        =    S.[REGN_CD]                         
-       ,T.[Cost Center Person Responsible]		                =    S.[PERSON_RESPNSBLE]                
-       ,T.[Cost Center Flag Actual Revenues]		            =    S.[FLG_ACTUAL_REVENUES]             
-       ,T.[ETL_SRC_SYS_CD]		                                =    S.[ETL_SRC_SYS_CD]                  
-       ,T.[ETL_EFFECTV_BEGIN_DATE]		                        =    S.[ETL_EFFECTV_BEGIN_DATE]          
-       ,T.[ETL_EFFECTV_END_DATE]		                        =    S.[ETL_EFFECTV_END_DATE]            
-       ,T.[ETL_CURR_RCD_IND]		                            =    S.[ETL_CURR_RCD_IND]                
-       ,T.[ETL_CREATED_TS]		                                =    S.[ETL_CREATED_TS]                  
-       ,T.[ETL_UPDTD_TS]		                                =    S.[ETL_UPDTD_TS]                    
-       ,T.[Cost Center Description]		                        =    S.[COST_CNTR_NAME]                  
-       ,T.[Cost Center Actual Primary Postings Lock Indicator]	=    S.[ACTUAL_PRIMARY_POSTINGS_LOCK_IN]  
-       ,T.[Cost Center Plan Primary Costs Lock Indicator]		=    S.[PLAN_PRIMARY_COSTS_LOCK_IND]     
-       ,T.[Cost Center Business Area]		                    =    S.[BIZ_AREA]                        
-       ,T.[Cost Center Planning Revenues Lock Indicator]		=    S.[PLNG_REVENUES_LOCK_IND]          
-       ,T.[Cost Center PO Box]		                            =    S.[PO_BOX]                          
-       ,T.[Cost Center Street]		                            =    S.[STR]                             
-       ,T.[Cost Center User Responsible]		                =    S.[USR_RESPNSBLE]                   
-       ,T.[Cost Center Short Description]		                =    S.[COST_CNTR_SHORT_DESC]            
-       ,T.[Cost Center Controlling Area Description]		    =    S.[CONTROLLING_AREA_DESC]           
-       ,T.[Cost Center Category Description]		            =    S.[COST_CNTR_CTGRY_DESC]            
-       ,T.[Cost Center Company Description]		                =    S.[CMPNY_DESC]                      
-       ,T.[Cost Center Currency Description]		            =    S.[CRNCY_DESC]                      
-       ,T.[Cost Center Country Description]		                =    S.[CNTRY_DESC]                      
-       ,T.[Cost Center Business Area Description]		        =    S.[BIZ_AREA_DESC]                   
-       ,T.[Cost Center Actual Secondary Cost Lock Indicator]    =    S.[ACTUAL_SECONDARY_COST_LOCK_IND]  
-       ,T.[Cost Center Plan Secondary Cost Lock Indicator]		=    S.[PLAN_SECONDARY_COST_LOCK_IND]    
-       ,T.[Cost Center Functional Area]		                    =    S.[FUNCTNL_AREA]                    
-       ,T.[Cost Center Functional Area Description]	            =	 S.[FUNCTNL_AREA_DESC]             
-       ,T.[Cost Center Tax Jurisdiction]		                =    S.[TAX_JRSDCTN]                     
-       ,T.[Cost Center Function]		                        =    S.[FUNCTION_OF_COST_CNTR]           
-       ,T.[Cost Center Plant Description]		                =    S.[PLNT_DESC]                       
-       ,T.[Cost Center Created On]		                        =    S.[CREATED_ON]                      
-       ,T.[Cost Center Long Description]		                =    S.[COST_CNTR_LONG_DESC]             
-       ,T.[Cost Center Valid To Date]		                    =    S.[VALID_TO_DATE]                   
-       ,T.[Cost Center Valid From Date]		                    =    S.[VALID_FROM_DATE]
-
-    
-	FROM [GLOBAL_EDW].[Propelis].[COST_CENTER] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_COSCNTR_CUR_D] S
+        T.[Cost Center ID] = S.[COST_CNTR_ID],
+        T.[Cost Center Controlling Area ID] = S.[CONTROLLING_AREA_ID],
+        T.[Cost Center Language Type Code] = S.[LANG_TYP_CD],
+        T.[Cost Center Category] = S.[COST_CNTR_CAT],
+        T.[Cost Center Hierarchy Area] = S.[HIER_AREA],
+        T.[Cost Center Company Code] = S.[CMPNY_CD],
+        T.[Cost Center Plant] = S.[PLANT],
+        T.[Cost Center Profit Center ID] = S.[PROFT_CNTR_ID],
+        T.[Cost Center Currency Code] = S.[CRNCY_CD],
+        T.[Cost Center Address Line 1] = S.[ADRESS_LINE_1],
+        T.[Cost Center Address Line 2] = S.[ADRESS_LINE_2],
+        T.[Cost Center Address Line 3] = S.[ADRESS_LINE_3],
+        T.[Cost Center City Name] = S.[CITY_NAME],
+        T.[Cost Center District Name] = S.[DISTR_NAME],
+        T.[Cost Center Postal Code] = S.[POSTAL_CD],
+        T.[Cost Center Country] = S.[CNTRY_CD],
+        T.[Cost Center Region Code] = S.[REGN_CD],
+        T.[Cost Center Person Responsible] = S.[PERSON_RESPNSBLE],
+        T.[Cost Center Flag Actual Revenues] = S.[FLAG_ACTUAL_REV],
+        T.[ETL_SRC_SYS_CD] = S.[ETL_SRC_SYS_CD],
+        T.[ETL_EFFECTV_BEGIN_DATE] = S.[ETL_EFFECTV_BEGIN_DATE],
+        T.[ETL_EFFECTV_END_DATE] = S.[ETL_EFFECTV_END_DATE],
+        T.[ETL_CURR_RCD_IND] = S.[ETL_CURR_RCD_IND],
+        T.[ETL_CREATED_TS] = S.[ETL_CREATED_TS],
+        T.[ETL_UPDTD_TS] = S.[ETL_UPDTD_TS],
+        T.[Cost Center Description] = S.[COST_CNTR_DESC],
+        T.[Cost Center Actual Primary Postings Lock Indicator] = S.[ACTL_PRMRY_COST_LOCK_IND],
+        T.[Cost Center Plan Primary Costs Lock Indicator] = S.[PLAN_PRMRY_COST_LOCK_IND],
+        T.[Cost Center Business Area] = S.[BUS_AREA],
+        T.[Cost Center Planning Revenues Lock Indicator] = S.[PLAN_REV_LOCK_IND],
+        T.[Cost Center PO Box] = S.[PO_BOX],
+        T.[Cost Center Street] = S.[STREET],
+        T.[Cost Center User Responsible] = S.[USR_RESPNSBLE],
+        T.[Cost Center Short Description] = S.[COST_CNTR_SHORT_DESC],
+        T.[Cost Center Controlling Area Description] = S.[CONTROLLING_AREA_DESC],
+        T.[Cost Center Category Description] = S.[COST_CNTR_CAT_DESC],
+        T.[Cost Center Company Description] = S.[CMPNY_DESC],
+        T.[Cost Center Currency Description] = S.[CRNCY_DESC],
+        T.[Cost Center Country Description] = S.[CNTRY_DESC],
+        T.[Cost Center Business Area Description] = S.[BUS_AREA_DESC],
+        T.[Cost Center Actual Secondary Cost Lock Indicator] = S.[ACTL_SCNDRY_COST_LOCK_IND],
+        T.[Cost Center Plan Secondary Cost Lock Indicator] = S.[PLAN_SCNDRY_COST_LOCK_IND],
+        T.[Cost Center Functional Area] = S.[FUNC_AREA],
+        T.[Cost Center Functional Area Description] = S.[FUNC_AREA_DESC],
+        T.[Cost Center Tax Jurisdiction] = S.[TAX_JRSDCTN],
+        T.[Cost Center Function] = S.[COST_CNTR_FUNC],
+        T.[Cost Center Plant Description] = S.[PLANT_DESC],
+        T.[Cost Center Created On] = S.[CREATED_ON],
+        T.[Cost Center Long Description] = S.[COST_CNTR_LONG_DESC],
+        T.[Cost Center Valid To Date] = S.[VALID_TO_DATE],
+        T.[Cost Center Valid From Date] = S.[VALID_FROM_DATE]
+    FROM [GLOBAL_EDW].[Propelis].[COST_CENTER] AS T
+    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_COSTCNTR_CUR_D] AS S
         ON T.[COST_CNTR_KEY] = S.[COST_CNTR_KEY];
- 
-    ----------------------------------------------------------------------
-    -- Insert new records
-    ----------------------------------------------------------------------
-    INSERT INTO [GLOBAL_EDW].[Propelis].[COST_CENTER] (
-        [COST_CNTR_KEY] 
-        ,[Cost Center ID]
-        ,[Cost Center Controlling Area ID]
-        ,[Cost Center Language Type Code]
-        ,[Cost Center Category]
-        ,[Cost Center Hierarchy Area]
-        ,[Cost Center Company Code]
-        ,[Cost Center Plant]
-        ,[Cost Center Profit Center ID]
-        ,[Cost Center Currency Code]
-        ,[Cost Center Address Line 1]
-        ,[Cost Center Address Line 2]
-        ,[Cost Center Address Line 3]
-        ,[Cost Center City Name]
-        ,[Cost Center District Name]
-        ,[Cost Center Postal Code]
-        ,[Cost Center Country]
-        ,[Cost Center Region Code]
-        ,[Cost Center Person Responsible]
-        ,[Cost Center Flag Actual Revenues]
-        ,[ETL_SRC_SYS_CD]
-        ,[ETL_EFFECTV_BEGIN_DATE]
-        ,[ETL_EFFECTV_END_DATE]
-        ,[ETL_CURR_RCD_IND]
-        ,[ETL_CREATED_TS]
-        ,[ETL_UPDTD_TS]
-        ,[Cost Center Description]
-        ,[Cost Center Actual Primary Postings Lock Indicator]
-        ,[Cost Center Plan Primary Costs Lock Indicator]
-        ,[Cost Center Business Area]
-        ,[Cost Center Planning Revenues Lock Indicator]
-        ,[Cost Center PO Box]
-        ,[Cost Center Street]
-        ,[Cost Center User Responsible]
-        ,[Cost Center Short Description]
-        ,[Cost Center Controlling Area Description]
-        ,[Cost Center Category Description]
-        ,[Cost Center Company Description]
-        ,[Cost Center Currency Description]
-        ,[Cost Center Country Description]
-        ,[Cost Center Business Area Description]
-        ,[Cost Center Actual Secondary Cost Lock Indicator]
-        ,[Cost Center Plan Secondary Cost Lock Indicator]
-        ,[Cost Center Functional Area]
-        ,[Cost Center Functional Area Description]
-        ,[Cost Center Tax Jurisdiction]
-        ,[Cost Center Function]
-        ,[Cost Center Plant Description]
-        ,[Cost Center Created On]
-        ,[Cost Center Long Description]
-        ,[Cost Center Valid To Date]
-        ,[Cost Center Valid From Date]
 
+    -- ==============================================
+    -- STEP 2: INSERT new records into target
+    -- ==============================================
+    INSERT INTO [GLOBAL_EDW].[Propelis].[COST_CENTER] (
+        [COST_CNTR_KEY],
+        [Cost Center ID],
+        [Cost Center Controlling Area ID],
+        [Cost Center Language Type Code],
+        [Cost Center Category],
+        [Cost Center Hierarchy Area],
+        [Cost Center Company Code],
+        [Cost Center Plant],
+        [Cost Center Profit Center ID],
+        [Cost Center Currency Code],
+        [Cost Center Address Line 1],
+        [Cost Center Address Line 2],
+        [Cost Center Address Line 3],
+        [Cost Center City Name],
+        [Cost Center District Name],
+        [Cost Center Postal Code],
+        [Cost Center Country],
+        [Cost Center Region Code],
+        [Cost Center Person Responsible],
+        [Cost Center Flag Actual Revenues],
+        [ETL_SRC_SYS_CD],
+        [ETL_EFFECTV_BEGIN_DATE],
+        [ETL_EFFECTV_END_DATE],
+        [ETL_CURR_RCD_IND],
+        [ETL_CREATED_TS],
+        [ETL_UPDTD_TS],
+        [Cost Center Description],
+        [Cost Center Actual Primary Postings Lock Indicator],
+        [Cost Center Plan Primary Costs Lock Indicator],
+        [Cost Center Business Area],
+        [Cost Center Planning Revenues Lock Indicator],
+        [Cost Center PO Box],
+        [Cost Center Street],
+        [Cost Center User Responsible],
+        [Cost Center Short Description],
+        [Cost Center Controlling Area Description],
+        [Cost Center Category Description],
+        [Cost Center Company Description],
+        [Cost Center Currency Description],
+        [Cost Center Country Description],
+        [Cost Center Business Area Description],
+        [Cost Center Actual Secondary Cost Lock Indicator],
+        [Cost Center Plan Secondary Cost Lock Indicator],
+        [Cost Center Functional Area],
+        [Cost Center Functional Area Description],
+        [Cost Center Tax Jurisdiction],
+        [Cost Center Function],
+        [Cost Center Plant Description],
+        [Cost Center Created On],
+        [Cost Center Long Description],
+        [Cost Center Valid To Date],
+        [Cost Center Valid From Date]
     )
     SELECT
-          S.[COST_CNTR_KEY]                   	
-         ,S.[COST_CNTR_ID]                    
-         ,S.[CONTROLLING_AREA_ID]           
-         ,S.[LANG_TYP_CD]                   
-         ,S.[COST_CNTR_CTGRY]               
-         ,S.[HIERCHY_AREA]                  
-         ,S.[CMPNY_CD]                      
-         ,S.[PLNT_ID]                       
-         ,S.[PROFT_CNTR_ID]                   
-         ,S.[CRNCY_CD]                        
-         ,S.[ADRESS_LINE_1]                   
-         ,S.[ADRESS_LINE_2]                   
-         ,S.[ADRESS_LINE_3]                   
-         ,S.[CITY_NAME]                       
-         ,S.[DISTR_NAME]                      
-         ,S.[POSTAL_CD]                       
-         ,S.[CNTRY_CD]                        
-         ,S.[REGN_CD]                         
-         ,S.[PERSON_RESPNSBLE]                
-         ,S.[FLG_ACTUAL_REVENUES]             
-         ,S.[ETL_SRC_SYS_CD]                  
-         ,S.[ETL_EFFECTV_BEGIN_DATE]          
-         ,S.[ETL_EFFECTV_END_DATE]            
-         ,S.[ETL_CURR_RCD_IND]                
-         ,S.[ETL_CREATED_TS]                  
-         ,S.[ETL_UPDTD_TS]                    
-         ,S.[COST_CNTR_NAME]                  
-         ,S.[ACTUAL_PRIMARY_POSTINGS_LOCK_IN]  
-         ,S.[PLAN_PRIMARY_COSTS_LOCK_IND]     
-         ,S.[BIZ_AREA]                        
-         ,S.[PLNG_REVENUES_LOCK_IND]          
-         ,S.[PO_BOX]                          
-         ,S.[STR]                             
-         ,S.[USR_RESPNSBLE]                   
-         ,S.[COST_CNTR_SHORT_DESC]            
-         ,S.[CONTROLLING_AREA_DESC]           
-         ,S.[COST_CNTR_CTGRY_DESC]            
-         ,S.[CMPNY_DESC]                      
-         ,S.[CRNCY_DESC]                      
-         ,S.[CNTRY_DESC]                      
-         ,S.[BIZ_AREA_DESC]                   
-         ,S.[ACTUAL_SECONDARY_COST_LOCK_IND]  
-         ,S.[PLAN_SECONDARY_COST_LOCK_IND]    
-         ,S.[FUNCTNL_AREA]                    
-         ,S.[FUNCTNL_AREA_DESC]             
-         ,S.[TAX_JRSDCTN]                     
-         ,S.[FUNCTION_OF_COST_CNTR]           
-         ,S.[PLNT_DESC]                       
-         ,S.[CREATED_ON]                      
-         ,S.[COST_CNTR_LONG_DESC]             
-         ,S.[VALID_TO_DATE]                   
-         ,S.[VALID_FROM_DATE]
- 
-       FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_COSCNTR_CUR_D] S
-       LEFT JOIN [GLOBAL_EDW].[Propelis].[COST_CENTER] T
-           ON T.[COST_CNTR_KEY] = S.[COST_CNTR_KEY]
-       WHERE T.[COST_CNTR_KEY] IS NULL;
-    
-   END
+        S.[COST_CNTR_KEY],
+        S.[COST_CNTR_ID],
+        S.[CONTROLLING_AREA_ID],
+        S.[LANG_TYP_CD],
+        S.[COST_CNTR_CAT],
+        S.[HIER_AREA],
+        S.[CMPNY_CD],
+        S.[PLANT],
+        S.[PROFT_CNTR_ID],
+        S.[CRNCY_CD],
+        S.[ADRESS_LINE_1],
+        S.[ADRESS_LINE_2],
+        S.[ADRESS_LINE_3],
+        S.[CITY_NAME],
+        S.[DISTR_NAME],
+        S.[POSTAL_CD],
+        S.[CNTRY_CD],
+        S.[REGN_CD],
+        S.[PERSON_RESPNSBLE],
+        S.[FLAG_ACTUAL_REV],
+        S.[ETL_SRC_SYS_CD],
+        S.[ETL_EFFECTV_BEGIN_DATE],
+        S.[ETL_EFFECTV_END_DATE],
+        S.[ETL_CURR_RCD_IND],
+        S.[ETL_CREATED_TS],
+        S.[ETL_UPDTD_TS],
+        S.[COST_CNTR_DESC],
+        S.[ACTL_PRMRY_COST_LOCK_IND],
+        S.[PLAN_PRMRY_COST_LOCK_IND],
+        S.[BUS_AREA],
+        S.[PLAN_REV_LOCK_IND],
+        S.[PO_BOX],
+        S.[STREET],
+        S.[USR_RESPNSBLE],
+        S.[COST_CNTR_SHORT_DESC],
+        S.[CONTROLLING_AREA_DESC],
+        S.[COST_CNTR_CAT_DESC],
+        S.[CMPNY_DESC],
+        S.[CRNCY_DESC],
+        S.[CNTRY_DESC],
+        S.[BUS_AREA_DESC],
+        S.[ACTL_SCNDRY_COST_LOCK_IND],
+        S.[PLAN_SCNDRY_COST_LOCK_IND],
+        S.[FUNC_AREA],
+        S.[FUNC_AREA_DESC],
+        S.[TAX_JRSDCTN],
+        S.[COST_CNTR_FUNC],
+        S.[PLANT_DESC],
+        S.[CREATED_ON],
+        S.[COST_CNTR_LONG_DESC],
+        S.[VALID_TO_DATE],
+        S.[VALID_FROM_DATE]
+    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_COSTCNTR_CUR_D] AS S
+    LEFT JOIN [GLOBAL_EDW].[Propelis].[COST_CENTER] AS T
+        ON T.[COST_CNTR_KEY] = S.[COST_CNTR_KEY]
+    WHERE T.[COST_CNTR_KEY] IS NULL;
+END

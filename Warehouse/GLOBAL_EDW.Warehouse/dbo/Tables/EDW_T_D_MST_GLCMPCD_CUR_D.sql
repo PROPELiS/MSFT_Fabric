@@ -1,0 +1,28 @@
+CREATE TABLE [dbo].[EDW_T_D_MST_GLCMPCD_CUR_D] (
+
+	[GL_CMPNY_KEY] int NOT NULL, 
+	[GL_CD] varchar(max) NULL, 
+	[CMPNY_CD] varchar(max) NULL, 
+	[CONTROLLING_AREA] varchar(max) NULL, 
+	[CONTROLLING_AREA_DESC] varchar(max) NULL, 
+	[CNTRY_KEY] varchar(max) NULL, 
+	[CREATED_DATE] date NULL, 
+	[CREATED_BY] varchar(max) NULL, 
+	[MRKD_FOR_DELETION_IND] varchar(max) NULL, 
+	[ACCT_CRNCY] varchar(max) NULL, 
+	[ACCT_CRNCY_DESC] varchar(max) NULL, 
+	[FLD_STATUS_GROUP] varchar(max) NULL, 
+	[FLD_STATUS_GROUP_DESC] varchar(max) NULL, 
+	[LINE_ITMS_DISPLAY_IND] varchar(max) NULL, 
+	[BALANCES_IN_LCL_CRNCY_IND] varchar(max) NULL, 
+	[OPEN_ITM_MGMNT_IND] varchar(max) NULL, 
+	[NO_TAX_CD_REQUIRED_IND] varchar(max) NULL, 
+	[CASH_RCPT_DISBURSEMENT_IND] varchar(max) NULL, 
+	[ACCT_TAX_CTGRY] varchar(max) NULL, 
+	[ETL_SRC_SYS_CD] varchar(max) NULL, 
+	[ETL_EFFECTV_BEGIN_DATE] date NULL, 
+	[ETL_EFFECTV_END_DATE] date NULL, 
+	[ETL_CURR_RCD_IND] varchar(max) NULL, 
+	[ETL_CREATED_TS] datetime2(0) NULL, 
+	[ETL_UPDTD_TS] datetime2(0) NULL
+);

@@ -840,11 +840,14 @@ table DimCustomerPrimaryContact
 
 	column HEXKeyCustomer
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: 08ccaac4-7b32-4121-a11e-6e66321935ca
 		sourceLineageTag: HEXKeyCustomer
 		summarizeBy: none
 		sourceColumn: HEXKeyCustomer
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

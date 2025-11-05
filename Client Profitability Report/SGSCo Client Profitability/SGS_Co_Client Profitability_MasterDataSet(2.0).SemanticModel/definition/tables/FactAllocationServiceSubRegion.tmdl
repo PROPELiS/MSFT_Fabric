@@ -255,11 +255,14 @@ table FactAllocationServiceSubRegion
 
 	column PrimaryOrSecondaryIndicator
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(8000)
 		lineageTag: 594bc9fa-f024-4e5e-8791-614c901df7b4
 		sourceLineageTag: PrimaryOrSecondaryIndicator
 		summarizeBy: none
 		sourceColumn: PrimaryOrSecondaryIndicator
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -270,6 +273,26 @@ table FactAllocationServiceSubRegion
 		sourceLineageTag: METADATA$ROW_ID
 		summarizeBy: none
 		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyEmployeeHistory
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6055ec21-8cfc-468e-ab36-ef1c663cf922
+		sourceLineageTag: HEXKeyEmployeeHistory
+		summarizeBy: none
+		sourceColumn: HEXKeyEmployeeHistory
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyEmployees
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1dac31e1-fad1-4584-a7b2-e6ecc93d9b7b
+		sourceLineageTag: HEXKeyEmployees
+		summarizeBy: none
+		sourceColumn: HEXKeyEmployees
 
 		annotation SummarizationSetBy = Automatic
 

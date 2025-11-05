@@ -54,5 +54,16 @@ CREATE TABLE [Propelis].[EDW_T_FACT_PRD_SERVCST_CUR_D] (
 	[PERSONNEL_PLANT_REGION_PLANT] varchar(max) NULL, 
 	[PLANT_REGION_PLANT] varchar(max) NULL, 
 	[LOCATION_PLANT_REGION_PLANT] varchar(max) NULL, 
-	[PRODUCING_PLANT_REGION_PLANT] varchar(max) NULL
+	[PRODUCING_PLANT_REGION_PLANT] varchar(max) NULL, 
+	[Service Order Sales Order] varchar(max) NULL, 
+	[COSTEHZ_COST_ELEMNT_KEY] int NULL, 
+	[COSTEVZ_COST_ELEMNT_KEY] int NULL, 
+	[PROFCHZ_PROFT_CNTR_KEY] int NULL, 
+	[PROFCVZ_PROFT_CNTR_KEY] int NULL, 
+	[WORKCHZ_WRK_CNTR_KEY] int NULL, 
+	[WORKCVZ_WRK_CNTR_KEY] int NULL, 
+	[Resp_Cost_Center_Horizontal_COST_CNTR_KEY] int NULL, 
+	[Resp_Cost_Center_Vertical_COST_CNTR_KEY] int NULL, 
+	[Partner_Cost_Center_Horizontal_COST_CNTR_KEY] int NULL, 
+	[Partner_Cost_Center_Vertical_COST_CNTR_KEY] int NULL
 );

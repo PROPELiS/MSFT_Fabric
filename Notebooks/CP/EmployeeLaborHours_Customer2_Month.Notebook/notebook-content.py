@@ -8,12 +8,12 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e",
+# META       "default_lakehouse": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
 # META       "default_lakehouse_name": "SILVER",
-# META       "default_lakehouse_workspace_id": "de3e35d4-28a5-4df0-a8d1-00feff73469d",
+# META       "default_lakehouse_workspace_id": "c8d75176-b949-4f7e-a658-b996603ec8c3",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "59aba330-314f-4ff0-8c5b-ad0582b3dc9e"
+# META           "id": "aabf914c-0501-4c58-ba5b-4b0f05f4420f"
 # META         }
 # META       ]
 # META     }
@@ -33,8 +33,6 @@ in_mode = "FULL"
 
 # CELL ********************
 
-# Welcome to your new notebook
-# Type here in the cell editor to add code!
 from pyspark.sql.functions import concat_ws, expr, sha2, size, lit, col, array, struct, udf, current_timestamp, max as spark_max
 from functools import reduce
 from pyspark.sql.types import *
@@ -79,7 +77,7 @@ schema = StructType([
 
 df = spark.createDataFrame([], schema)
 
-silver_path="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/CP/employeelaborhours_customer2_month"
+silver_path="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/SILVER.Lakehouse/Tables/CP/employeelaborhours_customer2_month"
 silver_table = DeltaTable.forPath(spark, silver_path)
 # Parameters
 param = ""  # Replace with the actual PARAM value
@@ -89,7 +87,7 @@ param = ""  # Replace with the actual PARAM value
 if in_mode == "FULL":
     # Write the DataFrame as a Delta table
     df.write.format("delta").mode("overwrite").saveAsTable("CP.EmployeeLaborHours_Customer2_Month")
-    bronze_Path ="abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/CP/EmployeeLaborHours_Customer2_Month"
+    bronze_Path ="abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/CP/EmployeeLaborHours_Customer2_Month"
     # Load Delta tables correctly
     bronze_df = spark.read.format("delta").load(bronze_Path)
   
@@ -120,7 +118,7 @@ if in_mode == "FULL":
 else:
     df.write.format("delta").mode("append").saveAsTable("CP.EmployeeLaborHours_Customer2_Month")
     
-    source_path = "abfss://SGSCo_Fabric_Development@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/CP/EmployeeLaborHours_Customer2_Month"
+    source_path = "abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/CP/EmployeeLaborHours_Customer2_Month"
     source_df_delta = spark.read.format("delta").load(source_path)
     window_spec = Window.partitionBy("MDSPortfolioId").orderBy(col("MonthBeginDate").desc())
 
@@ -163,6 +161,18 @@ else:
 
 df = spark.sql("SELECT count(*) FROM SILVER.CP.employeelaborhours_customer2_month")
 display(df)
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+df = spark.read.load("abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/BRONZE.Lakehouse/Tables/CP/EmployeeLaborHours_Customer2_Month")
+df.count()
 
 # METADATA ********************
 

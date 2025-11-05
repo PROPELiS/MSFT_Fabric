@@ -6,18 +6,6 @@ relationship a7fe16d0-54cf-83a6-48c2-fc7dfa8855a6
 	fromColumn: FactSalesCostActual.HEXKeyPrimaryContactCustomer
 	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
 
-relationship 5d42c3d1-6b4e-0b0e-47f9-88933231e124
-	fromColumn: FactSalesCostActual.'zID - HEXKey Billto Customer'
-	toColumn: DimCustomerBillto.'zID - HEXKey Billto Customer'
-
-relationship b9184747-1381-cc49-fa41-ab2c274c2d68
-	fromColumn: FactSalesCostActual.'zID - HEXKey Printer Customer'
-	toColumn: DimCustomerPrinter.'zID - HEXKey Printer Customer'
-
-relationship 1b40e5d7-5257-ac95-0c80-01e7bd2081e7
-	fromColumn: FactSalesCostActual.'zID - HEXKey Reporting Customer'
-	toColumn: DimCustomerReporting.'zID - HEXKeyReportingCustomer'
-
 relationship d9784453-d349-ece5-394f-31a3fbefdafb
 	fromColumn: FactSalesCostActual.'zID - HEXKey Department'
 	toColumn: DimDepartment.'zID - HEXKey Department'
@@ -97,14 +85,6 @@ relationship 3a897183-560f-1d46-4244-b1680e97f1f6
 relationship bc0dab72-1e43-d795-93c3-36064761be22
 	fromColumn: FactAllocationSubServiceSubRegion.HEXKeyCombineCustomer
 	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
-
-relationship eb5823b2-70ea-d5ad-1773-b8787ccc7dbb
-	fromColumn: FactSalesCostActual.'zID - HEXKey Soldto Customer'
-	toColumn: DimCustomerSoldto.'zID - HEXKey Soldto Customer'
-
-relationship 7d1cc530-e90b-a99d-87e7-8aee995295a6
-	fromColumn: FactSalesCostActual.'zID - HEXKey Shipto Customer'
-	toColumn: DimCustomerShipto.'zID - HEXKey Shipto Customer'
 
 relationship cc85fa39-da46-a464-163e-97db84144f06
 	fromColumn: FactSalesCostActual.'zID - HEXKey Employee History'
@@ -261,4 +241,24 @@ relationship ebc0ddd3-3ade-0c56-84e4-a683fa055f30
 relationship 529d18ca-923e-0bfa-6002-7c645a2117df
 	fromColumn: FactAllocationRateLineOfBusinessSubRegion.HEXKeySubRegion
 	toColumn: DimSubRegion.HEXKeySubRegion
+
+relationship 3087c322-09f3-f189-6cd5-08c88d581682
+	fromColumn: FactSalesCostActual.'zID - HEXKey Billto Customer'
+	toColumn: DimCustomerBillto.'zID - HEXKey Billto Customer'
+
+relationship 05748a86-b60f-5f8e-b334-16ff70c2dfc7
+	fromColumn: FactSalesCostActual.'zID - HEXKey Soldto Customer'
+	toColumn: DimCustomerSoldto.'zID - HEXKey Soldto Customer'
+
+relationship d2ea5246-3077-cd32-ca87-d282d9617df1
+	fromColumn: FactSalesCostActual.'zID - HEXKey Shipto Customer'
+	toColumn: DimCustomerShipto.'zID - HEXKey Shipto Customer'
+
+relationship 1725cb7f-a1a1-6951-7c6b-1235d36f21f1
+	fromColumn: FactSalesCostActual.'zID - HEXKey Printer Customer'
+	toColumn: DimCustomerPrinter.'zID - HEXKey Printer Customer'
+
+relationship ca70e1f2-e7d2-9e9e-9192-3805d73448f4
+	fromColumn: FactSalesCostActual.HEXKeyReportingCustomerNumber
+	toColumn: DimCustomerReporting.'zID - HEXKeyReportingCustomer'
 

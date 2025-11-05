@@ -1,0 +1,259 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SnowflakeSource",
+            "query": {
+              "value": "SELECT  \"PortfolioGroupId\"\n\t,\"SimplifiedGroupId\"\n\t,\"CPChild\" \n\t,\"CPParent\" \n\t,\"ClientRegion\" \n\t,\"ClientDivision\" \n\tFROM SGSEDW.DBO.\"DimCustomer\" ",
+              "type": "Expression"
+            },
+            "exportSettings": {
+              "type": "SnowflakeExportCopyCommand"
+            },
+            "datasetSettings": {
+              "type": "SnowflakeTable",
+              "typeProperties": {
+                "schema": "DBO",
+                "table": "DimCustomer",
+                "database": "SGSEDW"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "SGSWEB",
+                "table": "customer"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "SF_TO_SILVER",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "schema": "SGSWEB",
+                "table": "customer"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "SILVER",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "SqlServerSink",
+            "sqlWriterUseTableLock": false,
+            "writeBehavior": "insert",
+            "datasetSettings": {
+              "type": "SqlServerTable",
+              "typeProperties": {
+                "schema": "sgsweb",
+                "table": "STG_LoadCustomer",
+                "database": "SGSEDW"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "19bf7180-654c-4b5e-b009-45795ab1a08b"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "PortfolioGroupId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PortfolioGroupId",
+                  "physicalType": "nvarchar",
+                  "length": "400"
+                }
+              },
+              {
+                "source": {
+                  "name": "SimplifiedGroupId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SimplifiedGroupId",
+                  "physicalType": "nvarchar",
+                  "length": "400"
+                }
+              },
+              {
+                "source": {
+                  "name": "CPChild",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "PortfolioGroupName",
+                  "physicalType": "nvarchar",
+                  "length": "400"
+                }
+              },
+              {
+                "source": {
+                  "name": "CPParent",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SimplifiedGroupName",
+                  "physicalType": "nvarchar",
+                  "length": "400"
+                }
+              },
+              {
+                "source": {
+                  "name": "ClientRegion",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ClientGeography",
+                  "physicalType": "nvarchar",
+                  "length": "400"
+                }
+              },
+              {
+                "source": {
+                  "name": "ClientDivision",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "ClientDivision",
+                  "physicalType": "nvarchar",
+                  "length": "400"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "SILVER_TO_SQL",
+        "dependsOn": [
+          {
+            "activity": "SF_TO_SILVER",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Script",
+        "typeProperties": {
+          "database": "SGSEDW",
+          "scripts": [
+            {
+              "text": {
+                "value": "EXEC sgsweb.Proc_LoadCustomer'','DELTA'",
+                "type": "Expression"
+              },
+              "type": "Query"
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        },
+        "externalReferences": {
+          "connection": "19bf7180-654c-4b5e-b009-45795ab1a08b"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "TIMETRACKER",
+        "dependsOn": [
+          {
+            "activity": "SILVER_TO_SQL",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

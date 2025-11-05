@@ -345,6 +345,6 @@ CREATE TABLE [Propelis].[EDW_V_D_SAL_PRDVCON_CUR_D] (
 	[ZLP AG F Line Screen 20 Description] varchar(max) NULL, 
 	[ZLP Order Type] varchar(max) NULL, 
 	[ZLP Order Type Description] varchar(max) NULL, 
-	[V_D_SAL_PRDVCON_KEY] int NULL, 
-	[PRDVCON_KEY] varchar(max) NULL
+	[PRDVCON_KEY] varchar(max) NULL, 
+	[V_D_SAL_PRDVCON_KEY] varchar(50) NULL
 );

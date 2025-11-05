@@ -803,6 +803,17 @@ table FactJobItem
 
 		annotation SummarizationSetBy = Automatic
 
+	column InstructionDateTime
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f595993c-0b6b-4e25-b0c2-324cc31cfd5e
+		sourceLineageTag: InstructionDateTime
+		summarizeBy: none
+		sourceColumn: InstructionDateTime
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactJobItem = entity
 		mode: directLake
 		source

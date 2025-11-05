@@ -1,0 +1,21 @@
+
+
+
+SELECT 
+    CONCAT(FACT.SALES_ORDER_ID, '-', FACT.[Sales Order Item Number]),
+        [PSTNG_DATE_KEY],
+    COUNT(*) AS OccurrenceCount
+FROM [Propelis].[EDW_T_FACT_PRD_TMCONFS_CUR_D] FACT
+GROUP BY  
+    CONCAT(FACT.SALES_ORDER_ID, '-', FACT.[Sales Order Item Number]),
+    [PSTNG_DATE_KEY]
+HAVING 
+    COUNT(*) > 1;
+
+SELECT DISTINCT
+    [PSTNG_DATE_KEY] FROM  [Propelis].[EDW_T_FACT_PRD_TMCONFS_CUR_D] WHERE [SERVC_ORDER_KEY] = '6384282'
+
+
+    (FACT.SALES_ORDER_ID, '-', FACT.SALES_ORDER_ITM_ID)
+
+
