@@ -344,5 +344,6 @@ CREATE TABLE [dbo].[EDW_T_D_SAL_PRDVCON_CUR_D] (
 	[ZLP AG F Line Screen 19 Description] varchar(max) NULL, 
 	[ZLP AG F Line Screen 20 Description] varchar(max) NULL, 
 	[ZLP Order Type] varchar(max) NULL, 
-	[ZLP Order Type Description] varchar(max) NULL
+	[ZLP Order Type Description] varchar(max) NULL, 
+	[PRDVCON_KEY] varchar(max) NULL
 );

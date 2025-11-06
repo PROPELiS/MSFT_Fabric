@@ -43,5 +43,6 @@ CREATE TABLE [Propelis].[EDW_T_FACT_CO_CCCSUMM_CUR_D] (
 	[COSTCHZ_COST_CNTR_KEY] int NULL, 
 	[COSTCVZ_COST_CNTR_KEY] int NULL, 
 	[Cost Element Grouping] varchar(100) NULL, 
-	[Cost Element Type] varchar(50) NULL
+	[Cost Element Type] varchar(50) NULL, 
+	[Value Type] varchar(max) NULL
 );

@@ -30,7 +30,6 @@ WHERE ${is_full}
 WITH src_raw AS (
   SELECT
       `employeeId.qualifier`  AS EmployeeQualifier,
-      `actualTotals.employee.name` AS EmployeeName,
       `actualTotals.job.id`   AS JobId,
       element_at(split(`actualTotals.job.qualifier`, '/'), -1) AS employeeJobTitle,
       element_at(split(`actualTotals.job.qualifier`, '/'), -2) AS departmentName,
@@ -81,7 +80,6 @@ MERGE INTO delta.`abfss://Propelis_Production@onelake.dfs.fabric.microsoft.com/S
 USING (
   SELECT
     EmployeeQualifier,
-    EmployeeName,
     JobId,
     employeeJobTitle,
     departmentName,
@@ -108,7 +106,6 @@ AND tgt.ApplyDate         = src.ApplyDate
 
 WHEN MATCHED THEN UPDATE SET
   tgt.EmployeeQualifier        = src.EmployeeQualifier,
-  tgt.EmployeeName             = src.EmployeeName,
   tgt.JobId                    = src.JobId,
   tgt.employeeJobTitle         = src.employeeJobTitle,
   tgt.departmentName           = src.departmentName,
@@ -128,11 +125,11 @@ WHEN MATCHED THEN UPDATE SET
   tgt.LaborCategoryDescription = src.LaborCategoryDescription
 
 WHEN NOT MATCHED THEN INSERT (
-  EmployeeQualifier, EmployeeName, JobId, employeeJobTitle, departmentName, plantName, location,
+  EmployeeQualifier, JobId, employeeJobTitle, departmentName, plantName, location,
   orgLevel5, orgLevel6, JobName, PayCodeId, PayCodeName, AmountType, HoursAmount,
   WagesCurrencyCode, PayPeriodNumber, ApplyDate, UniqueId, LaborCategoryName, LaborCategoryDescription
 ) VALUES (
-  src.EmployeeQualifier, src.EmployeeName, src.JobId, src.employeeJobTitle, src.departmentName, src.plantName, src.location,
+  src.EmployeeQualifier, src.JobId, src.employeeJobTitle, src.departmentName, src.plantName, src.location,
   src.orgLevel5, src.orgLevel6, src.JobName, src.PayCodeId, src.PayCodeName, src.AmountType, src.HoursAmount,
   src.WagesCurrencyCode, src.PayPeriodNumber, src.ApplyDate, src.UniqueId, src.LaborCategoryName, src.LaborCategoryDescription
 );
