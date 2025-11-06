@@ -1,0 +1,80 @@
+table 'Partner Profit Center V Hier'
+	lineageTag: 7868e8b6-a89e-46a4-a78d-efb290d79d3e
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ff4643f7-24a8-41bc-9680-5210a16caa9e
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Profit Center Controlling Area ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f4390600-5f62-44d1-a43d-647496fb1295
+		summarizeBy: none
+		sourceColumn: Partner Profit Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Profit Center Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3cc89013-cf82-4cd4-a91e-abb72fe3d509
+		summarizeBy: none
+		sourceColumn: Partner Profit Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Profit Center Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f5762f8c-4eee-4854-b3be-8a5633783539
+		summarizeBy: none
+		sourceColumn: Partner Profit Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Profit Center Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: bfe4d1c4-69f8-485a-8465-16e5a4a7469e
+		summarizeBy: none
+		sourceColumn: Partner Profit Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Profit Center Child ID Description VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 41eb6763-ba63-455b-b4a5-1c52e1cf5f21
+		summarizeBy: none
+		sourceColumn: Partner Profit Center Child ID Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Profit Center Level VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 80b25add-8e36-40d8-a8e8-c830ef3d4759
+		summarizeBy: none
+		sourceColumn: Partner Profit Center Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Partner Profit Center V Hier' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_Partner_Profit_Center_V_Hier = Source{[Schema="Propelis",Item="Partner_Profit_Center_V_Hier"]}[Data]
+				in
+				    Propelis_Partner_Profit_Center_V_Hier
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

@@ -106,9 +106,11 @@ table 'Group Currency'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_GROUP_CURRENCY = Source{[Schema="Propelis",Item="V_GROUP_CURRENCY"]}[Data]
+				    Propelis_GROUP_CURRENCY = Source{[Schema="Propelis",Item="GROUP_CURRENCY"]}[Data]
 				in
-				    Propelis_V_GROUP_CURRENCY
+				    Propelis_GROUP_CURRENCY
 
-	changedProperty = Name
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

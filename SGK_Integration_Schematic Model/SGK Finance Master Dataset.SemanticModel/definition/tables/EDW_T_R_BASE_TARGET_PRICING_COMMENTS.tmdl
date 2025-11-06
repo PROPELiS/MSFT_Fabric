@@ -1,0 +1,67 @@
+table EDW_T_R_BASE_TARGET_PRICING_COMMENTS
+	lineageTag: 7c362a56-1711-49e8-9a68-91363d7bef08
+	sourceLineageTag: [dbo].[EDW_T_R_BASE_TARGET_PRICING_COMMENTS]
+
+	column 'Customer Partner Customer ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 090b44dd-5451-4ea8-9f1f-bf2711089685
+		sourceLineageTag: Customer Partner Customer ID
+		summarizeBy: count
+		sourceColumn: Customer Partner Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Pricing Comments Sales Order'
+		dataType: string
+		lineageTag: ff39d0ab-4375-4632-83a7-d335277e8df4
+		sourceLineageTag: Base Target Pricing Comments Sales Order
+		summarizeBy: none
+		sourceColumn: Base Target Pricing Comments Sales Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Pricing Comments Code'
+		dataType: string
+		lineageTag: 723f24ea-d527-4861-b77e-285bced6042c
+		sourceLineageTag: Base Target Pricing Comments Code
+		summarizeBy: none
+		sourceColumn: Base Target Pricing Comments Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Pricing Comments Email'
+		dataType: string
+		lineageTag: 02180545-9a1e-4028-9a60-1ad33f2e9faa
+		sourceLineageTag: Base Target Pricing Comments Email
+		summarizeBy: none
+		sourceColumn: Base Target Pricing Comments Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Pricing Comments'
+		dataType: string
+		lineageTag: 444f3a57-251b-4656-a9a3-139fb9fd62b2
+		sourceLineageTag: Base Target Pricing Comments
+		summarizeBy: none
+		sourceColumn: Base Target Pricing Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Pricing Comments Date Created'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 79cb2c7a-0af4-4b5c-82f6-40d3d172903a
+		sourceLineageTag: Base Target Pricing Comments Date Created
+		summarizeBy: none
+		sourceColumn: Base Target Pricing Comments Date Created
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_R_BASE_TARGET_PRICING_COMMENTS = entity
+		mode: directLake
+		source
+			entityName: EDW_T_R_BASE_TARGET_PRICING_COMMENTS
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

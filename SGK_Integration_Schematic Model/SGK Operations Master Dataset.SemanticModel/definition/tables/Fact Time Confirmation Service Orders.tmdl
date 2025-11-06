@@ -1,0 +1,1070 @@
+table 'Fact Time Confirmation Service Orders'
+	lineageTag: 48afa069-4a76-47a8-8dd7-8ee7cf697db7
+	sourceLineageTag: [Propelis].[EDW_T_FACT_PRD_TMCONFS_CUR_D]
+
+	measure %SmartSourced =
+			DIVIDE(
+			    [Smart Sourced Hours Low Cost],
+			    [Actual Work in Hours]
+			    ) +0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3002ad64-ad04-45b2-a11c-65e34aca822b
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'Smart Sourced Hours Low Cost' =
+			CALCULATE(
+			    SUM('Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS]), 'Operating Plant'[Operating Plant ID] IN { "5049", "5054", "5151", "5150", "5154", "5053", "5126", "5058", "5903", "4639" }
+			) + 0
+		lineageTag: b7ff79bc-0d0b-4223-8c8b-c2f577238f89
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Actual Work in Hours' = sum('Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS])
+		formatString: #,0.00
+		lineageTag: b1147d82-61cc-4301-96dd-9ffe02b249df
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		changedProperty = FormatStringDefinition
+
+	measure 'Actual Work' = sum('Fact Time Confirmation Service Orders'[ACTUAL_WRK])
+		lineageTag: 4be59fa7-f1eb-48af-a697-0268890b7b5a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Flex Force Hours' =
+			CALCULATE(
+			    SUM('Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS]),'Operating Plant'[Operating Plant ID] = "5064"
+			    )
+		lineageTag: ceea6958-304d-420e-b840-c4126505cdd5
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hours of Approval' =
+			
+			SUMX (
+			      'Fact Time Confirmation Service Orders',
+			    IF (
+			        VALUE ( 'Fact Time Confirmation Service Orders'[ACCT_IND] ) >= 91
+			            && VALUE ( 'Fact Time Confirmation Service Orders'[ACCT_IND] ) <= 99,
+			        'Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS],
+			        0
+			    )
+			)
+		lineageTag: 160255e8-c95a-4280-9f70-5026222f8de7
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hours of Change' =
+			
+			SUMX (
+			      'Fact Time Confirmation Service Orders',
+			    IF (
+			        VALUE ( 'Fact Time Confirmation Service Orders'[ACCT_IND] ) >= 1
+			            && VALUE ( 'Fact Time Confirmation Service Orders'[ACCT_IND] ) <= 40,
+			        'Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS],
+			        0
+			    )
+			)
+		lineageTag: 5ba9a876-64ec-487d-b34f-14bc28fa5545
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hours of Original' = ```
+			
+			SUMX (
+			    'Fact Time Confirmation Service Orders',
+			    IF (
+			        VALUE ( 'Fact Time Confirmation Service Orders'[ACCT_IND] ) = 0
+			            || ( VALUE ( 'Fact Time Confirmation Service Orders'[ACCT_IND] ) >= 41
+			                 && VALUE ( 'Fact Time Confirmation Service Orders'[ACCT_IND] ) <= 50 ),
+			        'Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS],
+			        0
+			    )
+			)
+			
+			```
+		lineageTag: 8a899c30-4bd2-4436-b6dd-28744648f2d2
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hours of Rework Ext w/Change' =
+			
+			SUMX (
+			       'Fact Time Confirmation Service Orders',
+			    IF (
+			        VALUE ( 'Fact Time Confirmation Service Orders'[ACCT_IND] ) >= 66
+			            && VALUE ( 'Fact Time Confirmation Service Orders'[ACCT_IND] ) <= 75,
+			        'Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS],
+			        0
+			    )
+			)
+		lineageTag: feb8841c-e2b6-4ccb-bdb3-cb1bf59baa2e
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hours of Rework External' =
+			
+			SUMX (
+			      'Fact Time Confirmation Service Orders',
+			    IF (
+			        VALUE ( 'Fact Time Confirmation Service Orders'[ACCT_IND] ) >= 76
+			            && VALUE ( 'Fact Time Confirmation Service Orders'[ACCT_IND] ) <= 90,
+			        'Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS],
+			        0
+			    )
+			)
+		lineageTag: 417de6fa-5f93-412d-bc9c-51c0fa8dcdea
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hours of Rework Internal' =
+			
+			SUMX (
+			      'Fact Time Confirmation Service Orders',
+			    IF (
+			        VALUE ( 'Fact Time Confirmation Service Orders'[ACCT_IND] ) >= 51
+			            && VALUE ( 'Fact Time Confirmation Service Orders'[ACCT_IND] ) <= 65,
+			        'Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS],
+			        0
+			    )
+			)
+		lineageTag: 5cdae0bd-c520-46b0-b2d7-34645c11733d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Percentage Flex Force' =
+			DIVIDE(
+			    [Flex Force Hours],
+			    [Actual Work in Hours]
+			) +0
+		lineageTag: cb87c0c5-5b3b-4bda-936b-05fc6a49b226
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Planning Plant Hours' = ```
+			
+			CALCULATE(
+			    SUM('Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS]),
+			    FILTER(
+			        'Fact Time Confirmation Service Orders',
+			        RELATED('Operating Plant'[Operating Plant ID]) = RELATED('PLANNING_PLANT'[Planning Plant ID])
+			    )
+			) + 0
+			 
+			```
+		lineageTag: 24aa67bb-e07d-420e-bfff-dc68bc18fb09
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Percentage Planning Plant' =
+			DIVIDE(
+			    [Planning Plant Hours],
+			    [Actual Work in Hours]
+			) +0
+		lineageTag: 801d5f3f-a231-4588-b3bb-9c1f59a0f97f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Percentage Smart Sourced' =
+			DIVIDE(
+			    [Smart Sourced Hours Low Cost],
+			    [Actual Work in Hours]
+			    ) +0
+		lineageTag: 024589b7-b620-418a-a8c3-5ea6752c0db3
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Remaining Work' = sum('Fact Time Confirmation Service Orders'[REMG_WRK])
+		lineageTag: ee5129fe-f876-401e-a6c0-c0a1c4a6240d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Remaining Work in Hours' = sum('Fact Time Confirmation Service Orders'[REMG_WRK_IN_HRS])
+		lineageTag: 5be91c38-4851-4e13-b35c-50d818fe88ae
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Smart_Sourced_Hours_Other = [Actual Work in Hours] -([Flex Force Hours]+[Planning Plant Hours]+[Smart Sourced Hours Low Cost])
+		lineageTag: fbb64d4d-5a86-450a-8f35-b82f3d99296d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'SS Target %' = 0.8
+		lineageTag: 8df39dc8-01a3-484e-b4bc-7628ad2910cf
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target Hours' = [Smart Sourced Hours Low Cost] / 0.8
+		lineageTag: f9f94b85-48cf-4798-95c3-2a04ec2de010
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target Hours Missed' = [Target Hours] - [Smart Sourced Hours Low Cost]
+		lineageTag: c7de54e8-4429-4947-aaaa-ab443011875b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'ACTUAL WRK MTD' = ```
+			
+			TOTALMTD(
+			    SUM('Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS]), 
+			    'Calendar Date'[Date]
+			)
+			```
+		lineageTag: fca6228c-a718-4bac-96c1-a564e189d8cf
+
+		changedProperty = Name
+
+	measure 'ACTUAL WRK QTD' = ```
+			
+			TOTALMTD(
+			    SUM('Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS]), 
+			    'Calendar Date'[Date]
+			)
+			```
+		lineageTag: 075e0859-36df-4a40-b519-6045b199dc9f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'ACTUAL WRK YTD' = ```
+			
+			TOTALYTD(
+			    SUM('Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS]), 
+			    'Calendar Date'[Date]
+			)
+			```
+		lineageTag: 5cb68200-3368-47c0-8dc6-5fe32cb47b12
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SEG_CD_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: d1683c41-eb3c-4e89-971d-8594ca201939
+		sourceLineageTag: SEG_CD_KEY
+		summarizeBy: none
+		sourceColumn: SEG_CD_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Task List ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 71757257-e5c4-498d-9f99-6fe320b0018a
+		sourceLineageTag: Operation Task List ID
+		summarizeBy: count
+		sourceColumn: Operation Task List ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Counter ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 61937c4c-ab48-4a1c-9f2d-771edb3f697e
+		sourceLineageTag: Operation Counter ID
+		summarizeBy: count
+		sourceColumn: Operation Counter ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Activity ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 11be0a77-f80d-44ab-b801-c1f0a15410fa
+		sourceLineageTag: Operation Activity ID
+		summarizeBy: count
+		sourceColumn: Operation Activity ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Confirmation ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: cfc44c44-db4d-404c-8166-a3013228ca1d
+		sourceLineageTag: Operation Confirmation ID
+		summarizeBy: count
+		sourceColumn: Operation Confirmation ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Sequence ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: e0148337-e97a-41eb-87ba-b563c364e4d9
+		sourceLineageTag: Operation Sequence ID
+		summarizeBy: count
+		sourceColumn: Operation Sequence ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f8ef840-544f-450b-9c70-60d053d302be
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_ORDER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 812af69c-3714-490d-94ad-f3a074782520
+		sourceLineageTag: SALES_ORDER_KEY
+		summarizeBy: none
+		sourceColumn: SALES_ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Order Item Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: cd7bf9ee-d8db-41ae-87e6-3cf98840e220
+		sourceLineageTag: Sales Order Item Number
+		summarizeBy: sum
+		sourceColumn: Sales Order Item Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fb094c5-139e-4931-b1a7-36ea3c9e1300
+		sourceLineageTag: CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ecf56564-c781-47eb-877e-1791299aa645
+		sourceLineageTag: COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Short Text'
+		dataType: string
+		lineageTag: 111361c2-a4bd-4a55-87fc-602e5761889b
+		sourceLineageTag: Operation Short Text
+		summarizeBy: none
+		sourceColumn: Operation Short Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSTNG_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 100599dc-3d38-41f5-a303-b314c54d6bda
+		sourceLineageTag: PSTNG_DATE_KEY
+		summarizeBy: none
+		sourceColumn: PSTNG_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNG_PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 8220a31d-f999-4b59-a25b-bd4dca0b7847
+		sourceLineageTag: PLNG_PLNT_KEY
+		summarizeBy: none
+		sourceColumn: PLNG_PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cb8bcab3-3a7e-4baa-9985-fd1499f2b871
+		sourceLineageTag: Entry Create Date
+		summarizeBy: none
+		sourceColumn: Entry Create Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Who Entererd'
+		dataType: string
+		lineageTag: e940bfee-6923-4e3e-bea4-5f0929894291
+		sourceLineageTag: Person Who Entererd
+		summarizeBy: none
+		sourceColumn: Person Who Entererd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Confirm Counter'
+		dataType: int64
+		formatString: 0
+		lineageTag: de95f596-5fd9-4c5e-8bd5-472bcb2e0728
+		sourceLineageTag: Operation Confirm Counter
+		summarizeBy: sum
+		sourceColumn: Operation Confirm Counter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Work UOM'
+		dataType: string
+		lineageTag: adf19490-592d-4f78-807f-6138b000b291
+		sourceLineageTag: Actual Work UOM
+		summarizeBy: none
+		sourceColumn: Actual Work UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Indicator'
+		dataType: string
+		lineageTag: b1ed994e-aae8-48cc-a3e7-d44cfbf2fc36
+		sourceLineageTag: Accounting Indicator
+		summarizeBy: none
+		sourceColumn: Accounting Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Remaining Work UOM'
+		dataType: string
+		lineageTag: 3ccd1e15-0eae-46bd-8bc5-94baaabd4cfd
+		sourceLineageTag: Remaining Work UOM
+		summarizeBy: none
+		sourceColumn: Remaining Work UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work In Hours UOM'
+		dataType: string
+		lineageTag: b78e6302-91a2-4d95-b133-809e1a0b7938
+		sourceLineageTag: Work In Hours UOM
+		summarizeBy: none
+		sourceColumn: Work In Hours UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_TYP_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: f43d2e54-8962-4b75-afd1-9ec8d57ad06a
+		sourceLineageTag: ACTIVITY_TYP_KEY
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Confirm Text'
+		dataType: string
+		lineageTag: b3c505cd-f6d7-4960-9b37-d6fcb9f2dc71
+		sourceLineageTag: Operation Confirm Text
+		summarizeBy: none
+		sourceColumn: Operation Confirm Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reason for Variance'
+		dataType: string
+		lineageTag: 7120d8ef-dca0-478d-a47b-0df346b2b286
+		sourceLineageTag: Reason for Variance
+		summarizeBy: none
+		sourceColumn: Reason for Variance
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Confirm  Counter  Of  Cancelled  Confirmation'
+		dataType: int64
+		formatString: 0
+		lineageTag: e1e2bada-fa07-484f-bf3f-c7bc68dd90c7
+		sourceLineageTag: Confirm  Counter  Of  Cancelled  Confirmation
+		summarizeBy: sum
+		sourceColumn: Confirm  Counter  Of  Cancelled  Confirmation
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOLD_TO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f4bd743-bd44-4549-aaf3-896bf9fd70ee
+		sourceLineageTag: SOLD_TO_CUST_KEY
+		summarizeBy: none
+		sourceColumn: SOLD_TO_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSONEL_NUM_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 10262351-787c-48ff-bf1d-6677a7654754
+		sourceLineageTag: PERSONEL_NUM_KEY
+		summarizeBy: none
+		sourceColumn: PERSONEL_NUM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: e9439335-987d-4932-9bd1-2316d0bb69b9
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 883727ac-89a3-4f62-88e4-1b4bf5178902
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b4ea3e49-2c5f-45fa-b2ab-56181c9f5837
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SERVC_ORDER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b24a0a6-1e53-4390-8c84-685543cd4b25
+		sourceLineageTag: SERVC_ORDER_KEY
+		summarizeBy: none
+		sourceColumn: SERVC_ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 58080192-7ee5-4d3e-9e08-58aa54cd0f3a
+		sourceLineageTag: SALES_AREA_KEY
+		summarizeBy: none
+		sourceColumn: SALES_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SERVC_ORDER_CREATE_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: b307fce6-e2fa-428f-b2b0-72328552ebab
+		sourceLineageTag: SERVC_ORDER_CREATE_DATE_KEY
+		summarizeBy: none
+		sourceColumn: SERVC_ORDER_CREATE_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARNT_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 7495d9d9-8f53-4a54-a788-26d3f0d060bd
+		sourceLineageTag: PARNT_CUST_KEY
+		summarizeBy: sum
+		sourceColumn: PARNT_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reason for Variance Description'
+		dataType: string
+		lineageTag: a11320a5-97ed-4165-86b7-b916da3d6b14
+		sourceLineageTag: Reason for Variance Description
+		summarizeBy: none
+		sourceColumn: Reason for Variance Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partial Final Confirm'
+		dataType: string
+		lineageTag: 392dbfc0-f732-4025-b620-d2cab7cb0aa0
+		sourceLineageTag: Partial Final Confirm
+		summarizeBy: none
+		sourceColumn: Partial Final Confirm
+
+		annotation SummarizationSetBy = Automatic
+
+	column TCHNCL_COMPLETION_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 99a89371-0832-4f46-93b7-e1fe64833253
+		sourceLineageTag: TCHNCL_COMPLETION_DATE_KEY
+		summarizeBy: none
+		sourceColumn: TCHNCL_COMPLETION_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Indicator Description'
+		dataType: string
+		lineageTag: 0de5d725-0062-473f-9179-451172678da2
+		sourceLineageTag: Accounting Indicator Description
+		summarizeBy: none
+		sourceColumn: Accounting Indicator Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column SERV_ORDER_INVOICE_CREATED_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ca1232a-5154-4caf-956b-801f0d7d7dcd
+		sourceLineageTag: SERV_ORDER_INVOICE_CREATED_DATE_KEY
+		summarizeBy: none
+		sourceColumn: SERV_ORDER_INVOICE_CREATED_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column OPERATING_PLANT_REGION_PLANT
+		dataType: string
+		lineageTag: 11d50ffb-ef37-42b1-bc27-2c3775baea26
+		sourceLineageTag: OPERATING_PLANT_REGION_PLANT
+		summarizeBy: none
+		sourceColumn: OPERATING_PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANNING_PLANT_REGION_PLANT
+		dataType: string
+		lineageTag: 865665ca-310a-4eca-ac67-4a077d9c5489
+		sourceLineageTag: PLANNING_PLANT_REGION_PLANT
+		summarizeBy: none
+		sourceColumn: PLANNING_PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSONNEL_PLANT_REGION_PLANT
+		dataType: string
+		lineageTag: c6fc0ee1-b275-4cc9-8a8d-851686bec7e6
+		sourceLineageTag: PERSONNEL_PLANT_REGION_PLANT
+		summarizeBy: none
+		sourceColumn: PERSONNEL_PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARENT_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ad057a34-2593-4577-8077-5d3b627e3533
+		sourceLineageTag: PARENT_CUST_KEY
+		summarizeBy: none
+		sourceColumn: PARENT_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAYER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: d2447f0d-97a2-4820-8b59-c45d7d677fda
+		sourceLineageTag: PAYER_CUST_KEY
+		summarizeBy: none
+		sourceColumn: PAYER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHIP_TO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: b5831562-5f35-46b6-a2f8-b513d1d8e175
+		sourceLineageTag: SHIP_TO_CUST_KEY
+		summarizeBy: none
+		sourceColumn: SHIP_TO_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column BRAND_OWNER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b007b44-df6d-4476-8e63-24a2d41d9706
+		sourceLineageTag: BRAND_OWNER_CUST_KEY
+		summarizeBy: none
+		sourceColumn: BRAND_OWNER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a6e026c2-9407-4ee5-9ce2-965cbfa7bed6
+		sourceLineageTag: CUST_CONTACT_KEY
+		summarizeBy: none
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSON_RESP_PERSONNEL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ff7f8662-4ad1-4672-9353-4c01f7fa25b3
+		sourceLineageTag: PERSON_RESP_PERSONNEL_KEY
+		summarizeBy: none
+		sourceColumn: PERSON_RESP_PERSONNEL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CYLINDER_OWNER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: fb087242-d453-42b7-8369-a9ec35991ceb
+		sourceLineageTag: CYLINDER_OWNER_CUST_KEY
+		summarizeBy: none
+		sourceColumn: CYLINDER_OWNER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGENCY_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c08ace1-3cca-4c82-a90d-54d109cd6cfc
+		sourceLineageTag: AGENCY_CUST_KEY
+		summarizeBy: none
+		sourceColumn: AGENCY_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRINTER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a102bfb9-5d9c-403f-8ffc-d5807b34f411
+		sourceLineageTag: PRINTER_CUST_KEY
+		summarizeBy: none
+		sourceColumn: PRINTER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUPPLIER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a8cd1d7-8659-4eb4-ab59-c03f5c634bc6
+		sourceLineageTag: SUPPLIER_CUST_KEY
+		summarizeBy: none
+		sourceColumn: SUPPLIER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPLOYEE_RESP_PERSONEL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cb1f3c4-1b01-48bf-8346-9c307c92bb24
+		sourceLineageTag: EMPLOYEE_RESP_PERSONEL_KEY
+		summarizeBy: none
+		sourceColumn: EMPLOYEE_RESP_PERSONEL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPLOYEE_RESP_2_PERSONEL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: bb4845d0-3941-4356-8e89-a946c884fb68
+		sourceLineageTag: EMPLOYEE_RESP_2_PERSONEL_KEY
+		summarizeBy: none
+		sourceColumn: EMPLOYEE_RESP_2_PERSONEL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column FORWARDING_AGENT_VENDOR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9886a6e7-50a2-4bba-8ec0-544477adb009
+		sourceLineageTag: FORWARDING_AGENT_VENDOR_KEY
+		summarizeBy: none
+		sourceColumn: FORWARDING_AGENT_VENDOR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNITIZATION_AGENT_VENDOR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: dd2a9548-ab36-4efc-b753-38f19b09892a
+		sourceLineageTag: UNITIZATION_AGENT_VENDOR_KEY
+		summarizeBy: none
+		sourceColumn: UNITIZATION_AGENT_VENDOR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORDER_FOR_CUSTOMER_ADDR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 463cff56-d74c-4c39-9e0d-c25766467084
+		sourceLineageTag: ORDER_FOR_CUSTOMER_ADDR_KEY
+		summarizeBy: none
+		sourceColumn: ORDER_FOR_CUSTOMER_ADDR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SO_PARENT_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 16ccb2a4-f2e3-4043-9187-5da3316381ec
+		sourceLineageTag: SO_PARENT_CUST_KEY
+		summarizeBy: none
+		sourceColumn: SO_PARENT_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column BILL_TO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 68fee671-ffd0-4fc5-8b96-bbebd2f771db
+		sourceLineageTag: BILL_TO_CUST_KEY
+		summarizeBy: none
+		sourceColumn: BILL_TO_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUSTOMER_PROJECT_MANAGER_CUST_CONTACT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 51e986cd-2f97-451d-9a99-6f863e6c157d
+		sourceLineageTag: CUSTOMER_PROJECT_MANAGER_CUST_CONTACT_KEY
+		summarizeBy: none
+		sourceColumn: CUSTOMER_PROJECT_MANAGER_CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_PERSON_PERSONEL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e1543e3-e78d-4160-8ae8-fa86c34c9e36
+		sourceLineageTag: SALES_PERSON_PERSONEL_KEY
+		summarizeBy: none
+		sourceColumn: SALES_PERSON_PERSONEL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRDT_VARIANT_CONFIG_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ea500c1-4d5a-4b10-8ee8-f0013c1bfa91
+		sourceLineageTag: PRDT_VARIANT_CONFIG_KEY
+		summarizeBy: none
+		sourceColumn: PRDT_VARIANT_CONFIG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 38f471fb-ba3e-4ffb-8ea8-03320b2bd367
+		sourceLineageTag: WRK_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column OPERATING_PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 61a16957-1f1e-41b7-a44e-2c132cc3ca59
+		sourceLineageTag: OPERATING_PLNT_KEY
+		summarizeBy: none
+		sourceColumn: OPERATING_PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column OPERATION_STD_TEXT
+		dataType: string
+		lineageTag: e9c595a4-0790-4205-afa1-4134ab9776f7
+		sourceLineageTag: OPERATION_STD_TEXT
+		summarizeBy: none
+		sourceColumn: OPERATION_STD_TEXT
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_ORDER_ID
+		dataType: string
+		lineageTag: 8a7c62e7-a11b-462f-b1dd-04dd9effc0f6
+		sourceLineageTag: SALES_ORDER_ID
+		summarizeBy: none
+		sourceColumn: SALES_ORDER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOIPTNR_KEY
+		dataType: string
+		lineageTag: 755fa7d8-10fb-4e04-b990-75c1c94f292f
+		sourceLineageTag: SOIPTNR_KEY
+		summarizeBy: none
+		sourceColumn: SOIPTNR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTUAL_WRK
+		dataType: double
+		lineageTag: 87d10d0e-8b54-4c8f-ad05-939574f30441
+		sourceLineageTag: ACTUAL_WRK
+		summarizeBy: sum
+		sourceColumn: ACTUAL_WRK
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ACTUAL_WRK_IN_HRS
+		dataType: double
+		lineageTag: a283d990-6a7a-4eaa-a912-ced731c8f2d7
+		sourceLineageTag: ACTUAL_WRK_IN_HRS
+		summarizeBy: sum
+		sourceColumn: ACTUAL_WRK_IN_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REMG_WRK
+		dataType: double
+		lineageTag: fe553181-7456-44d4-8903-20040e481581
+		sourceLineageTag: REMG_WRK
+		summarizeBy: sum
+		sourceColumn: REMG_WRK
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REMG_WRK_IN_HRS
+		dataType: double
+		lineageTag: dad8e95f-47b4-410a-9dfe-97b4faca8f8f
+		sourceLineageTag: REMG_WRK_IN_HRS
+		summarizeBy: sum
+		sourceColumn: REMG_WRK_IN_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ACCT_IND
+		dataType: string
+		lineageTag: f71520cb-7544-452a-a494-36c3ad33a99e
+		sourceLineageTag: ACCT_IND
+		summarizeBy: none
+		sourceColumn: ACCT_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCHZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d74d6e4-8f10-4961-8a19-a9e19f27b39b
+		sourceLineageTag: PROFCHZ_PROFT_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: PROFCHZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCVZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 69c0b97a-5c53-4fb2-bea0-fc3bbd55b6d5
+		sourceLineageTag: PROFCVZ_PROFT_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: PROFCVZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column WORKCHZ_WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: dd6ba528-c57f-425e-afd3-631a45a80e0e
+		sourceLineageTag: WORKCHZ_WRK_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: WORKCHZ_WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column WORKCVZ_WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: c0c92127-4eac-4e17-a3ff-76355cf87042
+		sourceLineageTag: WORKCVZ_WRK_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: WORKCVZ_WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTCHZ_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 38732c12-364e-4d3a-8cb2-348a232886c0
+		sourceLineageTag: COSTCHZ_COST_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: COSTCHZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTCVZ_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5cce8d9d-1c8c-442e-8a2c-2b9d6fc1ac79
+		sourceLineageTag: COSTCVZ_COST_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: COSTCVZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRDVCON_KEY
+		dataType: string
+		lineageTag: 1edb669e-13c6-40d3-bce1-6e5a2680538b
+		sourceLineageTag: PRDVCON_KEY
+		summarizeBy: none
+		sourceColumn: PRDVCON_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact Time Confirmation Service Orders' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_FACT_PRD_TMCONFS_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

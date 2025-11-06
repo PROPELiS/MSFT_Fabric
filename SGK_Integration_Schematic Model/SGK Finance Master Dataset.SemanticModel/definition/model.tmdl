@@ -1,0 +1,158 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DirectLake - GLOBAL_EDW"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["RemoteModeling","DirectLakeOnOneLakeCreatedInDesktop","DirectLakeOnOneLakeInWeb","WebModelingEdit"]
+
+ref table EDW_T_R_BASE_TARGET_PRICE
+ref table EDW_T_R_BASE_TARGET_PRICING_COMMENTS
+ref table 'Partner Profit Center'
+ref table CAGGIATI_CUST_MASTER
+ref table 'Foreign Currency'
+ref table 'Document Currency'
+ref table EDW_T_D_MST_MATSALS_CUR_D
+ref table EDW_T_D_MST_CUSULPT_CUR_D
+ref table 'Billing Date'
+ref table REQD_DELVRY_DATE
+ref table 'Company Currency'
+ref table 'Partner Profit Center Vertical'
+ref table 'Partner Cost Center Horizontal'
+ref table 'Document Date'
+ref table 'Partner Profit Center Horizontal'
+ref table 'Brand Owner Customer'
+ref table 'Partner Cost Center Vertical'
+ref table 'Plant Region'
+ref table 'Partner Company'
+ref table 'Fact COPA Budget'
+ref table 'Creation Date'
+ref table 'Supplier Customer'
+ref table 'Responsible Cost Center'
+ref table 'Responsible Cost Center Vertical'
+ref table 'Customer Project Manager'
+ref table 'Responsible Cost Center Horizontal'
+ref table 'Technical Completion Date'
+ref table EDW_T_D_PRD_SERVORD_CUR_D
+ref table 'Parent Customer'
+ref table 'Person Responsible Cost Center'
+ref table EDW_T_D_SAL_SALAREA_CUR_D
+ref table 'Person Responsible Cost Center Vertical Heirarcy'
+ref table EDW_T_D_HY_PROFCVZ_CUR_D
+ref table 'Person Responsible Cost Center Horizontal Heirarcy'
+ref table 'Person Responsible Personnel'
+ref table 'Partner Cost Center'
+ref table EDW_T_D_HY_PROFCHZ_CUR_D
+ref table EDW_T_D_HY_WORKCHZ_CUR_D
+ref table EDW_T_D_HY_WORKCVZ_CUR_D
+ref table 'Posting Date'
+ref table EDW_T_D_MST_PLANT_CUR_D
+ref table 'Printer Customer'
+ref table EDW_T_D_MST_PROFCTR_CUR_D
+ref table EDW_T_D_MST_CUSTOMR_CUR_D
+ref table EDW_T_D_MST_CRNCY_CUR_D
+ref table EDW_T_D_SAL_SALORDH_CUR_D
+ref table EDW_T_D_MST_WORKCTR_CUR_D
+ref table SALES_REP
+ref table EDW_T_D_MST_ACTTYPE_CUR_D
+ref table CUSTOMER_SERVICE_REP
+ref table 'Fact Service Order Costs'
+ref table 'Fact COPA Actual'
+ref table EDW_T_D_PP_PURORDL_CUR_D
+ref table 'Fact Sales Order Details'
+ref table EDW_T_D_SAL_INVOICE_CUR_D
+ref table 'Sales Person Personel'
+ref table EDW_T_D_FI_ICGLGRP_CUR_D
+ref table EDW_T_D_MST_DATE_CUR_D
+ref table EDW_T_D_FI_ICPTRDG_CUR_D
+ref table EDW_T_D_MST_EXCHGRT_CUR_D
+ref table EDW_T_D_MST_SEGMENT_CUR_D
+ref table EDW_T_D_MST_GLCMPCD_CUR_D
+ref table EDW_T_D_MST_CMPNYDT_CUR_D
+ref table 'Sold To Customer'
+ref table EDW_T_D_FI_ASSETHR_CUR_D
+ref table 'Partner Functional Area'
+ref table 'Partner segment'
+ref table 'Profit Center Trading Partner Grouping'
+ref table 'Partner Profit Center Trading Partner Grouping'
+ref table EDW_T_R_SGK_OPERREG_CUR_D
+ref table 'Payer Customer'
+ref table EDW_T_D_MST_CACSELM_CUR_D
+ref table 'Company Information'
+ref table EDW_T_D_MST_CMPNYCD_CUR_D
+ref table SO_PARENT_CUST
+ref table EDW_T_D_MST_COSCNTR_CUR_D
+ref table 'Producing Plant Region'
+ref table EDW_T_D_MST_VENDOR_CUR_D
+ref table EDW_T_D_FI_MELTGRP_CUR_D
+ref table 'Bill To Customer'
+ref table UNITIZATION_AGENT_VENDOR
+ref table 'Order For Customer'
+ref table EDW_T_D_HY_ENTYHZ_CUR_D
+ref table 'Agency Customer'
+ref table MATRL_ENTERED
+ref table EDW_T_FACT_FI_BPCDTAU_CUR_D
+ref table TEC_T_D_ETL_JBSTATS2_CUR_D
+ref table EDW_T_D_SAL_PRDVCON_CUR_D
+ref table EDW_T_D_MST_PERSONL_CUR_D
+ref table EDW_T_D_MST_CUSTXMS_CUR_D
+ref table 'Inter Company'
+ref table EDW_T_D_MST_CUSTSAL_CUR_D
+ref table 'Inter Company Profit Center'
+ref table EDW_T_D_HY_COSTEVZ_CUR_D
+ref table EDW_T_D_MST_COSTELM_CUR_D
+ref table EDW_T_D_MST_CUSTPNR_CUR_D
+ref table 'Baseline Due Date'
+ref table EDW_T_D_MST_SEGMEN2_CUR_D
+ref table EDW_T_D_MST_CUSTMINR_CUR_D
+ref table EDW_T_B_SAL_SOIPTNR_CUR_D
+ref table 'Personnel Plant Region'
+ref table EDW_T_D_MST_CUSTCMP_CUR_D
+ref table EDW_T_D_PM_ORDER_CUR_D
+ref table EDW_T_D_MST_GENLDGR_CUR_D
+ref table 'Fact Cost Center Cost Summary'
+ref table 'Clearing Date'
+ref table EDW_T_D_MST_FUNCTAR_CUR_D
+ref table EDW_T_D_HY_GLACTHZ_CUR_D
+ref table 'Fact Cost Center Cost Transaction'
+ref table EDW_T_D_SAL_ADDRESS_CUR_D
+ref table EMPLOYEE_RESP
+ref table 'Ship To Customer'
+ref table 'Transaction Currency'
+ref table EDW_T_D_PRS_WBSELEM_CUR_D
+ref table 'Cylinder Owner Customer'
+ref table EDW_T_D_HY_COSTEHZ_CUR_D
+ref table 'Inter Company Profit Center Horizontal Hierarcy'
+ref table EDW_T_D_HY_COSTCVZ_CUR_D
+ref table EDW_T_D_SAL_DCHAREN_CUR_D
+ref table 'Entity Company'
+ref table 'Forwarding Agent Vendor'
+ref table Trading_Partner_Company
+ref table EMPLOYEE_RESP_2
+ref table EDW_T_D_HY_COSTCHZ_CUR_D
+ref table EDW_T_D_MST_MATERIAL_CUR_D
+ref table 'Group Currency'
+ref table EDW_T_D_MST_PRTHRCY_CUR_D
+ref table EDW_T_D_MST_CUSCRED_CUR_D
+ref table 'Location Plant'
+ref table EDW_T_D_MST_CUSTCNT_CUR_D
+ref table 'Producing Plant'
+ref table 'Fact Accounts Receivable'
+ref table 'Goods Issued Date'
+ref table 'Personnel Number'
+ref table 'Loaction Plan Region'
+ref table EDW_T_D_HY_BPCGLHZ_CUR_D
+ref table 'Last Dunning Notice Date'
+ref table 'Invoice Creation Date'
+ref table 'Sales Order Header Create Date'
+ref table EDW_V_D_SAL_PRDVCON_CUR_D
+ref table 'Fact General Ledger'
+ref table 'Fact General Ledger Plan & Budget'
+ref table 'Inter Company Profit Center Vertical Hierarcy'
+

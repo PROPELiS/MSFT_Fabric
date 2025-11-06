@@ -1,0 +1,206 @@
+relationship b7af88d4-559c-4cbf-30d9-87c7fd7148a0
+	fromColumn: EDW_T_FACT_FI_GENLDGT2_CUR_D.DOCMT_CRNCY_KEY
+	toColumn: 'Transaction Currency'.CRNCY_KEY
+
+relationship bcfc6cb9-7121-e87a-a11e-1d4ba5c451b7
+	fromColumn: EDW_T_FACT_FI_GENLDGT2_CUR_D.GROUP_CRNCY_KEY
+	toColumn: 'Group Currency'.CRNCY_KEY
+
+relationship a26b63fb-38c3-ddd6-6780-83b2a1cf1f94
+	fromColumn: EDW_T_FACT_FI_GENLDGT2_CUR_D.CMPNY_CRNCY_KEY
+	toColumn: 'Company Currency'.CRNCY_KEY
+
+relationship f6948380-432c-3915-4dff-68466d7f7e4c
+	fromColumn: EDW_T_FACT_FI_GENLDGT2_CUR_D.CMPNY_KEY
+	toColumn: EDW_T_D_MST_CMPNYCD_CUR_D.CMPNY_KEY
+
+relationship a9ef9141-ca5b-de15-6ef4-50373a38c082
+	fromColumn: EDW_T_FACT_FI_GENLDGT2_CUR_D.PRTNR_PROFT_CNTR_KEY
+	toColumn: 'Partner Profit Center'.PROFT_CNTR_KEY
+
+relationship 5f4b7bf7-9133-d106-7bb7-bfbfb9cc4b72
+	fromColumn: EDW_T_FACT_FI_GENLDGT2_CUR_D.FUNCTNL_AREA_KEY
+	toColumn: EDW_T_D_MST_FUNCTAR_CUR_D.FUNCTNL_AREA_KEY
+
+relationship 9dfef6fc-aab5-e933-b27c-6bacaa196edd
+	fromColumn: EDW_T_FACT_FI_GENLDGT2_CUR_D.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship 045e8e17-5351-6c1e-8349-698f2c50b910
+	fromColumn: EDW_T_FACT_FI_GENLDGT2_CUR_D.GL_KEY
+	toColumn: EDW_T_D_MST_GENLDGR_CUR_D.GL_KEY
+
+relationship 8abd9ab8-def9-6743-a228-fc87c5033cde
+	fromColumn: EDW_T_FACT_FI_GENLDGT2_CUR_D.SEG_KEY
+	toColumn: EDW_T_D_MST_SEGMEN2_CUR_D.SEG_KEY
+
+relationship 5afa5b66-e6b5-61b3-d362-e361b860880f
+	fromColumn: EDW_T_FACT_FI_GENLDGT2_CUR_D.TRADING_PRTNR_CMPNY_KEY
+	toColumn: 'Trading Partner Company'.CMPNY_KEY
+
+relationship 3c08b77f-469c-5cc6-d73e-6b12aba5f58c
+	fromColumn: EDW_T_D_HY_PROFCHZ_CUR_D.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship 9fc91c04-5912-76e2-0c79-573661bd37e6
+	fromColumn: EDW_T_D_HY_PROFCVZ_CUR_D.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship 51b56261-2e14-7e22-cb3f-a729965b3503
+	fromColumn: EDW_T_FACT_FI_GENLDGT2_CUR_D.Functional_GL_Key
+	toColumn: EDW_T_D_HY_GLACTHZ_CUR_D.Functional_GL_Key
+
+relationship 6aba1779-ee3e-af72-ca93-d7e749814383
+	fromColumn: EDW_T_D_HY_COSTCHZ_CUR_D.COST_CNTR_KEY
+	toColumn: EDW_T_D_MST_COSCNTR_CUR_D.COST_CNTR_KEY
+
+relationship 5f419ea9-b6b3-d2bd-4524-a1e9012324df
+	fromColumn: EDW_T_D_HY_COSTCVZ_CUR_D.COST_CNTR_KEY
+	toColumn: EDW_T_D_MST_COSCNTR_CUR_D.COST_CNTR_KEY
+
+relationship 50fe8240-b5b8-20b6-4680-93e5bc72c0a3
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.GL_KEY
+	toColumn: EDW_T_D_MST_GENLDGR_CUR_D.GL_KEY
+
+relationship 30e19040-9d5d-af9a-9116-72a36f7fe738
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.PSTNG_DATE_KEY
+	toColumn: 'Posting Date'.DATE_KEY
+
+relationship ded61fbe-0d4e-ab51-0289-d8168ead19bc
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.DOCMT_CRNCY_KEY
+	toColumn: 'Document Currency'.CRNCY_KEY
+
+relationship 8be69b52-e092-33a3-a534-418ab32a656c
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.CMPNY_CRNCY_KEY
+	toColumn: 'Company Currency'.CRNCY_KEY
+
+relationship e56548dd-4c26-448e-5751-e48501a60731
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.GROUP_CRNCY_KEY
+	toColumn: 'Group Currency'.CRNCY_KEY
+
+relationship 75d091e6-9496-6c6c-57cb-4e426994177f
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.COST_CNTR_KEY
+	toColumn: EDW_T_D_MST_COSCNTR_CUR_D.COST_CNTR_KEY
+
+relationship 3043a093-5b49-bd62-090e-2bf4ad04c57d
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.CMPNY_KEY
+	toColumn: EDW_T_D_MST_CMPNYCD_CUR_D.CMPNY_KEY
+
+relationship f4d3c9fa-2134-fc39-e809-10c51f56760a
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.CLEARING_DATE_KEY
+	toColumn: 'Clearing Date'.DATE_KEY
+
+relationship 62dffa84-7b5b-add0-0783-83236dd64ad9
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.DOCMT_DATE_KEY
+	toColumn: 'Document Date'.DATE_KEY
+
+relationship 650241e5-ab1e-b8ba-8397-73037eaa44e2
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.CUST_KEY
+	toColumn: EDW_T_D_MST_CUSTOMR_CUR_D.CUST_KEY
+
+relationship 7f879e95-5d00-0201-332b-4ca83fcd17c4
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.COST_ELEMNT_KEY
+	toColumn: EDW_T_D_MST_COSTELM_CUR_D.COST_ELEMNT_KEY
+
+relationship 4882808f-9063-86f8-7906-ca7e4afe82b8
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.MATRL_KEY
+	toColumn: EDW_T_D_MST_MATERIAL_CUR_D.MATRL_KEY
+
+relationship 884d1758-ed56-375e-9d80-7b52ad57a86a
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship 75401d96-fe7c-4829-e29e-f15a26d63774
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.VNDR_KEY
+	toColumn: EDW_T_D_MST_VENDOR_CUR_D.VNDR_KEY
+
+relationship 0ea835b1-bb93-aa0b-9ac9-a34fe220c352
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.PURCHS_ORDER_ITM_KEY
+	toColumn: EDW_T_D_PP_PURORDL_CUR_D.PURCHS_ORDER_ITM_KEY
+
+relationship 973dd0ae-65ba-1982-884b-db9fa96eed05
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.WBS_ELEMNT_KEY
+	toColumn: EDW_T_D_PRS_WBSELEM_CUR_D.WBS_ELEMNT_KEY
+
+relationship 6cdd77db-4b01-eb43-4474-c59beba6a9bf
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.FUNCTNL_AREA_KEY
+	toColumn: 'Functional Area'.FUNCTNL_AREA_KEY
+
+relationship 9ea402ac-2019-6ff9-4f98-1a064871bc40
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.PRTNR_FUNCTNL_AREA_KEY
+	toColumn: 'Partner Functional Area'.FUNCTNL_AREA_KEY
+
+relationship c65e8647-8163-969c-1c8d-2daf9e08c5ff
+	fromColumn: EDW_T_D_HY_COSTEHZ_CUR_D.COST_ELEMNT_KEY
+	toColumn: EDW_T_D_MST_COSTELM_CUR_D.COST_ELEMNT_KEY
+
+relationship 994cb571-3261-3f4a-3ad8-cb784408334d
+	fromColumn: EDW_T_D_HY_COSTEVZ_CUR_D.COST_ELEMNT_KEY
+	toColumn: EDW_T_D_MST_COSTELM_CUR_D.COST_ELEMNT_KEY
+
+relationship 856f2c34-6f49-9088-5e3f-c93413c2c6d4
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.PLNT_KEY
+	toColumn: EDW_T_D_MST_PLANT_CUR_D.PLNT_KEY
+
+relationship fcbfd2cf-69e0-ecf0-ac5c-512f66af2914
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.PRTNR_PROFT_CNTR_KEY
+	toColumn: 'Partner Profit Center'.PROFT_CNTR_KEY
+
+relationship 207c76c8-90f8-765f-bb51-e254aa519c40
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.PRTNR_PRFT_CNTR_V_HIER_KEY
+	toColumn: 'Partner Profit Center V Hier'.PROFT_CNTR_KEY
+
+relationship 3ef077e7-85c1-9879-0b4e-af7e468658ed
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.BILLING_DOCMT_KEY
+	toColumn: EDW_T_D_SAL_INVOICE_CUR_D.INVC_KEY
+
+relationship 6368db3d-0f71-ce6c-34b8-3fafbae83886
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.SALES_ORDER_KEY
+	toColumn: EDW_T_D_SAL_SALORDH_CUR_D.SALES_ORDER_KEY
+
+relationship 68d94501-c882-7f79-96a0-3d1e31b00d28
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.TRADING_PRTNR_CMPNY_KEY
+	toColumn: 'Trading Partner Company'.CMPNY_KEY
+
+relationship 65f89ad3-85c3-b846-0af9-bffe1f2c2250
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.SEG_KEY
+	toColumn: EDW_T_D_MST_SEGMEN2_CUR_D.SEG_KEY
+
+relationship 7169cdbf-f7b8-08cd-0e65-e04ac9cddccb
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.PRTNR_SEG_KEY
+	toColumn: 'Partner Segment'.SEG_KEY
+
+relationship 5eeb049b-bbcb-ce8f-6358-a3bd46138d94
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.TRNSCTN_CRNCY_KEY
+	toColumn: 'Transaction Currency'.CRNCY_KEY
+
+relationship 60d78b89-721f-3dfd-ecd2-1e731753a832
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.GL_CMPNY_KEY
+	toColumn: EDW_T_D_MST_GLCMPCD_CUR_D.GL_CMPNY_KEY
+
+relationship 34299df0-ab9a-493e-aaff-5236f5d6ac76
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.ASSET_KEY
+	toColumn: EDW_T_D_FI_ASSETHR_CUR_D.ASSET_KEY
+
+relationship d4063554-0f80-0f25-0d98-1b3b88e358f3
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.PRFT_CNTR_TRD_PRTNR_GRP_ID
+	toColumn: 'Profit Center Trading Partner Grouping'.PROFT_CNTR_ID
+
+relationship 0530c434-f4b0-2741-091d-ac56937c748b
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.PRTNR_PRFT_CNTR_TRD_PRTNR_GRP_ID
+	toColumn: 'Partner Profit Center Trading Partner Grouping'.PROFT_CNTR_ID
+
+relationship b897b6db-02d2-b843-46c3-f29360137e4b
+	toCardinality: many
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.PSTNG_DATE_KEY
+	toColumn: EDW_T_D_MST_CMPNYDT_CUR_D.DATE_KEY
+
+relationship c5d00a18-eb2d-abf7-8794-9e461a83da16
+	fromColumn: EDW_T_D_MST_GENLDGR_CUR_D.GL_CD
+	toColumn: EDW_T_D_FI_ICGLGRP_CUR_D.GL_ID
+
+relationship 816589a2-51a2-0573-ff7b-3ceab335b60b
+	toCardinality: many
+	fromColumn: EDW_V_FACT_FI_GENLDGR_CUR_D.PRTNR_PRFT_CNTR_H_HIER_KEY
+	toColumn: 'Partner Profit Center H Hier'.PROFT_CNTR_KEY
+

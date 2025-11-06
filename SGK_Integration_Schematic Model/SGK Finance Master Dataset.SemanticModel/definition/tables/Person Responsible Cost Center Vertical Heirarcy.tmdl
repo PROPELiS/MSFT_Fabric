@@ -1,0 +1,77 @@
+table 'Person Responsible Cost Center Vertical Heirarcy'
+	lineageTag: f1f940ac-7821-410b-b8f0-fe11f2970aff
+	sourceLineageTag: [Propelis].[PERSON_RESPNSBLE_COST_CNTR_V_HEIR]
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 47b68360-1e04-46ac-a1e2-928b49bbf4fe
+		sourceLineageTag: COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Controlling Area ID VH'
+		dataType: string
+		lineageTag: a120fdcf-b15b-4c68-876e-f586191cf221
+		sourceLineageTag: Person Resp Cost Center Controlling Area ID VH
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Parent ID VH'
+		dataType: string
+		lineageTag: e9ae9798-83a4-4337-b210-9617ac1f257e
+		sourceLineageTag: Person Resp Cost Center Parent ID VH
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Parent Description VH'
+		dataType: string
+		lineageTag: e36f9e50-e031-4bf7-b2f0-b172d0c5b4ae
+		sourceLineageTag: Person Resp Cost Center Parent Description VH
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Child ID VH'
+		dataType: string
+		lineageTag: eb0b998e-46b4-44b2-9dd0-e063f14b905d
+		sourceLineageTag: Person Resp Cost Center Child ID VH
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Child Description VH'
+		dataType: string
+		lineageTag: 1734e8e6-1c82-4897-bf77-2badaea659cd
+		sourceLineageTag: Person Resp Cost Center Child Description VH
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Hierarchical Level VH'
+		dataType: string
+		lineageTag: efe00338-92ba-48e0-b049-eee602d9f7c1
+		sourceLineageTag: Person Resp Cost Center Hierarchical Level VH
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Hierarchical Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Person Responsible Cost Center Vertical Heirarcy' = entity
+		mode: directLake
+		source
+			entityName: PERSON_RESPNSBLE_COST_CNTR_V_HEIR
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

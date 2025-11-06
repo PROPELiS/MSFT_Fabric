@@ -1,0 +1,43 @@
+table 'Planning Plant Region'
+	lineageTag: f36c825b-5c90-40b5-a41b-aa328fafc99b
+
+	column 'Planning Plant Business Function'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 18ab581c-7eba-4087-9a34-5140661ed75e
+		summarizeBy: none
+		sourceColumn: Planning Plant Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planning Plant Region'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: aa6f4d70-52b1-4811-94be-1d3daf911820
+		summarizeBy: none
+		sourceColumn: Planning Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planning Plant'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 46386de4-3617-44f1-818a-f12e1e6faa79
+		summarizeBy: none
+		sourceColumn: Planning Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Planning Plant Region' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_PLANNING_PLANT_REGION = Source{[Schema="Propelis",Item="PLANNING_PLANT_REGION"]}[Data]
+				in
+				    Propelis_PLANNING_PLANT_REGION
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

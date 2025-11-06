@@ -1,0 +1,78 @@
+table 'Propelis RESP_COST_CENTER_VERTICAL_HIERARCHY'
+	lineageTag: 1a956b93-a295-4f55-8fb4-a5129f08df2c
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b6d45e2f-b6a4-445b-87f6-49064e2f0731
+		summarizeBy: sum
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Controlling Area ID VH'
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: 4ff3d37a-ebbc-48cd-81c8-0cc58064b4f7
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: f1d7e13e-9ed9-427f-87c4-593b612cede5
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: f02d63de-7422-46dd-9017-10ceb9235003
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 6038ec56-1f61-439d-b465-d0210e3cea57
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Child Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 782f6402-cbfe-4977-bcff-7beebaa15d60
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Hierarchical Level VH'
+		dataType: string
+		sourceProviderType: varchar(24)
+		lineageTag: 96d16d3b-6262-4f60-9f1b-363bb1421270
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Hierarchical Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Propelis RESP_COST_CENTER_VERTICAL_HIERARCHY' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_RESP_COST_CENTER_VERTICAL_HIERARCHY = Source{[Schema="Propelis",Item="RESP_COST_CENTER_VERTICAL_HIERARCHY"]}[Data]
+				in
+				    Propelis_RESP_COST_CENTER_VERTICAL_HIERARCHY
+
+	annotation PBI_ResultType = Table
+

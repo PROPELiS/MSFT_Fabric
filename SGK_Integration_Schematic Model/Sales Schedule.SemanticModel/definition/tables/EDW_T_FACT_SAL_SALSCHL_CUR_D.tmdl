@@ -1,0 +1,301 @@
+table EDW_T_FACT_SAL_SALSCHL_CUR_D
+	lineageTag: 440bf974-9dc5-4beb-8c36-6c86d919664a
+
+	column SALES_ORDER_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 65537fdc-319d-4d54-9098-fa9afa9b98a4
+		summarizeBy: none
+		sourceColumn: SALES_ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Order Item ID'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 506e2f7c-851e-4e40-9a53-f90cdac0e1f5
+		summarizeBy: none
+		sourceColumn: Sales Order Item ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Schedule Item ID'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: bc8ecc61-b4aa-4380-b36b-1af687b54336
+		summarizeBy: none
+		sourceColumn: Schedule Item ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 064b6057-dfb7-403f-bc2c-af80eda2070f
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8748d872-c2b1-4639-990e-13cd7823571a
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEG_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6dd40bd5-ae3f-43dc-875c-fae10f755550
+		summarizeBy: none
+		sourceColumn: SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_AREA_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7771049b-2361-4a72-ac1f-c662a445e430
+		summarizeBy: none
+		sourceColumn: SALES_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 557593ab-7938-4d3d-a9b0-1afa31551d79
+		summarizeBy: none
+		sourceColumn: MATRL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCHL_ITM_DATE_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 59cddbda-76eb-44d7-b3e1-4e587136de87
+		summarizeBy: none
+		sourceColumn: SCHL_ITM_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_AVAILABILITY_DATE_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 52558de7-78d8-4d2d-b940-4a6052f4f90d
+		summarizeBy: none
+		sourceColumn: MATRL_AVAILABILITY_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOADING_DATE_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e72c1ad2-9222-4018-a57e-f5085b521170
+		summarizeBy: none
+		sourceColumn: LOADING_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GOODS_ISSUE_DATE_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2d984699-2f24-43ce-8034-130477d2d35a
+		summarizeBy: none
+		sourceColumn: GOODS_ISSUE_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Schedule Line Category Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1e6785c7-45a9-4b29-886e-37e97e1480f4
+		summarizeBy: none
+		sourceColumn: Schedule Line Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column QTY_ORDERED
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: a828c3bc-36f6-44a5-87a0-10f2a20c1852
+		summarizeBy: sum
+		sourceColumn: QTY_ORDERED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTY_CONFIRMED
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: c8a2759c-cee7-4e3c-874f-2cb697859ce8
+		summarizeBy: sum
+		sourceColumn: QTY_CONFIRMED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTY_REQUIRED
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: 842d2a33-9bdc-49d9-b6be-45c0fe602692
+		summarizeBy: sum
+		sourceColumn: QTY_REQUIRED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Quantity Uom'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b3be97b9-fe2b-4cff-81f8-bb0cbd1d8c97
+		summarizeBy: none
+		sourceColumn: Quantity Uom
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Release for Planning Timestamp'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: e953175d-99bd-429b-a068-efa7c0803721
+		summarizeBy: none
+		sourceColumn: Release for Planning Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Block'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 63b7ed60-8479-4ccd-a7fd-08903d4ea04e
+		summarizeBy: none
+		sourceColumn: Delivery Block
+
+		annotation SummarizationSetBy = Automatic
+
+	column QTY_COMMITED
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: 1b8ce45e-075b-4780-9c80-9d8bb7e92751
+		summarizeBy: sum
+		sourceColumn: QTY_COMMITED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2c2e9ac1-1314-4904-b291-cdd232fe5f02
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: d72e3026-5d23-4604-bba6-55e89e4c0960
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4154ae51-ff46-48ed-8294-9f0b281bb37d
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reason for Rejection'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 416272a5-72e7-4e9e-b64b-38453188c4ff
+		summarizeBy: none
+		sourceColumn: Reason for Rejection
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Block Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4e1ae8b7-6489-4ad0-924f-27196715374f
+		summarizeBy: none
+		sourceColumn: Delivery Block Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Schedule Line Category Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 63b071dc-99ca-4a0f-853a-ea9bbbf9180e
+		summarizeBy: none
+		sourceColumn: Schedule Line Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Technical Release Timestamp'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 9200a0e1-9f20-4978-b2d4-10d0b783f93c
+		summarizeBy: none
+		sourceColumn: Technical Release Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Order ID'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: a923a26a-5059-4688-914e-36e560444b73
+		summarizeBy: none
+		sourceColumn: Sales Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_FACT_SAL_SALSCHL_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_EDW_T_FACT_SAL_SALSCHL_CUR_D = Source{[Schema="Propelis",Item="EDW_T_FACT_SAL_SALSCHL_CUR_D"]}[Data]
+				in
+				    Propelis_EDW_T_FACT_SAL_SALSCHL_CUR_D
+
+	changedProperty = Name
+

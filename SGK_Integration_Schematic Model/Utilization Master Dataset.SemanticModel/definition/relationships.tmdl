@@ -1,0 +1,287 @@
+relationship f10df3bf-0021-a15f-0c4b-260379f77391
+	fromColumn: 'Fact Time Confirmation Service Orders'.SERVC_ORDER_KEY
+	toColumn: 'Service Order'.SERVC_ORDER_KEY
+
+relationship 24ea3e7b-668e-1216-c59d-76a966fdf3b8
+	fromColumn: 'Fact Time Confirmation Service Orders'.SALES_AREA_KEY
+	toColumn: 'Sales Area'.SALES_AREA_KEY
+
+relationship 5642c6ef-8054-96ec-c7ac-a457cee0f673
+	fromColumn: 'Fact Time Confirmation Service Orders'.SEG_CD_KEY
+	toColumn: Segment.SEG_KEY
+
+relationship 0e2df85e-e831-5f70-ddbd-5ab5ce686a1c
+	fromColumn: 'Fact Time Confirmation Service Orders'.SALES_ORDER_KEY
+	toColumn: 'Sales Order Header'.SALES_ORDER_KEY
+
+relationship 0512d699-5728-e6b6-5518-2cdb8df0d8fc
+	fromColumn: 'Fact Time Confirmation Service Orders'.CMPNY_KEY
+	toColumn: Company.CMPNY_KEY
+
+relationship 235bba69-3c68-8c27-8c65-d4edb11e2339
+	fromColumn: 'Fact Time Confirmation Service Orders'.WRK_CNTR_KEY
+	toColumn: 'Work Center'.WRK_CNTR_KEY
+
+relationship fee261c8-e27c-379c-bdfa-60122b80c1ca
+	fromColumn: 'Fact Time Confirmation Service Orders'.COST_CNTR_KEY
+	toColumn: 'Cost Center'.COST_CNTR_KEY
+
+relationship 4e4ebb42-34d3-541d-33cf-65e19a377cc8
+	fromColumn: 'Fact Time Confirmation Service Orders'.PSTNG_DATE_KEY
+	toColumn: 'Posting Date'.DATE_KEY
+
+relationship c38f91f8-0711-e33b-4253-43313c01636e
+	fromColumn: 'Fact Time Confirmation Service Orders'.PLNG_PLNT_KEY
+	toColumn: 'Planning Plant'.PLNT_KEY
+
+relationship 96d12551-1afe-e01e-0b52-94e6f2a51252
+	fromColumn: 'Fact Time Confirmation Service Orders'.ACTIVITY_TYP_KEY
+	toColumn: 'Activity Type'.ACTIVITY_TYP_KEY
+
+relationship a1c0f9ba-e205-6c2b-fee5-fc9e3bd20cc7
+	fromColumn: 'Fact Time Confirmation Service Orders'.PERSONEL_NUM_KEY
+	toColumn: Personnel.PERSONEL_KEY
+
+relationship e1b56add-db03-2218-573a-a67e64895760
+	fromColumn: 'Fact Time Confirmation Service Orders'.OPERATING_PLNT_KEY
+	toColumn: 'Operating Plant'.PLNT_KEY
+
+relationship 0810a9ca-e419-4111-03af-7b3fdbc609c9
+	fromColumn: 'Fact Time Confirmation Service Orders'.SERVC_ORDER_CREATE_DATE_KEY
+	toColumn: 'Service Order Create Date'.'DATE KEY'
+
+relationship 07851ba6-e60e-d20b-8ddd-942d2597dede
+	fromColumn: 'Fact Time Confirmation Service Orders'.SERV_ORDER_INVOICE_CREATED_DATE_KEY
+	toColumn: 'Service Order Invoice Created Date'.DATE_KEY
+
+relationship 52b92f0a-a2f5-d955-65e3-55d3c2e82f43
+	fromColumn: 'Fact Time Confirmation Service Orders'.OPERATING_PLANT_REGION_PLANT
+	toColumn: 'Operating Plant Region'.'Operating Plant'
+
+relationship 2f982f24-16f7-8179-e8ee-2736178b2c31
+	fromColumn: 'Fact Time Confirmation Service Orders'.PERSONNEL_PLANT_REGION_PLANT
+	toColumn: 'Personnel Plant Region'.'Personnel Plant'
+
+relationship 6110d474-fd6d-47a9-77f7-45ac5e957005
+	fromColumn: 'Fact Time Confirmation Service Orders'.OPERATION_STD_TEXT
+	toColumn: 'SGK Standard Text'.STANDARD_TEXT_KEY
+
+relationship b6bc9393-25e0-0e85-fc46-8e939e180827
+	fromColumn: 'Fact Time Confirmation Service Orders'.TCHNCL_COMPLETION_DATE_KEY
+	toColumn: 'Technical Completion Date'.DATE_KEY
+
+relationship 0bfa129b-76fa-5f61-528d-fe09f2a93a8b
+	fromColumn: 'Fact Time Confirmation Service Orders'.PRDT_VARIANT_CONFIG_KEY
+	toColumn: 'Product Variant Configuration'.PRDT_VARIANT_CONFIG_KEY
+
+relationship fd4254e8-a434-fff2-e0fd-602d56814cad
+	fromColumn: 'Fact Time Confirmation Service Orders'.SOIPTNR_KEY
+	toColumn: 'Sales Order Item Partner'.SOIPTNR_KEY
+
+relationship 022a18db-860b-567b-1830-a2e516c77f6b
+	fromColumn: 'Fact Time Confirmation Service Orders'.SOLD_TO_CUST_KEY
+	toColumn: 'Sold To Customer'.CUST_KEY
+
+relationship 88fed920-5c16-92b0-ad35-5b2f814063e8
+	fromColumn: 'Fact Time Confirmation Service Orders'.BILL_TO_CUST_KEY
+	toColumn: 'Bill To Customer'.CUST_KEY
+
+relationship d049a2c3-e5bf-edc8-5d82-4effe83f3037
+	fromColumn: 'Fact Time Confirmation Service Orders'.PAYER_CUST_KEY
+	toColumn: 'Payer Customer'.CUST_KEY
+
+relationship a1f7081e-8189-d3dc-f4e1-2f01ff5c5782
+	fromColumn: 'Fact Time Confirmation Service Orders'.SHIP_TO_CUST_KEY
+	toColumn: 'Ship To Customer'.CUST_KEY
+
+relationship 6591edc6-faf8-a2fb-9dd9-de80701a6fa0
+	fromColumn: 'Fact Time Confirmation Service Orders'.BRAND_OWNER_CUST_KEY
+	toColumn: 'Brand Owner Customer'.CUST_KEY
+
+relationship 979f579d-cf8a-cbb2-6f94-0967b389d2a9
+	fromColumn: 'Fact Time Confirmation Service Orders'.CUSTOMER_PROJECT_MANAGER_CUST_CONTACT_KEY
+	toColumn: 'Customer Project Manager'.CUST_CONTACT_KEY
+
+relationship f747d5bc-eb18-82a7-d58a-e5c058a9dca0
+	fromColumn: 'Fact Time Confirmation Service Orders'.CUST_CONTACT_KEY
+	toColumn: 'Customer Contact'.CUST_CONTACT_KEY
+
+relationship 976525d7-2bd3-4187-b7d7-789bd4d83d92
+	fromColumn: 'Fact Time Confirmation Service Orders'.SALES_PERSON_PERSONEL_KEY
+	toColumn: 'Sales Person Personnel'.PERSONEL_KEY
+
+relationship aebe06a7-d80b-3890-6ed1-a591b550fedb
+	fromColumn: 'Fact Time Confirmation Service Orders'.PERSON_RESP_PERSONNEL_KEY
+	toColumn: 'Person Responsible Personnel'.PERSONEL_KEY
+
+relationship f6dbe0f0-2500-db71-ce40-a003719adb41
+	fromColumn: 'Fact Time Confirmation Service Orders'.CYLINDER_OWNER_CUST_KEY
+	toColumn: 'Cylinder Owner Customer'.CUST_KEY
+
+relationship 558c6448-0346-4a66-6d40-ad3905027f76
+	fromColumn: 'Fact Time Confirmation Service Orders'.AGENCY_CUST_KEY
+	toColumn: 'Agency Customer'.CUST_KEY
+
+relationship dbbc4c38-b7be-4387-ec2c-abdccc99a0b0
+	fromColumn: 'Fact Time Confirmation Service Orders'.PRINTER_CUST_KEY
+	toColumn: 'Printer Customer'.CUST_KEY
+
+relationship f58be6d2-f677-f0eb-83be-c50fa8b3e62b
+	fromColumn: 'Fact Time Confirmation Service Orders'.SUPPLIER_CUST_KEY
+	toColumn: 'Supplier Customer'.CUST_KEY
+
+relationship a1fc1cab-61de-fba1-87ea-9dc03e6c30cb
+	fromColumn: 'Fact Time Confirmation Service Orders'.EMPLOYEE_RESP_PERSONEL_KEY
+	toColumn: 'Employee Responsible Personnel'.PERSONEL_KEY
+
+relationship 36b34ade-efbd-2969-560b-5a27796918a7
+	fromColumn: 'Fact Time Confirmation Service Orders'.EMPLOYEE_RESP_2_PERSONEL_KEY
+	toColumn: 'Employee Responsible Personnel 2'.PERSONEL_KEY
+
+relationship 79932940-6565-9206-16eb-78ece737ea77
+	fromColumn: 'Fact Time Confirmation Service Orders'.FORWARDING_AGENT_VENDOR_KEY
+	toColumn: 'Forwarding Agent Vendor'.VNDR_KEY
+
+relationship d5f4cbbc-b790-f046-0c0f-41482909e5f5
+	fromColumn: 'Fact Time Confirmation Service Orders'.UNITIZATION_AGENT_VENDOR_KEY
+	toColumn: 'Unitization Agent Vendor'.VNDR_KEY
+
+relationship 724bdf27-bf31-76dd-fb36-908b92d4324a
+	fromColumn: 'Fact Time Confirmation Service Orders'.ORDER_FOR_CUSTOMER_ADDR_KEY
+	toColumn: 'Order For Customer'.ADDR_KEY
+
+relationship 95288fd8-eb65-6fb9-bbe1-21cf7407831d
+	fromColumn: 'Fact Time Confirmation Service Orders'.SO_PARENT_CUST_KEY
+	toColumn: 'So Parent Customer'.CUST_KEY
+
+relationship a1f599c2-d9a9-63a3-1fce-5b42bc138d6e
+	fromColumn: 'Fact Time Confirmation Service Orders'.PLANNING_PLANT_REGION_PLANT
+	toColumn: 'Planning Plant Region'.'Planning Plant'
+
+relationship 19e80cee-4b85-5ea5-9500-947cd8264ad8
+	fromColumn: 'Fact Time Confirmation Service Orders'.PARNT_CUST_KEY
+	toColumn: 'Parent Customer'.CUST_KEY
+
+relationship 9c4137ab-3c4c-9c65-a6db-281484c1a7af
+	fromColumn: 'Fact CATSDB'.ACTIVITY_TYP_KEY
+	toColumn: 'Activity Type'.ACTIVITY_TYP_KEY
+
+relationship 3996e01a-e320-cc04-14df-76401510ea38
+	fromColumn: 'Fact CATSDB'.COST_CNTR_KEY
+	toColumn: 'Cost Center'.COST_CNTR_KEY
+
+relationship e16d8abc-3bcb-65ca-032d-3c03f33844c7
+	fromColumn: 'Fact CATSDB'.PERSONEL_NUM_KEY
+	toColumn: 'Personnel Area'.PERSONEL_KEY
+
+relationship 743c076a-6484-3470-43f9-99b81f1d6ec8
+	fromColumn: 'Fact CATSDB'.PLNT_KEY
+	toColumn: Plant.PLNT_KEY
+
+relationship b3d09e52-952c-9bb3-e7fc-ef86018e56d9
+	fromColumn: 'Fact CATSDB'.RECVNG_FUNCTNL_AREA_KEY
+	toColumn: 'Receiving Functional Area'.FUNCTNL_AREA_KEY
+
+relationship c9e8d989-bac7-f676-c9a9-60a2ae946c91
+	fromColumn: 'Fact CATSDB'.SENDING_FUNCTNL_AREA_KEY
+	toColumn: 'Sending Functional Area'.FUNCTNL_AREA_KEY
+
+relationship a86e2a14-61f9-fc72-3f4c-095e817bce77
+	fromColumn: 'Fact CATSDB'.SERVC_ORDER_KEY
+	toColumn: 'Service Order'.SERVC_ORDER_KEY
+
+relationship c9d41a1a-b8ff-5918-c5df-52d202a293ed
+	fromColumn: 'Fact CATSDB'.WRK_CNTR_KEY
+	toColumn: 'Work Center'.WRK_CNTR_KEY
+
+relationship 4eee4614-f75a-d469-dfb0-91468a66088c
+	fromColumn: 'Fact CATSDB'.WRK_DATE_KEY
+	toColumn: 'Calendar Date'.DATE_KEY
+
+relationship aef55219-0502-f1f7-ca44-421a8a75a35f
+	fromColumn: 'Fact Time Card'.CMPNY_KEY
+	toColumn: 'Company Code'.CMPNY_KEY
+
+relationship 5c23dbae-eec8-f0b0-bde2-d297911f99de
+	fromColumn: 'Fact Time Card'.COST_CNTR_KEY
+	toColumn: 'Cost Center'.COST_CNTR_KEY
+
+relationship 3fca867e-4857-984f-a97a-401a728a2b12
+	fromColumn: 'Fact Time Card'.DATE_KEY
+	toColumn: 'Calendar Date'.DATE_KEY
+
+relationship fc72fd35-1aab-e434-f4c9-313514844229
+	fromColumn: 'Fact Time Card'.PERSONEL_AREA_KEY
+	toColumn: EDW_T_D_MST_PERAREA_CUR_D.PERSONEL_AREA_KEY
+
+relationship be184ba9-3b1d-0120-15f5-1793b13e4b08
+	fromColumn: 'Fact Time Card'.PERSONEL_NUM_KEY
+	toColumn: 'Personnel Area'.PERSONEL_KEY
+
+relationship 48b2df0c-cf52-6ed1-b353-b25308cab0d8
+	fromColumn: 'Fact Time Card'.PLNT_KEY
+	toColumn: Plant.PLNT_KEY
+
+relationship 6ea70dc6-0942-22f2-455b-c706383ee309
+	fromColumn: 'Fact Time Confirmation Non Productive'.ACTIVITY_TYP_KEY
+	toColumn: 'Activity Type'.ACTIVITY_TYP_KEY
+
+relationship 5a86dfce-a83f-95b1-1029-a2317f34795d
+	fromColumn: 'Fact Time Confirmation Non Productive'.COST_CNTR_KEY
+	toColumn: 'Cost Center'.COST_CNTR_KEY
+
+relationship c403f27d-b667-4c1a-53d2-1dede9e5369b
+	fromColumn: 'Fact Time Confirmation Non Productive'.DOCMT_DATE_KEY
+	toColumn: 'Document Date'.DATE_KEY
+
+relationship 136cfbb8-edd3-ed86-d9bb-d6b897117d76
+	fromColumn: 'Fact Time Confirmation Non Productive'.PERSONEL_NUM_KEY
+	toColumn: Personnel.PERSONEL_KEY
+
+relationship 7f923d44-33ad-0399-5b20-586266a1179b
+	fromColumn: 'Fact Time Confirmation Non Productive'.PERSONNEL_PLANT_REGION_PLANT
+	toColumn: 'Personnel Plant Region'.'Personnel Plant'
+
+relationship 805bc186-a673-dac5-e63f-7691f837b2f1
+	fromColumn: 'Fact Time Confirmation Non Productive'.PLANT_REGION_PLANT
+	toColumn: PLANT_REGION.PLANT
+
+relationship e9409317-b5ad-d317-3a78-7868c6453df0
+	fromColumn: 'Fact Time Confirmation Non Productive'.PLNT_KEY
+	toColumn: Plant.PLNT_KEY
+
+relationship eee2b321-40af-104e-33d7-d884de9355dc
+	fromColumn: 'Fact Time Confirmation Non Productive'.PROFT_CNTR_KEY
+	toColumn: 'Profit Center'.PROFT_CNTR_KEY
+
+relationship 08fd68a9-8e32-1105-9013-673aaeaf582f
+	fromColumn: 'Fact Time Confirmation Non Productive'.PSTNG_DATE_KEY
+	toColumn: 'Posting Date'.DATE_KEY
+
+relationship 99c23a11-0b7e-dee8-ff32-4e3e0edcc431
+	fromColumn: 'Fact Time Card'.DATE_KEY
+	toColumn: 'Posting Date'.DATE_KEY
+
+relationship b93422d3-e0eb-17a6-ab3b-113df7014abe
+	fromColumn: 'Fact Time Card'.PERSONEL_NUM_KEY
+	toColumn: Personnel.PERSONEL_KEY
+
+relationship 178a58ea-5d82-6912-e636-3c404becf797
+	fromColumn: 'Fact CATSDB'.PERSONEL_NUM_KEY
+	toColumn: Personnel.PERSONEL_KEY
+
+relationship 07518065-226a-d4bb-5174-fc0599e02d5e
+	fromColumn: 'Fact CATSDB'.WRK_DATE_KEY
+	toColumn: 'Posting Date'.DATE_KEY
+
+relationship d74f9f7f-8c99-bb83-1cb7-fa9484b9c7e4
+	toCardinality: many
+	fromColumn: 'Fact Time Card'.COST_CNTR_KEY
+	toColumn: 'Cost Center Horizontal Hierarchy'.COST_CNTR_KEY
+
+relationship d3611afb-585a-53b8-954b-b0a89987a9df
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: 'Fact CATSDB'.COST_CNTR_KEY
+	toColumn: 'Cost Center Vertical Hierarchy'.COST_CNTR_KEY
+

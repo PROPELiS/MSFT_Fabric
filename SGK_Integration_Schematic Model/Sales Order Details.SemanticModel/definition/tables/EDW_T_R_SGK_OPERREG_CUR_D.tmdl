@@ -1,30 +1,40 @@
 table EDW_T_R_SGK_OPERREG_CUR_D
+	isHidden
 	lineageTag: aeacc562-206b-4c54-acc5-5b85b492b77a
 
 	column 'Business Function'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 55dd5f0d-7212-47be-a337-25858c9e0491
 		summarizeBy: none
 		sourceColumn: Business Function
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'SGK Plant Region'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 498c2fd2-3346-4204-9ae8-82b752befc1a
 		summarizeBy: none
 		sourceColumn: SGK Plant Region
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column PLANT
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 6a581b08-cbd2-4ee0-9c3e-d13772094ed1
 		summarizeBy: none
 		sourceColumn: PLANT
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -36,4 +46,6 @@ table EDW_T_R_SGK_OPERREG_CUR_D
 				    dbo_EDW_T_R_SGK_OPERREG_CUR_D = Source{[Schema="dbo",Item="EDW_T_R_SGK_OPERREG_CUR_D"]}[Data]
 				in
 				    dbo_EDW_T_R_SGK_OPERREG_CUR_D
+
+	changedProperty = IsHidden
 

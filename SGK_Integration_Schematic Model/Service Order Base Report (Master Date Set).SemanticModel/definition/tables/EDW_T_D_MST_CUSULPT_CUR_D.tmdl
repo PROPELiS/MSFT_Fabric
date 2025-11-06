@@ -1,0 +1,133 @@
+table EDW_T_D_MST_CUSULPT_CUR_D
+	lineageTag: 3666ab1c-3b2e-4c8c-904f-36e4ed2a6435
+
+	column CUST_UNLOADING_PNT_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3adfb5a2-c8d1-4ba6-8192-cea9fd2d02c8
+		summarizeBy: sum
+		sourceColumn: CUST_UNLOADING_PNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 84514b53-8959-4a01-a1bd-4b053dbf36c7
+		summarizeBy: none
+		sourceColumn: Customer Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unloading Point'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e1810115-95b5-41c2-8c38-07281d81f4af
+		summarizeBy: none
+		sourceColumn: Unloading Point
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sequential Number for Unloading Points'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c8b951b0-6959-4d41-8bad-36c2e4de86e6
+		summarizeBy: sum
+		sourceColumn: Sequential Number for Unloading Points
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Factory Calendar'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fcdfe59e-8941-4ed9-ac61-bcfd9fe346bb
+		summarizeBy: none
+		sourceColumn: Customer Factory Calendar
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tax Classification Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 64a01a25-0c6d-4899-9430-24fee2a4fd67
+		summarizeBy: none
+		sourceColumn: Tax Classification Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL Source System Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 74d25b7e-b318-468c-ba9b-f7313c7fe6c8
+		summarizeBy: none
+		sourceColumn: ETL Source System Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL Effective Begin Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 80d930eb-9d25-4fed-80cb-db9731e9b084
+		summarizeBy: none
+		sourceColumn: ETL Effective Begin Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'ETL Effective End Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: d39e5d4f-3d71-4b8f-b7f9-5aabe5ada2d5
+		summarizeBy: none
+		sourceColumn: ETL Effective End Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'ETL Current Record Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0817a0fa-64be-40ea-8a89-97c2cce4a612
+		summarizeBy: none
+		sourceColumn: ETL Current Record Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL Created Timestamp'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4b04b2fe-f9f6-4d9a-8020-974889c4d76c
+		summarizeBy: none
+		sourceColumn: ETL Created Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL Updated Timestamp'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: a0ad0e41-f00b-454d-8616-244310872bd9
+		summarizeBy: none
+		sourceColumn: ETL Updated Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_CUSULPT_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_CUSULPT_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_CUSULPT_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_CUSULPT_CUR_D
+
+	annotation PBI_ResultType = Table
+

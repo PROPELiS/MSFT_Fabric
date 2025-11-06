@@ -1,0 +1,559 @@
+table EDW_T_D_MST_DATE_CUR_D
+	lineageTag: 63410d97-5b70-44f9-827c-fe238978ca82
+
+	column DATE_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a63f9554-4b50-4c0c-8cb9-c802a7520f3a
+		summarizeBy: sum
+		sourceColumn: DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 1fb6f85d-22ef-4559-89de-cf514aadea91
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Date Fiscal Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d86fb8bb-306b-4ef4-af4e-ad60c35b3398
+		summarizeBy: sum
+		sourceColumn: Date Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column FISCAL_PER_NUM
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 283afbd1-447b-4c35-b439-4cfaad94f122
+		summarizeBy: sum
+		sourceColumn: FISCAL_PER_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Fiscal Period Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 94c16521-2f41-45d8-afea-9dc55f5b042c
+		summarizeBy: none
+		sourceColumn: Date Fiscal Period Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Fiscal Quarter Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 94b816c5-6234-40d3-84d8-80d1738bf4ca
+		summarizeBy: sum
+		sourceColumn: Date Fiscal Quarter Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Fiscal Quarter Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 20e84122-0aa9-4ea1-a19b-ae83d00770f5
+		summarizeBy: none
+		sourceColumn: Date Fiscal Quarter Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Calendar Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 30c97bd5-e8b7-4a0d-8a96-ffbc9bd86ef0
+		summarizeBy: sum
+		sourceColumn: Date Calendar Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Calendar Month Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 27add3b7-02eb-465b-bf1d-fc9efa0fe526
+		summarizeBy: sum
+		sourceColumn: Date Calendar Month Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Calendar Month Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b624ca2f-5177-45b9-bad2-71fbb85c4a12
+		summarizeBy: none
+		sourceColumn: Date Calendar Month Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Calendar Month Desc'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 01abb83b-3549-46db-85b6-019e5ec9612d
+		summarizeBy: none
+		sourceColumn: Date Calendar Month Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLNDR_QTR_NUM
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 14566a45-79c4-4aae-b9ed-002e5af05911
+		summarizeBy: sum
+		sourceColumn: CLNDR_QTR_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Calendar Quarter Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 329d8651-08e3-4511-b215-177b7ee48630
+		summarizeBy: none
+		sourceColumn: Date Calendar Quarter Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Calendar Weekday Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ef02051f-bd51-4942-9c55-c35060d0298f
+		summarizeBy: sum
+		sourceColumn: Date Calendar Weekday Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Calendar Weekday Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0c6421c4-85cb-46ef-b322-7b8a37aa06cc
+		summarizeBy: none
+		sourceColumn: Date Calendar Weekday Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Calendar Day in Month'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a8204c59-ae0f-4ac2-ae1f-a7f3f4a00120
+		summarizeBy: sum
+		sourceColumn: Date Calendar Day in Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Calendar Day in Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7e9d4fb5-ecc3-4428-94a1-0da3e7744807
+		summarizeBy: sum
+		sourceColumn: Date Calendar Day in Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Calendar Week'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7fa6914b-8cce-4121-b28c-a68201763b3f
+		summarizeBy: sum
+		sourceColumn: Date Calendar Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Calendar Month in Quarter Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3288db87-c92e-4b64-a883-cfe007424b7f
+		summarizeBy: sum
+		sourceColumn: Date Calendar Month in Quarter Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Calendar Days in Month'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6d6dbff3-7996-4784-8042-a4ca17caebc6
+		summarizeBy: sum
+		sourceColumn: Date Calendar Days in Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5a86f081-038a-4e3e-a17a-a9641665e3f0
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4786d555-4ff4-48dc-a3ae-18febbd431ca
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 1160462c-5ad4-4b63-aaaa-e2ddbfcd736b
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Day Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 00b9dfc9-69e5-426a-9fba-da33925165bd
+		summarizeBy: sum
+		sourceColumn: Date Current Day Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Day Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 72f90282-c747-4248-8db2-f7839e708083
+		summarizeBy: sum
+		sourceColumn: Date Current Day Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Calendar Week Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d34e35c4-096f-47f4-b53c-a6e6015d9dd2
+		summarizeBy: sum
+		sourceColumn: Date Current Calendar Week Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Calendar Week Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9910347e-5d7f-44e9-b6e4-1845c61b2878
+		summarizeBy: sum
+		sourceColumn: Date Current Calendar Week Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Month Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1e8f0733-27d5-4d1c-aaa7-e9fb19d96319
+		summarizeBy: sum
+		sourceColumn: Date Current Month Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Month Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: afb0fadf-cf14-49fa-ac92-7bec0e263251
+		summarizeBy: sum
+		sourceColumn: Date Current Month Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Month Minus 12 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 11ce5ad9-cc68-4b58-93b2-6d093b2ed0cb
+		summarizeBy: sum
+		sourceColumn: Date Current Month Minus 12 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Quarter Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d2f99656-4300-4937-aa32-84393779f2f8
+		summarizeBy: sum
+		sourceColumn: Date Current Quarter Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Quarter Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f4f03b4d-723b-4277-a32e-e35b0114a03b
+		summarizeBy: sum
+		sourceColumn: Date Current Quarter Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Quarter Minus 4 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e5d8d782-7609-41e5-b6aa-1a69fefde338
+		summarizeBy: sum
+		sourceColumn: Date Current Quarter Minus 4 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Calendar Year Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: eff96fb8-f8fa-4411-b04d-52d27e145d8d
+		summarizeBy: sum
+		sourceColumn: Date Current Calendar Year Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Calendar Year Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1bbb14ad-c464-4e3d-8872-30ddb1a3111a
+		summarizeBy: sum
+		sourceColumn: Date Current Calendar Year Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Calendar Year Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 27362d15-5628-423b-8fc0-5a96727d5739
+		summarizeBy: sum
+		sourceColumn: Date Current Calendar Year Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Fiscal Year Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e8a5cc01-2b74-46bd-b65a-525ec7ecaa41
+		summarizeBy: sum
+		sourceColumn: Date Current Fiscal Year Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Fiscal Year Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ca974caf-97ba-448d-bad1-6ce4232666e5
+		summarizeBy: sum
+		sourceColumn: Date Current Fiscal Year Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Fiscal Year Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7b30e762-b969-4fc3-859f-dce8b57a7a0c
+		summarizeBy: sum
+		sourceColumn: Date Current Fiscal Year Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Calendar Year Plus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 674d938f-62b4-4c00-b4e9-f3bf2d5ff2ac
+		summarizeBy: sum
+		sourceColumn: Date Current Calendar Year Plus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Fiscal Year Plus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 734885d5-74d9-4540-be9e-04bc9e1f8dd2
+		summarizeBy: sum
+		sourceColumn: Date Current Fiscal Year Plus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Day in Fiscal Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b8852fee-556b-4e05-b57b-1cad2bcb1ddf
+		summarizeBy: sum
+		sourceColumn: Date Day in Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Date Is Weekday'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f1dfb554-06a5-4e03-b41d-1bbd7c8494a5
+		summarizeBy: sum
+		sourceColumn: Date Date Is Weekday
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Fiscal Week'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e2420719-b29c-4bb8-bea8-24393106337e
+		summarizeBy: sum
+		sourceColumn: Date Fiscal Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Fiscal Week Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 87ffdace-c9ff-4393-83b8-ec5ba00440ae
+		summarizeBy: sum
+		sourceColumn: Date Current Fiscal Week Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Fiscal Week Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 08d3b2a5-b678-43c6-887a-3cdc1461b6c6
+		summarizeBy: sum
+		sourceColumn: Date Current Fiscal Week Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Fiscal Weekday Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 53f1c5b6-750c-4ac9-b119-0438f62c50f1
+		summarizeBy: sum
+		sourceColumn: Date Fiscal Weekday Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Fiscal Weekday Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b6187e94-55cf-42e2-a366-b4f574d3d1e4
+		summarizeBy: none
+		sourceColumn: Date Fiscal Weekday Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Month Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f36c0cfc-2079-4289-86e3-54c3b037a780
+		summarizeBy: sum
+		sourceColumn: Date Current Month Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Fiscal Week Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 156d50c3-9e1a-4fb7-8b59-c4a5cfd251ce
+		summarizeBy: sum
+		sourceColumn: Date Current Fiscal Week Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Fiscal Week Minus 6 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f39a631a-b187-495f-a999-261375e88e2d
+		summarizeBy: sum
+		sourceColumn: Date Current Fiscal Week Minus 6 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Fiscal Week Minus 3 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: acf8aeeb-df6b-41f8-b65a-4369de2e3ff5
+		summarizeBy: sum
+		sourceColumn: Date Current Fiscal Week Minus 3 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Fiscal Week Minus 4 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6419baed-d447-4ebd-a305-e699cdcb5265
+		summarizeBy: sum
+		sourceColumn: Date Current Fiscal Week Minus 4 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Fiscal Week Minus 5 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5e5b4256-8c2a-4aae-8833-0bfd3a899ef4
+		summarizeBy: sum
+		sourceColumn: Date Current Fiscal Week Minus 5 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Current Fiscal Week Minus 7 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 539f20bd-98ec-46fe-b66d-c93db6eb255c
+		summarizeBy: sum
+		sourceColumn: Date Current Fiscal Week Minus 7 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_DATE_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_DATE_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_DATE_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_DATE_CUR_D
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,617 @@
+table 'Fact CATSDB'
+	lineageTag: 98800dc8-dc3d-4bda-b537-2f86f40bbfe8
+	sourceLineageTag: [Propelis].[EDW_T_FACT_HR_CATSDB_CUR_D]
+
+	measure 'CATS Amount' = sum('Fact CATSDB'[CATS_AMT])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d537f2f5-25f9-41c6-962d-2e6d2be47846
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'CATS Quantity' = sum('Fact CATSDB'[CATS_QTY])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ef027f7c-3d6f-4ff7-a297-4292f188caab
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure Hours = sum('Fact CATSDB'[HRS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e7344118-f50a-4f70-83e9-ade3ded1ad46
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column WORKCHZ_WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 782a69c8-47e5-4216-aaef-21415d78c933
+		sourceLineageTag: WORKCHZ_WRK_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: WORKCHZ_WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Number'
+		dataType: string
+		lineageTag: 30cedd6b-ec77-4891-bfd5-935b755f92c7
+		sourceLineageTag: WBS Number
+		summarizeBy: none
+		sourceColumn: WBS Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Description'
+		dataType: string
+		lineageTag: 0b0a77f0-0b5b-46d7-ba0b-a2ea5213a790
+		sourceLineageTag: WBS Description
+		summarizeBy: none
+		sourceColumn: WBS Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column WBS_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f0ac63c-2541-471b-a9d8-434b038980aa
+		sourceLineageTag: WBS_ELEMNT_KEY
+		summarizeBy: sum
+		sourceColumn: WBS_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SGK_OPERREG_PLANT
+		dataType: string
+		lineageTag: 290e2977-d5f9-48e5-9f90-434c0944419a
+		sourceLineageTag: SGK_OPERREG_PLANT
+		summarizeBy: none
+		sourceColumn: SGK_OPERREG_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTCVZ_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ce45709-80f9-4788-aaad-701459d4c865
+		sourceLineageTag: COSTCVZ_COST_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: COSTCVZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTCHZ_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a92358e-6bed-4089-97c4-0095e9bf3b28
+		sourceLineageTag: COSTCHZ_COST_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: COSTCHZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Of Approval'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fccec833-6568-4f0d-b787-6206d62fcac2
+		sourceLineageTag: Date Of Approval
+		summarizeBy: none
+		sourceColumn: Date Of Approval
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Logical System'
+		dataType: string
+		lineageTag: 8e8b5df1-271e-4fda-8bc1-df4e462218e5
+		sourceLineageTag: Logical System
+		summarizeBy: none
+		sourceColumn: Logical System
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reference Counter for Record to be Changed'
+		dataType: string
+		lineageTag: 659519a3-deda-4e3c-83fa-5ab7d7d0d173
+		sourceLineageTag: Reference Counter for Record to be Changed
+		summarizeBy: none
+		sourceColumn: Reference Counter for Record to be Changed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partial Confirmation Indicator'
+		dataType: string
+		lineageTag: 0b6b6aad-173d-4359-9e79-aac907622f5c
+		sourceLineageTag: Partial Confirmation Indicator
+		summarizeBy: none
+		sourceColumn: Partial Confirmation Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Receiver Order'
+		dataType: string
+		lineageTag: d8e7dfc6-48f8-4d96-9b61-cda382c3243b
+		sourceLineageTag: Receiver Order
+		summarizeBy: none
+		sourceColumn: Receiver Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Project Description'
+		dataType: string
+		lineageTag: 7bdc4e95-6dad-44c5-9967-06841f5f9635
+		sourceLineageTag: Project Description
+		summarizeBy: none
+		sourceColumn: Project Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Time Of Entry'
+		dataType: string
+		lineageTag: 861cccb3-916c-4d4a-ad7a-53254308b5d6
+		sourceLineageTag: Time Of Entry
+		summarizeBy: none
+		sourceColumn: Time Of Entry
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'User Who Created Data Record'
+		dataType: string
+		lineageTag: f17c9b3b-1e17-4db6-aba0-408107c5f4c7
+		sourceLineageTag: User Who Created Data Record
+		summarizeBy: none
+		sourceColumn: User Who Created Data Record
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Of Last Change'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b1c89c1a-fcb1-4fcc-b330-884e74d2a24e
+		sourceLineageTag: Date Of Last Change
+		summarizeBy: none
+		sourceColumn: Date Of Last Change
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Time of Last Change'
+		dataType: string
+		lineageTag: 71bef290-5970-4bab-8d0b-be15bc2b4f7d
+		sourceLineageTag: Time of Last Change
+		summarizeBy: none
+		sourceColumn: Time of Last Change
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Name Of Person Who Changed Object'
+		dataType: string
+		lineageTag: 9fa6f4b4-153c-4fa9-bd57-62c54e1bf0e5
+		sourceLineageTag: Name Of Person Who Changed Object
+		summarizeBy: none
+		sourceColumn: Name Of Person Who Changed Object
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Name Of Person Who Apprvd Data'
+		dataType: string
+		lineageTag: 4eb60395-0c1e-4476-aa83-f6437b50df33
+		sourceLineageTag: Name Of Person Who Apprvd Data
+		summarizeBy: none
+		sourceColumn: Name Of Person Who Apprvd Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Controlling Area Description'
+		dataType: string
+		lineageTag: 34a150fc-4613-4f6c-8081-702c62dcbb90
+		sourceLineageTag: Controlling Area Description
+		summarizeBy: none
+		sourceColumn: Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Category Description'
+		dataType: string
+		lineageTag: 742859be-4556-4582-9f85-43657cd82843
+		sourceLineageTag: Order Category Description
+		summarizeBy: none
+		sourceColumn: Order Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Processing Status Description'
+		dataType: string
+		lineageTag: fb91be8b-234e-4d0f-851a-8740511b4bf9
+		sourceLineageTag: Processing Status Description
+		summarizeBy: none
+		sourceColumn: Processing Status Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Network Number'
+		dataType: string
+		lineageTag: bf0b2f29-d927-400c-b88b-e3886fbd31ab
+		sourceLineageTag: Network Number
+		summarizeBy: none
+		sourceColumn: Network Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column UOM
+		dataType: string
+		lineageTag: 76c1ae2b-5519-4507-9da7-3d0ec1a7cd9b
+		sourceLineageTag: UOM
+		summarizeBy: none
+		sourceColumn: UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created On'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 29b5dea4-ec78-47fe-9f7e-6042196a8f71
+		sourceLineageTag: Created On
+		summarizeBy: none
+		sourceColumn: Created On
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Short Text'
+		dataType: string
+		lineageTag: b6fe6f6d-ab72-420f-a387-0aa7dd70335c
+		sourceLineageTag: Short Text
+		summarizeBy: none
+		sourceColumn: Short Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Long Text'
+		dataType: string
+		lineageTag: 9eeafdbc-72c2-4b22-a4be-d26464708cad
+		sourceLineageTag: Long Text
+		summarizeBy: none
+		sourceColumn: Long Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 83ff819c-bafa-4e13-bb36-27798fd2fa4e
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 167292de-4c0c-4fd9-86d0-c7fc11360b82
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 72bbfa86-a3ee-433a-99b9-aa26e4e83c09
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 049f64cb-0eef-469c-973d-2e5ca7fdd17d
+		sourceLineageTag: PLNT_KEY
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Date'
+		dataType: string
+		lineageTag: 02b34e0c-2979-48e4-989e-c03888bdbf06
+		sourceLineageTag: Created Date
+		summarizeBy: none
+		sourceColumn: Created Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Time'
+		dataType: string
+		lineageTag: 29703456-83f0-41a3-bc05-6eb47c40ec25
+		sourceLineageTag: Created Time
+		summarizeBy: none
+		sourceColumn: Created Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Changed Date'
+		dataType: string
+		lineageTag: 2a552444-cfd6-4054-b81d-9b7e1ec6db61
+		sourceLineageTag: Changed Date
+		summarizeBy: none
+		sourceColumn: Changed Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Change Time'
+		dataType: string
+		lineageTag: 0d8c781e-2ae6-401f-b017-e180f114be58
+		sourceLineageTag: Change Time
+		summarizeBy: none
+		sourceColumn: Change Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comment
+		dataType: string
+		lineageTag: bfeaffe2-0a84-44f7-9aa0-af10f1e97900
+		sourceLineageTag: Comment
+		summarizeBy: none
+		sourceColumn: Comment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Header Comment'
+		dataType: string
+		lineageTag: 0f58a670-d67b-4d24-9a7b-1bc2ed457990
+		sourceLineageTag: Header Comment
+		summarizeBy: none
+		sourceColumn: Header Comment
+
+		annotation SummarizationSetBy = Automatic
+
+	column HRS
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 6b58ed00-da9b-4462-ae8d-ed4cb8532a70
+		sourceLineageTag: HRS
+		summarizeBy: sum
+		sourceColumn: HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Start Time'
+		dataType: string
+		lineageTag: c2bd63e0-278c-4033-8b58-ef3e75b3272a
+		sourceLineageTag: Start Time
+		summarizeBy: none
+		sourceColumn: Start Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'End Time'
+		dataType: string
+		lineageTag: 9b71d9ae-8bf9-44fb-a4d4-1de0d247d639
+		sourceLineageTag: End Time
+		summarizeBy: none
+		sourceColumn: End Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATS_AMT
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: b1deeaf1-4e5d-40de-8fa7-901fc3ddca77
+		sourceLineageTag: CATS_AMT
+		summarizeBy: sum
+		sourceColumn: CATS_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column CATS_QTY
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: d0e2a83d-0563-4b7f-b890-580a789da893
+		sourceLineageTag: CATS_QTY
+		summarizeBy: sum
+		sourceColumn: CATS_QTY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Change Text'
+		dataType: string
+		lineageTag: 9e3f1e08-1c5f-433b-8131-1ce9064ed812
+		sourceLineageTag: Change Text
+		summarizeBy: none
+		sourceColumn: Change Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Controlling Area'
+		dataType: string
+		lineageTag: 118f1ef1-6d8a-4576-966d-508a4deeb888
+		sourceLineageTag: Controlling Area
+		summarizeBy: none
+		sourceColumn: Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Display UOM'
+		dataType: string
+		lineageTag: e16bdf1c-3a6e-4272-a468-2221e94717b0
+		sourceLineageTag: Display UOM
+		summarizeBy: none
+		sourceColumn: Display UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 53ff5027-fa8f-476f-b983-87480467aed6
+		sourceLineageTag: WRK_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Category'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2965b9ad-5918-474a-ae34-12156d99ef8d
+		sourceLineageTag: Order Category
+		summarizeBy: sum
+		sourceColumn: Order Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Processing Status'
+		dataType: string
+		lineageTag: e1beb3a6-b6b0-43d5-bd60-693e552260a9
+		sourceLineageTag: Processing Status
+		summarizeBy: none
+		sourceColumn: Processing Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Document Number'
+		dataType: string
+		lineageTag: 440b8a53-910c-4851-a315-9c7003bebf96
+		sourceLineageTag: Document Number
+		summarizeBy: none
+		sourceColumn: Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column SERVC_ORDER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: dd5ad839-6619-403a-a6b4-1cf2f7bf6410
+		sourceLineageTag: SERVC_ORDER_KEY
+		summarizeBy: none
+		sourceColumn: SERVC_ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Task List'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d3c2333-5dda-4061-933a-177570f8301f
+		sourceLineageTag: Operation Task List
+		summarizeBy: sum
+		sourceColumn: Operation Task List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Counter'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a1325bd-f57d-41a3-a1c0-ca85bb26b4a2
+		sourceLineageTag: Operation Counter
+		summarizeBy: sum
+		sourceColumn: Operation Counter
+
+		annotation SummarizationSetBy = Automatic
+
+	column RECVNG_FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: fb58e3e0-8fbc-4526-932a-aec7d89a9099
+		sourceLineageTag: RECVNG_FUNCTNL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: RECVNG_FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SENDING_FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 049a85ac-c297-4746-a0ee-069e9e7684a8
+		sourceLineageTag: SENDING_FUNCTNL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: SENDING_FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Attendance Or Absence Type'
+		dataType: string
+		lineageTag: 0450edf9-8572-4b4c-ae46-9cb75613bc23
+		sourceLineageTag: Attendance Or Absence Type
+		summarizeBy: none
+		sourceColumn: Attendance Or Absence Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSONEL_NUM_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f618099-98ac-4b59-bb19-b4f8269a8326
+		sourceLineageTag: PERSONEL_NUM_KEY
+		summarizeBy: none
+		sourceColumn: PERSONEL_NUM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column WRK_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b8ca168-0141-472c-8495-9af05b79f42b
+		sourceLineageTag: WRK_DATE_KEY
+		summarizeBy: none
+		sourceColumn: WRK_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Counter
+		dataType: string
+		lineageTag: fd6d45db-94da-46d3-9804-a2d1d89c320b
+		sourceLineageTag: Counter
+		summarizeBy: none
+		sourceColumn: Counter
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: f667b3e2-f04d-4e30-b117-a1eb77d707ce
+		sourceLineageTag: COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_TYP_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: f1416e08-d3d4-412f-82b9-ab68490ceb98
+		sourceLineageTag: ACTIVITY_TYP_KEY
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column WORKCVZ_WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a29af4a8-440a-4d1b-a0bc-071a7780c3fb
+		sourceLineageTag: WORKCVZ_WRK_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: WORKCVZ_WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact CATSDB' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_FACT_HR_CATSDB_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

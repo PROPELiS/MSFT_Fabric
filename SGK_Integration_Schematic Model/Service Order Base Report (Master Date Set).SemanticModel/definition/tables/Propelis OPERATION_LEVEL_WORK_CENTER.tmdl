@@ -1,0 +1,377 @@
+table 'Propelis OPERATION_LEVEL_WORK_CENTER'
+	lineageTag: 8afd1134-4863-49f1-a8b2-5828f4765060
+
+	column WRK_CNTR_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d329d9ac-9542-4029-82e5-0f2d27f835f3
+		summarizeBy: sum
+		sourceColumn: WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center ID'
+		dataType: string
+		sourceProviderType: varchar(8)
+		lineageTag: e4141832-cf80-4d0d-9ab1-2f06dae36750
+		summarizeBy: none
+		sourceColumn: Operation Work Center ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Plant ID'
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: ed1c25ca-6966-4b23-8306-b7f22764e518
+		summarizeBy: none
+		sourceColumn: Operation Work Center Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Object ID'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bcec4534-13fd-4872-b49d-8c68bf1df740
+		summarizeBy: count
+		sourceColumn: Operation Work Center Object ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Object Type'
+		dataType: string
+		sourceProviderType: varchar(2)
+		lineageTag: 573a4af3-8a04-44bd-bd6f-63297becb5d1
+		summarizeBy: none
+		sourceColumn: Operation Work Center Object Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Category'
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: f24079ac-b1d0-41a5-9784-f6312679fced
+		summarizeBy: none
+		sourceColumn: Operation Work Center Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Location'
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 6cefe47d-02a0-4a6b-be7c-18593fdd2c3f
+		summarizeBy: none
+		sourceColumn: Operation Work Center Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Person Responsible'
+		dataType: string
+		sourceProviderType: varchar(3)
+		lineageTag: a5f1a4b5-224c-428e-96bf-27ae6b052219
+		summarizeBy: none
+		sourceColumn: Operation Work Center Person Responsible
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Standard Value Key'
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: f16efb04-3170-49db-9f52-ff6b4971e051
+		summarizeBy: none
+		sourceColumn: Operation Work Center Standard Value Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Usage Code'
+		dataType: string
+		sourceProviderType: varchar(3)
+		lineageTag: 7ba4adec-8ff6-477a-ac10-336c738c6bb3
+		summarizeBy: none
+		sourceColumn: Operation Work Center Usage Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Capacity ID'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e53adcd9-8342-46f9-a914-cf5468923ac3
+		summarizeBy: count
+		sourceColumn: Operation Work Center Capacity ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Supply Area'
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 5165a8b0-386a-4982-a4a1-0223d3c93248
+		summarizeBy: none
+		sourceColumn: Operation Work Center Supply Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Deletion Flag'
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 9b414fc6-1e76-4e2b-b8e3-fb0cb96f93d5
+		summarizeBy: none
+		sourceColumn: Operation Work Center Deletion Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Locked Status'
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 25f5beb4-b75c-4fab-8799-3fa5759eb07b
+		summarizeBy: none
+		sourceColumn: Operation Work Center Locked Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 585161de-3585-4690-9b1f-a89a32cac001
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 424a1b6b-5c82-42a9-9894-af77a0c0f7b8
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 426ba62a-d56e-4e8f-98da-9055762b1057
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 63dbb344-2410-4336-a64d-8905dad66be4
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 47c23a46-965f-4e09-8c52-a5d13239bb4c
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 17138109-a798-46c8-aadd-db4a05e50bcf
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Description'
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 5ddba36a-39b7-4e7c-b54c-2f362f4cc8f1
+		summarizeBy: none
+		sourceColumn: Operation Work Center Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Category Description'
+		dataType: string
+		sourceProviderType: varchar(20)
+		lineageTag: b98a292d-48f0-4503-bca8-c45679ca595f
+		summarizeBy: none
+		sourceColumn: Operation Work Center Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Person Responsible Name'
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 32b4e175-3681-4f80-a866-82684c812c7d
+		summarizeBy: none
+		sourceColumn: Operation Work Center Person Responsible Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Control Key'
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: 295f18d6-9d77-41e6-ae73-a39127e6ee83
+		summarizeBy: none
+		sourceColumn: Operation Work Center Control Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Storage Location Storage Resource'
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: afbe1a63-d91b-4668-9150-b6be322eeed0
+		summarizeBy: none
+		sourceColumn: Operation Work Center Storage Location Storage Resource
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center User Name Term'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 67056e53-4462-44ff-8b89-fe0e6d8d9130
+		summarizeBy: none
+		sourceColumn: Operation Work Center User Name Term
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center User Name GRND'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: e7e70fda-82f5-454c-9cf2-d1f1d1a5eb6d
+		summarizeBy: none
+		sourceColumn: Operation Work Center User Name GRND
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Changed On Date Term'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: b5f73668-7cc2-4a89-90dd-ed5141171807
+		summarizeBy: none
+		sourceColumn: Operation Work Center Changed On Date Term
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Operation Work Center Changed On Date GRND'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 3fc3618b-167b-4ee0-9b79-27e17f7b6ab3
+		summarizeBy: none
+		sourceColumn: Operation Work Center Changed On Date GRND
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Operation Work Center Plant Description'
+		dataType: string
+		sourceProviderType: varchar(30)
+		lineageTag: e322dac1-b8cf-4ac5-9e96-a1939c44243a
+		summarizeBy: none
+		sourceColumn: Operation Work Center Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Object Type Description'
+		dataType: string
+		sourceProviderType: varchar(60)
+		lineageTag: 65b878b3-16f3-4da5-ac6b-79faa92ee996
+		summarizeBy: none
+		sourceColumn: Operation Work Center Object Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Location Description'
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 03f2a120-b78b-48b2-a155-e3282c030804
+		summarizeBy: none
+		sourceColumn: Operation Work Center Location Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Standard Value Description'
+		dataType: string
+		sourceProviderType: varchar(30)
+		lineageTag: 1a876861-d6fc-48fa-8674-e1a26b9a1c87
+		summarizeBy: none
+		sourceColumn: Operation Work Center Standard Value Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Usage Description'
+		dataType: string
+		sourceProviderType: varchar(30)
+		lineageTag: ece0a17c-cada-4c5c-bb1e-5add7695d186
+		summarizeBy: none
+		sourceColumn: Operation Work Center Usage Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Supply Area Description'
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: ec411d03-e3d9-4129-990b-72abc3023236
+		summarizeBy: none
+		sourceColumn: Operation Work Center Supply Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Control Description'
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: d31baec8-217e-4325-bc40-732b3cb218cf
+		summarizeBy: none
+		sourceColumn: Operation Work Center Control Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Storage Location Description'
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: d4a6c786-9986-400e-b947-5f5627c05b12
+		summarizeBy: none
+		sourceColumn: Operation Work Center Storage Location Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Work Center Changed On Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 77328f72-45aa-4de4-ab7b-c989b4a3eb99
+		summarizeBy: none
+		sourceColumn: Operation Work Center Changed On Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Propelis OPERATION_LEVEL_WORK_CENTER' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_OPERATION_LEVEL_WORK_CENTER = Source{[Schema="Propelis",Item="OPERATION_LEVEL_WORK_CENTER"]}[Data]
+				in
+				    Propelis_OPERATION_LEVEL_WORK_CENTER
+
+	annotation PBI_ResultType = Table
+

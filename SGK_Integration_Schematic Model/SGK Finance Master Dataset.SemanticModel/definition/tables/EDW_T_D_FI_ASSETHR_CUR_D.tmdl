@@ -1,0 +1,268 @@
+table EDW_T_D_FI_ASSETHR_CUR_D
+	lineageTag: 39786c51-995e-4af5-9075-67015f2ffe45
+	sourceLineageTag: [dbo].[EDW_T_D_FI_ASSETHR_CUR_D]
+
+	column ASSET_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a9383b05-a1bb-4a2c-a664-43601cc667a7
+		sourceLineageTag: ASSET_KEY
+		summarizeBy: none
+		sourceColumn: ASSET_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Company Code'
+		dataType: string
+		lineageTag: 4adf183f-675b-46ab-bc9e-f9d337e8f836
+		sourceLineageTag: Asset Company Code
+		summarizeBy: none
+		sourceColumn: Asset Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Main Asset Number'
+		dataType: string
+		lineageTag: b2947493-5ccc-4d9e-8e0d-42f46fc8eb0d
+		sourceLineageTag: Main Asset Number
+		summarizeBy: none
+		sourceColumn: Main Asset Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Subnumber'
+		dataType: string
+		lineageTag: 9d878e72-e6d2-4953-9020-34d555e3f39e
+		sourceLineageTag: Asset Subnumber
+		summarizeBy: none
+		sourceColumn: Asset Subnumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Class'
+		dataType: string
+		lineageTag: 9de1f727-8c2c-46b6-9c7e-f4a5b0b0f148
+		sourceLineageTag: Asset Class
+		summarizeBy: none
+		sourceColumn: Asset Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Class Description'
+		dataType: string
+		lineageTag: e15e1d06-bd88-425a-850d-ed014d8f66b2
+		sourceLineageTag: Asset Class Description
+		summarizeBy: none
+		sourceColumn: Asset Class Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Description'
+		dataType: string
+		lineageTag: f0c25fb9-e7b9-4782-8aad-9387e368c23b
+		sourceLineageTag: Asset Description
+		summarizeBy: none
+		sourceColumn: Asset Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Quantity'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 3c849707-0fef-4cc9-9fe8-6190b78bbda9
+		sourceLineageTag: Asset Quantity
+		summarizeBy: none
+		sourceColumn: Asset Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Asset Base UOM'
+		dataType: string
+		lineageTag: d1f27058-997e-4d6d-b7fc-0def13beb8ad
+		sourceLineageTag: Asset Base UOM
+		summarizeBy: none
+		sourceColumn: Asset Base UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Capitalization Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7ca5e842-e761-4ea3-b496-ae960661098f
+		sourceLineageTag: Asset Capitalization Date
+		summarizeBy: none
+		sourceColumn: Asset Capitalization Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset First Acquistion Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: c8bb5e9d-0071-4eec-ab9e-5c22226faeaf
+		sourceLineageTag: Asset First Acquistion Fiscal Year
+		summarizeBy: none
+		sourceColumn: Asset First Acquistion Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset First Acquistion Fiscal Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2453e649-fa35-46bc-85c8-c107e9d61ef7
+		sourceLineageTag: Asset First Acquistion Fiscal Period
+		summarizeBy: none
+		sourceColumn: Asset First Acquistion Fiscal Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Deactivation Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fdff2a04-976b-4c0e-99fc-eb557805c281
+		sourceLineageTag: Asset Deactivation Date
+		summarizeBy: none
+		sourceColumn: Asset Deactivation Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: c2265410-526d-4c56-a1d0-19be1860e137
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c1606167-5cc4-46bd-9f30-544ed9b02a5a
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2a68c40d-7c1a-4ff0-bf9b-874d37ba2531
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: 74b87d4f-2a3b-45c8-b4f5-eaaf5c79569a
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ce368432-7dee-4274-af96-c24da67940c9
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6e943f6e-729e-4599-bd69-a9508f944258
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Name Of Person Who Created The Asset'
+		dataType: string
+		lineageTag: f5e6cd9a-1a67-45d8-920c-59aa376edef2
+		sourceLineageTag: Name Of Person Who Created The Asset
+		summarizeBy: none
+		sourceColumn: Name Of Person Who Created The Asset
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date On Which Asset Record was Created'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 96176a46-7001-437b-8fe1-e2442743ed6a
+		sourceLineageTag: Date On Which Asset Record was Created
+		summarizeBy: none
+		sourceColumn: Date On Which Asset Record was Created
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Value Date Of The First Posting'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 74f23966-0477-4ceb-967b-edee5edf0adf
+		sourceLineageTag: Asset Value Date Of The First Posting
+		summarizeBy: none
+		sourceColumn: Asset Value Date Of The First Posting
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Inventory Number'
+		dataType: string
+		lineageTag: 30208303-710c-4885-87bf-e7dd4df8c76c
+		sourceLineageTag: Asset Inventory Number
+		summarizeBy: none
+		sourceColumn: Asset Inventory Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Additional Asset Description'
+		dataType: string
+		lineageTag: f029e2ca-2f97-42bd-8401-85efd7aaeffa
+		sourceLineageTag: Additional Asset Description
+		summarizeBy: none
+		sourceColumn: Additional Asset Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Serial Number'
+		dataType: string
+		lineageTag: e5385ef9-5824-4ae7-82c4-8add79a14d8b
+		sourceLineageTag: Asset Serial Number
+		summarizeBy: none
+		sourceColumn: Asset Serial Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Cost Center'
+		dataType: string
+		lineageTag: c25fd830-e570-4d3c-86b6-bab7964b373a
+		sourceLineageTag: Asset Cost Center
+		summarizeBy: none
+		sourceColumn: Asset Cost Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Plant'
+		dataType: string
+		lineageTag: b5ad21d3-3631-41f2-a13f-222b99a02fae
+		sourceLineageTag: Asset Plant
+		summarizeBy: none
+		sourceColumn: Asset Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_FI_ASSETHR_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_FI_ASSETHR_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

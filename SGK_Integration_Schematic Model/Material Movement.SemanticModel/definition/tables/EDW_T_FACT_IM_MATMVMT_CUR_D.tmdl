@@ -1,0 +1,531 @@
+table EDW_T_FACT_IM_MATMVMT_CUR_D
+	lineageTag: 8b9b9d6c-4bad-464d-8a15-4e7326047c61
+
+	column 'Material Movement Document Number'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 4dbdac29-b335-488e-9eb7-85b1045f7da0
+		summarizeBy: none
+		sourceColumn: Material Movement Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Document Item Number'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 10e33e46-c117-4ff7-9c35-d7033eb544d3
+		summarizeBy: none
+		sourceColumn: Material Movement Document Item Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Document Year'
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0883101a-6977-47b3-badb-64ce503ef9d0
+		summarizeBy: sum
+		sourceColumn: Material Movement Document Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_ORDER_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 31a6cbd5-0396-44c8-9ef3-0b47f40c0fd7
+		summarizeBy: none
+		sourceColumn: SALES_ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_DATE_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3742f3c5-0875-4d29-8ec9-e204fb21bbf1
+		summarizeBy: none
+		sourceColumn: DOCMT_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSTNG_DATE_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: eb7b3906-1b8a-4ed1-b267-c57c02968d79
+		summarizeBy: none
+		sourceColumn: PSTNG_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1bbcac7b-7f96-45af-bdb2-eb338d4743f0
+		summarizeBy: none
+		sourceColumn: MATRL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 46a6557f-1df4-49b6-a70e-773549613300
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3d5e7db2-9002-4907-8095-92738fc3a3a7
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c79a4411-65d5-4585-8514-96d6ec186e65
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column STOR_LOC_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c09b1d18-892d-4791-82a8-6040772c3f09
+		summarizeBy: none
+		sourceColumn: STOR_LOC_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9d318e79-5e39-4fc3-83bc-cf44c54687e9
+		summarizeBy: none
+		sourceColumn: CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column VNDR_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2d7c8fbd-fa4c-4074-8bc9-a43f431a78e8
+		summarizeBy: none
+		sourceColumn: VNDR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CRNCY_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 28beb90a-613c-4cc2-adb6-e99afb60fcdb
+		summarizeBy: none
+		sourceColumn: CMPNY_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROUP_CRNCY_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a68782fe-15aa-4a43-a95c-71b3a71cb623
+		summarizeBy: none
+		sourceColumn: GROUP_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_CNTR_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 72be7b50-457b-43a4-bb9d-ec9111e153bd
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_ORDER_ITM_ID
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a33624ef-2b1e-4e9b-aa4e-e4581857e77a
+		summarizeBy: none
+		sourceColumn: SALES_ORDER_ITM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Type Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2f05f735-806a-4a3e-9ce0-49b671039b9b
+		summarizeBy: none
+		sourceColumn: Material Movement Type Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Document Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1ed3e80e-3ca9-4297-9592-11d3d64732ef
+		summarizeBy: none
+		sourceColumn: Material Movement Document Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Transaction Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b2c04c0f-2008-44f6-b6bd-1544dfd065bf
+		summarizeBy: none
+		sourceColumn: Material Movement Transaction Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Batch Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7cf95399-6d56-45be-9845-af903e8c5100
+		summarizeBy: none
+		sourceColumn: Material Movement Batch Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Order ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 420c4799-0a68-47cc-ab8a-6d9cea610660
+		summarizeBy: none
+		sourceColumn: Material Movement Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Purchase Order ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9077cb2b-ce0f-4ee1-a404-c3b66a8be8d6
+		summarizeBy: none
+		sourceColumn: Material Movement Purchase Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Reference Document Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 38920f9a-e986-4e07-a5ae-6821d4ad0b89
+		summarizeBy: none
+		sourceColumn: Material Movement Reference Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Debit Credit Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dfbb9682-6202-49ad-804e-844a18af6279
+		summarizeBy: none
+		sourceColumn: Material Movement Debit Credit Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CRNCY_AMT
+		dataType: double
+		sourceProviderType: decimal(15, 3)
+		lineageTag: 7a302b16-e62f-4e69-a42b-3ffcb1ee2ca3
+		summarizeBy: sum
+		sourceColumn: CMPNY_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GROUP_CRNCY_AMT
+		dataType: double
+		sourceProviderType: decimal(15, 3)
+		lineageTag: f44e8ce2-0510-4471-bc12-5897fa30ff43
+		summarizeBy: sum
+		sourceColumn: GROUP_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTY
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: 9179fa88-1a8b-47c9-9511-d87b7c9b3105
+		summarizeBy: sum
+		sourceColumn: QTY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Material Movement Quantity Unit of Measure'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5e03918f-d228-4906-90df-812ffe871889
+		summarizeBy: none
+		sourceColumn: Material Movement Quantity Unit of Measure
+
+		annotation SummarizationSetBy = Automatic
+
+	column QTY_ENTRY_UNIT
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: 2fb7f02b-1d95-4005-bd99-878f1f648c8a
+		summarizeBy: sum
+		sourceColumn: QTY_ENTRY_UNIT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Material Movement Quantity Entry Unit UOM'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5d320f98-176e-4845-9c5d-dff2cbd6c3f8
+		summarizeBy: none
+		sourceColumn: Material Movement Quantity Entry Unit UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column QTY_ORDER_UNIT
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: 118dc93f-b6c0-49af-add9-827e7c57b283
+		summarizeBy: sum
+		sourceColumn: QTY_ORDER_UNIT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Material Movement Quantity Order Unit UOM'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 955ee19c-65d5-49a4-b363-87f1c60c80e0
+		summarizeBy: none
+		sourceColumn: Material Movement Quantity Order Unit UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Special Stock Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: de008221-cf13-470c-bc61-38b463628400
+		summarizeBy: none
+		sourceColumn: Material Movement Special Stock Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Special Stock Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3a2be9d8-9206-457c-916f-fcc3f5101424
+		summarizeBy: none
+		sourceColumn: Material Movement Special Stock Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 62b9c402-f7a6-494f-8c0b-5b25441bc9ce
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f3e3a85d-e20f-4857-b8e3-216b4caba79d
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 89284782-cd5b-44c8-abb0-c5e1f15153d7
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREATION_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 58d36fa8-2daf-46a3-ace6-2458a38ffd11
+		summarizeBy: none
+		sourceColumn: CREATION_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Creation Timestamp'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 9c1bb90b-ee3a-45ee-9821-62713b7e9880
+		summarizeBy: none
+		sourceColumn: Material Movement Creation Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Purchase Order Item ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d1ee7908-4cb5-4d16-b9a9-be4e8e55dd00
+		summarizeBy: none
+		sourceColumn: Material Movement Purchase Order Item ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RECVNG_PLNT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 60ec08a1-83c3-47e1-b739-ee024e4ab655
+		summarizeBy: none
+		sourceColumn: RECVNG_PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PURCHS_ORDER_ITM_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 019f8d17-3654-4e67-90db-2672789421d8
+		summarizeBy: sum
+		sourceColumn: PURCHS_ORDER_ITM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Line Item Text'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5db0d24e-3c34-4034-b751-34074003b079
+		summarizeBy: none
+		sourceColumn: Material Movement Line Item Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_MATRL_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 95cb403f-4594-403e-b22b-79dcfdd22535
+		summarizeBy: none
+		sourceColumn: PLNT_MATRL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Serial Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0e927f0f-52ed-43dd-bac3-f16383cf948f
+		summarizeBy: none
+		sourceColumn: Material Movement Serial Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Stock Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 03782e74-b244-4415-b213-ade529adae27
+		summarizeBy: none
+		sourceColumn: Material Movement Stock Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Movement Stock Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c61d00c4-9ed9-49b3-92b8-240423508024
+		summarizeBy: none
+		sourceColumn: Material Movement Stock Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTCHZ_COST_CNTR_KEY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c4cb7b02-70d0-4f79-b91c-245061c1c6ce
+		summarizeBy: none
+		sourceColumn: COSTCHZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTCVZ_COST_CNTR_KEY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 933d1c6e-1b30-49f4-8704-cd2cfcdcca41
+		summarizeBy: none
+		sourceColumn: COSTCVZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCHZ_PROFT_CNTR_KEY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: aa862253-7c04-4740-81ef-09b7ad9eec4f
+		summarizeBy: none
+		sourceColumn: PROFCHZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCVZ_PROFT_CNTR_KEY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8b012438-5191-4cb8-9d7c-f0f87f60a2dc
+		summarizeBy: none
+		sourceColumn: PROFCVZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_FACT_IM_MATMVMT_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_EDW_T_FACT_IM_MATMVMT_CUR_D = Source{[Schema="Propelis",Item="EDW_T_FACT_IM_MATMVMT_CUR_D"]}[Data]
+				in
+				    Propelis_EDW_T_FACT_IM_MATMVMT_CUR_D
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

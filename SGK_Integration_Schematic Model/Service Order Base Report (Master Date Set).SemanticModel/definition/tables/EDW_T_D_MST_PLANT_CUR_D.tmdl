@@ -1,0 +1,328 @@
+table EDW_T_D_MST_PLANT_CUR_D
+	lineageTag: e22782aa-1e28-451e-91e7-59e3f4dca4c1
+
+	column PLNT_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b522f47b-e205-49ce-9861-e4e2f4088e59
+		summarizeBy: sum
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 44b6b74b-4290-4279-b3f6-1c0be2353e3f
+		summarizeBy: none
+		sourceColumn: Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legacy Plant ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 471af49d-1dde-4611-b9c0-920a4d878e25
+		summarizeBy: none
+		sourceColumn: Legacy Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0ed06260-fddf-4091-9b6e-f77315174796
+		summarizeBy: none
+		sourceColumn: Plant Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Company Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fcb4d91c-1052-4fd3-a81a-653201719d26
+		summarizeBy: none
+		sourceColumn: Plant Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Sales Organization'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: eeb39c16-6b0b-4acc-a6f0-d7061c6530a8
+		summarizeBy: none
+		sourceColumn: Plant Sales Organization
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Purchasing Organization'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: af73c8b7-2999-43b2-9f6f-1d76029189de
+		summarizeBy: none
+		sourceColumn: Plant Purchasing Organization
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Valuation Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 379a77c1-231b-47ac-85b3-9c9c56e19308
+		summarizeBy: none
+		sourceColumn: Plant Valuation Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Customer Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e7895dda-787d-45c3-83b3-24ca0123f8dc
+		summarizeBy: none
+		sourceColumn: Plant Customer Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Vendor Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c69c93b0-7459-46cc-a49f-93e050e2c43a
+		summarizeBy: none
+		sourceColumn: Plant Vendor Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Factory Calendar Key'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fb08a1eb-81f6-4343-b046-d0bb7ed686c2
+		summarizeBy: none
+		sourceColumn: Plant Factory Calendar Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Line 1 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8d3184f2-61a4-4590-9d4a-1e8380e9ee9a
+		summarizeBy: none
+		sourceColumn: Plant Line 1 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Line 2 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7209b82c-04bd-49fe-a58a-ed7b39167695
+		summarizeBy: none
+		sourceColumn: Plant Line 2 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant City Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: baf51959-aef1-4d6e-908a-7ddb2c8f9aed
+		summarizeBy: none
+		sourceColumn: Plant City Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Zip Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a4218319-07c0-4193-a0a8-9ebbda38607e
+		summarizeBy: none
+		sourceColumn: Plant Zip Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Country Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ddd8f6b6-3482-47e5-9b6e-17cb3b2ac87d
+		summarizeBy: none
+		sourceColumn: Plant Country Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Country Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0e5aee11-4feb-4875-b597-66a0733ddeaa
+		summarizeBy: none
+		sourceColumn: Plant Country Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Tax Jurisdiction'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 89034745-b499-4eee-8475-70a8025b6ba7
+		summarizeBy: none
+		sourceColumn: Plant Tax Jurisdiction
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a47192f7-0cd0-4ba1-b6b3-15daf321094f
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: fc33f84e-03f8-40b1-9687-d6bfd27bd7d5
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: dc53ca49-8132-4c2b-887e-7ee38bf51897
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 451211a5-ee6b-4c94-b244-18558a168dd3
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 649a207b-5360-41ef-aeea-4319fc3f93f0
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 89ed21ea-97a9-42cb-9a26-19d321abce61
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant IS P001'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 178d156a-7c90-41d2-ae4c-b5c499421d19
+		summarizeBy: none
+		sourceColumn: Plant IS P001
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant IS P002'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c7268266-3dc4-4968-b87e-f8299b64b592
+		summarizeBy: none
+		sourceColumn: Plant IS P002
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Company Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 330911ad-540e-4100-8892-089d4efedff0
+		summarizeBy: none
+		sourceColumn: Plant Company Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Sales Organization Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 24e1e7e7-d501-48d2-9100-101107fb4b2e
+		summarizeBy: none
+		sourceColumn: Plant Sales Organization Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Factory Calendar Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 76c2e638-2d1e-48ea-a1dc-299658d3369b
+		summarizeBy: none
+		sourceColumn: Plant Factory Calendar Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Purchasing Organization Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 41dbf45e-7371-4b73-92e3-77783528f48b
+		summarizeBy: none
+		sourceColumn: Plant Purchasing Organization Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Tax Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 17b34954-ed66-4fe1-a227-8b1e4fcaac27
+		summarizeBy: none
+		sourceColumn: Plant Tax Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Tax Indicator Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: caa103b4-009d-4af0-affc-6ed7e4e01f47
+		summarizeBy: none
+		sourceColumn: Plant Tax Indicator Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Shipping/Receiving Point'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 70a21314-dc1b-4c06-b318-bb1937ffe226
+		summarizeBy: none
+		sourceColumn: Plant Shipping/Receiving Point
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Shipping/Receiving Point Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 617eabec-be32-4bcd-81fc-81e270962c4f
+		summarizeBy: none
+		sourceColumn: Plant Shipping/Receiving Point Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_PLANT_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_PLANT_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_PLANT_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_PLANT_CUR_D
+

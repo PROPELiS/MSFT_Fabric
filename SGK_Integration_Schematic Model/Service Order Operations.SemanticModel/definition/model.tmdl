@@ -6,97 +6,98 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["EDW_T_FACT_PRD_SERVOPR_CUR_D","EDW_T_D_MST_CMPNYCD_CUR_D","EDW_T_D_MST_CRNCY_CUR_D","EDW_T_D_MST_FUNCTAR_CUR_D","EDW_T_D_MST_PERSONL_CUR_D","EDW_T_D_MST_MATERIAL_CUR_D","EDW_T_D_MST_PROFCTR_CUR_D","EDW_T_D_MST_WORKCTR_CUR_D","EDW_T_D_PRD_SERVORD_CUR_D","EDW_T_D_MST_COSCNTR_CUR_D","EDW_T_D_HY_PROFCHZ_CUR_D","EDW_T_D_HY_PROFCVZ_CUR_D","EDW_T_D_HY_WORKCHZ_CUR_D","EDW_T_D_HY_WORKCVZ_CUR_D","EDW_T_D_SAL_SALORDH_CUR_D","EDW_T_D_MST_DATE_CUR_D","EDW_T_D_MST_NOTFICN_CUR_D","EDW_T_D_MST_EQUIPMT_CUR_D","EDW_T_D_MST_CUSTOMR_CUR_D","EDW_T_D_MST_FUNCLOC_CUR_D","EDW_T_D_MST_PLANT_CUR_D","EDW_T_D_MST_ACTTYPE_CUR_D","EDW_T_D_MST_CUSTMINR_CUR_D","EDW_T_D_HY_COSTCHZ_CUR_D","EDW_T_D_HY_COSTCVZ_CUR_D","EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D","EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D","EDW_T_B_PRD_SVORDPTR_CUR_D","EDW_T_B_SAL_SOIPTNR_CUR_D","EDW_T_O_PRD_HBPRJNM_CUR_D","EDW_V_D_SAL_PRDVCON_CUR_D","DOCUMENT_CURRENCY","COMPANY","FINISH_CONSTRAINT_DATE","START_CONSTRAINT_DATE","SOLD_TO_CUST","PRINTER_CUST","BILL_TO_CUST","SHIP_TO_CUST","PERSONNEL_NUMBER","EARLIEST_SCHLD_FINISH_EXEC_DATE","EARLIEST_SCHLD_START_EXEC_DATE","LATEST_SCHLD_FINISH_EXEC_DATE","LATEST_SCHLD_START_EXEC_DATE","ACTUAL_FINISH_DATE","ACTUAL_FINISH_EXEC_DATE","ACTUAL_START_DATE","CLOSE_DATE","RESP_COST_CENTER","COST_CENTER","MAINTENANCE_PLANT","BASIC_START_DATE","BASIC_FINISH_DATE","SCHLD_FINISH_DATE","SCHLD_RELEASE_DATE","SCHLD_START_DATE","ACTUAL_RELEASE_DATE","PLANNED_RELEASE_DATE","PLANNING_PLANT","START_OF_MALFUNCTION_DATE","END_OF_MALFUNCTION_DATE","LOCATION_PLANT","RELEASE_DATE","TECH_COMPLETION_DATE","PLANT","OPERATING_PLANT","CREATED_ON_DATE","PARENT_CUST","BRAND_OWNER_CUST","RESP_COST_CENTER_HORIZONTAL_HIERARCHY","RESP_COST_CENTER_VERTICAL_HIERARCHY","COST_CENTER_HORIZONTAL_HIERARCHY","COST_CENTER_VERTICAL_HIERARCHY","OPERATING_PLANT_REGION","PLANNING_PLANT_REGION","LOCATION_PLANT_REGION","PLANT_REGION","PERSONNEL_PLANT_REGION","SO_PARENT_CUST","OPERATION_LEVEL_WORK_CENTER","EMPLOYEE_RESPONSIBLE","MAINTENANCE_PLANT_REGION","SALES_EMPLOYEE","ACTUAL_START_EXEC_DATE","EDW_T_R_SGK_OPERREG_CUR_D"]
+annotation PBI_QueryOrder = ["Fact Service Order Operations","EDW_T_D_MST_CMPNYCD_CUR_D","Currency","Functional Area","EDW_T_D_MST_PERSONL_CUR_D","Material","Profit Center","Work Center","Service Order","EDW_T_D_MST_COSCNTR_CUR_D","Profit Center Horizontal Hierarchy","Profit Center Vertical Hierarchy","Work Center Horizontal Hierarchy","Work Center Vertical Hierarchy","Sales Order","Date","Notification","Equipment","EDW_T_D_MST_CUSTOMR_CUR_D","Functional Location","EDW_T_D_MST_PLANT_CUR_D","Activity Type","Customer Material Info Record","EDW_T_D_HY_COSTCHZ_CUR_D","EDW_T_D_HY_COSTCVZ_CUR_D","EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D","Standard Text","Service Order Partner","Sales Order Item Partner","EDW_T_O_PRD_HBPRJNM_CUR_D","Prod Variant Config","Document Currency","Company","Finish Constraint Date","Start Constraint Date","Sold To Cust","Printer Cust","Bill To Cust","Ship To Cust","Personnel Number","Earliest Schld Finish Exec Date","Earliest Schld Start Exec Date","Latest Schld Finish Exec Date","Latest Schld Start Exec Date","Actual Finish Date","Actual Finish Exec Date","Actual Start Date","Close Date","Resp Cost Center","Cost Center","Maintenance Plant","Basic Start Date","Basic Finish Date","Schld Finish Date","Schld Release Date","Schld Start Date","Actual Release Date","Planned Release Date","Planning Plant","Start Of Malfunction Date","End Of Malfunction Date","Location Plant","Release Date","Tech Completion Date","Plant","Operating Plant","Created On Date","Parent Cust","Brand Owner Cust","Resp Cost Center Horizontal Hierarchy","Resp Cost Center Vertical Hierarchy","Cost Center Horizontal Hierarchy","Cost Center Vertical Hierarchy","Operating Plant Region","Planning Plant Region","Location Plant Region","Plant Region","Personnel Plant Region","So Parent Cust","Operation Level Work Center","Employee Responsible","Maintenance Plant Region","Sales Employee","Actual Start Exec Date","EDW_T_R_SGK_OPERREG_CUR_D","Job Status"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["WebModelingEdit"]
 
-ref table EDW_T_FACT_PRD_SERVOPR_CUR_D
+ref table 'Fact Service Order Operations'
 ref table EDW_T_D_MST_CMPNYCD_CUR_D
-ref table EDW_T_D_MST_CRNCY_CUR_D
-ref table EDW_T_D_MST_FUNCTAR_CUR_D
+ref table Currency
+ref table 'Functional Area'
 ref table EDW_T_D_MST_PERSONL_CUR_D
-ref table EDW_T_D_MST_MATERIAL_CUR_D
-ref table EDW_T_D_MST_PROFCTR_CUR_D
-ref table EDW_T_D_MST_WORKCTR_CUR_D
-ref table EDW_T_D_PRD_SERVORD_CUR_D
+ref table Material
+ref table 'Profit Center'
+ref table 'Work Center'
+ref table 'Service Order'
 ref table EDW_T_D_MST_COSCNTR_CUR_D
-ref table EDW_T_D_HY_PROFCHZ_CUR_D
-ref table EDW_T_D_HY_PROFCVZ_CUR_D
-ref table EDW_T_D_HY_WORKCHZ_CUR_D
-ref table EDW_T_D_HY_WORKCVZ_CUR_D
-ref table EDW_T_D_SAL_SALORDH_CUR_D
-ref table EDW_T_D_MST_DATE_CUR_D
-ref table EDW_T_D_MST_NOTFICN_CUR_D
-ref table EDW_T_D_MST_EQUIPMT_CUR_D
+ref table 'Profit Center Horizontal Hierarchy'
+ref table 'Profit Center Vertical Hierarchy'
+ref table 'Work Center Horizontal Hierarchy'
+ref table 'Work Center Vertical Hierarchy'
+ref table 'Sales Order'
+ref table Date
+ref table Notification
+ref table Equipment
 ref table EDW_T_D_MST_CUSTOMR_CUR_D
-ref table EDW_T_D_MST_FUNCLOC_CUR_D
+ref table 'Functional Location'
 ref table EDW_T_D_MST_PLANT_CUR_D
-ref table EDW_T_D_MST_ACTTYPE_CUR_D
-ref table EDW_T_D_MST_CUSTMINR_CUR_D
+ref table 'Activity Type'
+ref table 'Customer Material Info Record'
 ref table EDW_T_D_HY_COSTCHZ_CUR_D
 ref table EDW_T_D_HY_COSTCVZ_CUR_D
 ref table EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D
-ref table EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D
-ref table EDW_T_B_PRD_SVORDPTR_CUR_D
-ref table EDW_T_B_SAL_SOIPTNR_CUR_D
+ref table 'Standard Text'
+ref table 'Service Order Partner'
+ref table 'Sales Order Item Partner'
 ref table EDW_T_O_PRD_HBPRJNM_CUR_D
-ref table EDW_V_D_SAL_PRDVCON_CUR_D
-ref table DOCUMENT_CURRENCY
-ref table COMPANY
-ref table FINISH_CONSTRAINT_DATE
-ref table START_CONSTRAINT_DATE
-ref table SOLD_TO_CUST
-ref table PRINTER_CUST
-ref table BILL_TO_CUST
-ref table SHIP_TO_CUST
-ref table PERSONNEL_NUMBER
-ref table EARLIEST_SCHLD_FINISH_EXEC_DATE
-ref table EARLIEST_SCHLD_START_EXEC_DATE
-ref table LATEST_SCHLD_FINISH_EXEC_DATE
-ref table LATEST_SCHLD_START_EXEC_DATE
-ref table ACTUAL_FINISH_DATE
-ref table ACTUAL_FINISH_EXEC_DATE
-ref table ACTUAL_START_DATE
-ref table CLOSE_DATE
-ref table RESP_COST_CENTER
-ref table COST_CENTER
-ref table MAINTENANCE_PLANT
-ref table BASIC_START_DATE
-ref table BASIC_FINISH_DATE
-ref table SCHLD_FINISH_DATE
-ref table SCHLD_RELEASE_DATE
-ref table SCHLD_START_DATE
-ref table ACTUAL_RELEASE_DATE
-ref table PLANNED_RELEASE_DATE
-ref table PLANNING_PLANT
-ref table START_OF_MALFUNCTION_DATE
-ref table END_OF_MALFUNCTION_DATE
-ref table LOCATION_PLANT
-ref table RELEASE_DATE
-ref table TECH_COMPLETION_DATE
-ref table PLANT
-ref table OPERATING_PLANT
-ref table CREATED_ON_DATE
-ref table PARENT_CUST
-ref table BRAND_OWNER_CUST
-ref table RESP_COST_CENTER_HORIZONTAL_HIERARCHY
-ref table RESP_COST_CENTER_VERTICAL_HIERARCHY
-ref table COST_CENTER_HORIZONTAL_HIERARCHY
-ref table COST_CENTER_VERTICAL_HIERARCHY
-ref table OPERATING_PLANT_REGION
-ref table PLANNING_PLANT_REGION
-ref table LOCATION_PLANT_REGION
-ref table PLANT_REGION
-ref table PERSONNEL_PLANT_REGION
-ref table SO_PARENT_CUST
-ref table OPERATION_LEVEL_WORK_CENTER
-ref table EMPLOYEE_RESPONSIBLE
-ref table MAINTENANCE_PLANT_REGION
-ref table SALES_EMPLOYEE
-ref table ACTUAL_START_EXEC_DATE
+ref table 'Prod Variant Config'
+ref table 'Document Currency'
+ref table Company
+ref table 'Finish Constraint Date'
+ref table 'Start Constraint Date'
+ref table 'Sold To Cust'
+ref table 'Printer Cust'
+ref table 'Bill To Cust'
+ref table 'Ship To Cust'
+ref table 'Personnel Number'
+ref table 'Earliest Schld Finish Exec Date'
+ref table 'Earliest Schld Start Exec Date'
+ref table 'Latest Schld Finish Exec Date'
+ref table 'Latest Schld Start Exec Date'
+ref table 'Actual Finish Date'
+ref table 'Actual Finish Exec Date'
+ref table 'Actual Start Date'
+ref table 'Close Date'
+ref table 'Resp Cost Center'
+ref table 'Cost Center'
+ref table 'Maintenance Plant'
+ref table 'Basic Start Date'
+ref table 'Basic Finish Date'
+ref table 'Schld Finish Date'
+ref table 'Schld Release Date'
+ref table 'Schld Start Date'
+ref table 'Actual Release Date'
+ref table 'Planned Release Date'
+ref table 'Planning Plant'
+ref table 'Start Of Malfunction Date'
+ref table 'End Of Malfunction Date'
+ref table 'Location Plant'
+ref table 'Release Date'
+ref table 'Tech Completion Date'
+ref table Plant
+ref table 'Operating Plant'
+ref table 'Created On Date'
+ref table 'Parent Cust'
+ref table 'Brand Owner Cust'
+ref table 'Resp Cost Center Horizontal Hierarchy'
+ref table 'Resp Cost Center Vertical Hierarchy'
+ref table 'Cost Center Horizontal Hierarchy'
+ref table 'Cost Center Vertical Hierarchy'
+ref table 'Operating Plant Region'
+ref table 'Planning Plant Region'
+ref table 'Location Plant Region'
+ref table 'Plant Region'
+ref table 'Personnel Plant Region'
+ref table 'So Parent Cust'
+ref table 'Operation Level Work Center'
+ref table 'Employee Responsible'
+ref table 'Maintenance Plant Region'
+ref table 'Sales Employee'
+ref table 'Actual Start Exec Date'
 ref table EDW_T_R_SGK_OPERREG_CUR_D
+ref table 'Job Status'
 
 ref cultureInfo en-IN
 

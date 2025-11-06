@@ -1,0 +1,425 @@
+table 'Customer Company'
+	lineageTag: bdce7748-df0c-48cb-a8e2-2924e615e47e
+
+	column CUST_CMPNY_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d676af91-8afd-4723-96cc-7751b03b8a31
+		summarizeBy: none
+		sourceColumn: CUST_CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 52c5feaf-ead0-404c-a768-a7640f17480b
+		summarizeBy: none
+		sourceColumn: Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 286f4ca4-cfb4-481d-ab75-7eca87256863
+		summarizeBy: none
+		sourceColumn: Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legacy Customer ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: eec73cb1-862f-4aa9-a02f-cf7ad383d3c9
+		summarizeBy: none
+		sourceColumn: Legacy Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9cdaa976-e7b0-4bfb-be78-f7b1dd24411a
+		summarizeBy: none
+		sourceColumn: Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Terms Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 39ea9511-ba0b-41a3-8a07-763fedcab0f5
+		summarizeBy: none
+		sourceColumn: Payment Terms Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Block'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e78242b0-c873-400e-8981-7d99c3542038
+		summarizeBy: none
+		sourceColumn: Payment Block
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Clerk'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d1c2de55-c53c-4532-ada3-370ba254ba53
+		summarizeBy: none
+		sourceColumn: Accounting Clerk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account At Customer'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: edb8d200-7b09-46fd-8454-573a7a35b270
+		summarizeBy: none
+		sourceColumn: Account At Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Block For Company Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a777dfa0-af20-427c-ada5-6db790d0904d
+		summarizeBy: none
+		sourceColumn: Posting Block For Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Deletion Flag For Company Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 03e13235-e3cf-45d3-8bea-4ff387681389
+		summarizeBy: none
+		sourceColumn: Deletion Flag For Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Recon Account'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6de4c196-c2c2-4284-9cee-33b550ef0018
+		summarizeBy: none
+		sourceColumn: Recon Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Periodic Account Statement Flag'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4b804f01-2cb8-4ff9-8d90-dcf72df84f8b
+		summarizeBy: none
+		sourceColumn: Periodic Account Statement Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Lockbox
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b2d4a894-d400-4c32-8a13-149b08ac4e10
+		summarizeBy: none
+		sourceColumn: Lockbox
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sort Key'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d5384282-e01e-44b4-a6b9-6da91f23b14e
+		summarizeBy: none
+		sourceColumn: Sort Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Method'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7959fb70-427a-4d86-9066-02312f573bf8
+		summarizeBy: none
+		sourceColumn: Payment Method
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 51a0bcae-9af1-4dbf-93b4-5762cd9ec454
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ea67ace4-23a0-42de-b8df-bc7caf1ed612
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 243e4092-db51-4e14-a797-4279f76f01a2
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Current Record Indicator of Customer Company'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6d725e59-8dd9-4620-a14f-5aea80915450
+		summarizeBy: none
+		sourceColumn: Current Record Indicator of Customer Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c8acec80-7af5-49be-8384-097539afecf3
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f56e5961-0238-4562-b099-87f34254f553
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1a0d65c5-e0d0-4872-8828-54b28bffadd5
+		summarizeBy: none
+		sourceColumn: Company Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Terms Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6e8564ff-679c-4670-ac1a-5d9782d61f71
+		summarizeBy: none
+		sourceColumn: Payment Terms Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4ea4f9c3-3de0-4ead-9114-d537827fc509
+		summarizeBy: none
+		sourceColumn: Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Clerk Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f02335ac-8519-4cd1-878b-b30ceeaf54e7
+		summarizeBy: none
+		sourceColumn: Accounting Clerk Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Block Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d5b6a473-9054-4e37-baf2-3dbd8f62023d
+		summarizeBy: none
+		sourceColumn: Posting Block Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Statement Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 96916ebc-fa37-48ff-875c-81420b99277d
+		summarizeBy: none
+		sourceColumn: Statement Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Block Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c2265659-513b-4331-a3f1-8535c0e2c9f3
+		summarizeBy: none
+		sourceColumn: Payment Block Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sort Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: adec8213-b0b8-4d4b-a611-a608bf21f776
+		summarizeBy: none
+		sourceColumn: Sort Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Head Office Account Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: bb2feed0-9f9d-4289-8913-0787c79ea78c
+		summarizeBy: none
+		sourceColumn: Head Office Account Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alternative Payer Account Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8ff2447c-8250-4ed6-a332-7b58e9cc00b4
+		summarizeBy: none
+		sourceColumn: Alternative Payer Account Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Clearing Between Cust & Vendor Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8600d678-d898-4b2d-95ee-34d3a5e45706
+		summarizeBy: none
+		sourceColumn: Clearing Between Cust & Vendor Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Collective Invoice Variant'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3c459f80-e909-431c-b079-7f93f1b7206b
+		summarizeBy: none
+		sourceColumn: Collective Invoice Variant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dunning Notice Grouping Key'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 738dcd1c-acc1-49ef-afe3-8310bbfa5f82
+		summarizeBy: none
+		sourceColumn: Dunning Notice Grouping Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dunning Notice Grouping Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e388ec31-e23a-4983-8e1e-b4aee71427b4
+		summarizeBy: none
+		sourceColumn: Dunning Notice Grouping Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Buying Group Account Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 302f2485-6df0-4396-93c1-a36350620f1d
+		summarizeBy: none
+		sourceColumn: Buying Group Account Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Method Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3a099df0-8460-4992-b425-ddeb86bf6446
+		summarizeBy: none
+		sourceColumn: Payment Method Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created On'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: fc249447-bde6-44ce-8dfa-8fac458c8d2f
+		summarizeBy: none
+		sourceColumn: Created On
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Created By'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 763f0b83-9b69-4f53-b40e-7fc42ce5f652
+		summarizeBy: none
+		sourceColumn: Created By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Deletion Block For Master Record'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 418eee23-ecfa-4dfa-af5a-836edcbab16b
+		summarizeBy: none
+		sourceColumn: Deletion Block For Master Record
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Personnel Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 24f9430d-69b2-4ab8-a3d7-07e29d7392ea
+		summarizeBy: none
+		sourceColumn: Personnel Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lockbox Key'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f46f4b17-aa00-442e-988d-3a5fec8efc1b
+		summarizeBy: none
+		sourceColumn: Lockbox Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Short Key For A House Bank'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b102a60a-e418-4be0-b3f9-864ca4c13e6b
+		summarizeBy: none
+		sourceColumn: Short Key For A House Bank
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Customer Company' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_CUSTCMP_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_CUSTCMP_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_CUSTCMP_CUR_D
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

@@ -670,31 +670,37 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column 'Material Entered Length'
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: double
+		sourceProviderType: decimal(13, 3)
 		lineageTag: a175c2ef-142b-4ba1-a66b-e8cfb027f7ba
 		summarizeBy: none
 		sourceColumn: Material Entered Length
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column 'Material Entered Width'
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: double
+		sourceProviderType: decimal(13, 3)
 		lineageTag: be715710-8321-4e19-80b4-c4c0049166bc
 		summarizeBy: none
 		sourceColumn: Material Entered Width
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column 'Material Entered Height'
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: double
+		sourceProviderType: decimal(13, 3)
 		lineageTag: 8f8eaded-41aa-4cf0-baef-9c874605da37
 		summarizeBy: none
 		sourceColumn: Material Entered Height
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'Material Entered UoD'
 		dataType: string
@@ -715,37 +721,31 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column 'Material Entered External Group Description'
-		dataType: double
-		sourceProviderType: decimal(13, 3)
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 8641c333-ffe9-4c66-9c23-6c0b1a4c60f6
 		summarizeBy: none
 		sourceColumn: Material Entered External Group Description
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'Material Entered Manufacturer Part Number'
-		dataType: double
-		sourceProviderType: decimal(13, 3)
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 696c6ce3-ddf6-4905-8270-ddf2641cbec0
 		summarizeBy: none
 		sourceColumn: Material Entered Manufacturer Part Number
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'Material Entered Dangerous Goods Indicator Profile'
-		dataType: double
-		sourceProviderType: decimal(13, 3)
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 9b3cb4d8-0ce6-4843-8281-59da4fafaec2
 		summarizeBy: none
 		sourceColumn: Material Entered Dangerous Goods Indicator Profile
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'Material Entered Dangerous Goods Ind Profile Desription'
 		dataType: string
@@ -847,9 +847,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_22_VAL
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: f1b9ca62-c80f-448e-9324-34f47b1f2a6d
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_22_VAL
@@ -857,8 +856,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CLASS_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 3cb43096-9762-483b-92c6-0cbb80aadce8
 		summarizeBy: none
 		sourceColumn: CLASS_INTERNL_NUM
@@ -902,9 +902,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CLASS_STATUS_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: f529acd3-97a9-443f-97c9-7a201d20baab
 		summarizeBy: none
 		sourceColumn: CLASS_STATUS_DESC
@@ -912,8 +911,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_1_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: b2f6dd8f-ea9c-43e3-acc2-f020f9b73d6d
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_1_INTERNL_NUM
@@ -948,9 +948,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_1_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: e4c9ea87-704e-4f80-9409-b502f96df390
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_1_VAL_DESC
@@ -958,8 +957,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_2_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 7f7f4ac3-c42d-4f2d-a3a5-eddd0b57d350
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_2_INTERNL_NUM
@@ -994,9 +994,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_2_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 1c12f970-857e-415e-9cdf-7d236dbc919f
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_2_VAL_DESC
@@ -1004,8 +1003,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_3_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: bb6fdb97-4dea-433d-af48-c8678e084931
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_3_INTERNL_NUM
@@ -1040,9 +1040,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_3_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: b319627f-d6c2-49c9-818d-f9c5c0ca0aee
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_3_VAL_DESC
@@ -1050,8 +1049,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_4_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: ffcc0bc7-e8b4-4fea-b9d4-9252bc15c43a
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_4_INTERNL_NUM
@@ -1086,9 +1086,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_4_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 7e76826f-1ce8-444e-981e-ba579ce86362
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_4_VAL_DESC
@@ -1096,8 +1095,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_5_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 943cc03e-b9c5-48a0-b58d-c4616a3653b9
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_5_INTERNL_NUM
@@ -1132,9 +1132,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_5_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: cc99b093-4fd1-4cbf-b413-049562f08022
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_5_VAL_DESC
@@ -1142,8 +1141,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_6_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 9309edab-357b-407f-bfae-0922c9a7085d
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_6_INTERNL_NUM
@@ -1178,9 +1178,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_6_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 81c05064-c352-4300-887c-03eae36540cd
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_6_VAL_DESC
@@ -1188,8 +1187,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_7_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 11e7470b-561c-4b18-93f0-f2dbbb8f43a4
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_7_INTERNL_NUM
@@ -1224,9 +1224,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_7_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: fdf68e2f-db1c-4277-95c9-5532fd9b1b03
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_7_VAL_DESC
@@ -1234,8 +1233,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_8_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: eb3ec6a5-b29a-4923-9c17-18203832d6e6
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_8_INTERNL_NUM
@@ -1270,9 +1270,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_8_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: a278aa01-4d89-4240-8d6f-8396e157547b
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_8_VAL_DESC
@@ -1280,8 +1279,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_9_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 3592d287-c9cf-4129-9d04-e50e715fb45b
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_9_INTERNL_NUM
@@ -1316,9 +1316,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_9_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: c6df4430-97d1-4d95-b319-f437aafe2ba9
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_9_VAL_DESC
@@ -1326,8 +1325,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_10_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 904fbf48-9099-4afc-bd4d-8af06ec6f144
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_10_INTERNL_NUM
@@ -1362,9 +1362,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_10_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 09342d44-e9cf-41b5-9aea-13e0ee9c0f4b
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_10_VAL_DESC
@@ -1372,8 +1371,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_11_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 4131b614-5b88-4e3c-88c8-cc35d25eb6df
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_11_INTERNL_NUM
@@ -1408,9 +1408,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_11_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: a834ccd4-8039-4d9b-ac28-4f270ef21dce
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_11_VAL_DESC
@@ -1418,8 +1417,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_12_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: da0e89fa-97c5-4d1e-853d-54748767483b
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_12_INTERNL_NUM
@@ -1454,9 +1454,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_12_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: d78ef5d9-4235-4062-942c-701a2ed100de
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_12_VAL_DESC
@@ -1464,8 +1463,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_13_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 0919c450-dc2d-4a5c-a9e5-3eb5d7dafc44
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_13_INTERNL_NUM
@@ -1500,9 +1500,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_13_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 46c6ba88-205f-4113-80d8-64c128e13944
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_13_VAL_DESC
@@ -1510,8 +1509,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_14_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: ecdb46cd-401f-4f98-8912-5768cce25e93
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_14_INTERNL_NUM
@@ -1546,9 +1546,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_14_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: c468cd26-8f0b-4e2e-a4fa-e4bafa7c587f
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_14_VAL_DESC
@@ -1556,8 +1555,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_15_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 9f24c4f5-a494-4575-a721-d3e3c535011f
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_15_INTERNL_NUM
@@ -1592,9 +1592,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_15_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 89e79331-9d41-403e-a6f1-040101fdcef8
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_15_VAL_DESC
@@ -1602,8 +1601,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_16_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: ff6a98f1-c47f-4ae4-95e7-0afb4853a781
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_16_INTERNL_NUM
@@ -1638,9 +1638,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_16_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: a969ecf4-9af7-4a1b-838b-d5f01ec9ddfd
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_16_VAL_DESC
@@ -1648,8 +1647,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_17_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: a9d864aa-8f13-4233-b40f-2bd01dc03d07
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_17_INTERNL_NUM
@@ -1684,9 +1684,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_17_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 1f630774-8a2b-41a2-a893-b31385a58679
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_17_VAL_DESC
@@ -1694,8 +1693,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_18_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 6b1c685a-dd8a-4c2d-81a2-e364aa84aa92
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_18_INTERNL_NUM
@@ -1730,9 +1730,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_18_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 0a725eaf-3380-4d71-bb72-b8d07702d884
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_18_VAL_DESC
@@ -1740,8 +1739,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_19_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 99ce1734-acad-49f7-9427-211a948230a2
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_19_INTERNL_NUM
@@ -1776,9 +1776,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_19_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 03d03596-7b97-4549-97ab-c53d17630b6a
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_19_VAL_DESC
@@ -1786,8 +1785,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_20_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: a347f3ac-3d46-4e37-b764-af95f5a29845
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_20_INTERNL_NUM
@@ -1822,9 +1822,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_20_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 82b2f3b1-fb18-405a-a4d0-da3aa05cf82d
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_20_VAL_DESC
@@ -1832,8 +1831,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_21_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: bf13c668-ba6f-4332-8a47-1b768c1fa375
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_21_INTERNL_NUM
@@ -1868,9 +1868,8 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_21_VAL_DESC
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
+		dataType: string
+		sourceProviderType: varchar(max)
 		lineageTag: 58a227a2-93a7-4b6c-a47f-ac500eee5d9b
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_21_VAL_DESC
@@ -1878,8 +1877,9 @@ table 'Material Entered'
 		annotation SummarizationSetBy = Automatic
 
 	column CHARACTERISTIC_22_INTERNL_NUM
-		dataType: string
-		sourceProviderType: varchar(max)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 35e2e473-156e-4358-9cfe-8afc9562bd16
 		summarizeBy: none
 		sourceColumn: CHARACTERISTIC_22_INTERNL_NUM
@@ -1985,32 +1985,16 @@ table 'Material Entered'
 
 		annotation SummarizationSetBy = Automatic
 
-	column DIVISION
-		dataType: string
-		sourceProviderType: varchar(max)
-		lineageTag: 197fe383-0aa1-4c18-b264-86233ff7b569
-		summarizeBy: none
-		sourceColumn: DIVISION
-
-		annotation SummarizationSetBy = Automatic
-
-	column DIVISION_DESC
-		dataType: string
-		sourceProviderType: varchar(max)
-		lineageTag: c5c64b44-ae30-45e5-9370-2285d5c3bf75
-		summarizeBy: none
-		sourceColumn: DIVISION_DESC
-
-		annotation SummarizationSetBy = Automatic
-
 	partition 'Material Entered' = m
 		mode: directQuery
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_MATRL_ENTERED = Source{[Schema="Propelis",Item="V_MATRL_ENTERED"]}[Data]
+				    Propelis_MATRL_ENTERED = Source{[Schema="Propelis",Item="MATRL_ENTERED"]}[Data]
 				in
-				    Propelis_V_MATRL_ENTERED
+				    Propelis_MATRL_ENTERED
 
-	changedProperty = Name
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

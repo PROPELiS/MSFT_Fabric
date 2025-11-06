@@ -1,209 +1,214 @@
 relationship 99799737-303a-a5d8-c2e7-a544387dcba3
-	fromColumn: 'Sales Order Details Fact'.SALES_ORDER_KEY
-	toColumn: EDW_T_D_SAL_SALORDH_CUR_D.SALES_ORDER_KEY
+	fromColumn: 'Fact Sales Order Details'.SALES_ORDER_KEY
+	toColumn: 'Sales Order'.SALES_ORDER_KEY
 
 relationship d2214355-ecba-a03e-9a26-5c9f7ba1a6dc
-	fromColumn: 'Sales Order Details Fact'.CUST_CMPNY_KEY
+	fromColumn: 'Fact Sales Order Details'.CUST_CMPNY_KEY
 	toColumn: 'Customer Company'.CUST_CMPNY_KEY
 
 relationship 7dd8fbf4-261c-d554-fd19-066e4bccb41f
-	fromColumn: 'Sales Order Details Fact'.CUST_SALES_AREA_KEY
+	fromColumn: 'Fact Sales Order Details'.CUST_SALES_AREA_KEY
 	toColumn: 'Customer Sales'.CUST_SALES_AREA_KEY
 
 relationship f7f36d68-61c3-0127-f170-20b1db505d5b
-	fromColumn: 'Sales Order Details Fact'.SALES_AREA_KEY
+	fromColumn: 'Fact Sales Order Details'.SALES_AREA_KEY
 	toColumn: 'Sales Area'.SALES_AREA_KEY
 
 relationship ff7db24d-ee02-4174-a0db-097794276673
-	fromColumn: 'Sales Order Details Fact'.CMPNY_KEY
-	toColumn: EDW_T_D_MST_CMPNYCD_CUR_D.CMPNY_KEY
+	fromColumn: 'Fact Sales Order Details'.CMPNY_KEY
+	toColumn: 'Company Code'.CMPNY_KEY
 
 relationship 040b85d6-2e5f-7336-0fcc-72f4f3fd28d0
-	fromColumn: 'Sales Order Details Fact'.DOCMT_CRNCY_KEY
+	fromColumn: 'Fact Sales Order Details'.DOCMT_CRNCY_KEY
 	toColumn: 'Document Currency'.CRNCY_KEY
 
 relationship 89cd14bd-fbaa-cd44-d5f8-32eecf4f8d5b
-	fromColumn: 'Sales Order Details Fact'.GROUP_CRNCY_KEY
+	fromColumn: 'Fact Sales Order Details'.GROUP_CRNCY_KEY
 	toColumn: 'Group Currency'.CRNCY_KEY
 
 relationship bf79e420-70b2-abd0-af2d-3d5229d7f567
-	fromColumn: 'Sales Order Details Fact'.CMPNY_CRNCY_KEY
+	fromColumn: 'Fact Sales Order Details'.CMPNY_CRNCY_KEY
 	toColumn: 'Company Currency'.CRNCY_KEY
 
 relationship f90fca0b-b405-e349-0927-518832a2cf19
-	fromColumn: 'Sales Order Details Fact'.SEG_KEY
-	toColumn: EDW_T_D_MST_SEGMENT_CUR_D.SEG_KEY
+	fromColumn: 'Fact Sales Order Details'.SEG_KEY
+	toColumn: Segment.SEG_KEY
 
 relationship e97bcc84-6b90-6aac-9465-0d07af1d285c
-	fromColumn: 'Sales Order Details Fact'.PLNT_KEY
+	fromColumn: 'Fact Sales Order Details'.PLNT_KEY
 	toColumn: Plant.PLNT_KEY
 
 relationship 91588f3d-e8cd-e5c5-2c85-40406acf166e
-	fromColumn: 'Sales Order Details Fact'.PROFT_CNTR_KEY
+	fromColumn: 'Fact Sales Order Details'.PROFT_CNTR_KEY
 	toColumn: 'Profit Center'.PROFT_CNTR_KEY
 
 relationship d30382ab-f262-909c-bc81-c335a31d06fd
-	fromColumn: 'Sales Order Details Fact'.MATRL_KEY
+	fromColumn: 'Fact Sales Order Details'.MATRL_KEY
 	toColumn: Material.MATRL_KEY
 
 relationship e2069f82-8d46-b800-f434-e798231703a6
-	fromColumn: 'Sales Order Details Fact'.DOCMT_DATE_KEY
+	fromColumn: 'Fact Sales Order Details'.DOCMT_DATE_KEY
 	toColumn: 'Document Date'.DATE_KEY
 
 relationship 898484ce-1970-8d4d-cbe4-bc88a6154c64
-	fromColumn: 'Sales Order Details Fact'.REQD_DLVRY_DATE_KEY
+	fromColumn: 'Fact Sales Order Details'.REQD_DLVRY_DATE_KEY
 	toColumn: 'Required Delivery Date'.DATE_KEY
 
 relationship 54496c83-f94a-f059-f366-f4c39d806e3d
-	fromColumn: 'Sales Order Details Fact'.COMPANY_INFO_CMPNY_CD_KEY
+	fromColumn: 'Fact Sales Order Details'.COMPANY_INFO_CMPNY_CD_KEY
 	toColumn: 'Company Information'.CMPNY_KEY
 
 relationship 22b7d356-4a27-7c64-34ff-893dd7319903
-	fromColumn: EDW_T_D_HY_PROFCHZ_CUR_D.PROFT_CNTR_KEY
+	fromColumn: 'Profit Center Horizontal Hierarchy'.PROFT_CNTR_KEY
 	toColumn: 'Profit Center'.PROFT_CNTR_KEY
 
 relationship a23da342-7d0e-c8fa-ff40-69b96b7b87ef
-	fromColumn: EDW_T_D_HY_PROFCVZ_CUR_D.PROFT_CNTR_KEY
+	fromColumn: 'Profit Center Horizontal Vertical'.PROFT_CNTR_KEY
 	toColumn: 'Profit Center'.PROFT_CNTR_KEY
 
 relationship a03ea2b3-e8f2-daf5-ae08-9be52fbf47bd
-	fromColumn: 'Sales Order Details Fact'.CREATION_DATE_KEY
+	fromColumn: 'Fact Sales Order Details'.CREATION_DATE_KEY
 	toColumn: 'Creation Date'.DATE_KEY
 
 relationship 15f774c4-a3ed-7c99-1cc8-2ad603285366
-	fromColumn: 'Sales Order Details Fact'.MATRL_ENTERED_KEY
+	fromColumn: 'Fact Sales Order Details'.MATRL_ENTERED_KEY
 	toColumn: 'Material Entered'.MATRL_KEY
 
 relationship a8d07c13-eb9f-14e2-f966-45fd59e920ca
-	fromColumn: 'Sales Order Details Fact'.PERSON_RESPNSBLE_COST_CNTR_KEY
+	fromColumn: 'Fact Sales Order Details'.PERSON_RESPNSBLE_COST_CNTR_KEY
 	toColumn: 'Person Responsible Cost Center'.COST_CNTR_KEY
 
 relationship c5e761a6-0092-4ec2-2a6f-8b7f1691f0da
-	fromColumn: 'Sales Order Details Fact'.SAL_SALORDH_INVOICE_CREATION_DATE_KEY
+	fromColumn: 'Fact Sales Order Details'.SAL_SALORDH_INVOICE_CREATION_DATE_KEY
 	toColumn: 'Invoice Creation Date'.DATE_KEY
 
 relationship 082e2b85-de1c-33ca-64f8-3d4ded67bcef
 	isActive: false
-	fromColumn: 'Sales Order Details Fact'.SAL_SALORDH_CREATED_DATE_KEY
+	fromColumn: 'Fact Sales Order Details'.SAL_SALORDH_CREATED_DATE_KEY
 	toColumn: 'Creation Date'.DATE_KEY
 
 relationship fdabc024-617b-f845-04a4-3ea41240b767
-	fromColumn: 'Sales Order Details Fact'.DOCMT_CHARS_ENCOWAY_JS_HDR_KEY
-	toColumn: EDW_T_D_SAL_DCHAREN_CUR_D.DOCMT_CHARS_ENCOWAY_JS_HDR_KEY
+	fromColumn: 'Fact Sales Order Details'.DOCMT_CHARS_ENCOWAY_JS_HDR_KEY
+	toColumn: 'Document Characteristics Encoway Job Sheet Header'.DOCMT_CHARS_ENCOWAY_JS_HDR_KEY
 
 relationship 8292a4f1-0f48-786a-1e02-4f81b4170e33
-	fromColumn: 'Sales Order Details Fact'.CUST_MATRL_INFO_RCD_KEY
+	fromColumn: 'Fact Sales Order Details'.CUST_MATRL_INFO_RCD_KEY
 	toColumn: 'Customer Material Info Record'.CUST_MATRL_INFO_RCD_KEY
 
 relationship 266d3444-bbb7-a5a7-d8d1-41e62984b390
-	fromColumn: 'Sales Order Details Fact'.WBS_ELEMNT_KEY
+	fromColumn: 'Fact Sales Order Details'.WBS_ELEMNT_KEY
 	toColumn: 'WBS Element'.WBS_ELEMNT_KEY
 
 relationship 308736ed-5e2e-ed5e-93ce-30211f3bd3e7
-	fromColumn: 'Sales Order Details Fact'.'Product Hierarchy'
+	fromColumn: 'Fact Sales Order Details'.'Product Hierarchy'
 	toColumn: 'Product Hierarchy'.'Product Hierarchy'
 
 relationship 825a1770-90fd-5cb8-5496-11f3316bf8a5
-	fromColumn: 'Sales Order Details Fact'.PLANT_REGION_PLANT_ID
+	fromColumn: 'Fact Sales Order Details'.PLANT_REGION_PLANT_ID
 	toColumn: 'Plant Region'.PLANT
 
 relationship 2589ab46-eb21-100f-359c-f2cb541a5909
-	fromColumn: 'Sales Order Details Fact'.SHIP_TO_ADDR_KEY
-	toColumn: EDW_T_D_SAL_ADDRESS_CUR_D.ADDR_KEY
-
-relationship 898f1220-ab0a-3a94-6b04-e6305f7e381e
-	fromColumn: EDW_T_B_SAL_SOIPTNR_CUR_D.SOIPTNR_KEY
-	toColumn: 'Sales Order Details Fact'.SOIPTNR_KEY
+	fromColumn: 'Fact Sales Order Details'.SHIP_TO_ADDR_KEY
+	toColumn: Address.ADDR_KEY
 
 relationship ff58ebf2-2154-4c76-bd25-bc59c681161a
-	fromColumn: 'Sales Order Details Fact'.SHIPTO_CUST_KEY
+	fromColumn: 'Fact Sales Order Details'.SHIPTO_CUST_KEY
 	toColumn: 'Ship To Customer'.CUST_KEY
 
 relationship cc740312-596a-d99e-5222-7ad72bd66c8d
-	fromColumn: 'Sales Order Details Fact'.CUST_CONTACT_KEY
+	fromColumn: 'Fact Sales Order Details'.CUST_CONTACT_KEY
 	toColumn: 'Customer Contact'.CUST_CONTACT_KEY
 
 relationship 2a28029e-eba5-4228-96d1-b88a412becc8
-	fromColumn: 'Sales Order Details Fact'.PERSON_RESPNSBLE_PERSONEL_KEY
+	fromColumn: 'Fact Sales Order Details'.PERSON_RESPNSBLE_PERSONEL_KEY
 	toColumn: 'Person Responsible Personnel'.PERSONEL_KEY
 
 relationship 50df6a6c-a234-72a9-c08a-6a8cfbfd89d0
-	fromColumn: 'Sales Order Details Fact'.CYLINDER_OWNER_CUST_KEY
+	fromColumn: 'Fact Sales Order Details'.CYLINDER_OWNER_CUST_KEY
 	toColumn: 'Cylinder Owner Customer'.CUST_KEY
 
 relationship 3b061b4c-67bb-0884-a345-6573b63b8e61
-	fromColumn: 'Sales Order Details Fact'.PARNT_CUST_KEY
+	fromColumn: 'Fact Sales Order Details'.PARNT_CUST_KEY
 	toColumn: 'Parent Customer'.CUST_KEY
 
 relationship a3a58866-d886-9c18-991f-33bc9e2abcea
-	fromColumn: 'Sales Order Details Fact'.SHIPTO_CUST_KEY
+	fromColumn: 'Fact Sales Order Details'.SHIPTO_CUST_KEY
 	toColumn: 'Sold To Customer'.CUST_KEY
 
 relationship f7d7bc04-1189-288c-7716-51a5c273bc47
-	fromColumn: 'Sales Order Details Fact'.BRAND_OWNER_CUST_KEY
+	fromColumn: 'Fact Sales Order Details'.BRAND_OWNER_CUST_KEY
 	toColumn: 'Brand Owner Customer'.CUST_KEY
 
 relationship 740d6c4a-a5bb-1e43-a1ec-b027852409fe
-	fromColumn: 'Sales Order Details Fact'.PAYER_CUST_KEY
+	fromColumn: 'Fact Sales Order Details'.PAYER_CUST_KEY
 	toColumn: 'Payer Customer'.CUST_KEY
 
 relationship c244996c-e194-668e-a6b1-683810334b2b
-	fromColumn: 'Sales Order Details Fact'.SALES_PERSON_PERSONEL_KEY
+	fromColumn: 'Fact Sales Order Details'.SALES_PERSON_PERSONEL_KEY
 	toColumn: 'Sales Person Personnel'.PERSONEL_KEY
 
 relationship 3a9b5017-8ec2-f688-548a-37e6738b345a
-	fromColumn: 'Sales Order Details Fact'.PRINTER_CUST_KEY
+	fromColumn: 'Fact Sales Order Details'.PRINTER_CUST_KEY
 	toColumn: 'Printer Customer'.CUST_KEY
 
 relationship 540f86ee-305d-3105-472d-08390afc71f0
-	fromColumn: 'Sales Order Details Fact'.EMPL_RESPNSBLE_2_KEY
+	fromColumn: 'Fact Sales Order Details'.EMPL_RESPNSBLE_2_KEY
 	toColumn: 'Employee Responsible Personnel 2'.PERSONEL_KEY
 
 relationship ba24d104-0b09-c23d-2bbd-f66af4e4ffc4
-	fromColumn: 'Sales Order Details Fact'.CUST_POJECT_MGR_KEY
+	fromColumn: 'Fact Sales Order Details'.CUST_POJECT_MGR_KEY
 	toColumn: 'Customer Project Manager'.CUST_CONTACT_KEY
 
 relationship fd05d38d-021e-4aa4-9a6a-66da403a4db9
-	fromColumn: 'Sales Order Details Fact'.SUPLR_CUST_KEY
+	fromColumn: 'Fact Sales Order Details'.SUPLR_CUST_KEY
 	toColumn: 'Supplier Customer'.CUST_KEY
 
 relationship 0ca9a818-2c39-0ba0-8c33-ec931ac741ba
-	fromColumn: 'Sales Order Details Fact'.BILLTO_CUST_KEY
+	fromColumn: 'Fact Sales Order Details'.BILLTO_CUST_KEY
 	toColumn: 'Bill To Customer'.CUST_KEY
 
 relationship 5860bb19-97ef-242d-554b-7dd1ed519449
-	fromColumn: 'Sales Order Details Fact'.EMPL_RESPNSBLE_KEY
+	fromColumn: 'Fact Sales Order Details'.EMPL_RESPNSBLE_KEY
 	toColumn: 'Employee Responsible Personnel'.PERSONEL_KEY
 
 relationship 78c8b243-1f76-78e5-0143-36a79ebe8d27
-	fromColumn: 'Sales Order Details Fact'.AGENCY_CUST_KEY
+	fromColumn: 'Fact Sales Order Details'.AGENCY_CUST_KEY
 	toColumn: 'Agency Customer'.CUST_KEY
 
 relationship ceb25847-e5e9-d4ef-52bb-73776cc421ff
-	fromColumn: 'Sales Order Details Fact'.FORWARDING_AGENT_VENDOR_KEY
+	fromColumn: 'Fact Sales Order Details'.FORWARDING_AGENT_VENDOR_KEY
 	toColumn: 'Forwarding Agent Vendor'.VNDR_KEY
 
 relationship 7f40812d-2e02-4099-5796-d066e08902be
-	fromColumn: 'Sales Order Details Fact'.UNITIZATION_AGENT_VNDR_KEY
+	fromColumn: 'Fact Sales Order Details'.UNITIZATION_AGENT_VNDR_KEY
 	toColumn: 'Unitization Agent Vendor'.VNDR_KEY
 
 relationship 5a7f7c3d-e95d-2db0-9ab1-7c8485a0a562
-	fromColumn: 'Sales Order Details Fact'.ORDER_FOR_CUSTOMER_ADDR_KEY
+	fromColumn: 'Fact Sales Order Details'.ORDER_FOR_CUSTOMER_ADDR_KEY
 	toColumn: 'Order For Customer'.ADDR_KEY
 
 relationship 9a0d84a4-8d60-320e-4537-6d690b4515ad
-	fromColumn: 'Sales Order Details Fact'.ORDER_KEY
+	fromColumn: 'Fact Sales Order Details'.ORDER_KEY
 	toColumn: Order.ORDER_KEY
 
 relationship c8e3f244-5ed6-fe93-7a67-636aa654f850
-	fromColumn: 'Sales Order Details Fact'.SO_PARENT_CUST_KEY
+	fromColumn: 'Fact Sales Order Details'.SO_PARENT_CUST_KEY
 	toColumn: 'SO Parent Customer'.CUST_KEY
 
 relationship e3dc0515-e697-f0a9-5e59-d86e3173c189
-	fromColumn: EDW_V_D_SAL_PRDVCON_CUR_D.V_D_SAL_PRDVCON_KEY
-	toColumn: 'Sales Order Details Fact'.V_D_SAL_PRDVCON_KEY
+	fromColumn: 'Product Variant Configuration'.V_D_SAL_PRDVCON_KEY
+	toColumn: 'Fact Sales Order Details'.V_D_SAL_PRDVCON_KEY
 
 relationship b65dad7b-2ce3-b22f-5f30-b3fc105dfa28
-	fromColumn: 'Sales Order Details Fact'.PERSON_RESPNSBLE_COST_CNTR_H_HEIR_KEY
+	fromColumn: 'Fact Sales Order Details'.PERSON_RESPNSBLE_COST_CNTR_H_HEIR_KEY
 	toColumn: 'Person Resp Cost Center Horizontal Hierarchy'.COST_CNTR_KEY
+
+relationship 33b5fe57-4039-575e-add7-29c7eac754d3
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Fact Sales Order Details'.SOIPTNR_KEY
+	toColumn: 'Sales Order Item Partner'.SOIPTNR_KEY
+
+relationship f685207d-dcfa-56a3-f7ec-bac1024dff0a
+	fromColumn: 'Fact Sales Order Details'.SAL_SALORDH_CREATED_DATE_KEY
+	toColumn: 'Sales Order Header Creation Date'.DATE_KEY
 

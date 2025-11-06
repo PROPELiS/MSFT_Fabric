@@ -1,0 +1,141 @@
+table 'Propelis CUSTOMER_PROJECT_MANAGER'
+	lineageTag: 4003ac2c-2193-42d8-b732-8af96d4c279d
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: be41bc93-28b4-425a-9f21-cffd67cdf837
+		summarizeBy: sum
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Contact Person ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a21a64e5-8ced-4aea-89ad-ac4b9d9a980f
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Customer ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 918f5acd-9d39-44cb-9a3c-f62633cecf9f
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager First Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 54e0c7a4-99c7-4fc1-8c18-dc56cd99d26f
+		summarizeBy: none
+		sourceColumn: Customer Project Manager First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d3170f02-6ae5-4eb8-8f2b-8354197c8aee
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Contact Person Dept'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 65317990-13e0-4444-8cc5-cfcc9fb1b6c1
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person Dept
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Contact Person Dept Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 65ef76a6-6b09-4a32-aa68-61a43a75f484
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person Dept Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6633e4b1-8af3-40c0-8900-27eb64abc1c1
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: d867a3be-f001-4ea7-800b-0df1d0caa27f
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 80f62da2-432e-425c-8ad2-6e35ccef74ea
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 19f1b081-c3d1-4939-b579-509fde4b5b51
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 643f15fd-8e56-421f-b958-9585280c96ca
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: aa445292-c616-4a6a-a992-6aba740dfefe
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Propelis CUSTOMER_PROJECT_MANAGER' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_CUSTOMER_PROJECT_MANAGER = Source{[Schema="Propelis",Item="CUSTOMER_PROJECT_MANAGER"]}[Data]
+				in
+				    Propelis_CUSTOMER_PROJECT_MANAGER
+
+	annotation PBI_ResultType = Table
+

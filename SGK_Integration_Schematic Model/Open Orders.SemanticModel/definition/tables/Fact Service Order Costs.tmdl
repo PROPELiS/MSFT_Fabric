@@ -1,0 +1,844 @@
+table 'Fact Service Order Costs'
+	lineageTag: 4fac175c-975c-43d8-8017-d93b81cab8b7
+
+	measure 'Actual Costs Company Currency' =
+			CALCULATE(
+			    SUM('Fact Service Order Costs'[CMPNY_CRNCY_VAL]),
+			    FILTER(
+			        'Fact Service Order Costs',
+			        'Fact Service Order Costs'[TRNSCTN_TYP] = "RKL"
+			    )
+			)
+		lineageTag: 9bfc3283-afc6-4f9f-92bd-badb68143490
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Actual Costs Document Currency' =
+			CALCULATE(
+			    SUM('Fact Service Order Costs'[DOCMT_CRNCY_VAL]),
+			    FILTER(
+			        'Fact Service Order Costs',
+			        'Fact Service Order Costs'[TRNSCTN_TYP] = "RKL"
+			    )
+			)
+		lineageTag: f5367e53-7697-407d-8f57-8e0e686b30e3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Actual Costs Group Currency' =
+			CALCULATE(
+			    SUM('Fact Service Order Costs'[GROUP_CRNCY_VAL]),
+			    FILTER(
+			        'Fact Service Order Costs',
+			        'Fact Service Order Costs'[TRNSCTN_TYP] = "RKL"
+			    )
+			)
+		lineageTag: ba154ef9-d846-49d5-b009-82c14628976d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Company Currency Value' = sum('Fact Service Order Costs'[CMPNY_CRNCY_VAL])
+		lineageTag: 80e69b36-1cfc-4637-9801-9d444c4e2e3c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Document Currency Value' = sum('Fact Service Order Costs'[DOCMT_CRNCY_VAL])
+		lineageTag: f09ce8c9-794f-41e4-918d-b400c1a541c3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Group Currency Value' = sum('Fact Service Order Costs'[GROUP_CRNCY_VAL])
+		lineageTag: 181f0469-6745-41cd-9cb7-581aed1e2cef
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Quantity Total' = sum('Fact Service Order Costs'[QTY_TOTAL])
+		lineageTag: c1497a80-c31e-48a8-8766-a61fd29eb9c0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Labor Hours' =
+			
+			CALCULATE(
+			    [Quantity Total],
+			    'Cost Element Horizontal Hierarchy'[Cost Element Level 1 ID HH] = "ZBI_COST.LAB"
+			)
+		lineageTag: 25d3d45c-624d-4b99-9dde-c18fe33b4399
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Labor Cost' =
+			
+			CALCULATE(
+			    [Company Currency Value],
+			    'Cost Element Horizontal Hierarchy'[Cost Element Level 1 ID HH] = "ZBI_COST.LAB"
+			)
+		lineageTag: b17768df-4a8a-45ab-8604-05a740f4aad8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Labor Cost - PROFIT CENTER WORKED' =
+			
+			VAR ProfitCenterSub =
+			    ADDCOLUMNS (
+			        'Profit Center',
+			        "PC_Sub", MID ( 'Profit Center'[Profit Center ID], 5, 4 )
+			    )
+			VAR PartnerSub =
+			    ADDCOLUMNS (
+			        'Partner Cost Center',
+			        "PCC_Sub", MID ( 'Partner Cost Center'[Partner Cost Center ID], 4, 4 )
+			    )
+			RETURN
+			CALCULATE (
+			    [Company Currency Value],
+			    'Cost Element Horizontal Hierarchy'[Cost Element Level 1 ID HH] = "ZBI_COST.LAB",
+			    TREATAS (
+			        SELECTCOLUMNS ( ProfitCenterSub, "SubCode", [PC_Sub] ),
+			        'Partner Cost Center'[Partner Cost Center ID]
+			    ),
+			    TREATAS (
+			        SELECTCOLUMNS ( PartnerSub, "SubCode", [PCC_Sub] ),
+			        'Profit Center'[Profit Center ID]
+			    )
+			) + 0
+		lineageTag: 5107c990-eebf-4d08-87d4-39e2293cf18a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Labor Hours - PROFIT CENTER WORKED' =
+			
+			VAR ProfitCenterSub =
+			    ADDCOLUMNS (
+			        'Profit Center',
+			        "PC_Sub", MID ( 'Profit Center'[Profit Center ID], 5, 4 )
+			    )
+			VAR PartnerSub =
+			    ADDCOLUMNS (
+			        'Partner Cost Center',
+			        "PCC_Sub", MID ( 'Partner Cost Center'[Partner Cost Center ID], 4, 4 )
+			    )
+			RETURN
+			CALCULATE (
+			    [Quantity Total],
+			    'Cost Element Horizontal Hierarchy'[Cost Element Level 1 ID HH] = "ZBI_COST.LAB",
+			    TREATAS (
+			        SELECTCOLUMNS ( ProfitCenterSub, "SubCode", [PC_Sub] ),
+			        'Partner Cost Center'[Partner Cost Center ID]
+			    ),
+			    TREATAS (
+			        SELECTCOLUMNS ( PartnerSub, "SubCode", [PCC_Sub] ),
+			        'Profit Center'[Profit Center ID]
+			    )
+			) + 0
+		lineageTag: 594602ed-78c8-49a9-bdc3-31ec8eb30aaa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Labor Hours - TRANSFERRED - INTRA' =
+			
+			CALCULATE(
+			    [Quantity Total],
+			    'Fact Service Order Costs'[Is INTRA Company Posting] = "Y",
+			    'Fact Service Order Costs'[Transaction Type Description] <> "COIN",
+			    'Cost Element Horizontal Hierarchy'[Cost Element Level 1 ID HH] = "ZBI_COST.LAB"
+			) + 0
+		lineageTag: 1bc0db0d-3327-4434-adb5-9bb9d8eeaaf7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Labor Cost - TRANSFERRED - INTRA' =
+			
+			CALCULATE(
+			    [Company Currency Value],
+			    'Fact Service Order Costs'[Is INTRA Company Posting] = "Y",
+			    'Cost Element Horizontal Hierarchy'[Cost Element Level 1 ID HH] = "ZBI_COST.LAB"
+			) + 0
+		lineageTag: 487ddb86-2468-4aff-ae42-1b7616140c05
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Labor Hours - TRANSFERRED - INTER' =
+			
+			CALCULATE(
+			    [Quantity Total],
+			    'Fact Service Order Costs'[Is INTER Company Posting] = "Y",
+			    'Cost Element Horizontal Hierarchy'[Cost Element Level 1 ID HH] = "ZBI_COST.LAB"
+			) + 0
+		lineageTag: 7716c6c6-3a92-4f71-930b-95b4ef37ff82
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Labor Cost - TRANSFERRED - INTER' =
+			CALCULATE(
+			    [Company Currency Value],
+			    'Fact Service Order Costs'[Is INTER Company Posting] = "Y",
+			    'Cost Element Horizontal Hierarchy'[Cost Element Level 1 ID HH] = "ZBI_COST.LAB"
+			) + 0
+		lineageTag: d12132f1-bb1d-434d-a4ad-bcad10170687
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Material Cost' =
+			
+			CALCULATE(
+			    [Company Currency Value],
+			    'Cost Element Horizontal Hierarchy'[Cost Element Level 1 ID HH] = "ZBI_COST.MAT"
+			) + 0
+		lineageTag: 6e19034d-4394-4413-944f-d79421ee3e83
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Outside Purchase Cost' =
+			
+			CALCULATE(
+			    [Company Currency Value],
+			    'Cost Element Horizontal Hierarchy'[Cost Element Level 1 ID HH] = "ZBI_COST.OPC"
+			) + 0
+		lineageTag: f61ac225-a03d-43d3-b6bd-541f0dcf31f4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inter Company Costs' =
+			
+			CALCULATE(
+			    [Company Currency Value],
+			    'Cost Element Horizontal Hierarchy'[Cost Element Level 1 ID HH] = "ZBI_COST.ICC"
+			) + 0
+		lineageTag: 66eeab28-972f-454b-993e-413a9a26e787
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Other Cost' =
+			
+			CALCULATE(
+			    [Company Currency Value],
+			    'Cost Element Horizontal Hierarchy'[Cost Element Level 1 ID HH] = "ZBI_COST.OTH"
+			) + 0
+		lineageTag: f1660ba0-9d7c-4599-9c1b-6ef5aaa73797
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Costs In Local Currency' =
+			
+			[Total Labor Cost] +
+			[Material Cost] +
+			[Inter Company Costs] +
+			[Outside Purchase Cost] +
+			[Other Cost]
+		lineageTag: 6c939d6a-9671-4f3e-a465-3ea17c2029b6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure NRV = [Company Currency Net Value Amount]-[Total Costs In Local Currency]
+		lineageTag: db6706af-3483-4aba-8816-4097df4fc41c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SERVC_ORDER_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5ef6d2dc-5a66-453a-923b-77a81a6de676
+		summarizeBy: none
+		sourceColumn: SERVC_ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCING_PLNT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: db68a482-5a91-4e63-8580-88c9df202b40
+		summarizeBy: none
+		sourceColumn: PRODUCING_PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Document Number'
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b904d646-4446-4acc-96bb-f65e586108a7
+		summarizeBy: sum
+		sourceColumn: Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e403d17d-db02-4951-b06d-6caf272b4e7a
+		summarizeBy: sum
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: afc5468b-036b-45d7-ba43-135477edff38
+		summarizeBy: none
+		sourceColumn: DOCMT_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ff52e127-a4de-45aa-bfcb-33fdfea64b7a
+		summarizeBy: none
+		sourceColumn: CMPNY_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROUP_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7079a7d7-067b-4838-994b-6e35a2ac361d
+		summarizeBy: none
+		sourceColumn: GROUP_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_VAL
+		dataType: double
+		sourceProviderType: decimal(18, 3)
+		lineageTag: bc74310c-0e5c-4296-b63b-15ab4eb07e19
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_VAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CMPNY_CRNCY_VAL
+		dataType: double
+		sourceProviderType: decimal(18, 3)
+		lineageTag: f2545bbb-86e6-4a01-9efc-89ee7f002a7f
+		summarizeBy: sum
+		sourceColumn: CMPNY_CRNCY_VAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GROUP_CRNCY_VAL
+		dataType: double
+		sourceProviderType: decimal(18, 3)
+		lineageTag: 396c40ed-ed1c-4920-b5e2-3be2ce13ebad
+		summarizeBy: sum
+		sourceColumn: GROUP_CRNCY_VAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTY_TOTAL
+		dataType: double
+		sourceProviderType: decimal(18, 3)
+		lineageTag: 503fc945-980b-4fdd-992a-be3233639e0e
+		summarizeBy: sum
+		sourceColumn: QTY_TOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UoM
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c6af4e95-49eb-472d-9fad-65461793e494
+		summarizeBy: none
+		sourceColumn: UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fb5053ea-0b23-4a28-aaff-00ac9c7e4c97
+		summarizeBy: sum
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d5602f62-98e7-4119-8a4d-ded0d7570e69
+		summarizeBy: none
+		sourceColumn: Value Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c549c70a-5346-4a0c-ba7d-ead2b81a582f
+		summarizeBy: none
+		sourceColumn: COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRNSCTN_TYP
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: bd83aa69-c4bd-4f64-b74d-7ac729799037
+		summarizeBy: none
+		sourceColumn: TRNSCTN_TYP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Object'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 84971c31-d0a3-49c2-9a44-1c3e19aaf1fb
+		summarizeBy: none
+		sourceColumn: Partner Object
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ff4a2545-3cf7-4316-853a-1956c7caf896
+		summarizeBy: none
+		sourceColumn: MATRL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 284cfdfa-9650-4bcf-84b2-786ef7846599
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bc457f2c-72cd-4a66-b3f0-259d3d9ac4d6
+		summarizeBy: none
+		sourceColumn: PRTNR_CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d60b4a4c-08ba-44ee-9f69-39c566e2a065
+		summarizeBy: none
+		sourceColumn: Order Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Category'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 06275b40-f487-4340-83e1-f3074eb8c90a
+		summarizeBy: none
+		sourceColumn: Order Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column MAINTENANCE_WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 526331e5-efef-46cc-9c93-b823a27cc7d5
+		summarizeBy: none
+		sourceColumn: MAINTENANCE_WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Object Class'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5a01b966-2ad7-499b-a5d5-3b7e2b74822f
+		summarizeBy: none
+		sourceColumn: Object Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESPNSBLE_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e857c143-0454-4691-8745-f19e2216ad78
+		summarizeBy: none
+		sourceColumn: RESPNSBLE_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6b88ef34-194b-469a-af94-29d82a7942a1
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2e48e32e-8e4e-4a04-ad0c-860b3df630b6
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 68700d71-150a-47c1-9d14-55731fd017ba
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: d8625d75-deb7-4fbd-bdb7-969b6c6f6860
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOC_PLNT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 46d1e8fd-ff26-47ee-8729-1c48d5a757d7
+		summarizeBy: none
+		sourceColumn: LOC_PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Type Of Cost'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ad5cfc7c-b370-4900-b5d4-3f71946e5992
+		summarizeBy: none
+		sourceColumn: Type Of Cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSONEL_NUM_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5283128f-54a0-4b98-a149-d99e5159b02f
+		summarizeBy: none
+		sourceColumn: PERSONEL_NUM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 57607f14-8bb8-4a33-ae1f-9150dca5b51d
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Debit/Credit Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3a7ded4b-069f-4539-909b-1b0835295b4e
+		summarizeBy: none
+		sourceColumn: Debit/Credit Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reference Document Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b5126ea1-354c-4c38-8d3e-3661c29fb116
+		summarizeBy: none
+		sourceColumn: Reference Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Controlling Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5abf83ed-20a9-408a-b541-beb6cdc9c216
+		summarizeBy: none
+		sourceColumn: Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 76f88836-2c86-4400-a6f6-1fd22b9fc656
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSTNG_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 67d59d57-5c85-4563-935d-6bfc786dd40f
+		summarizeBy: none
+		sourceColumn: PSTNG_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3a56cb97-428b-4a77-809a-66878035f1bb
+		summarizeBy: none
+		sourceColumn: Value Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 840d1b0d-8126-48e2-8463-f9bbde8397a8
+		summarizeBy: none
+		sourceColumn: Transaction Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Controlling Area Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cf547d66-b8a0-46a1-bded-bebcdf3bca53
+		summarizeBy: none
+		sourceColumn: Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Internal  Posting'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2966d5df-598c-4ea5-aa13-7c2f773a9365
+		summarizeBy: none
+		sourceColumn: Is Internal  Posting
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_TYP_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 41300f08-2acc-475a-b48a-ef806afb432f
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Row'
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9480b172-9438-4097-ba9a-6a726fcb1a2c
+		summarizeBy: sum
+		sourceColumn: Posting Row
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is INTER Company Posting'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 090a9e0c-e837-4d8a-8fc4-324febfb554e
+		summarizeBy: none
+		sourceColumn: Is INTER Company Posting
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is INTRA Company Posting'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 08baa3e7-909e-40f1-a57b-7f6e9ba3369a
+		summarizeBy: none
+		sourceColumn: Is INTRA Company Posting
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 13b998b9-b607-4785-9b13-8ed1d835dab6
+		summarizeBy: none
+		sourceColumn: PRTNR_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TCHNCL_COMPLETION_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e750994e-3155-448a-9731-cca26db5eeda
+		summarizeBy: none
+		sourceColumn: TCHNCL_COMPLETION_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 263d40f0-42f8-4056-a638-fa1f4867acce
+		summarizeBy: none
+		sourceColumn: DOCMT_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREATION_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e090fd86-01e7-4760-b769-8640ba14ba0e
+		summarizeBy: none
+		sourceColumn: CREATION_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Creation Date Timestamp'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 19b8022e-010b-4f29-9437-d85ff26eabe6
+		summarizeBy: none
+		sourceColumn: Posting Creation Date Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSONNEL_PLANT_REGION_PLANT
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9f916bb4-42da-4b90-b23a-02dccd00eb53
+		summarizeBy: none
+		sourceColumn: PERSONNEL_PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANT_REGION_PLANT
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 51ad0bd7-484a-491f-9711-4dedb72de514
+		summarizeBy: none
+		sourceColumn: PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOCATION_PLANT_REGION_PLANT
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8dd7ce63-58f1-4480-9bcd-7ee9f286ab31
+		summarizeBy: none
+		sourceColumn: LOCATION_PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCING_PLANT_REGION_PLANT
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 381aa576-aaec-4189-86fe-0fb5e3cd15e6
+		summarizeBy: none
+		sourceColumn: PRODUCING_PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCHZ_CNTR_KEY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dfdf3f54-611e-4516-a044-b9566ae82278
+		summarizeBy: none
+		sourceColumn: PROFCHZ_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCVZ_CNTR_KEY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 667c326c-84b4-4167-a048-7f1c7ce4f641
+		summarizeBy: none
+		sourceColumn: PROFCVZ_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column WORKCHZ_CNTR_KEY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5e263cac-671e-411f-b6c4-0a03fbffbdf9
+		summarizeBy: none
+		sourceColumn: WORKCHZ_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column WORKCVZ_CNTR_KEY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c315ff7a-b2e1-4c31-9c89-3686cd829a9d
+		summarizeBy: none
+		sourceColumn: WORKCVZ_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTEHZ_ELEMNT_KEY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 48e755bf-a232-44f7-b673-cc05bd5c2773
+		summarizeBy: none
+		sourceColumn: COSTEHZ_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTEVZ_ELEMNT_KEY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b00ed329-1aa0-4d89-a5da-d3de24630fec
+		summarizeBy: none
+		sourceColumn: COSTEVZ_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Sales Order'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3d4f0532-acc1-4cad-88d2-58bbe564fb52
+		summarizeBy: none
+		sourceColumn: Service Order Sales Order
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact Service Order Costs' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_EDW_T_FACT_PRD_SERVCST_CUR_D = Source{[Schema="Propelis",Item="EDW_T_FACT_PRD_SERVCST_CUR_D"]}[Data]
+				in
+				    Propelis_EDW_T_FACT_PRD_SERVCST_CUR_D
+

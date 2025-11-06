@@ -1,0 +1,99 @@
+table 'Partner segment'
+	lineageTag: 87cbf7c9-3d8b-41c2-9ccd-730af8f87e8d
+	sourceLineageTag: [Propelis].[PARTNER_SEGMENT]
+
+	column SEG_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f3a29a2-a337-42b6-b88e-84cc029a43a4
+		sourceLineageTag: SEG_KEY
+		summarizeBy: none
+		sourceColumn: SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Segment Name'
+		dataType: string
+		lineageTag: 15b16e4a-70c2-4bd3-981d-9b9bc4077d68
+		sourceLineageTag: Partner Segment Name
+		summarizeBy: none
+		sourceColumn: Partner Segment Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Segment'
+		dataType: string
+		lineageTag: 3ed39119-65f8-4eaa-954d-74e7258a7262
+		sourceLineageTag: Partner Segment
+		summarizeBy: none
+		sourceColumn: Partner Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 4fdf13e8-bbfd-4a30-b1a1-70d68d109eec
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c759f95e-d7df-47c6-ae94-6b2c9230fba2
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 648e4afe-fef8-4c97-b4e1-0bd827fa2e3b
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: f0a83605-fa8f-4207-ac47-054e57660372
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 45438c88-d568-4487-9801-933586019f91
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 09788ba3-f25a-4317-b9ff-1497d1a8ad8b
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Partner segment' = entity
+		mode: directLake
+		source
+			entityName: PARTNER_SEGMENT
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

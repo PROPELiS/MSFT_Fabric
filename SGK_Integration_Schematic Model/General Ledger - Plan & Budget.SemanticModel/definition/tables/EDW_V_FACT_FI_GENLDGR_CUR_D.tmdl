@@ -1,0 +1,1104 @@
+table EDW_V_FACT_FI_GENLDGR_CUR_D
+	lineageTag: dcc6500f-8054-4440-bda9-c2e32168c490
+
+	measure 'Company Currency Amount' = sum(EDW_V_FACT_FI_GENLDGR_CUR_D[CMPNY_CRNCY_AMT])
+		lineageTag: ee875ade-3e9d-463d-a15c-c339c0446b80
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Document Currency Amount' = sum(EDW_V_FACT_FI_GENLDGR_CUR_D[DOCMT_CRNCY_AMT])
+		lineageTag: b0db7270-5507-4404-a58c-ad4d7aecd026
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Group Currency Amount' = sum(EDW_V_FACT_FI_GENLDGR_CUR_D[GROUP_CRNCY_AMT])
+		lineageTag: dcef941d-965c-47fa-a1c2-379583ccc311
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Transaction Currency Amount' = sum(EDW_V_FACT_FI_GENLDGR_CUR_D[TRNSCTN_CRNCY_AMT])
+		lineageTag: 5391beff-b498-4d3e-b0a2-a68ea8a09b87
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Company Currency Tax Amount' = sum(EDW_V_FACT_FI_GENLDGR_CUR_D[CMPNY_CRNCY_TAX_AMT])
+		lineageTag: 37c871f3-4912-47bc-b1df-bdb74fe18bae
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Document Currency Tax Amount' = sum(EDW_V_FACT_FI_GENLDGR_CUR_D[DOCMT_CRNCY_TAX_AMT])
+		lineageTag: a0de5026-063f-469a-9b46-d7d55073900a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'GL Quantity' = sum(EDW_V_FACT_FI_GENLDGR_CUR_D[QTY])
+		lineageTag: 6546d367-8a4e-485d-8c1e-b510d9319015
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'GL Amount for Updating in GL' = sum(EDW_V_FACT_FI_GENLDGR_CUR_D[AMT_FOR_UPDATING_IN_GL])
+		lineageTag: f529de11-6897-4b3e-acde-72e7fadacf52
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 28ffd1c5-df4b-4ba6-936d-d71681b9aa3b
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Fiscal Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 20c2a944-137d-4da5-913d-af3187e68207
+		summarizeBy: sum
+		sourceColumn: GL Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d3bd1a07-84ea-4b7c-bcde-69a4d024fad5
+		summarizeBy: none
+		sourceColumn: GL Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Ledger'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9cf0813a-6e5b-41df-bf76-7e27311ba90d
+		summarizeBy: none
+		sourceColumn: GL Ledger
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Line Item'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 81bbb784-bdc0-4f7f-97a6-dacf7175146b
+		summarizeBy: sum
+		sourceColumn: GL Document Line Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Controlling Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9c5d7b6e-43f5-4d0f-acb0-e45e46e77593
+		summarizeBy: none
+		sourceColumn: GL Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRNSCTN_CRNCY_AMT
+		dataType: double
+		sourceProviderType: decimal(23, 2)
+		lineageTag: b303803c-c237-4cab-b1c6-3b4285eb23f6
+		summarizeBy: sum
+		sourceColumn: TRNSCTN_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CMPNY_CRNCY_AMT
+		dataType: double
+		sourceProviderType: decimal(23, 2)
+		lineageTag: 5f061f36-33fb-4532-ae59-6cb692c66fb0
+		summarizeBy: sum
+		sourceColumn: CMPNY_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GROUP_CRNCY_AMT
+		dataType: double
+		sourceProviderType: decimal(23, 2)
+		lineageTag: 1378bd34-e945-4f3d-bc52-c97d8e93dc3d
+		summarizeBy: sum
+		sourceColumn: GROUP_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TRNSCTN_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 82ec19f8-9bc9-4203-8dc4-5f0aeb4ac793
+		summarizeBy: none
+		sourceColumn: TRNSCTN_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3e379b20-10f5-48bd-8c9e-4885837f142a
+		summarizeBy: none
+		sourceColumn: CMPNY_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROUP_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d89388f3-beef-40b6-8af4-5f0d1502b4c4
+		summarizeBy: none
+		sourceColumn: GROUP_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Item Category'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e2068c46-d77c-40c2-9b16-af80d6923c14
+		summarizeBy: none
+		sourceColumn: GL Item Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Fiscal Period'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 755b4743-b8de-4246-a2b5-dad4ac6cac68
+		summarizeBy: sum
+		sourceColumn: GL Fiscal Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Line Item ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 50a0d071-ea18-42a9-96f0-1490806de937
+		summarizeBy: none
+		sourceColumn: GL Document Line Item ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Clearing Fiscal Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e262f7a8-d8f6-4faf-89bc-ddef49ec4c12
+		summarizeBy: sum
+		sourceColumn: GL Clearing Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Clearing Item'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a30dd0fc-0a19-4991-9cc8-6f563e1c9fe0
+		summarizeBy: sum
+		sourceColumn: GL Clearing Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 25f03206-a3b8-4f51-a368-af9112aacee0
+		summarizeBy: none
+		sourceColumn: CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column VNDR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6fbfb13d-4ec0-4c8a-9571-147925539ed1
+		summarizeBy: none
+		sourceColumn: VNDR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reason Code for Payments'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0709f311-ec3c-4e76-8e8f-b435ea021e83
+		summarizeBy: none
+		sourceColumn: GL Reason Code for Payments
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reference Date for Settlement'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 8f9f840f-3f27-4841-9966-1380a68441a7
+		summarizeBy: none
+		sourceColumn: GL Reference Date for Settlement
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'GL Business Partner Reference Key'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e0b79d91-eac6-4850-9981-2d060f12b67d
+		summarizeBy: none
+		sourceColumn: GL Business Partner Reference Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Business Partner Reference Key 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 15a8f191-dc1c-46e5-ac23-9fb7b25526f7
+		summarizeBy: none
+		sourceColumn: GL Business Partner Reference Key 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Special GL Transaction Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4ccb0837-284b-493b-ad81-424cb34e6635
+		summarizeBy: none
+		sourceColumn: GL Special GL Transaction Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Special GL Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4b88190e-c4f5-4df2-9e84-ae63874b112f
+		summarizeBy: none
+		sourceColumn: GL Special GL Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Transaction Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d3672375-83a8-4145-8a4a-bad8cc346aed
+		summarizeBy: none
+		sourceColumn: GL Transaction Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Value Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 80ba4062-fd92-409d-aa02-e5376a46ee7a
+		summarizeBy: none
+		sourceColumn: GL Value Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'GL Assignment Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9028261f-fba1-4d0f-9c3e-215d42b6af58
+		summarizeBy: none
+		sourceColumn: GL Assignment Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Item Text'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fca82667-c2f1-436f-b43e-2e7c9d1ecf2a
+		summarizeBy: none
+		sourceColumn: GL Item Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Quantity UOM'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6cbfa081-405d-45eb-a98f-96d46fb2ad92
+		summarizeBy: none
+		sourceColumn: GL Quantity UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fdad661c-41d4-4024-a7a2-c8c40b19f85f
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Update Currency'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ead01aac-7d65-402d-b98a-11bdbe2b470d
+		summarizeBy: none
+		sourceColumn: GL Update Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Is Open Item Management'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7f2a9085-0fcd-4e76-8dcf-1fb23ede44bf
+		summarizeBy: none
+		sourceColumn: GL Is Open Item Management
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Tax Jurisdiction'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cbfb0335-aabc-461a-bb0c-afdf61e3b481
+		summarizeBy: none
+		sourceColumn: GL Tax Jurisdiction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Tax On Sales Or Purchases'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cbc6d46b-939f-4cfd-91bf-d6cf1c12758d
+		summarizeBy: none
+		sourceColumn: GL Tax On Sales Or Purchases
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Tax Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f95c4035-aee8-49d2-b982-d7c634fe1348
+		summarizeBy: none
+		sourceColumn: GL Tax Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRADING_PRTNR_CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 81e1ff4d-dd18-4307-b49a-948e603f47b7
+		summarizeBy: none
+		sourceColumn: TRADING_PRTNR_CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column WBS_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1259fbd3-bbf3-4467-b132-174d8e38f5d1
+		summarizeBy: none
+		sourceColumn: WBS_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Account Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1102d3cb-27b6-42a9-8de4-f41245a00789
+		summarizeBy: none
+		sourceColumn: GL Account Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c84977c6-aa43-48af-aa3f-9921a085d356
+		summarizeBy: none
+		sourceColumn: PRTNR_FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2b20635c-2cd4-4b64-9095-9a5b263878a7
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 79c4ea9e-4a8f-4fbf-b33f-35cfe75a6dce
+		summarizeBy: none
+		sourceColumn: COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reference Key for Line Item'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 307d0c72-b70c-4048-abca-5f70fc23a193
+		summarizeBy: none
+		sourceColumn: GL Reference Key for Line Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Payment Reference'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f674f9bd-5013-4749-9ce4-9de91f512825
+		summarizeBy: none
+		sourceColumn: GL Payment Reference
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 90a1452f-3845-42af-866c-026e45065adb
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLEARING_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: daa35966-e2a9-4be7-8727-5d9c23d265f2
+		summarizeBy: none
+		sourceColumn: CLEARING_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Clearing Document Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9563f8df-d8ee-4d1e-b8bf-cc9f138b63b6
+		summarizeBy: none
+		sourceColumn: GL Clearing Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b88bd524-0e43-478a-a6dc-745dd36e3ce0
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEG_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 50787f84-2992-4c4f-bc89-8fcd53685fe8
+		summarizeBy: none
+		sourceColumn: SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Debit/Credit Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4eeb5353-4913-4f55-ba75-40007e7dc6d2
+		summarizeBy: none
+		sourceColumn: GL Debit/Credit Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Posting Key'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7dc0baab-6933-4e84-abb4-cd71f01377d1
+		summarizeBy: none
+		sourceColumn: GL Posting Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Invoice Document Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 70e53e27-2972-4578-ba29-4014535b386b
+		summarizeBy: none
+		sourceColumn: GL Invoice Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column GL_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2f6249e4-4a02-4c31-bf5d-f77ba48d6412
+		summarizeBy: none
+		sourceColumn: GL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e2d563fa-8d0f-4cfe-9a6c-6df868f01a8f
+		summarizeBy: none
+		sourceColumn: MATRL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e3b21871-c82e-4013-a5e4-f72ae51bfda4
+		summarizeBy: none
+		sourceColumn: PRTNR_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_SEG_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9b97d7b2-6ada-448f-aabb-460ff858005d
+		summarizeBy: none
+		sourceColumn: PRTNR_SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b6b58d7e-0b6c-422c-8651-476375e4db93
+		summarizeBy: none
+		sourceColumn: GL Document Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Ledger in GL Accounting'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f5c86c37-56d1-4717-83f4-c5a15b8125b8
+		summarizeBy: none
+		sourceColumn: GL Ledger in GL Accounting
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a12bebe1-2fc6-474b-8ed0-6d42efa3b464
+		summarizeBy: none
+		sourceColumn: DOCMT_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Creation Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 96727f23-053d-4940-bf28-cd4aded1bf90
+		summarizeBy: none
+		sourceColumn: GL Document Creation Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'GL Document Creation Time'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6812ec88-7491-4c2e-849c-4012cfed1998
+		summarizeBy: sum
+		sourceColumn: GL Document Creation Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Creation User Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6d6bde4b-a149-4c61-9635-405d36c432ff
+		summarizeBy: none
+		sourceColumn: GL Document Creation User Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSTNG_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9bb6e385-d823-41af-a3a4-5e37a3bded66
+		summarizeBy: none
+		sourceColumn: PSTNG_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Business Transaction'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1d6cb183-5d73-4508-be40-d2920bde9c25
+		summarizeBy: none
+		sourceColumn: GL Business Transaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Status'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ba0d983d-133d-45ce-b5e3-091914c42c0d
+		summarizeBy: none
+		sourceColumn: GL Document Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reference Document Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3deb1707-4134-4706-98b1-a951b70b4f53
+		summarizeBy: none
+		sourceColumn: GL Reference Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reference Key'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4ca75898-084c-474e-8aac-a8795a669769
+		summarizeBy: none
+		sourceColumn: GL Reference Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reference Transaction'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9b53ea47-86a9-40a6-8f9f-d865cea9e28c
+		summarizeBy: none
+		sourceColumn: GL Reference Transaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column BILLING_DOCMT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7ddc93e4-ecb1-4ce2-aab5-f564eb78bc8c
+		summarizeBy: none
+		sourceColumn: BILLING_DOCMT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Order Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 33493cc7-9c50-42b1-b492-6c3978dad46d
+		summarizeBy: none
+		sourceColumn: GL Order Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Purchase Order Item ID'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a5cc1b59-e92a-46e0-bbbf-eb8d8e45f6e8
+		summarizeBy: count
+		sourceColumn: GL Purchase Order Item ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PURCHS_ORDER_ITM_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d5295e34-def0-4a0d-a341-5f20f57afb2e
+		summarizeBy: none
+		sourceColumn: PURCHS_ORDER_ITM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Sales Order Item ID'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0edda9c0-e94e-4c43-a4dd-c487b12ba653
+		summarizeBy: count
+		sourceColumn: GL Sales Order Item ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_ORDER_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c460d09b-1d6a-494d-b227-25479366f132
+		summarizeBy: none
+		sourceColumn: SALES_ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column LCL_CRNCY_3_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2b429d8c-3870-4cb7-b929-4a1bcbd54119
+		summarizeBy: sum
+		sourceColumn: LCL_CRNCY_3_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Parked Document User Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3f7ac133-6c04-43a6-939f-4b22004de6aa
+		summarizeBy: none
+		sourceColumn: GL Parked Document User Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9e43770a-c6f4-45b1-951d-07dc096bb7cc
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 83aac3a6-37a6-48d9-b9df-d039200afaed
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 064a8bac-5bf3-4c94-8981-e1ed59492218
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Assignment Number for Special Accounts'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 90bad6d7-7c1b-4385-8fbd-beeee032ff4e
+		summarizeBy: none
+		sourceColumn: GL Assignment Number for Special Accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Ledger Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3710c6a4-f715-412c-861f-f0270e63efc5
+		summarizeBy: none
+		sourceColumn: GL Ledger Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Controlling Area Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 54d7f6ba-5f7a-4985-96d3-185a4ab547e2
+		summarizeBy: none
+		sourceColumn: GL Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Item Category Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: efefc0b6-f3a3-4088-99eb-c85e3f49d973
+		summarizeBy: none
+		sourceColumn: GL Item Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reason Code Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 08a957e2-3cfa-4413-9b2e-873ba8eb10c3
+		summarizeBy: none
+		sourceColumn: GL Reason Code Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Special GI Indicator Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 59385131-03a7-4ae1-9415-69ef26045e8d
+		summarizeBy: none
+		sourceColumn: GL Special GI Indicator Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Transaction Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d1e6ac73-6e3a-4809-8bbd-8a5bf8a04233
+		summarizeBy: none
+		sourceColumn: GL Transaction Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Tax Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b707ea64-6bbe-480f-b015-50ee1823ee79
+		summarizeBy: none
+		sourceColumn: GL Tax Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Account Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: aa4bf6f1-5e25-40ce-956d-4f15d3adf9c9
+		summarizeBy: none
+		sourceColumn: GL Account Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Posting Key Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2dc8a75a-ce47-4436-ad86-f92536efc8d3
+		summarizeBy: none
+		sourceColumn: GL Posting Key Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4b1cd1ef-886f-4874-aa61-1c0c43b68bcf
+		summarizeBy: none
+		sourceColumn: GL Document Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Status Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 65f03344-c603-4bef-a013-1ea35b093eea
+		summarizeBy: none
+		sourceColumn: GL Document Status Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Timestamp'
+		dataType: double
+		sourceProviderType: decimal(15, 0)
+		lineageTag: 01200881-556e-478e-861a-df21a4d35830
+		summarizeBy: sum
+		sourceColumn: GL Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'GL Base UoM Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fbbe6f0d-f2ff-4917-877b-8e32aec9c198
+		summarizeBy: none
+		sourceColumn: GL Base UoM Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: dc6251ab-d047-400a-ba7d-234a1851badd
+		summarizeBy: none
+		sourceColumn: DOCMT_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GL_CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4c080fee-f7cd-417e-85b0-96f8f3e2aaa4
+		summarizeBy: none
+		sourceColumn: GL_CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Transaction Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e4f36745-a968-48b6-af7c-25029c33a184
+		summarizeBy: none
+		sourceColumn: GL Transaction Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASSET_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 98d18ad5-0d0e-43a6-ac7d-8dd9de6a96bb
+		summarizeBy: none
+		sourceColumn: ASSET_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Asset Transaction Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: efe7f704-df0d-4f8b-8e98-8ea981054021
+		summarizeBy: none
+		sourceColumn: GL Asset Transaction Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Asset Transaction Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b94b9fd2-285a-44d3-9a35-bc41ace2d6b6
+		summarizeBy: none
+		sourceColumn: GL Asset Transaction Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Line Item In BSEG'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 50a689a0-2ad6-4f86-95e1-fab18aea4da7
+		summarizeBy: sum
+		sourceColumn: GL Document Line Item In BSEG
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRFT_CNTR_TRD_PRTNR_GRP_ID
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 75551b5e-db6b-43d1-9e6c-67eefbb60899
+		summarizeBy: none
+		sourceColumn: PRFT_CNTR_TRD_PRTNR_GRP_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_PRFT_CNTR_TRD_PRTNR_GRP_ID
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 79af0448-ae61-446a-a191-09092705073a
+		summarizeBy: none
+		sourceColumn: PRTNR_PRFT_CNTR_TRD_PRTNR_GRP_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_PRFT_CNTR_V_HIER_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3f3af1ae-99ae-458f-8585-00d5a1453b5d
+		summarizeBy: none
+		sourceColumn: PRTNR_PRFT_CNTR_V_HIER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_PRFT_CNTR_H_HIER_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c8ceb242-92f3-4051-94e1-fb816b157dc9
+		summarizeBy: none
+		sourceColumn: PRTNR_PRFT_CNTR_H_HIER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_AMT
+		dataType: double
+		sourceProviderType: decimal(23, 2)
+		lineageTag: bfe0fc52-3c60-4ff6-92bc-b943f74c1ad4
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CMPNY_CRNCY_TAX_AMT
+		dataType: double
+		sourceProviderType: decimal(13, 2)
+		lineageTag: 63352430-7f74-492e-9a41-0dd435668f86
+		summarizeBy: sum
+		sourceColumn: CMPNY_CRNCY_TAX_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DOCMT_CRNCY_TAX_AMT
+		dataType: double
+		sourceProviderType: decimal(13, 2)
+		lineageTag: e714a1cf-21a0-4f67-af9e-98b148406e49
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_TAX_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTY
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: 03736e31-1d95-49c8-ba2a-8e8513822053
+		summarizeBy: sum
+		sourceColumn: QTY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AMT_FOR_UPDATING_IN_GL
+		dataType: double
+		sourceProviderType: decimal(13, 2)
+		lineageTag: 7f9611e2-8d81-4884-9012-08ae734b0e83
+		summarizeBy: sum
+		sourceColumn: AMT_FOR_UPDATING_IN_GL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition EDW_V_FACT_FI_GENLDGR_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_EDW_V_FACT_FI_GENLDGR_CUR_D = Source{[Schema="Propelis",Item="EDW_V_FACT_FI_GENLDGR_CUR_D"]}[Data]
+				in
+				    Propelis_EDW_V_FACT_FI_GENLDGR_CUR_D
+
+	annotation PBI_ResultType = Table
+

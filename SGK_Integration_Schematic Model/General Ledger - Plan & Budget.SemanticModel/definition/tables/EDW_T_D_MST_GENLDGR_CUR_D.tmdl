@@ -1,0 +1,258 @@
+table EDW_T_D_MST_GENLDGR_CUR_D
+	lineageTag: 8d745c0f-08a5-4622-a00c-5e9e5854e2d5
+
+	column GL_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 97da8b4a-4108-4a72-a7e9-ec796e0616cc
+		summarizeBy: none
+		sourceColumn: GL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Short Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 499260e5-437f-4d65-8592-e32ccf5e47ed
+		summarizeBy: none
+		sourceColumn: General Ledger Short Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Search Matchcode'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d0504259-b0a6-4e94-8450-7e17d1297082
+		summarizeBy: none
+		sourceColumn: General Ledger Search Matchcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Group Account Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f5ace438-0695-40dc-b4ea-daa99b90aa2b
+		summarizeBy: none
+		sourceColumn: General Ledger Group Account Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger P L Statement Account Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6a4b6189-5c26-4b29-9e93-100377f0018c
+		summarizeBy: none
+		sourceColumn: General Ledger P L Statement Account Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Functional Area Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d2d8e525-99d8-41a7-9609-e587373bd140
+		summarizeBy: none
+		sourceColumn: General Ledger Functional Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Functional Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a7f61b5c-f5d6-4239-ae43-e2e288578aef
+		summarizeBy: none
+		sourceColumn: General Ledger Functional Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Account Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ce598427-7b68-4d19-a162-20c404f7e341
+		summarizeBy: none
+		sourceColumn: General Ledger Account Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Chart Of Accounts Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8c5a2c24-daf2-496d-b823-c0f50070ff87
+		summarizeBy: none
+		sourceColumn: General Ledger Chart Of Accounts Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 3db01638-9d7f-4f83-aaf8-a37f8a01b7b2
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c0884429-8e5f-4821-b623-bfcc8654f741
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8a9fd2c0-5133-4da1-829a-93014bcea9f4
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: dbb7b554-d8a5-4f59-abcb-eb5da5345f0f
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: eb54ad8c-6f9e-4890-ad43-f6d445bd82e4
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6505ad18-f816-44c8-aa31-b23b42312fe0
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Account Blocked For Posting'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 396e99c7-f5d1-4ff1-8996-6af635a609d9
+		summarizeBy: none
+		sourceColumn: General Ledger Account Blocked For Posting
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Account Blocked For Creation'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a01ca936-6dd0-42a6-88a5-2a4e88f0bc25
+		summarizeBy: none
+		sourceColumn: General Ledger Account Blocked For Creation
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Account Marked For Deletion'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7f1ccc01-8d50-434b-aa14-8fe45c77a486
+		summarizeBy: none
+		sourceColumn: General Ledger Account Marked For Deletion
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Account Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 687d430e-822d-470c-aac2-c17c21f98fc1
+		summarizeBy: none
+		sourceColumn: General Ledger Account Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Account Created By'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f7bf4a52-f148-4606-8904-a8cb9346824d
+		summarizeBy: none
+		sourceColumn: General Ledger Account Created By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Account Created Date'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 650b8865-606d-4355-b44d-71666a81c76f
+		summarizeBy: none
+		sourceColumn: General Ledger Account Created Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Account Is Balance Sheet'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ddd3ef0e-7af1-471e-9cf6-63e023c11eed
+		summarizeBy: none
+		sourceColumn: General Ledger Account Is Balance Sheet
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 840cca4d-e72f-483a-8fb7-a732d7575b7a
+		summarizeBy: none
+		sourceColumn: General Ledger Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Chart Of General Ledger Account'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c3dda160-34e6-4601-9826-00f36cf1baf3
+		summarizeBy: none
+		sourceColumn: Chart Of General Ledger Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Account'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4fef9dd8-52b8-42e7-83ea-7158910ff043
+		summarizeBy: none
+		sourceColumn: General Ledger Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column GL_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4190b2a2-4560-4119-846b-4887ba0c908a
+		summarizeBy: none
+		sourceColumn: GL_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_GENLDGR_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_GENLDGR_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_GENLDGR_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_GENLDGR_CUR_D
+
+	annotation PBI_ResultType = Table
+

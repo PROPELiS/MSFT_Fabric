@@ -1,0 +1,203 @@
+table EDW_T_D_MST_PRTHRCY_CUR_D
+	lineageTag: e22e5b9e-5e52-4747-9b5e-2dfeab292798
+
+	column 'Product Hierarchy'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 67cfcfc4-250d-412e-8bdc-73bbbf5dfd0c
+		summarizeBy: none
+		sourceColumn: Product Hierarchy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hierarchy Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ca2363eb-d6f4-4223-b1af-a981ece32702
+		summarizeBy: none
+		sourceColumn: Product Hierarchy Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hier Level6 Product Category Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0669cf43-e931-4560-9770-2de28975c8a2
+		summarizeBy: none
+		sourceColumn: Product Hier Level6 Product Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hier Level6 Product Category Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c652c218-8c5b-438a-a22e-5996f8a71597
+		summarizeBy: none
+		sourceColumn: Product Hier Level6 Product Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hier Level5 Product Category Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2c365f4d-ef55-4bcd-98ec-90db23156237
+		summarizeBy: none
+		sourceColumn: Product Hier Level5 Product Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hier Level5 Product Category Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0ac07f12-43cf-4540-9699-b54c36878e3c
+		summarizeBy: none
+		sourceColumn: Product Hier Level5 Product Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hier Level4 Product Category Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 11189c86-4b1f-4c37-8f8b-e82fb619acee
+		summarizeBy: none
+		sourceColumn: Product Hier Level4 Product Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hier Level4 Product Category Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 00a83c8e-5d87-447c-bfdd-030b11d99285
+		summarizeBy: none
+		sourceColumn: Product Hier Level4 Product Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hier Level3 Sub Family Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8f7e26e8-5e66-45b3-bdab-120730955ab3
+		summarizeBy: none
+		sourceColumn: Product Hier Level3 Sub Family Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hier Level3 Sub Family Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 68917930-c7a0-4123-b7ea-59efe1991e20
+		summarizeBy: none
+		sourceColumn: Product Hier Level3 Sub Family Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hier Level2 Family Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 88f3945a-a23d-4845-903d-2ca19119035f
+		summarizeBy: none
+		sourceColumn: Product Hier Level2 Family Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hier Level2 Family Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 681fadf7-7cd3-4d1c-8a04-4dcddebb592c
+		summarizeBy: none
+		sourceColumn: Product Hier Level2 Family Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hier Level1 Class Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 53adce1c-d88a-4fa4-a77e-d5db3c21baf6
+		summarizeBy: none
+		sourceColumn: Product Hier Level1 Class Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hier Level1 Class Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d61dc29e-5e1a-44a5-85d5-b9d6993a55a5
+		summarizeBy: none
+		sourceColumn: Product Hier Level1 Class Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: a1ebdd76-be65-44c2-b55d-836574885a10
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: efe70183-423b-4905-8116-73672eeb3724
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 151dfdd4-04ed-4cf4-9ef8-2c28d539b142
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 74c3d671-30e1-477c-a1e7-d8b1ad59c83d
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: dbf97baa-495c-4894-b6cd-5a1f335bd0d6
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 58bd7819-f938-42d8-9751-429ab2eabd5e
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_PRTHRCY_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_PRTHRCY_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_PRTHRCY_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_PRTHRCY_CUR_D
+
+	annotation PBI_ResultType = Table
+

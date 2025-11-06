@@ -1,0 +1,56 @@
+table EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D
+	lineageTag: 0726fb84-5597-464a-92f4-a9af125367bf
+	sourceLineageTag: [dbo].[EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D]
+
+	column SALES_ORG
+		dataType: string
+		lineageTag: d49191dd-274e-4708-af09-e26cf5c6dd2e
+		sourceLineageTag: SALES_ORG
+		summarizeBy: none
+		sourceColumn: SALES_ORG
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANT
+		dataType: string
+		lineageTag: 7405660e-c815-464e-a1c7-3c057fbe3c78
+		sourceLineageTag: PLANT
+		summarizeBy: none
+		sourceColumn: PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUSTOMER
+		dataType: string
+		lineageTag: a44bfd12-ae79-4f0f-b213-72f0b0b09457
+		sourceLineageTag: CUSTOMER
+		summarizeBy: none
+		sourceColumn: CUSTOMER
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOLD_TO
+		dataType: string
+		lineageTag: 52e83319-8805-4c5d-a7f9-47f713e66eed
+		sourceLineageTag: SOLD_TO
+		summarizeBy: none
+		sourceColumn: SOLD_TO
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATUS
+		dataType: string
+		lineageTag: b2a940a5-3629-4f04-a321-426510d88a39
+		sourceLineageTag: STATUS
+		summarizeBy: none
+		sourceColumn: STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

@@ -1,0 +1,324 @@
+table 'Company Info'
+	lineageTag: b61125d5-6bc1-4d8e-adb3-b7fe9107b7d9
+
+	column CMPNY_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e2625894-d8cb-4624-8abc-da68f6d65119
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3bc6f61d-64df-4d8a-9fca-8b3cfc124a87
+		summarizeBy: none
+		sourceColumn: Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legacy Company Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 02fe691e-cd6d-4b61-b245-47795dd7e7c5
+		summarizeBy: none
+		sourceColumn: Legacy Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7e203955-b4e0-4cad-844a-e68e023d0dd5
+		summarizeBy: none
+		sourceColumn: Company Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Line Of Business'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c5249fc4-01c9-4a0b-aec8-706a30ec4975
+		summarizeBy: none
+		sourceColumn: Line Of Business
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Line Of Business Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8e1f8b3f-f902-4810-bcb5-a6e00712d835
+		summarizeBy: none
+		sourceColumn: Line Of Business Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Currency Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3d8fab08-d03d-4bee-8872-1145b150f94c
+		summarizeBy: none
+		sourceColumn: Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Language Type Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fae68fc9-a8f8-458c-ada9-b7a131dc9a28
+		summarizeBy: none
+		sourceColumn: Language Type Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Chart Of Accounts ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a4ac26d3-10ea-4f0a-98b5-fc15f4e6e37d
+		summarizeBy: none
+		sourceColumn: Chart Of Accounts ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Address Line 1'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: de3d544f-e580-4f6d-b35c-9de9d1ecd5ec
+		summarizeBy: none
+		sourceColumn: Entity Address Line 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Address Line 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fdecd3a1-acc3-416f-9488-d42f91888573
+		summarizeBy: none
+		sourceColumn: Entity Address Line 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity City Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 23705b9a-0920-41bc-a840-2f2fddd17eb4
+		summarizeBy: none
+		sourceColumn: Entity City Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Zip Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4fa2bc59-a2dc-4009-8a3f-5aca459b64ed
+		summarizeBy: none
+		sourceColumn: Entity Zip Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Country Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 87fdada0-ac1c-4dbd-bf21-5a3e550329b7
+		summarizeBy: none
+		sourceColumn: Entity Country Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Telephone1'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f3aefdb9-2849-40d7-9c0c-d7edaff77273
+		summarizeBy: none
+		sourceColumn: Entity Telephone1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Telephone 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 583a6ba4-8834-456e-a616-5c259c708de4
+		summarizeBy: none
+		sourceColumn: Entity Telephone 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fax Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a01060ae-525e-46cd-b3b0-b6a40cf7559a
+		summarizeBy: none
+		sourceColumn: Fax Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tax Jurisdiction'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6610a113-8892-4c9b-a556-07a624350dba
+		summarizeBy: none
+		sourceColumn: Tax Jurisdiction
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e2386349-234d-43cb-96d7-48f1a10a03a0
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 6fc39bda-f015-4adc-b978-c1dc64689670
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 1e49ce7e-5cc5-472d-beea-f5aef2e22d30
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2ed40ecc-330b-47e7-80a9-a0b04beef53e
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f3acb3ca-abce-4705-82a4-df4aaab5cea9
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f492a120-7293-4a23-bb81-5a43d5771c83
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year Variant'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5ef737e7-7eb6-4b20-bc88-c1b2dc68566e
+		summarizeBy: none
+		sourceColumn: Fiscal Year Variant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Credit Control Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 26809a9f-95db-4ba3-b037-20de4cece667
+		summarizeBy: none
+		sourceColumn: Credit Control Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Input Tax Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 94830315-5b58-44f4-a9e8-22f223b71466
+		summarizeBy: none
+		sourceColumn: Input Tax Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Output Tax Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6e123aa5-90b4-49cf-9c7b-6cc65138727e
+		summarizeBy: none
+		sourceColumn: Output Tax Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Currency Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4e005734-fca4-417e-baee-b90508b16d68
+		summarizeBy: none
+		sourceColumn: Currency Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Chart Of Accounts Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1d73d8c9-93cc-434e-b17a-cdf32ba4b783
+		summarizeBy: none
+		sourceColumn: Chart Of Accounts Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 70de3032-c34e-4d4c-9f91-26dca94f3d3f
+		summarizeBy: none
+		sourceColumn: Country Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year Variant Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: edacaae8-1e61-4c67-a877-1dd9ba84ee0c
+		summarizeBy: none
+		sourceColumn: Fiscal Year Variant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Credit Control Area Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d0186779-154a-4bd9-a89b-33d734d64fdb
+		summarizeBy: none
+		sourceColumn: Credit Control Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Company Info' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_COMPANY_INFO = Source{[Schema="Propelis",Item="COMPANY_INFO"]}[Data]
+				in
+				    Propelis_COMPANY_INFO
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

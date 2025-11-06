@@ -1,0 +1,40 @@
+table 'Personnel Plant Region'
+	lineageTag: 195d0480-e2c7-45ad-b1d7-a2547405e401
+	sourceLineageTag: [Propelis].[PERSONNEL_PLANT_REGION]
+
+	column 'Personnel Business Function'
+		dataType: string
+		lineageTag: 8d034ab5-3f8e-4a52-9b8f-8666166cbafc
+		sourceLineageTag: Personnel Business Function
+		summarizeBy: none
+		sourceColumn: Personnel Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Personnel Plant Region'
+		dataType: string
+		lineageTag: e63ed20c-fff5-4a5f-abc4-ff59c09496be
+		sourceLineageTag: Personnel Plant Region
+		summarizeBy: none
+		sourceColumn: Personnel Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Personnel Plant'
+		dataType: string
+		lineageTag: b44ee460-0821-4e46-8b59-3c382ff7dcc2
+		sourceLineageTag: Personnel Plant
+		summarizeBy: none
+		sourceColumn: Personnel Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Personnel Plant Region' = entity
+		mode: directLake
+		source
+			entityName: PERSONNEL_PLANT_REGION
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

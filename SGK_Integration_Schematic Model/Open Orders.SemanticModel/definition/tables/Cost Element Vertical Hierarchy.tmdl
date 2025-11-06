@@ -1,0 +1,87 @@
+table 'Cost Element Vertical Hierarchy'
+	lineageTag: 5a35f4aa-8d34-4e9d-b493-f2c765296bdd
+
+	column COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0207cbac-1a49-4496-92a0-23ac839c0c9d
+		summarizeBy: none
+		sourceColumn: COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Controlling Area ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a8ac2322-d022-400c-9ff3-eab53fa91b81
+		summarizeBy: none
+		sourceColumn: Cost Element Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d0da6a62-5ea9-4dc5-9cdf-ecbb73caee37
+		summarizeBy: none
+		sourceColumn: Cost Element Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 130724f0-fcf9-40a9-b866-f0308c8c26ed
+		summarizeBy: none
+		sourceColumn: Cost Element Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ea545446-0794-4267-a651-b48a28ee781f
+		summarizeBy: none
+		sourceColumn: Cost Element Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Child Description VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7cf884fb-535a-4fa3-a6e3-85f911b3b1b7
+		summarizeBy: none
+		sourceColumn: Cost Element Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Hierarchical Level VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6d06bafd-fb2c-4996-a985-7d02df864919
+		summarizeBy: none
+		sourceColumn: Cost Element Hierarchical Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Chart of Accounts'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 231f1eb4-c934-4cf1-a4bb-5ddfa0eaa007
+		summarizeBy: none
+		sourceColumn: Chart of Accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Cost Element Vertical Hierarchy' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_HY_COSTEVZ_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_HY_COSTEVZ_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_HY_COSTEVZ_CUR_D
+
+	changedProperty = Name
+

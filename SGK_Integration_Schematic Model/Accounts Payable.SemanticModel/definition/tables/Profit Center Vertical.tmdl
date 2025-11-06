@@ -1,0 +1,78 @@
+table 'Profit Center Vertical'
+	lineageTag: b5319fb1-f7c8-4019-b503-7481d5e0e282
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5e39d2b1-5a54-45e1-8c28-d256db0243b1
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Controlling Area ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5b542b74-a8ac-4f1d-aa4d-cafbc89de27c
+		summarizeBy: none
+		sourceColumn: Profit Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 41675dd2-970f-4eb8-afb1-8f4d659750aa
+		summarizeBy: none
+		sourceColumn: Profit Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 96251ee4-5cf0-4213-8877-87fb98d11001
+		summarizeBy: none
+		sourceColumn: Profit Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ac4ceb4c-6987-46d0-908c-3fa6c0ea74de
+		summarizeBy: none
+		sourceColumn: Profit Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Child ID Description VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: bfe33589-7206-4cf0-85b6-ebff8e15d0b3
+		summarizeBy: none
+		sourceColumn: Profit Center Child ID Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Level VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b8ecaafc-0d2b-4f23-9925-ec2a4073f6fe
+		summarizeBy: none
+		sourceColumn: Profit Center Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Profit Center Vertical' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_HY_PROFCVZ_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_HY_PROFCVZ_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_HY_PROFCVZ_CUR_D
+
+	annotation PBI_ResultType = Table
+

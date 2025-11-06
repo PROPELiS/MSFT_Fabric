@@ -1,0 +1,27 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["EDW_T_FACT_SAL_SALSCHL_CUR_D","EDW_T_D_MST_CMPNYCD_CUR_D","EDW_T_D_MST_DATE_CUR_D","EDW_T_D_MST_MATERIAL_CUR_D","EDW_T_D_MST_PLANT_CUR_D","EDW_T_D_MST_SEGMENT_CUR_D","EDW_T_D_SAL_SALAREA_CUR_D","EDW_T_D_SAL_SALORDH_CUR_D","SCHL_ITM_DATE","MATRL_AVAILABILITY_DATE","LOADING_DATE","GOODS_ISSUE_DATE"]
+
+ref table EDW_T_FACT_SAL_SALSCHL_CUR_D
+ref table EDW_T_D_MST_CMPNYCD_CUR_D
+ref table EDW_T_D_MST_DATE_CUR_D
+ref table EDW_T_D_MST_MATERIAL_CUR_D
+ref table EDW_T_D_MST_PLANT_CUR_D
+ref table EDW_T_D_MST_SEGMENT_CUR_D
+ref table EDW_T_D_SAL_SALAREA_CUR_D
+ref table EDW_T_D_SAL_SALORDH_CUR_D
+ref table SCHL_ITM_DATE
+ref table MATRL_AVAILABILITY_DATE
+ref table LOADING_DATE
+ref table GOODS_ISSUE_DATE
+
+ref cultureInfo en-IN
+

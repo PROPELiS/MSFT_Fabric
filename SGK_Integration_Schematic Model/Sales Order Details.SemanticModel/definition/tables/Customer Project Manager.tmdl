@@ -133,11 +133,11 @@ table 'Customer Project Manager'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_CUSTOMER_PROJECT_MANAGER = Source{[Schema="Propelis",Item="V_CUSTOMER_PROJECT_MANAGER"]}[Data]
+				    Propelis_CUSTOMER_PROJECT_MANAGER = Source{[Schema="Propelis",Item="CUSTOMER_PROJECT_MANAGER"]}[Data]
 				in
-				    Propelis_V_CUSTOMER_PROJECT_MANAGER
-
-	changedProperty = Name
+				    Propelis_CUSTOMER_PROJECT_MANAGER
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

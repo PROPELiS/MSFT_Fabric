@@ -1,0 +1,77 @@
+table 'Inter Company Profit Center Vertical Hierarcy'
+	lineageTag: 0976b797-5ef4-4391-b445-a0bdf9bb2cac
+	sourceLineageTag: [Propelis].[INTER_COMP_PC_VH]
+
+	column 'Inter Comp Profit Center Child ID Description VH'
+		dataType: string
+		lineageTag: f1dc9ede-c11d-44b8-8cef-6a01db898798
+		sourceLineageTag: Inter Comp Profit Center Child ID Description VH
+		summarizeBy: none
+		sourceColumn: Inter Comp Profit Center Child ID Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inter Comp Profit Center Level VH'
+		dataType: string
+		lineageTag: cc39bc9b-8061-46c0-830a-8fc9fd752219
+		sourceLineageTag: Inter Comp Profit Center Level VH
+		summarizeBy: none
+		sourceColumn: Inter Comp Profit Center Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e931b5f-ed85-49e0-afd0-9f2edf0fb7bc
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inter Comp Profit Center Controlling Area ID VH'
+		dataType: string
+		lineageTag: 1b4df245-afb9-4c1c-9706-f74cc50cde26
+		sourceLineageTag: Inter Comp Profit Center Controlling Area ID VH
+		summarizeBy: none
+		sourceColumn: Inter Comp Profit Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inter Comp Profit Center Parent ID VH'
+		dataType: string
+		lineageTag: 526bee94-20bf-4168-82bb-fd446cf6f6f4
+		sourceLineageTag: Inter Comp Profit Center Parent ID VH
+		summarizeBy: none
+		sourceColumn: Inter Comp Profit Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inter Comp Profit Center Parent Description VH'
+		dataType: string
+		lineageTag: ad2549a3-1bcc-493f-b358-f343a6473cf4
+		sourceLineageTag: Inter Comp Profit Center Parent Description VH
+		summarizeBy: none
+		sourceColumn: Inter Comp Profit Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inter Comp Profit Center Child ID VH'
+		dataType: string
+		lineageTag: 38583726-d42e-4b8e-bcea-4d0662a6a9e8
+		sourceLineageTag: Inter Comp Profit Center Child ID VH
+		summarizeBy: none
+		sourceColumn: Inter Comp Profit Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Inter Company Profit Center Vertical Hierarcy' = entity
+		mode: directLake
+		source
+			entityName: INTER_COMP_PC_VH
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

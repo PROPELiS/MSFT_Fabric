@@ -1,0 +1,102 @@
+table 'Hubx Project'
+	lineageTag: 6474f9fe-b77a-4382-ab9f-f555f3bf80da
+
+	column 'HubX Service Order ID'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(12)
+		lineageTag: 82b1d50d-80a4-4ea1-aae7-af693939ab74
+		summarizeBy: none
+		sourceColumn: HubX Service Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HubX Sales Order ID'
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: fdfbf1f9-4b6b-4744-90cc-f9da457fcba2
+		summarizeBy: none
+		sourceColumn: HubX Sales Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HubX Job ID'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(20)
+		lineageTag: 42317fc5-1d75-47c9-803c-bf33a30cfa66
+		summarizeBy: none
+		sourceColumn: HubX Job ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HubX Project Name'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 2f6d3a43-6f87-4b60-814a-714b9b32e0b2
+		summarizeBy: none
+		sourceColumn: HubX Project Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 9bfd409b-4458-4e52-9f87-a28f1695cbe9
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 0cb9ba85-4d98-4c2c-9872-f39f0debf83b
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: e0f64851-a69d-4c97-b8ba-156b2a6187d7
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HubX ZLP BB Color Profile'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 9462dcd6-2d41-454b-bf61-45d91e38015e
+		summarizeBy: none
+		sourceColumn: HubX ZLP BB Color Profile
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HubX Milestone9 In Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: e69a4928-a5b0-4212-9863-9223aa78632d
+		summarizeBy: none
+		sourceColumn: HubX Milestone9 In Date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Hubx Project' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_O_PRD_HBPRJNM_CUR_D = Source{[Schema="dbo",Item="EDW_T_O_PRD_HBPRJNM_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_O_PRD_HBPRJNM_CUR_D
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

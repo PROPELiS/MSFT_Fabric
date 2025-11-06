@@ -1,0 +1,302 @@
+table 'Propelis EDW_T_FACT_PRD_SERVRES_CUR_D'
+	lineageTag: bd30ddb8-457a-4262-bfd8-bec0b64986ab
+
+	column SERVC_ORDER_KEY
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 4dcbe92e-f652-4bba-bcd8-0412de6780bb
+		summarizeBy: none
+		sourceColumn: SERVC_ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 822fa953-6fd7-418d-9124-3682ad0465d8
+		summarizeBy: none
+		sourceColumn: Service Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Activity ID'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 6013aabb-71ba-451f-9b7d-da75711c4bfb
+		summarizeBy: none
+		sourceColumn: Operation Activity ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Task List ID'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 6ee337f5-58ee-45e6-988f-cd7cee697aef
+		summarizeBy: none
+		sourceColumn: Operation Task List ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Counter ID'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: f39ca352-7f81-4098-a641-5d5a09ae245c
+		summarizeBy: none
+		sourceColumn: Operation Counter ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Number of Reservation'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 38e75360-9c34-41be-82b6-9836692ef964
+		summarizeBy: none
+		sourceColumn: Number of Reservation
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f064d4f4-9958-4de2-923e-63f9582fc219
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2050b17c-ca71-40c1-b56f-f9fef82a42a2
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 10838af0-9029-458c-bf47-43bcb73e8e36
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 68e4f2f9-5f6c-4038-bcd6-3ed0b1158ba5
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quantity Withdrawn'
+		dataType: double
+		sourceProviderType: decimal(15, 3)
+		lineageTag: 32c01d97-a3ed-42c3-9257-b12ada3919a8
+		summarizeBy: sum
+		sourceColumn: Quantity Withdrawn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Price in Document Currency'
+		dataType: double
+		sourceProviderType: decimal(15, 3)
+		lineageTag: c3137b0a-264d-46b3-ad56-948aef47a341
+		summarizeBy: sum
+		sourceColumn: Price in Document Currency
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Price Unit'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ab006521-acdb-4971-aeff-11afecdf5ef3
+		summarizeBy: none
+		sourceColumn: Price Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quantity In Unit Of Entry'
+		dataType: double
+		sourceProviderType: decimal(15, 3)
+		lineageTag: d825f701-a69e-4bc3-9e96-97fc389a2218
+		summarizeBy: sum
+		sourceColumn: Quantity In Unit Of Entry
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Requirement Quantity'
+		dataType: double
+		sourceProviderType: decimal(15, 3)
+		lineageTag: 33712a03-00bd-4cee-a004-de2c3938f675
+		summarizeBy: sum
+		sourceColumn: Requirement Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Value Withdrawn Amount'
+		dataType: double
+		sourceProviderType: decimal(15, 3)
+		lineageTag: 13bd6928-162f-4095-9b81-fb2b1a25b99a
+		summarizeBy: sum
+		sourceColumn: Value Withdrawn Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PLNT_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ba854cdb-569d-4b7b-b645-3faed3b2891b
+		summarizeBy: sum
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Debit Credit Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c2a403db-f77b-4fbe-a4f9-d3d9e8521064
+		summarizeBy: none
+		sourceColumn: Debit Credit Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column MOVEMNT_TYP
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f2f6bd9f-df49-4179-b75f-76390374cb3a
+		summarizeBy: none
+		sourceColumn: MOVEMNT_TYP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fixed Quantity'
+		dataType: double
+		sourceProviderType: decimal(15, 3)
+		lineageTag: 871080d9-65a4-484d-be4a-27044f457bec
+		summarizeBy: sum
+		sourceColumn: Fixed Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Requirement Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b8829aa7-8172-4577-a0e2-5635047ee959
+		summarizeBy: none
+		sourceColumn: Requirement Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base UoM'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c20f1817-57a8-464a-9c89-6216bc24d09c
+		summarizeBy: none
+		sourceColumn: Base UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit Of Entry'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: caf55531-7748-4d1a-8f4e-c1dd5eb17e66
+		summarizeBy: none
+		sourceColumn: Unit Of Entry
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Item Number of Reservation'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: efa33366-26b3-406d-a116-58a1d8ad270c
+		summarizeBy: none
+		sourceColumn: Item Number of Reservation
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Record Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 31f04d1a-3398-4e15-9b59-44afd38ac9c8
+		summarizeBy: none
+		sourceColumn: Record Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column REQ_DATE_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: eb3db192-0a14-49a0-aee4-a8c4cf9412e3
+		summarizeBy: sum
+		sourceColumn: REQ_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GL_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6486c9e9-98ba-4bc6-ba2e-6bf5f8ba50b2
+		summarizeBy: sum
+		sourceColumn: GL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 85069523-70b5-4d99-bce8-334335cf436a
+		summarizeBy: sum
+		sourceColumn: MATRL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BOM Item Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5783a8c3-2220-469f-a057-af98029f2af5
+		summarizeBy: none
+		sourceColumn: BOM Item Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Propelis EDW_T_FACT_PRD_SERVRES_CUR_D' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_EDW_T_FACT_PRD_SERVRES_CUR_D = Source{[Schema="Propelis",Item="EDW_T_FACT_PRD_SERVRES_CUR_D"]}[Data]
+				in
+				    Propelis_EDW_T_FACT_PRD_SERVRES_CUR_D
+

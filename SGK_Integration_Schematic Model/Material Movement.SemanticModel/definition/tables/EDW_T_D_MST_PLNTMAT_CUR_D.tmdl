@@ -1,0 +1,768 @@
+table EDW_T_D_MST_PLNTMAT_CUR_D
+	lineageTag: 497f934f-9ec5-4151-813f-1947ab68fe1a
+
+	column PLNT_MATRL_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 105cd79d-71fb-484a-afc8-cc67e513b4ed
+		summarizeBy: none
+		sourceColumn: PLNT_MATRL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Material ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6f9d4d96-22b5-48ee-8f5e-abe8e2d02f6c
+		summarizeBy: none
+		sourceColumn: Plant Material Material ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Plant ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ab8b2655-477c-4c9f-bf90-bffd65140e2f
+		summarizeBy: none
+		sourceColumn: Plant Material Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Maintenance Status'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ed6280c9-cbde-40e5-b6da-c2e67018f8b1
+		summarizeBy: none
+		sourceColumn: Plant Material Maintenance Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Purchasing Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5cb50461-c497-436b-b85d-f759c8e5aba8
+		summarizeBy: none
+		sourceColumn: Plant Material Purchasing Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material MRP Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b6322ae1-35bb-43ca-8384-f1b77cfc62ac
+		summarizeBy: none
+		sourceColumn: Plant Material MRP Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material MRP Controller'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: db57ceea-d7f2-44ef-b2a1-465f29c947cf
+		summarizeBy: none
+		sourceColumn: Plant Material MRP Controller
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Procurement Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2437fb4d-4146-4c16-bcf9-8ed8a97ddd1d
+		summarizeBy: none
+		sourceColumn: Plant Material Procurement Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Export Import Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0207f530-aa9a-4f36-932a-1adc84dfee84
+		summarizeBy: none
+		sourceColumn: Plant Material Export Import Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Profit Center ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e8bb9618-1aed-4225-b58d-906d6b008ed7
+		summarizeBy: none
+		sourceColumn: Plant Material Profit Center ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Production Storage Location'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dc036f74-b8c2-4398-9306-79f9e1255853
+		summarizeBy: none
+		sourceColumn: Plant Material Production Storage Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b7dd4570-fd22-4c37-9b6c-b270c584e310
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 01128352-8251-4bed-9ec0-9ed9dfc7fbfc
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 0da837ee-5f65-4ed9-8fa3-06f55084376a
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 621f4694-929f-4849-a701-55345afc5368
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4de40153-28e0-419e-9fba-086f7e6c630f
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 339c155f-c7a5-433a-b0d5-79fc2b2b3bfe
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Planned Delivery Time in Days'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3a2f47d5-e56a-47b3-9cb9-50d962a56cd9
+		summarizeBy: none
+		sourceColumn: Plant Material Planned Delivery Time in Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Goods Receipt Processing Time in Days'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6dae803d-d339-48cc-91e6-a7c0f3fb9d0f
+		summarizeBy: none
+		sourceColumn: Plant Material Goods Receipt Processing Time in Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Lot Size'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f8c16b24-3ef9-4121-bf55-89fc7c1adfc1
+		summarizeBy: none
+		sourceColumn: Plant Material Lot Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Production Supervisor'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d23393ba-3378-4649-acbf-6970259c0b4f
+		summarizeBy: none
+		sourceColumn: Plant Material Production Supervisor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Commodity Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 92a65e7d-c77b-4b47-8fa3-3328df714c98
+		summarizeBy: none
+		sourceColumn: Plant Material Commodity Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Storage Location for External Procurement'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5235d43a-1ec3-435f-a5dd-879992f89472
+		summarizeBy: none
+		sourceColumn: Plant Material Storage Location for External Procurement
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Production Scheduling Profile'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dd503678-608b-4a7c-9fdf-3fb4a53b14eb
+		summarizeBy: none
+		sourceColumn: Plant Material Production Scheduling Profile
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Maximum Storage Period'
+		dataType: double
+		sourceProviderType: decimal(5, 0)
+		lineageTag: dde6e4b6-59e0-48d5-a981-42917cc2f1d9
+		summarizeBy: none
+		sourceColumn: Plant Material Maximum Storage Period
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Plant Material Time Unit'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 97bd2ff8-d359-4e71-acae-1de4ed60945d
+		summarizeBy: none
+		sourceColumn: Plant Material Time Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Availability Check'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d86deb2b-87f7-4a0e-bff4-82d045ce8d1f
+		summarizeBy: none
+		sourceColumn: Plant Material Availability Check
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Costing Lot Size'
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: 17aed4aa-d79b-4387-b320-db783fd0f654
+		summarizeBy: none
+		sourceColumn: Plant Material Costing Lot Size
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Plant Material Planning Strategy Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 770bee02-cabe-4a0c-87ed-9092a977e41d
+		summarizeBy: none
+		sourceColumn: Plant Material Planning Strategy Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Special Procurement Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0ee4ad40-e154-46cb-92dd-25df284e35fc
+		summarizeBy: none
+		sourceColumn: Plant Material Special Procurement Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Plant Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 36dfb5c6-c93f-4af9-9d99-2905012fdaa6
+		summarizeBy: none
+		sourceColumn: Plant Material Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Purchasing Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3809ce2d-d985-4892-9473-a8b09de2df36
+		summarizeBy: none
+		sourceColumn: Plant Material Purchasing Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material MRP Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a3d09b02-8503-4471-a5be-0449cded5792
+		summarizeBy: none
+		sourceColumn: Plant Material MRP Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material MRP Controller Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7afbac98-3eed-4a05-8563-962e1447b53a
+		summarizeBy: none
+		sourceColumn: Plant Material MRP Controller Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Procurement Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e730791f-dbed-42c9-acba-8d0ea1699da2
+		summarizeBy: none
+		sourceColumn: Plant Material Procurement Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Export Import Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ce856ee5-bcb9-4560-9298-49727b999f8c
+		summarizeBy: none
+		sourceColumn: Plant Material Export Import Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Production Storage Location Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ccccc36b-5432-4eaf-a0ac-ff0e97b2f6cf
+		summarizeBy: none
+		sourceColumn: Plant Material Production Storage Location Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Lot Size Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 186a1ffd-1544-4681-afd9-b2816f4138bf
+		summarizeBy: none
+		sourceColumn: Plant Material Lot Size Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Production Supervisor Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 343ce6f0-4df9-469b-b85d-13fceb381d05
+		summarizeBy: none
+		sourceColumn: Plant Material Production Supervisor Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Commodity Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 73dad2c8-0568-4e3a-9dca-177950fd6e07
+		summarizeBy: none
+		sourceColumn: Plant Material Commodity Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Storage Location for External Procurement Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 67d538b4-d676-4967-b197-f07ce784fc3a
+		summarizeBy: none
+		sourceColumn: Plant Material Storage Location for External Procurement Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Production Scheduling Profile Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 092f7565-7931-465e-aa66-eb81b33a0cfa
+		summarizeBy: none
+		sourceColumn: Plant Material Production Scheduling Profile Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Availability Check Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 35bd5371-bef1-417e-bab7-b48d17ab8102
+		summarizeBy: none
+		sourceColumn: Plant Material Availability Check Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Planning Strategy Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a5995123-e92a-4eba-984f-caa1f6f35cd9
+		summarizeBy: none
+		sourceColumn: Plant Material Planning Strategy Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Special Procurement Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2eb11618-85a1-4c4a-9885-91665b56080a
+		summarizeBy: none
+		sourceColumn: Plant Material Special Procurement Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Re Order Point'
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: e19194e8-dbbf-424a-bb14-fade255643f1
+		summarizeBy: none
+		sourceColumn: Plant Material Re Order Point
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Plant Material In House Production Time'
+		dataType: double
+		sourceProviderType: decimal(3, 0)
+		lineageTag: 1f81ac44-b28d-4a43-a888-09abb3f64118
+		summarizeBy: none
+		sourceColumn: Plant Material In House Production Time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SCHLG_MRGN_KEY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3ef6fbe8-c3f7-4607-8b9f-d06dc222a5cb
+		summarizeBy: none
+		sourceColumn: SCHLG_MRGN_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material PPC Planning Calendar'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a39fd9f1-a020-40f4-95db-05660cae6b4b
+		summarizeBy: none
+		sourceColumn: Plant Material PPC Planning Calendar
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Valuation Category'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9c5cd6d7-3216-4405-b1f0-0470b36a33c2
+		summarizeBy: none
+		sourceColumn: Plant Material Valuation Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Valuation Category Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b7b24a47-bc0b-4923-86a3-c47535918bc2
+		summarizeBy: none
+		sourceColumn: Plant Material Valuation Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Specific Material Status'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7a03b627-6b00-4542-a090-6bff442f2496
+		summarizeBy: none
+		sourceColumn: Plant Specific Material Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Specific Material Status Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8b7942f3-cddd-4bee-8fd5-f655891c46da
+		summarizeBy: none
+		sourceColumn: Plant Specific Material Status Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material ABC Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d2b20668-ec6b-49fb-abe6-764d1c42f70e
+		summarizeBy: none
+		sourceColumn: Plant Material ABC Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material ABC Indicator Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5d7bbe02-2c31-41c2-8d6e-515c142b931b
+		summarizeBy: none
+		sourceColumn: Plant Material ABC Indicator Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Critical Part Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0e66ee3f-526e-49a5-81d0-8d9a57fcc398
+		summarizeBy: none
+		sourceColumn: Plant Material Critical Part Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material UOI'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c440de9a-4735-4d3d-8700-64a87e81ac3c
+		summarizeBy: none
+		sourceColumn: Plant Material UOI
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Assembly Scrap In Pct'
+		dataType: double
+		sourceProviderType: decimal(5, 2)
+		lineageTag: c081cd47-c211-429e-aac9-675a938e72fb
+		summarizeBy: none
+		sourceColumn: Plant Material Assembly Scrap In Pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Plant Material Safety Stock'
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: d6236a9f-dcdd-445c-a1d0-fdb91d4564b9
+		summarizeBy: none
+		sourceColumn: Plant Material Safety Stock
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Plant Material Max Stock Level'
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: 0f54ee44-df86-49aa-b39d-c5592265bd78
+		summarizeBy: none
+		sourceColumn: Plant Material Max Stock Level
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Plant Material PO Qty Rounding'
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: 85cee26c-c991-4b10-9631-f03150de19a6
+		summarizeBy: none
+		sourceColumn: Plant Material PO Qty Rounding
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Plant Material Individual Collective Req Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7eaec646-967b-4cbb-98fd-cf7547abd394
+		summarizeBy: none
+		sourceColumn: Plant Material Individual Collective Req Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Overdelivery Tolerance Limit'
+		dataType: double
+		sourceProviderType: decimal(3, 1)
+		lineageTag: 7133257c-4fae-42be-a658-a16e039a0af5
+		summarizeBy: none
+		sourceColumn: Plant Material Overdelivery Tolerance Limit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Plant Material Underdelivery Tolerance Limit'
+		dataType: double
+		sourceProviderType: decimal(3, 1)
+		lineageTag: 116a3bbd-158b-44a9-a8c4-d67049031023
+		summarizeBy: none
+		sourceColumn: Plant Material Underdelivery Tolerance Limit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Plant Material Replenishment Lead Time In Days'
+		dataType: double
+		sourceProviderType: decimal(3, 0)
+		lineageTag: 9b5c7fcc-cc9f-4483-b028-61551b30f4a5
+		summarizeBy: none
+		sourceColumn: Plant Material Replenishment Lead Time In Days
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Plant Material Country Of Origin'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e3039528-e1e5-41ee-adf1-6a32ae23627c
+		summarizeBy: none
+		sourceColumn: Plant Material Country Of Origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Country Of Origin Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 744c2a34-b2cb-4853-ac92-86e0af487f8f
+		summarizeBy: none
+		sourceColumn: Plant Material Country Of Origin Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Individual Collective Requirement Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b9061fce-12c0-450e-9823-ef473b11b040
+		summarizeBy: none
+		sourceColumn: Plant Material Individual Collective Requirement Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Costing Special Procurement Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cd551038-20bc-4e63-bc90-ef8f0bc43032
+		summarizeBy: none
+		sourceColumn: Plant Material Costing Special Procurement Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Costing Special Procurement Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3fb48608-151b-4ca6-9e44-6bb2d69eb262
+		summarizeBy: none
+		sourceColumn: Plant Material Costing Special Procurement Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Do Not Cost'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 369cc0ff-ff28-4449-b019-7eda116ec147
+		summarizeBy: none
+		sourceColumn: Plant Material Do Not Cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Level Deletion Flag'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 06a0f95c-e790-4f67-b318-6d01d7fc7b82
+		summarizeBy: none
+		sourceColumn: Plant Material Level Deletion Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Replacement Part'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 27dcc351-ccc4-4e4f-ad23-d0dbe109acd4
+		summarizeBy: none
+		sourceColumn: Plant Material Replacement Part
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Replacement Part Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 94b87aca-02cf-40d9-814b-8100d918e1a4
+		summarizeBy: none
+		sourceColumn: Plant Material Replacement Part Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Freight Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 30b5d2b0-b5ac-45a1-b052-97e6ded1bc7a
+		summarizeBy: none
+		sourceColumn: Plant Material Freight Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Freight Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1e45280a-f8bd-4e15-9273-6c2509d77ce5
+		summarizeBy: none
+		sourceColumn: Plant Material Freight Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Serial Number Profile'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 218afd82-ee9a-41ba-bfce-02a1fe242996
+		summarizeBy: none
+		sourceColumn: Plant Material Serial Number Profile
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Serial Number Profile Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 93f94052-a180-4fb5-b3e3-77e48b7d7cf0
+		summarizeBy: none
+		sourceColumn: Plant Material Serial Number Profile Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Distribution Profile Of Material In Plant'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 278f2b4b-33e3-4129-93ff-fb3d1a3db760
+		summarizeBy: none
+		sourceColumn: Plant Material Distribution Profile Of Material In Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Material Distribution Profile Of Material In Plant Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 91f75e35-127f-4d32-8668-c0e2f3228326
+		summarizeBy: none
+		sourceColumn: Plant Material Distribution Profile Of Material In Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_PLNTMAT_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_PLNTMAT_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_PLNTMAT_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_PLNTMAT_CUR_D
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,500 @@
+table 'Fact Time Card'
+	lineageTag: cbbef5f9-3f28-452d-8af1-6e9b41617bd3
+	sourceLineageTag: [Propelis].[EDW_T_FACT_HR_TIMECRD_CUR_D]
+
+	measure 'Absence Hours' = sum('Fact Time Card'[ABSNE_HRS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ed1311e0-0f54-442b-89b2-d3fceb7695f7
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Annual Leave Hours' = sum('Fact Time Card'[ANNUAL_LEAVE_HRS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 565d7576-5753-450c-bf16-48efc965b4c2
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Approved Working Hours' = sum('Fact Time Card'[APPRVD_WORKING_HRS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9c4ce52b-44a0-4f36-a061-5bb116c3e23d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Flex Bal TS' = sum('Fact Time Card'[FLEX_BAL_TS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 8655b3e0-68a2-4a3e-a8dc-27cf5e53156e
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Lunch Hours' = sum('Fact Time Card'[LUNCH_HRS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 74202548-3223-417a-a97a-671fd5d08d1a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Other Leave Hours' = sum('Fact Time Card'[OTHR_LEAVE_HRS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 98cc73b3-aa9c-4006-95c0-7cc9397ee7cb
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Overtime Hours' = sum('Fact Time Card'[OVERTIME_HRS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d0e90629-c9c4-4c0c-b703-22614c37558d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure Overtime% = [Overtime Hours]/[Regular Hours]
+		lineageTag: 91363dd4-b5bf-4d0e-a4fb-96863147bac2
+
+		changedProperty = Name
+
+	measure 'Paid Break' = sum('Fact Time Card'[PAID_BRK])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f11ab930-9682-4cd5-87ac-4291d50f79fc
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Punch In Out Hours' = sum('Fact Time Card'[PUNCH_IN_OUT_HRS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b49837c7-e3cf-4b7f-affc-86fe55f7ed3b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Regular Hours' =
+			
+			SUMX(
+			    'Fact Time Card',
+			    'Fact Time Card'[TOTAL_HRS]
+			    - 'Fact Time Card'[ABSNE_HRS]
+			    - 'Fact Time Card'[FLEX_BAL_TS]
+			    - 'Fact Time Card'[LUNCH_HRS]
+			    - 'Fact Time Card'[OVERTIME_HRS]
+			    - 'Fact Time Card'[PUNCH_IN_OUT_HRS]
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 28b49a1b-e872-41f7-ae81-7c5e0f1b0429
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Shift End Time 2' = sum('Fact Time Card'[SHIFT_END_TM_2])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1f1e487b-b56a-4509-a216-11f9006a86dc
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sick Leave Hours' = sum('Fact Time Card'[SICK_LEAVE_HRS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9c06a956-02dd-4ea7-9edf-ee2c0b5fa704
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Hours' = sum('Fact Time Card'[TOTAL_HRS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: bb0a9b09-375e-4d27-8fed-cd0b532e3562
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Unpaid Leave Hours' = sum('Fact Time Card'[UNPAID_LEAVE_HRS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 131e8355-db31-45c9-a3d3-16bd7ce5de3e
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Work Hours' = sum('Fact Time Card'[WRK_HRS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c9de96ac-1d48-4599-b5f0-e891b9e82ccd
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column PERSONEL_NUM_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 25919652-9b44-413f-aaaa-d8c46c318cf1
+		sourceLineageTag: PERSONEL_NUM_KEY
+		summarizeBy: none
+		sourceColumn: PERSONEL_NUM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c772aea-f87d-4eae-ace6-a2ce79248e68
+		sourceLineageTag: DATE_KEY
+		summarizeBy: none
+		sourceColumn: DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_HRS
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: a13f7fbc-d52d-4538-afac-71ce5a4e4bc1
+		sourceLineageTag: TOTAL_HRS
+		summarizeBy: sum
+		sourceColumn: TOTAL_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column WRK_HRS
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: e2f8b4c2-63ca-4d57-b2b7-efeee04a0a9c
+		sourceLineageTag: WRK_HRS
+		summarizeBy: sum
+		sourceColumn: WRK_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column ABSNE_HRS
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 1e8bfad3-6771-47e7-b7ee-b52277b35c7e
+		sourceLineageTag: ABSNE_HRS
+		summarizeBy: sum
+		sourceColumn: ABSNE_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column LUNCH_HRS
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: b38dc863-a94d-4aac-8435-6324c8b6e090
+		sourceLineageTag: LUNCH_HRS
+		summarizeBy: sum
+		sourceColumn: LUNCH_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column SGK_OPERREG_PLANT
+		dataType: string
+		lineageTag: 920f1612-a3e9-4e50-a2cc-8ec24a591d2d
+		sourceLineageTag: SGK_OPERREG_PLANT
+		summarizeBy: none
+		sourceColumn: SGK_OPERREG_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAID_BRK
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 93f3d60c-e3ff-4e9c-b341-43838cfe5968
+		sourceLineageTag: PAID_BRK
+		summarizeBy: sum
+		sourceColumn: PAID_BRK
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column ANNUAL_LEAVE_HRS
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: e98512dc-ebfb-4f0f-9a09-4dec51db70d7
+		sourceLineageTag: ANNUAL_LEAVE_HRS
+		summarizeBy: sum
+		sourceColumn: ANNUAL_LEAVE_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column OTHR_LEAVE_HRS
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 37585bc0-1b36-4d07-b41d-a37a66feb60a
+		sourceLineageTag: OTHR_LEAVE_HRS
+		summarizeBy: sum
+		sourceColumn: OTHR_LEAVE_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column SICK_LEAVE_HRS
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 15a3a793-5f09-41fc-bbce-f23f1cc12151
+		sourceLineageTag: SICK_LEAVE_HRS
+		summarizeBy: sum
+		sourceColumn: SICK_LEAVE_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column UNPAID_LEAVE_HRS
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: ec919287-6bc0-4251-a83c-730e5b7b661a
+		sourceLineageTag: UNPAID_LEAVE_HRS
+		summarizeBy: sum
+		sourceColumn: UNPAID_LEAVE_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column PUNCH_IN_OUT_HRS
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 73724f7a-4f0a-484f-8686-1f63bb585cf1
+		sourceLineageTag: PUNCH_IN_OUT_HRS
+		summarizeBy: sum
+		sourceColumn: PUNCH_IN_OUT_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ce39501-323a-422d-92b0-8eccb5b0f39e
+		sourceLineageTag: COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 753127c4-a574-4df7-9ab9-c956504a3435
+		sourceLineageTag: CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ce21cc95-b7df-4a98-90fe-7b28a183be1c
+		sourceLineageTag: PLNT_KEY
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSONEL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 657ad0ea-952c-42f7-9ab6-ee10780606d1
+		sourceLineageTag: PERSONEL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: PERSONEL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column FLEX_BAL_TS
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 2de062df-7f15-4852-a0d8-2228a59450a2
+		sourceLineageTag: FLEX_BAL_TS
+		summarizeBy: sum
+		sourceColumn: FLEX_BAL_TS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Approver User ID'
+		dataType: string
+		lineageTag: e8dc0d83-dccd-4da2-8e42-44d13de03dfb
+		sourceLineageTag: Approver User ID
+		summarizeBy: none
+		sourceColumn: Approver User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shift Scheduled Start Time'
+		dataType: string
+		lineageTag: 6bf40628-868c-4bb8-bac5-ce4c072b4bc9
+		sourceLineageTag: Shift Scheduled Start Time
+		summarizeBy: none
+		sourceColumn: Shift Scheduled Start Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shift Scheduled End Time'
+		dataType: string
+		lineageTag: ab053a41-93b8-4d04-8270-924b944e2000
+		sourceLineageTag: Shift Scheduled End Time
+		summarizeBy: none
+		sourceColumn: Shift Scheduled End Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comments
+		dataType: string
+		lineageTag: bdb3a2d9-85de-403d-a793-5022d15c2871
+		sourceLineageTag: Comments
+		summarizeBy: none
+		sourceColumn: Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: b07daedd-e120-444b-b8d6-409ad06efc5f
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: eae11fad-b1ad-48af-8150-64acc83ca266
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cde665b9-8b0b-49fa-966e-06e3c500d8a7
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column OVERTIME_HRS
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: f4ba610d-bd6d-47a7-8f00-e27cb2f70af3
+		sourceLineageTag: OVERTIME_HRS
+		summarizeBy: sum
+		sourceColumn: OVERTIME_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Shift Start Time'
+		dataType: string
+		lineageTag: d681f9a4-3abc-4f88-9f1a-f3b42c98108c
+		sourceLineageTag: Shift Start Time
+		summarizeBy: none
+		sourceColumn: Shift Start Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHIFT_START_TM_2
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: d1a411bc-61f4-42ad-8077-c024baa3ab7f
+		sourceLineageTag: SHIFT_START_TM_2
+		summarizeBy: sum
+		sourceColumn: SHIFT_START_TM_2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Shift End Time'
+		dataType: string
+		lineageTag: 3d429478-c19a-4f52-85e6-12eb308fe61d
+		sourceLineageTag: Shift End Time
+		summarizeBy: none
+		sourceColumn: Shift End Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHIFT_END_TM_2
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 2e4cd7d1-65bc-429e-a343-c570e5154584
+		sourceLineageTag: SHIFT_END_TM_2
+		summarizeBy: sum
+		sourceColumn: SHIFT_END_TM_2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column APPRVD_WORKING_HRS
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 221c4f88-ed23-42b6-bf20-ed69059bca89
+		sourceLineageTag: APPRVD_WORKING_HRS
+		summarizeBy: sum
+		sourceColumn: APPRVD_WORKING_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column COSTCVZ_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 236cf817-8a5c-42a8-b633-0895dfdbb9c6
+		sourceLineageTag: COSTCVZ_COST_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: COSTCVZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTCHZ_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 129abe40-014b-4a04-bb1f-54a57c9fb547
+		sourceLineageTag: COSTCHZ_COST_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: COSTCHZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact Time Card' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_FACT_HR_TIMECRD_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

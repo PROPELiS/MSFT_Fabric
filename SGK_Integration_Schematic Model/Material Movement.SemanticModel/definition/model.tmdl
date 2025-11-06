@@ -1,0 +1,38 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["EDW_T_FACT_IM_MATMVMT_CUR_D","EDW_T_D_MST_CMPNYCD_CUR_D","EDW_T_D_MST_CRNCY_CUR_D","EDW_T_D_MST_CUSTOMR_CUR_D","EDW_T_D_MST_DATE_CUR_D","EDW_T_D_MST_MATERIAL_CUR_D","EDW_T_D_MST_PLANT_CUR_D","EDW_T_D_MST_PROFCTR_CUR_D","EDW_T_D_MST_STORLOC_CUR_D","EDW_T_D_MST_VENDOR_CUR_D","EDW_T_D_SAL_SALORDH_CUR_D","EDW_T_D_MST_COSCNTR_CUR_D","EDW_T_D_HY_COSTCHZ_CUR_D","EDW_T_D_HY_COSTCVZ_CUR_D","EDW_T_D_HY_PROFCHZ_CUR_D","EDW_T_D_HY_PROFCVZ_CUR_D","EDW_T_D_MST_PLNTMAT_CUR_D","Group Currency","Company Currency","Document Date","Posting Date","Creation Date","Receiving Plant"]
+
+ref table EDW_T_FACT_IM_MATMVMT_CUR_D
+ref table EDW_T_D_MST_CMPNYCD_CUR_D
+ref table EDW_T_D_MST_CRNCY_CUR_D
+ref table EDW_T_D_MST_CUSTOMR_CUR_D
+ref table EDW_T_D_MST_DATE_CUR_D
+ref table EDW_T_D_MST_MATERIAL_CUR_D
+ref table EDW_T_D_MST_PLANT_CUR_D
+ref table EDW_T_D_MST_PROFCTR_CUR_D
+ref table EDW_T_D_MST_STORLOC_CUR_D
+ref table EDW_T_D_MST_VENDOR_CUR_D
+ref table EDW_T_D_SAL_SALORDH_CUR_D
+ref table EDW_T_D_MST_COSCNTR_CUR_D
+ref table EDW_T_D_HY_COSTCHZ_CUR_D
+ref table EDW_T_D_HY_COSTCVZ_CUR_D
+ref table EDW_T_D_HY_PROFCHZ_CUR_D
+ref table EDW_T_D_HY_PROFCVZ_CUR_D
+ref table EDW_T_D_MST_PLNTMAT_CUR_D
+ref table 'Group Currency'
+ref table 'Company Currency'
+ref table 'Document Date'
+ref table 'Posting Date'
+ref table 'Creation Date'
+ref table 'Receiving Plant'
+
+ref cultureInfo en-IN
+

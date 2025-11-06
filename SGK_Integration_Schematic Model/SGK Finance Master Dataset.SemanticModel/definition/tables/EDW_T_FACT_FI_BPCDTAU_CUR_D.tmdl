@@ -1,0 +1,303 @@
+table EDW_T_FACT_FI_BPCDTAU_CUR_D
+	lineageTag: 7a2faa1a-d0e8-478d-9c0d-d59c0d91f7b2
+	sourceLineageTag: [Propelis].[EDW_T_FACT_FI_BPCDTAU_CUR_D]
+
+	column 'Functional Area ID'
+		dataType: string
+		lineageTag: 5bd310c3-f473-47ab-bb76-205ae29d19b2
+		sourceLineageTag: Functional Area ID
+		summarizeBy: none
+		sourceColumn: Functional Area ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inter Company Profit Center ID'
+		dataType: string
+		lineageTag: 941aa03f-344f-4498-b232-dce6dee08632
+		sourceLineageTag: Inter Company Profit Center ID
+		summarizeBy: none
+		sourceColumn: Inter Company Profit Center ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center ID'
+		dataType: string
+		lineageTag: d35b8cc5-149e-4927-9a17-93162312f336
+		sourceLineageTag: Profit Center ID
+		summarizeBy: none
+		sourceColumn: Profit Center ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inter Company ID'
+		dataType: string
+		lineageTag: d871277a-eb46-4e0b-8cf0-41d81be2d219
+		sourceLineageTag: Inter Company ID
+		summarizeBy: none
+		sourceColumn: Inter Company ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Signdata Amt - Current'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 853cfab9-13ca-4497-8876-37d71e1c5e58
+		sourceLineageTag: Signdata Amt - Current
+		summarizeBy: sum
+		sourceColumn: Signdata Amt - Current
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column FYP
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 900c32ec-9d54-43ac-9dec-a13bd3fdcdf8
+		sourceLineageTag: FYP
+		summarizeBy: sum
+		sourceColumn: FYP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Signdata Amount'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9846c7f9-343c-4c28-81dc-4293d81882e8
+		sourceLineageTag: Signdata Amount
+		summarizeBy: sum
+		sourceColumn: Signdata Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 9d1a7d49-9faf-4fa1-b5f5-78933c0e3248
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4f8a1a42-8e95-4b6c-a944-927318a53b58
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ae8ae1e8-b7ce-43a9-b16b-df2f17dde2fc
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column INTER_CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b8b14d3-56fa-4963-bd53-47d8860b0ec3
+		sourceLineageTag: INTER_CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: INTER_CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 205f93a8-5180-40ba-bd9e-f77e5732feb0
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Project
+		dataType: string
+		lineageTag: 2fdb25a1-c130-4eff-874c-57cb22c62f5f
+		sourceLineageTag: Project
+		summarizeBy: none
+		sourceColumn: Project
+
+		annotation SummarizationSetBy = Automatic
+
+	column Scope
+		dataType: string
+		lineageTag: a10cc085-dd20-4d40-888d-3c084b2b0b01
+		sourceLineageTag: Scope
+		summarizeBy: none
+		sourceColumn: Scope
+
+		annotation SummarizationSetBy = Automatic
+
+	column Version
+		dataType: string
+		lineageTag: 47a27cd7-5308-42c2-be9c-8cd08aac4396
+		sourceLineageTag: Version
+		summarizeBy: none
+		sourceColumn: Version
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d55c662-b124-456b-b8f8-d952883db891
+		sourceLineageTag: Fiscal Year
+		summarizeBy: sum
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		lineageTag: 75cea4f1-359c-447b-a2fc-e5d34a1b31e0
+		sourceLineageTag: Currency
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column Custom1
+		dataType: string
+		lineageTag: 9965a4b3-1008-4fd7-b00e-1ba36db8a25d
+		sourceLineageTag: Custom1
+		summarizeBy: none
+		sourceColumn: Custom1
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTITY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e78ebfef-cbd0-4d08-b1ee-66c54ad5ec6b
+		sourceLineageTag: ENTITY_KEY
+		summarizeBy: none
+		sourceColumn: ENTITY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Flow
+		dataType: string
+		lineageTag: 572cdd98-ab8b-4076-b346-e9ccca6d32c2
+		sourceLineageTag: Flow
+		summarizeBy: none
+		sourceColumn: Flow
+
+		annotation SummarizationSetBy = Automatic
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 33606f1b-d485-4bfa-b118-d7846e840dfb
+		sourceLineageTag: FUNCTNL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column INTER_CMPNY_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c79a1c4-235b-4d29-a533-016f832af4e5
+		sourceLineageTag: INTER_CMPNY_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: INTER_CMPNY_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACCT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 219ddb55-15c9-4964-a03e-31421d3a5fb9
+		sourceLineageTag: ACCT_KEY
+		summarizeBy: none
+		sourceColumn: ACCT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Audit Trail'
+		dataType: string
+		lineageTag: fd02bcef-9968-49f6-b51e-98a5eba11dce
+		sourceLineageTag: Audit Trail
+		summarizeBy: none
+		sourceColumn: Audit Trail
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ACCT ID'
+		dataType: string
+		lineageTag: 35fdc4fc-0520-4e62-8b4b-f139f4df3e03
+		sourceLineageTag: ACCT ID
+		summarizeBy: none
+		sourceColumn: ACCT ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ENTITY ID'
+		dataType: string
+		lineageTag: 8827a9dc-cc52-489d-b53f-fc91d2dbb220
+		sourceLineageTag: ENTITY ID
+		summarizeBy: none
+		sourceColumn: ENTITY ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCHZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e0fd010a-550b-4490-9654-991efc2fed22
+		sourceLineageTag: PROFCHZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCHZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCVZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a7245ef8-1ca8-4fdf-a7e3-85c1eab857b4
+		sourceLineageTag: PROFCVZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCVZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column INTER_COMPANY_PC_HH_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e9b7d853-8af7-4ecd-8655-1a3c5718bdcc
+		sourceLineageTag: INTER_COMPANY_PC_HH_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: INTER_COMPANY_PC_HH_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column INTER_COMP_PC_VH_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 75509a4c-ec4d-40bc-b0e7-95839e748974
+		sourceLineageTag: INTER_COMP_PC_VH_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: INTER_COMP_PC_VH_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_FACT_FI_BPCDTAU_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_FACT_FI_BPCDTAU_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

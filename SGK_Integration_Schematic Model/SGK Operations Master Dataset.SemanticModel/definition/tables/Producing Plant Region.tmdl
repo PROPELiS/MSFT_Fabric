@@ -1,0 +1,40 @@
+table 'Producing Plant Region'
+	lineageTag: 90c01efb-13ae-4e4e-9fd6-2ded1019b61f
+	sourceLineageTag: [Propelis].[PRODUCING_PLANT_REGION]
+
+	column 'Producing Plant Business Function'
+		dataType: string
+		lineageTag: 428bc821-d3ee-4be5-9d4f-e24ee8e2d833
+		sourceLineageTag: Producing Plant Business Function
+		summarizeBy: none
+		sourceColumn: Producing Plant Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Producing Plant Region'
+		dataType: string
+		lineageTag: 0c7e216e-8fcc-42d4-abee-9e54e0d6f07b
+		sourceLineageTag: Producing Plant Region
+		summarizeBy: none
+		sourceColumn: Producing Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Producing Plant'
+		dataType: string
+		lineageTag: a377d72a-9324-4f52-8439-1d335edd0737
+		sourceLineageTag: Producing Plant
+		summarizeBy: none
+		sourceColumn: Producing Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Producing Plant Region' = entity
+		mode: directLake
+		source
+			entityName: PRODUCING_PLANT_REGION
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

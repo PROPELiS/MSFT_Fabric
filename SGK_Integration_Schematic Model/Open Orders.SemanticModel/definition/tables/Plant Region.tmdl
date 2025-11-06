@@ -1,0 +1,43 @@
+table 'Plant Region'
+	lineageTag: 400fde5a-0660-4456-ad87-bf70a873a430
+
+	column 'Plant Business Function'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c81d9455-441e-4c94-a763-2639569979da
+		summarizeBy: none
+		sourceColumn: Plant Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plant Region'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 89776674-c22b-44f1-b8ce-691e4c4d5f8f
+		summarizeBy: none
+		sourceColumn: Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANT
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 67c71ddb-8b90-4da0-8383-30c43f5cc109
+		summarizeBy: none
+		sourceColumn: PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Plant Region' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    #"Propelis_PLANT_REGION " = Source{[Schema="Propelis",Item="PLANT_REGION "]}[Data]
+				in
+				    #"Propelis_PLANT_REGION "
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,114 @@
+table Currency
+	lineageTag: 48eb9f04-c988-4606-a538-5e8f2389bc24
+
+	column CRNCY_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b0e59b4b-8ee7-47a2-89d0-b41b638f3398
+		summarizeBy: none
+		sourceColumn: CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Currency Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f6643d42-251f-4250-9ead-9e9453f7ad4d
+		summarizeBy: none
+		sourceColumn: Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 31f0a044-0187-48cd-a7e6-73e84a786e86
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 847b2c51-47c0-4880-99ba-992bf0a660e2
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 7fad4b13-86da-4816-a392-8aec8e45317e
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f5aa2cea-4356-46d4-86d0-b412496c43b2
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 470beb9f-0340-4727-88ea-7b6642ac9d57
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4d7d0a02-e175-4cfc-a66d-6d99b174e621
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Currency Short Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: db80f1d9-f296-4e78-9ec8-a1db1ceca2d2
+		summarizeBy: none
+		sourceColumn: Currency Short Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Currency Long Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8c8bfee6-0334-48db-b391-1793a6e4925d
+		summarizeBy: none
+		sourceColumn: Currency Long Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Currency = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_CRNCY_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_CRNCY_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_CRNCY_CUR_D
+
+	annotation PBI_ResultType = Table
+

@@ -577,11 +577,11 @@ table 'Unitization Agent Vendor'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_UNITIZATION_AGENT_VENDOR = Source{[Schema="Propelis",Item="V_UNITIZATION_AGENT_VENDOR"]}[Data]
+				    Propelis_UNITIZATION_AGENT_VENDOR = Source{[Schema="Propelis",Item="UNITIZATION_AGENT_VENDOR"]}[Data]
 				in
-				    Propelis_V_UNITIZATION_AGENT_VENDOR
-
-	changedProperty = Name
+				    Propelis_UNITIZATION_AGENT_VENDOR
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

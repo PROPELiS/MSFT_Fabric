@@ -493,9 +493,11 @@ table 'Person Responsible Cost Center'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_PERSON_RESPNSBLE_COST_CNTR = Source{[Schema="Propelis",Item="V_PERSON_RESPNSBLE_COST_CNTR"]}[Data]
+				    Propelis_PERSON_RESPNSBLE_COST_CNTR = Source{[Schema="Propelis",Item="PERSON_RESPNSBLE_COST_CNTR"]}[Data]
 				in
-				    Propelis_V_PERSON_RESPNSBLE_COST_CNTR
+				    Propelis_PERSON_RESPNSBLE_COST_CNTR
 
-	changedProperty = Name
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

@@ -1,0 +1,66 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["EDW_T_D_HY_GLACTHZ_CUR_D","EDW_T_D_MST_CMPNYCD_CUR_D","EDW_T_D_MST_COSCNTR_CUR_D","EDW_T_D_MST_CRNCY_CUR_D","EDW_T_D_MST_DATE_CUR_D","EDW_T_D_MST_GENLDGR_CUR_D","EDW_T_D_MST_PLANT_CUR_D","EDW_T_D_HY_COSTCHZ_CUR_D","EDW_T_D_HY_COSTCVZ_CUR_D","EDW_T_D_MST_CUSTOMR_CUR_D","EDW_T_D_MST_COSTELM_CUR_D","EDW_T_D_MST_FUNCTAR_CUR_D","EDW_T_D_MST_MATERIAL_CUR_D","EDW_T_D_MST_PROFCTR_CUR_D","EDW_T_D_MST_VENDOR_CUR_D","EDW_T_D_PP_PURORDL_CUR_D","EDW_T_D_PRS_WBSELEM_CUR_D","EDW_T_D_SAL_INVOICE_CUR_D","EDW_T_D_SAL_SALORDH_CUR_D","EDW_T_D_HY_PROFCHZ_CUR_D","EDW_T_D_HY_PROFCVZ_CUR_D","EDW_T_D_HY_COSTEHZ_CUR_D","EDW_T_D_HY_COSTEVZ_CUR_D","EDW_T_D_MST_SEGMEN2_CUR_D","EDW_T_D_FI_ICGLGRP_CUR_D","EDW_T_D_FI_ICPTRDG_CUR_D","EDW_T_D_MST_EXCHGRT_CUR_D","EDW_T_D_MST_GLCMPCD_CUR_D","EDW_T_D_MST_CMPNYDT_CUR_D","EDW_T_D_FI_ASSETHR_CUR_D","Clearing Date","Posting Date","Document Date","Company Currency","Group Currency","Document Currency","Functional Area","Partner Functional Area","Partner Profit Center V Hier","Partner Profit Center H Hier","Partner Profit Center","Trading Partner Company","Partner Segment","Profit Center Trading Partner Grouping","Partner Profit Center Trading Partner Grouping","Exchange Rates","Transaction Currency","EDW_V_FACT_FI_GENLDGR_CUR_D","EDW_T_FACT_FI_GENLDGT2_CUR_D"]
+
+annotation PBI_ProTooling = ["WebModelingEdit"]
+
+ref table EDW_T_D_HY_GLACTHZ_CUR_D
+ref table EDW_T_D_MST_CMPNYCD_CUR_D
+ref table EDW_T_D_MST_COSCNTR_CUR_D
+ref table EDW_T_D_MST_CRNCY_CUR_D
+ref table EDW_T_D_MST_DATE_CUR_D
+ref table EDW_T_D_MST_GENLDGR_CUR_D
+ref table EDW_T_D_MST_PLANT_CUR_D
+ref table EDW_T_D_HY_COSTCHZ_CUR_D
+ref table EDW_T_D_HY_COSTCVZ_CUR_D
+ref table EDW_T_D_MST_CUSTOMR_CUR_D
+ref table EDW_T_D_MST_COSTELM_CUR_D
+ref table EDW_T_D_MST_FUNCTAR_CUR_D
+ref table EDW_T_D_MST_MATERIAL_CUR_D
+ref table EDW_T_D_MST_PROFCTR_CUR_D
+ref table EDW_T_D_MST_VENDOR_CUR_D
+ref table EDW_T_D_PP_PURORDL_CUR_D
+ref table EDW_T_D_PRS_WBSELEM_CUR_D
+ref table EDW_T_D_SAL_INVOICE_CUR_D
+ref table EDW_T_D_SAL_SALORDH_CUR_D
+ref table EDW_T_D_HY_PROFCHZ_CUR_D
+ref table EDW_T_D_HY_PROFCVZ_CUR_D
+ref table EDW_T_D_HY_COSTEHZ_CUR_D
+ref table EDW_T_D_HY_COSTEVZ_CUR_D
+ref table EDW_T_D_MST_SEGMEN2_CUR_D
+ref table EDW_T_D_FI_ICGLGRP_CUR_D
+ref table EDW_T_D_FI_ICPTRDG_CUR_D
+ref table EDW_T_D_MST_EXCHGRT_CUR_D
+ref table EDW_T_D_MST_GLCMPCD_CUR_D
+ref table EDW_T_D_MST_CMPNYDT_CUR_D
+ref table EDW_T_D_FI_ASSETHR_CUR_D
+ref table 'Clearing Date'
+ref table 'Posting Date'
+ref table 'Document Date'
+ref table 'Company Currency'
+ref table 'Group Currency'
+ref table 'Document Currency'
+ref table 'Functional Area'
+ref table 'Partner Functional Area'
+ref table 'Partner Profit Center V Hier'
+ref table 'Partner Profit Center H Hier'
+ref table 'Partner Profit Center'
+ref table 'Trading Partner Company'
+ref table 'Partner Segment'
+ref table 'Profit Center Trading Partner Grouping'
+ref table 'Partner Profit Center Trading Partner Grouping'
+ref table 'Exchange Rates'
+ref table 'Transaction Currency'
+ref table EDW_V_FACT_FI_GENLDGR_CUR_D
+ref table EDW_T_FACT_FI_GENLDGT2_CUR_D
+
+ref cultureInfo en-IN
+

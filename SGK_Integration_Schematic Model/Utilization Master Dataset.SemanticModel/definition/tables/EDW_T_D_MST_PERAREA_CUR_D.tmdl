@@ -1,0 +1,188 @@
+table EDW_T_D_MST_PERAREA_CUR_D
+	lineageTag: a715edeb-9ec9-43b1-93a0-8fce82ece618
+
+	column PERSONEL_AREA_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c04b1c6a-bc74-470b-8f21-a71cd2356856
+		summarizeBy: none
+		sourceColumn: PERSONEL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Personnel Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d1e394d1-fd12-436f-9135-d9d1f3e3ad8c
+		summarizeBy: none
+		sourceColumn: Personnel Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Grouping'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4550def2-28dc-42b5-9ff4-1941eb2a3f8f
+		summarizeBy: none
+		sourceColumn: Country Grouping
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e2f3d331-0531-4ff6-aeca-7278dfd4482a
+		summarizeBy: none
+		sourceColumn: Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Personnel Area Text'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: df4511b3-d329-4be0-a314-75ba433dd964
+		summarizeBy: none
+		sourceColumn: Personnel Area Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'House Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 91267916-b998-47d2-91b5-24c371aecea8
+		summarizeBy: none
+		sourceColumn: House Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Box'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: affbe0f5-b178-4cba-8205-328176e11fc6
+		summarizeBy: none
+		sourceColumn: PO Box
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 62df45e2-f9dc-404c-bcf8-dadbde06ae67
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0e4bf826-b389-4997-9693-f6bac74135e6
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 27005406-e36f-48b7-9d04-ad8dbfc87473
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column County
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: bd3c4a46-f752-4b9c-9f82-20d9eafbee8d
+		summarizeBy: none
+		sourceColumn: County
+
+		annotation SummarizationSetBy = Automatic
+
+	column Address
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b63710f8-d98f-478a-80e1-02e694fcb345
+		summarizeBy: none
+		sourceColumn: Address
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f3d9cc5d-fc80-4533-aa34-6a69ca8198e8
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: eca1026a-f365-4708-bae7-8d44d4820a3d
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: af6239c6-091a-4e72-959b-0356d22023f1
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8e13775a-e535-4c35-8f84-ecf721fa2d52
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 6291a576-756a-413c-a418-5b021edb77ce
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 96622c38-5529-496b-90e6-074596b041bd
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_PERAREA_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_PERAREA_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_PERAREA_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_PERAREA_CUR_D
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

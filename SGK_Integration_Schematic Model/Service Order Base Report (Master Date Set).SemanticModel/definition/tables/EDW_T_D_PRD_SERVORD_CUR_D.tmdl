@@ -1,0 +1,1408 @@
+table EDW_T_D_PRD_SERVORD_CUR_D
+	lineageTag: 8cc71f42-6a61-416e-a01d-eeb57c8d0b85
+
+	column SERVC_ORDER_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 58db240f-1500-4ede-8700-989c9bf572d3
+		summarizeBy: sum
+		sourceColumn: SERVC_ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 012c0b3f-249c-4046-a1e1-30ff343c132b
+		summarizeBy: none
+		sourceColumn: Service Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Operation Task List ID'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: c0c7b698-4384-4c49-8d6a-b582b603ef5f
+		summarizeBy: none
+		sourceColumn: Service Order Operation Task List ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Order Type'
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 5ade4651-4df8-488c-baaa-0a088cd9dbf3
+		summarizeBy: none
+		sourceColumn: Service Order Order Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Category'
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: cc6ea3e5-387e-48fe-9133-59a8cc7e9275
+		summarizeBy: none
+		sourceColumn: Service Order Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Company Code'
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 187805f4-8ddf-4055-bbfc-dac0da28745d
+		summarizeBy: none
+		sourceColumn: Service Order Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Plant'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 350e2a2c-6ba2-4f6d-a4cd-a5790bef5e49
+		summarizeBy: none
+		sourceColumn: Service Order Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Location Plant'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 71bb5e4e-60fa-4ee8-b0de-58747817b701
+		summarizeBy: none
+		sourceColumn: Service Order Location Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Maintenance Plant'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 13f3ec26-ec9a-46e2-9b35-ae737fe84136
+		summarizeBy: none
+		sourceColumn: Service Order Maintenance Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Document Currency'
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 1fa10974-0993-44c5-897b-5194fdfdd19a
+		summarizeBy: none
+		sourceColumn: Service Order Document Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Maintenance Work Center'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: eee9cc93-b33c-4dc4-956c-ba4d3b6a95cc
+		summarizeBy: none
+		sourceColumn: Service Order Maintenance Work Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Functional Area'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: e82d37f0-f735-4495-8f74-f9a3c572da08
+		summarizeBy: none
+		sourceColumn: Service Order Functional Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Object Class'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 5bdd6db7-badf-46f0-be68-900ec75db585
+		summarizeBy: none
+		sourceColumn: Service Order Object Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Estimated Total Costs'
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 3bc2681e-33d0-40ca-85d9-800cedeb58af
+		summarizeBy: sum
+		sourceColumn: Service Order Estimated Total Costs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Service Order Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: e3f97c58-1868-477d-9b34-b96eaa49c55f
+		summarizeBy: none
+		sourceColumn: Service Order Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Is Created'
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 543f004b-f5d3-4d84-86fc-18da778ca447
+		summarizeBy: none
+		sourceColumn: Service Order Is Created
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Is Released'
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 39103786-574b-441f-b1e6-31e948e12ea1
+		summarizeBy: none
+		sourceColumn: Service Order Is Released
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Is Completed'
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 94716b0c-e71e-46ef-9133-2b4c32d26eb2
+		summarizeBy: none
+		sourceColumn: Service Order Is Completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Is Closed'
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 632fbaaf-bc36-4355-b043-3796051855bb
+		summarizeBy: none
+		sourceColumn: Service Order Is Closed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Release Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ef2d7353-dea3-47e3-8ac7-f89eec569982
+		summarizeBy: none
+		sourceColumn: Service Order Release Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Tech Completion Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: afa74056-da62-4b62-86b5-38ed57300ee6
+		summarizeBy: none
+		sourceColumn: Service Order Tech Completion Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Close Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 57821948-e879-4a9b-965e-b8595e08aa2e
+		summarizeBy: none
+		sourceColumn: Service Order Close Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Deletion Flag'
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 421bb7f1-43d3-4197-9254-78e34f80c35d
+		summarizeBy: none
+		sourceColumn: Service Order Deletion Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Object Number'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: e5dc952f-d39c-464b-bba5-05902e2a1950
+		summarizeBy: none
+		sourceColumn: Service Order Object Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Responsible Cost Center'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 97ee3e45-1c33-4764-a245-54ccd587dc34
+		summarizeBy: none
+		sourceColumn: Service Order Responsible Cost Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Profit Center'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 139c17fe-bd81-43c0-aad3-2fd6d1a1234c
+		summarizeBy: none
+		sourceColumn: Service Order Profit Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Basic Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: e72a8051-2093-4855-9175-eac1218c2340
+		summarizeBy: none
+		sourceColumn: Service Order Basic Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Basic Finish Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 26a108fa-5e1e-44ff-9339-aa9b323a5ff7
+		summarizeBy: none
+		sourceColumn: Service Order Basic Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Scheduled Release Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 0350be4b-d9a7-459b-82d9-433770b54b4a
+		summarizeBy: none
+		sourceColumn: Service Order Scheduled Release Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Scheduled Finish Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ffa8ed95-3d26-4c59-87c9-7181659f30a0
+		summarizeBy: none
+		sourceColumn: Service Order Scheduled Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Scheduled Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 988fd9b4-8591-4e54-8dc4-2e4a5fcb9a0d
+		summarizeBy: none
+		sourceColumn: Service Order Scheduled Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Actual Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 711ca7a1-3441-43e1-9af3-7ae396865fd8
+		summarizeBy: none
+		sourceColumn: Service Order Actual Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Actual Finish Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 69e87d6e-6e14-419a-ac04-0c1742ab17bc
+		summarizeBy: none
+		sourceColumn: Service Order Actual Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Actual Release Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 5edf909a-eb75-444f-8b22-3a12c2ca3d97
+		summarizeBy: none
+		sourceColumn: Service Order Actual Release Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Planned Release Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 7dbf5409-7533-4e99-a95c-d3fe861da062
+		summarizeBy: none
+		sourceColumn: Service Order Planned Release Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Reservation'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: c4effe99-0b5c-4545-a5e4-dab6838aedc1
+		summarizeBy: none
+		sourceColumn: Service Order Reservation
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Total Scrap'
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: c08dd432-07a3-4956-9278-3634dd1905cf
+		summarizeBy: sum
+		sourceColumn: Service Order Total Scrap
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Service Order Target Quantity'
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: ad796e1f-adb5-4d9d-ae4c-29d7cf2ecefb
+		summarizeBy: sum
+		sourceColumn: Service Order Target Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Service Order Task List Type'
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: e9a6b0bc-6ca7-4ce0-a776-de65bc213cd4
+		summarizeBy: none
+		sourceColumn: Service Order Task List Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Capacity Requirements ID'
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: f7d72749-0b3b-4460-ac1a-4b6ce612d0ac
+		summarizeBy: none
+		sourceColumn: Service Order Capacity Requirements ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Equipment'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 2910d6b7-eb08-4f6a-9e62-14564950d195
+		summarizeBy: none
+		sourceColumn: Service Order Equipment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Location Account Assignment'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 8cd2ad74-2de9-464d-be6a-4c34199eff66
+		summarizeBy: none
+		sourceColumn: Service Order Location Account Assignment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Planning Plant'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: ccd91ead-fc15-4e40-a297-011368595dd5
+		summarizeBy: none
+		sourceColumn: Service Order Planning Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Work Center'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: cacfa601-ba1a-4c0c-b790-a1351a3f9d9d
+		summarizeBy: none
+		sourceColumn: Service Order Work Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Object List'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 4c543089-ddb4-4ab8-a05f-b81b3c997b06
+		summarizeBy: none
+		sourceColumn: Service Order Object List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Maintenance Activity Type'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: b88fc779-252b-42e9-aa35-6dc51ad3ae85
+		summarizeBy: none
+		sourceColumn: Service Order Maintenance Activity Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Notification'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: c62dec07-7cf7-45f7-a453-cbe7432faac3
+		summarizeBy: none
+		sourceColumn: Service Order Notification
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Cost Center'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 5828606e-ce7a-4f72-a088-f543d495fea2
+		summarizeBy: none
+		sourceColumn: Service Order Cost Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Functional Location'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 210a38bd-8f48-4fa9-897b-5ce015a3db60
+		summarizeBy: none
+		sourceColumn: Service Order Functional Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Sales Order'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 79eb66be-98bb-472a-94c0-856977e08196
+		summarizeBy: none
+		sourceColumn: Service Order Sales Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Sales Order Item Number'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 5a644f0a-701c-454a-a43b-824010052778
+		summarizeBy: none
+		sourceColumn: Service Order Sales Order Item Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Count Of Rounds'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0b4bb380-4094-4a0c-a8d2-fe9991f2c274
+		summarizeBy: sum
+		sourceColumn: Service Order Count Of Rounds
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Count Of Rework Internal'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c4aa6bf4-3799-4817-a33d-733cedf7b03e
+		summarizeBy: sum
+		sourceColumn: Service Order Count Of Rework Internal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB Production Deadline Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 689fef9f-bbf1-4f00-b1f3-de27bd2ab88a
+		summarizeBy: none
+		sourceColumn: Service Order HUB Production Deadline Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order HUB Approval Loop Deadline Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 36e41251-1e3d-4c02-b8d5-525ee31562c2
+		summarizeBy: none
+		sourceColumn: Service Order HUB Approval Loop Deadline Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order HUB Change Request Deadline Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 77f1cdb8-a698-4f3b-b62e-291dd5c5b6a9
+		summarizeBy: none
+		sourceColumn: Service Order HUB Change Request Deadline Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order HUB Finish Date Deadline Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 76613bd4-d8df-4ee9-99d1-140f237dc77c
+		summarizeBy: none
+		sourceColumn: Service Order HUB Finish Date Deadline Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order HUB Number Of Loops'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b40ecdc5-ce1c-4f20-831c-f41dc8f638e4
+		summarizeBy: sum
+		sourceColumn: Service Order HUB Number Of Loops
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB Webstatus'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 83ebbaa6-cbee-40f7-a6dd-71fd6be5b36f
+		summarizeBy: none
+		sourceColumn: Service Order HUB Webstatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB First Time In Prep For Production'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: feca155f-3acf-4338-8524-708a0bec57de
+		summarizeBy: none
+		sourceColumn: Service Order HUB First Time In Prep For Production
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB Last Time In Prep For Production'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 778c030d-111b-4caf-8750-41fab58e61f0
+		summarizeBy: none
+		sourceColumn: Service Order HUB Last Time In Prep For Production
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB First Time In Production'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c3ae2400-642e-4a7a-9124-2c2a9f9cd807
+		summarizeBy: none
+		sourceColumn: Service Order HUB First Time In Production
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB Last Time In Production'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4317e1e0-2ac7-4ff5-8090-e5ba5ab7d504
+		summarizeBy: none
+		sourceColumn: Service Order HUB Last Time In Production
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB First Time In Out For Approval'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c3a6b2d5-af67-49ae-8aec-5490f2a7718f
+		summarizeBy: none
+		sourceColumn: Service Order HUB First Time In Out For Approval
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB Last Time In Out For Approval'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 3034574c-32b6-4eb6-8204-b1182694326c
+		summarizeBy: none
+		sourceColumn: Service Order HUB Last Time In Out For Approval
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB First Time In Approval Loop'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5421f7ca-cb16-4b4a-bcfb-81891b969a29
+		summarizeBy: none
+		sourceColumn: Service Order HUB First Time In Approval Loop
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB Last Time In Approval Loop'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: fe0fd235-f6ed-4f70-bf43-853f2f6f0d2a
+		summarizeBy: none
+		sourceColumn: Service Order HUB Last Time In Approval Loop
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB First Time In Change Request'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 7415bcf0-21d5-4dec-b7dc-8ecb959aec33
+		summarizeBy: none
+		sourceColumn: Service Order HUB First Time In Change Request
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB Last Time In Change Request'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: fe0bd846-e77d-4cdb-944d-4eea081c6d46
+		summarizeBy: none
+		sourceColumn: Service Order HUB Last Time In Change Request
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB First Time In Approved'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: be3091bf-8b80-4c6e-8e51-af3d1dadab82
+		summarizeBy: none
+		sourceColumn: Service Order HUB First Time In Approved
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB Last Time In Approved'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: b76d7fc1-467d-4b84-a43c-d546ac6e4462
+		summarizeBy: none
+		sourceColumn: Service Order HUB Last Time In Approved
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB First Time In Final Production'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 54eb5dd4-5b5d-48a6-9d97-3a70bb61902d
+		summarizeBy: none
+		sourceColumn: Service Order HUB First Time In Final Production
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB Last Time In Final Production'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 114b280d-6c44-489b-9ebd-1c482e972b8b
+		summarizeBy: none
+		sourceColumn: Service Order HUB Last Time In Final Production
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB First Time In Production Completed'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2028448d-084f-4661-9f79-85617804d7c2
+		summarizeBy: none
+		sourceColumn: Service Order HUB First Time In Production Completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB Last Time In Production Completed'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 27943430-8a94-4356-80ee-c57b9d0922bc
+		summarizeBy: none
+		sourceColumn: Service Order HUB Last Time In Production Completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB First Time In On Hold'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c56911cf-7d6c-49e2-b105-f1eca0c000e4
+		summarizeBy: none
+		sourceColumn: Service Order HUB First Time In On Hold
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB Last Time In On Hold'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 1106ddfb-6bcd-4524-8309-dd6f624cff40
+		summarizeBy: none
+		sourceColumn: Service Order HUB Last Time In On Hold
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB First Time In Archived'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: b5eaed64-16b9-4768-8e00-1249899c6f60
+		summarizeBy: none
+		sourceColumn: Service Order HUB First Time In Archived
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB Last Time In Archived'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 6d5a5993-2159-4453-9cd1-11cd3b6e17be
+		summarizeBy: none
+		sourceColumn: Service Order HUB Last Time In Archived
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 72315073-0871-4b0a-863e-8119285b703b
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 8abded65-f75a-450a-b4bb-54255aa53640
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 2a692744-d396-46fc-be26-97a24ffcde9d
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 7330e8cc-2943-40fb-b5ad-e25eca810d4d
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 45b90c8d-f1c1-4736-91e4-4fd13159ea53
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 13868803-88ca-4978-9a5b-9c8d10bf6563
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order HUB Webstatus Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: f9c01303-826b-4de2-ae70-03eae5335ab8
+		summarizeBy: none
+		sourceColumn: Service Order HUB Webstatus Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Done Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 1d7b216e-33f1-4bc0-af6d-ce6c343f3b7e
+		summarizeBy: none
+		sourceColumn: Service Order Done Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Invoice Create Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 5374e1d2-5a30-4ff8-8f2b-23af1764ea07
+		summarizeBy: none
+		sourceColumn: Service Order Invoice Create Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Job Status'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 4af28af6-6573-4d8c-93eb-595bfc54378a
+		summarizeBy: none
+		sourceColumn: Service Order Job Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order System Status'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 45391a07-fc60-446a-807a-777ce8574d4f
+		summarizeBy: none
+		sourceColumn: Service Order System Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Last Changed By'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 730b2154-d0de-465b-bf99-f9c86ff1625a
+		summarizeBy: none
+		sourceColumn: Service Order Last Changed By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Change Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 79bead62-9540-461c-b981-290196e7884c
+		summarizeBy: none
+		sourceColumn: Service Order Change Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Entered By'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 7fb20ba2-c0de-46a4-8c99-2c29514dc2e8
+		summarizeBy: none
+		sourceColumn: Service Order Entered By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Additional Device Data'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 0d6b7ad6-6609-4cb2-9a24-255dce892643
+		summarizeBy: none
+		sourceColumn: Service Order Additional Device Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Assembly'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: f469e70c-4008-4a21-b07d-f8118fa34cc5
+		summarizeBy: none
+		sourceColumn: Service Order Assembly
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order ILOA Individual'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 39983694-b6e3-4ada-8109-13742cd8ca1b
+		summarizeBy: none
+		sourceColumn: Service Order ILOA Individual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Priority'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: ac71325c-0873-4500-838d-cd3d75b9155b
+		summarizeBy: none
+		sourceColumn: Service Order Priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Priority Type'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: de46e368-6cbc-465a-9aba-77b1418de254
+		summarizeBy: none
+		sourceColumn: Service Order Priority Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Reason Code'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 8a99418b-9d31-4d67-bbcf-4791cb94b476
+		summarizeBy: none
+		sourceColumn: Service Order Reason Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Reason for Change'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 5d5c3645-cb4b-4039-befa-d6d87b5f2873
+		summarizeBy: none
+		sourceColumn: Service Order Reason for Change
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Description of Change'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 2169893a-4345-4375-a84a-78f26e812cb4
+		summarizeBy: none
+		sourceColumn: Service Order Description of Change
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Error Caught By'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: df914684-1334-4521-92d9-2c892850f78c
+		summarizeBy: none
+		sourceColumn: Service Order Error Caught By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Error Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 6f5eb1ce-b800-4491-b808-51965638a3af
+		summarizeBy: none
+		sourceColumn: Service Order Error Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Error Origin'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 3055b758-d0ad-454b-a2b9-9560157dcc3d
+		summarizeBy: none
+		sourceColumn: Service Order Error Origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Error Severity'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 2d4a0364-b38b-4ba1-9bb4-898c9fe59b68
+		summarizeBy: none
+		sourceColumn: Service Order Error Severity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Error Type'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 70507de4-cc92-41f9-8a09-084f9f28d5b5
+		summarizeBy: none
+		sourceColumn: Service Order Error Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Requested By'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 33faa9fb-d2a7-4a7f-9436-5a63588f0590
+		summarizeBy: none
+		sourceColumn: Service Order Requested By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Controlling Area'
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 7863d7d9-7690-48aa-a8cf-e1d85c31cfc6
+		summarizeBy: none
+		sourceColumn: Service Order Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Equity Type'
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: fd147b71-0b3b-4b2b-910b-5d1f7dfc4f3c
+		summarizeBy: none
+		sourceColumn: Service Order Equity Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order WBS Element'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cd82dac4-b64c-4abb-9089-ac7db83194b5
+		summarizeBy: sum
+		sourceColumn: Service Order WBS Element
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Type Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 8cb6d022-8bd3-498b-80bc-f634bba11870
+		summarizeBy: none
+		sourceColumn: Service Order Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Category Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 55c92237-1a9f-42da-b967-f816c284ec1f
+		summarizeBy: none
+		sourceColumn: Service Order Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Company Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: cd663921-ce17-46cb-8dc5-c0d460a72bf9
+		summarizeBy: none
+		sourceColumn: Service Order Company Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Plant Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 4f3f6ba0-5eb8-4698-be03-a947b7a5d2e9
+		summarizeBy: none
+		sourceColumn: Service Order Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Location Plant Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 02628bf6-d8b8-485a-82ea-4f37132c89e9
+		summarizeBy: none
+		sourceColumn: Service Order Location Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Maintenance Plant Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 34fa59dd-14aa-4d31-8cd0-84b4539881f7
+		summarizeBy: none
+		sourceColumn: Service Order Maintenance Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Document Currency Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 6452652d-c9d2-4ee5-b3cc-02d9cf1e5ae3
+		summarizeBy: none
+		sourceColumn: Service Order Document Currency Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Object Class Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: c5389230-7205-42e1-9e4a-7efb77c39d53
+		summarizeBy: none
+		sourceColumn: Service Order Object Class Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Task List Type Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 3bd3b9ec-7873-4c98-98ad-e7ea343d42a0
+		summarizeBy: none
+		sourceColumn: Service Order Task List Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Planning Plant Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: f6f32173-2ff7-4449-894b-fe1804e08b89
+		summarizeBy: none
+		sourceColumn: Service Order Planning Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Work Center Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 702f84f8-2d28-4dee-bd36-22cab3c550db
+		summarizeBy: none
+		sourceColumn: Service Order Work Center Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Maintenance Activity Type Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 7cc5fed3-6294-4b23-aa0a-07d09c5423bc
+		summarizeBy: none
+		sourceColumn: Service Order Maintenance Activity Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Active Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: eb1e8a4a-cb2c-491d-af26-a8585003b3fc
+		summarizeBy: none
+		sourceColumn: Service Order Active Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order On Hold Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 9f1bcb10-7cb7-4a39-828b-702e35b03347
+		summarizeBy: none
+		sourceColumn: Service Order On Hold Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Intercompany Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 7fcc581e-eef4-4c83-bccb-7fe16b315d6f
+		summarizeBy: none
+		sourceColumn: Service Order Intercompany Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Out For Appproval Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: f1221cad-4875-4e6d-9f05-e539a490c586
+		summarizeBy: none
+		sourceColumn: Service Order Out For Appproval Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Closed Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: e819618c-07cd-45d8-afab-65ad2eb1e60c
+		summarizeBy: none
+		sourceColumn: Service Order Closed Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Post Approval Production Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: a50106f6-02f7-4bbc-b379-680881ea0676
+		summarizeBy: none
+		sourceColumn: Service Order Post Approval Production Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Active Artwork Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 65e04daf-5828-45cb-aab2-ca795bbe8097
+		summarizeBy: none
+		sourceColumn: Service Order Active Artwork Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Active Prepress Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: fb3ae12f-02a1-4419-a972-9af7adcd4dbb
+		summarizeBy: none
+		sourceColumn: Service Order Active Prepress Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Priority Type Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 14fc3386-cb27-4ebd-8d69-5b82236e6220
+		summarizeBy: none
+		sourceColumn: Service Order Priority Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Controlling Area Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 5852cc37-6f5f-483d-b340-8e2155f2156b
+		summarizeBy: none
+		sourceColumn: Service Order Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Equity Type Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 5601c2cf-2a6a-4aaa-a05f-72d6feaf9162
+		summarizeBy: none
+		sourceColumn: Service Order Equity Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Created On Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 0f7e9e96-7399-4d9b-81ee-66dd6ba72512
+		summarizeBy: none
+		sourceColumn: Service Order Created On Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Production Complete Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 05535ddb-4e64-4b11-ba15-4ec9f78dfee8
+		summarizeBy: none
+		sourceColumn: Service Order Production Complete Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Waiting on Client PO Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 7aaad055-34ae-46d3-b5f9-912dc7906231
+		summarizeBy: none
+		sourceColumn: Service Order Waiting on Client PO Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Billing In Progress Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 730623f9-b0a4-4f20-95fa-a23170345a30
+		summarizeBy: none
+		sourceColumn: Service Order Billing In Progress Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Released To Invoicing Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 007535ed-888d-405f-a492-3b139214f8cc
+		summarizeBy: none
+		sourceColumn: Service Order Released To Invoicing Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Service Order Accountng Indicator Customer'
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 0b2790db-d36c-4ab1-822d-2c89976ce6ff
+		summarizeBy: none
+		sourceColumn: Service Order Accountng Indicator Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Accountng Indicator Customer Description'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: edb4f2cc-bb75-48d0-afcf-8a315c7f0785
+		summarizeBy: none
+		sourceColumn: Service Order Accountng Indicator Customer Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_PRD_SERVORD_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_PRD_SERVORD_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_PRD_SERVORD_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_PRD_SERVORD_CUR_D
+

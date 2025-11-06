@@ -1,0 +1,724 @@
+table 'Fact Service Order Costs'
+	lineageTag: 8a8a6bac-e37f-4b55-a5aa-8f7d15b82e3f
+	sourceLineageTag: [Propelis].[EDW_T_FACT_PRD_SERVCST_CUR_D]
+
+	measure 'Actual Costs Company Currency' =
+			CALCULATE(
+			    SUM('Fact Service Order Costs'[CMPNY_CRNCY_VAL]),
+			    FILTER(
+			        'Fact Service Order Costs',
+			        'Fact Service Order Costs'[TRNSCTN_TYP] = "RKL"
+			    )
+			)
+		lineageTag: 499792a1-77d0-4e55-9fc0-a2d31ef731dc
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Actual Costs Document Currency' =
+			CALCULATE(
+			    SUM('Fact Service Order Costs'[DOCMT_CRNCY_VAL]),
+			    FILTER(
+			        'Fact Service Order Costs',
+			        'Fact Service Order Costs'[TRNSCTN_TYP] = "RKL"
+			    )
+			)
+		lineageTag: c27a9bc9-5586-412b-828f-0b29755eb9bf
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Actual Costs Group Currency' =
+			CALCULATE(
+			    SUM('Fact Service Order Costs'[GROUP_CRNCY_VAL]),
+			    FILTER(
+			        'Fact Service Order Costs',
+			        'Fact Service Order Costs'[TRNSCTN_TYP] = "RKL"
+			    )
+			)
+		lineageTag: 857b9a9f-3c4a-4583-b614-2c6dc62a532e
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Company Currency Value' = sum('Fact Service Order Costs'[CMPNY_CRNCY_VAL])
+		lineageTag: 52192f80-4f6b-4030-a3f7-0a271623b8ef
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Document Currency Value' = sum('Fact Service Order Costs'[DOCMT_CRNCY_VAL])
+		lineageTag: 6de78d0e-7ecb-491d-974e-146d8cb0e0e0
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Group Currency Value' = sum('Fact Service Order Costs'[GROUP_CRNCY_VAL])
+		lineageTag: 5cd82b15-0954-4de0-b67f-8879f36e0aee
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Quantity Total' = sum('Fact Service Order Costs'[QTY_TOTAL])
+		lineageTag: 537c6241-eb67-4e75-a451-845779e0bf1e
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CREATION_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 39318c63-8a33-4c1a-82e0-4c1ea4359756
+		sourceLineageTag: CREATION_DATE_KEY
+		summarizeBy: none
+		sourceColumn: CREATION_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Creation Date Timestamp'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 57f276b7-029a-4ae8-af30-b42f3fc08708
+		sourceLineageTag: Posting Creation Date Timestamp
+		summarizeBy: none
+		sourceColumn: Posting Creation Date Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSONNEL_PLANT_REGION_PLANT
+		dataType: string
+		lineageTag: ee1a5bb4-c2b3-4c02-a60d-fc3691a842d2
+		sourceLineageTag: PERSONNEL_PLANT_REGION_PLANT
+		summarizeBy: none
+		sourceColumn: PERSONNEL_PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANT_REGION_PLANT
+		dataType: string
+		lineageTag: 4c5ff46a-533d-484d-a156-eddf7840dd04
+		sourceLineageTag: PLANT_REGION_PLANT
+		summarizeBy: none
+		sourceColumn: PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOCATION_PLANT_REGION_PLANT
+		dataType: string
+		lineageTag: 6a4b6f25-089c-4220-aa80-68ef42f247ca
+		sourceLineageTag: LOCATION_PLANT_REGION_PLANT
+		summarizeBy: none
+		sourceColumn: LOCATION_PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCING_PLANT_REGION_PLANT
+		dataType: string
+		lineageTag: c1e3244b-b40c-484d-a017-4094b84262a5
+		sourceLineageTag: PRODUCING_PLANT_REGION_PLANT
+		summarizeBy: none
+		sourceColumn: PRODUCING_PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Row'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fd1719d-fccb-48c1-b3c2-99eada879ad9
+		sourceLineageTag: Posting Row
+		summarizeBy: sum
+		sourceColumn: Posting Row
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is INTER Company Posting'
+		dataType: string
+		lineageTag: 98968cae-03e9-4b38-87b7-7413bc73b2ad
+		sourceLineageTag: Is INTER Company Posting
+		summarizeBy: none
+		sourceColumn: Is INTER Company Posting
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is INTRA Company Posting'
+		dataType: string
+		lineageTag: bfe1ce8f-f10d-412a-85b6-9b78c0066bdc
+		sourceLineageTag: Is INTRA Company Posting
+		summarizeBy: none
+		sourceColumn: Is INTRA Company Posting
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e4eecbd-2ed3-49b9-92b2-b7914dd7796a
+		sourceLineageTag: PRTNR_COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PRTNR_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TCHNCL_COMPLETION_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 996cf238-6e00-40c2-bd0e-58cf23161b81
+		sourceLineageTag: TCHNCL_COMPLETION_DATE_KEY
+		summarizeBy: none
+		sourceColumn: TCHNCL_COMPLETION_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: d34413cd-b767-4f7b-82bd-3c938210e62f
+		sourceLineageTag: DOCMT_DATE_KEY
+		summarizeBy: none
+		sourceColumn: DOCMT_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSTNG_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 659bb2fc-4682-4246-9aab-a01c9246b7fc
+		sourceLineageTag: PSTNG_DATE_KEY
+		summarizeBy: none
+		sourceColumn: PSTNG_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value Type Description'
+		dataType: string
+		lineageTag: a4f4eea2-4792-4f46-b36f-16d144ffff03
+		sourceLineageTag: Value Type Description
+		summarizeBy: none
+		sourceColumn: Value Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Type Description'
+		dataType: string
+		lineageTag: 79e6b378-6fee-4b49-86d1-6e42196dcdc2
+		sourceLineageTag: Transaction Type Description
+		summarizeBy: none
+		sourceColumn: Transaction Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Controlling Area Description'
+		dataType: string
+		lineageTag: 2b0daa7a-3e5b-442d-8f06-b80b951dd296
+		sourceLineageTag: Controlling Area Description
+		summarizeBy: none
+		sourceColumn: Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Internal  Posting'
+		dataType: string
+		lineageTag: a3cdbd98-5df2-4bac-a785-f7d1f49df090
+		sourceLineageTag: Is Internal  Posting
+		summarizeBy: none
+		sourceColumn: Is Internal  Posting
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_TYP_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a02b1c53-56a7-4d27-ac6b-66968e464f1b
+		sourceLineageTag: ACTIVITY_TYP_KEY
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSONEL_NUM_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e923cd55-a4c1-436f-be80-537c85731b2d
+		sourceLineageTag: PERSONEL_NUM_KEY
+		summarizeBy: none
+		sourceColumn: PERSONEL_NUM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3751ea26-048d-41f0-a184-66542eb3a8b8
+		sourceLineageTag: FUNCTNL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Debit/Credit Indicator'
+		dataType: string
+		lineageTag: 36275d68-5bc3-4422-a795-42791c3e8955
+		sourceLineageTag: Debit/Credit Indicator
+		summarizeBy: none
+		sourceColumn: Debit/Credit Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reference Document Number'
+		dataType: string
+		lineageTag: 23b28df8-4c68-4eed-94df-c5e8e06aea3d
+		sourceLineageTag: Reference Document Number
+		summarizeBy: none
+		sourceColumn: Reference Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Controlling Area'
+		dataType: string
+		lineageTag: 89db0c2c-8265-4755-8a0d-2aef0f262be9
+		sourceLineageTag: Controlling Area
+		summarizeBy: none
+		sourceColumn: Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 055e960f-0e12-4ec5-94bc-3bff0785022d
+		sourceLineageTag: PLNT_KEY
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: eed87995-5070-4ed6-91f9-a8fe23f24f13
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 267e8571-c6ba-43db-9bdd-aa3b7f1103cc
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 66b9a6f4-6116-4bbd-a525-98aa27e12b87
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bef217da-71cf-40c7-bc72-ad0bafaff281
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOC_PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ee9de69-b65d-4115-881d-01e7ca27ca84
+		sourceLineageTag: LOC_PLNT_KEY
+		summarizeBy: none
+		sourceColumn: LOC_PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Type Of Cost'
+		dataType: string
+		lineageTag: 6474ad1a-6b5c-41ab-abd4-a20a99cf9d33
+		sourceLineageTag: Type Of Cost
+		summarizeBy: none
+		sourceColumn: Type Of Cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 43360a4b-8027-4e4b-8a01-45fa06af1777
+		sourceLineageTag: PRTNR_CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: PRTNR_CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Type'
+		dataType: string
+		lineageTag: a285cf76-aff1-4179-936b-fb2787dffe30
+		sourceLineageTag: Order Type
+		summarizeBy: none
+		sourceColumn: Order Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Category'
+		dataType: string
+		lineageTag: 92ea975f-a032-4ee4-92c4-c61482e7c649
+		sourceLineageTag: Order Category
+		summarizeBy: none
+		sourceColumn: Order Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column MAINTENANCE_WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e030f17-eef4-4969-9199-dc762ec49aeb
+		sourceLineageTag: MAINTENANCE_WRK_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: MAINTENANCE_WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Object Class'
+		dataType: string
+		lineageTag: ae9d9b6d-f0e0-4fe6-bfd5-ef369ff67e07
+		sourceLineageTag: Object Class
+		summarizeBy: none
+		sourceColumn: Object Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESPNSBLE_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f0a4d72-cf15-4b18-bf97-763aeca64b66
+		sourceLineageTag: RESPNSBLE_COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: RESPNSBLE_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value Type'
+		dataType: string
+		lineageTag: 9c8011fe-0754-4da9-866b-60c896529b09
+		sourceLineageTag: Value Type
+		summarizeBy: none
+		sourceColumn: Value Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: d125fea7-de11-4fc1-85e6-179d0f55c82a
+		sourceLineageTag: COST_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRNSCTN_TYP
+		dataType: string
+		lineageTag: 98169e7b-f921-4315-9408-b02e66dad74c
+		sourceLineageTag: TRNSCTN_TYP
+		summarizeBy: none
+		sourceColumn: TRNSCTN_TYP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Object'
+		dataType: string
+		lineageTag: 9c14ebaf-440b-4a00-83f0-ddbe2f8e76f9
+		sourceLineageTag: Partner Object
+		summarizeBy: none
+		sourceColumn: Partner Object
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5da2d096-4b2f-48b8-a3cb-a4e7a0bfa35f
+		sourceLineageTag: MATRL_KEY
+		summarizeBy: none
+		sourceColumn: MATRL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d5c7e82-d877-4d17-b5c4-4896b9d251b1
+		sourceLineageTag: CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_VAL
+		dataType: double
+		lineageTag: 05ad103c-7afd-4f44-bedc-608e710fd29f
+		sourceLineageTag: DOCMT_CRNCY_VAL
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_VAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CMPNY_CRNCY_VAL
+		dataType: double
+		lineageTag: 5335f20b-76fe-417e-9a56-70789d281f7e
+		sourceLineageTag: CMPNY_CRNCY_VAL
+		summarizeBy: sum
+		sourceColumn: CMPNY_CRNCY_VAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GROUP_CRNCY_VAL
+		dataType: double
+		lineageTag: 5ea60ed9-a0bb-452b-b684-302e2e9ea48b
+		sourceLineageTag: GROUP_CRNCY_VAL
+		summarizeBy: sum
+		sourceColumn: GROUP_CRNCY_VAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTY_TOTAL
+		dataType: double
+		lineageTag: 6c73b9e5-36b5-4156-a9d4-a3c609cecbf3
+		sourceLineageTag: QTY_TOTAL
+		summarizeBy: sum
+		sourceColumn: QTY_TOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UoM
+		dataType: string
+		lineageTag: ef022d27-fbc8-41b8-ad1e-adb170b14468
+		sourceLineageTag: UoM
+		summarizeBy: none
+		sourceColumn: UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: cbc170a0-46ea-4ede-849c-58dbbd8b36d3
+		sourceLineageTag: Fiscal Year
+		summarizeBy: sum
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCING_PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 73793e1c-033f-4193-b78a-31f5593115ad
+		sourceLineageTag: PRODUCING_PLNT_KEY
+		summarizeBy: none
+		sourceColumn: PRODUCING_PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Document Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8857a168-8916-4c05-85b0-4e3280906ca7
+		sourceLineageTag: Document Number
+		summarizeBy: sum
+		sourceColumn: Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: int64
+		formatString: 0
+		lineageTag: 18b0dfae-f518-4e65-8a80-d3efd43a4d34
+		sourceLineageTag: Period
+		summarizeBy: sum
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 914adc10-1fa3-43c5-84f3-1a84e8a4f1cf
+		sourceLineageTag: DOCMT_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: DOCMT_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 32a565d4-a908-4967-afe4-9edb76177e8e
+		sourceLineageTag: CMPNY_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROUP_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: b0c2b303-2d2c-4058-8702-582c36bf6bb4
+		sourceLineageTag: GROUP_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: GROUP_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SERVC_ORDER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f974125-cb7c-4c79-8e7f-5d8cb6b7ce94
+		sourceLineageTag: SERVC_ORDER_KEY
+		summarizeBy: none
+		sourceColumn: SERVC_ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order Sales Order'
+		dataType: string
+		lineageTag: d49dc6a7-5a43-4d72-bc3e-df7c1249f2b9
+		sourceLineageTag: Service Order Sales Order
+		summarizeBy: none
+		sourceColumn: Service Order Sales Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTEHZ_COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 7043b131-ca87-4eb2-8709-793afa8773eb
+		sourceLineageTag: COSTEHZ_COST_ELEMNT_KEY
+		summarizeBy: sum
+		sourceColumn: COSTEHZ_COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTEVZ_COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 82142eea-dbbd-42e6-b8fc-fc1ba7c35dc0
+		sourceLineageTag: COSTEVZ_COST_ELEMNT_KEY
+		summarizeBy: sum
+		sourceColumn: COSTEVZ_COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCHZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d45d893-2585-48a7-b190-64a7fc330496
+		sourceLineageTag: PROFCHZ_PROFT_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: PROFCHZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCVZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: b5485110-999f-4c8e-bd70-00a2c7ccb8e3
+		sourceLineageTag: PROFCVZ_PROFT_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: PROFCVZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column WORKCHZ_WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4a5b1351-29f4-4c38-86c7-42a00a19616a
+		sourceLineageTag: WORKCHZ_WRK_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: WORKCHZ_WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column WORKCVZ_WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 522893f5-0d2c-4a0b-b229-03a9a123ff1b
+		sourceLineageTag: WORKCVZ_WRK_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: WORKCVZ_WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Resp_Cost_Center_Horizontal_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 475af9f9-c9ac-43bf-9951-fb5890ff3958
+		sourceLineageTag: Resp_Cost_Center_Horizontal_COST_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: Resp_Cost_Center_Horizontal_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Resp_Cost_Center_Vertical_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e19c68a-8f41-4979-8cd3-c029fd704b76
+		sourceLineageTag: Resp_Cost_Center_Vertical_COST_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: Resp_Cost_Center_Vertical_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Partner_Cost_Center_Horizontal_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0029ade0-4d0f-4919-bbac-2d92172a05cf
+		sourceLineageTag: Partner_Cost_Center_Horizontal_COST_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: Partner_Cost_Center_Horizontal_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Partner_Cost_Center_Vertical_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 19b8f17c-f6bb-4f0c-ac52-4ea842e055d2
+		sourceLineageTag: Partner_Cost_Center_Vertical_COST_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: Partner_Cost_Center_Vertical_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact Service Order Costs' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_FACT_PRD_SERVCST_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

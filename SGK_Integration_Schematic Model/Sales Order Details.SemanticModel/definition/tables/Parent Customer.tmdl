@@ -1150,15 +1150,6 @@ table 'Parent Customer'
 
 		annotation SummarizationSetBy = Automatic
 
-	column ' Parent  Cust  Address  Notes'
-		dataType: string
-		sourceProviderType: varchar(max)
-		lineageTag: d15083d9-1645-4da0-ac8a-bddfd81f56f3
-		summarizeBy: none
-		sourceColumn: " Parent  Cust  Address  Notes"
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'Parent Cust Tax Number 3 Code'
 		dataType: string
 		sourceProviderType: varchar(max)
@@ -1249,14 +1240,25 @@ table 'Parent Customer'
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Parent Cust Address Notes'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e1b7eeec-79cf-4e12-a2e4-6248eebb49c6
+		summarizeBy: none
+		sourceColumn: Parent Cust Address Notes
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Parent Customer' = m
 		mode: directQuery
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_PARENT_CUST = Source{[Schema="Propelis",Item="V_PARENT_CUST"]}[Data]
+				    Propelis_PARENT_CUST = Source{[Schema="Propelis",Item="PARENT_CUST"]}[Data]
 				in
-				    Propelis_V_PARENT_CUST
+				    Propelis_PARENT_CUST
 
-	changedProperty = Name
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

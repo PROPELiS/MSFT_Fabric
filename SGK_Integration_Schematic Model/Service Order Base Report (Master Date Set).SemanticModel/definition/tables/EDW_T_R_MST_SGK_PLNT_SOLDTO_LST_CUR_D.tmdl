@@ -1,0 +1,59 @@
+table EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D
+	lineageTag: bead846a-396e-405a-b411-b22ff57cf37b
+
+	column SALES_ORG
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 061b9be2-6923-4226-a3ed-ad57ff52fa51
+		summarizeBy: none
+		sourceColumn: SALES_ORG
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANT
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: c9bc6f2a-fc3b-43c9-a97a-6c91e217dc4e
+		summarizeBy: none
+		sourceColumn: PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUSTOMER
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 9dd4710f-9a69-490c-9e5f-f059c5a7f586
+		summarizeBy: none
+		sourceColumn: CUSTOMER
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOLD_TO
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 09da4471-fa96-4871-a2ed-aaf05d6b2369
+		summarizeBy: none
+		sourceColumn: SOLD_TO
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATUS
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 614a2985-8572-414d-b2a6-3e82c7fcdd02
+		summarizeBy: none
+		sourceColumn: STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D = Source{[Schema="dbo",Item="EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_R_MST_SGK_PLNT_SOLDTO_LST_CUR_D
+
+	annotation PBI_ResultType = Table
+

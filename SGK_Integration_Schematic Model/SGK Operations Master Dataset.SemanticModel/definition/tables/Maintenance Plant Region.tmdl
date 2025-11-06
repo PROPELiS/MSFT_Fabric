@@ -1,0 +1,40 @@
+table 'Maintenance Plant Region'
+	lineageTag: b8eb7afc-adfd-4e85-bc8d-bfe9353980dc
+	sourceLineageTag: [Propelis].[MAINTENANCE_PLANT_REGION]
+
+	column 'Maintenance Business Function'
+		dataType: string
+		lineageTag: 35ec6efd-55de-4425-9067-6797ae93e9f5
+		sourceLineageTag: Maintenance Business Function
+		summarizeBy: none
+		sourceColumn: Maintenance Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Maintenance SGK Plant Region'
+		dataType: string
+		lineageTag: 876f8e42-ac67-4c48-af18-4911b3fe6013
+		sourceLineageTag: Maintenance SGK Plant Region
+		summarizeBy: none
+		sourceColumn: Maintenance SGK Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANT
+		dataType: string
+		lineageTag: 4d618b8e-1c84-4123-a6ee-64a93507bd81
+		sourceLineageTag: PLANT
+		summarizeBy: none
+		sourceColumn: PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Maintenance Plant Region' = entity
+		mode: directLake
+		source
+			entityName: MAINTENANCE_PLANT_REGION
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

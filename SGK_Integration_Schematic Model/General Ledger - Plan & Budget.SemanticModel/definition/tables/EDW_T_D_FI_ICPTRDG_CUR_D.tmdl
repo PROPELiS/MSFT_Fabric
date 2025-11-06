@@ -1,0 +1,32 @@
+table EDW_T_D_FI_ICPTRDG_CUR_D
+	lineageTag: 8934c3cd-845a-4e55-9431-eaca2f87485d
+
+	column PROFT_CNTR_ID
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 55e81997-b63b-4768-a1b4-226fd1030ee5
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRADING_PRTNR
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3a23ffb9-d4ee-460a-8907-2d404a6e8e21
+		summarizeBy: none
+		sourceColumn: TRADING_PRTNR
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_FI_ICPTRDG_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_FI_ICPTRDG_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_FI_ICPTRDG_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_FI_ICPTRDG_CUR_D
+
+	annotation PBI_ResultType = Table
+

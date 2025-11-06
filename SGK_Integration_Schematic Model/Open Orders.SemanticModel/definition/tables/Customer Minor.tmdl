@@ -1,0 +1,152 @@
+table 'Customer Minor'
+	lineageTag: 6f07181e-29f3-4251-a262-40bbec6490d5
+
+	column CUST_MATRL_INFO_RCD_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0e1aac28-cfba-4a7b-9c39-56fd91b5f969
+		summarizeBy: none
+		sourceColumn: CUST_MATRL_INFO_RCD_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Sales Organization'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a7f1b104-c8f3-4672-b441-8300d58dd0c4
+		summarizeBy: none
+		sourceColumn: CMIR Sales Organization
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Distribution Channel'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4e84911d-cd64-49e2-b884-c099d119fce1
+		summarizeBy: none
+		sourceColumn: CMIR Distribution Channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Customer Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d29f9f0c-f5ed-45e1-80dd-17cfa9c3c573
+		summarizeBy: none
+		sourceColumn: CMIR Customer Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Material ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c4225534-07f2-45ea-90b0-583261f8a586
+		summarizeBy: none
+		sourceColumn: CMIR Material ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Customer Material ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 147ad0df-a77e-479f-9058-840a4a746a7d
+		summarizeBy: none
+		sourceColumn: CMIR Customer Material ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Base UoM'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d7e865c3-63ef-4d42-8af0-eb87633fb859
+		summarizeBy: none
+		sourceColumn: CMIR Base UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 65aa2900-36c4-42c4-a0b2-3a0463f1c60d
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: d6e54579-2430-49c3-8081-8d08b24c841a
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 773009a2-8931-4435-b1bb-9e3f1fb09c9d
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Current Record Indicator of Customer Material Info Record'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 96671094-aa41-4377-843f-0e7c350f0003
+		summarizeBy: none
+		sourceColumn: Current Record Indicator of Customer Material Info Record
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 3cf1bc44-19ef-445b-a73d-abdddf569dd1
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 56df63e7-914e-4960-aab8-abb8899a58e1
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Customer Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 48d2efe5-64b0-4fc5-ad79-e31a5969a91d
+		summarizeBy: none
+		sourceColumn: CMIR Customer Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Customer Minor' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_CUSTMINR_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_CUSTMINR_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_CUSTMINR_CUR_D
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

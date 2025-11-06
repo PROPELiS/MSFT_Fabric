@@ -1,0 +1,105 @@
+table 'Functional Area'
+	lineageTag: dd1e0822-37f3-4120-838d-7cf1ca348027
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3175d068-4254-4410-892a-ea89dcd05583
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Area ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d0a0ce36-0e80-4a29-9f07-a8a78b3aa5a4
+		summarizeBy: none
+		sourceColumn: Functional Area ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Area Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2da9d429-e3ec-4b9a-a509-9ffe154c0e1d
+		summarizeBy: none
+		sourceColumn: Functional Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: b152d466-fd25-4cd7-82fc-ee27c37480c0
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 4bd822c0-37e4-4b15-a1b4-feff5306e0d7
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 435e377f-8df4-4b05-918f-23648d998afa
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 58c6e92a-7bd4-47ab-8358-0f2dd71afd16
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 51d49bc1-243f-4c25-8b8d-65ee218f62b0
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 97a14532-ecdd-43fc-b60a-6522d57242f8
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Functional Area' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_FUNCTAR_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_FUNCTAR_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_FUNCTAR_CUR_D
+
+	changedProperty = Name
+

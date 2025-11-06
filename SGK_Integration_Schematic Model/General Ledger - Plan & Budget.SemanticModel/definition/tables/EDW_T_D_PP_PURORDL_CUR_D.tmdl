@@ -1,0 +1,1073 @@
+table EDW_T_D_PP_PURORDL_CUR_D
+	lineageTag: 68b84a52-0797-4d48-834b-e5950f289196
+
+	column PURCHS_ORDER_ITM_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 990994d3-3fd3-44fb-9b5a-6ef2679a3501
+		summarizeBy: none
+		sourceColumn: PURCHS_ORDER_ITM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Purchase Order ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 12ba95b1-53c6-43ad-9d0e-2fd2de9eb85f
+		summarizeBy: none
+		sourceColumn: Purchase Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Purchase Order Item ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 56049062-eb76-4848-b620-ffc55234e4ea
+		summarizeBy: none
+		sourceColumn: Purchase Order Item ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Company Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 58c8819a-548e-4baf-84d4-14c254cc9844
+		summarizeBy: none
+		sourceColumn: PO Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Purchasing Document Category'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c07e748a-3bfe-4d72-aa31-c1b3ac08713b
+		summarizeBy: none
+		sourceColumn: PO Purchasing Document Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Purchasing Document Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0f4f5cf1-4218-4847-b6c6-018f41cfd7d3
+		summarizeBy: none
+		sourceColumn: PO Purchasing Document Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Status'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 41ceee54-43a4-4b99-a9f8-d8ab238b90fb
+		summarizeBy: none
+		sourceColumn: PO Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Statistical Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 21af89a2-7531-473f-a8b1-1cdd415326b9
+		summarizeBy: none
+		sourceColumn: PO Statistical Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Delivery Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 253908ab-e37d-4da5-9e94-66292c6bbb77
+		summarizeBy: none
+		sourceColumn: PO Delivery Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Created On'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 35a5b3dc-0105-4dc2-b0f6-1fa0aec64198
+		summarizeBy: none
+		sourceColumn: PO Created On
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Created By'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 17ef19a0-7de7-4f73-bcb6-37b62ed288fa
+		summarizeBy: none
+		sourceColumn: PO Created By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Vendor'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 12049616-fcba-42fa-b615-55431173220e
+		summarizeBy: none
+		sourceColumn: PO Vendor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Purchasing Organization'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4c4752f6-dbcd-46c8-9742-02da6da0d5d3
+		summarizeBy: none
+		sourceColumn: PO Purchasing Organization
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Purchasing Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1a16ac62-09de-4030-9b12-f19c07971d32
+		summarizeBy: none
+		sourceColumn: PO Purchasing Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Currency'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b03b221b-45b6-465d-b25b-9665643dd6ba
+		summarizeBy: none
+		sourceColumn: PO Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Exchange Rate'
+		dataType: double
+		sourceProviderType: decimal(9, 5)
+		lineageTag: 07b8c813-8d4d-4418-8a57-9ad7da0b634d
+		summarizeBy: none
+		sourceColumn: PO Exchange Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PO Invoicing Party'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2fc76eb4-7b09-4664-861f-3c0fe679a1b1
+		summarizeBy: none
+		sourceColumn: PO Invoicing Party
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Document Date'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 9ca4fea8-2ada-467b-ae16-4249cc72dd58
+		summarizeBy: none
+		sourceColumn: PO Document Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Terms Of Payment'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9b706488-8972-48e0-a87b-75252849d0c2
+		summarizeBy: none
+		sourceColumn: PO Terms Of Payment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Incoterms'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 929bdb54-62eb-41cc-b436-fd9dd1a8d296
+		summarizeBy: none
+		sourceColumn: PO Incoterms
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Deletion Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4d23c7f7-5f85-44ba-be84-03be27431171
+		summarizeBy: none
+		sourceColumn: PO Deletion Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Short Text'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b0859738-1f15-40d4-a946-e956ab9effc8
+		summarizeBy: none
+		sourceColumn: PO Short Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Material'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a280b8f8-cca6-4b92-9a98-a9737d1691dd
+		summarizeBy: none
+		sourceColumn: PO Material
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Material 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c03edaa8-817d-4d47-998c-b2a55dbcfd1d
+		summarizeBy: none
+		sourceColumn: PO Material 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Material Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2f03214e-fb4d-4ef8-bf42-c423aff2e667
+		summarizeBy: none
+		sourceColumn: PO Material Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Plant'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9dd83e9b-ab74-40b4-aaa5-fe3cec58b965
+		summarizeBy: none
+		sourceColumn: PO Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Storage Location'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2993ea42-301e-4843-acab-260865cd4bb0
+		summarizeBy: none
+		sourceColumn: PO Storage Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Target Quantity'
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: f2bb2a32-9e2c-49fa-b471-f52d22ecd654
+		summarizeBy: none
+		sourceColumn: PO Target Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PO Quantity'
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: 58532599-3158-4593-a5bf-2968e324e735
+		summarizeBy: none
+		sourceColumn: PO Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PO Unit'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6c3aa22c-89b4-4459-9773-c27a0e712e88
+		summarizeBy: none
+		sourceColumn: PO Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Net Order Price'
+		dataType: double
+		sourceProviderType: decimal(11, 2)
+		lineageTag: e74dd9f2-540e-4d85-991a-d622fa241ae8
+		summarizeBy: none
+		sourceColumn: PO Net Order Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PO Net Order Value'
+		dataType: double
+		sourceProviderType: decimal(13, 2)
+		lineageTag: 38d26a95-f9f2-42b0-8bfa-98bc6fde7b35
+		summarizeBy: none
+		sourceColumn: PO Net Order Value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PO Is PO Open'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4c517c02-dd8e-4b94-82eb-f42fa7b5791d
+		summarizeBy: none
+		sourceColumn: PO Is PO Open
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Quantity Open Goods Receipt Total'
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: 99c73a05-f2f8-4dcb-8c52-38fc4109921c
+		summarizeBy: none
+		sourceColumn: PO Quantity Open Goods Receipt Total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 02590547-7f75-4a10-b088-55dce11b77ba
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 4de411ac-b2cc-4738-8ee6-ee179fb241e1
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 93662c3a-a887-47d9-947d-27a8845192d2
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fc506d80-e7ed-4282-90ca-d0bb0104da97
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 8447c758-2d09-4311-b39a-80a0219811cd
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5d156b6a-c7f0-4389-af9b-bcb8af59c267
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Account Assignment Category'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5cd63b00-daff-4736-83b0-a81c376f169e
+		summarizeBy: none
+		sourceColumn: PO Account Assignment Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Account Assignment Category Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c5350029-ed20-4a1a-9d0e-aee2b35ffd4a
+		summarizeBy: none
+		sourceColumn: PO Account Assignment Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Number of Principal Purchase Agreement'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 77276f09-802f-4309-a5df-83571ded9c0a
+		summarizeBy: none
+		sourceColumn: PO Number of Principal Purchase Agreement
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Deletion Indicator in Purchasing Document'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c318f8a7-530a-4f5e-9ef7-3b826e224271
+		summarizeBy: none
+		sourceColumn: PO Deletion Indicator in Purchasing Document
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Delivery Completed Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 066c6e3c-f7cf-44bb-b87b-80bf78013abc
+		summarizeBy: none
+		sourceColumn: PO Delivery Completed Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Final Invoice Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 74754ebd-7e34-4dd7-8db8-040324ef9d04
+		summarizeBy: none
+		sourceColumn: PO Final Invoice Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Goods Receipt Non Valuated'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e00b77c3-7591-45a7-b061-f56dd9915bb1
+		summarizeBy: none
+		sourceColumn: PO Goods Receipt Non Valuated
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Indicator GR Based Invoice Verification'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 32a7983c-d9f5-476c-a185-61f5acac18c6
+		summarizeBy: none
+		sourceColumn: PO Indicator GR Based Invoice Verification
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Incoterms Part 1'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 884036a6-436e-4fca-bb32-5aa1fa8f8d36
+		summarizeBy: none
+		sourceColumn: PO Incoterms Part 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Incoterms Part 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 00c470b9-c166-4cde-a762-a9c6cf15734e
+		summarizeBy: none
+		sourceColumn: PO Incoterms Part 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Indicator Update Info Record'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d45edbeb-91ec-4995-96c9-cc4d2b756a76
+		summarizeBy: none
+		sourceColumn: PO Indicator Update Info Record
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Period Indicator for Shelf Life Expiration Date'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 53ee6c8b-42d0-44af-85eb-4f1fe355b94d
+		summarizeBy: none
+		sourceColumn: PO Period Indicator for Shelf Life Expiration Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Item Category in Purchasing Document'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: de1ce479-7102-4200-8e66-7905ca37b80e
+		summarizeBy: none
+		sourceColumn: PO Item Category in Purchasing Document
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Requisition Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cb2804bc-cfce-446c-b374-d5f869609b04
+		summarizeBy: none
+		sourceColumn: PO Requisition Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Revision Level'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6ab7ee9b-dde6-4d36-aa43-4489e6640d03
+		summarizeBy: none
+		sourceColumn: PO Revision Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Shipping Instructions'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7594f17a-885c-4046-bac8-196138072680
+		summarizeBy: none
+		sourceColumn: PO Shipping Instructions
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Stock Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 20252666-3fd2-4cbb-8713-6bd5a366a4e8
+		summarizeBy: none
+		sourceColumn: PO Stock Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Tax On Sales Purchases Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c3389300-38f4-4a76-bbc3-1400aa8df1d0
+		summarizeBy: none
+		sourceColumn: PO Tax On Sales Purchases Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Material Number Used by Vendor'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f1adac2b-880b-4813-8973-944d91036e5e
+		summarizeBy: none
+		sourceColumn: PO Material Number Used by Vendor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Goods Receipt Processing Time in Days'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2fa16a6b-71b8-4042-b803-c536790acb04
+		summarizeBy: none
+		sourceColumn: PO Goods Receipt Processing Time in Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Minimum Remaining Shelf Life'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7d3673f0-c01a-42da-9f6d-5aeecdd3c862
+		summarizeBy: none
+		sourceColumn: PO Minimum Remaining Shelf Life
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Overdelivery Tolerance Limit'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 45f687f8-20ea-41db-aefb-342690e13ca5
+		summarizeBy: none
+		sourceColumn: PO Overdelivery Tolerance Limit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Planned Delivery Time in Days'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b600f6d6-03be-4270-b2d0-6e3693f54d90
+		summarizeBy: none
+		sourceColumn: PO Planned Delivery Time in Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Underdelivery Tolerance Limit'
+		dataType: double
+		sourceProviderType: decimal(3, 1)
+		lineageTag: 9dddd263-9732-44cb-9cee-cfae8be56c27
+		summarizeBy: none
+		sourceColumn: PO Underdelivery Tolerance Limit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PO Purchasing Document Processing State'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4be1404e-e415-4f0b-93a9-2181d7e879f0
+		summarizeBy: none
+		sourceColumn: PO Purchasing Document Processing State
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO International Article Number EAN UPC'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c8f53aee-5bdf-47f4-b0bf-a3d672a34020
+		summarizeBy: none
+		sourceColumn: PO International Article Number EAN UPC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Goods Receipt Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cb6ea129-02d3-4719-9dfa-990fa93ab602
+		summarizeBy: none
+		sourceColumn: PO Goods Receipt Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Invoice Receipt Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ae63a44b-1402-43d7-974a-4a187ee03ac5
+		summarizeBy: none
+		sourceColumn: PO Invoice Receipt Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Order Price Unit Purchasing'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: da6135a2-fd02-43e3-9f4e-0826350cbd8b
+		summarizeBy: none
+		sourceColumn: PO Order Price Unit Purchasing
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Base Unit Of Measure'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ad1a3019-2aef-4d1f-add0-49906d9eb8bb
+		summarizeBy: none
+		sourceColumn: PO Base Unit Of Measure
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Name Of Requisitioner Requester'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d94c2739-746b-4444-aae1-c37c0ee05467
+		summarizeBy: none
+		sourceColumn: PO Name Of Requisitioner Requester
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Change Document Responsible Person'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 673054f8-40bf-45d9-af16-e9d00c88beb0
+		summarizeBy: none
+		sourceColumn: PO Change Document Responsible Person
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Change Document Creation Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 5fdb4d1e-72e3-4d03-87fa-44837f410fb0
+		summarizeBy: none
+		sourceColumn: PO Change Document Creation Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'PO Item Category Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c4fca29e-3f73-4c91-86e8-8504b678088d
+		summarizeBy: none
+		sourceColumn: PO Item Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Purchasing Document Category Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fd2e0868-b109-479e-b147-f482c58a7d0a
+		summarizeBy: none
+		sourceColumn: PO Purchasing Document Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Purchasing Document Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 422d2dd1-5190-44a7-98cc-c99a0c8ffa57
+		summarizeBy: none
+		sourceColumn: PO Purchasing Document Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Purchasing Organization Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1cdd963c-4674-4180-98df-399bd56cceee
+		summarizeBy: none
+		sourceColumn: PO Purchasing Organization Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Purchasing Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0cc50db0-886e-4b59-a0ab-059b33565289
+		summarizeBy: none
+		sourceColumn: PO Purchasing Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Currency Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 68e21bcc-200d-4cc5-b409-f91eb35a530a
+		summarizeBy: none
+		sourceColumn: PO Currency Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Terms of Payment Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 461a567b-17e7-4f50-9e84-db417bd73199
+		summarizeBy: none
+		sourceColumn: PO Terms of Payment Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Incoterms Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 52a57c4a-fdae-448d-845b-e2de3d9a4bb5
+		summarizeBy: none
+		sourceColumn: PO Incoterms Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Material Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a506b3d4-3a6b-4503-9b7e-8c8cc831bb53
+		summarizeBy: none
+		sourceColumn: PO Material Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Plant Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 17638a00-8a29-45eb-8507-d59e5145777f
+		summarizeBy: none
+		sourceColumn: PO Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Storage Location Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e5a34286-b615-479f-85e8-973a041010a1
+		summarizeBy: none
+		sourceColumn: PO Storage Location Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Incoterms Part 1 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 57e54917-9bd9-4703-93eb-692ffb6c8209
+		summarizeBy: none
+		sourceColumn: PO Incoterms Part 1 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Indicator Update Info Record Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 92fe0c28-88c3-4443-9af3-5ad3d468fbb2
+		summarizeBy: none
+		sourceColumn: PO Indicator Update Info Record Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Shipping Instructions Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 16f310a9-bf71-40b7-87db-33a77d8cfe42
+		summarizeBy: none
+		sourceColumn: PO Shipping Instructions Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Stock Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a5b9b651-6ba8-4d11-886b-6a1114f112a6
+		summarizeBy: none
+		sourceColumn: PO Stock Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Tax On Sales Purchases Code Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a735b760-93d5-4abf-a43a-fa59418a0755
+		summarizeBy: none
+		sourceColumn: PO Tax On Sales Purchases Code Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO First Name Of Requester'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c70e8cd7-48ba-42ac-aca1-a3f706ff2b19
+		summarizeBy: none
+		sourceColumn: PO First Name Of Requester
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Last Name Of Requester'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 418dc153-5195-4e3c-b46b-4f33095a393f
+		summarizeBy: none
+		sourceColumn: PO Last Name Of Requester
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO First Name Of Change Document Responsible'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a2adac90-8414-4318-9e70-90e8a3e8c585
+		summarizeBy: none
+		sourceColumn: PO First Name Of Change Document Responsible
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Last Name Of Change Document Responsible'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d28a67d1-46be-4bd6-a138-0e9c74b4ece3
+		summarizeBy: none
+		sourceColumn: PO Last Name Of Change Document Responsible
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Item Category In Purchasing Order'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: da7e1f39-5acf-4b8b-91ad-8d4c36438502
+		summarizeBy: none
+		sourceColumn: PO Item Category In Purchasing Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Incompletion Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6d3f0793-806c-4707-ae6e-9127cc54c7c6
+		summarizeBy: none
+		sourceColumn: PO Incompletion Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO STO Supplying Plant'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0a00ed2a-9eb9-4ffc-b6a6-8e06975c9d21
+		summarizeBy: none
+		sourceColumn: PO STO Supplying Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Principle Purchase Agreement Item Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 78f64d44-e80e-4573-b9c6-02902ec14907
+		summarizeBy: none
+		sourceColumn: PO Principle Purchase Agreement Item Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Price Unit'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: aae03791-b679-4716-b2be-73f3721648fa
+		summarizeBy: none
+		sourceColumn: PO Price Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Is ZARI Output Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f05268a1-ac28-4405-b949-7e1d3a9eb573
+		summarizeBy: none
+		sourceColumn: PO Is ZARI Output Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO ZARI Status'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 48f48f17-cd06-4eed-ab58-3631b1ea9a24
+		summarizeBy: none
+		sourceColumn: PO ZARI Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO ZARI Status Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5afe0eaf-c0a4-4dc9-b56a-42b60410fbce
+		summarizeBy: none
+		sourceColumn: PO ZARI Status Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Validity Period Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: f4003380-45f9-49e6-8e97-c1d940ef652c
+		summarizeBy: none
+		sourceColumn: PO Validity Period Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'PO Validity Period End Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 217fb90a-8201-48b4-ad7f-fb79996acec8
+		summarizeBy: none
+		sourceColumn: PO Validity Period End Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'PO Delivery Address Name 1'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0aa825d7-e2cd-4dca-9694-0061532460bc
+		summarizeBy: none
+		sourceColumn: PO Delivery Address Name 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Delivery Address Name 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 33c26275-d48b-49a5-8615-98f39df33529
+		summarizeBy: none
+		sourceColumn: PO Delivery Address Name 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Delivery Address House Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3fe2f4ac-769e-45df-8102-ceab22df2374
+		summarizeBy: none
+		sourceColumn: PO Delivery Address House Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Delivery Address Street'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a184af99-b555-4fb5-9589-93f8b0d62810
+		summarizeBy: none
+		sourceColumn: PO Delivery Address Street
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Delivery Address District'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: daa9cff7-cc91-4563-a494-6aecd9127ca9
+		summarizeBy: none
+		sourceColumn: PO Delivery Address District
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Delivery Address Postal Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d43f2290-e7a4-4f68-a387-809a8edbe324
+		summarizeBy: none
+		sourceColumn: PO Delivery Address Postal Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Delivery Address City'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f6fb678e-4a02-4fef-b64c-e855b1cc95fb
+		summarizeBy: none
+		sourceColumn: PO Delivery Address City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Delivery Address Country'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 06f6bf19-22d2-47c6-ba3b-c7df28cb7e3c
+		summarizeBy: none
+		sourceColumn: PO Delivery Address Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Delivery Address Region'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 80634390-c80d-4188-af3b-ef4e842826eb
+		summarizeBy: none
+		sourceColumn: PO Delivery Address Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Order Acknowledgment Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 42a1372f-8806-4fea-a901-d20b8cb73b0d
+		summarizeBy: none
+		sourceColumn: PO Order Acknowledgment Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_PP_PURORDL_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_PP_PURORDL_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_PP_PURORDL_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_PP_PURORDL_CUR_D
+
+	annotation PBI_ResultType = Table
+

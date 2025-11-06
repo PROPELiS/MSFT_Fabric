@@ -1,0 +1,560 @@
+table EDW_T_D_MST_CMPNYDT_CUR_D
+	lineageTag: 247475da-28e6-4258-8be0-0174309360d0
+	sourceLineageTag: [dbo].[EDW_T_D_MST_CMPNYDT_CUR_D]
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: e6142d2b-3260-4c4d-ba85-4d02288618e8
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 983047aa-0322-479b-907a-1fe47d2c1601
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6f418916-f56c-495b-aabe-6015ff8df070
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Fiscal Weekday Name'
+		dataType: string
+		lineageTag: b64c1c2f-aadc-4c03-a8e1-74807422119a
+		sourceLineageTag: Company Fiscal Weekday Name
+		summarizeBy: none
+		sourceColumn: Company Fiscal Weekday Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_MNTH_MINUS_2_FLG
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f664a44-22ad-457b-848c-67eca8ee6598
+		sourceLineageTag: CURR_MNTH_MINUS_2_FLG
+		summarizeBy: none
+		sourceColumn: CURR_MNTH_MINUS_2_FLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Is Factory Working Day'
+		dataType: int64
+		formatString: 0
+		lineageTag: 71eb69f7-0d54-4191-a8a9-a35a9eca5e47
+		sourceLineageTag: Company Is Factory Working Day
+		summarizeBy: none
+		sourceColumn: Company Is Factory Working Day
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Is Factory Public Holiday'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c747ef0-2322-4139-a216-deac58057eae
+		sourceLineageTag: Company Is Factory Public Holiday
+		summarizeBy: none
+		sourceColumn: Company Is Factory Public Holiday
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Is Working Day'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d7cfb63-eff5-4292-b770-2da0728a2528
+		sourceLineageTag: Company Is Working Day
+		summarizeBy: none
+		sourceColumn: Company Is Working Day
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Business Day Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 83a153e7-227e-491a-9057-34f29abb5c85
+		sourceLineageTag: Company Business Day Number
+		summarizeBy: none
+		sourceColumn: Company Business Day Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Day in Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 291124cb-3b3b-4cc8-8491-8986dc3e49e6
+		sourceLineageTag: Company Day in Fiscal Year
+		summarizeBy: none
+		sourceColumn: Company Day in Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Date Is Weekday'
+		dataType: int64
+		formatString: 0
+		lineageTag: ad1861ff-4a5b-46d1-a13f-69198f8b5ccf
+		sourceLineageTag: Company Date Is Weekday
+		summarizeBy: none
+		sourceColumn: Company Date Is Weekday
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Fiscal Week'
+		dataType: int64
+		formatString: 0
+		lineageTag: be734bc4-1e12-441e-a23c-45578211abdd
+		sourceLineageTag: Company Fiscal Week
+		summarizeBy: none
+		sourceColumn: Company Fiscal Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Fiscal Week Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b077767-5692-4d89-ae26-65ee264df739
+		sourceLineageTag: Company Current Fiscal Week Flag
+		summarizeBy: none
+		sourceColumn: Company Current Fiscal Week Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Fiscal Week Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b5d1bd7-df0e-4744-8f08-f0467c47b19e
+		sourceLineageTag: Company Current Fiscal Week Minus 1 Flag
+		summarizeBy: none
+		sourceColumn: Company Current Fiscal Week Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Fiscal Weekday Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 12cb7211-65b0-453e-96e7-6f217d2ec2d0
+		sourceLineageTag: Company Fiscal Weekday Number
+		summarizeBy: none
+		sourceColumn: Company Fiscal Weekday Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Calendar Year Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4bbbc8fc-a641-4952-83a3-c797eb626cf2
+		sourceLineageTag: Company Current Calendar Year Minus 2 Flag
+		summarizeBy: none
+		sourceColumn: Company Current Calendar Year Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Fiscal Year Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 48d65dc7-759d-415d-9bf0-a74a6447d052
+		sourceLineageTag: Company Current Fiscal Year Flag
+		summarizeBy: none
+		sourceColumn: Company Current Fiscal Year Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Fiscal Year Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b17975a-05cd-4f47-9256-25e963593a0a
+		sourceLineageTag: Company Current Fiscal Year Minus 1 Flag
+		summarizeBy: none
+		sourceColumn: Company Current Fiscal Year Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Fiscal Year Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: cdc9d038-920c-45a2-8c73-49afb477e784
+		sourceLineageTag: Company Current Fiscal Year Minus 2 Flag
+		summarizeBy: none
+		sourceColumn: Company Current Fiscal Year Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Calendar Year Plus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: c667b3b6-7484-4eeb-9038-0dc4f15ebbd4
+		sourceLineageTag: Company Current Calendar Year Plus 1 Flag
+		summarizeBy: none
+		sourceColumn: Company Current Calendar Year Plus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Fiscal Year Plus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: b1ef8f19-a156-486a-b947-858f295d4f08
+		sourceLineageTag: Company Current Fiscal Year Plus 1 Flag
+		summarizeBy: none
+		sourceColumn: Company Current Fiscal Year Plus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Month Minus 12 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c4f219f-6627-458a-bc56-1baec58f3b6b
+		sourceLineageTag: Company Current Month Minus 12 Flag
+		summarizeBy: none
+		sourceColumn: Company Current Month Minus 12 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Quarter Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 98b212e0-451e-418c-b7e6-91f45e17c047
+		sourceLineageTag: Company Current Quarter Flag
+		summarizeBy: none
+		sourceColumn: Company Current Quarter Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Quarter Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: bd33cc15-2af9-4b4d-9f16-0aa8626f9eca
+		sourceLineageTag: Company Current Quarter Minus 1 Flag
+		summarizeBy: none
+		sourceColumn: Company Current Quarter Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Quarter Minus 4 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 50cc4500-08fe-4948-9291-8980cab69943
+		sourceLineageTag: Company Current Quarter Minus 4 Flag
+		summarizeBy: none
+		sourceColumn: Company Current Quarter Minus 4 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Calendar Year Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f77213b-c690-47b9-8f87-d8eb7a0bd74c
+		sourceLineageTag: Company Current Calendar Year Flag
+		summarizeBy: none
+		sourceColumn: Company Current Calendar Year Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Calendar Year Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 15d89e5d-03a8-42d3-8b6e-1eae80bac67b
+		sourceLineageTag: Company Current Calendar Year Minus 1 Flag
+		summarizeBy: none
+		sourceColumn: Company Current Calendar Year Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Day Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: c5f28a65-6fb9-4e84-b7ae-df999f4f9393
+		sourceLineageTag: Company Current Day Flag
+		summarizeBy: none
+		sourceColumn: Company Current Day Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Day Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0de3c044-e8f1-4bb8-8bda-b06eea4efca9
+		sourceLineageTag: Company Current Day Minus 1 Flag
+		summarizeBy: none
+		sourceColumn: Company Current Day Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Calendar Week Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: f3a83b11-3a22-48c9-bda4-05ad637bac68
+		sourceLineageTag: Company Current Calendar Week Flag
+		summarizeBy: none
+		sourceColumn: Company Current Calendar Week Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Calendar Week Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: e26aba7c-cf2a-466c-8ce3-21b21d552652
+		sourceLineageTag: Company Current Calendar Week Minus 1 Flag
+		summarizeBy: none
+		sourceColumn: Company Current Calendar Week Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Month Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: df276e3c-674e-40c1-b6b1-a7369af40162
+		sourceLineageTag: Company Current Month Flag
+		summarizeBy: none
+		sourceColumn: Company Current Month Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Current Month Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 20ed707c-3f9b-4c0a-8fd0-6cafb1b7653f
+		sourceLineageTag: Company Current Month Minus 1 Flag
+		summarizeBy: none
+		sourceColumn: Company Current Month Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Calendar Weekday Name'
+		dataType: string
+		lineageTag: 8c076b26-1c6b-4115-84c1-68d352fd4d70
+		sourceLineageTag: Company Calendar Weekday Name
+		summarizeBy: none
+		sourceColumn: Company Calendar Weekday Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Calendar Day In Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1904cd1a-3bc3-4de6-87da-51c7f8f71fb0
+		sourceLineageTag: Company Calendar Day In Month
+		summarizeBy: none
+		sourceColumn: Company Calendar Day In Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Calendar Day In Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 92b620f5-4d6d-4b9b-90e3-9bcea630020d
+		sourceLineageTag: Company Calendar Day In Year
+		summarizeBy: none
+		sourceColumn: Company Calendar Day In Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Calendar Week'
+		dataType: int64
+		formatString: 0
+		lineageTag: c6916bb7-cff2-4e64-9b16-3b428359a352
+		sourceLineageTag: Company Calendar Week
+		summarizeBy: none
+		sourceColumn: Company Calendar Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Calendar Month In Quarter Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3486ae15-bbf7-4ac8-b52c-709af66be589
+		sourceLineageTag: Company Calendar Month In Quarter Number
+		summarizeBy: none
+		sourceColumn: Company Calendar Month In Quarter Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Calendar Days in Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: 75ee6f54-e40c-4d89-9dd8-ae98a8d5e95f
+		sourceLineageTag: Company Calendar Days in Month
+		summarizeBy: none
+		sourceColumn: Company Calendar Days in Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Calendar Month Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d521d59-a38f-4c33-9446-d184eee3422e
+		sourceLineageTag: Company Calendar Month Number
+		summarizeBy: none
+		sourceColumn: Company Calendar Month Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Calendar Month Code'
+		dataType: string
+		lineageTag: 01eb6c68-321b-4938-b1c7-433490dd57cf
+		sourceLineageTag: Company Calendar Month Code
+		summarizeBy: none
+		sourceColumn: Company Calendar Month Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Calendar Month Description'
+		dataType: string
+		lineageTag: 8c3ae768-dbd4-467c-b238-1860db9d5afb
+		sourceLineageTag: Company Calendar Month Description
+		summarizeBy: none
+		sourceColumn: Company Calendar Month Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Calendar Quarter Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: a40f6663-c527-4af2-b958-ee0c4b0079a5
+		sourceLineageTag: Company Calendar Quarter Number
+		summarizeBy: none
+		sourceColumn: Company Calendar Quarter Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Calendar Quarter Code'
+		dataType: string
+		lineageTag: 087b9b5f-7ae3-4677-9981-b653b9a6c747
+		sourceLineageTag: Company Calendar Quarter Code
+		summarizeBy: none
+		sourceColumn: Company Calendar Quarter Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Calendar Weekday Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 071c5c9a-3fac-4b4b-914f-7831e40d1c07
+		sourceLineageTag: Company Calendar Weekday Number
+		summarizeBy: none
+		sourceColumn: Company Calendar Weekday Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: b906c63c-0c1a-47a4-8269-18ed1494369f
+		sourceLineageTag: Company Fiscal Year
+		summarizeBy: none
+		sourceColumn: Company Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Fiscal Period Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0a514a72-11cb-45e4-b2fd-e7c9fb664fda
+		sourceLineageTag: Company Fiscal Period Number
+		summarizeBy: none
+		sourceColumn: Company Fiscal Period Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Fiscal Period Code'
+		dataType: string
+		lineageTag: e2a0a2dc-1251-4b72-a586-3604a3ea9da6
+		sourceLineageTag: Company Fiscal Period Code
+		summarizeBy: none
+		sourceColumn: Company Fiscal Period Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Fiscal Quarter Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 730b40f7-a3e5-4e46-9dea-af81e40476e7
+		sourceLineageTag: Company Fiscal Quarter Number
+		summarizeBy: none
+		sourceColumn: Company Fiscal Quarter Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Fiscal Quarter Code'
+		dataType: string
+		lineageTag: e09c0789-0398-4b04-b17d-53f72335e699
+		sourceLineageTag: Company Fiscal Quarter Code
+		summarizeBy: none
+		sourceColumn: Company Fiscal Quarter Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Calendar Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 21943d16-cabe-4915-85ab-f7e5321eadae
+		sourceLineageTag: Company Calendar Year
+		summarizeBy: none
+		sourceColumn: Company Calendar Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CD
+		dataType: string
+		lineageTag: 7aba58cf-db15-4beb-9d0c-44349f484f74
+		sourceLineageTag: CMPNY_CD
+		summarizeBy: none
+		sourceColumn: CMPNY_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Factory Calendar ID'
+		dataType: string
+		lineageTag: 1eb650f7-3b0f-4df8-8499-8d2ab66784df
+		sourceLineageTag: Company Factory Calendar ID
+		summarizeBy: none
+		sourceColumn: Company Factory Calendar ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 46ba3e40-93f0-45f8-bab1-2b6aa71acf72
+		sourceLineageTag: DATE_KEY
+		summarizeBy: none
+		sourceColumn: DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Holiday Calendar ID'
+		dataType: string
+		lineageTag: efffaf4b-34c8-4268-a05d-003c57cf0358
+		sourceLineageTag: Company Holiday Calendar ID
+		summarizeBy: none
+		sourceColumn: Company Holiday Calendar ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 953c3bb4-81d3-4dd2-bf23-a4c27eaaccab
+		sourceLineageTag: Company Date
+		summarizeBy: none
+		sourceColumn: Company Date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_CMPNYDT_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_CMPNYDT_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

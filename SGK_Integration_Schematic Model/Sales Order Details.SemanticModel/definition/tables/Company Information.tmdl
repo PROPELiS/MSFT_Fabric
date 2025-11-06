@@ -13,8 +13,9 @@ table 'Company Information'
 		annotation SummarizationSetBy = Automatic
 
 	column 'Company Code'
-		dataType: string
-		sourceProviderType: varchar(4)
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
 		lineageTag: 50af6a83-1086-4e74-bd24-c440ca9a6cf4
 		summarizeBy: none
 		sourceColumn: Company Code
@@ -313,9 +314,11 @@ table 'Company Information'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_COMPANY_INFO = Source{[Schema="Propelis",Item="V_COMPANY_INFO"]}[Data]
+				    Propelis_COMPANY_INFO = Source{[Schema="Propelis",Item="COMPANY_INFO"]}[Data]
 				in
-				    Propelis_V_COMPANY_INFO
+				    Propelis_COMPANY_INFO
 
-	changedProperty = Name
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

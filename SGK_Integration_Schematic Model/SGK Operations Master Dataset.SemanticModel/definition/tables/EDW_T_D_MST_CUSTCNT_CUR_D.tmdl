@@ -1,0 +1,133 @@
+table EDW_T_D_MST_CUSTCNT_CUR_D
+	lineageTag: 83b17ba7-49ea-4251-80db-87f24a50b1a7
+	sourceLineageTag: [dbo].[EDW_T_D_MST_CUSTCNT_CUR_D]
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 51683214-77bc-4df7-8f11-49fd20bac9f0
+		sourceLineageTag: CUST_CONTACT_KEY
+		summarizeBy: none
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Person ID'
+		dataType: string
+		lineageTag: e3869b87-fbf0-48d5-8c40-2cb5e7bc1b78
+		sourceLineageTag: Customer Contact Person ID
+		summarizeBy: none
+		sourceColumn: Customer Contact Person ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Customer ID'
+		dataType: string
+		lineageTag: 156a4890-2fbb-4976-bc01-ed8a190635b9
+		sourceLineageTag: Customer Contact Customer ID
+		summarizeBy: none
+		sourceColumn: Customer Contact Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact First Name'
+		dataType: string
+		lineageTag: 873600ad-754d-4cbe-83e3-effc6716ce28
+		sourceLineageTag: Customer Contact First Name
+		summarizeBy: none
+		sourceColumn: Customer Contact First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Name'
+		dataType: string
+		lineageTag: d3681a2e-defd-4689-bfec-0087034f8fb1
+		sourceLineageTag: Customer Contact Name
+		summarizeBy: none
+		sourceColumn: Customer Contact Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Contact Person Dept'
+		dataType: string
+		lineageTag: b8af1fdb-06f9-45de-bd1f-ee243dd287aa
+		sourceLineageTag: Customer Contact Contact Person Dept
+		summarizeBy: none
+		sourceColumn: Customer Contact Contact Person Dept
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Contact Contact Person Dept Name'
+		dataType: string
+		lineageTag: 2253c936-217f-4e68-b74d-022fec2902f5
+		sourceLineageTag: Customer Contact Contact Person Dept Name
+		summarizeBy: none
+		sourceColumn: Customer Contact Contact Person Dept Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 33cf21d2-92c3-4196-aa64-a9c75a9467f2
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 974829f4-482e-4c68-a2bb-27c81d984973
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bb534214-470c-476d-b654-af0bfab930d3
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: 6e606ac0-4554-47f7-b512-de7802bdbb86
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 67d89919-e461-48be-8d0b-080e06817ef8
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cdcf0e5a-0983-46bb-8e53-6e897792279f
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_CUSTCNT_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_CUSTCNT_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

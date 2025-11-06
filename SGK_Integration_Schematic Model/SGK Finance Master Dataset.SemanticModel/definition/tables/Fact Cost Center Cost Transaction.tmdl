@@ -1,0 +1,616 @@
+table 'Fact Cost Center Cost Transaction'
+	lineageTag: 59f762df-6a2e-4225-a17d-7785c53899b6
+	sourceLineageTag: [Propelis].[EDW_T_FACT_CO_CCCSTRN_CUR_D]
+
+	measure 'Transaction  Company Currency Amount' = ```
+			sum('Fact Cost Center Cost Transaction'[CMPNY_CRNCY_AMT])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ae96c58b-6c19-4d08-890f-94887a2ebfb0
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Transaction  Total Quantity' = ```
+			sum('Fact Cost Center Cost Transaction'[TOTAL_QTY])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 80f8e5f9-4389-4ace-a41c-54383b3dcbd7
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Transaction Document Currency Amount' = ```
+			sum('Fact Cost Center Cost Transaction'[DOCMT_CRNCY_AMT])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 71f967ab-3403-481b-b702-330cb977fde6
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Transaction Fixed Quantity' = ```
+			sum('Fact Cost Center Cost Transaction'[FIXED_QTY])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5e5c4319-7716-4649-be83-4dde1ad9a478
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Transaction Group Currency Amount' = ```
+			sum('Fact Cost Center Cost Transaction'[GROUP_CRNCY_AMT])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ccf333fc-ebaf-47f8-b0bc-b1942fee2f89
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Transaction Total Quantity Entered' = ```
+			sum('Fact Cost Center Cost Transaction'[TOTAL_QTY_ENTERED]) 
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 47723e59-5716-4d8f-a509-e3295e096662
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Transaction Ledger'
+		dataType: string
+		lineageTag: f1400136-a72c-417d-921a-b2c2a8f4a791
+		sourceLineageTag: Transaction Ledger
+		summarizeBy: none
+		sourceColumn: Transaction Ledger
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Object Number'
+		dataType: string
+		lineageTag: b1793f39-0724-4818-819c-e04baf40e033
+		sourceLineageTag: Transaction Object Number
+		summarizeBy: none
+		sourceColumn: Transaction Object Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 032e74ee-662d-44a2-ae4f-3c450e38552a
+		sourceLineageTag: Transaction Year
+		summarizeBy: sum
+		sourceColumn: Transaction Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Value Type'
+		dataType: string
+		lineageTag: 4d25b67f-fed1-4e01-bb85-30177a488bb5
+		sourceLineageTag: Transaction Value Type
+		summarizeBy: none
+		sourceColumn: Transaction Value Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Version'
+		dataType: string
+		lineageTag: 1ccacdbf-2755-48c6-a325-f57c322c3d2b
+		sourceLineageTag: Transaction Version
+		summarizeBy: none
+		sourceColumn: Transaction Version
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a964225-bd1b-4e06-9c1b-c0dbc5f53358
+		sourceLineageTag: COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction CO Subkey'
+		dataType: string
+		lineageTag: 4a3f63ba-9672-4363-9032-5052a0e2a58f
+		sourceLineageTag: Transaction CO Subkey
+		summarizeBy: none
+		sourceColumn: Transaction CO Subkey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Business'
+		dataType: string
+		lineageTag: 1af7e1d6-b6e2-4ed1-9469-93a73e6e26f0
+		sourceLineageTag: Transaction Business
+		summarizeBy: none
+		sourceColumn: Transaction Business
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Trading Partner'
+		dataType: string
+		lineageTag: 3f4e5a48-7ca7-49a5-b4ef-a463a43eee61
+		sourceLineageTag: Transaction Trading Partner
+		summarizeBy: none
+		sourceColumn: Transaction Trading Partner
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Trading Partner Business Area'
+		dataType: string
+		lineageTag: 8014c333-18ed-40d5-a808-9579e2d52cac
+		sourceLineageTag: Transaction Trading Partner Business Area
+		summarizeBy: none
+		sourceColumn: Transaction Trading Partner Business Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Debit Credit Indicator'
+		dataType: string
+		lineageTag: bde2be68-4621-4385-805f-fa564b73f278
+		sourceLineageTag: Transaction Debit Credit Indicator
+		summarizeBy: none
+		sourceColumn: Transaction Debit Credit Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 49e3f7fb-4e8b-4760-b74f-e9cb62c52be2
+		sourceLineageTag: DOCMT_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: DOCMT_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: c816b6f8-9815-4c1c-b4b3-f2726ae04f09
+		sourceLineageTag: CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEG_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: de197861-4517-4d64-b08f-af3ae01de613
+		sourceLineageTag: SEG_KEY
+		summarizeBy: none
+		sourceColumn: SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ccf1ee30-65ea-4e4f-aa12-ba012132f6ac
+		sourceLineageTag: COST_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a5fe388f-9f21-4892-9f9d-f155e761ca83
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c977029-d5bd-4415-91d9-17ee536936ec
+		sourceLineageTag: CMPNY_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROUP_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 2fcee57a-8b17-4adb-a8aa-1daa03899e3c
+		sourceLineageTag: GROUP_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: GROUP_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_AMT
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 77579a32-ce06-418a-b464-8201f5a4a27a
+		sourceLineageTag: DOCMT_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CMPNY_CRNCY_AMT
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: da0be4d1-5312-4274-ad20-dd965769aee7
+		sourceLineageTag: CMPNY_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: CMPNY_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column GROUP_CRNCY_AMT
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f12348e4-382c-4f1a-8138-4208377b9e8a
+		sourceLineageTag: GROUP_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: GROUP_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Transaction Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 62e5a835-1068-4891-9906-746a0876de0f
+		sourceLineageTag: Transaction Period
+		summarizeBy: sum
+		sourceColumn: Transaction Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Partner Object Type'
+		dataType: string
+		lineageTag: dc46b94d-b006-4a1e-a066-33701cdfd199
+		sourceLineageTag: Transaction Partner Object Type
+		summarizeBy: none
+		sourceColumn: Transaction Partner Object Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Partner Object Type Description'
+		dataType: string
+		lineageTag: b591c145-2514-4356-811c-65e396cfe1c5
+		sourceLineageTag: Transaction Partner Object Type Description
+		summarizeBy: none
+		sourceColumn: Transaction Partner Object Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_QTY
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 09d92e26-1b00-4968-87d8-19ac9dea3d19
+		sourceLineageTag: TOTAL_QTY
+		summarizeBy: sum
+		sourceColumn: TOTAL_QTY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column FIXED_QTY
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1ba795b4-5f8b-459d-8a55-e67a2f299050
+		sourceLineageTag: FIXED_QTY
+		summarizeBy: sum
+		sourceColumn: FIXED_QTY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Transaction Value Type Description'
+		dataType: string
+		lineageTag: 7c9e32a8-41f1-4344-995c-ba7bbcee8704
+		sourceLineageTag: Transaction Value Type Description
+		summarizeBy: none
+		sourceColumn: Transaction Value Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Source System Code'
+		dataType: string
+		lineageTag: 194e235f-5cc5-469c-b321-e0c8f3dab12a
+		sourceLineageTag: Transaction Source System Code
+		summarizeBy: none
+		sourceColumn: Transaction Source System Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bb14f498-c39f-4f2b-932d-28064053cd85
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4a11c582-b107-4b93-be69-5b27f8c11dbb
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f09b079-a030-42bb-b1a3-5c5e68c6e710
+		sourceLineageTag: FUNCTNL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Controlling Area'
+		dataType: string
+		lineageTag: c59a1a0e-a4fd-46e2-a254-65f2f08f28ac
+		sourceLineageTag: Transaction Controlling Area
+		summarizeBy: none
+		sourceColumn: Transaction Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Document Number'
+		dataType: string
+		lineageTag: f84f2f33-49e8-470b-9fa2-411b1bce5bb2
+		sourceLineageTag: Transaction Document Number
+		summarizeBy: none
+		sourceColumn: Transaction Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Posting Row'
+		dataType: string
+		lineageTag: fba34875-53e9-4903-aa46-a093bfa20d32
+		sourceLineageTag: Transaction Posting Row
+		summarizeBy: none
+		sourceColumn: Transaction Posting Row
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: eb1cc3c2-9908-4959-933e-575890d07a30
+		sourceLineageTag: PLNT_KEY
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Controlling Area Description'
+		dataType: string
+		lineageTag: e43b4958-14c9-48d8-8ba4-731e8a002c49
+		sourceLineageTag: Transaction Controlling Area Description
+		summarizeBy: none
+		sourceColumn: Transaction Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Ledger Description'
+		dataType: string
+		lineageTag: 16ce8561-d4ee-4917-97a1-f12c2fd4270b
+		sourceLineageTag: Transaction Ledger Description
+		summarizeBy: none
+		sourceColumn: Transaction Ledger Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Business Description'
+		dataType: string
+		lineageTag: c957b8ff-fe26-46c3-a64b-c26c70cd13ef
+		sourceLineageTag: Transaction Business Description
+		summarizeBy: none
+		sourceColumn: Transaction Business Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Trading Partner Description'
+		dataType: string
+		lineageTag: 215614ad-267c-4380-8f9b-65777107d4b8
+		sourceLineageTag: Transaction Trading Partner Description
+		summarizeBy: none
+		sourceColumn: Transaction Trading Partner Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Trading Partner Business Area Desc'
+		dataType: string
+		lineageTag: a8f48452-a5b7-4f95-a114-8ebf0c306437
+		sourceLineageTag: Transaction Trading Partner Business Area Desc
+		summarizeBy: none
+		sourceColumn: Transaction Trading Partner Business Area Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Partner Object'
+		dataType: string
+		lineageTag: a0a3c809-255d-4e36-aa7f-6759ae9030dd
+		sourceLineageTag: Transaction Partner Object
+		summarizeBy: none
+		sourceColumn: Transaction Partner Object
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Source Object'
+		dataType: string
+		lineageTag: 1e47b8d6-eb60-45ff-bcee-0caba9a2810d
+		sourceLineageTag: Transaction Source Object
+		summarizeBy: none
+		sourceColumn: Transaction Source Object
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSTNG_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: dec3aefe-878e-4061-ae39-141af4c8072d
+		sourceLineageTag: PSTNG_DATE_KEY
+		summarizeBy: none
+		sourceColumn: PSTNG_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Document Item Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 85e20902-a288-4912-a10f-a3506342e78e
+		sourceLineageTag: Transaction Document Item Number
+		summarizeBy: sum
+		sourceColumn: Transaction Document Item Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_QTY_ENTERED
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e6965b5b-f3a6-4da9-b49b-5c6b2f4a2171
+		sourceLineageTag: TOTAL_QTY_ENTERED
+		summarizeBy: sum
+		sourceColumn: TOTAL_QTY_ENTERED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Transaction UOM'
+		dataType: string
+		lineageTag: 7863c22b-47ca-4450-ab50-3417c9be2126
+		sourceLineageTag: Transaction UOM
+		summarizeBy: none
+		sourceColumn: Transaction UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Posted UOM'
+		dataType: string
+		lineageTag: cf4c2d39-27c5-4fc1-8a9a-7f7df5368c49
+		sourceLineageTag: Transaction Posted UOM
+		summarizeBy: none
+		sourceColumn: Transaction Posted UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTROLLING_AREA_COST_ELEMNT_KE
+		dataType: int64
+		formatString: 0
+		lineageTag: 3598b4a4-1c25-4d49-b80b-8b63c7972da2
+		sourceLineageTag: CONTROLLING_AREA_COST_ELEMNT_KE
+		summarizeBy: none
+		sourceColumn: CONTROLLING_AREA_COST_ELEMNT_KE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ad92412-269e-4a71-82e5-213ab3ef5eed
+		sourceLineageTag: MATRL_KEY
+		summarizeBy: none
+		sourceColumn: MATRL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTEHZ_COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f9f0856-83f0-4f0a-af05-9a7e59731ae1
+		sourceLineageTag: COSTEHZ_COST_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: COSTEHZ_COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTEVZ_COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 524d4e42-54f9-45f8-a922-6f02c38f1b2e
+		sourceLineageTag: COSTEVZ_COST_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: COSTEVZ_COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCHZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: cb1b6103-29da-4f70-b0bf-709112661ca9
+		sourceLineageTag: PROFCHZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCHZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCVZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 03d31066-7c9e-4189-88c4-57a85691b3c3
+		sourceLineageTag: PROFCVZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCVZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTCHZ_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 78aadaa4-6ca6-40b1-b3c5-c55798705425
+		sourceLineageTag: COSTCHZ_COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COSTCHZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTCVZ_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: abb7dedb-8797-46b8-90b4-815ee2ea70c8
+		sourceLineageTag: COSTCVZ_COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COSTCVZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact Cost Center Cost Transaction' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_FACT_CO_CCCSTRN_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

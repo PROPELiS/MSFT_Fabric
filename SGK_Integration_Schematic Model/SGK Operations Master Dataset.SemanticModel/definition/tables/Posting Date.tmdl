@@ -1,0 +1,558 @@
+table 'Posting Date'
+	lineageTag: 6470892e-263a-4a10-9a77-23c76cac69a1
+	sourceLineageTag: [Propelis].[POSTING_DATE]
+
+	column DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 02b6937d-cae1-4f14-9636-3c16ee0acc82
+		sourceLineageTag: DATE_KEY
+		summarizeBy: none
+		sourceColumn: DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 354e8820-ec19-46d3-8acb-761f29a37bac
+		sourceLineageTag: Posting Date
+		summarizeBy: none
+		sourceColumn: Posting Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 977bc817-c90c-40d7-8149-e5dfc4883225
+		sourceLineageTag: Posting Fiscal Year
+		summarizeBy: sum
+		sourceColumn: Posting Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FISCAL PER NUM'
+		dataType: int64
+		formatString: 0
+		lineageTag: 40614d91-48a3-4ff7-acac-7112f0a77df0
+		sourceLineageTag: FISCAL PER NUM
+		summarizeBy: sum
+		sourceColumn: FISCAL PER NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Fiscal Period Code'
+		dataType: string
+		lineageTag: 2d291286-e29f-4080-b6c7-5a3a13574d3d
+		sourceLineageTag: Posting Fiscal Period Code
+		summarizeBy: none
+		sourceColumn: Posting Fiscal Period Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Fiscal Quarter Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: d92baca3-9e65-4dd9-81c1-c13e2f9f6395
+		sourceLineageTag: Posting Fiscal Quarter Number
+		summarizeBy: sum
+		sourceColumn: Posting Fiscal Quarter Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Fiscal Quarter Code'
+		dataType: string
+		lineageTag: f658f7de-5b6e-46e1-b481-74f20dc0d03c
+		sourceLineageTag: Posting Fiscal Quarter Code
+		summarizeBy: none
+		sourceColumn: Posting Fiscal Quarter Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Calendar Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 562dc8cb-b1fc-4fa6-8433-f977d1f6d0fa
+		sourceLineageTag: Posting Calendar Year
+		summarizeBy: sum
+		sourceColumn: Posting Calendar Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Calendar Month Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: d42cb790-26ce-47e2-94d1-787658dbd796
+		sourceLineageTag: Posting Calendar Month Number
+		summarizeBy: sum
+		sourceColumn: Posting Calendar Month Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Calendar Month Code'
+		dataType: string
+		lineageTag: 6c161f4d-f490-4ddb-a957-faa4cb2d22f8
+		sourceLineageTag: Posting Calendar Month Code
+		summarizeBy: none
+		sourceColumn: Posting Calendar Month Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Calendar Month Desc'
+		dataType: string
+		lineageTag: 6d5d60c6-7bf3-4b60-bf01-4bc42f864f78
+		sourceLineageTag: Posting Calendar Month Desc
+		summarizeBy: none
+		sourceColumn: Posting Calendar Month Desc
+		sortByColumn: 'Posting Calendar Month Number'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CLNDR QTR NUM'
+		dataType: int64
+		formatString: 0
+		lineageTag: 29ebfc34-ab1d-40ef-bed3-0fc82fc3968b
+		sourceLineageTag: CLNDR QTR NUM
+		summarizeBy: sum
+		sourceColumn: CLNDR QTR NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Calendar Quarter Code'
+		dataType: string
+		lineageTag: 43802825-4b04-40c4-b880-70a8c160c59a
+		sourceLineageTag: Posting Calendar Quarter Code
+		summarizeBy: none
+		sourceColumn: Posting Calendar Quarter Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Calendar Weekday Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: f3caadc4-b8e6-4ff9-8657-9382e643df37
+		sourceLineageTag: Posting Calendar Weekday Number
+		summarizeBy: sum
+		sourceColumn: Posting Calendar Weekday Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Calendar Weekday Name'
+		dataType: string
+		lineageTag: 6d73b116-f3d7-4fe3-90ca-62a869b05f46
+		sourceLineageTag: Posting Calendar Weekday Name
+		summarizeBy: none
+		sourceColumn: Posting Calendar Weekday Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Calendar Day in Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: d0d9144d-b54f-475d-9f87-b159db601899
+		sourceLineageTag: Posting Calendar Day in Month
+		summarizeBy: sum
+		sourceColumn: Posting Calendar Day in Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Calendar Day in Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: a5b823bb-ef22-430f-a136-350f96897a7e
+		sourceLineageTag: Posting Calendar Day in Year
+		summarizeBy: sum
+		sourceColumn: Posting Calendar Day in Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Calendar Week'
+		dataType: int64
+		formatString: 0
+		lineageTag: 99c4aac3-cd47-4946-81b2-4f83d964069e
+		sourceLineageTag: Posting Calendar Week
+		summarizeBy: sum
+		sourceColumn: Posting Calendar Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Calendar Month in Quarter Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: d5273e89-a27a-4002-9844-e8abf9b155ab
+		sourceLineageTag: Posting Calendar Month in Quarter Number
+		summarizeBy: sum
+		sourceColumn: Posting Calendar Month in Quarter Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Calendar Days in Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: b67b01eb-dcb8-43b3-8a21-090a43b4ae7a
+		sourceLineageTag: Posting Calendar Days in Month
+		summarizeBy: sum
+		sourceColumn: Posting Calendar Days in Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL SRC SYS CD'
+		dataType: string
+		lineageTag: cb68a7b6-f9f2-47b4-ae44-359493965458
+		sourceLineageTag: ETL SRC SYS CD
+		summarizeBy: none
+		sourceColumn: ETL SRC SYS CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL CREATED TS'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 09df8205-8cef-41d8-a808-e5b1b07f45d8
+		sourceLineageTag: ETL CREATED TS
+		summarizeBy: none
+		sourceColumn: ETL CREATED TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL UPDTD TS'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d5a9c859-6bc6-434b-8603-c7c7abda4628
+		sourceLineageTag: ETL UPDTD TS
+		summarizeBy: none
+		sourceColumn: ETL UPDTD TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Day Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 55d7b1ff-d52a-44cb-ab56-0181cef36070
+		sourceLineageTag: Posting Current Day Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Day Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Day Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 75ff198e-ed8f-47b9-90a3-4586d8e37d0f
+		sourceLineageTag: Posting Current Day Minus 1 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Day Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Calendar Week Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 27bc5a73-cc21-4d9d-9662-b183321ff4d7
+		sourceLineageTag: Posting Current Calendar Week Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Calendar Week Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Calendar Week Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 863a9a8e-7f5e-4c2e-a23a-1c51f12b36ac
+		sourceLineageTag: Posting Current Calendar Week Minus 1 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Calendar Week Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Month Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 783883ad-d664-465f-b195-e47f0455dc97
+		sourceLineageTag: Posting Current Month Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Month Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Month Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b2029c2-79f0-42e6-9323-fc2f2bcbf93e
+		sourceLineageTag: Posting Current Month Minus 1 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Month Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Month Minus 12 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6690fca1-4eb9-4c31-8b9b-cbeab237c87d
+		sourceLineageTag: Posting Current Month Minus 12 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Month Minus 12 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Quarter Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: e3608a58-4a35-43e0-844a-21174bee1a3d
+		sourceLineageTag: Posting Current Quarter Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Quarter Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Quarter Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: f157e300-785c-4197-84b3-55734de0f9a9
+		sourceLineageTag: Posting Current Quarter Minus 1 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Quarter Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Quarter Minus 4 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c878479-1ca5-480a-8d29-246fd7ea7d18
+		sourceLineageTag: Posting Current Quarter Minus 4 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Quarter Minus 4 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Calendar Year Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: d0276d58-3285-47a2-b6f2-bc3a7e15cea7
+		sourceLineageTag: Posting Current Calendar Year Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Calendar Year Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Calendar Year Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: a0c56c99-6af9-42e8-9c67-57f9b497e706
+		sourceLineageTag: Posting Current Calendar Year Minus 1 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Calendar Year Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Calendar Year Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: ae372ca8-9c8c-4b76-b27a-7b3b4c0e88c6
+		sourceLineageTag: Posting Current Calendar Year Minus 2 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Calendar Year Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Fiscal Year Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 48197df9-372b-4512-bddc-bad8ed054980
+		sourceLineageTag: Posting Current Fiscal Year Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Fiscal Year Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Fiscal Year Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b628e1e-480b-4dd7-b0f7-99598b627058
+		sourceLineageTag: Posting Current Fiscal Year Minus 1 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Fiscal Year Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Fiscal Year Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: bc6b72c3-4ba5-4a98-9d3e-1b54c24d18d7
+		sourceLineageTag: Posting Current Fiscal Year Minus 2 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Fiscal Year Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Calendar Year Plus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 632c5a59-77c4-40d0-8e9b-32561c1fe373
+		sourceLineageTag: Posting Current Calendar Year Plus 1 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Calendar Year Plus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Fiscal Year Plus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: ab4ddae0-ed72-495b-90c3-3d3b4b025efd
+		sourceLineageTag: Posting Current Fiscal Year Plus 1 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Fiscal Year Plus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Day in Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5103849b-e916-454a-b4d1-6bbb29865303
+		sourceLineageTag: Posting Day in Fiscal Year
+		summarizeBy: sum
+		sourceColumn: Posting Day in Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Date Is Weekday'
+		dataType: int64
+		formatString: 0
+		lineageTag: dff11dee-dff5-4b14-8cdc-f98b6bccc000
+		sourceLineageTag: Posting Date Is Weekday
+		summarizeBy: sum
+		sourceColumn: Posting Date Is Weekday
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Fiscal Week'
+		dataType: int64
+		formatString: 0
+		lineageTag: bf3711fd-396b-4470-ae55-06c7c5f05ff1
+		sourceLineageTag: Posting Fiscal Week
+		summarizeBy: sum
+		sourceColumn: Posting Fiscal Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Fiscal Week Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: da5bf9ad-b297-48f3-8f2c-7ee5a6395542
+		sourceLineageTag: Posting Current Fiscal Week Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Fiscal Week Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Fiscal Week Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 521b3009-738d-4a98-afbf-181afcbb61e5
+		sourceLineageTag: Posting Current Fiscal Week Minus 1 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Fiscal Week Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Fiscal Weekday Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: fb9a4d2f-3d52-4668-a963-48280aa71bea
+		sourceLineageTag: Posting Fiscal Weekday Number
+		summarizeBy: sum
+		sourceColumn: Posting Fiscal Weekday Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Fiscal Weekday Name'
+		dataType: string
+		lineageTag: 01a1659a-14cf-4926-a5ce-47b220ddfcb8
+		sourceLineageTag: Posting Fiscal Weekday Name
+		summarizeBy: none
+		sourceColumn: Posting Fiscal Weekday Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Month Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: f9606e7f-6a02-4dce-830e-eea4b543aaa9
+		sourceLineageTag: Posting Current Month Minus 2 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Month Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Fiscal Week Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 50053461-1cd8-4666-a5c8-c4d70d07537d
+		sourceLineageTag: Posting Current Fiscal Week Minus 2 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Fiscal Week Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Fiscal Week Minus 6 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b2bc0c0-10e5-4700-9eb5-f36adec20cd3
+		sourceLineageTag: Posting Current Fiscal Week Minus 6 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Fiscal Week Minus 6 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Fiscal Week Minus 3 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 51ff13f9-c506-43f5-b444-6c0c91ed28e4
+		sourceLineageTag: Posting Current Fiscal Week Minus 3 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Fiscal Week Minus 3 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Fiscal Week Minus 4 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8df72218-eac4-4df4-ab36-4e21b151b651
+		sourceLineageTag: Posting Current Fiscal Week Minus 4 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Fiscal Week Minus 4 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Fiscal Week Minus 5 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: f85888d0-4473-490c-93eb-88557f6217f0
+		sourceLineageTag: Posting Current Fiscal Week Minus 5 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Fiscal Week Minus 5 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Current Fiscal Week Minus 7 Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: b8b16df5-885d-49be-b6a2-c88621080cfe
+		sourceLineageTag: Posting Current Fiscal Week Minus 7 Flag
+		summarizeBy: sum
+		sourceColumn: Posting Current Fiscal Week Minus 7 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Posting Date' = entity
+		mode: directLake
+		source
+			entityName: POSTING_DATE
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

@@ -1,0 +1,982 @@
+relationship 08ce1cec-0e9c-7ecc-09f4-4d5c3c811eab
+	fromColumn: 'Fact Service Order Costs'.COST_ELEMNT_KEY
+	toColumn: EDW_T_D_MST_COSTELM_CUR_D.COST_ELEMNT_KEY
+
+relationship 97eba3d3-9b33-693d-40cf-93f127646479
+	fromColumn: 'Fact Service Order Costs'.FUNCTNL_AREA_KEY
+	toColumn: EDW_T_D_MST_FUNCTAR_CUR_D.FUNCTNL_AREA_KEY
+
+relationship d342aaaa-952a-6e7f-f827-c81a752c89ec
+	fromColumn: 'Fact Service Order Costs'.MATRL_KEY
+	toColumn: EDW_T_D_MST_MATERIAL_CUR_D.MATRL_KEY
+
+relationship 14fc47b9-ae03-5949-1cbe-bd235c25cde1
+	fromColumn: 'Fact Service Order Costs'.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship e5c9c932-ec06-0009-e73b-08b115af3d9c
+	fromColumn: 'Fact Service Order Costs'.MAINTENANCE_WRK_CNTR_KEY
+	toColumn: EDW_T_D_MST_WORKCTR_CUR_D.WRK_CNTR_KEY
+
+relationship fa26db82-cd23-e148-d42d-a526b428d548
+	fromColumn: 'Fact Service Order Costs'.SERVC_ORDER_KEY
+	toColumn: EDW_T_D_PRD_SERVORD_CUR_D.SERVC_ORDER_KEY
+
+relationship b96cdc3c-9f27-c7ea-b8b9-b401e249631b
+	fromColumn: 'Fact Service Order Costs'.PSTNG_DATE_KEY
+	toColumn: EDW_T_D_MST_DATE_CUR_D.DATE_KEY
+
+relationship 562f5b53-2c71-e6bd-09d2-bde6818ddcb9
+	fromColumn: 'Fact Service Order Costs'.ACTIVITY_TYP_KEY
+	toColumn: EDW_T_D_MST_ACTTYPE_CUR_D.ACTIVITY_TYP_KEY
+
+relationship 32e78148-2d85-a9c0-f46c-abdc9c781001
+	fromColumn: 'Fact Service Order Costs'.DOCMT_CRNCY_KEY
+	toColumn: 'Document Currency'.CRNCY_KEY
+
+relationship e4f97542-0647-0c75-19b2-a3f35101223c
+	fromColumn: 'Fact Service Order Costs'.CMPNY_CRNCY_KEY
+	toColumn: 'Company Currency'.CRNCY_KEY
+
+relationship 79c588e7-88dc-1d10-229d-b066e04e562e
+	fromColumn: 'Fact Service Order Costs'.GROUP_CRNCY_KEY
+	toColumn: 'Group Currency'.CRNCY_KEY
+
+relationship 4b50efd3-7f00-f713-c092-d30719ac6338
+	fromColumn: 'Fact Service Order Costs'.DOCMT_DATE_KEY
+	toColumn: 'Document Date'.DATE_KEY
+
+relationship 32a51dc0-c87d-e9bb-0655-4bde3fba255f
+	fromColumn: 'Fact Service Order Costs'.CREATION_DATE_KEY
+	toColumn: 'Creation Date'.DATE_KEY
+
+relationship 19f14eae-fea2-064d-07da-c0436cc4cee2
+	fromColumn: 'Fact Service Order Costs'.TCHNCL_COMPLETION_DATE_KEY
+	toColumn: 'Technical Completion Date'.DATE_KEY
+
+relationship e1ad2df5-b192-dde7-9ade-af7d915043ef
+	fromColumn: 'Fact Service Order Costs'.PRTNR_COST_CNTR_KEY
+	toColumn: 'Partner Cost Center'.COST_CNTR_KEY
+
+relationship 126c2e3a-049a-7e72-9a07-77da7a8466f8
+	fromColumn: 'Fact Service Order Costs'.PERSONNEL_PLANT_REGION_PLANT
+	toColumn: 'Personnel Plant Region'.'Personnel Plant'
+
+relationship 6142ec1c-f6f1-5e4d-29cb-216fd80ae945
+	fromColumn: 'Fact Service Order Costs'.PRODUCING_PLANT_REGION_PLANT
+	toColumn: 'Producing Plant Region'.'Producing Plant'
+
+relationship fce48b85-e320-4d30-8907-c72ece63d6d5
+	fromColumn: 'Fact Service Order Costs'.LOCATION_PLANT_REGION_PLANT
+	toColumn: 'Loaction Plan Region'.'Location Plant'
+
+relationship d2865e91-9934-4f87-07ba-cff19bf99ead
+	fromColumn: 'Fact Service Order Costs'.PLANT_REGION_PLANT
+	toColumn: 'Plant Region'.PLANT
+
+relationship dc0e7f2d-095d-b06a-0c89-19db4d776ab7
+	fromColumn: 'Fact Service Order Costs'.PLNT_KEY
+	toColumn: EDW_T_D_MST_PLANT_CUR_D.PLNT_KEY
+
+relationship e3415d91-b130-57ef-10b8-bf0035674eb6
+	fromColumn: 'Fact Service Order Costs'.LOC_PLNT_KEY
+	toColumn: 'Location Plant'.PLNT_KEY
+
+relationship a8dfe254-6316-09a6-026d-5a9d39e65e58
+	fromColumn: 'Fact Service Order Costs'.PRODUCING_PLNT_KEY
+	toColumn: 'Producing Plant'.PLNT_KEY
+
+relationship d30cdbf5-9eb1-3475-399a-3778e3c3d81e
+	fromColumn: 'Fact Service Order Costs'.RESPNSBLE_COST_CNTR_KEY
+	toColumn: 'Responsible Cost Center'.COST_CNTR_KEY
+
+relationship 2d0357f9-2a6e-4e3a-281c-e6892e300bf0
+	fromColumn: 'Fact Service Order Costs'.PERSONEL_NUM_KEY
+	toColumn: 'Personnel Number'.PERSONEL_KEY
+
+relationship fc87ddbd-0d9c-626e-c002-f0b387e57a3a
+	fromColumn: 'Fact Service Order Costs'.PRTNR_CMPNY_KEY
+	toColumn: 'Partner Company'.CMPNY_KEY
+
+relationship 1a3c96ec-5e03-5a74-3215-cf5207b6e771
+	fromColumn: 'Fact Sales Order Details'.CMPNY_KEY
+	toColumn: EDW_T_D_MST_CMPNYCD_CUR_D.CMPNY_KEY
+
+relationship 7cfa7496-33e2-c06f-7794-c264f0adb218
+	fromColumn: 'Fact Sales Order Details'.CUST_CMPNY_KEY
+	toColumn: EDW_T_D_MST_CUSTCMP_CUR_D.CUST_CMPNY_KEY
+
+relationship 1f6cdeac-20af-042d-ea9a-5e78d28b10e4
+	fromColumn: 'Fact Sales Order Details'.CUST_CONTACT_KEY
+	toColumn: EDW_T_D_MST_CUSTCNT_CUR_D.CUST_CONTACT_KEY
+
+relationship 23fefc1a-77ea-1894-9458-d6729d5e5ffd
+	fromColumn: 'Fact Sales Order Details'.CUST_SALES_AREA_KEY
+	toColumn: EDW_T_D_MST_CUSTSAL_CUR_D.CUST_SALES_AREA_KEY
+
+relationship 008a64a0-0928-3618-6ba1-dd5489dc1c80
+	fromColumn: 'Fact Sales Order Details'.MATRL_KEY
+	toColumn: EDW_T_D_MST_MATERIAL_CUR_D.MATRL_KEY
+
+relationship ff965b6c-6a0c-bd6f-aaec-5de36eed707f
+	fromColumn: 'Fact Sales Order Details'.PLNT_KEY
+	toColumn: EDW_T_D_MST_PLANT_CUR_D.PLNT_KEY
+
+relationship 2bd34c22-75ed-a883-0d11-ef259b86b190
+	fromColumn: 'Fact Sales Order Details'.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship ffc30f1e-8800-56c1-eedf-1d196844fa70
+	fromColumn: 'Fact Sales Order Details'.SEG_KEY
+	toColumn: EDW_T_D_MST_SEGMENT_CUR_D.SEG_KEY
+
+relationship 23415b66-15a0-bdd0-bdf9-d197d4b83f1b
+	fromColumn: 'Fact Sales Order Details'.SALES_AREA_KEY
+	toColumn: EDW_T_D_SAL_SALAREA_CUR_D.SALES_AREA_KEY
+
+relationship 071159f4-3663-e6e5-5c77-970ea27842e9
+	fromColumn: 'Fact Sales Order Details'.SALES_ORDER_KEY
+	toColumn: EDW_T_D_SAL_SALORDH_CUR_D.SALES_ORDER_KEY
+
+relationship 3b27a72e-5813-a4c7-4b46-5c15dd273af3
+	fromColumn: 'Fact Sales Order Details'.DOCMT_CHARS_ENCOWAY_JS_HDR_KEY
+	toColumn: EDW_T_D_SAL_DCHAREN_CUR_D.DOCMT_CHARS_ENCOWAY_JS_HDR_KEY
+
+relationship bab7525f-6b20-562a-64fc-b02f3cff7cfe
+	fromColumn: 'Fact Sales Order Details'.SHIP_TO_ADDR_KEY
+	toColumn: EDW_T_D_SAL_ADDRESS_CUR_D.ADDR_KEY
+
+relationship 0c883468-c523-d99a-f335-d635f768f5fd
+	fromColumn: 'Fact Sales Order Details'.SOIPTNR_KEY
+	toColumn: EDW_T_B_SAL_SOIPTNR_CUR_D.SOIPTNR_KEY
+
+relationship 0486a2f3-ba80-a46c-f465-a45030c159c8
+	fromColumn: 'Fact Sales Order Details'.CUST_MATRL_INFO_RCD_KEY
+	toColumn: EDW_T_D_MST_CUSTMINR_CUR_D.CUST_MATRL_INFO_RCD_KEY
+
+relationship 11d80e83-ca08-b524-6610-330e4009cb06
+	fromColumn: 'Fact Sales Order Details'.'Product Hierarchy'
+	toColumn: EDW_T_D_MST_PRTHRCY_CUR_D.'Product Hierarchy'
+
+relationship a325547d-ce23-369a-b711-052b7d077872
+	fromColumn: 'Fact Sales Order Details'.WBS_ELEMNT_KEY
+	toColumn: EDW_T_D_PRS_WBSELEM_CUR_D.WBS_ELEMNT_KEY
+
+relationship d447a5bc-9ae6-10ac-1c4f-2a9c7040048f
+	fromColumn: 'Fact Sales Order Details'.ORDER_KEY
+	toColumn: EDW_T_D_PM_ORDER_CUR_D.ORDER_KEY
+
+relationship 6e7883b4-69fe-5c1e-3f55-31df6961cdcb
+	fromColumn: 'Fact Sales Order Details'.PAYER_CUST_KEY
+	toColumn: 'Payer Customer'.CUST_KEY
+
+relationship 79f90a4d-58c2-9fb5-777c-297947878405
+	fromColumn: 'Fact Sales Order Details'.BILLTO_CUST_KEY
+	toColumn: 'Bill To Customer'.CUST_KEY
+
+relationship fc5fb7a3-d9fd-0a57-32df-04d9dcfc4624
+	fromColumn: 'Fact Sales Order Details'.SHIPTO_CUST_KEY
+	toColumn: 'Ship To Customer'.CUST_KEY
+
+relationship 7ecd7137-9992-b5a8-5366-45f1ea7f871f
+	fromColumn: 'Fact Sales Order Details'.SOLDTO_CUST_KEY
+	toColumn: 'Sold To Customer'.CUST_KEY
+
+relationship 39e71fd5-9582-c7f9-e8f3-576d5d792816
+	fromColumn: 'Fact Sales Order Details'.CMPNY_CRNCY_KEY
+	toColumn: 'Company Currency'.CRNCY_KEY
+
+relationship cf30bb70-d370-d9ad-5c8e-38fa274db710
+	fromColumn: 'Fact Sales Order Details'.DOCMT_CRNCY_KEY
+	toColumn: 'Document Currency'.CRNCY_KEY
+
+relationship 58ff2ffb-ffe8-6d95-7213-9a6ec0677f8a
+	fromColumn: 'Fact Sales Order Details'.GROUP_CRNCY_KEY
+	toColumn: 'Group Currency'.CRNCY_KEY
+
+relationship e845ede6-ce5a-a21c-dac8-540e1715711c
+	fromColumn: 'Fact Sales Order Details'.DOCMT_DATE_KEY
+	toColumn: 'Document Date'.DATE_KEY
+
+relationship ab6fe2a3-461c-7949-4c89-7028b239af40
+	fromColumn: 'Fact Sales Order Details'.BRAND_OWNER_CUST_KEY
+	toColumn: 'Brand Owner Customer'.CUST_KEY
+
+relationship 00b77d19-7a09-e894-3576-4c4547095d1f
+	fromColumn: 'Fact Sales Order Details'.REQD_DLVRY_DATE_KEY
+	toColumn: REQD_DELVRY_DATE.DATE_KEY
+
+relationship c34e4388-46c2-774a-06e4-e307741e14db
+	fromColumn: 'Fact Sales Order Details'.SALES_PERSON_PERSONEL_KEY
+	toColumn: 'Sales Person Personel'.PERSONEL_KEY
+
+relationship d14ebc3c-02fa-8c29-c528-5b42b1246864
+	fromColumn: 'Fact Sales Order Details'.PERSON_RESPNSBLE_PERSONEL_KEY
+	toColumn: 'Person Responsible Personnel'.PERSONEL_KEY
+
+relationship b6aa98f0-5cc7-80b9-b5f8-93ca14568bca
+	fromColumn: 'Fact Sales Order Details'.COMPANY_INFO_CMPNY_CD_KEY
+	toColumn: 'Company Information'.CMPNY_KEY
+
+relationship b7bd2d44-3b1b-fc42-b581-1eb542078e43
+	fromColumn: 'Fact Sales Order Details'.CREATION_DATE_KEY
+	toColumn: 'Creation Date'.DATE_KEY
+
+relationship e7ffe8a5-0d27-49ef-dc59-c23d638c8272
+	fromColumn: 'Fact Sales Order Details'.MATRL_ENTERED_KEY
+	toColumn: MATRL_ENTERED.MATRL_KEY
+
+relationship 30eddd32-fae1-1fb5-ab37-58fb1d32ef19
+	fromColumn: 'Fact Sales Order Details'.PARNT_CUST_KEY
+	toColumn: 'Parent Customer'.CUST_KEY
+
+relationship d58e93c6-c1ec-d599-b3d1-f9732dee6d44
+	fromColumn: 'Fact Sales Order Details'.PERSON_RESPNSBLE_COST_CNTR_KEY
+	toColumn: 'Person Responsible Cost Center'.COST_CNTR_KEY
+
+relationship 6d7495d8-35e4-ee2b-f8e0-cdf11b607c47
+	fromColumn: 'Fact Sales Order Details'.CYLINDER_OWNER_CUST_KEY
+	toColumn: 'Cylinder Owner Customer'.CUST_KEY
+
+relationship e0970fe2-92c6-40bc-610a-7032e38152f3
+	fromColumn: 'Fact Sales Order Details'.PERSON_RESPNSBLE_COST_CNTR_H_HEIR_KEY
+	toColumn: 'Person Responsible Cost Center Horizontal Heirarcy'.COST_CNTR_KEY
+
+relationship 53ce4130-0c30-cee0-c7fd-f264af1e0b87
+	fromColumn: 'Fact Sales Order Details'.SAL_SALORDH_INVOICE_CREATION_DATE_KEY
+	toColumn: 'Invoice Creation Date'.DATE_KEY
+
+relationship 2f2ede7e-4fdc-4411-ccf8-0e8ca7f6e430
+	fromColumn: 'Fact Sales Order Details'.SAL_SALORDH_CREATED_DATE_KEY
+	toColumn: 'Sales Order Header Create Date'.DATE_KEY
+
+relationship 8a93419c-e670-fae1-6171-55d3e7fb0c16
+	fromColumn: 'Fact Sales Order Details'.EMPL_RESPNSBLE_2_KEY
+	toColumn: EMPLOYEE_RESP_2.PERSONEL_KEY
+
+relationship b2d29135-f868-c9bb-b9e4-2a74ef7146b1
+	fromColumn: 'Fact Sales Order Details'.AGENCY_CUST_KEY
+	toColumn: 'Agency Customer'.CUST_KEY
+
+relationship ad92d298-0fc1-7d70-ca82-df7f7e15a9ca
+	fromColumn: 'Fact Sales Order Details'.PRINTER_CUST_KEY
+	toColumn: 'Printer Customer'.CUST_KEY
+
+relationship 13d82c01-9f96-4e36-3bd4-8d9a5dc7773e
+	fromColumn: 'Fact Sales Order Details'.SUPLR_CUST_KEY
+	toColumn: 'Supplier Customer'.CUST_KEY
+
+relationship 89464713-b3d9-a72c-ba55-df4ad6351045
+	fromColumn: 'Fact Sales Order Details'.EMPL_RESPNSBLE_KEY
+	toColumn: EMPLOYEE_RESP.PERSONEL_KEY
+
+relationship beb165ff-b774-368d-f038-da49c419c185
+	fromColumn: 'Fact Sales Order Details'.PLANT_REGION_PLANT_ID
+	toColumn: 'Plant Region'.PLANT
+
+relationship 3a7f1ff2-63fe-f46a-a179-51d0bf463176
+	fromColumn: 'Fact Sales Order Details'.CUST_POJECT_MGR_KEY
+	toColumn: 'Customer Project Manager'.CUST_CONTACT_KEY
+
+relationship 68e9e22d-d2b8-5cc4-52f3-17b8c66a4856
+	fromColumn: 'Fact Sales Order Details'.UNITIZATION_AGENT_VNDR_KEY
+	toColumn: UNITIZATION_AGENT_VENDOR.VNDR_KEY
+
+relationship a71d35d8-2e57-dda2-3413-a797892cbf8d
+	fromColumn: 'Fact Sales Order Details'.FORWARDING_AGENT_VENDOR_KEY
+	toColumn: 'Forwarding Agent Vendor'.VNDR_KEY
+
+relationship dc054e0f-0812-6bf3-9e8a-daf446569838
+	fromColumn: 'Fact Sales Order Details'.ORDER_FOR_CUSTOMER_ADDR_KEY
+	toColumn: 'Order For Customer'.ADDR_KEY
+
+relationship eba40e94-8467-1b81-fee4-6edad74b4540
+	fromColumn: 'Fact Sales Order Details'.SO_PARENT_CUST_KEY
+	toColumn: SO_PARENT_CUST.CUST_KEY
+
+relationship 5df19020-46a8-c2e4-5638-2a10d87a315d
+	fromColumn: 'Fact COPA Budget'.CUST_CMPNY_KEY
+	toColumn: EDW_T_D_MST_CUSTCMP_CUR_D.CUST_CMPNY_KEY
+
+relationship 9bae9e4e-9bda-7780-8f02-180f19d45c21
+	fromColumn: 'Fact COPA Budget'.SOLDTO_CUST_KEY
+	toColumn: EDW_T_D_MST_CUSTOMR_CUR_D.CUST_KEY
+
+relationship d186def1-4392-3025-1767-f27fcb24cc5e
+	fromColumn: 'Fact COPA Budget'.MATRL_KEY
+	toColumn: EDW_T_D_MST_MATERIAL_CUR_D.MATRL_KEY
+
+relationship 2c568930-8d4e-c015-2581-e3a0b82331e3
+	fromColumn: 'Fact COPA Budget'.PLNT_KEY
+	toColumn: EDW_T_D_MST_PLANT_CUR_D.PLNT_KEY
+
+relationship d68f3bb8-a922-c1f2-226a-d20ed4dadce1
+	fromColumn: 'Fact COPA Budget'.SALES_AREA_KEY
+	toColumn: EDW_T_D_SAL_SALAREA_CUR_D.SALES_AREA_KEY
+
+relationship f0c26676-c46e-04d9-7bad-7607046118c7
+	fromColumn: 'Fact COPA Budget'.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship 28d715a5-5bee-c1fa-2957-61a47dfe5bc7
+	fromColumn: 'Fact COPA Budget'.CUST_SALES_AREA_KEY
+	toColumn: EDW_T_D_MST_CUSTSAL_CUR_D.CUST_SALES_AREA_KEY
+
+relationship d640867c-d2a2-3619-b3d6-a77623c5c45a
+	fromColumn: 'Fact COPA Budget'.MATRL_SALES_KEY
+	toColumn: EDW_T_D_MST_MATSALS_CUR_D.MATRL_SALES_KEY
+
+relationship 6bb3df3b-18b0-ec9f-9043-bb84dc5f7ebd
+	fromColumn: 'Fact COPA Budget'.CRNCY_KEY
+	toColumn: EDW_T_D_MST_CRNCY_CUR_D.CRNCY_KEY
+
+relationship c58855eb-2062-ad37-de62-0caf93a56363
+	fromColumn: 'Fact COPA Budget'.FOREIGN_CRNCY_KEY
+	toColumn: 'Foreign Currency'.CRNCY_KEY
+
+relationship e68fba6c-a22f-a705-b2d7-b9d5e3e3a189
+	fromColumn: 'Fact COPA Budget'.SEG_KEY
+	toColumn: EDW_T_D_MST_SEGMENT_CUR_D.SEG_KEY
+
+relationship 1db3f96b-0ef1-69bc-c989-39e44335f837
+	fromColumn: 'Fact COPA Budget'.CMPNY_KEY
+	toColumn: EDW_T_D_MST_CMPNYCD_CUR_D.CMPNY_KEY
+
+relationship 04f22cfc-5633-dca9-2ab8-f16f6397ab66
+	fromColumn: 'Fact COPA Budget'.'COPA Product Hierarchy Code'
+	toColumn: EDW_T_D_MST_PRTHRCY_CUR_D.'Product Hierarchy'
+
+relationship 002aab7a-6e61-7c3f-3f76-369fd542cfbe
+	fromColumn: 'Fact COPA Actual'.CMPNY_KEY
+	toColumn: EDW_T_D_MST_CMPNYCD_CUR_D.CMPNY_KEY
+
+relationship e7659f2f-8a14-3466-885d-186d8793a4fa
+	fromColumn: 'Fact COPA Actual'.CUST_CMPNY_KEY
+	toColumn: EDW_T_D_MST_CUSTCMP_CUR_D.CUST_CMPNY_KEY
+
+relationship 9c2b57af-75ab-c59b-a3b5-2fcb8aeea0fc
+	fromColumn: 'Fact COPA Actual'.MATRL_KEY
+	toColumn: EDW_T_D_MST_MATERIAL_CUR_D.MATRL_KEY
+
+relationship ac2d5432-6fb4-365a-6789-1c1030a8f308
+	fromColumn: 'Fact COPA Actual'.PLNT_KEY
+	toColumn: EDW_T_D_MST_PLANT_CUR_D.PLNT_KEY
+
+relationship 5268a2f3-f72a-b82e-37e3-f02576e1b6aa
+	fromColumn: 'Fact COPA Actual'.SALES_AREA_KEY
+	toColumn: EDW_T_D_SAL_SALAREA_CUR_D.SALES_AREA_KEY
+
+relationship ca9df7e1-8969-1cc9-b6da-1875aaea1e1e
+	fromColumn: 'Fact COPA Actual'.CRNCY_KEY
+	toColumn: EDW_T_D_MST_CRNCY_CUR_D.CRNCY_KEY
+
+relationship 3e2bff6e-b314-3551-26d0-081a1267ff14
+	fromColumn: 'Fact COPA Actual'.SEG_KEY
+	toColumn: EDW_T_D_MST_SEGMENT_CUR_D.SEG_KEY
+
+relationship 53958b0d-a7c9-da32-a508-d5f25cdfd174
+	fromColumn: 'Fact COPA Actual'.SALES_ORDER_KEY
+	toColumn: EDW_T_D_SAL_SALORDH_CUR_D.SALES_ORDER_KEY
+
+relationship 380e37e2-c5c8-3b57-4a23-0c0a70b466fb
+	fromColumn: 'Fact COPA Actual'.COST_ELEMNT_KEY
+	toColumn: EDW_T_D_MST_COSTELM_CUR_D.COST_ELEMNT_KEY
+
+relationship 0665a46a-f963-8d9f-8f08-2959fee01a1c
+	fromColumn: 'Fact COPA Actual'.WBS_ELEMNT_KEY
+	toColumn: EDW_T_D_PRS_WBSELEM_CUR_D.WBS_ELEMNT_KEY
+
+relationship f81c28bb-10e0-1db3-7b57-4953d5e1473d
+	fromColumn: 'Fact COPA Actual'.MATRL_SALES_KEY
+	toColumn: EDW_T_D_MST_MATSALS_CUR_D.MATRL_SALES_KEY
+
+relationship f7f31807-e151-235a-3e73-0fb97e0a7e42
+	fromColumn: 'Fact COPA Actual'.CUST_SALES_AREA_KEY
+	toColumn: EDW_T_D_MST_CUSTSAL_CUR_D.CUST_SALES_AREA_KEY
+
+relationship e5eb23aa-791f-46e9-d525-94cb31cb7b2e
+	fromColumn: 'Fact COPA Actual'.BILLING_DATE_KEY
+	toColumn: 'Billing Date'.DATE_KEY
+
+relationship de3e83eb-6154-6840-d523-d1482909eb0e
+	fromColumn: 'Fact COPA Actual'.GOODS_ISSUE_DATE_KEY
+	toColumn: 'Goods Issued Date'.DATE_KEY
+
+relationship 10cf2345-4c1c-bafd-26a3-9e8b9c451185
+	fromColumn: 'Fact COPA Actual'.PSTNG_DATE_KEY
+	toColumn: 'Posting Date'.DATE_KEY
+
+relationship 5c218090-e98e-7787-11a7-e7343a431a38
+	fromColumn: 'Fact COPA Actual'.SHIPTO_CUST_KEY
+	toColumn: 'Ship To Customer'.CUST_KEY
+
+relationship f1ef0d1c-8653-e2d8-bd0f-cffece9fdf0c
+	fromColumn: 'Fact COPA Actual'.SOLDTO_CUST_KEY
+	toColumn: 'Sold To Customer'.CUST_KEY
+
+relationship a0fc8d66-53b5-ec26-ce27-10cf2926ea54
+	fromColumn: 'Fact COPA Actual'.BILLTO_CUST_KEY
+	toColumn: 'Bill To Customer'.CUST_KEY
+
+relationship a5e5b86c-1444-5df3-fec8-99885067f120
+	fromColumn: 'Fact COPA Actual'.PARNT_CUST_KEY
+	toColumn: 'Parent Customer'.CUST_KEY
+
+relationship ebbcb994-bb5d-cb00-974d-7eeb17fd0fbb
+	fromColumn: 'Fact COPA Actual'.BRAND_OWNER_CUST_KEY
+	toColumn: 'Brand Owner Customer'.CUST_KEY
+
+relationship 90adaca4-2b6a-13da-6ed1-597f9692c3d8
+	fromColumn: 'Fact COPA Actual'.CUST_SERVC_REPRESENTATIVE_KEY
+	toColumn: CUSTOMER_SERVICE_REP.PERSONEL_KEY
+
+relationship 01ab69ac-12c9-103c-cdc5-3a99e3839d4e
+	fromColumn: 'Fact COPA Actual'.SALES_REP_REPRESENTATIVE_KEY
+	toColumn: SALES_REP.PERSONEL_KEY
+
+relationship f856bf37-fbc7-954b-7768-f7bfee5eaf44
+	fromColumn: 'Fact COPA Actual'.CUST_KEY
+	toColumn: EDW_T_D_MST_CUSTOMR_CUR_D.CUST_KEY
+
+relationship 460a478f-c2d5-9647-73bb-2165661d40cf
+	fromColumn: 'Fact COPA Actual'.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship 89c52b96-202a-feda-ca6a-0898076fb813
+	fromColumn: 'Fact COPA Actual'.PRTNR_PROFT_CNTR_KEY
+	toColumn: 'Partner Profit Center'.PROFT_CNTR_KEY
+
+relationship da8d941c-7d05-4d92-0f09-84abef21986b
+	fromColumn: 'Fact Cost Center Cost Transaction'.CMPNY_KEY
+	toColumn: EDW_T_D_MST_CMPNYCD_CUR_D.CMPNY_KEY
+
+relationship f6072820-9c22-4d7e-a4af-eb7912950017
+	fromColumn: 'Fact Cost Center Cost Transaction'.COST_CNTR_KEY
+	toColumn: EDW_T_D_MST_COSCNTR_CUR_D.COST_CNTR_KEY
+
+relationship e296d332-4ff9-4722-308e-3eb267f0d6d6
+	fromColumn: 'Fact Cost Center Cost Transaction'.COST_ELEMNT_KEY
+	toColumn: EDW_T_D_MST_COSTELM_CUR_D.COST_ELEMNT_KEY
+
+relationship 2324ab99-21ca-9436-65fe-47d6ec382211
+	fromColumn: 'Fact Cost Center Cost Transaction'.FUNCTNL_AREA_KEY
+	toColumn: EDW_T_D_MST_FUNCTAR_CUR_D.FUNCTNL_AREA_KEY
+
+relationship 6537da53-cf15-f279-4db7-762e401228bf
+	fromColumn: 'Fact Cost Center Cost Transaction'.PSTNG_DATE_KEY
+	toColumn: EDW_T_D_MST_DATE_CUR_D.DATE_KEY
+
+relationship 5b997ca0-f51b-1379-0a76-6941ab5d8e99
+	fromColumn: 'Fact Cost Center Cost Transaction'.PLNT_KEY
+	toColumn: EDW_T_D_MST_PLANT_CUR_D.PLNT_KEY
+
+relationship 622c3f7d-7da6-7be6-7dfd-940c39710c4e
+	fromColumn: 'Fact Cost Center Cost Transaction'.SEG_KEY
+	toColumn: EDW_T_D_MST_SEGMEN2_CUR_D.SEG_KEY
+
+relationship f138aa5c-d126-6f3e-ec0d-8d23ab854f61
+	fromColumn: 'Fact Cost Center Cost Transaction'.CONTROLLING_AREA_COST_ELEMNT_KE
+	toColumn: EDW_T_D_MST_CACSELM_CUR_D.CONTROLLING_AREA_COST_ELEMNT_KE
+
+relationship e42371b0-41b7-3fbd-c9f1-0689be902a16
+	fromColumn: 'Fact Cost Center Cost Transaction'.MATRL_KEY
+	toColumn: EDW_T_D_MST_MATERIAL_CUR_D.MATRL_KEY
+
+relationship c054cf83-162e-d24a-91f4-4fc246575426
+	fromColumn: 'Fact Cost Center Cost Transaction'.CMPNY_CRNCY_KEY
+	toColumn: 'Company Currency'.CRNCY_KEY
+
+relationship cdf2f857-a354-379d-95a5-4bea2a49eea1
+	fromColumn: 'Fact Cost Center Cost Transaction'.DOCMT_CRNCY_KEY
+	toColumn: 'Document Currency'.CRNCY_KEY
+
+relationship 9f0621b4-f1e7-0802-616a-73a5b7a2a07a
+	fromColumn: 'Fact Cost Center Cost Transaction'.GROUP_CRNCY_KEY
+	toColumn: 'Group Currency'.CRNCY_KEY
+
+relationship a8477d91-4909-63fa-f2ba-9c3f937362dd
+	fromColumn: 'Fact Cost Center Cost Summary'.CMPNY_KEY
+	toColumn: EDW_T_D_MST_CMPNYCD_CUR_D.CMPNY_KEY
+
+relationship 07ad6792-057c-c7b9-9fd8-9c677542d70e
+	fromColumn: 'Fact Cost Center Cost Summary'.COST_CNTR_KEY
+	toColumn: EDW_T_D_MST_COSCNTR_CUR_D.COST_CNTR_KEY
+
+relationship 39f43cd1-512a-f82b-7082-7f2c41d8a523
+	fromColumn: 'Fact Cost Center Cost Summary'.COST_ELEMNT_KEY
+	toColumn: EDW_T_D_MST_COSTELM_CUR_D.COST_ELEMNT_KEY
+
+relationship 732bb4c0-376e-85c2-0da0-cb5d8b13d9a7
+	fromColumn: 'Fact Cost Center Cost Summary'.FUNCTNL_AREA_KEY
+	toColumn: EDW_T_D_MST_FUNCTAR_CUR_D.FUNCTNL_AREA_KEY
+
+relationship d903e169-3624-6c22-c535-1261dd2a398a
+	fromColumn: 'Fact Cost Center Cost Summary'.CMPNY_CRNCY_KEY
+	toColumn: 'Company Currency'.CRNCY_KEY
+
+relationship 1bfd95c5-9f29-5022-20d5-39c3c9bc71e5
+	fromColumn: 'Fact Cost Center Cost Summary'.DOCMT_CRNCY_KEY
+	toColumn: 'Document Currency'.CRNCY_KEY
+
+relationship 4f6fc44e-ce86-f972-c8ec-39738d8e474c
+	fromColumn: 'Fact Cost Center Cost Summary'.GROUP_CRNCY_KEY
+	toColumn: 'Group Currency'.CRNCY_KEY
+
+relationship 12363ae3-033a-961f-7893-3337e301e33b
+	fromColumn: 'Fact Cost Center Cost Summary'.CONTROLLING_AREA_COST_ELEMNT_KE
+	toColumn: EDW_T_D_MST_CACSELM_CUR_D.CONTROLLING_AREA_COST_ELEMNT_KE
+
+relationship 189fb26f-beb0-5822-1ae3-9b21247ea4f8
+	fromColumn: 'Fact Cost Center Cost Summary'.SEG_KEY
+	toColumn: EDW_T_D_MST_SEGMEN2_CUR_D.SEG_KEY
+
+relationship 128dd9c3-ae52-a1e1-633b-57908549708b
+	fromColumn: 'Fact Cost Center Cost Summary'.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship b138c766-9045-3edb-450f-dcb986855e81
+	fromColumn: 'Fact Accounts Receivable'.CMPNY_KEY
+	toColumn: EDW_T_D_MST_CMPNYCD_CUR_D.CMPNY_KEY
+
+relationship 455e4684-4756-b2c9-4dd9-0bd9ab0ffbc6
+	fromColumn: 'Fact Accounts Receivable'.GL_KEY
+	toColumn: EDW_T_D_MST_GENLDGR_CUR_D.GL_KEY
+
+relationship 69861c4f-200f-ab72-0a8a-6409f90362b0
+	fromColumn: 'Fact Accounts Receivable'.PAYER_CUST_KEY
+	toColumn: EDW_T_D_MST_CUSTOMR_CUR_D.CUST_KEY
+
+relationship 7b7c6160-da62-e053-6258-0898751a33f9
+	fromColumn: 'Fact Accounts Receivable'.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship 94c74783-95fe-d1ca-cc30-179d10ed66c1
+	fromColumn: 'Fact Accounts Receivable'.BILLING_DOCMT_KEY
+	toColumn: EDW_T_D_SAL_INVOICE_CUR_D.INVC_KEY
+
+relationship b5e93a7c-3c85-12c3-f3ae-6161f8350d14
+	fromColumn: 'Fact Accounts Receivable'.WBS_ELEMNT_KEY
+	toColumn: EDW_T_D_PRS_WBSELEM_CUR_D.WBS_ELEMNT_KEY
+
+relationship 8f508c92-304f-71ef-5e75-f143bd64ad90
+	fromColumn: 'Fact Accounts Receivable'.CUST_CREDIT_KEY
+	toColumn: EDW_T_D_MST_CUSCRED_CUR_D.CUST_CREDIT_KEY
+
+relationship 48cb18e1-d9d7-f856-91e3-74c15c8c8fc0
+	fromColumn: 'Fact Accounts Receivable'.CUST_SALES_AREA_KEY
+	toColumn: EDW_T_D_MST_CUSTSAL_CUR_D.CUST_SALES_AREA_KEY
+
+relationship e4b1ba9a-0266-a0a7-62c8-a47fd117ec3b
+	fromColumn: 'Fact Accounts Receivable'.SALES_AREA_KEY
+	toColumn: EDW_T_D_SAL_SALAREA_CUR_D.SALES_AREA_KEY
+
+relationship 1a054e80-9b83-0e22-57a1-c0e7869cc78d
+	fromColumn: 'Fact Accounts Receivable'.SEG_KEY
+	toColumn: EDW_T_D_MST_SEGMEN2_CUR_D.SEG_KEY
+
+relationship 89a6c4f3-de28-1afd-20d2-f152b931ef84
+	fromColumn: 'Fact Accounts Receivable'.LAST_DUNNING_NOTICE_DATE_KEY
+	toColumn: 'Last Dunning Notice Date'.DATE_KEY
+
+relationship 709724ff-0843-8ac0-939a-2015b33bb059
+	fromColumn: 'Fact Accounts Receivable'.CLEARING_DATE_KEY
+	toColumn: 'Clearing Date'.DATE_KEY
+
+relationship 1d64c62a-7bba-686c-6363-91e65c8ff7c6
+	fromColumn: 'Fact Accounts Receivable'.DOCMT_DATE_KEY
+	toColumn: 'Document Date'.DATE_KEY
+
+relationship cca21a83-87d2-c0c7-e932-e53bda6d8116
+	fromColumn: 'Fact Accounts Receivable'.PSTNG_DATE_KEY
+	toColumn: 'Posting Date'.DATE_KEY
+
+relationship 70b6f13f-8a3c-e18e-437d-7f7ecf7236e8
+	fromColumn: 'Fact Accounts Receivable'.BSLINE_DUE_DATE_KEY
+	toColumn: 'Baseline Due Date'.DATE_KEY
+
+relationship 3e4a053d-f95c-4adb-6137-21ede15c24ce
+	fromColumn: 'Fact Accounts Receivable'.CMPNY_CRNCY_KEY
+	toColumn: 'Company Currency'.CRNCY_KEY
+
+relationship 33f7b482-9276-5795-fc63-02beb61657c9
+	fromColumn: 'Fact Accounts Receivable'.DOCMT_CRNCY_KEY
+	toColumn: 'Document Currency'.CRNCY_KEY
+
+relationship 7963ea30-f81f-7bb2-40e8-b331a436ad35
+	fromColumn: 'Fact Accounts Receivable'.GROUP_CRNCY_KEY
+	toColumn: 'Group Currency'.CRNCY_KEY
+
+relationship 3875f0d7-afc5-3794-668a-491e4c2070b9
+	fromColumn: 'Fact Sales Order Details'.V_D_SAL_PRDVCON_KEY
+	toColumn: EDW_V_D_SAL_PRDVCON_CUR_D.V_D_SAL_PRDVCON_KEY
+
+relationship 9e662411-f6b0-36ea-11c7-076ce688f99b
+	fromColumn: EDW_T_FACT_FI_BPCDTAU_CUR_D.ACCT_KEY
+	toColumn: EDW_T_D_MST_GENLDGR_CUR_D.GL_KEY
+
+relationship a6036922-1ca3-96c9-b9fe-44e347bbefea
+	fromColumn: EDW_T_FACT_FI_BPCDTAU_CUR_D.FUNCTNL_AREA_KEY
+	toColumn: EDW_T_D_MST_FUNCTAR_CUR_D.FUNCTNL_AREA_KEY
+
+relationship 8a0e51d3-983d-c8dc-ba2a-88c9cdb3b117
+	fromColumn: EDW_T_FACT_FI_BPCDTAU_CUR_D.'ENTITY ID'
+	toColumn: EDW_T_D_HY_ENTYHZ_CUR_D.'Entity ID'
+
+relationship a92b7ab0-d806-b898-a930-53cc4c0200a2
+	fromColumn: EDW_T_FACT_FI_BPCDTAU_CUR_D.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship 478ef8a7-a47e-1357-91c9-69914d9e5b4a
+	fromColumn: EDW_T_FACT_FI_BPCDTAU_CUR_D.'ACCT ID'
+	toColumn: EDW_T_D_FI_MELTGRP_CUR_D.ACCT_ID
+
+relationship ca7ee9fc-c48b-bb4d-07bb-af4d76e79cfd
+	fromColumn: EDW_T_FACT_FI_BPCDTAU_CUR_D.'ACCT ID'
+	toColumn: EDW_T_D_HY_BPCGLHZ_CUR_D.ACCT_ID
+
+relationship ac980535-4ab3-2473-c5ae-3c58e42518f9
+	fromColumn: EDW_T_FACT_FI_BPCDTAU_CUR_D.INTER_CMPNY_KEY
+	toColumn: 'Inter Company'.CMPNY_KEY
+
+relationship 0b651850-f0ab-cf89-6a43-4ae20f1c83e9
+	fromColumn: EDW_T_FACT_FI_BPCDTAU_CUR_D.ENTITY_KEY
+	toColumn: 'Entity Company'.CMPNY_KEY
+
+relationship cfe8f523-5a07-90e7-ffae-5daa1189d889
+	fromColumn: EDW_T_FACT_FI_BPCDTAU_CUR_D.INTER_CMPNY_PROFT_CNTR_KEY
+	toColumn: 'Inter Company Profit Center'.PROFT_CNTR_KEY
+
+relationship bc18acfc-7140-d29d-e956-f06569fc9f13
+	fromColumn: 'Fact General Ledger Plan & Budget'.CMPNY_KEY
+	toColumn: EDW_T_D_MST_CMPNYCD_CUR_D.CMPNY_KEY
+
+relationship d2c9d6e1-8ccd-ae42-c632-76ed24424daa
+	fromColumn: 'Fact General Ledger Plan & Budget'.GL_KEY
+	toColumn: EDW_T_D_MST_GENLDGR_CUR_D.GL_KEY
+
+relationship 460d7d0d-3e25-1f9a-265e-57c3c7c66590
+	fromColumn: 'Fact General Ledger Plan & Budget'.FUNCTNL_AREA_KEY
+	toColumn: EDW_T_D_MST_FUNCTAR_CUR_D.FUNCTNL_AREA_KEY
+
+relationship 76f8e729-e622-9eb8-f540-0220e4ecde4a
+	fromColumn: 'Fact General Ledger Plan & Budget'.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship b66c737c-4482-a353-d162-06b662975365
+	fromColumn: 'Fact General Ledger Plan & Budget'.SEG_KEY
+	toColumn: EDW_T_D_MST_SEGMEN2_CUR_D.SEG_KEY
+
+relationship e385f7dd-e508-d047-f454-5d49933aea5c
+	fromColumn: 'Fact General Ledger Plan & Budget'.TRADING_PRTNR_CMPNY_KEY
+	toColumn: Trading_Partner_Company.CMPNY_KEY
+
+relationship 40d72762-2b0e-4571-566f-da08196f82d4
+	fromColumn: 'Fact General Ledger Plan & Budget'.PRTNR_PROFT_CNTR_KEY
+	toColumn: 'Partner Profit Center'.PROFT_CNTR_KEY
+
+relationship b3b6a6cc-3237-b109-ae33-7dba01d1b5e8
+	fromColumn: 'Fact General Ledger Plan & Budget'.CMPNY_CRNCY_KEY
+	toColumn: 'Company Currency'.CRNCY_KEY
+
+relationship 102f14f3-733f-0b03-83da-9aba3583cad1
+	fromColumn: 'Fact General Ledger Plan & Budget'.DOCMT_CRNCY_KEY
+	toColumn: 'Transaction Currency'.CRNCY_KEY
+
+relationship c2565bd9-02c2-a58d-fe03-d44d265f4221
+	fromColumn: 'Fact General Ledger Plan & Budget'.GROUP_CRNCY_KEY
+	toColumn: 'Group Currency'.CRNCY_KEY
+
+relationship 43aa46b2-9da9-9118-f255-5ac6acdadeb7
+	fromColumn: 'Fact General Ledger'.CMPNY_KEY
+	toColumn: EDW_T_D_MST_CMPNYCD_CUR_D.CMPNY_KEY
+
+relationship 950414f3-42b5-55d3-3837-8848bccfc5a3
+	fromColumn: 'Fact General Ledger'.COST_CNTR_KEY
+	toColumn: EDW_T_D_MST_COSCNTR_CUR_D.COST_CNTR_KEY
+
+relationship 973b1fac-2fe7-b923-19c5-7f949d66cb9a
+	fromColumn: 'Fact General Ledger'.GL_KEY
+	toColumn: EDW_T_D_MST_GENLDGR_CUR_D.GL_KEY
+
+relationship 81ef5521-3878-a2f7-4f56-5dbcddc50584
+	fromColumn: 'Fact General Ledger'.COST_ELEMNT_KEY
+	toColumn: EDW_T_D_MST_COSTELM_CUR_D.COST_ELEMNT_KEY
+
+relationship 5c2f51a6-1623-9557-8aee-874603642aab
+	fromColumn: 'Fact General Ledger'.CUST_KEY
+	toColumn: EDW_T_D_MST_CUSTOMR_CUR_D.CUST_KEY
+
+relationship e6672d3b-0cf6-9edd-3e92-1fee49762153
+	fromColumn: 'Fact General Ledger'.PLNT_KEY
+	toColumn: EDW_T_D_MST_PLANT_CUR_D.PLNT_KEY
+
+relationship f7d30b47-7f71-a50c-ff0e-1a0b65afc114
+	fromColumn: 'Fact General Ledger'.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship e1ca3508-1dfe-d6be-dfd5-c7d3f009f5be
+	fromColumn: 'Fact General Ledger'.MATRL_KEY
+	toColumn: EDW_T_D_MST_MATERIAL_CUR_D.MATRL_KEY
+
+relationship 92c77bde-a935-608d-69f7-4a9e57257853
+	fromColumn: 'Fact General Ledger'.SEG_KEY
+	toColumn: EDW_T_D_MST_SEGMEN2_CUR_D.SEG_KEY
+
+relationship 8829c6e7-2d67-45a7-6115-040ee4501553
+	fromColumn: 'Fact General Ledger'.SALES_ORDER_KEY
+	toColumn: EDW_T_D_SAL_SALORDH_CUR_D.SALES_ORDER_KEY
+
+relationship 7eb1be2b-d404-88a0-2737-5c41be95764b
+	fromColumn: 'Fact General Ledger'.BILLING_DOCMT_KEY
+	toColumn: EDW_T_D_SAL_INVOICE_CUR_D.INVC_KEY
+
+relationship 91ded7c9-ec7f-a563-d511-e429d7591e3d
+	fromColumn: 'Fact General Ledger'.PURCHS_ORDER_ITM_KEY
+	toColumn: EDW_T_D_PP_PURORDL_CUR_D.PURCHS_ORDER_ITM_KEY
+
+relationship 3741b70d-163f-966c-5912-1b120c17fe14
+	fromColumn: 'Fact General Ledger'.WBS_ELEMNT_KEY
+	toColumn: EDW_T_D_PRS_WBSELEM_CUR_D.WBS_ELEMNT_KEY
+
+relationship 36f439b2-37a2-7b0e-de2c-f0331b970ec0
+	fromColumn: 'Fact General Ledger'.VNDR_KEY
+	toColumn: EDW_T_D_MST_VENDOR_CUR_D.VNDR_KEY
+
+relationship ed951843-d087-2743-d621-198df69c61e2
+	fromColumn: 'Fact General Ledger'.PSTNG_DATE_KEY
+	toColumn: EDW_T_D_MST_CMPNYDT_CUR_D.DATE_KEY
+
+relationship 13b91fad-60de-f6e5-859a-9a589a64e28e
+	fromColumn: 'Fact General Ledger'.TRNSCTN_CRNCY_KEY
+	toColumn: 'Transaction Currency'.CRNCY_KEY
+
+relationship fb4a264a-ca9c-4c03-f240-8fb4b6e9cce4
+	fromColumn: 'Fact General Ledger'.PRTNR_SEG_KEY
+	toColumn: 'Partner segment'.SEG_KEY
+
+relationship 484e7f4b-7eb9-dace-ab2a-e45395fc2fed
+	fromColumn: 'Fact General Ledger'.TRADING_PRTNR_CMPNY_KEY
+	toColumn: Trading_Partner_Company.CMPNY_KEY
+
+relationship dc8379ca-b468-9f3c-78f2-ddfb3d8d5bc8
+	fromColumn: 'Fact General Ledger'.PRTNR_PROFT_CNTR_KEY
+	toColumn: 'Partner Profit Center'.PROFT_CNTR_KEY
+
+relationship 0edf9464-c05f-bc87-0ee5-f1d4f9d05b78
+	fromColumn: 'Fact General Ledger'.PRTNR_FUNCTNL_AREA_KEY
+	toColumn: 'Partner Functional Area'.FUNCTNL_AREA_KEY
+
+relationship b6a002c3-b374-af62-4f0e-ac5453153e15
+	fromColumn: 'Fact General Ledger'.FUNCTNL_AREA_KEY
+	toColumn: EDW_T_D_MST_FUNCTAR_CUR_D.FUNCTNL_AREA_KEY
+
+relationship 37198c9e-969b-a029-05a2-bb81c977f423
+	fromColumn: 'Fact General Ledger'.GROUP_CRNCY_KEY
+	toColumn: 'Group Currency'.CRNCY_KEY
+
+relationship 4ec35e3e-5cb5-047a-18d8-3650b73a7e93
+	fromColumn: 'Fact General Ledger'.CMPNY_CRNCY_KEY
+	toColumn: 'Company Currency'.CRNCY_KEY
+
+relationship 34df364e-1dc8-19d6-401f-0c5d536416ed
+	fromColumn: 'Fact General Ledger'.DOCMT_CRNCY_KEY
+	toColumn: 'Document Currency'.CRNCY_KEY
+
+relationship bafa6632-1250-2a5b-27d6-498e6b440f55
+	fromColumn: 'Fact General Ledger'.DOCMT_DATE_KEY
+	toColumn: 'Document Date'.DATE_KEY
+
+relationship bd130696-2cbf-b08d-8594-31cd379603c8
+	fromColumn: 'Fact General Ledger'.CLEARING_DATE_KEY
+	toColumn: 'Clearing Date'.DATE_KEY
+
+relationship f8ced433-c904-5e55-7c22-f3b0037f2c38
+	fromColumn: 'Fact General Ledger'.PSTNG_DATE_KEY
+	toColumn: 'Posting Date'.DATE_KEY
+
+relationship 7c3d922f-491d-c8b6-2381-c60561dc730a
+	fromColumn: 'Fact General Ledger'.ASSET_KEY
+	toColumn: EDW_T_D_FI_ASSETHR_CUR_D.ASSET_KEY
+
+relationship c2cb7581-79c0-f80a-2b6c-aada5e532ac7
+	fromColumn: 'Fact General Ledger'.GL_CMPNY_KEY
+	toColumn: EDW_T_D_MST_GLCMPCD_CUR_D.GL_CMPNY_KEY
+
+relationship 087400ba-c656-80eb-2b8d-f4a67f4cb8d2
+	fromColumn: 'Fact Service Order Costs'.COSTEHZ_COST_ELEMNT_KEY
+	toColumn: EDW_T_D_HY_COSTEHZ_CUR_D.COST_ELEMNT_KEY
+
+relationship 818df373-a5ca-b2a3-437b-0e150b529d30
+	fromColumn: 'Fact Service Order Costs'.COSTEVZ_COST_ELEMNT_KEY
+	toColumn: EDW_T_D_HY_COSTEVZ_CUR_D.COST_ELEMNT_KEY
+
+relationship 56524350-0eae-7d54-dcf3-bd56d2cf2060
+	fromColumn: 'Fact Service Order Costs'.PROFCHZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCHZ_CUR_D.PROFT_CNTR_KEY
+
+relationship e80253b5-e27d-31ff-820e-826942b19b1b
+	fromColumn: 'Fact Service Order Costs'.PROFCVZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCVZ_CUR_D.PROFT_CNTR_KEY
+
+relationship 17d90d12-e74b-6915-edf7-af5891f928b2
+	fromColumn: 'Fact Service Order Costs'.WORKCHZ_WRK_CNTR_KEY
+	toColumn: EDW_T_D_HY_WORKCHZ_CUR_D.WRK_CNTR_KEY
+
+relationship 41590b7f-9b79-2ee6-d390-3f1b6de0fc54
+	fromColumn: 'Fact Service Order Costs'.WORKCVZ_WRK_CNTR_KEY
+	toColumn: EDW_T_D_HY_WORKCVZ_CUR_D.WRK_CNTR_KEY
+
+relationship 15ea9c99-33ac-8ef3-a36e-69dc58d576d4
+	fromColumn: EDW_T_FACT_FI_BPCDTAU_CUR_D.PROFCHZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCHZ_CUR_D.PROFT_CNTR_KEY
+
+relationship e78f7a12-3ac8-afb0-9b44-284ae8d4f406
+	fromColumn: EDW_T_FACT_FI_BPCDTAU_CUR_D.PROFCVZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCVZ_CUR_D.PROFT_CNTR_KEY
+
+relationship 44611297-35b0-b0e3-c8a1-3ab8f7c23d5d
+	fromColumn: 'Fact General Ledger Plan & Budget'.PROFCHZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCHZ_CUR_D.PROFT_CNTR_KEY
+
+relationship 9b0df9d9-6e7a-a448-6ac0-679a0128d3e2
+	fromColumn: 'Fact General Ledger Plan & Budget'.PROFCVZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCVZ_CUR_D.PROFT_CNTR_KEY
+
+relationship 4dfd5475-1dd0-6071-8b74-11f9b228c5c5
+	fromColumn: 'Fact General Ledger Plan & Budget'.PRTNR_PRFT_CNTR_V_HIER_KEY
+	toColumn: 'Partner Profit Center Vertical'.PROFIT_CNTR_KEY
+
+relationship 2c3d8165-e450-6e49-36f9-cc62386496c8
+	fromColumn: 'Fact General Ledger Plan & Budget'.PRTNR_PRFT_CNTR_H_HIER_KEY
+	toColumn: 'Partner Profit Center Horizontal'.PROFIT_CNTR_KEY
+
+relationship ff7fc03e-9cee-877b-c4a9-b57109d21447
+	fromColumn: 'Fact General Ledger'.ICGLGRP_GL_CD
+	toColumn: EDW_T_D_FI_ICGLGRP_CUR_D.GL_ID
+
+relationship df0ab284-6061-d87b-b14a-d5a4f1b0e0b8
+	fromColumn: 'Fact General Ledger'.COSTCHZ_COST_CNTR_KEY
+	toColumn: EDW_T_D_HY_COSTCHZ_CUR_D.COST_CNTR_KEY
+
+relationship 4fec060d-543e-5aca-353e-803a148328ce
+	fromColumn: 'Fact General Ledger'.COSTCVZ_COST_CNTR_KEY
+	toColumn: EDW_T_D_HY_COSTCVZ_CUR_D.COST_CNTR_KEY
+
+relationship 320be037-20a0-05be-e192-30cab2db33dc
+	fromColumn: 'Fact General Ledger'.PROFCHZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCHZ_CUR_D.PROFT_CNTR_KEY
+
+relationship d12410c7-efbb-7903-130d-a8c291209e40
+	fromColumn: 'Fact General Ledger'.PROFCVZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCVZ_CUR_D.PROFT_CNTR_KEY
+
+relationship d617aa06-784d-763b-439a-3137596d7f4d
+	fromColumn: 'Fact General Ledger'.COSTEHZ_COST_ELEMNT_KEY
+	toColumn: EDW_T_D_HY_COSTEHZ_CUR_D.COST_ELEMNT_KEY
+
+relationship 6baf57fc-af3d-9835-2a40-ed629150495d
+	fromColumn: 'Fact General Ledger'.COSTEVZ_COST_ELEMNT_KEY
+	toColumn: EDW_T_D_HY_COSTEVZ_CUR_D.COST_ELEMNT_KEY
+
+relationship 82e020e7-421f-feac-b702-513a8d8f458e
+	fromColumn: 'Fact Accounts Receivable'.PROFCHZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCHZ_CUR_D.PROFT_CNTR_KEY
+
+relationship 934df45c-fe38-9755-7c25-4e1ab8373637
+	fromColumn: 'Fact Accounts Receivable'.PROFCVZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCVZ_CUR_D.PROFT_CNTR_KEY
+
+relationship de834cf8-ee5a-a585-8a4b-b120dec74bbc
+	fromColumn: 'Fact Sales Order Details'.PERSON_RESPNSBLE_COST_CNTR_H_HEIR_KEY
+	toColumn: 'Person Responsible Cost Center Vertical Heirarcy'.COST_CNTR_KEY
+
+relationship dd2bf06b-b591-8768-634e-5d520dd237ee
+	fromColumn: 'Fact COPA Actual'.'COSTEHZ_COST_ELEMNT_KEY '
+	toColumn: EDW_T_D_HY_COSTEHZ_CUR_D.COST_ELEMNT_KEY
+
+relationship e11d7bb9-14ab-4dd2-fdd9-6bbf21f47518
+	fromColumn: 'Fact COPA Actual'.'COSTEVZ_COST_ELEMNT_KEY '
+	toColumn: EDW_T_D_HY_COSTEVZ_CUR_D.COST_ELEMNT_KEY
+
+relationship 1e7f72b6-8fbf-23ca-63dd-d3008321869f
+	fromColumn: 'Fact COPA Actual'.Partner_Profit_Center_Horizontal_PROFT_CNTR_KEY
+	toColumn: 'Partner Profit Center Horizontal'.PROFIT_CNTR_KEY
+
+relationship 49dd3477-19d0-267c-326d-4ac1902cb1c4
+	fromColumn: 'Fact COPA Actual'.Partner_Profit_Center_Vertical_PROFT_CNTR_KEY
+	toColumn: 'Partner Profit Center Vertical'.PROFIT_CNTR_KEY
+
+relationship f81e2625-309a-0295-2f85-ce74cd4875f6
+	fromColumn: 'Fact COPA Actual'.PROFCHZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCHZ_CUR_D.PROFT_CNTR_KEY
+
+relationship 903f6857-8806-a658-1ec0-8da5e67e560c
+	fromColumn: 'Fact COPA Actual'.PROFCVZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCVZ_CUR_D.PROFT_CNTR_KEY
+
+relationship 71a8d5fb-1de2-25a1-c1a5-f193477ae4d7
+	fromColumn: EDW_T_FACT_FI_BPCDTAU_CUR_D.INTER_COMP_PC_VH_PROFT_CNTR_KEY
+	toColumn: 'Inter Company Profit Center Vertical Hierarcy'.PROFT_CNTR_KEY
+
+relationship 54e43b62-1dc3-c530-2760-ab257ffed01e
+	fromColumn: EDW_T_FACT_FI_BPCDTAU_CUR_D.INTER_COMPANY_PC_HH_PROFT_CNTR_KEY
+	toColumn: 'Inter Company Profit Center Horizontal Hierarcy'.PROFT_CNTR_KEY
+
+relationship 3c6265b6-21cf-e7b9-1a52-ffb3500bd9cd
+	fromColumn: 'Fact General Ledger'.PRTNR_PRFT_CNTR_V_HIER_KEY
+	toColumn: 'Partner Profit Center Vertical'.PROFIT_CNTR_KEY
+
+relationship a99a864d-e4ff-133a-e333-508e64f91a08
+	fromColumn: 'Fact General Ledger'.PRTNR_PRFT_CNTR_H_HIER_KEY
+	toColumn: 'Partner Profit Center Horizontal'.PROFIT_CNTR_KEY
+
+relationship b4a2bc28-5a45-d4ba-669d-4bda4a7ee8ae
+	fromColumn: 'Fact Cost Center Cost Summary'.COSTCHZ_COST_CNTR_KEY
+	toColumn: EDW_T_D_HY_COSTCHZ_CUR_D.COST_CNTR_KEY
+
+relationship 40e159ee-cd15-d782-dda5-a696fdd4e0a2
+	fromColumn: 'Fact Cost Center Cost Summary'.COSTCVZ_COST_CNTR_KEY
+	toColumn: EDW_T_D_HY_COSTCVZ_CUR_D.COST_CNTR_KEY
+
+relationship e5727b2d-6aa3-337d-e7a9-26fdab970e33
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: 'Fact Cost Center Cost Summary'.COSTEHZ_COST_ELEMNT_KEY
+	toColumn: EDW_T_D_HY_COSTEHZ_CUR_D.COST_ELEMNT_KEY
+
+relationship ca470957-5b34-8dc9-66da-f37e43de9127
+	fromColumn: 'Fact Cost Center Cost Summary'.COSTEVZ_COST_ELEMNT_KEY
+	toColumn: EDW_T_D_HY_COSTEVZ_CUR_D.COST_ELEMNT_KEY
+
+relationship 8f03db4c-7ed7-5d01-a7c8-d1bab8b329e1
+	fromColumn: 'Fact Cost Center Cost Transaction'.COSTCHZ_COST_CNTR_KEY
+	toColumn: EDW_T_D_HY_COSTCHZ_CUR_D.COST_CNTR_KEY
+
+relationship cf1546a8-43b2-2e23-725a-f619e299dbd4
+	fromColumn: 'Fact Cost Center Cost Transaction'.COSTCVZ_COST_CNTR_KEY
+	toColumn: EDW_T_D_HY_COSTCVZ_CUR_D.COST_CNTR_KEY
+
+relationship 3dcd6084-8cf9-0ae2-c7d9-6ced73bf78c1
+	fromColumn: 'Fact Cost Center Cost Transaction'.COSTEHZ_COST_ELEMNT_KEY
+	toColumn: EDW_T_D_HY_COSTEHZ_CUR_D.COST_ELEMNT_KEY
+
+relationship b7591a17-8f03-70b8-4871-1f81f6aa7d0d
+	fromColumn: 'Fact Cost Center Cost Transaction'.COSTEVZ_COST_ELEMNT_KEY
+	toColumn: EDW_T_D_HY_COSTEVZ_CUR_D.COST_ELEMNT_KEY
+
+relationship e77fdefb-9596-f229-0762-83dcbf910f75
+	fromColumn: 'Fact Cost Center Cost Transaction'.PROFCHZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCHZ_CUR_D.PROFT_CNTR_KEY
+
+relationship 592c43f2-661e-4eb8-620d-8b8d6dcb92be
+	fromColumn: 'Fact Cost Center Cost Transaction'.PROFCVZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCVZ_CUR_D.PROFT_CNTR_KEY
+
+relationship c39dd6f7-8d28-4b97-759e-cdd087ca7259
+	fromColumn: 'Fact COPA Budget'.'PROFCHZ_PROFT_CNTR_KEY '
+	toColumn: EDW_T_D_HY_PROFCHZ_CUR_D.PROFT_CNTR_KEY
+
+relationship 92c4c764-4e64-02c0-d820-544acce065c2
+	fromColumn: 'Fact COPA Budget'.'PROFCVZ_PROFT_CNTR_KEY '
+	toColumn: EDW_T_D_HY_PROFCVZ_CUR_D.PROFT_CNTR_KEY
+

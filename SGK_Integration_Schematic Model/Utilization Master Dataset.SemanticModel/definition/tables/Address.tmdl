@@ -1,0 +1,191 @@
+table Address
+	lineageTag: d1d5e268-2866-4f80-886d-8a0cbe6b6579
+
+	column ADDR_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ca92d85f-d859-4f74-a9f2-d675ff57bc20
+		summarizeBy: sum
+		sourceColumn: ADDR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Address Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d0b62877-4608-411a-b707-de1d9ff73f59
+		summarizeBy: none
+		sourceColumn: Address Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valid From Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: a0700d2d-2d69-464b-9a17-631d6eb83095
+		summarizeBy: none
+		sourceColumn: Valid From Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'International Address Version ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 807a9996-f7f7-4acb-aab4-16e55228ee5a
+		summarizeBy: none
+		sourceColumn: International Address Version ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 870fa664-2a16-4721-9012-3bd8a312b1e6
+		summarizeBy: none
+		sourceColumn: Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cust Street'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2a19f5c9-a2c0-4536-b48b-1db5caf435f6
+		summarizeBy: none
+		sourceColumn: Cust Street
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cust City'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c29daffb-5ca3-4f1b-b9fc-7798ecb0b572
+		summarizeBy: none
+		sourceColumn: Cust City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order for Cust Region'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 961b9ea6-abe6-40bf-8ce6-d93c10ce21cb
+		summarizeBy: none
+		sourceColumn: Order for Cust Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cust City Postal Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 72a0f962-c7f3-4c26-9b0a-3209889a88a3
+		summarizeBy: none
+		sourceColumn: Cust City Postal Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cust Country Key'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4aa06a17-b59e-4772-a942-e61c1c56cc1b
+		summarizeBy: none
+		sourceColumn: Cust Country Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cust Language Key'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 43c0bc5c-d9a8-4f41-b637-e220c1eb32fd
+		summarizeBy: none
+		sourceColumn: Cust Language Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cust Telephone Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 540355af-beac-43e9-9a26-74976f3572f6
+		summarizeBy: none
+		sourceColumn: Cust Telephone Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2d23b6c4-c17c-47ea-94d7-728a9f2944d0
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: b67d3f52-5100-496a-beb8-4aded3bbf5d6
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 06bbb724-de74-4be6-84da-a90039abe95a
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b9c14fb5-6c2a-426d-a7f7-088222df36e4
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 8b313427-548e-412e-aa77-9a3e291352e5
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5f6d5982-49fe-4a15-882d-21e6890b9444
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Address = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_SAL_ADDRESS_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_SAL_ADDRESS_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_SAL_ADDRESS_CUR_D
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

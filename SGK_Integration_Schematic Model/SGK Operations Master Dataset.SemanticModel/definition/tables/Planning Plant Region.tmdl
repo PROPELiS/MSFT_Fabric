@@ -1,0 +1,40 @@
+table 'Planning Plant Region'
+	lineageTag: df745888-edc5-40a9-8631-6c1418d414d5
+	sourceLineageTag: [Propelis].[PLANNING_PLANT_REGION]
+
+	column 'Planning Plant Business Function'
+		dataType: string
+		lineageTag: 04218656-6077-4602-8129-bc91fb40ac21
+		sourceLineageTag: Planning Plant Business Function
+		summarizeBy: none
+		sourceColumn: Planning Plant Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planning Plant Region'
+		dataType: string
+		lineageTag: aa751361-5e40-4171-85bb-d9c23187121c
+		sourceLineageTag: Planning Plant Region
+		summarizeBy: none
+		sourceColumn: Planning Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planning Plant'
+		dataType: string
+		lineageTag: c0b61e6c-5bf9-445d-868b-2ee518dca774
+		sourceLineageTag: Planning Plant
+		summarizeBy: none
+		sourceColumn: Planning Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Planning Plant Region' = entity
+		mode: directLake
+		source
+			entityName: PLANNING_PLANT_REGION
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

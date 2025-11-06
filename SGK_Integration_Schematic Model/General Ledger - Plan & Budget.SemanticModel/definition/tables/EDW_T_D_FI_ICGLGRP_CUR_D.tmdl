@@ -1,0 +1,68 @@
+table EDW_T_D_FI_ICGLGRP_CUR_D
+	lineageTag: 601b0aa2-35e7-4c11-bb75-c7162e4e87a1
+
+	column GL_ID
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4d27fa1e-387c-4a3a-aa06-3d038d4b1d44
+		summarizeBy: none
+		sourceColumn: GL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a633bb03-ae59-4232-ab88-7b1870937bd4
+		summarizeBy: none
+		sourceColumn: General Ledger Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Account Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d032a12f-a001-48ee-950c-7dc031ce8546
+		summarizeBy: none
+		sourceColumn: General Ledger Account Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Account Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 43d8738d-8c2d-4456-afe0-6dcb49d09049
+		summarizeBy: none
+		sourceColumn: General Ledger Account Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5ea32172-ad17-4411-a7f6-fa5df38e7537
+		summarizeBy: none
+		sourceColumn: General Ledger Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column REVAL_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 25a7e4b9-6b67-4b70-b1be-f2eee9c33899
+		summarizeBy: none
+		sourceColumn: REVAL_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_FI_ICGLGRP_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_FI_ICGLGRP_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_FI_ICGLGRP_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_FI_ICGLGRP_CUR_D
+
+	annotation PBI_ResultType = Table
+

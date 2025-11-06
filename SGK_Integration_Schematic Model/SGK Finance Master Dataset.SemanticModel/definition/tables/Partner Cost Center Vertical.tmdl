@@ -1,0 +1,77 @@
+table 'Partner Cost Center Vertical'
+	lineageTag: 7c7e13a1-8a65-403f-b737-d2562eb2e6ab
+	sourceLineageTag: [Propelis].[PARTNER_COST_CENTER_VERTICAL]
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c2354a0-c643-4478-9a8f-03673c013a3f
+		sourceLineageTag: COST_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Cost Center Controlling Area ID VH'
+		dataType: string
+		lineageTag: 6121d9b4-fb03-4b50-897e-6851fc1a2711
+		sourceLineageTag: Partner Cost Center Controlling Area ID VH
+		summarizeBy: none
+		sourceColumn: Partner Cost Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Cost Center Parent ID VH'
+		dataType: string
+		lineageTag: f24b0289-ee7b-4bdd-a728-88351a9ec282
+		sourceLineageTag: Partner Cost Center Parent ID VH
+		summarizeBy: none
+		sourceColumn: Partner Cost Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Cost Center Parent Description VH'
+		dataType: string
+		lineageTag: b2806b30-6781-4407-b847-528f3676ec1e
+		sourceLineageTag: Partner Cost Center Parent Description VH
+		summarizeBy: none
+		sourceColumn: Partner Cost Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Cost Center Child ID VH'
+		dataType: string
+		lineageTag: 43949c93-13d1-4252-8ea8-08f353d4832e
+		sourceLineageTag: Partner Cost Center Child ID VH
+		summarizeBy: none
+		sourceColumn: Partner Cost Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Cost Center Child Description VH'
+		dataType: string
+		lineageTag: 35e842df-5759-4fe8-9fe8-5264cf9527b0
+		sourceLineageTag: Partner Cost Center Child Description VH
+		summarizeBy: none
+		sourceColumn: Partner Cost Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Cost Center Hierarchical Level VH'
+		dataType: string
+		lineageTag: 7abdd9d2-04d6-4835-be47-5b94e4e83745
+		sourceLineageTag: Partner Cost Center Hierarchical Level VH
+		summarizeBy: none
+		sourceColumn: Partner Cost Center Hierarchical Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Partner Cost Center Vertical' = entity
+		mode: directLake
+		source
+			entityName: PARTNER_COST_CENTER_VERTICAL
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

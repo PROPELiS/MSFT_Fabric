@@ -1,0 +1,108 @@
+table 'Company Currency'
+	lineageTag: 84a1e409-2aca-4713-a087-323a7e23612d
+	sourceLineageTag: [Propelis].[COMPANY_CURRENCY]
+
+	column CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 56e00ee5-dabe-4888-821b-2fd152513822
+		sourceLineageTag: CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Currency'
+		dataType: string
+		lineageTag: 5aef87ed-e617-4cff-ab46-fca979357269
+		sourceLineageTag: Company Currency
+		summarizeBy: none
+		sourceColumn: Company Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 17b5e3c1-2bf8-4255-95a4-0b761390a12a
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cc8e2a14-4dbc-4858-8496-9dd0813538ca
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 95ceeee8-a8c4-44ac-aa7c-c07b2145d230
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: 9079d60e-781a-4c14-9339-6bbb03088996
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3c9a9616-4fc5-4cb2-9155-6b700cd4d1e9
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a378ad56-820b-48b3-aefa-5187ffa03d41
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Currency Short Description'
+		dataType: string
+		lineageTag: f790ff32-9a02-44d0-b521-fa3c2382ad3a
+		sourceLineageTag: Company Currency Short Description
+		summarizeBy: none
+		sourceColumn: Company Currency Short Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Currency Long Description'
+		dataType: string
+		lineageTag: 7c7152f5-fe3c-435d-936a-04ec26152d5e
+		sourceLineageTag: Company Currency Long Description
+		summarizeBy: none
+		sourceColumn: Company Currency Long Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Company Currency' = entity
+		mode: directLake
+		source
+			entityName: COMPANY_CURRENCY
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

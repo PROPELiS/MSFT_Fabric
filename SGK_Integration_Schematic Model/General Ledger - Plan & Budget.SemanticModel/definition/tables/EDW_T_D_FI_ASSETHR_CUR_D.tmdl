@@ -1,0 +1,283 @@
+table EDW_T_D_FI_ASSETHR_CUR_D
+	lineageTag: 6333a72a-50b6-4070-bc0f-01ab9d856306
+
+	column ASSET_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 65b1f5cf-b7d1-4db4-806d-c2cc7bd989c4
+		summarizeBy: none
+		sourceColumn: ASSET_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Company Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 64b4f07e-8510-444c-8f97-d691487eedab
+		summarizeBy: none
+		sourceColumn: Asset Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Main Asset Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 86a69ce5-df61-4e45-897a-5d962a019029
+		summarizeBy: none
+		sourceColumn: Main Asset Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Subnumber'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2bc22998-8f4c-4f07-a8de-3b83111ddbd2
+		summarizeBy: none
+		sourceColumn: Asset Subnumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Class'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c5bae8ed-3d1e-4a45-b1e4-f47c29b6a74e
+		summarizeBy: none
+		sourceColumn: Asset Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Class Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1621b5f7-8b56-43fe-a1aa-93886e445ddc
+		summarizeBy: none
+		sourceColumn: Asset Class Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4c940a5b-1337-4617-9ef2-38ff2091ef1e
+		summarizeBy: none
+		sourceColumn: Asset Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Quantity'
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: 43869b13-2d72-4917-af06-5d43ad4e67f1
+		summarizeBy: none
+		sourceColumn: Asset Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Asset Base UOM'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a0a231b2-0aa6-420a-8607-52d377f55685
+		summarizeBy: none
+		sourceColumn: Asset Base UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Capitalization Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: e6432187-4d37-4df6-805a-7d5242f8b7ea
+		summarizeBy: none
+		sourceColumn: Asset Capitalization Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Asset First Acquistion Fiscal Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f6c01b6f-7368-4a24-a229-46420d75877e
+		summarizeBy: none
+		sourceColumn: Asset First Acquistion Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset First Acquistion Fiscal Period'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cf0f4261-fb6a-44e5-8a9d-fb7cab0c8614
+		summarizeBy: none
+		sourceColumn: Asset First Acquistion Fiscal Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Deactivation Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: bdd74426-37c1-4418-890d-df810f525ee5
+		summarizeBy: none
+		sourceColumn: Asset Deactivation Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fd745e49-57b9-496b-b629-32d1f473253e
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 6de29aeb-d7c7-4020-987f-b0916faecefe
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: bf942761-1329-43ed-afa5-31a923d206c2
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7ec54b07-47dd-4dec-93c7-e84a39a74544
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 33286d49-47c1-491b-badb-95a6418176ca
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 9edc8703-eafa-4488-88e1-644cf837862f
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Name Of Person Who Created The Asset'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0d4e391c-7f03-4b6f-9ee2-71c535b0267b
+		summarizeBy: none
+		sourceColumn: Name Of Person Who Created The Asset
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date On Which Asset Record was Created'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: c050e2b4-3faf-468b-8294-7e3a35ee7da5
+		summarizeBy: none
+		sourceColumn: Date On Which Asset Record was Created
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Asset Value Date Of The First Posting'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: e5396874-ecf2-49df-891b-d7ee725f5406
+		summarizeBy: none
+		sourceColumn: Asset Value Date Of The First Posting
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Asset Inventory Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9f64a55b-d2ee-498c-b19e-0951ddf2b0b2
+		summarizeBy: none
+		sourceColumn: Asset Inventory Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Additional Asset Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8c5ecaf3-0598-4a4b-84c1-63c617bac0b7
+		summarizeBy: none
+		sourceColumn: Additional Asset Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Serial Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 60427198-9808-4fdd-b669-df9d898708e5
+		summarizeBy: none
+		sourceColumn: Asset Serial Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Cost Center'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dd1057c4-f8a1-4467-b69e-1b849e404297
+		summarizeBy: none
+		sourceColumn: Asset Cost Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Plant'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 30517cee-b7dc-41f6-85f9-fe1ea7d2541f
+		summarizeBy: none
+		sourceColumn: Asset Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_FI_ASSETHR_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_FI_ASSETHR_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_FI_ASSETHR_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_FI_ASSETHR_CUR_D
+
+	annotation PBI_ResultType = Table
+

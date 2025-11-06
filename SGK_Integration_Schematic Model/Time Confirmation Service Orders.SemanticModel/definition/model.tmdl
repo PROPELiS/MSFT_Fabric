@@ -8,65 +8,67 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["EDW_T_FACT_PRD_TMCONFS_CUR_D","EDW_T_D_MST_PLANT_CUR_D","EDW_T_D_MST_CMPNYCD_CUR_D","EDW_T_D_MST_CUSTOMR_CUR_D","EDW_T_D_MST_DATE_CUR_D","EDW_T_D_MST_PROFCTR_CUR_D","EDW_T_D_SAL_SALORDH_CUR_D","EDW_T_D_MST_WORKCTR_CUR_D","EDW_T_D_MST_COSCNTR_CUR_D","EDW_T_D_MST_SEGMENT_CUR_D","EDW_T_D_HY_PROFCHZ_CUR_D","EDW_T_D_HY_PROFCVZ_CUR_D","EDW_T_D_HY_WORKCHZ_CUR_D","EDW_T_D_HY_WORKCVZ_CUR_D","EDW_T_D_HY_COSTCHZ_CUR_D","EDW_T_D_HY_COSTCVZ_CUR_D","EDW_T_D_MST_ACTTYPE_CUR_D","EDW_T_D_MST_PERSONL_CUR_D","EDW_T_D_PRD_SERVORD_CUR_D","EDW_T_D_SAL_SALAREA_CUR_D","EDW_T_R_SGK_OPERREG_CUR_D","EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D","EDW_T_D_SAL_PRDVCON_CUR_D","EDW_T_B_SAL_SOIPTNR_CUR_D","EDW_T_O_PRD_HBPRJNM_CUR_D","EDW_T_D_MST_CUSTCNT_CUR_D","EDW_T_D_MST_VENDOR_CUR_D","EDW_T_D_SAL_ADDRESS_CUR_D","POSTING_DATE","SERVICE_ORDER_CREATE_DATE","OPERATING_PLANT","PLANNING_PLANT","SERV_ORDER_INVOICE_CREATED_DATE","PARENT_CUST","OPERATING_PLANT_REGION","PLANNING_PLANT_REGION","PERSONNEL_PLANT_REGION","TECH_COMPLETION_DATE","SOLD_TO_CUST","BILL_TO_CUST","PAYER_CUST","SHIP_TO_CUST","BRAND_OWNER_CUST","CUST_CONTACT","CUSTOMER_PROJECT_MANAGER","SALES_PERSON_PERSONEL","PERSON_RESP_PERSONNEL","CYLINDER_OWNER_CUST","AGENCY_CUST","PRINTER_CUST","SUPPLIER_CUST","EMPLOYEE_RESP","EMPLOYEE_RESP_2","FORWARDING_AGENT_VENDOR","UNITIZATION_AGENT_VENDOR","ORDER_FOR_CUSTOMER","SO_PARENT_CUST"]
+annotation PBI_QueryOrder = ["Fact Time Confirmation Service Orders","Plant","Company","Customer","Calendar Date","Profit Center","Sales Order Header","Work Center","Cost Center","Segment","Profit Center Horizontal Hierarchy","Profit Center Vertical Hierarchy","Work Center Horizontal Hierarchy","Work Center Vertical Hierarchy","Cost Center Horizontal Hierarchy","Cost Center Vertical Hierarchy","Activity Type","Personnel","Service Order","Sales Area","EDW_T_R_SGK_OPERREG_CUR_D","SGK Standard Text","Product Variant Configuration","Sales Order Item Partner","Hubx Project","EDW_T_D_MST_CUSTCNT_CUR_D","Vendor","Address","Posting Date","Service Order Create Date","Operating Plant","Planning Plant","Service Order Invoice Created Date","Parent Customer","Operating Plant Region","Planning Plant Region","Personnel Plant Region","Technical Completion Date","Sold To Customer","Bill To Customer","Payer Customer","Ship To Customer","Brand Owner Customer","Customer Contact","Customer Project Manager","Sales Person Personnel","Person Responsible Personnel","Cylinder Owner Customer","Agency Customer","Printer Customer","Supplier Customer","Employee Responsible Personnel","Employee Responsible Personnel 2","Forwarding Agent Vendor","Unitization Agent Vendor","Order For Customer","So Parent Customer"]
 
-ref table EDW_T_FACT_PRD_TMCONFS_CUR_D
-ref table EDW_T_D_MST_PLANT_CUR_D
-ref table EDW_T_D_MST_CMPNYCD_CUR_D
-ref table EDW_T_D_MST_CUSTOMR_CUR_D
-ref table EDW_T_D_MST_DATE_CUR_D
-ref table EDW_T_D_MST_PROFCTR_CUR_D
-ref table EDW_T_D_SAL_SALORDH_CUR_D
-ref table EDW_T_D_MST_WORKCTR_CUR_D
-ref table EDW_T_D_MST_COSCNTR_CUR_D
-ref table EDW_T_D_MST_SEGMENT_CUR_D
-ref table EDW_T_D_HY_PROFCHZ_CUR_D
-ref table EDW_T_D_HY_PROFCVZ_CUR_D
-ref table EDW_T_D_HY_WORKCHZ_CUR_D
-ref table EDW_T_D_HY_WORKCVZ_CUR_D
-ref table EDW_T_D_HY_COSTCHZ_CUR_D
-ref table EDW_T_D_HY_COSTCVZ_CUR_D
-ref table EDW_T_D_MST_ACTTYPE_CUR_D
-ref table EDW_T_D_MST_PERSONL_CUR_D
-ref table EDW_T_D_PRD_SERVORD_CUR_D
-ref table EDW_T_D_SAL_SALAREA_CUR_D
+annotation PBI_ProTooling = ["WebModelingEdit"]
+
+ref table 'Fact Time Confirmation Service Orders'
+ref table Plant
+ref table Company
+ref table Customer
+ref table 'Calendar Date'
+ref table 'Profit Center'
+ref table 'Sales Order Header'
+ref table 'Work Center'
+ref table 'Cost Center'
+ref table Segment
+ref table 'Profit Center Horizontal Hierarchy'
+ref table 'Profit Center Vertical Hierarchy'
+ref table 'Work Center Horizontal Hierarchy'
+ref table 'Work Center Vertical Hierarchy'
+ref table 'Cost Center Horizontal Hierarchy'
+ref table 'Cost Center Vertical Hierarchy'
+ref table 'Activity Type'
+ref table Personnel
+ref table 'Service Order'
+ref table 'Sales Area'
 ref table EDW_T_R_SGK_OPERREG_CUR_D
-ref table EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D
-ref table EDW_T_D_SAL_PRDVCON_CUR_D
-ref table EDW_T_B_SAL_SOIPTNR_CUR_D
-ref table EDW_T_O_PRD_HBPRJNM_CUR_D
+ref table 'SGK Standard Text'
+ref table 'Product Variant Configuration'
+ref table 'Sales Order Item Partner'
+ref table 'Hubx Project'
 ref table EDW_T_D_MST_CUSTCNT_CUR_D
-ref table EDW_T_D_MST_VENDOR_CUR_D
-ref table EDW_T_D_SAL_ADDRESS_CUR_D
-ref table POSTING_DATE
-ref table SERVICE_ORDER_CREATE_DATE
-ref table OPERATING_PLANT
-ref table PLANNING_PLANT
-ref table SERV_ORDER_INVOICE_CREATED_DATE
-ref table PARENT_CUST
-ref table OPERATING_PLANT_REGION
-ref table PLANNING_PLANT_REGION
-ref table PERSONNEL_PLANT_REGION
-ref table TECH_COMPLETION_DATE
-ref table SOLD_TO_CUST
-ref table BILL_TO_CUST
-ref table PAYER_CUST
-ref table SHIP_TO_CUST
-ref table BRAND_OWNER_CUST
-ref table CUST_CONTACT
-ref table CUSTOMER_PROJECT_MANAGER
-ref table SALES_PERSON_PERSONEL
-ref table PERSON_RESP_PERSONNEL
-ref table CYLINDER_OWNER_CUST
-ref table AGENCY_CUST
-ref table PRINTER_CUST
-ref table SUPPLIER_CUST
-ref table EMPLOYEE_RESP
-ref table EMPLOYEE_RESP_2
-ref table FORWARDING_AGENT_VENDOR
-ref table UNITIZATION_AGENT_VENDOR
-ref table ORDER_FOR_CUSTOMER
-ref table SO_PARENT_CUST
+ref table Vendor
+ref table Address
+ref table 'Posting Date'
+ref table 'Service Order Create Date'
+ref table 'Operating Plant'
+ref table 'Planning Plant'
+ref table 'Service Order Invoice Created Date'
+ref table 'Parent Customer'
+ref table 'Operating Plant Region'
+ref table 'Planning Plant Region'
+ref table 'Personnel Plant Region'
+ref table 'Technical Completion Date'
+ref table 'Sold To Customer'
+ref table 'Bill To Customer'
+ref table 'Payer Customer'
+ref table 'Ship To Customer'
+ref table 'Brand Owner Customer'
+ref table 'Customer Contact'
+ref table 'Customer Project Manager'
+ref table 'Sales Person Personnel'
+ref table 'Person Responsible Personnel'
+ref table 'Cylinder Owner Customer'
+ref table 'Agency Customer'
+ref table 'Printer Customer'
+ref table 'Supplier Customer'
+ref table 'Employee Responsible Personnel'
+ref table 'Employee Responsible Personnel 2'
+ref table 'Forwarding Agent Vendor'
+ref table 'Unitization Agent Vendor'
+ref table 'Order For Customer'
+ref table 'So Parent Customer'
 
 ref cultureInfo en-IN
 

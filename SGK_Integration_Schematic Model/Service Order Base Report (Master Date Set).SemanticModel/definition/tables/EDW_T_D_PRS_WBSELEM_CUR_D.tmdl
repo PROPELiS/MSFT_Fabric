@@ -1,0 +1,1174 @@
+table EDW_T_D_PRS_WBSELEM_CUR_D
+	lineageTag: 19c4d665-bbae-4c8b-8850-7fb246c66e5c
+
+	column WBS_ELEMNT_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f4d80850-979f-48bc-8a6e-6d1623262af0
+		summarizeBy: sum
+		sourceColumn: WBS_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Definition Internal'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 9be82859-8a7b-466d-8868-29b7b3a3857f
+		summarizeBy: sum
+		sourceColumn: WBS Project Definition Internal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Definition'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c898b723-f547-4d74-89d4-77094795ec92
+		summarizeBy: none
+		sourceColumn: WBS Project Definition
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Object Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6651c400-a2cf-46d3-8d3e-29f55639e14b
+		summarizeBy: none
+		sourceColumn: WBS Project Object Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Element Internal'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 1ebd4f9b-a3ac-475c-81d1-3468eea828bd
+		summarizeBy: sum
+		sourceColumn: WBS Element Internal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Element'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4b311e5a-4a06-4189-b8b4-f7e1f86d27f5
+		summarizeBy: none
+		sourceColumn: WBS Element
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Element Object Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d59845f9-ba16-4ad8-9a11-b98e7049383a
+		summarizeBy: none
+		sourceColumn: WBS Element Object Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Element Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3664a583-cde8-470e-88ea-bc5e1269b709
+		summarizeBy: none
+		sourceColumn: WBS Element Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6557bfc7-bcda-4dd4-89dd-6e14fe12b9bd
+		summarizeBy: none
+		sourceColumn: WBS Project Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Priority'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b1918800-38a5-40c2-a3af-ff1ae0d45825
+		summarizeBy: none
+		sourceColumn: WBS Project Priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Short Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 309f8401-dbff-4b8b-ad62-81694f6c9d76
+		summarizeBy: none
+		sourceColumn: WBS Project Short Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Personnel Responsible'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6965fa62-7f94-4193-9e74-bf0ebd854a3c
+		summarizeBy: none
+		sourceColumn: WBS Project Personnel Responsible
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Short ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6562d8a3-84ce-41ce-b86b-6eb51bfedb04
+		summarizeBy: none
+		sourceColumn: WBS Project Short ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Application Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0fbf6dff-7a57-44dd-a2bf-8ff56cdbf247
+		summarizeBy: sum
+		sourceColumn: WBS Application Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Responsible Cost Center'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 34e2c301-49b7-45d2-9822-ba1632e35710
+		summarizeBy: none
+		sourceColumn: WBS Responsible Cost Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Request Cost Center'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7623f4dc-86c2-4fa8-a002-77f283dab785
+		summarizeBy: none
+		sourceColumn: WBS Request Cost Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Request Company Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b6163b1c-a8de-49e0-8a5e-7343829cabab
+		summarizeBy: none
+		sourceColumn: WBS Request Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Basic Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ba6c9ff3-5b8d-49de-b7bb-8a0c0c815a6c
+		summarizeBy: none
+		sourceColumn: WBS Basic Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Basic Finish Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: cb5afb55-068a-4cc4-a22c-e92f297e1675
+		summarizeBy: none
+		sourceColumn: WBS Basic Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Forecast Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: f1a0a852-10e4-4104-a2ea-a62699e9507d
+		summarizeBy: none
+		sourceColumn: WBS Forecast Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Forecast Finish Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: c8a7b764-1fec-4448-b7e5-d5432adb75ec
+		summarizeBy: none
+		sourceColumn: WBS Forecast Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Actual Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: cfe24334-a9b1-4a1c-b08e-a909cc3382f1
+		summarizeBy: none
+		sourceColumn: WBS Actual Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Actual Finish Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 8cb74a10-7824-4cc1-89c4-5e328db16d24
+		summarizeBy: none
+		sourceColumn: WBS Actual Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Basic Duration'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3a99d3b9-1fd5-4c74-a959-3e96a8dde885
+		summarizeBy: sum
+		sourceColumn: WBS Basic Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Basic UOM'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f79206cb-6fab-4df3-836b-6ddb40ae3768
+		summarizeBy: none
+		sourceColumn: WBS Basic UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Forecast Duration'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8be97897-8cda-4c33-bc5a-ce78948fc373
+		summarizeBy: sum
+		sourceColumn: WBS Forecast Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Forecast UOM'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1907324e-98a8-41d3-96de-80ba42f3ce38
+		summarizeBy: none
+		sourceColumn: WBS Forecast UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Actual Duration'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 858b35b8-300d-4046-a0fc-92ee7c7bec7e
+		summarizeBy: sum
+		sourceColumn: WBS Actual Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Actual UOM'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 87d590cc-98d8-4785-968c-d267a9485b48
+		summarizeBy: none
+		sourceColumn: WBS Actual UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Basic Earlist Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 78d34e60-d750-4ccb-9054-e8aff4e85a1c
+		summarizeBy: none
+		sourceColumn: WBS Basic Earlist Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Basic Earlist Finish Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: e7d70af0-d721-4e15-8df6-dd84827547ff
+		summarizeBy: none
+		sourceColumn: WBS Basic Earlist Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Basic Latest Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: e98bdfb7-f130-4a82-bbc7-c3cec49e2e44
+		summarizeBy: none
+		sourceColumn: WBS Basic Latest Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Basic Latest Finish Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 0be3c8ae-35a7-4eff-b6db-65caee434914
+		summarizeBy: none
+		sourceColumn: WBS Basic Latest Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Forecast Earliest Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 7c5859ff-4e10-4e24-815f-7a293fd25f91
+		summarizeBy: none
+		sourceColumn: WBS Forecast Earliest Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Forecast Earliest Finish Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ce7d744d-3b06-460a-9786-299989fd8cee
+		summarizeBy: none
+		sourceColumn: WBS Forecast Earliest Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Forecast Latest Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 1f5b029b-7c04-4a1c-9036-57bfb33094b9
+		summarizeBy: none
+		sourceColumn: WBS Forecast Latest Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Forecast Latest Finish Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 3c054826-b45b-4464-9dcc-86b936bd5bf7
+		summarizeBy: none
+		sourceColumn: WBS Forecast Latest Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Tentative Actual Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: d3fa7b03-9c1c-4217-b14c-bf94063dfef6
+		summarizeBy: none
+		sourceColumn: WBS Tentative Actual Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Tentative Actual Finish Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 030eb8f4-0bd1-48b9-b606-cab27aa48b09
+		summarizeBy: none
+		sourceColumn: WBS Tentative Actual Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Calendar'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a66772e3-d832-4465-8c65-9a3a44888dc8
+		summarizeBy: none
+		sourceColumn: WBS Calendar
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Controlling Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ff06de12-b2cc-4711-9efd-781c584cec4d
+		summarizeBy: none
+		sourceColumn: WBS Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Company Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a5a0e8a3-232d-459b-babb-5f8f54b9306a
+		summarizeBy: none
+		sourceColumn: WBS Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Business Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fd55f308-ae58-4b26-bd58-5aa36d432a0d
+		summarizeBy: none
+		sourceColumn: WBS Business Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Functional Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e04d3b81-0910-461b-a3d5-a702df4103b3
+		summarizeBy: none
+		sourceColumn: WBS Functional Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Profit Center'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 965eb45b-9abb-4db8-9958-eae358520066
+		summarizeBy: none
+		sourceColumn: WBS Profit Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Object Class'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: bb6a33f1-980b-4aff-8a75-8b0fb404f1e9
+		summarizeBy: none
+		sourceColumn: WBS Object Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Currency'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8e65479f-a3da-4467-ad1b-a489be1c4224
+		summarizeBy: none
+		sourceColumn: WBS Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Tax Jurisdiction'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f41e01cd-df95-4381-af27-62c628f9268f
+		summarizeBy: none
+		sourceColumn: WBS Tax Jurisdiction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Sub Project'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a699cf14-44d9-4953-90b0-49e0687dd743
+		summarizeBy: none
+		sourceColumn: WBS Sub Project
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Plant'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d3978456-b9d3-442f-878c-4a21c8a4b6e1
+		summarizeBy: none
+		sourceColumn: WBS Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Location'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 332b4817-ce5c-484e-963b-2e071fe44368
+		summarizeBy: none
+		sourceColumn: WBS Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Equipment'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9d5f82c0-6043-4457-ad23-5ee2a3b740b3
+		summarizeBy: none
+		sourceColumn: WBS Equipment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Functional Location'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 705c0137-9b6a-43d3-8082-d56f74cb4d44
+		summarizeBy: none
+		sourceColumn: WBS Functional Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Change Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 95559dda-46c7-45f5-a5d9-de1a28dcdb95
+		summarizeBy: none
+		sourceColumn: WBS Change Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Reference Element'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3ca74547-1011-492d-9703-32f7ab0706d7
+		summarizeBy: none
+		sourceColumn: WBS Reference Element
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Element Created By'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 969b94c9-c74e-4fc1-adcf-27264d2aad7b
+		summarizeBy: none
+		sourceColumn: WBS Element Created By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Created On'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 6581a1f1-0ac2-401a-8ebe-d967dbb98abb
+		summarizeBy: none
+		sourceColumn: WBS Created On
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Changed By'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6157af3e-adeb-4534-9ca1-d7043308444a
+		summarizeBy: none
+		sourceColumn: WBS Changed By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Changed On'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: d0729659-216c-462b-bb76-ff4aad7f995c
+		summarizeBy: none
+		sourceColumn: WBS Changed On
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Level in Project Hierarchy'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 248b2922-b270-46ef-9d13-11dcb7882417
+		summarizeBy: sum
+		sourceColumn: WBS Level in Project Hierarchy
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: e2533ed9-0eea-460c-a5c3-76386d284e3f
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 677ebbf5-e66a-472c-a1c4-6debf64aaa1e
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: b2c7584e-d61f-4a63-a165-b74562c85657
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: ea448715-2599-490f-a2de-f25944cfe91b
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 89390f17-602e-43fb-adfe-0b2243370d96
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 1ab87d8a-77e2-4dc2-8ed8-390eab24da18
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Responsible Person Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 051da584-5524-4899-9cd0-426fd8b2af39
+		summarizeBy: none
+		sourceColumn: WBS Responsible Person Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Appropriate Project Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ca558a78-ceac-4d8d-a22d-cf1154f3b30e
+		summarizeBy: sum
+		sourceColumn: WBS Appropriate Project Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Language Key'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ce8d2237-c935-4b69-a87f-bf8a3aff16fb
+		summarizeBy: none
+		sourceColumn: WBS Language Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1dfee6a6-b64d-40c0-ab06-9345fac0e65e
+		summarizeBy: none
+		sourceColumn: WBS Project Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Priority Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6384bb4f-63c9-4b87-bc2f-5793c80ff29c
+		summarizeBy: none
+		sourceColumn: WBS Project Priority Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Factory Calendar Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 92ac0cd6-e36e-44e1-abba-621b9341083b
+		summarizeBy: none
+		sourceColumn: WBS Factory Calendar Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Controlling Area Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 19eae492-9088-48d2-b56f-74543d3ed95d
+		summarizeBy: none
+		sourceColumn: WBS Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Company Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e102239d-bbd3-434c-8aae-682a2dbe3297
+		summarizeBy: none
+		sourceColumn: WBS Company Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Business Area Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fa6366d0-c303-404f-b3ee-e1fbba355fce
+		summarizeBy: none
+		sourceColumn: WBS Business Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Object Class Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 21f48621-eab1-462f-812b-53c75e816227
+		summarizeBy: none
+		sourceColumn: WBS Object Class Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Currency Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dcb5f982-ec7a-41fb-89fd-886e9975a733
+		summarizeBy: none
+		sourceColumn: WBS Currency Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Plant Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 50e11645-1b72-49f3-b7d6-b2f0838e66d5
+		summarizeBy: none
+		sourceColumn: WBS Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS POC Weight'
+		dataType: double
+		sourceProviderType: decimal(8, 0)
+		lineageTag: ce8d2df1-4540-4e6c-b79c-d5c9b91ba257
+		summarizeBy: sum
+		sourceColumn: WBS POC Weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'WBS Progress Version'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 19182b45-43b5-4149-ac7d-2c4b91531257
+		summarizeBy: none
+		sourceColumn: WBS Progress Version
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Plan Measurement Method'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 343f48ef-4909-4519-a0da-c495d025e0e1
+		summarizeBy: none
+		sourceColumn: WBS Plan Measurement Method
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Plan Reference Object'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ba0041f9-7a09-4d86-8689-ae15a8e16843
+		summarizeBy: none
+		sourceColumn: WBS Plan Reference Object
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Actual Measurement Method'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4fb09a74-1fac-438b-ae27-be5e114abcd0
+		summarizeBy: none
+		sourceColumn: WBS Actual Measurement Method
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Actual Reference Object'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0daca66d-2cdc-4bc7-9071-24e4df9462fb
+		summarizeBy: none
+		sourceColumn: WBS Actual Reference Object
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS System Status'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 933505ea-6891-4b85-92b2-0c93e2976cd0
+		summarizeBy: none
+		sourceColumn: WBS System Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS User Status'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3908aa23-db61-43c1-87fb-c9a5d0213065
+		summarizeBy: none
+		sourceColumn: WBS User Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5810119f-75f5-483e-953c-8e9263478000
+		summarizeBy: none
+		sourceColumn: WBS Project Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Responsible Person Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fa2879ab-c93e-4b20-b464-c66af1669cbc
+		summarizeBy: none
+		sourceColumn: WBS Project Responsible Person Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Responsible Person Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d1e3e3b1-2777-43c9-a27b-ba6df9ae7ced
+		summarizeBy: none
+		sourceColumn: WBS Project Responsible Person Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Company Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ce156a26-172f-4de5-83cb-54d9f29a85b1
+		summarizeBy: none
+		sourceColumn: WBS Project Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Company Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dc6d16fb-d4f4-490b-836e-db9146a81ede
+		summarizeBy: none
+		sourceColumn: WBS Project Company Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Profit Center'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c527e7e0-fe3e-4dea-8680-699a18fabb81
+		summarizeBy: none
+		sourceColumn: WBS Project Profit Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Plant ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 604465fb-26c2-47d5-a33f-c198d7ba6835
+		summarizeBy: none
+		sourceColumn: WBS Project Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Plant Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fff6fd58-260c-4445-adf5-b7cb0a589727
+		summarizeBy: none
+		sourceColumn: WBS Project Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Functional Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4344f814-3c55-49df-a8d7-ce5feb18a24f
+		summarizeBy: none
+		sourceColumn: WBS Project Functional Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Customer Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9f25f8b1-04e0-44b7-a74b-41311616ed9e
+		summarizeBy: none
+		sourceColumn: WBS Project Customer Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Customer Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ead45697-3574-4e7f-bdb6-3be6e93a62fa
+		summarizeBy: none
+		sourceColumn: WBS Project Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Controlling Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7f6455d5-87df-4b88-96ce-4d15798a53fb
+		summarizeBy: none
+		sourceColumn: WBS Project Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Controlling Area Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 59d4e7d4-b341-483b-95b1-e8a578f94f7c
+		summarizeBy: none
+		sourceColumn: WBS Project Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Location'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c1ef128a-50f6-46be-826c-e81970e78dcb
+		summarizeBy: none
+		sourceColumn: WBS Project Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Currency'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a068f473-2235-4683-b021-5245e11dcbcb
+		summarizeBy: none
+		sourceColumn: WBS Project Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Business Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a0d3ef84-1331-40e2-987e-b670b938a437
+		summarizeBy: none
+		sourceColumn: WBS Project Business Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Business Area Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a39b7e70-c067-40dd-baac-f1feb1d253d5
+		summarizeBy: none
+		sourceColumn: WBS Project Business Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Factory Calendar'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f3454ad8-6855-4967-947f-42ae67ccd9dc
+		summarizeBy: none
+		sourceColumn: WBS Project Factory Calendar
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Factory Calendar Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 71870b21-75b5-403c-9f56-68696ed52bc8
+		summarizeBy: none
+		sourceColumn: WBS Project Factory Calendar Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Time Unit'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f7fc048e-6983-4f68-b576-12cf73df2cc6
+		summarizeBy: none
+		sourceColumn: WBS Project Time Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Forecast Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: b52e9d6c-ea8a-464b-b832-a6d3e013b5bc
+		summarizeBy: none
+		sourceColumn: WBS Project Forecast Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Project Forecast Finish Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 738289c8-e444-4679-8df4-0419f4c1bd4b
+		summarizeBy: none
+		sourceColumn: WBS Project Forecast Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Project Created By'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f9998e83-6541-4209-90a1-9959c75c5f4e
+		summarizeBy: none
+		sourceColumn: WBS Project Created By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Created Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 0b33c992-816d-4dda-87d4-abf32ac73d9b
+		summarizeBy: none
+		sourceColumn: WBS Project Created Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Project Changed By'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e3458abd-ecc5-4c68-9ca9-86d6bbb26bdf
+		summarizeBy: none
+		sourceColumn: WBS Project Changed By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Changed On'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: a82ee058-84fc-4b37-90b7-95ad80bc3f6a
+		summarizeBy: none
+		sourceColumn: WBS Project Changed On
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Project System Status'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c9e10584-a70c-492c-97c8-55c164022b58
+		summarizeBy: none
+		sourceColumn: WBS Project System Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project User Status'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5a180b29-373f-4d64-9288-767f2471c386
+		summarizeBy: none
+		sourceColumn: WBS Project User Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Project Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: db2f3924-a239-4df4-b51f-3c36e2479d26
+		summarizeBy: none
+		sourceColumn: WBS Project Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Project Finish Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 7714b007-d9bf-4669-82c3-14bf9c16ed1f
+		summarizeBy: none
+		sourceColumn: WBS Project Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Project Last Basic Scheduling Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: d80c03b4-062b-49a4-a232-af5b97da5642
+		summarizeBy: none
+		sourceColumn: WBS Project Last Basic Scheduling Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'WBS Last Forecast Scheduling Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: c861c1a5-dd6c-4fe2-8a8a-379df22f57f4
+		summarizeBy: none
+		sourceColumn: WBS Last Forecast Scheduling Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition EDW_T_D_PRS_WBSELEM_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_PRS_WBSELEM_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_PRS_WBSELEM_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_PRS_WBSELEM_CUR_D
+
+	annotation PBI_ResultType = Table
+

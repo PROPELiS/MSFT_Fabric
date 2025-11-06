@@ -1,0 +1,1208 @@
+table EDW_T_D_MST_CUSTSAL_CUR_D
+	lineageTag: ef18fbda-13df-404d-8fad-d4699813d22f
+
+	column CUST_SALES_AREA_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fb8cb873-4ecb-4dbf-92fa-36660ee77041
+		summarizeBy: sum
+		sourceColumn: CUST_SALES_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Sales ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 33f9b3b2-f617-4ea9-b803-7e02cbd5c779
+		summarizeBy: none
+		sourceColumn: Customer Sales ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Sales Segment ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4d3e7af5-e00e-4882-a83e-8c83d6411a12
+		summarizeBy: none
+		sourceColumn: Customer Sales Segment ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Sales Organization'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c3f5bf5b-5ba7-4672-bf98-bb96b29f205e
+		summarizeBy: none
+		sourceColumn: Customer Sales Organization
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Sales Distribution Channel'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b2ccff6d-3370-4de1-8a5f-7cde6a936ec6
+		summarizeBy: none
+		sourceColumn: Customer Sales Distribution Channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: aaceca41-ef15-4cfa-99df-f90899f09ef7
+		summarizeBy: none
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Block'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c3b3814a-09a3-40af-b295-947c2eefbe6e
+		summarizeBy: none
+		sourceColumn: Order Block
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Block'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1f170c37-6ee0-45f5-a9a0-21bde9f18e2e
+		summarizeBy: none
+		sourceColumn: Delivery Block
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5977c173-2d8e-4bce-ac82-47c5466c2e53
+		summarizeBy: none
+		sourceColumn: Customer Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Price Procedure'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b829e7e1-a9ee-4882-93e4-78e379f46b9d
+		summarizeBy: none
+		sourceColumn: Customer Price Procedure
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales District'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b26931cf-5ac1-4fec-80d6-b277f6c89643
+		summarizeBy: none
+		sourceColumn: Sales District
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4b59a88a-02d8-4a0d-9bc6-acac5b4b7b8a
+		summarizeBy: none
+		sourceColumn: Price Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price List'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a91dd2cf-a8eb-4c54-bf49-529631e567c9
+		summarizeBy: none
+		sourceColumn: Price List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Probability'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e4e0f5c8-5157-401b-ba19-3d5b53a1f0a8
+		summarizeBy: none
+		sourceColumn: Order Probability
+
+		annotation SummarizationSetBy = Automatic
+
+	column Incoterms
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dc6569f9-1022-40b4-887e-3da95330978d
+		summarizeBy: none
+		sourceColumn: Incoterms
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Incoterms 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8203d4cd-f7ea-47e3-8ea7-03404b7488dd
+		summarizeBy: none
+		sourceColumn: Incoterms 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account At Customer'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: bf16ea5a-a340-41e3-b865-d6cd1d547057
+		summarizeBy: none
+		sourceColumn: Account At Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shipping Conditions'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 79d57272-34c4-4107-a8f5-30025ccdbdad
+		summarizeBy: none
+		sourceColumn: Shipping Conditions
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Terms Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cd10346b-a1ab-46f1-90ba-3f042ec2be9f
+		summarizeBy: none
+		sourceColumn: Payment Terms Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Clerk'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0fda740e-7c8b-4909-ae2d-c97636d2058b
+		summarizeBy: none
+		sourceColumn: Account Clerk
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 224dd919-919c-4581-b3a3-a0d38e98cfd6
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 24cd99d6-1825-4d98-a618-baf2c7ed16ed
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 3e515515-5336-42bf-ab30-f67479cf12c3
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Current Record Indicator of Customer Sales'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d080b997-ec2a-4e27-b818-b8230f43ac37
+		summarizeBy: none
+		sourceColumn: Current Record Indicator of Customer Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 27b3d60e-e4ec-4b28-b7ce-6dcdbbceb420
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 1f76f948-766f-425d-9c4f-0c756fcfa409
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Market Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 35869e1d-e324-41c2-81d5-912d15c22e25
+		summarizeBy: none
+		sourceColumn: Market Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d20aaef9-e1d6-4428-bc4e-d2061c8c7bcd
+		summarizeBy: none
+		sourceColumn: Customer Group 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8a8f61a0-e051-494a-8e63-817bcba9b48c
+		summarizeBy: none
+		sourceColumn: Sales Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Office'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cc42d492-53ba-455f-832d-29cc2ecce740
+		summarizeBy: none
+		sourceColumn: Sales Office
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ee628296-48b3-405b-81b6-2157c15a89fd
+		summarizeBy: none
+		sourceColumn: Created Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Aurora Rebate Program'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 36c95be8-de1e-422a-9631-f5b2f7168d45
+		summarizeBy: none
+		sourceColumn: Aurora Rebate Program
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 3'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f47fc2e3-dccb-47a8-a1be-86a19ea3b61a
+		summarizeBy: none
+		sourceColumn: Customer Group 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Periodic Account Statements Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 105a3afe-440c-4b8c-a6e5-fc822a604f5a
+		summarizeBy: none
+		sourceColumn: Periodic Account Statements Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Customer ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3233ca2e-5263-4386-9861-f184400c8417
+		summarizeBy: none
+		sourceColumn: Parent Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Customer Name 1'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f07429e6-7525-4cee-a78f-dfb47dc9cb0a
+		summarizeBy: none
+		sourceColumn: Parent Customer Name 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Customer Name 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 704131c1-da67-4e6c-afaf-71db49dd9afe
+		summarizeBy: none
+		sourceColumn: Parent Customer Name 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 4'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5a22969d-8ad2-46c1-9665-5751f88117a6
+		summarizeBy: none
+		sourceColumn: Customer Group 4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 5'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 60865ed0-66a5-479b-9f2a-45e071aebe70
+		summarizeBy: none
+		sourceColumn: Customer Group 5
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Sales Organization Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: aa05a196-3376-4290-9a1d-b3e685461908
+		summarizeBy: none
+		sourceColumn: Customer Sales Organization Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Distribution Channel Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 62d7b70e-f16d-4f77-b2d2-dd072530491c
+		summarizeBy: none
+		sourceColumn: Distribution Channel Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Division Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a2f66aa4-6e23-4ecb-b725-6ae31547ada8
+		summarizeBy: none
+		sourceColumn: Division Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Block Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 335a81c2-0841-432f-936c-2f71fd863ac6
+		summarizeBy: none
+		sourceColumn: Order Block Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Block Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7ad8aca3-4d72-4f45-8ec7-b831aa0faed7
+		summarizeBy: none
+		sourceColumn: Delivery Block Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 23b2d69d-e127-4aff-83b8-842e93b253be
+		summarizeBy: none
+		sourceColumn: Customer Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Price Procedure Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0ef67358-184a-4ae0-990f-a140ed13fac3
+		summarizeBy: none
+		sourceColumn: Customer Price Procedure Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales District Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fbfcf952-3f0a-4348-98ec-fe0659d37263
+		summarizeBy: none
+		sourceColumn: Sales District Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 610db8aa-961c-4cf4-a80d-4664e1695e11
+		summarizeBy: none
+		sourceColumn: Price Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price List Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8e3e4434-e9ce-4837-8f20-fed9ff8d5f99
+		summarizeBy: none
+		sourceColumn: Price List Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Incoterms Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8b894d89-5517-4e94-99ef-e0fccbd26875
+		summarizeBy: none
+		sourceColumn: Incoterms Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shipping Conditions Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: eacae880-9ec0-48ec-b472-2be28464815b
+		summarizeBy: none
+		sourceColumn: Shipping Conditions Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Terms Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fff58920-944a-4586-94f5-7b2d1da6411d
+		summarizeBy: none
+		sourceColumn: Payment Terms Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Clerk Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5a767229-1b6c-4586-812c-61a427c6a557
+		summarizeBy: none
+		sourceColumn: Account Clerk Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aurora Rebate Program Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4bd470cd-99e4-40b1-8fba-1050d22f7067
+		summarizeBy: none
+		sourceColumn: Aurora Rebate Program Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 2 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 60f744e6-5574-4493-9b73-b6403345e96c
+		summarizeBy: none
+		sourceColumn: Customer Group 2 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6a63b6e7-32ae-4307-8cfd-e551a35f36a5
+		summarizeBy: none
+		sourceColumn: Sales Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Office Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 58d4ea00-26be-4dba-8d55-e118f98c8aec
+		summarizeBy: none
+		sourceColumn: Sales Office Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 3 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 70578633-eeba-481e-bcaf-ec319eeb15d1
+		summarizeBy: none
+		sourceColumn: Customer Group 3 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Statement Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: df4f0ded-ad04-424c-83b4-9c3cb919db1c
+		summarizeBy: none
+		sourceColumn: Statement Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 4 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1295cb47-be48-4bf5-bae3-2f48300a88ec
+		summarizeBy: none
+		sourceColumn: Customer Group 4 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 5 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 09e659f1-8c42-4e2e-bf15-f1f998437728
+		summarizeBy: none
+		sourceColumn: Customer Group 5 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created By'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 707c5414-a9cc-40c2-bd71-a472dcdc662b
+		summarizeBy: none
+		sourceColumn: Created By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Assignment Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c8adbf6c-4601-42b0-b4d5-954ee6095ff6
+		summarizeBy: none
+		sourceColumn: Account Assignment Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Assignment Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d093209c-0f7c-4ef2-b623-c2ae5719fea3
+		summarizeBy: none
+		sourceColumn: Account Assignment Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC Classification'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d98c0588-6706-4547-ac06-fd225e50fbdb
+		summarizeBy: none
+		sourceColumn: ABC Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 07635a37-c3be-4fce-af52-d42d0e5f3e8d
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Currency Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 209a0906-13f7-46d7-bff9-b10b8fb4d397
+		summarizeBy: none
+		sourceColumn: Currency Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Credit Control Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 45ad7a4e-e789-4efa-b1c6-298ca95af171
+		summarizeBy: none
+		sourceColumn: Credit Control Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Credit Control Area Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9a2e22c5-583f-43fb-81c6-2afe34cce606
+		summarizeBy: none
+		sourceColumn: Credit Control Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Block'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fd11ff7b-a064-4049-8ceb-4f66a332b29e
+		summarizeBy: none
+		sourceColumn: Sales Block
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 1'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: edbb18de-d905-44a6-982d-f313ba73c8ad
+		summarizeBy: none
+		sourceColumn: Customer Group 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 1 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: bc193c82-4e5e-47ba-8ed3-d10b005b7e9e
+		summarizeBy: none
+		sourceColumn: Customer Group 1 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'No Of Days Payment Terms'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 19bc3ba7-2f4d-4670-8267-feac5dceed08
+		summarizeBy: sum
+		sourceColumn: No Of Days Payment Terms
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'End Of The Month Ind'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c8e3231b-7f44-44d1-8e18-cfc8ad5e11b8
+		summarizeBy: none
+		sourceColumn: End Of The Month Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Terms Discount Percentage'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8d86bc05-6b1c-4c7d-9f34-d8625d367d02
+		summarizeBy: none
+		sourceColumn: Terms Discount Percentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 6'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b18ee31c-cd7d-4dd8-89b9-ed9b4bb430f1
+		summarizeBy: none
+		sourceColumn: Customer Group 6
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 7'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e172e669-361b-42de-af9b-3509cf9e19bc
+		summarizeBy: none
+		sourceColumn: Customer Group 7
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 8'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 199dbd3d-bb85-4db6-a3f1-4dbae62098b1
+		summarizeBy: none
+		sourceColumn: Customer Group 8
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 9'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ab621dbf-4583-4ff0-8231-6d6fb13b83ad
+		summarizeBy: none
+		sourceColumn: Customer Group 9
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 10'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dcdfa008-7975-4bdf-a3ac-304a838f2809
+		summarizeBy: none
+		sourceColumn: Customer Group 10
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 6 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 81b93cb6-ab12-41c9-8717-416d323e3152
+		summarizeBy: none
+		sourceColumn: Customer Group 6 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 7 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9bd20f79-cfeb-4a6f-ae3b-4fff66360fa1
+		summarizeBy: none
+		sourceColumn: Customer Group 7 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 8 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1d4b1590-47a5-445b-a85b-6767be58af7e
+		summarizeBy: none
+		sourceColumn: Customer Group 8 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 9 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cf7af989-a26c-4f54-9db9-5a4943a92e8a
+		summarizeBy: none
+		sourceColumn: Customer Group 9 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Group 10 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cf0163a9-4b5d-4fd2-b779-b0eb676ba54e
+		summarizeBy: none
+		sourceColumn: Customer Group 10 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Brand Owner ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 627840f4-b401-467d-87bd-fcd45c817edd
+		summarizeBy: none
+		sourceColumn: Brand Owner ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Brand Owner Name 1'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 46f39615-bd10-4055-8fd3-292237ba1d51
+		summarizeBy: none
+		sourceColumn: Brand Owner Name 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Brand Owner Name 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 592336d4-88f4-47b4-b72a-7e6f62d69c2d
+		summarizeBy: none
+		sourceColumn: Brand Owner Name 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Priority'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 271dadfa-4070-4406-b295-828249d4b485
+		summarizeBy: sum
+		sourceColumn: Delivery Priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Priority Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0490d198-05d5-4242-ac3b-adecdfba543e
+		summarizeBy: none
+		sourceColumn: Delivery Priority Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Invoice Dates Calendar Identification'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 520acc6b-d8a0-4dab-bcef-2c4f86b068a5
+		summarizeBy: none
+		sourceColumn: Invoice Dates Calendar Identification
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Invoice Dates Calendar Identification Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 79f1459c-23ea-4f5a-8160-2176964f5a80
+		summarizeBy: none
+		sourceColumn: Invoice Dates Calendar Identification Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Combination Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7a0f082e-7fed-42fd-978d-a936435b6de2
+		summarizeBy: none
+		sourceColumn: Order Combination Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Complete Delivery Defined For Each Sales Order'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 13054445-2f03-472f-9afe-da559c92d31a
+		summarizeBy: none
+		sourceColumn: Complete Delivery Defined For Each Sales Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Max Number Of Partial Deliveries Allowed Per Item'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8c62b7a3-1141-411f-8e10-82627bb03fd5
+		summarizeBy: sum
+		sourceColumn: Max Number Of Partial Deliveries Allowed Per Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivering Plant ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3effde55-31f4-476d-9f57-46d38a7ad925
+		summarizeBy: none
+		sourceColumn: Delivering Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivering Plant Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 669f1323-b2c2-41ba-be86-78023ee4856c
+		summarizeBy: none
+		sourceColumn: Delivering Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Deletion Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f4a27743-0b89-46b8-8fd0-f8b11d09ca6e
+		summarizeBy: none
+		sourceColumn: Deletion Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Area Billing Block'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b1e153c4-1847-453f-bb75-1f79547ccfdc
+		summarizeBy: none
+		sourceColumn: Sales Area Billing Block
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Procedure for Product Proposal'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3c074f6f-6ce0-4e2c-ac2a-a0d2bea4fb3b
+		summarizeBy: none
+		sourceColumn: Customer Procedure for Product Proposal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Procedure for Product Proposal Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5c902a60-9f4b-4486-bb22-7b4095c7cab9
+		summarizeBy: none
+		sourceColumn: Customer Procedure for Product Proposal Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Statistics Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e4709818-ad5e-458b-9071-694846545fa1
+		summarizeBy: none
+		sourceColumn: Customer Statistics Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Statistics Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ed3c3791-c40c-4cf9-a029-34bac1d4e507
+		summarizeBy: none
+		sourceColumn: Customer Statistics Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partial Delivery At Item Level'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 00a9aa1e-c244-4fd8-9d41-b957ec921d5d
+		summarizeBy: none
+		sourceColumn: Partial Delivery At Item Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Is Rebate-Relevant Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5a58ebde-975e-4f1e-ae1f-12d4d0d95354
+		summarizeBy: none
+		sourceColumn: Customer Is Rebate-Relevant Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Relevant For Price Determination ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d4448c91-b6be-4ce3-a61d-808a3f53df32
+		summarizeBy: none
+		sourceColumn: Relevant For Price Determination ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Invoice List Schedule'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3fe6f451-ef55-4e8d-bea4-defa926ba5c2
+		summarizeBy: none
+		sourceColumn: Invoice List Schedule
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rating Customer'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1de8395c-3b69-4b1d-abd8-3443f120a435
+		summarizeBy: none
+		sourceColumn: Rating Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CFSA Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b25a71e0-b374-4b54-acd4-4f6c02f4b364
+		summarizeBy: none
+		sourceColumn: CFSA Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pre Need'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2cecc8b8-d41f-4298-8ba8-3e763175f55a
+		summarizeBy: none
+		sourceColumn: Pre Need
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PN Contact'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c34006c7-bc6a-43f4-844c-72da517c348d
+		summarizeBy: none
+		sourceColumn: PN Contact
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PN Pending'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5aedef0c-3382-4309-82c7-750db2cc3720
+		summarizeBy: none
+		sourceColumn: PN Pending
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Separate Invoice'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c9afdfa1-0d1a-4caa-a19c-c26afa444cba
+		summarizeBy: none
+		sourceColumn: Separate Invoice
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Miles From WHSE'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 48c6b5d2-37a3-4592-814b-2493772ac7a0
+		summarizeBy: sum
+		sourceColumn: Miles From WHSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NSM Member'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7772ec73-a5c0-48f0-8f57-b7ec1cb1b7b4
+		summarizeBy: none
+		sourceColumn: NSM Member
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Consignment Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8e8da226-ad06-41c9-994a-52bc00e19cb5
+		summarizeBy: none
+		sourceColumn: Consignment Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Saturday WHSE'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f537b455-8632-4fb9-8550-3a96909e1bd0
+		summarizeBy: none
+		sourceColumn: Saturday WHSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Mandatory'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: aad36e8c-25e2-416b-b7c1-33ce494c3110
+		summarizeBy: none
+		sourceColumn: PO Mandatory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Deceased Name Mandatory'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2c6dd639-dc6c-4257-8ed1-c28f4c9521a0
+		summarizeBy: none
+		sourceColumn: Deceased Name Mandatory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8abdbe5c-1056-4ca4-b215-4effa9615ea8
+		summarizeBy: none
+		sourceColumn: Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CFSA Rating'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c55823c8-11d2-4e56-9f7c-2810d378b5d5
+		summarizeBy: none
+		sourceColumn: CFSA Rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Fee'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 54fa820c-cca0-47e3-a1d2-4eccd9a2b9c2
+		summarizeBy: none
+		sourceColumn: Transfer Fee
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Origin'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 86734e2a-8c49-43b0-8ff3-5cc7aa601c35
+		summarizeBy: none
+		sourceColumn: Customer Origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Volume Commitment Percentage'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e8d9a567-1618-4008-b0e0-3803fe5e7d8d
+		summarizeBy: sum
+		sourceColumn: Sales Volume Commitment Percentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Case Volume Percentage'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e55853d2-7540-467a-a72b-214bd9104a5e
+		summarizeBy: sum
+		sourceColumn: Case Volume Percentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Casket Volume Percentage'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 95e930f3-84b7-4d9f-8fd8-b5693a166f2c
+		summarizeBy: sum
+		sourceColumn: Casket Volume Percentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column '12 Unit Challenge'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: efd66105-7828-4f9a-9bcb-5c37ddba57d8
+		summarizeBy: none
+		sourceColumn: 12 Unit Challenge
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PN % Commission'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 76a40505-1530-4384-87a9-cac5dbb349b3
+		summarizeBy: sum
+		sourceColumn: PN % Commission
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plant
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 77a2811e-0a45-458a-93a8-52ba0d706997
+		summarizeBy: none
+		sourceColumn: Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sign Up Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 23425975-d427-44b5-9e7e-f90a52d0da4a
+		summarizeBy: none
+		sourceColumn: Sign Up Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition EDW_T_D_MST_CUSTSAL_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_CUSTSAL_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_CUSTSAL_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_CUSTSAL_CUR_D
+
+	annotation PBI_ResultType = Table
+

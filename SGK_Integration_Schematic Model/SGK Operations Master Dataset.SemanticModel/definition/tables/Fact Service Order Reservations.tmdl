@@ -1,0 +1,350 @@
+table 'Fact Service Order Reservations'
+	lineageTag: 9f0c2ecc-b4b7-45b4-85ed-b536007e303d
+	sourceLineageTag: [Propelis].[EDW_T_FACT_PRD_SERVRES_CUR_D]
+
+	measure 'Quantity Withdrawn(Fact Service Order Reservations)' =
+			
+			SUM ( 'Fact Service Order Reservations'[Quantity Withdrawn] )
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6b9fae20-2530-434a-aaac-6c399579005a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Value Withdrawn Amount(Fact Service Order Reservations)' =
+			
+			SUM ( 'Fact Service Order Reservations'[Value Withdrawn Amount] )
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 8c95907b-6981-4a3e-b12b-2344e5094524
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Requirement Quantity(Fact Service Order Reservations)' =
+			
+			SUM ( 'Fact Service Order Reservations'[Requirement Quantity] )
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: aab1e552-e30f-4d9c-86af-2c19b9599968
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Quantity In Unit Of Entry(Fact Service Order Reservations)' =
+			
+			SUM ( 'Fact Service Order Reservations'[Quantity In Unit Of Entry] )
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2edb751a-e741-4b17-9e09-e8dced1e7888
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Price in Document Currency(Fact Service Order Reservations)' =
+			
+			SUM ( 'Fact Service Order Reservations'[Price in Document Currency] )
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a93c368f-16dc-4861-9f18-bb060d4110e4
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SERVC_ORDER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 40c74c2e-4cb3-4675-8cab-400636c5e6fc
+		sourceLineageTag: SERVC_ORDER_KEY
+		summarizeBy: none
+		sourceColumn: SERVC_ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Order'
+		dataType: string
+		lineageTag: f4b78ae5-ed10-4cae-8e37-881502439c15
+		sourceLineageTag: Service Order
+		summarizeBy: none
+		sourceColumn: Service Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Activity ID'
+		dataType: string
+		lineageTag: a00ce823-283e-4b03-a9bb-4a96bdfa9271
+		sourceLineageTag: Operation Activity ID
+		summarizeBy: none
+		sourceColumn: Operation Activity ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Task List ID'
+		dataType: string
+		lineageTag: c56438a8-5bf8-449a-989f-7555fcb5b656
+		sourceLineageTag: Operation Task List ID
+		summarizeBy: none
+		sourceColumn: Operation Task List ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operation Counter ID'
+		dataType: string
+		lineageTag: 5aab89c2-4ae3-4958-9e64-081ff4d38386
+		sourceLineageTag: Operation Counter ID
+		summarizeBy: none
+		sourceColumn: Operation Counter ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Number of Reservation'
+		dataType: string
+		lineageTag: c7ba1ed1-0321-47eb-be59-8e05e6f11cdf
+		sourceLineageTag: Number of Reservation
+		summarizeBy: none
+		sourceColumn: Number of Reservation
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 79caee50-1824-469c-8e59-ea40eb3f8f63
+		sourceLineageTag: DOCMT_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: DOCMT_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: b8baa821-45a7-4857-9d2b-06d60c14c279
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4fa41300-ed79-4bb8-bb0a-a2ac03861b80
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b2aca712-2264-4007-8ef4-9c0b1909d3d6
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quantity Withdrawn'
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 5a82bab7-ecb3-4065-8b3c-ca15297e3b06
+		sourceLineageTag: Quantity Withdrawn
+		summarizeBy: sum
+		sourceColumn: Quantity Withdrawn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Price in Document Currency'
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 51de9051-0598-4f18-835d-a1f614ce95d6
+		sourceLineageTag: Price in Document Currency
+		summarizeBy: sum
+		sourceColumn: Price in Document Currency
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Price Unit'
+		dataType: string
+		lineageTag: e2b1979b-e151-497e-9aac-fc399cad5ce2
+		sourceLineageTag: Price Unit
+		summarizeBy: none
+		sourceColumn: Price Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quantity In Unit Of Entry'
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 67ffd876-b206-49c3-8f00-e4bac9688853
+		sourceLineageTag: Quantity In Unit Of Entry
+		summarizeBy: sum
+		sourceColumn: Quantity In Unit Of Entry
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Requirement Quantity'
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 10273124-948c-4dc8-a7f9-fb5fab0521c9
+		sourceLineageTag: Requirement Quantity
+		summarizeBy: sum
+		sourceColumn: Requirement Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Value Withdrawn Amount'
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 532db5f7-d2e9-4d03-892e-ac0fdc009e81
+		sourceLineageTag: Value Withdrawn Amount
+		summarizeBy: sum
+		sourceColumn: Value Withdrawn Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4131624f-db42-47c4-a216-9dde145ec6dd
+		sourceLineageTag: PLNT_KEY
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Debit Credit Indicator'
+		dataType: string
+		lineageTag: 6a0d0726-740d-4e28-a680-b0a527e299c8
+		sourceLineageTag: Debit Credit Indicator
+		summarizeBy: none
+		sourceColumn: Debit Credit Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column MOVEMNT_TYP
+		dataType: string
+		lineageTag: 0634d59b-7615-42cd-bc68-b85a984501d3
+		sourceLineageTag: MOVEMNT_TYP
+		summarizeBy: none
+		sourceColumn: MOVEMNT_TYP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fixed Quantity'
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 03be3d7f-dc66-4da9-8d09-66c71a0557e8
+		sourceLineageTag: Fixed Quantity
+		summarizeBy: sum
+		sourceColumn: Fixed Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Requirement Type'
+		dataType: string
+		lineageTag: 463eb3c0-0e20-4dca-85f2-0bac4d52806c
+		sourceLineageTag: Requirement Type
+		summarizeBy: none
+		sourceColumn: Requirement Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base UoM'
+		dataType: string
+		lineageTag: 976f3a04-c8c0-4435-8d9f-32f4630f22b7
+		sourceLineageTag: Base UoM
+		summarizeBy: none
+		sourceColumn: Base UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit Of Entry'
+		dataType: string
+		lineageTag: d2c264f1-29fd-4ddf-bc99-c086d920dc98
+		sourceLineageTag: Unit Of Entry
+		summarizeBy: none
+		sourceColumn: Unit Of Entry
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Item Number of Reservation'
+		dataType: string
+		lineageTag: 06f98797-7980-46e7-9a44-58b9c74806cc
+		sourceLineageTag: Item Number of Reservation
+		summarizeBy: none
+		sourceColumn: Item Number of Reservation
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Record Type'
+		dataType: string
+		lineageTag: 12424763-a509-459a-a365-0efeef80b9a9
+		sourceLineageTag: Record Type
+		summarizeBy: none
+		sourceColumn: Record Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column REQ_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3ec8141d-87ec-4148-8d2a-6a5ac3c65fe9
+		sourceLineageTag: REQ_DATE_KEY
+		summarizeBy: none
+		sourceColumn: REQ_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 8cec0427-8810-44bd-b9ea-560d522ea25c
+		sourceLineageTag: GL_KEY
+		summarizeBy: none
+		sourceColumn: GL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: f2692b62-896f-4b57-8db7-e66effb13c9c
+		sourceLineageTag: MATRL_KEY
+		summarizeBy: none
+		sourceColumn: MATRL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BOM Item Number'
+		dataType: string
+		lineageTag: 19a82538-ddc8-491c-984c-c178e4383445
+		sourceLineageTag: BOM Item Number
+		summarizeBy: none
+		sourceColumn: BOM Item Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact Service Order Reservations' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_FACT_PRD_SERVRES_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

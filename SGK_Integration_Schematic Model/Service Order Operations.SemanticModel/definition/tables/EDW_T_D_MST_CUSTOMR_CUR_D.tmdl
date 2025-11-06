@@ -1,8 +1,10 @@
 table EDW_T_D_MST_CUSTOMR_CUR_D
+	isHidden
 	lineageTag: cfaa97d7-c938-40a3-8dc8-0aa8b6732129
 
 	column CUST_KEY
 		dataType: int64
+		isHidden
 		isNullable: false
 		formatString: 0
 		sourceProviderType: int
@@ -10,230 +12,307 @@ table EDW_T_D_MST_CUSTOMR_CUR_D
 		summarizeBy: sum
 		sourceColumn: CUST_KEY
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 04992f8f-d989-4fa0-bc6f-f98bde0bcecc
 		summarizeBy: none
 		sourceColumn: Customer ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Legacy Customer ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: be7afb51-cffc-45ef-84ba-f86a241173ef
 		summarizeBy: none
 		sourceColumn: Legacy Customer ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Name'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: dd1b3d78-7bd2-4825-a87d-06f0685d9982
 		summarizeBy: none
 		sourceColumn: Customer Name
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Line 2 Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 6b67c598-9824-4139-8a63-be04e488b89c
 		summarizeBy: none
 		sourceColumn: Customer Line 2 Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Country Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 4846d556-e7a7-44d1-860c-26a752a562e4
 		summarizeBy: none
 		sourceColumn: Customer Country Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Plant ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 04c3ed1d-1507-4c9d-be41-8fb1b87e3f70
 		summarizeBy: none
 		sourceColumn: Customer Plant ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Segment ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: aa954543-9d38-4724-b9a6-fc7c40ccbee4
 		summarizeBy: none
 		sourceColumn: Customer Segment ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Industry'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 4d262c37-7a8a-4f82-9441-fea5c151aaf3
 		summarizeBy: none
 		sourceColumn: Customer Industry
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Vendor ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: ae01ea1f-09b0-41fd-b207-b8185b28bbed
 		summarizeBy: none
 		sourceColumn: Customer Vendor ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Group Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 3a43302a-469b-4572-81f4-c3058ea245a8
 		summarizeBy: none
 		sourceColumn: Customer Group Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Account Group Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 5d622919-036e-44cb-8c8e-d90b1f7d34c6
 		summarizeBy: none
 		sourceColumn: Customer Account Group Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Title'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: a7688b03-587f-426a-801f-b4414dcdce44
 		summarizeBy: none
 		sourceColumn: Customer Title
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Search Term'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 2dc058f1-891a-47fb-a87a-8a2511f4bb28
 		summarizeBy: none
 		sourceColumn: Customer Search Term
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Street'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: debd2b82-733c-4302-b647-4e38925a3474
 		summarizeBy: none
 		sourceColumn: Customer Street
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer City'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 4eb72316-c26f-4e8a-aa20-ea46be3ad03f
 		summarizeBy: none
 		sourceColumn: Customer City
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Zip Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: a037d4f5-5771-4dd2-ab23-3e03cd57c393
 		summarizeBy: none
 		sourceColumn: Customer Zip Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer State Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 156b0607-bea3-413c-b965-fc7665454b23
 		summarizeBy: none
 		sourceColumn: Customer State Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Region Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: f01d1d3d-3337-463e-afba-a645f2eb6369
 		summarizeBy: none
 		sourceColumn: Customer Region Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Telephone Number 1'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 78ae6dde-62c9-40f6-95a0-2389a96bb0a0
 		summarizeBy: none
 		sourceColumn: Customer Telephone Number 1
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Telephone Number 2'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: aa87c5e9-aa12-4216-aee8-4842c4e14485
 		summarizeBy: none
 		sourceColumn: Customer Telephone Number 2
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Fax Number Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: f8eca8ce-bf35-4fc8-a672-563258630297
 		summarizeBy: none
 		sourceColumn: Customer Fax Number Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Tax Number 1 Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 8cdc87d2-f7ec-4a5b-9fe1-057aae9b7923
 		summarizeBy: none
 		sourceColumn: Customer Tax Number 1 Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Tax Number 2 Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: cac03123-fccc-4430-bded-22e50e6d6538
 		summarizeBy: none
 		sourceColumn: Customer Tax Number 2 Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer VAT Number Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: fdcf2954-6000-4dac-97c3-9fba2bb64966
 		summarizeBy: none
 		sourceColumn: Customer VAT Number Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Credit Limit'
 		dataType: double
+		isHidden
 		sourceProviderType: decimal(15, 3)
 		lineageTag: 51ce9cbe-2647-440e-a81a-109487c49619
 		summarizeBy: sum
 		sourceColumn: Customer Credit Limit
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -241,10 +320,13 @@ table EDW_T_D_MST_CUSTOMR_CUR_D
 
 	column 'Customer Bonus Rate'
 		dataType: double
+		isHidden
 		sourceProviderType: decimal(9, 3)
 		lineageTag: 17ae1e3e-3df5-456a-93d1-104789bd9d95
 		summarizeBy: sum
 		sourceColumn: Customer Bonus Rate
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -252,56 +334,74 @@ table EDW_T_D_MST_CUSTOMR_CUR_D
 
 	column 'Customer Express Station'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 4ca233a4-6ce3-423d-a2f4-21689af199db
 		summarizeBy: none
 		sourceColumn: Customer Express Station
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Transportation Zone'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 59a6f842-9086-4764-9eec-97cdf5e23aaa
 		summarizeBy: none
 		sourceColumn: Customer Transportation Zone
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Printer Location Characteristics'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 6231c805-979c-4b92-b4c5-725a38a41624
 		summarizeBy: none
 		sourceColumn: Customer Printer Location Characteristics
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Printer Region Characteristics'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 64515cb6-6a37-47ec-b2e3-e1fd3845a95e
 		summarizeBy: none
 		sourceColumn: Customer Printer Region Characteristics
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Printer Site Characteristics'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: b56c32b6-57f3-474a-84eb-36e7ebd38473
 		summarizeBy: none
 		sourceColumn: Customer Printer Site Characteristics
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Created Date'
 		dataType: dateTime
+		isHidden
 		formatString: Long Date
 		sourceProviderType: date
 		lineageTag: fc2902da-96e7-41a9-baee-10fc18c17fb6
 		summarizeBy: none
 		sourceColumn: Customer Created Date
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -309,20 +409,26 @@ table EDW_T_D_MST_CUSTOMR_CUR_D
 
 	column 'Customer Created User ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: f0c34bc5-8fc1-4ab4-aef8-b878081bea52
 		summarizeBy: none
 		sourceColumn: Customer Created User ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Updated Date'
 		dataType: dateTime
+		isHidden
 		formatString: Long Date
 		sourceProviderType: date
 		lineageTag: 363ce993-ad3d-4c28-bd40-cab783881f84
 		summarizeBy: none
 		sourceColumn: Customer Updated Date
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -330,65 +436,86 @@ table EDW_T_D_MST_CUSTOMR_CUR_D
 
 	column 'Customer Updated User ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 630a43c5-488c-40ee-8315-8d601f0a636e
 		summarizeBy: none
 		sourceColumn: Customer Updated User ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Payment Terms Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 7290a5f4-7ff2-47e3-882c-3cc96c9819f4
 		summarizeBy: none
 		sourceColumn: Customer Payment Terms Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Sales Distribution'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: e5419670-be38-419f-b35c-65f6b643cdfe
 		summarizeBy: none
 		sourceColumn: Customer Sales Distribution
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Order Block For Sales Area'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 711ad071-8b7f-41d5-8bbe-94390eb19c90
 		summarizeBy: none
 		sourceColumn: Customer Order Block For Sales Area
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Delivery Block For Sales Area'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 0b28c977-fd1c-4054-a47a-e1c38721f662
 		summarizeBy: none
 		sourceColumn: Customer Delivery Block For Sales Area
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ETL_SRC_SYS_CD
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: a39132b9-cc65-4295-8eeb-f5bf5b08c334
 		summarizeBy: none
 		sourceColumn: ETL_SRC_SYS_CD
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ETL_EFFECTV_BEGIN_DATE
 		dataType: dateTime
+		isHidden
 		formatString: Long Date
 		sourceProviderType: date
 		lineageTag: 41142bd5-bad7-4dcd-92ef-573074d93660
 		summarizeBy: none
 		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -396,11 +523,14 @@ table EDW_T_D_MST_CUSTOMR_CUR_D
 
 	column ETL_EFFECTV_END_DATE
 		dataType: dateTime
+		isHidden
 		formatString: Long Date
 		sourceProviderType: date
 		lineageTag: 3f987ca1-7008-40c7-9853-af37597687af
 		summarizeBy: none
 		sourceColumn: ETL_EFFECTV_END_DATE
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -408,499 +538,664 @@ table EDW_T_D_MST_CUSTOMR_CUR_D
 
 	column ETL_CURR_RCD_IND
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: df18ba67-499a-4d6f-b12f-7200369abd93
 		summarizeBy: none
 		sourceColumn: ETL_CURR_RCD_IND
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ETL_CREATED_TS
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		sourceProviderType: datetime2
 		lineageTag: 50effd97-1f5f-4fec-9b2f-612293556e16
 		summarizeBy: none
 		sourceColumn: ETL_CREATED_TS
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ETL_UPDTD_TS
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		sourceProviderType: datetime2
 		lineageTag: fb7cf5f0-4991-4f45-b518-b1c8020e3560
 		summarizeBy: none
 		sourceColumn: ETL_UPDTD_TS
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Corporate Group'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 51929d09-53bc-4a86-9d0e-bfafa0df0e1a
 		summarizeBy: none
 		sourceColumn: Customer Corporate Group
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Classification'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: aa134888-4799-400f-b83b-ce9160547135
 		summarizeBy: none
 		sourceColumn: Customer Classification
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Classification Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 84549755-ae31-4d36-9e6b-4927800d5e82
 		summarizeBy: none
 		sourceColumn: Customer Classification Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Printer Location'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: d5049cd1-8e25-4d9f-bf95-916857a976f1
 		summarizeBy: none
 		sourceColumn: Customer Printer Location
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Printer Site'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 0c02f706-32e1-4df4-8a41-1fae5c0ba892
 		summarizeBy: none
 		sourceColumn: Customer Printer Site
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Printer Region'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 7d02d25b-ddd4-4cfc-b20a-e1c771f06318
 		summarizeBy: none
 		sourceColumn: Customer Printer Region
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 01'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 3bb8747f-a64b-4157-8a53-7568f57433e7
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 01
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 02'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 5fdd1592-f93d-4097-87eb-3546f9debcd7
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 02
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 03'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 9b381754-f00a-4b8b-a91b-28c8be47df3b
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 03
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 04'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 58efe062-9543-451e-a40e-f97bf978c9df
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 04
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 05'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 926ccc9a-bb2a-438d-873f-72393ff1f53c
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 05
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 06'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: dd835f24-8d06-4f56-bf13-eb78a6261163
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 06
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 07'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 229aa5c5-e953-4f2d-bbde-94367c1bf05a
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 07
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 08'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 3018b0df-36b1-46e5-85ce-ec0f1fe2a9d4
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 08
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 09'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 33fa3917-5476-4662-8d29-814a93f0ce17
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 09
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 10'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 3407c279-8399-4106-ab15-2677cf90f9bf
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 10
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 11'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: ab254d3f-9f1d-40d8-99a3-76a55d419486
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 11
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 12'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 84698b0f-8fc0-4229-8f85-ec9600fd8bbd
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 12
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 13'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: f3c1f747-b916-4a3b-b34b-5d6a0a3bb8c4
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 13
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 14'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: eadb2d94-2e9f-4c7d-ad7c-a2c910255ed2
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 14
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 15'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 747134fc-9f5f-454f-a208-74a54a5c627a
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 15
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 16'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 94110af4-0deb-4859-aacd-0413d9f13faf
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 16
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 17'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 63976316-37eb-458f-a6e1-8579c61b2bbb
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 17
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 18'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 48b31321-808e-4ab0-b09a-1d8d7ae6e0fd
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 18
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 19'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 13cad684-877c-4307-8098-7ce75d7184e6
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 19
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Specific Field Label 20'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: ce29b6bb-3401-4ede-bac4-6a614cf19008
 		summarizeBy: none
 		sourceColumn: Customer Specific Field Label 20
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Condition Group 1'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 178cb281-57ab-47bc-bc14-850880091420
 		summarizeBy: none
 		sourceColumn: Customer Condition Group 1
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Industry Code 1'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 2d4aa2c7-e16c-4b02-9551-7fbd61f70301
 		summarizeBy: none
 		sourceColumn: Customer Industry Code 1
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Industry Code 2'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 07c6b745-24dd-4c07-9b94-588a1207975d
 		summarizeBy: none
 		sourceColumn: Customer Industry Code 2
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Industry Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: ce3657e7-1ec2-4474-8f82-6588662f195d
 		summarizeBy: none
 		sourceColumn: Customer Industry Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Industry Code 1 Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 21c626f3-037a-420e-b3e0-da0411a59503
 		summarizeBy: none
 		sourceColumn: Customer Industry Code 1 Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Industry Code 2 Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 49d616d9-5304-4f4f-90e8-96f9ac04aefb
 		summarizeBy: none
 		sourceColumn: Customer Industry Code 2 Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Assignment to Hierarchy'
 		dataType: int64
+		isHidden
 		formatString: 0
 		sourceProviderType: int
 		lineageTag: ab02ce86-c1f4-41bc-8e3b-f7928ba92554
 		summarizeBy: sum
 		sourceColumn: Customer Assignment to Hierarchy
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Account Group Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 25ba8e68-d4d7-454e-bc81-9063794c4631
 		summarizeBy: none
 		sourceColumn: Customer Account Group Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Region Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 22ae0620-28d4-464d-b590-a40e970a658c
 		summarizeBy: none
 		sourceColumn: Customer Region Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Country Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: c02b9a51-9cf8-466d-ae2a-f0fdf3d1e819
 		summarizeBy: none
 		sourceColumn: Customer Country Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Transportation Zone Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: e6be0664-5d33-4ce5-a279-7cb59def4a42
 		summarizeBy: none
 		sourceColumn: Customer Transportation Zone Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Plant Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 8465943f-b0bc-48f2-8418-f8a3e9777a9a
 		summarizeBy: none
 		sourceColumn: Customer Plant Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Condition Group Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 9b63673a-c60f-4404-80c6-3e094f180862
 		summarizeBy: none
 		sourceColumn: Customer Condition Group Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Cental Billing Block'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: f9c1dad2-6eb2-4562-b81f-1b11cc2dc83d
 		summarizeBy: none
 		sourceColumn: Customer Cental Billing Block
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Cental Billing Block Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 67254c5f-3e65-4c5c-beb8-c43391d26432
 		summarizeBy: none
 		sourceColumn: Customer Cental Billing Block Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Central Delivery Block'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 0c91adf8-a2ed-4f67-9c0f-6abeb5a2e639
 		summarizeBy: none
 		sourceColumn: Customer Central Delivery Block
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Central Delivery Block Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 07a59a98-54ab-4dd8-be33-e3a5feb6f61f
 		summarizeBy: none
 		sourceColumn: Customer Central Delivery Block Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Deletion Indicator'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 5e4cb6df-4d27-4c54-8689-fdcafcd97608
 		summarizeBy: none
 		sourceColumn: Customer Deletion Indicator
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Central Posting Block'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 415b2085-28c9-48d4-b49b-5e7acbe2dcb4
 		summarizeBy: none
 		sourceColumn: Customer Central Posting Block
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Tax Jurisdiction'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 17241add-fc94-4dd1-ad31-a38c00c6598e
 		summarizeBy: none
 		sourceColumn: Customer Tax Jurisdiction
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Central Sales Block'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 34954512-b1a3-48b2-8bb4-7eb5655866f1
 		summarizeBy: none
 		sourceColumn: Customer Central Sales Block
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Central Deletion Indicator'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: cd8ef07a-8a7d-4562-899b-96a1181de3d7
 		summarizeBy: none
 		sourceColumn: Customer Central Deletion Indicator
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Language Key'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 5e1e7d34-68d9-4187-9c26-f153cede8496
 		summarizeBy: none
 		sourceColumn: Customer Language Key
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Trading Partner'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 74f0b41d-6113-4ef5-bf0d-7428acdf8012
 		summarizeBy: none
 		sourceColumn: Customer Trading Partner
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Trading Partner Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 31c591a3-5b9d-4d0b-bcdc-512f257f6830
 		summarizeBy: none
 		sourceColumn: Customer Trading Partner Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Annual Sales'
 		dataType: double
+		isHidden
 		sourceProviderType: decimal(8, 2)
 		lineageTag: b4660ec3-1397-419c-ba8a-f914f029504c
 		summarizeBy: sum
 		sourceColumn: Customer Annual Sales
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -908,344 +1203,458 @@ table EDW_T_D_MST_CUSTOMR_CUR_D
 
 	column 'Customer Annual Sales Year'
 		dataType: int64
+		isHidden
 		formatString: 0
 		sourceProviderType: int
 		lineageTag: 6a797820-c2f5-4106-b657-1d4bee4d3e91
 		summarizeBy: sum
 		sourceColumn: Customer Annual Sales Year
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Sales Currency'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: e2624f7b-5264-48d5-be18-9d6ad6ff28e6
 		summarizeBy: none
 		sourceColumn: Customer Sales Currency
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Sales Currency Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 2f6c4784-29a8-4dc1-a378-834a3a3afd1d
 		summarizeBy: none
 		sourceColumn: Customer Sales Currency Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer One Time Account Group'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 19289bbf-509b-4e4a-9e2a-867ddcc7d73e
 		summarizeBy: none
 		sourceColumn: Customer One Time Account Group
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer One Time Account Group Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 95cd760f-7b99-4bb7-b9db-b01af7d2831a
 		summarizeBy: none
 		sourceColumn: Customer One Time Account Group Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer One Time Indicator'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 1ca837e0-6b2f-4278-825a-722105cb4516
 		summarizeBy: none
 		sourceColumn: Customer One Time Indicator
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Industry Type'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 90659ae8-07f9-44aa-b31a-f6c2a99be5b3
 		summarizeBy: none
 		sourceColumn: Customer Industry Type
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Business Type'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: fa2c5e71-8ce0-4fba-944b-9e42491c32a0
 		summarizeBy: none
 		sourceColumn: Customer Business Type
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer DUNS Number'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 067c6316-d4a9-4feb-938c-b98f3c5be880
 		summarizeBy: none
 		sourceColumn: Customer DUNS Number
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer DUNS Plus 4'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: c8463b8c-7f4b-41cf-8033-96cfb52cbb03
 		summarizeBy: none
 		sourceColumn: Customer DUNS Plus 4
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer City Coordinates'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 0848dac6-06f4-4f99-a256-fbacd7502d58
 		summarizeBy: none
 		sourceColumn: Customer City Coordinates
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Tax Number 4 Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 2ae05a3b-7df4-4480-ad50-a667169c0044
 		summarizeBy: none
 		sourceColumn: Customer Tax Number 4 Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Attribute 3'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: ca503330-6c9e-4df8-9680-685a92927e5d
 		summarizeBy: none
 		sourceColumn: Customer Attribute 3
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Attribute 3 Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 0e5b2ad6-be2a-45db-9a90-cb6e8330d6b8
 		summarizeBy: none
 		sourceColumn: Customer Attribute 3 Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer E-Mail Address'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 77c12472-9b2a-496a-91e6-6f2a7508f8f4
 		summarizeBy: none
 		sourceColumn: Customer E-Mail Address
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Mobile Number'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 85e1bb3b-3640-4c80-b995-c0e21cf62aa4
 		summarizeBy: none
 		sourceColumn: Customer Mobile Number
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Search Term 2'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: ae270d4a-5704-421e-88f1-7215d14b42a1
 		summarizeBy: none
 		sourceColumn: Customer Search Term 2
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Street 2'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 42c547d6-6509-4df8-b559-7182d329f631
 		summarizeBy: none
 		sourceColumn: Customer Street 2
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Street 3'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 40ab956c-879e-4824-abe1-1497f3d6e5d9
 		summarizeBy: none
 		sourceColumn: Customer Street 3
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Street 4'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 18bd530e-7382-4134-a232-9d17b2ddb351
 		summarizeBy: none
 		sourceColumn: Customer Street 4
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Street 5'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: a757c91a-293d-4c4a-9a0b-3177dbe64944
 		summarizeBy: none
 		sourceColumn: Customer Street 5
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer PO Box'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 227cef52-ee3f-4eed-8ed2-4116fa3bec79
 		summarizeBy: none
 		sourceColumn: Customer PO Box
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer PO Box Postal Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: c5876f8f-4b62-4547-9cf4-04bf5a27812b
 		summarizeBy: none
 		sourceColumn: Customer PO Box Postal Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer PO Box City'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: f9d13069-6aa7-4bcf-834f-8404fa39d641
 		summarizeBy: none
 		sourceColumn: Customer PO Box City
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Region For PO Box'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: e75a5f3d-5940-4b72-8460-54931b0577e9
 		summarizeBy: none
 		sourceColumn: Customer Region For PO Box
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer PO Box Country'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 0972e0e8-d43a-409d-a4da-1a02c5fed372
 		summarizeBy: none
 		sourceColumn: Customer PO Box Country
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Transport Zone'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 28134fcf-d533-4660-8206-6c5a0ead47e7
 		summarizeBy: none
 		sourceColumn: Customer Transport Zone
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Address Notes'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 42416e5c-fa2b-41d7-86ed-650017aa814b
 		summarizeBy: none
 		sourceColumn: Customer Address Notes
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Tax Number 3 Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 27734e73-2b57-4f16-8241-c297d323f15e
 		summarizeBy: none
 		sourceColumn: Customer Tax Number 3 Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Tax Number 5 Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 1697c9a4-13ab-4109-a052-0697902fb7c4
 		summarizeBy: none
 		sourceColumn: Customer Tax Number 5 Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Industry Code 3'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: b48d3246-fab7-4aed-9fcc-934f980e3305
 		summarizeBy: none
 		sourceColumn: Customer Industry Code 3
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Industry Code 3 Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: aa3b8736-ce10-4f73-9722-dee26a9cbee4
 		summarizeBy: none
 		sourceColumn: Customer Industry Code 3 Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Industry Code 4'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 4ae468ef-862b-47c8-b937-ab59a0a47ec5
 		summarizeBy: none
 		sourceColumn: Customer Industry Code 4
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Industry Code 4 Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 807010a8-aa6b-4557-af4b-ba503f2cea39
 		summarizeBy: none
 		sourceColumn: Customer Industry Code 4 Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Industry Code 5'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: c449b49b-751a-479a-9676-c7bcc5543e29
 		summarizeBy: none
 		sourceColumn: Customer Industry Code 5
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Industry Code 5 Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 80c48401-8977-4466-b7a4-55992e9ff1d8
 		summarizeBy: none
 		sourceColumn: Customer Industry Code 5 Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Central Order Block For Customer'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 770be411-a232-4928-af02-076249799f1a
 		summarizeBy: none
 		sourceColumn: Customer Central Order Block For Customer
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Payment Block'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: d38c6c21-f909-4401-a8a5-953f8b56d139
 		summarizeBy: none
 		sourceColumn: Customer Payment Block
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -1257,4 +1666,6 @@ table EDW_T_D_MST_CUSTOMR_CUR_D
 				    dbo_EDW_T_D_MST_CUSTOMR_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_CUSTOMR_CUR_D"]}[Data]
 				in
 				    dbo_EDW_T_D_MST_CUSTOMR_CUR_D
+
+	changedProperty = IsHidden
 

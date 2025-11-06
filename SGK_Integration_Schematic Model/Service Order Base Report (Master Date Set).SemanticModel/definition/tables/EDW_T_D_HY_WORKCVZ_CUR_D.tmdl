@@ -1,0 +1,76 @@
+table EDW_T_D_HY_WORKCVZ_CUR_D
+	lineageTag: d48efe13-17c0-414c-8ab1-490b9acbde4c
+
+	column WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f64c6c24-705d-4ad2-b59c-7a4d75feaee4
+		summarizeBy: sum
+		sourceColumn: WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Plant ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: aa2560c8-23f1-42de-9429-b0d83c3b3a28
+		summarizeBy: none
+		sourceColumn: Work Center Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b66f0828-416a-42d3-b9cb-b434e93fab4e
+		summarizeBy: none
+		sourceColumn: Work Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 248b9eaf-aa25-4ab8-8941-39a4da46e7d2
+		summarizeBy: none
+		sourceColumn: Work Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1f3d153b-261a-4418-896d-51d6e6502366
+		summarizeBy: none
+		sourceColumn: Work Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Child Description VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 06a26c31-02e3-4d05-87eb-9d045a76ecea
+		summarizeBy: none
+		sourceColumn: Work Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Level VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dfd02456-f8ad-4cfc-b647-52cdf5f82aa8
+		summarizeBy: none
+		sourceColumn: Work Center Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_HY_WORKCVZ_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_HY_WORKCVZ_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_HY_WORKCVZ_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_HY_WORKCVZ_CUR_D
+

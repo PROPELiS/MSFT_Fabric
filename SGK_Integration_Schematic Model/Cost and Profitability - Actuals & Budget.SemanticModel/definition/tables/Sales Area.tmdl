@@ -1,0 +1,192 @@
+table 'Sales Area'
+	lineageTag: 4b3e99a1-ba16-4760-bd54-e0827f1b7aba
+
+	column SALES_AREA_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c9a107b5-525a-4338-9cba-ccb9345f8a24
+		summarizeBy: none
+		sourceColumn: SALES_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Area Sales Organization'
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: 02a12a79-110e-4ebc-9fad-b271c9f52acb
+		summarizeBy: none
+		sourceColumn: Sales Area Sales Organization
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Area Sales Organization Name'
+		dataType: string
+		sourceProviderType: varchar(35)
+		lineageTag: 2c1502dc-15b1-4171-8774-6f59ce574999
+		summarizeBy: none
+		sourceColumn: Sales Area Sales Organization Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Area Distribution Channel'
+		dataType: string
+		sourceProviderType: varchar(2)
+		lineageTag: 379cf4cb-143c-4a65-b387-84a8feba2456
+		summarizeBy: none
+		sourceColumn: Sales Area Distribution Channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Distribution Channel Name'
+		dataType: string
+		sourceProviderType: varchar(35)
+		lineageTag: 61ee91f2-1776-422f-acd3-0f8a9075b730
+		summarizeBy: none
+		sourceColumn: Distribution Channel Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Area Division'
+		dataType: string
+		sourceProviderType: varchar(2)
+		lineageTag: 3ba3308e-703d-4dec-a189-ae7a106c62b4
+		summarizeBy: none
+		sourceColumn: Sales Area Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Area Division Name'
+		dataType: string
+		sourceProviderType: varchar(35)
+		lineageTag: 4a01ece8-b257-4905-b6c8-1c7c65295862
+		summarizeBy: none
+		sourceColumn: Sales Area Division Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Area Created Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: c79cea2f-2be7-4d85-ac8e-a9073aa65545
+		summarizeBy: none
+		sourceColumn: Sales Area Created Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Sales Area Created User ID'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 392b94d5-1d9f-418a-a2b6-e5c39466021b
+		summarizeBy: none
+		sourceColumn: Sales Area Created User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Area Updated Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 228f034a-f494-42b8-a122-5aae772be3ec
+		summarizeBy: none
+		sourceColumn: Sales Area Updated Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Sales Area Updated User ID'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 7902eec4-cee7-4188-b21d-46e666f11dab
+		summarizeBy: none
+		sourceColumn: Sales Area Updated User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 0025025d-8030-4e41-8c50-828990f8b726
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: eecb92ca-faa2-4cfd-8bde-806eff5d1b4c
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 6adb3b39-a481-48aa-b621-c985a1a4abe2
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: d000c975-f1c6-4b44-bcfc-e643ac760c23
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: a54af5b5-745a-42da-a618-24d26cbb8455
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 24c9f920-d541-4ab2-8d6c-255ce84e78e8
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column BIZ_SEG
+		dataType: string
+		sourceProviderType: varchar(35)
+		lineageTag: eb6a94fc-0bff-4f95-b929-7b1983b8c6ce
+		summarizeBy: none
+		sourceColumn: BIZ_SEG
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales Area' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_SAL_SALAREA_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_SAL_SALAREA_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_SAL_SALAREA_CUR_D
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,112 @@
+table 'Document Currency'
+	lineageTag: 09274864-8caa-4887-937d-819909d8271b
+
+	column CRNCY_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ed6454cd-af93-46ed-85ef-ec387d9b70ab
+		summarizeBy: none
+		sourceColumn: CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Document Currency Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d6da01ff-dc68-4088-a2a4-c39ce2c5578d
+		summarizeBy: none
+		sourceColumn: Document Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5722d770-88a5-40b1-a3e8-2f612e2ad310
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: b32f6614-e639-4ddb-8160-15bcf5ba23ad
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 2299631d-d55c-4600-b09c-1533c6489007
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c1d649d1-ae5f-43d6-857a-c0425f5d985e
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 3aa65a27-1474-45bd-935c-d4f055bcad90
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 08a85469-ed57-433e-a5e0-6f2d4b209c71
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Document Currency Short Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e644faae-774f-4e10-97e2-cd75afa29a02
+		summarizeBy: none
+		sourceColumn: Document Currency Short Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Document Currency Long Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1edeba05-c65d-4aaf-9345-6bb41ce7c898
+		summarizeBy: none
+		sourceColumn: Document Currency Long Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Document Currency' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_V_DOCUMENT_CURRENCY = Source{[Schema="Propelis",Item="V_DOCUMENT_CURRENCY"]}[Data]
+				in
+				    Propelis_V_DOCUMENT_CURRENCY
+

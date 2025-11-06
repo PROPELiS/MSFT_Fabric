@@ -1,0 +1,94 @@
+table 'SGK Standard Text'
+	lineageTag: d57046c1-e433-43ec-83a1-6884f35e7abc
+	sourceLineageTag: [dbo].[EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D]
+
+	column 'Operation Description'
+		dataType: string
+		lineageTag: 0f96ac52-470c-4eaf-9c9e-e20312841d1d
+		sourceLineageTag: Operation Description
+		summarizeBy: none
+		sourceColumn: Operation Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column STANDARD_TEXT_KEY
+		dataType: string
+		lineageTag: 6771c58c-6b40-4a00-8381-4cba3c756c24
+		sourceLineageTag: STANDARD_TEXT_KEY
+		summarizeBy: none
+		sourceColumn: STANDARD_TEXT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SSP Preferred Task'
+		dataType: string
+		lineageTag: 6914cb67-a315-4920-8684-9742866b81a1
+		sourceLineageTag: SSP Preferred Task
+		summarizeBy: none
+		sourceColumn: SSP Preferred Task
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Group'
+		dataType: string
+		lineageTag: 51b73905-4633-41a3-99f2-283abe3cd38c
+		sourceLineageTag: Activity Group
+		summarizeBy: none
+		sourceColumn: Activity Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CSR Tasks'
+		dataType: string
+		lineageTag: b8e8888c-9b41-4fcb-96b2-2a126acfc6e6
+		sourceLineageTag: CSR Tasks
+		summarizeBy: none
+		sourceColumn: CSR Tasks
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity With Status'
+		dataType: string
+		lineageTag: 9ce8935d-0beb-46cf-8982-f1a0dd9215b0
+		sourceLineageTag: Activity With Status
+		summarizeBy: none
+		sourceColumn: Activity With Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FY 2023 SS Tasks'
+		dataType: string
+		lineageTag: 533fb66b-5f37-48c3-b0ad-26f4ebef04f5
+		sourceLineageTag: FY 2023 SS Tasks
+		summarizeBy: none
+		sourceColumn: FY 2023 SS Tasks
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'All Tasks'
+		dataType: string
+		lineageTag: b9c707d2-442f-430e-8bf8-a5f51d1ba9e9
+		sourceLineageTag: All Tasks
+		summarizeBy: none
+		sourceColumn: All Tasks
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Automation Groups'
+		dataType: string
+		lineageTag: 94ca53b1-7a16-48ce-802f-cf6deb5b9046
+		sourceLineageTag: Automation Groups
+		summarizeBy: none
+		sourceColumn: Automation Groups
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'SGK Standard Text' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

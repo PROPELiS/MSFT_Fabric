@@ -1,0 +1,133 @@
+table EDW_T_D_MST_CUSTXMS_CUR_D
+	lineageTag: cac809b0-61b7-4e2c-8f05-a0613034c251
+	sourceLineageTag: [dbo].[EDW_T_D_MST_CUSTXMS_CUR_D]
+
+	column CUST_TAX_MAST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a32359ee-713f-4622-9a73-b47cf062c41e
+		sourceLineageTag: CUST_TAX_MAST_KEY
+		summarizeBy: sum
+		sourceColumn: CUST_TAX_MAST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Number'
+		dataType: string
+		lineageTag: 0306f38d-9a29-4fe5-a992-11dfe19c5617
+		sourceLineageTag: Customer Number
+		summarizeBy: none
+		sourceColumn: Customer Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Departure Country'
+		dataType: string
+		lineageTag: c704d355-94ca-48a6-a95b-d908c1ed6445
+		sourceLineageTag: Departure Country
+		summarizeBy: none
+		sourceColumn: Departure Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tax Category'
+		dataType: string
+		lineageTag: b48ed6e5-0f96-4172-a0be-5b64e30af7d3
+		sourceLineageTag: Tax Category
+		summarizeBy: none
+		sourceColumn: Tax Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tax Category Description'
+		dataType: string
+		lineageTag: d591ed05-0694-4689-b66e-209a42c184aa
+		sourceLineageTag: Tax Category Description
+		summarizeBy: none
+		sourceColumn: Tax Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tax Classification'
+		dataType: string
+		lineageTag: bd05e4f1-99ec-438d-9ec9-34f49c94352e
+		sourceLineageTag: Tax Classification
+		summarizeBy: none
+		sourceColumn: Tax Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tax Classification Description'
+		dataType: string
+		lineageTag: c64f0761-2f4c-45d0-a41a-25875c57bdbd
+		sourceLineageTag: Tax Classification Description
+		summarizeBy: none
+		sourceColumn: Tax Classification Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 75d95a5b-786c-401b-850e-975f1ad46d8a
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL_EFFECTV_BEGIN_DATE '
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 04a37009-d4b8-48ae-9db7-13f395375138
+		sourceLineageTag: "ETL_EFFECTV_BEGIN_DATE "
+		summarizeBy: none
+		sourceColumn: "ETL_EFFECTV_BEGIN_DATE "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL_EFFECTV_END_DATE '
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ea03bd78-3e0b-4370-a643-13d462f879fd
+		sourceLineageTag: "ETL_EFFECTV_END_DATE "
+		summarizeBy: none
+		sourceColumn: "ETL_EFFECTV_END_DATE "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Record Indicator of Customer Tax Master'
+		dataType: string
+		lineageTag: 6635e6e5-8ad6-4560-b2d8-8cab5546d2f0
+		sourceLineageTag: Current Record Indicator of Customer Tax Master
+		summarizeBy: none
+		sourceColumn: Current Record Indicator of Customer Tax Master
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 29879272-22b3-4303-9241-fa4b33a3efd1
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL_UPDTD_TS '
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7297427f-3041-4e81-bc16-f7db8c1a99d2
+		sourceLineageTag: "ETL_UPDTD_TS "
+		summarizeBy: none
+		sourceColumn: "ETL_UPDTD_TS "
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_CUSTXMS_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_CUSTXMS_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

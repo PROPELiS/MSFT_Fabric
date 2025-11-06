@@ -1,0 +1,84 @@
+relationship 174aba99-8cb2-bb4c-37d8-a6e69345fae8
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.PLNT_KEY
+	toColumn: EDW_T_D_MST_PLANT_CUR_D.PLNT_KEY
+
+relationship 8713b34d-4fc0-9d8f-0566-23f6b3ed79fa
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.MATRL_KEY
+	toColumn: EDW_T_D_MST_MATERIAL_CUR_D.MATRL_KEY
+
+relationship e1479a21-8418-9558-0eaa-fad8bc4d9a2e
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.STOR_LOC_KEY
+	toColumn: EDW_T_D_MST_STORLOC_CUR_D.STOR_LOC_KEY
+
+relationship 49108e0b-8d22-b503-86a4-6641cb289b0c
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.CUST_KEY
+	toColumn: EDW_T_D_MST_CUSTOMR_CUR_D.CUST_KEY
+
+relationship ec6db777-39d1-4e36-d4eb-7ca80b33046d
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.VNDR_KEY
+	toColumn: EDW_T_D_MST_VENDOR_CUR_D.VNDR_KEY
+
+relationship dc22307b-8174-6afd-ceb7-b0e81dc283ca
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.CMPNY_KEY
+	toColumn: EDW_T_D_MST_CMPNYCD_CUR_D.CMPNY_KEY
+
+relationship 72fa4431-098e-f70c-cffc-c588acba7568
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.CMPNY_CRNCY_KEY
+	toColumn: 'Company Currency'.CRNCY_KEY
+
+relationship c586f75a-50bd-a4e0-2373-2d7677ea50c0
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.PROFT_CNTR_KEY
+	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+
+relationship bec78c6b-a0d9-f091-b5f1-7060ec43552f
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.DOCMT_DATE_KEY
+	toColumn: 'Document Date'.DATE_KEY
+
+relationship d188b985-b986-ae59-7460-1c57725e5132
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.PSTNG_DATE_KEY
+	toColumn: 'Posting Date'.DATE_KEY
+
+relationship a72e44ca-3b23-dd8e-d8f3-573eb0e3d4fc
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.SALES_ORDER_KEY
+	toColumn: EDW_T_D_SAL_SALORDH_CUR_D.SALES_ORDER_KEY
+
+relationship 96124c1a-73aa-e43f-4a64-93fa622363e3
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.COST_CNTR_KEY
+	toColumn: EDW_T_D_MST_COSCNTR_CUR_D.COST_CNTR_KEY
+
+relationship 67711158-3fd7-9584-7cd8-72908960fbb6
+	toCardinality: many
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.COSTCHZ_COST_CNTR_KEY
+	toColumn: EDW_T_D_HY_COSTCHZ_CUR_D.COST_CNTR_KEY
+
+relationship 883b5f96-b4f8-7c7e-03be-2c2eeeeedecd
+	toCardinality: many
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.COSTCVZ_COST_CNTR_KEY
+	toColumn: EDW_T_D_HY_COSTCVZ_CUR_D.COST_CNTR_KEY
+
+relationship bb7ccd11-20e8-2767-989f-20aa2d9316a4
+	toCardinality: many
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.PROFCHZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCHZ_CUR_D.PROFT_CNTR_KEY
+
+relationship 76f73846-af71-439b-7626-a0ff18df06da
+	toCardinality: many
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.PROFCVZ_PROFT_CNTR_KEY
+	toColumn: EDW_T_D_HY_PROFCVZ_CUR_D.PROFT_CNTR_KEY
+
+relationship 0da70087-945e-4762-f5a8-19836b0a453d
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.GROUP_CRNCY_KEY
+	toColumn: 'Group Currency'.CRNCY_KEY
+
+relationship c370e199-de19-6cc9-1b0a-2bf4b85d89ec
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.CREATION_DATE_KEY
+	toColumn: 'Creation Date'.DATE_KEY
+
+relationship 1fee7561-2672-af3a-89e7-9d2ba333d248
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.RECVNG_PLNT_KEY
+	toColumn: 'Receiving Plant'.PLNT_KEY
+
+relationship 63bca0cd-7c8a-4eb9-e491-b53ad7a06cf6
+	fromColumn: EDW_T_FACT_IM_MATMVMT_CUR_D.PLNT_MATRL_KEY
+	toColumn: EDW_T_D_MST_PLNTMAT_CUR_D.PLNT_MATRL_KEY
+

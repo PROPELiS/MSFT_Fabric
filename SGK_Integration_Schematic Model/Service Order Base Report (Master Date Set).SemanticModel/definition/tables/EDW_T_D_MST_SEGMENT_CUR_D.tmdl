@@ -1,0 +1,165 @@
+table EDW_T_D_MST_SEGMENT_CUR_D
+	lineageTag: 01a57352-ae18-45da-af96-9f98091ff440
+
+	column SEG_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cb2fefa2-2571-4bf6-b772-8d78ee681f0d
+		summarizeBy: sum
+		sourceColumn: SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment ID'
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: c7987206-e7b1-4810-a2df-5e59a0836fe5
+		summarizeBy: none
+		sourceColumn: Segment ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Code Description'
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: 11c7eb78-0cff-4579-a9fd-a5b17ac87720
+		summarizeBy: none
+		sourceColumn: Segment Code Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Business Unit Code'
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: e23c4941-1a3e-43f8-b967-e7bcc12325e9
+		summarizeBy: none
+		sourceColumn: Segment Business Unit Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Business Unit Code Description'
+		dataType: string
+		sourceProviderType: varchar(40)
+		lineageTag: ae7f444c-0cea-4a45-8856-dab5440842f6
+		summarizeBy: none
+		sourceColumn: Segment Business Unit Code Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Created Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 5cd0db34-6c75-4929-ae4d-e3812f39adfb
+		summarizeBy: none
+		sourceColumn: Segment Created Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Segment Created User ID'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 305ae9e1-b913-4311-a8ed-bfec8d649ec2
+		summarizeBy: none
+		sourceColumn: Segment Created User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Updated Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: e5ebf7b8-b32b-48b3-992d-fd7cc655e0c1
+		summarizeBy: none
+		sourceColumn: Segment Updated Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Segment Updated User ID'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 6b6f5897-085e-42ee-8ff5-ae67ae871996
+		summarizeBy: none
+		sourceColumn: Segment Updated User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: a39be446-94c7-44c4-8a52-be2cc35a7bd3
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 5c0cb02e-7312-44af-9eb5-bf6ea66cda05
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ea193f9a-cbbd-4355-bf8d-0784404dd86a
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: 71624633-193c-4e95-a819-c1ebd90096c5
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: fd6ab7af-0c33-45bd-9751-4ab365ab5117
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: de72dba3-bf23-40b3-a6f3-09654281e827
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_SEGMENT_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_SEGMENT_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_SEGMENT_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_SEGMENT_CUR_D
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,31 @@
+table 'Partner Profit Center Trading Partner Grouping'
+	lineageTag: b81859f0-3aad-4028-8dff-74f0dab30113
+	sourceLineageTag: [Propelis].[PARTNER_PROFIT_CENTER_TRADING_PARTNER_GROUPING]
+
+	column PROFT_CNTR_ID
+		dataType: string
+		lineageTag: 86d5f23d-129f-4f81-880f-160d4e45eef1
+		sourceLineageTag: PROFT_CNTR_ID
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Trading Partner ID'
+		dataType: string
+		lineageTag: 376beb51-bf3a-4771-a3a1-7501372970d5
+		sourceLineageTag: Partner Trading Partner ID
+		summarizeBy: none
+		sourceColumn: Partner Trading Partner ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Partner Profit Center Trading Partner Grouping' = entity
+		mode: directLake
+		source
+			entityName: PARTNER_PROFIT_CENTER_TRADING_PARTNER_GROUPING
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

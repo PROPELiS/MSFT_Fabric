@@ -1,0 +1,56 @@
+table EDW_T_R_BASE_TARGET_PRICE
+	lineageTag: 702932d2-6730-4d93-811b-9a2f98b30d1c
+
+	column 'Base Target Price Sales Order'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(255)
+		lineageTag: f8655e14-3499-4361-bbfa-731760f0448f
+		summarizeBy: none
+		sourceColumn: Base Target Price Sales Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Price Currency'
+		dataType: string
+		sourceProviderType: varchar(255)
+		lineageTag: 5994f3e4-0688-4b5c-8c29-5fd5a6d3a4c5
+		summarizeBy: none
+		sourceColumn: Base Target Price Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Price'
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 8c45043f-cf62-4831-b8c0-7a7398ad57e3
+		summarizeBy: sum
+		sourceColumn: Base Target Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Base Target Price Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 30c309cf-f6f6-48be-b453-10a0195585bf
+		summarizeBy: none
+		sourceColumn: Base Target Price Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition EDW_T_R_BASE_TARGET_PRICE = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_R_BASE_TARGET_PRICE = Source{[Schema="dbo",Item="EDW_T_R_BASE_TARGET_PRICE"]}[Data]
+				in
+				    dbo_EDW_T_R_BASE_TARGET_PRICE
+
+	annotation PBI_ResultType = Table
+

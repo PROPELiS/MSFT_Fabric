@@ -1,0 +1,273 @@
+table EDW_T_B_SAL_SOIPTNR_CUR_D
+	lineageTag: b55f6f75-72b1-4efc-97ae-85e250025230
+
+	column SALES_ORDER_ID
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(10)
+		lineageTag: 46d88dcf-2013-4483-8b40-ff1be054242c
+		summarizeBy: none
+		sourceColumn: SALES_ORDER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_ORDER_ITM_ID
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c8fb4319-9dac-4a6b-9338-ae42f249b821
+		summarizeBy: count
+		sourceColumn: SALES_ORDER_ITM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BILL_TO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a67823e4-1649-4b95-85a3-52f82d82d235
+		summarizeBy: sum
+		sourceColumn: BILL_TO_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAYER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 62f5e525-9e84-4852-a97b-10a396997faf
+		summarizeBy: sum
+		sourceColumn: PAYER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHIP_TO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d39c7ac2-8997-4433-b26a-14e26380647c
+		summarizeBy: sum
+		sourceColumn: SHIP_TO_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column BRAND_OWNER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d2f03c41-be98-4dd7-8ced-fb23ceb815d4
+		summarizeBy: sum
+		sourceColumn: BRAND_OWNER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a91a5d5b-58da-4938-8938-668153f52441
+		summarizeBy: sum
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_PROJ_MGR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 87b80ac4-59c6-45b2-8444-6b94da4e6a52
+		summarizeBy: sum
+		sourceColumn: CUST_PROJ_MGR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_PERSON_PERSONNEL_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: aeed00b4-5eea-400c-b654-1787426cd2a2
+		summarizeBy: sum
+		sourceColumn: SALES_PERSON_PERSONNEL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSON_RESPNSBLE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d931572c-56f6-41c8-9f51-5f7a90409729
+		summarizeBy: sum
+		sourceColumn: PERSON_RESPNSBLE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CYLINDER_OWNER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5a6403c5-07f1-4ecd-8c64-0e512a633a54
+		summarizeBy: sum
+		sourceColumn: CYLINDER_OWNER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOLDTO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0bdbb04b-9865-4c39-a1b0-9c17203e6b88
+		summarizeBy: sum
+		sourceColumn: SOLDTO_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARENT_CUST_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8c2178cd-8c24-4c41-bb9e-05346a0700b0
+		summarizeBy: sum
+		sourceColumn: PARENT_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGENCY_CUST_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5badff99-5768-4ee6-91f0-921b1052eda3
+		summarizeBy: sum
+		sourceColumn: AGENCY_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRINTER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b6322ae6-fdbb-4f16-b237-80a787f3a651
+		summarizeBy: sum
+		sourceColumn: PRINTER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUPPLIER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9ab97de4-c3e5-494a-b663-06fba51a94c9
+		summarizeBy: sum
+		sourceColumn: SUPPLIER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_RESPNSBLE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 23dc19d9-ab39-4dcf-8a53-183d9b7b7ae9
+		summarizeBy: sum
+		sourceColumn: EMPL_RESPNSBLE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_RESPNSBLE_2_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 118e6be1-c330-49d5-a74d-5c148d04699f
+		summarizeBy: sum
+		sourceColumn: EMPL_RESPNSBLE_2_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 44f19df9-7521-45db-a138-d806fc2f7ce4
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: be96b126-3d74-43bb-9475-2139cd7cc418
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 1d2d32c4-548e-4bbf-b83c-bf54944f077a
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column FORWARDING_AGENT_VNDR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 971bc35f-65cf-4051-af88-50cd67c2c1f0
+		summarizeBy: sum
+		sourceColumn: FORWARDING_AGENT_VNDR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNITIZATION_AGENT_VNDR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 12b44b54-1f49-4730-9b51-6cec14ae18ae
+		summarizeBy: sum
+		sourceColumn: UNITIZATION_AGENT_VNDR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORDER_FOR_CUST_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7f9c8943-4dc3-4c37-9514-b5dc908bfef4
+		summarizeBy: sum
+		sourceColumn: ORDER_FOR_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SO_PARENT_CUST_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5867a021-d3d0-4cb3-a5db-67a2c84543ba
+		summarizeBy: sum
+		sourceColumn: SO_PARENT_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOIPTNR_KEY
+		dataType: string
+		sourceProviderType: varchar(250)
+		lineageTag: 75b14d8f-3484-4661-b5c2-e9763a315c80
+		summarizeBy: none
+		sourceColumn: SOIPTNR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_B_SAL_SOIPTNR_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_B_SAL_SOIPTNR_CUR_D = Source{[Schema="dbo",Item="EDW_T_B_SAL_SOIPTNR_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_B_SAL_SOIPTNR_CUR_D
+
+	annotation PBI_ResultType = Table
+

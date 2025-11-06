@@ -1,8 +1,10 @@
 table EDW_T_D_MST_PERSONL_CUR_D
+	isHidden
 	lineageTag: a8cb1dbb-ee05-4556-a1fb-c5393decbeb1
 
 	column PERSONEL_KEY
 		dataType: int64
+		isHidden
 		isNullable: false
 		formatString: 0
 		sourceProviderType: int
@@ -10,96 +12,128 @@ table EDW_T_D_MST_PERSONL_CUR_D
 		summarizeBy: sum
 		sourceColumn: PERSONEL_KEY
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Number'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: af8bd659-e1af-4f33-b6f9-3d0fabde38aa
 		summarizeBy: none
 		sourceColumn: Personnel Number
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Company Code'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 560b5c4b-aed9-41eb-8d16-7244bc562d1a
 		summarizeBy: none
 		sourceColumn: Personnel Company Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Plant ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 8033b318-ce44-4196-ad7f-7e767f2fa0f2
 		summarizeBy: none
 		sourceColumn: Personnel Plant ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Cost Center ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 7f8d4141-1eee-4dda-aa45-a08b02006d10
 		summarizeBy: none
 		sourceColumn: Personnel Cost Center ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Success Factors ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 676b978c-ca14-401f-953b-839de17b5f69
 		summarizeBy: none
 		sourceColumn: Personnel Success Factors ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Employee First Name'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 2f7de0d6-dbb5-4a0f-a5be-2d721a1708eb
 		summarizeBy: none
 		sourceColumn: Personnel Employee First Name
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Employee Last Name'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: ebc578e7-371b-4194-9cd4-c109ec42e600
 		summarizeBy: none
 		sourceColumn: Personnel Employee Last Name
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Employee Full Name'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 161b9553-2b5e-4999-aba4-e60e90fa5a06
 		summarizeBy: none
 		sourceColumn: Personnel Employee Full Name
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Employee Status Indicator'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: e51b1095-35c7-4b1c-b245-6e85689ce324
 		summarizeBy: none
 		sourceColumn: Personnel Employee Status Indicator
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Employment Start Date'
 		dataType: dateTime
+		isHidden
 		formatString: Long Date
 		sourceProviderType: date
 		lineageTag: 47abcdc4-7bee-43da-820c-8deac905f8f1
 		summarizeBy: none
 		sourceColumn: Personnel Employment Start Date
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -107,11 +141,14 @@ table EDW_T_D_MST_PERSONL_CUR_D
 
 	column 'Personnel Employment End Date'
 		dataType: dateTime
+		isHidden
 		formatString: Long Date
 		sourceProviderType: date
 		lineageTag: e508fea4-4b6f-49bc-892e-02af0a8d1941
 		summarizeBy: none
 		sourceColumn: Personnel Employment End Date
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -119,74 +156,98 @@ table EDW_T_D_MST_PERSONL_CUR_D
 
 	column 'Personnel Employee Group ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 08e41c25-bdee-4d87-981f-1417f69b54d7
 		summarizeBy: none
 		sourceColumn: Personnel Employee Group ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Employee Group Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 1c478d24-4888-46b3-a25f-49785538d04f
 		summarizeBy: none
 		sourceColumn: Personnel Employee Group Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Employee SubGroup ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: db271394-414a-432b-803d-bfea9607cbdb
 		summarizeBy: none
 		sourceColumn: Personnel Employee SubGroup ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Employee SubGroup Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 2ba33c35-2e6a-44cc-a1ae-193e86d378c6
 		summarizeBy: none
 		sourceColumn: Personnel Employee SubGroup Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Employee Telephone 1'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: a3d93c61-6806-4fbb-919b-b1cf239892ed
 		summarizeBy: none
 		sourceColumn: Personnel Employee Telephone 1
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Employee Telephone 2'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 7c393f14-2642-4b16-b43b-0ca2399c35c8
 		summarizeBy: none
 		sourceColumn: Personnel Employee Telephone 2
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column EMAIL_ADDR
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 02f6524e-d568-494e-a0c2-44bccd2078e3
 		summarizeBy: none
 		sourceColumn: EMAIL_ADDR
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Created Date'
 		dataType: dateTime
+		isHidden
 		formatString: Long Date
 		sourceProviderType: date
 		lineageTag: 187d08ee-c1bf-4396-90a9-e3174e0a7b67
 		summarizeBy: none
 		sourceColumn: Personnel Created Date
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -194,20 +255,26 @@ table EDW_T_D_MST_PERSONL_CUR_D
 
 	column 'Personnel Created User ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 253ea455-3303-445b-9858-57f0f5b68e93
 		summarizeBy: none
 		sourceColumn: Personnel Created User ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Updated Date'
 		dataType: dateTime
+		isHidden
 		formatString: Long Date
 		sourceProviderType: date
 		lineageTag: 6cd53527-81ef-4ad7-abfc-9ed79f43e4df
 		summarizeBy: none
 		sourceColumn: Personnel Updated Date
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -215,29 +282,38 @@ table EDW_T_D_MST_PERSONL_CUR_D
 
 	column 'Personnel Updated User ID'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 3b6a3810-6b87-4f7b-b378-4886444e8423
 		summarizeBy: none
 		sourceColumn: Personnel Updated User ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ETL_SRC_SYS_CD
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 5b60d201-922d-4430-98ef-e89480eb9917
 		summarizeBy: none
 		sourceColumn: ETL_SRC_SYS_CD
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ETL_EFFECTV_BEGIN_DATE
 		dataType: dateTime
+		isHidden
 		formatString: Long Date
 		sourceProviderType: date
 		lineageTag: f3be19b0-38f6-4f84-96dd-ded1d06d2ac4
 		summarizeBy: none
 		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -245,11 +321,14 @@ table EDW_T_D_MST_PERSONL_CUR_D
 
 	column ETL_EFFECTV_END_DATE
 		dataType: dateTime
+		isHidden
 		formatString: Long Date
 		sourceProviderType: date
 		lineageTag: b2521552-fe96-4e74-8458-2b7120066804
 		summarizeBy: none
 		sourceColumn: ETL_EFFECTV_END_DATE
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -257,48 +336,63 @@ table EDW_T_D_MST_PERSONL_CUR_D
 
 	column ETL_CURR_RCD_IND
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 838de21e-b131-471a-b00c-18e5af3eaaaf
 		summarizeBy: none
 		sourceColumn: ETL_CURR_RCD_IND
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ETL_CREATED_TS
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		sourceProviderType: datetime2
 		lineageTag: 774cd3a6-3c01-415e-b8d6-fa0d63f440b7
 		summarizeBy: none
 		sourceColumn: ETL_CREATED_TS
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ETL_UPDTD_TS
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		sourceProviderType: datetime2
 		lineageTag: 77145882-6e2f-4cb5-8533-76bc060e357a
 		summarizeBy: none
 		sourceColumn: ETL_UPDTD_TS
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Company Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: a65de114-1b4e-48c9-8b07-bdb43f961d96
 		summarizeBy: none
 		sourceColumn: Personnel Company Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Personnel Plant Description'
 		dataType: string
+		isHidden
 		sourceProviderType: varchar(max)
 		lineageTag: 2b0923c2-7369-4965-aec9-4366366fa421
 		summarizeBy: none
 		sourceColumn: Personnel Plant Description
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -310,4 +404,6 @@ table EDW_T_D_MST_PERSONL_CUR_D
 				    dbo_EDW_T_D_MST_PERSONL_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_PERSONL_CUR_D"]}[Data]
 				in
 				    dbo_EDW_T_D_MST_PERSONL_CUR_D
+
+	changedProperty = IsHidden
 

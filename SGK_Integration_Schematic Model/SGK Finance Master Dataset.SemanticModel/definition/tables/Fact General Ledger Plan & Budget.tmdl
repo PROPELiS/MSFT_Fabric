@@ -1,0 +1,470 @@
+table 'Fact General Ledger Plan & Budget'
+	lineageTag: f7b0b569-acbd-42d7-b0a1-7117abcd2a66
+	sourceLineageTag: [Propelis].[EDW_T_FACT_FI_GENLDGT2_CUR_D]
+
+	measure 'Company Currency Amount Plan & Budget' = ```
+			sum('Fact General Ledger Plan & Budget'[CMPNY_CRNCY_AMT])
+			
+			```
+		lineageTag: c6bbf344-7cf6-4ef7-8a71-b4fe9a7cbacd
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Group Currency Amount Plan & Budget' = ```
+			sum('Fact General Ledger Plan & Budget'[GROUP_CRNCY_AMT])
+			
+			```
+		lineageTag: 7a056438-435a-4978-8ed1-00a61503dca5
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Transaction Currency Amount Plan & Budget' = sum('Fact General Ledger Plan & Budget'[TRNSCTN_CRNCY_AMT])
+		lineageTag: 3ff71482-ecd0-45c4-ab17-a20c3de15e92
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c6b0660-e48f-45a7-9c2b-b3254d6774ea
+		sourceLineageTag: Fiscal Year
+		summarizeBy: sum
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Table Group Object Number 00'
+		dataType: int64
+		formatString: 0
+		lineageTag: 375b4db8-6d60-489b-a5c3-5b2904059a2a
+		sourceLineageTag: Table Group Object Number 00
+		summarizeBy: sum
+		sourceColumn: Table Group Object Number 00
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Table Group Object Number 01'
+		dataType: int64
+		formatString: 0
+		lineageTag: c61dd4fc-5ff5-421f-a08d-df8186c40228
+		sourceLineageTag: Table Group Object Number 01
+		summarizeBy: sum
+		sourceColumn: Table Group Object Number 01
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Table Group Object Number 03'
+		dataType: int64
+		formatString: 0
+		lineageTag: dc1e712d-7a2a-44df-b4c3-e7659fe923d1
+		sourceLineageTag: Table Group Object Number 03
+		summarizeBy: sum
+		sourceColumn: Table Group Object Number 03
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Table Group Object Number 04'
+		dataType: int64
+		formatString: 0
+		lineageTag: 98454f31-1788-4267-92db-fa2af87772bc
+		sourceLineageTag: Table Group Object Number 04
+		summarizeBy: sum
+		sourceColumn: Table Group Object Number 04
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Table Group Object Number 02'
+		dataType: int64
+		formatString: 0
+		lineageTag: 64c05980-a44f-4054-a66f-5703264763d6
+		sourceLineageTag: Table Group Object Number 02
+		summarizeBy: sum
+		sourceColumn: Table Group Object Number 02
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a3101dc7-1ba3-4b8b-b562-401c121cf160
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Area ID'
+		dataType: string
+		lineageTag: fc048958-2d26-42f4-bc57-aa09a860beaa
+		sourceLineageTag: Functional Area ID
+		summarizeBy: none
+		sourceColumn: Functional Area ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Code'
+		dataType: string
+		lineageTag: bd1df538-f718-42dc-8f15-91bf3347833e
+		sourceLineageTag: General Ledger Code
+		summarizeBy: none
+		sourceColumn: General Ledger Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_PRFT_CNTR_V_HIER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3ca8666c-1f1c-4f16-881b-8353d8ff0e37
+		sourceLineageTag: PRTNR_PRFT_CNTR_V_HIER_KEY
+		summarizeBy: none
+		sourceColumn: PRTNR_PRFT_CNTR_V_HIER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_PRFT_CNTR_H_HIER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: f0d76107-d481-400c-a241-971ebb945a7d
+		sourceLineageTag: PRTNR_PRFT_CNTR_H_HIER_KEY
+		summarizeBy: none
+		sourceColumn: PRTNR_PRFT_CNTR_H_HIER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROUP_CRNCY_AMT
+		dataType: double
+		lineageTag: ea3a1a4a-e177-4d63-a54f-fd67c7dd554e
+		sourceLineageTag: GROUP_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: GROUP_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Posting Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3cdc344e-d130-4c63-afce-b80e61a73250
+		sourceLineageTag: Posting Period
+		summarizeBy: sum
+		sourceColumn: Posting Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEG_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: b8912d72-e12f-41fc-9b8c-64c76f59b0ed
+		sourceLineageTag: SEG_KEY
+		summarizeBy: none
+		sourceColumn: SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRADING_PRTNR_CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: c923037b-0459-4264-9887-e29d01387b48
+		sourceLineageTag: TRADING_PRTNR_CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: TRADING_PRTNR_CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: a9eadb50-6873-4403-9778-6b8e7298f96e
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 40809198-68ff-435f-9c89-09f0712ad821
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 89bc9869-f919-49d1-adfe-38ba2f44e8df
+		sourceLineageTag: PRTNR_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PRTNR_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 26914141-f1e8-4747-9699-282daea2f056
+		sourceLineageTag: FUNCTNL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: cdf049bc-4154-417b-85bf-b203f8bbe803
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 32829095-4291-4c43-88ad-2b4c9ff9d7be
+		sourceLineageTag: GL_KEY
+		summarizeBy: none
+		sourceColumn: GL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRNSCTN_CRNCY_AMT
+		dataType: double
+		lineageTag: e454af59-cee6-4598-96b2-daaf5ebcd142
+		sourceLineageTag: TRNSCTN_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: TRNSCTN_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CMPNY_CRNCY_AMT
+		dataType: double
+		lineageTag: 3172d8ce-54ef-448b-8ed4-7dcc59874f63
+		sourceLineageTag: CMPNY_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: CMPNY_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DOCMT_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: d3027e70-f13a-48fd-92bb-804716110de2
+		sourceLineageTag: DOCMT_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: DOCMT_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 32ff0d41-1387-4eae-bd9e-8fc88006701b
+		sourceLineageTag: CMPNY_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROUP_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: c92cdd36-7c94-4145-9c43-4c7c5bf8fa49
+		sourceLineageTag: GROUP_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: GROUP_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Record Type'
+		dataType: string
+		lineageTag: cca0120b-ac67-4da2-9df3-04cfa9253006
+		sourceLineageTag: Record Type
+		summarizeBy: none
+		sourceColumn: Record Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Record Type Description'
+		dataType: string
+		lineageTag: 25d5b2c5-5135-4c33-8058-dbd2f8e68138
+		sourceLineageTag: Record Type Description
+		summarizeBy: none
+		sourceColumn: Record Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f99cada-393e-4ea2-b84b-0dc51f431cc5
+		sourceLineageTag: CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Version
+		dataType: string
+		lineageTag: eaffe4ef-14b5-4aac-90a7-d94309d25b76
+		sourceLineageTag: Version
+		summarizeBy: none
+		sourceColumn: Version
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Version Description'
+		dataType: string
+		lineageTag: b74563e1-f9ba-432f-a43c-f455eb4ac97d
+		sourceLineageTag: Version Description
+		summarizeBy: none
+		sourceColumn: Version Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Controlling Area'
+		dataType: string
+		lineageTag: 9850528f-95c4-420b-9d85-c2a8d315284a
+		sourceLineageTag: Controlling Area
+		summarizeBy: none
+		sourceColumn: Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Controlling Area Description'
+		dataType: string
+		lineageTag: 224d185d-4709-46fe-8476-609a2fdd6adb
+		sourceLineageTag: Controlling Area Description
+		summarizeBy: none
+		sourceColumn: Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ledger
+		dataType: string
+		lineageTag: d5099c61-09b6-43a6-8fed-9396e218adc9
+		sourceLineageTag: Ledger
+		summarizeBy: none
+		sourceColumn: Ledger
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ledger Description'
+		dataType: string
+		lineageTag: 6d08492d-25d2-4ceb-9eab-8db09efcab6c
+		sourceLineageTag: Ledger Description
+		summarizeBy: none
+		sourceColumn: Ledger Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Table Group Object Number 05'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7dde753a-05b5-48c5-be08-11947d6621ae
+		sourceLineageTag: Table Group Object Number 05
+		summarizeBy: sum
+		sourceColumn: Table Group Object Number 05
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Table Group Object Number 06'
+		dataType: int64
+		formatString: 0
+		lineageTag: c061171e-46f4-45ae-aab9-d5d68a8497f6
+		sourceLineageTag: Table Group Object Number 06
+		summarizeBy: sum
+		sourceColumn: Table Group Object Number 06
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Table Group Object Number 07'
+		dataType: int64
+		formatString: 0
+		lineageTag: d5017423-b546-40ae-abab-9f8ba4afcf3e
+		sourceLineageTag: Table Group Object Number 07
+		summarizeBy: sum
+		sourceColumn: Table Group Object Number 07
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Table Group Object Number 08'
+		dataType: int64
+		formatString: 0
+		lineageTag: 78d61e97-d3c3-4087-b1d7-52c7826256f3
+		sourceLineageTag: Table Group Object Number 08
+		summarizeBy: sum
+		sourceColumn: Table Group Object Number 08
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Max Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 80b7bac8-fb61-4d33-9092-bc45afd60ccf
+		sourceLineageTag: Max Period
+		summarizeBy: sum
+		sourceColumn: Max Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Debit Credit Indicator'
+		dataType: string
+		lineageTag: b785cf6e-89ae-4d32-bd5e-1736e27a6756
+		sourceLineageTag: Debit Credit Indicator
+		summarizeBy: none
+		sourceColumn: Debit Credit Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column Functional_GL_Key
+		dataType: string
+		lineageTag: 19572267-54a2-4c8f-8452-c094cc8d65e9
+		sourceLineageTag: Functional_GL_Key
+		summarizeBy: none
+		sourceColumn: Functional_GL_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCHZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: cca682d8-fd26-41ab-a7fa-feb9e28f639c
+		sourceLineageTag: PROFCHZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCHZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCVZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 750bb3ef-8725-4c93-adce-a8c7fd76aaa5
+		sourceLineageTag: PROFCVZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCVZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact General Ledger Plan & Budget' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_FACT_FI_GENLDGT2_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

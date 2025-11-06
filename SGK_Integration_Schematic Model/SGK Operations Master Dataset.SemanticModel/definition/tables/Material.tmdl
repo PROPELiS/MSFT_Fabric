@@ -1,0 +1,2011 @@
+table Material
+	lineageTag: 5b27652d-6b89-4aa1-b3af-d66fb5919552
+	sourceLineageTag: [dbo].[EDW_T_D_MST_MATERIAL_CUR_D]
+
+	column MATRL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 062589fd-47bd-484c-aa8a-66185815068d
+		sourceLineageTag: MATRL_KEY
+		summarizeBy: none
+		sourceColumn: MATRL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material ID'
+		dataType: string
+		lineageTag: 2ee188d9-a20c-4045-b8d4-7a606359fc32
+		sourceLineageTag: Material ID
+		summarizeBy: none
+		sourceColumn: Material ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Description'
+		dataType: string
+		lineageTag: 49773041-556c-4e58-bdbf-5bca31f90f8b
+		sourceLineageTag: Material Description
+		summarizeBy: none
+		sourceColumn: Material Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legacy Material ID'
+		dataType: string
+		lineageTag: fc68c55c-56df-4de7-b611-ff09b42dd416
+		sourceLineageTag: Legacy Material ID
+		summarizeBy: none
+		sourceColumn: Legacy Material ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Customer ID'
+		dataType: string
+		lineageTag: b28cb665-901c-4780-b593-283c8b62f0e6
+		sourceLineageTag: Material Customer ID
+		summarizeBy: none
+		sourceColumn: Material Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Category'
+		dataType: string
+		lineageTag: 7a746526-fa92-40ac-b93d-837876670d08
+		sourceLineageTag: Material Category
+		summarizeBy: none
+		sourceColumn: Material Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Type'
+		dataType: string
+		lineageTag: 54a403ae-5064-4faa-abad-f0f8151984d4
+		sourceLineageTag: Material Type
+		summarizeBy: none
+		sourceColumn: Material Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Group'
+		dataType: string
+		lineageTag: 6014cb08-8dc4-4711-8c0b-cce9d6683c2d
+		sourceLineageTag: Material Group
+		summarizeBy: none
+		sourceColumn: Material Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Base Unit Of Measure'
+		dataType: string
+		lineageTag: 8526429a-916f-4678-85e7-634efb935f15
+		sourceLineageTag: Material Base Unit Of Measure
+		summarizeBy: none
+		sourceColumn: Material Base Unit Of Measure
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Industry Sector'
+		dataType: string
+		lineageTag: eee8cc06-5405-4622-af06-05210881b3d2
+		sourceLineageTag: Material Industry Sector
+		summarizeBy: none
+		sourceColumn: Material Industry Sector
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material General Item Category Group'
+		dataType: string
+		lineageTag: 88b25af5-b501-4782-b173-6f2db7fc8abf
+		sourceLineageTag: Material General Item Category Group
+		summarizeBy: none
+		sourceColumn: Material General Item Category Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Unit'
+		dataType: string
+		lineageTag: 7b3aba7a-e141-4d34-b556-38a19e8f8a87
+		sourceLineageTag: Material Unit
+		summarizeBy: none
+		sourceColumn: Material Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Gross Weight'
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 813ac2d9-b16e-4ac2-82fe-a40d69ae14cd
+		sourceLineageTag: Material Gross Weight
+		summarizeBy: sum
+		sourceColumn: Material Gross Weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Material Net Weight'
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 3c7df73c-6736-476c-994a-3944c0297499
+		sourceLineageTag: Material Net Weight
+		summarizeBy: sum
+		sourceColumn: Material Net Weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Material Product Hierarchy'
+		dataType: string
+		lineageTag: 33c87e3a-bb4a-4472-ae43-a90d321ef95a
+		sourceLineageTag: Material Product Hierarchy
+		summarizeBy: none
+		sourceColumn: Material Product Hierarchy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category of Material'
+		dataType: string
+		lineageTag: 6cd4afb4-74b0-4bd1-9696-1d23bcc6e41c
+		sourceLineageTag: Category of Material
+		summarizeBy: none
+		sourceColumn: Category of Material
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Brand'
+		dataType: string
+		lineageTag: e620bfa4-934d-4fd6-9893-39ff8abde537
+		sourceLineageTag: Material Brand
+		summarizeBy: none
+		sourceColumn: Material Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Sub Brand'
+		dataType: string
+		lineageTag: 6e8e4490-f398-4b4c-94b1-c968624b695b
+		sourceLineageTag: Material Sub Brand
+		summarizeBy: none
+		sourceColumn: Material Sub Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Variant Obsolete'
+		dataType: string
+		lineageTag: 6de1f03e-a26d-432a-9249-8cf3194acbe3
+		sourceLineageTag: Material Variant Obsolete
+		summarizeBy: none
+		sourceColumn: Material Variant Obsolete
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Variant'
+		dataType: string
+		lineageTag: 0b41f5d4-62b1-42be-b1c0-a3c2a01c9b1b
+		sourceLineageTag: Material Variant
+		summarizeBy: none
+		sourceColumn: Material Variant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Name 1'
+		dataType: string
+		lineageTag: 0e98821c-e19e-4b59-a8fc-a9ca38c51ebf
+		sourceLineageTag: Material Name 1
+		summarizeBy: none
+		sourceColumn: Material Name 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Pack Size'
+		dataType: string
+		lineageTag: 4622022f-4194-49db-aa21-444e1081db36
+		sourceLineageTag: Material Pack Size
+		summarizeBy: none
+		sourceColumn: Material Pack Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Pack Type'
+		dataType: string
+		lineageTag: 0ddeae1e-bf0d-4350-ad87-83bae112188f
+		sourceLineageTag: Material Pack Type
+		summarizeBy: none
+		sourceColumn: Material Pack Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Country Name'
+		dataType: string
+		lineageTag: a7bc33d2-61fe-4184-9312-fb911b2740ce
+		sourceLineageTag: Material Country Name
+		summarizeBy: none
+		sourceColumn: Material Country Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Print Method'
+		dataType: string
+		lineageTag: 641c3b48-6833-4d4a-9c88-60ed907421a1
+		sourceLineageTag: Material Print Method
+		summarizeBy: none
+		sourceColumn: Material Print Method
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Level 4 Product Category Code'
+		dataType: string
+		lineageTag: b4d82bfa-fff8-4e62-b1d2-e20a85410b78
+		sourceLineageTag: Material Level 4 Product Category Code
+		summarizeBy: none
+		sourceColumn: Material Level 4 Product Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Level 4 Product Category Description'
+		dataType: string
+		lineageTag: 1c47e7ea-3ac2-4e2e-a120-ad4393030bfc
+		sourceLineageTag: Material Level 4 Product Category Description
+		summarizeBy: none
+		sourceColumn: Material Level 4 Product Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Level 3 Sub Family Code'
+		dataType: string
+		lineageTag: 09ba7d7a-b64a-44ba-ab03-b328811458b8
+		sourceLineageTag: Material Level 3 Sub Family Code
+		summarizeBy: none
+		sourceColumn: Material Level 3 Sub Family Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Level 3 Sub Family Description'
+		dataType: string
+		lineageTag: a26c95de-4f07-4b8a-8419-c72bab70b59b
+		sourceLineageTag: Material Level 3 Sub Family Description
+		summarizeBy: none
+		sourceColumn: Material Level 3 Sub Family Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Level 2 Family Code'
+		dataType: string
+		lineageTag: eec93ff0-811a-4e11-a6f1-34d703c90859
+		sourceLineageTag: Material Level 2 Family Code
+		summarizeBy: none
+		sourceColumn: Material Level 2 Family Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Level 2 Family Description'
+		dataType: string
+		lineageTag: dc2e162c-e270-4ae4-9e4c-a01d2c984df9
+		sourceLineageTag: Material Level 2 Family Description
+		summarizeBy: none
+		sourceColumn: Material Level 2 Family Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Level 1 Class Code'
+		dataType: string
+		lineageTag: df6a81cc-5559-45e1-a033-cf2e91670ccb
+		sourceLineageTag: Material Level 1 Class Code
+		summarizeBy: none
+		sourceColumn: Material Level 1 Class Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Level 1 Class Description'
+		dataType: string
+		lineageTag: a6c91536-9bd9-4240-b9d0-d161da1ee6c0
+		sourceLineageTag: Material Level 1 Class Description
+		summarizeBy: none
+		sourceColumn: Material Level 1 Class Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Created Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: aac51073-a323-4d58-96e4-8a80938db5df
+		sourceLineageTag: Material Created Date
+		summarizeBy: none
+		sourceColumn: Material Created Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Created User ID'
+		dataType: string
+		lineageTag: 8c2a502a-263b-4b9d-ad91-fc0191e084d0
+		sourceLineageTag: Material Created User ID
+		summarizeBy: none
+		sourceColumn: Material Created User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Updated Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8bde967d-abf9-4c63-ba73-9ad94ee54d9e
+		sourceLineageTag: Material Updated Date
+		summarizeBy: none
+		sourceColumn: Material Updated Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Updated User ID'
+		dataType: string
+		lineageTag: 2bd07999-7d36-4bb0-8a9c-9de418a1860e
+		sourceLineageTag: Material Updated User ID
+		summarizeBy: none
+		sourceColumn: Material Updated User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 98b33a95-b574-4720-94aa-842b4c6c363a
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e404cc94-6232-4192-874c-92b0973e8ed5
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3f767f62-2fa9-4a4f-b332-e03bbe042f96
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: 9c07c3d2-12bf-40f6-82b6-9be6c91b9417
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: db9e4faf-f951-4806-99ab-51f2f981d19b
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 58c3ee83-e1df-4b56-a4bd-cbbae9975be2
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Group Description'
+		dataType: string
+		lineageTag: fc3fb9f8-8771-496b-b245-875b5511313f
+		sourceLineageTag: Material Group Description
+		summarizeBy: none
+		sourceColumn: Material Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Group Description 2'
+		dataType: string
+		lineageTag: 35dc77c1-9a7b-4faa-a1f6-7a9ae94ed165
+		sourceLineageTag: Material Group Description 2
+		summarizeBy: none
+		sourceColumn: Material Group Description 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category of Material Description'
+		dataType: string
+		lineageTag: b5d36697-034f-4823-a0fe-9bb26f1b8100
+		sourceLineageTag: Category of Material Description
+		summarizeBy: none
+		sourceColumn: Category of Material Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Brand Description'
+		dataType: string
+		lineageTag: bc53c578-6f97-472e-aaf7-36303f8a4b0c
+		sourceLineageTag: Material Brand Description
+		summarizeBy: none
+		sourceColumn: Material Brand Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Sub Brand Description'
+		dataType: string
+		lineageTag: 2fc8728f-d094-489a-9cbe-ebffc37bcb38
+		sourceLineageTag: Material Sub Brand Description
+		summarizeBy: none
+		sourceColumn: Material Sub Brand Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Print Method Description'
+		dataType: string
+		lineageTag: 34a9af8e-bb03-42fa-8412-c9ad0e4e8c28
+		sourceLineageTag: Material Print Method Description
+		summarizeBy: none
+		sourceColumn: Material Print Method Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Level 5 Product Category Code'
+		dataType: string
+		lineageTag: ab5c2e9f-1c92-4d7d-a333-45a0d2d1d646
+		sourceLineageTag: Material Level 5 Product Category Code
+		summarizeBy: none
+		sourceColumn: Material Level 5 Product Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Level 5 Product Category Description'
+		dataType: string
+		lineageTag: 983718f6-718c-451d-a7e4-4f31d28af007
+		sourceLineageTag: Material Level 5 Product Category Description
+		summarizeBy: none
+		sourceColumn: Material Level 5 Product Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Level 6 Product Category Code'
+		dataType: string
+		lineageTag: 3e2179e4-94e8-4f25-beaa-a665fc209617
+		sourceLineageTag: Material Level 6 Product Category Code
+		summarizeBy: none
+		sourceColumn: Material Level 6 Product Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Level 6 Product Category Description'
+		dataType: string
+		lineageTag: 969b8d8c-bc3a-4988-b67a-2ee8d23f1291
+		sourceLineageTag: Material Level 6 Product Category Description
+		summarizeBy: none
+		sourceColumn: Material Level 6 Product Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Category Description'
+		dataType: string
+		lineageTag: 4d2fe6eb-6874-4406-bd98-5cb080811be5
+		sourceLineageTag: Material Category Description
+		summarizeBy: none
+		sourceColumn: Material Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Type Description'
+		dataType: string
+		lineageTag: f601ffe3-4808-469e-834d-4d2e1b34afb5
+		sourceLineageTag: Material Type Description
+		summarizeBy: none
+		sourceColumn: Material Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Product Hierarchy Description'
+		dataType: string
+		lineageTag: 116c6307-e292-48c6-ab6e-aa4fe6f9193f
+		sourceLineageTag: Material Product Hierarchy Description
+		summarizeBy: none
+		sourceColumn: Material Product Hierarchy Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Industry Sector Description'
+		dataType: string
+		lineageTag: efbb045e-af6c-4560-93a1-f4613f1ec557
+		sourceLineageTag: Material Industry Sector Description
+		summarizeBy: none
+		sourceColumn: Material Industry Sector Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material General Item Category Group Description'
+		dataType: string
+		lineageTag: b08463c2-1e3e-4392-be2e-5d915069a11b
+		sourceLineageTag: Material General Item Category Group Description
+		summarizeBy: none
+		sourceColumn: Material General Item Category Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Client Level Deletion Indicator'
+		dataType: string
+		lineageTag: 9e595676-f971-4db9-b74b-87e629e8983d
+		sourceLineageTag: Material Client Level Deletion Indicator
+		summarizeBy: none
+		sourceColumn: Material Client Level Deletion Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material PO UoM'
+		dataType: string
+		lineageTag: 12962be1-ac8a-4b79-933f-b1af230a07fd
+		sourceLineageTag: Material PO UoM
+		summarizeBy: none
+		sourceColumn: Material PO UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Basic'
+		dataType: string
+		lineageTag: fda595c8-3131-4d04-914b-8c24af0ed4c6
+		sourceLineageTag: Material Basic
+		summarizeBy: none
+		sourceColumn: Material Basic
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Industry Standard Description'
+		dataType: string
+		lineageTag: e1868cca-7d30-4b37-b0ad-674a9dea4d93
+		sourceLineageTag: Material Industry Standard Description
+		summarizeBy: none
+		sourceColumn: Material Industry Standard Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Laboratory/Design Office'
+		dataType: string
+		lineageTag: 80b8eb14-57f0-4df3-91fc-aca94d205766
+		sourceLineageTag: Material Laboratory/Design Office
+		summarizeBy: none
+		sourceColumn: Material Laboratory/Design Office
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Laboratory/Design Office Description'
+		dataType: string
+		lineageTag: 39a1ed27-c092-439d-ab68-acc71e44d029
+		sourceLineageTag: Material Laboratory/Design Office Description
+		summarizeBy: none
+		sourceColumn: Material Laboratory/Design Office Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Purchasing Value Key'
+		dataType: string
+		lineageTag: e4767cde-6e75-4252-a68b-197f1db888c5
+		sourceLineageTag: Material Purchasing Value Key
+		summarizeBy: none
+		sourceColumn: Material Purchasing Value Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Storage Condition'
+		dataType: string
+		lineageTag: 66cbb9a1-62da-42a8-af71-1c4c950185dd
+		sourceLineageTag: Material Storage Condition
+		summarizeBy: none
+		sourceColumn: Material Storage Condition
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Storage Condition Description'
+		dataType: string
+		lineageTag: 5e7a3d5b-460f-474e-9f0b-2937d35c7318
+		sourceLineageTag: Material Storage Condition Description
+		summarizeBy: none
+		sourceColumn: Material Storage Condition Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Temperature Conditions Indicator'
+		dataType: string
+		lineageTag: 303904e4-752f-4e7f-b810-83d78a751a1d
+		sourceLineageTag: Material Temperature Conditions Indicator
+		summarizeBy: none
+		sourceColumn: Material Temperature Conditions Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Temperature Conditions Indicator Description'
+		dataType: string
+		lineageTag: 45640680-27b1-462a-9dae-0ba49c9dd277
+		sourceLineageTag: Material Temperature Conditions Indicator Description
+		summarizeBy: none
+		sourceColumn: Material Temperature Conditions Indicator Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Transportation Group'
+		dataType: string
+		lineageTag: 6c100b07-3032-47cb-9f2b-d1283b73e904
+		sourceLineageTag: Material Transportation Group
+		summarizeBy: none
+		sourceColumn: Material Transportation Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Transportation Group Description'
+		dataType: string
+		lineageTag: 1d1c0f2c-c7c2-4571-8c59-e6c8efdd0c82
+		sourceLineageTag: Material Transportation Group Description
+		summarizeBy: none
+		sourceColumn: Material Transportation Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Hazardous Number'
+		dataType: string
+		lineageTag: 35b06c5e-66e7-446f-8c3e-e9f46020bf91
+		sourceLineageTag: Material Hazardous Number
+		summarizeBy: none
+		sourceColumn: Material Hazardous Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Source of Supply'
+		dataType: string
+		lineageTag: 7efc6d30-59fb-463a-b5a8-949ab3263498
+		sourceLineageTag: Material Source of Supply
+		summarizeBy: none
+		sourceColumn: Material Source of Supply
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Source of Supply Description'
+		dataType: string
+		lineageTag: e4918c50-35ff-4705-b175-1bb02d950a4e
+		sourceLineageTag: Material Source of Supply Description
+		summarizeBy: none
+		sourceColumn: Material Source of Supply Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material EAN/UPC Number'
+		dataType: string
+		lineageTag: 640f46e0-69a4-4cab-8870-d4de00041613
+		sourceLineageTag: Material EAN/UPC Number
+		summarizeBy: none
+		sourceColumn: Material EAN/UPC Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material EAN Category'
+		dataType: string
+		lineageTag: 1017aa13-1d73-40ca-a848-1d499d42449b
+		sourceLineageTag: Material EAN Category
+		summarizeBy: none
+		sourceColumn: Material EAN Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material EAN Category Description'
+		dataType: string
+		lineageTag: aefd738c-f93a-46e8-bc00-2703b32624b4
+		sourceLineageTag: Material EAN Category Description
+		summarizeBy: none
+		sourceColumn: Material EAN Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Length'
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: b4d48a74-4f58-4561-8684-0abcf5c4773c
+		sourceLineageTag: Material Length
+		summarizeBy: sum
+		sourceColumn: Material Length
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Material Width'
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: 4f2ebd58-19ed-48ad-a394-a6b11b90ad71
+		sourceLineageTag: Material Width
+		summarizeBy: sum
+		sourceColumn: Material Width
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Material Height'
+		dataType: decimal
+		formatString: \$\ #,0.###############;#,0.###############\ -\$;\$\ #,0.###############
+		lineageTag: d228edf7-6722-4b3f-b632-0492f2fb4ce9
+		sourceLineageTag: Material Height
+		summarizeBy: sum
+		sourceColumn: Material Height
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	column 'Material UoD'
+		dataType: string
+		lineageTag: a4fabdca-e1ac-4aae-982a-8b8c819bd9ff
+		sourceLineageTag: Material UoD
+		summarizeBy: none
+		sourceColumn: Material UoD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material External Group'
+		dataType: string
+		lineageTag: abd63535-6120-4d63-8138-1faf45ffd751
+		sourceLineageTag: Material External Group
+		summarizeBy: none
+		sourceColumn: Material External Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material External Group Description'
+		dataType: string
+		lineageTag: 9860ad42-eb28-48d1-93c3-83ad6f95dfa7
+		sourceLineageTag: Material External Group Description
+		summarizeBy: none
+		sourceColumn: Material External Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Manufacturer Part Number'
+		dataType: string
+		lineageTag: 674219a6-12f7-4032-b0ec-d44c4617a5f8
+		sourceLineageTag: Material Manufacturer Part Number
+		summarizeBy: none
+		sourceColumn: Material Manufacturer Part Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Dangerous Goods Indicator Profile'
+		dataType: string
+		lineageTag: 8215b0e0-3592-4db9-b98f-00642e716cbc
+		sourceLineageTag: Material Dangerous Goods Indicator Profile
+		summarizeBy: none
+		sourceColumn: Material Dangerous Goods Indicator Profile
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Dangerous Goods Indicator Profile Desription'
+		dataType: string
+		lineageTag: 696b784f-d9c6-4aba-aa48-0f7d15b2f706
+		sourceLineageTag: Material Dangerous Goods Indicator Profile Desription
+		summarizeBy: none
+		sourceColumn: Material Dangerous Goods Indicator Profile Desription
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Country of Origin'
+		dataType: string
+		lineageTag: ab433c0d-8630-4893-a0f2-9eb5f28788ae
+		sourceLineageTag: Material Country of Origin
+		summarizeBy: none
+		sourceColumn: Material Country of Origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Country of Origin Description'
+		dataType: string
+		lineageTag: 6e6f84a1-1a09-4e3d-b9ca-85cf10669c99
+		sourceLineageTag: Material Country of Origin Description
+		summarizeBy: none
+		sourceColumn: Material Country of Origin Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Quality Inspection Group'
+		dataType: string
+		lineageTag: f73fb853-dc4f-4629-83dc-2b0ccd7e4e8a
+		sourceLineageTag: Material Quality Inspection Group
+		summarizeBy: none
+		sourceColumn: Material Quality Inspection Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Quality Inspection Group Description'
+		dataType: string
+		lineageTag: ae217747-02b0-41e2-a049-82b53792fac8
+		sourceLineageTag: Material Quality Inspection Group Description
+		summarizeBy: none
+		sourceColumn: Material Quality Inspection Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_SALES_TEXT
+		dataType: string
+		lineageTag: b1de80bf-d253-4530-b05f-e2a8c5466c7b
+		sourceLineageTag: MATRL_SALES_TEXT
+		summarizeBy: none
+		sourceColumn: MATRL_SALES_TEXT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Class Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: e9433c29-a7e7-4fc2-920b-abfd6a9c94d2
+		sourceLineageTag: Class Internl Num
+		summarizeBy: sum
+		sourceColumn: Class Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Class Name'
+		dataType: string
+		lineageTag: 782ae0dc-1431-415d-b029-e76bf5611023
+		sourceLineageTag: Class Name
+		summarizeBy: none
+		sourceColumn: Class Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Class Typ'
+		dataType: string
+		lineageTag: c630f59f-12ac-4778-9f20-23251546bd32
+		sourceLineageTag: Class Typ
+		summarizeBy: none
+		sourceColumn: Class Typ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Class Typ Desc'
+		dataType: string
+		lineageTag: a23b55d3-17c3-49dc-886c-1e3bb990d596
+		sourceLineageTag: Class Typ Desc
+		summarizeBy: none
+		sourceColumn: Class Typ Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Class Status'
+		dataType: string
+		lineageTag: 4eaa233a-b6f1-4c67-89ee-5d3144ea4179
+		sourceLineageTag: Class Status
+		summarizeBy: none
+		sourceColumn: Class Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Class Status Desc'
+		dataType: string
+		lineageTag: f0138b17-aaa6-4e0d-956a-b50157f91ab7
+		sourceLineageTag: Class Status Desc
+		summarizeBy: none
+		sourceColumn: Class Status Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 1 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: ea64d599-a538-49c5-81f9-290d87a335b5
+		sourceLineageTag: Characteristic 1 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 1 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 1 Name'
+		dataType: string
+		lineageTag: 249c48fc-b101-4566-a1eb-16fda7f34903
+		sourceLineageTag: Characteristic 1 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 1 Desc'
+		dataType: string
+		lineageTag: d1f1c991-62ad-4818-bae5-2ca7e730c7b2
+		sourceLineageTag: Characteristic 1 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 1 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 1 Val'
+		dataType: string
+		lineageTag: 34f81e61-1cd5-44a0-af6f-0f59ccc279d6
+		sourceLineageTag: Characteristic 1 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 1 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 1 Val Desc'
+		dataType: string
+		lineageTag: 0cabba58-9a3f-48e3-b53c-9d3564364491
+		sourceLineageTag: Characteristic 1 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 1 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 2 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 89d27ae4-89d8-4388-a02c-86dc3a0974f3
+		sourceLineageTag: Characteristic 2 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 2 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 2 Name'
+		dataType: string
+		lineageTag: 4716ce07-920e-4c8d-9b83-ec8b8a09f62e
+		sourceLineageTag: Characteristic 2 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 2 Desc'
+		dataType: string
+		lineageTag: 6497dcef-4961-4473-9366-15a7277a8104
+		sourceLineageTag: Characteristic 2 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 2 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 2 Val'
+		dataType: string
+		lineageTag: a9b2f8ad-4c9c-4cc8-b101-be83f66d56f9
+		sourceLineageTag: Characteristic 2 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 2 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 2 Val Desc'
+		dataType: string
+		lineageTag: b976a418-f9ae-4261-ac1c-3e1008adc5d7
+		sourceLineageTag: Characteristic 2 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 2 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 3 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3aa07b25-eba5-4933-92b1-1348b6a7f835
+		sourceLineageTag: Characteristic 3 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 3 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 3 Name'
+		dataType: string
+		lineageTag: c01b4fba-d4b8-467c-8162-872fabc2a3c5
+		sourceLineageTag: Characteristic 3 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 3 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 3 Desc'
+		dataType: string
+		lineageTag: 08854890-e54a-4381-936e-043b690e4d5d
+		sourceLineageTag: Characteristic 3 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 3 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 3 Val'
+		dataType: string
+		lineageTag: 560ef34b-72b4-4178-b2b2-d22fb3451aa1
+		sourceLineageTag: Characteristic 3 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 3 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 3 Val Desc'
+		dataType: string
+		lineageTag: 652ea4ec-5d5b-49bd-b6c3-e937eaa23226
+		sourceLineageTag: Characteristic 3 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 3 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 4 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 90ec9de8-cb84-4808-bf02-27aaefe023ae
+		sourceLineageTag: Characteristic 4 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 4 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 4 Name'
+		dataType: string
+		lineageTag: f65b4624-4e18-4bd3-83bc-087a52008b39
+		sourceLineageTag: Characteristic 4 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 4 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 4 Desc'
+		dataType: string
+		lineageTag: 05f95c7e-dce8-415d-b10f-68aebe1b3aed
+		sourceLineageTag: Characteristic 4 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 4 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 4 Val'
+		dataType: string
+		lineageTag: 1333196b-07fc-4122-b9c4-64776a21c8ac
+		sourceLineageTag: Characteristic 4 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 4 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 4 Val Desc'
+		dataType: string
+		lineageTag: 58b0512c-bf69-4918-91df-5cf229a1837a
+		sourceLineageTag: Characteristic 4 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 4 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 5 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 312ec6d4-ca14-4048-a168-cf33d92b79d3
+		sourceLineageTag: Characteristic 5 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 5 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 5 Name'
+		dataType: string
+		lineageTag: 0bfdcc39-3a88-425c-b9d1-8fdfa07dbb8b
+		sourceLineageTag: Characteristic 5 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 5 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 5 Desc'
+		dataType: string
+		lineageTag: 7f2e8afb-d0d0-4467-96a5-3b90467b0503
+		sourceLineageTag: Characteristic 5 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 5 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 5 Val'
+		dataType: string
+		lineageTag: 01bed1c7-702d-4ed3-87ec-2c14ff2a75e1
+		sourceLineageTag: Characteristic 5 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 5 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 5 Val Desc'
+		dataType: string
+		lineageTag: efa05ec2-b8c6-440a-880c-14532514be89
+		sourceLineageTag: Characteristic 5 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 5 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 6 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 49349200-d9cf-4073-8cb8-df95247a3c92
+		sourceLineageTag: Characteristic 6 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 6 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 6 Name'
+		dataType: string
+		lineageTag: d09832b0-590f-4434-a7a0-87f1cfc87e23
+		sourceLineageTag: Characteristic 6 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 6 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 6 Desc'
+		dataType: string
+		lineageTag: c85b3ae7-681b-4650-88c7-87b413b377f9
+		sourceLineageTag: Characteristic 6 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 6 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 6 Val'
+		dataType: string
+		lineageTag: 7f459f54-f5c7-429a-96a0-1bb835007e29
+		sourceLineageTag: Characteristic 6 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 6 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 6 Val Desc'
+		dataType: string
+		lineageTag: e7cdd444-43f2-4186-b482-e57189f1ae30
+		sourceLineageTag: Characteristic 6 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 6 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 7 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 460518fe-aa0b-4485-9f65-4b3829fe1d19
+		sourceLineageTag: Characteristic 7 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 7 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 7 Name'
+		dataType: string
+		lineageTag: 1f665aca-ca90-457e-b773-58435456ddca
+		sourceLineageTag: Characteristic 7 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 7 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 7 Desc'
+		dataType: string
+		lineageTag: 1fba5a88-c3b5-49fd-b793-f353dd8b8a14
+		sourceLineageTag: Characteristic 7 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 7 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 7 Val'
+		dataType: string
+		lineageTag: 0ca9246c-8004-4149-b5cb-c0916eb427a3
+		sourceLineageTag: Characteristic 7 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 7 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 7 Val Desc'
+		dataType: string
+		lineageTag: 96b0b170-27b7-449d-8917-2f0608466c0b
+		sourceLineageTag: Characteristic 7 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 7 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 8 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 82ac183b-7a64-4c35-a6fd-f873deea8b8d
+		sourceLineageTag: Characteristic 8 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 8 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 8 Name'
+		dataType: string
+		lineageTag: f111e4cf-2bae-4c69-8e27-4a8192f011e1
+		sourceLineageTag: Characteristic 8 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 8 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 8 Desc'
+		dataType: string
+		lineageTag: 59ab2c07-d6f9-4d94-9d6d-3e6ed6388ff4
+		sourceLineageTag: Characteristic 8 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 8 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 8 Val'
+		dataType: string
+		lineageTag: 53c14220-78ed-4b48-912f-65eaf7c152bc
+		sourceLineageTag: Characteristic 8 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 8 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 8 Val Desc'
+		dataType: string
+		lineageTag: f3dbfc15-8a08-4e90-9ff0-9a00c57fcae9
+		sourceLineageTag: Characteristic 8 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 8 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 9 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 69267239-84d9-44ff-af28-6cbe1a25a967
+		sourceLineageTag: Characteristic 9 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 9 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 9 Name'
+		dataType: string
+		lineageTag: 2aef4cdf-a74a-482e-9a07-b24ffe739a5c
+		sourceLineageTag: Characteristic 9 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 9 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 9 Desc'
+		dataType: string
+		lineageTag: e856b562-d968-4fb7-a9d9-5b10a59b3f1a
+		sourceLineageTag: Characteristic 9 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 9 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 9 Val'
+		dataType: string
+		lineageTag: 5c50eda4-1e75-462a-84df-df4cc4dfba5d
+		sourceLineageTag: Characteristic 9 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 9 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 9 Val Desc'
+		dataType: string
+		lineageTag: 44f1de05-10f2-4615-81af-0ba1f458d0fb
+		sourceLineageTag: Characteristic 9 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 9 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 10 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: bf656f63-3014-4338-84ce-b659d89477a3
+		sourceLineageTag: Characteristic 10 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 10 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 10 Name'
+		dataType: string
+		lineageTag: 9f9a07b0-8c20-4574-b756-6bb5da21da49
+		sourceLineageTag: Characteristic 10 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 10 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 10 Desc'
+		dataType: string
+		lineageTag: 1bcb7b3b-7583-4dc9-a2a9-20eec2541c4c
+		sourceLineageTag: Characteristic 10 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 10 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 10 Val'
+		dataType: string
+		lineageTag: 82e54b59-a2c6-4308-b43b-2162db71c5a4
+		sourceLineageTag: Characteristic 10 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 10 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 10 Val Desc'
+		dataType: string
+		lineageTag: 2280bcf9-0e15-414a-a84d-e989379eaeb7
+		sourceLineageTag: Characteristic 10 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 10 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 11 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: f4bd4eb1-f7ea-4443-97ef-c1ce06ff3bd9
+		sourceLineageTag: Characteristic 11 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 11 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 11 Name'
+		dataType: string
+		lineageTag: e3142e24-2557-4de5-82d7-f992edfa4235
+		sourceLineageTag: Characteristic 11 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 11 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 11 Desc'
+		dataType: string
+		lineageTag: 3037c94a-398b-49c8-b78b-99496fba7753
+		sourceLineageTag: Characteristic 11 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 11 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 11 Val'
+		dataType: string
+		lineageTag: 32df4494-adc6-446e-8a18-e1584e5928ba
+		sourceLineageTag: Characteristic 11 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 11 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 11 Val Desc'
+		dataType: string
+		lineageTag: db77f997-83c4-4584-9403-d589b5745f5c
+		sourceLineageTag: Characteristic 11 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 11 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 12 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: fa201ae6-ab74-423c-9219-31b785267d4c
+		sourceLineageTag: Characteristic 12 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 12 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 12 Name'
+		dataType: string
+		lineageTag: 7b6d2023-5cb1-419f-8fbb-5764d4e1de96
+		sourceLineageTag: Characteristic 12 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 12 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 12 Desc'
+		dataType: string
+		lineageTag: d7c01340-662d-40c9-ae72-392191fa92e4
+		sourceLineageTag: Characteristic 12 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 12 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 12 Val'
+		dataType: string
+		lineageTag: 3579859c-7995-4443-9965-b2941b600227
+		sourceLineageTag: Characteristic 12 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 12 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 12 Val Desc'
+		dataType: string
+		lineageTag: 03983b20-7d0d-49fa-bcd8-bf0fa23e8b6d
+		sourceLineageTag: Characteristic 12 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 12 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 13 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 49559176-f70e-4e73-af5d-0cc3a75bd852
+		sourceLineageTag: Characteristic 13 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 13 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 13 Name'
+		dataType: string
+		lineageTag: c39787b2-1e46-4b89-83d8-ae592bc9d681
+		sourceLineageTag: Characteristic 13 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 13 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 13 Desc'
+		dataType: string
+		lineageTag: 2074e9c5-ab21-432a-8f6b-091accf466ec
+		sourceLineageTag: Characteristic 13 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 13 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 13 Val'
+		dataType: string
+		lineageTag: ae23d8a1-df47-4750-bf3a-67bcf454fb45
+		sourceLineageTag: Characteristic 13 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 13 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 13 Val Desc'
+		dataType: string
+		lineageTag: 90bb123f-fb22-40c9-af1c-a4c10b482bcf
+		sourceLineageTag: Characteristic 13 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 13 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 14 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5dc21d2c-6beb-4bd5-990b-65ecf0f60ed9
+		sourceLineageTag: Characteristic 14 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 14 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 14 Name'
+		dataType: string
+		lineageTag: e4a86e9a-fab3-4515-8c13-03700a5a3213
+		sourceLineageTag: Characteristic 14 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 14 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 14 Desc'
+		dataType: string
+		lineageTag: 06bb57e7-ddc8-46d3-8818-a8d474751a17
+		sourceLineageTag: Characteristic 14 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 14 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 14 Val'
+		dataType: string
+		lineageTag: 5b20f40d-2e95-42bd-955d-651bf5ca952e
+		sourceLineageTag: Characteristic 14 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 14 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 14 Val Desc'
+		dataType: string
+		lineageTag: d3206d32-2f37-4835-aec0-8d63f00bab10
+		sourceLineageTag: Characteristic 14 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 14 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 15 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6bae1f57-58f3-4403-b335-444411d52869
+		sourceLineageTag: Characteristic 15 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 15 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 15 Name'
+		dataType: string
+		lineageTag: 97e0ca35-733e-4fc0-8a61-a982efe1397a
+		sourceLineageTag: Characteristic 15 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 15 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 15 Desc'
+		dataType: string
+		lineageTag: 0bc98b62-086a-4836-9512-202341fbf91f
+		sourceLineageTag: Characteristic 15 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 15 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 15 Val'
+		dataType: string
+		lineageTag: 22746eca-b35e-4c37-acf5-df72a68236a9
+		sourceLineageTag: Characteristic 15 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 15 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 15 Val Desc'
+		dataType: string
+		lineageTag: 3aecee99-b47c-43d4-8e60-3cac5ec51711
+		sourceLineageTag: Characteristic 15 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 15 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 16 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 987b280f-3ccf-4aea-ae89-87d25626bf49
+		sourceLineageTag: Characteristic 16 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 16 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 16 Name'
+		dataType: string
+		lineageTag: f20c1fd5-98ee-48f4-add1-16eaa2919181
+		sourceLineageTag: Characteristic 16 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 16 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 16 Desc'
+		dataType: string
+		lineageTag: 55843a52-9ba4-493a-b2d1-ea9a60529896
+		sourceLineageTag: Characteristic 16 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 16 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 16 Val'
+		dataType: string
+		lineageTag: 77cd423b-84bc-42ba-aba8-b0fa78c51a22
+		sourceLineageTag: Characteristic 16 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 16 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 16 Val Desc'
+		dataType: string
+		lineageTag: cb595935-1f1d-42fd-bd98-f668e679ef61
+		sourceLineageTag: Characteristic 16 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 16 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 17 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 36069eba-443d-4739-8d7e-71fbd8cf1b3a
+		sourceLineageTag: Characteristic 17 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 17 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 17 Name'
+		dataType: string
+		lineageTag: c787604f-c32e-4d30-9d49-80f9213103d4
+		sourceLineageTag: Characteristic 17 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 17 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 17 Desc'
+		dataType: string
+		lineageTag: f7bf8b30-1764-4bb2-8eb8-9a09c5c70aa4
+		sourceLineageTag: Characteristic 17 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 17 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 17 Val'
+		dataType: string
+		lineageTag: b15cc160-4159-40ce-8b2e-913f84465b27
+		sourceLineageTag: Characteristic 17 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 17 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 17 Val Desc'
+		dataType: string
+		lineageTag: 60fba4c4-642f-4444-87ee-9abf798b7194
+		sourceLineageTag: Characteristic 17 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 17 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 18 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 42518ccc-6112-46dd-bc90-86966c42efcc
+		sourceLineageTag: Characteristic 18 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 18 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 18 Name'
+		dataType: string
+		lineageTag: 03400558-4ab1-4bc1-8b52-4ccd8d7b3883
+		sourceLineageTag: Characteristic 18 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 18 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 18 Desc'
+		dataType: string
+		lineageTag: 096f590c-bbe9-4a82-abc3-2187167565a8
+		sourceLineageTag: Characteristic 18 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 18 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 18 Val'
+		dataType: string
+		lineageTag: a35fe2f2-d77e-404e-9704-f7c26e44970d
+		sourceLineageTag: Characteristic 18 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 18 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 18 Val Desc'
+		dataType: string
+		lineageTag: 8e1a9e9f-599a-4248-b7f9-611ee0db4be3
+		sourceLineageTag: Characteristic 18 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 18 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 19 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 87c6520c-b6f5-4a10-8b76-2edb7e49ef08
+		sourceLineageTag: Characteristic 19 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 19 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 19 Name'
+		dataType: string
+		lineageTag: 1d3ac82d-11c2-4677-b471-607e0fe94eaf
+		sourceLineageTag: Characteristic 19 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 19 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 19 Desc'
+		dataType: string
+		lineageTag: 0a2276dc-34f1-4a4a-a9e5-4635f808af06
+		sourceLineageTag: Characteristic 19 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 19 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 19 Val'
+		dataType: string
+		lineageTag: 166ed09e-b9e4-4930-9842-a81013e897cc
+		sourceLineageTag: Characteristic 19 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 19 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 19 Val Desc'
+		dataType: string
+		lineageTag: 69bf0110-4eaf-45c9-9b16-ac086d0b6a6b
+		sourceLineageTag: Characteristic 19 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 19 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 20 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 06568940-0382-48f0-9f41-29525f1c20c5
+		sourceLineageTag: Characteristic 20 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 20 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 20 Name'
+		dataType: string
+		lineageTag: a5ae5de1-2be8-4789-beab-13a8ddc7cf11
+		sourceLineageTag: Characteristic 20 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 20 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 20 Desc'
+		dataType: string
+		lineageTag: 353aa426-423b-4b47-ae92-1b1cf259e1a4
+		sourceLineageTag: Characteristic 20 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 20 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 20 Val'
+		dataType: string
+		lineageTag: 4c600659-ccd2-4f51-8e6c-37e2a9f9796f
+		sourceLineageTag: Characteristic 20 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 20 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 20 Val Desc'
+		dataType: string
+		lineageTag: 2b88ce80-f105-4a39-ae19-2f94351b5edb
+		sourceLineageTag: Characteristic 20 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 20 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 21 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: fc1ad337-afcc-456e-a8d8-69e0fb61afd2
+		sourceLineageTag: Characteristic 21 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 21 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 21 Name'
+		dataType: string
+		lineageTag: 7b52f713-af90-48db-8882-f3cb8da931f9
+		sourceLineageTag: Characteristic 21 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 21 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 21 Desc'
+		dataType: string
+		lineageTag: 3786d3a3-932d-4100-8cb4-0a9a712f2464
+		sourceLineageTag: Characteristic 21 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 21 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 21 Val'
+		dataType: string
+		lineageTag: d3f63d46-4159-4c11-b27f-c7bc96d49163
+		sourceLineageTag: Characteristic 21 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 21 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 21 Val Desc'
+		dataType: string
+		lineageTag: 43447b1c-d8d7-44ad-8367-26b5cf491dbf
+		sourceLineageTag: Characteristic 21 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 21 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 22 Internl Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3ab14665-fa12-414d-92e0-8ce10951be23
+		sourceLineageTag: Characteristic 22 Internl Num
+		summarizeBy: sum
+		sourceColumn: Characteristic 22 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 22 Name'
+		dataType: string
+		lineageTag: 4b8e3fe2-0bd7-4061-91df-54db86dc56e8
+		sourceLineageTag: Characteristic 22 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 22 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 22 Desc'
+		dataType: string
+		lineageTag: 335cfc57-cfcc-4a37-964a-5a9ffeeb5aaa
+		sourceLineageTag: Characteristic 22 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 22 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 22 Val'
+		dataType: string
+		lineageTag: 87b7e2ce-0f84-48e8-b5db-0fce86c5af60
+		sourceLineageTag: Characteristic 22 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 22 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 22 Val Desc'
+		dataType: string
+		lineageTag: 2ccb1ff3-6ea7-4f3b-bc44-b8916e23009d
+		sourceLineageTag: Characteristic 22 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 22 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 23 Internl Num'
+		dataType: string
+		lineageTag: aeac0db8-d7f6-4c42-86a1-dd35498f079e
+		sourceLineageTag: Characteristic 23 Internl Num
+		summarizeBy: none
+		sourceColumn: Characteristic 23 Internl Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 23 Name'
+		dataType: string
+		lineageTag: a1ba2cea-8fef-46e6-85c7-8ca787649452
+		sourceLineageTag: Characteristic 23 Name
+		summarizeBy: none
+		sourceColumn: Characteristic 23 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 23 Desc'
+		dataType: string
+		lineageTag: e20dfa14-aa14-494f-8dec-0fb1d986a631
+		sourceLineageTag: Characteristic 23 Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 23 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 23 Val'
+		dataType: string
+		lineageTag: 4c00e631-08b6-4506-8ad6-8583e4c5ac17
+		sourceLineageTag: Characteristic 23 Val
+		summarizeBy: none
+		sourceColumn: Characteristic 23 Val
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Characteristic 23 Val Desc'
+		dataType: string
+		lineageTag: e02658ac-cfa4-4b01-900e-124c8593e82d
+		sourceLineageTag: Characteristic 23 Val Desc
+		summarizeBy: none
+		sourceColumn: Characteristic 23 Val Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Description Italian'
+		dataType: string
+		lineageTag: 97cd3484-d994-491a-9cad-2d377c15aa92
+		sourceLineageTag: Material Description Italian
+		summarizeBy: none
+		sourceColumn: Material Description Italian
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Cross Plant Status'
+		dataType: string
+		lineageTag: d60dde05-ea75-4bce-8676-bb7bd965647c
+		sourceLineageTag: Material Cross Plant Status
+		summarizeBy: none
+		sourceColumn: Material Cross Plant Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Cross Plant Description'
+		dataType: string
+		lineageTag: 072457b0-1e70-4306-a4c4-154b610b8da3
+		sourceLineageTag: Material Cross Plant Description
+		summarizeBy: none
+		sourceColumn: Material Cross Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIVISION
+		dataType: string
+		lineageTag: 8f2ece43-7c6d-4d0f-b54e-c3ab205cada1
+		sourceLineageTag: DIVISION
+		summarizeBy: none
+		sourceColumn: DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIVISION_DESC
+		dataType: string
+		lineageTag: 064c763c-bb6b-4b13-b480-ab0ae5954191
+		sourceLineageTag: DIVISION_DESC
+		summarizeBy: none
+		sourceColumn: DIVISION_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Material = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_MATERIAL_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

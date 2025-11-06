@@ -8,9 +8,11 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["EDW_T_FACT_PRD_SERVCST_CUR_D","Company","Document Currency","Posting Document Date","Group Currency","Location Plant","Location Plant Region","Company Currency","Partner Company","Responsible Cost Center","Responsible Cost Center Horizontal","Responsible Cost Center Vertical","Producing Plant","Plant","Plant Region","Producing Plant Region","Personnel Plant Region","Partner Cost Center","Partner Cost Center Horizontal","Partner Cost Center Vertical","Technical Completion Date","Posting Creation Date","EDW_T_D_MST_CMPNYCD_CUR_D","EDW_T_D_MST_COSTELM_CUR_D","EDW_T_D_MST_CRNCY_CUR_D","EDW_T_D_MST_FUNCTAR_CUR_D","EDW_T_D_MST_MATERIAL_CUR_D","EDW_T_D_MST_PERSONL_CUR_D","EDW_T_D_MST_PROFCTR_CUR_D","EDW_T_D_PRD_SERVORD_CUR_D","EDW_T_D_MST_WORKCTR_CUR_D","EDW_T_D_MST_COSCNTR_CUR_D","EDW_T_D_HY_COSTEHZ_CUR_D","EDW_T_D_HY_COSTEVZ_CUR_D","EDW_T_D_HY_PROFCHZ_CUR_D","EDW_T_D_HY_PROFCVZ_CUR_D","EDW_T_D_HY_WORKCHZ_CUR_D","EDW_T_D_HY_WORKCVZ_CUR_D","EDW_T_D_MST_ACTTYPE_CUR_D","EDW_T_D_MST_PLANT_CUR_D","EDW_T_D_HY_COSTCVZ_CUR_D","EDW_T_D_HY_COSTCHZ_CUR_D","EDW_T_D_MST_DATE_CUR_D","EDW_T_R_SGK_OPERREG_CUR_D","Personnel Number"]
+annotation PBI_QueryOrder = ["Fact Service Order Costs","Company","Document Currency","Posting Document Date","Group Currency","Location Plant","Location Plant Region","Company Currency","Partner Company","Responsible Cost Center","Responsible Cost Center Horizontal","Responsible Cost Center Vertical","Producing Plant","Plant","Plant Region","Producing Plant Region","Personnel Plant Region","Partner Cost Center","Partner Cost Center Horizontal","Partner Cost Center Vertical","Technical Completion Date","Posting Creation Date","Company Code","Cost Element","Currency","Functional Area","Material","Personnel","Profit Center","Service Order","Work Center","Cost Center","Cost Element Horizontal","Cost Element Vertical","Profit Center Horizontal","Profit Center Vertical","Work Center Horizontal","Work Center Vertical","Activity Type","Cost Center Vertical","Cost Center Horizontal","Calender Date","Personnel Number"]
 
-ref table EDW_T_FACT_PRD_SERVCST_CUR_D
+annotation PBI_ProTooling = ["WebModelingEdit"]
+
+ref table 'Fact Service Order Costs'
 ref table Company
 ref table 'Document Currency'
 ref table 'Posting Document Date'
@@ -32,28 +34,26 @@ ref table 'Partner Cost Center Horizontal'
 ref table 'Partner Cost Center Vertical'
 ref table 'Technical Completion Date'
 ref table 'Posting Creation Date'
-ref table EDW_T_D_MST_CMPNYCD_CUR_D
-ref table EDW_T_D_MST_COSTELM_CUR_D
-ref table EDW_T_D_MST_CRNCY_CUR_D
-ref table EDW_T_D_MST_FUNCTAR_CUR_D
-ref table EDW_T_D_MST_MATERIAL_CUR_D
-ref table EDW_T_D_MST_PERSONL_CUR_D
-ref table EDW_T_D_MST_PROFCTR_CUR_D
-ref table EDW_T_D_PRD_SERVORD_CUR_D
-ref table EDW_T_D_MST_WORKCTR_CUR_D
-ref table EDW_T_D_MST_COSCNTR_CUR_D
-ref table EDW_T_D_HY_COSTEHZ_CUR_D
-ref table EDW_T_D_HY_COSTEVZ_CUR_D
-ref table EDW_T_D_HY_PROFCHZ_CUR_D
-ref table EDW_T_D_HY_PROFCVZ_CUR_D
-ref table EDW_T_D_HY_WORKCHZ_CUR_D
-ref table EDW_T_D_HY_WORKCVZ_CUR_D
-ref table EDW_T_D_MST_ACTTYPE_CUR_D
-ref table EDW_T_D_MST_PLANT_CUR_D
-ref table EDW_T_D_HY_COSTCVZ_CUR_D
-ref table EDW_T_D_HY_COSTCHZ_CUR_D
-ref table EDW_T_D_MST_DATE_CUR_D
-ref table EDW_T_R_SGK_OPERREG_CUR_D
+ref table 'Company Code'
+ref table 'Cost Element'
+ref table Currency
+ref table 'Functional Area'
+ref table Material
+ref table Personnel
+ref table 'Profit Center'
+ref table 'Service Order'
+ref table 'Work Center'
+ref table 'Cost Center'
+ref table 'Cost Element Horizontal'
+ref table 'Cost Element Vertical'
+ref table 'Profit Center Horizontal'
+ref table 'Profit Center Vertical'
+ref table 'Work Center Horizontal'
+ref table 'Work Center Vertical'
+ref table 'Activity Type'
+ref table 'Cost Center Vertical'
+ref table 'Cost Center Horizontal'
+ref table 'Calender Date'
 ref table 'Personnel Number'
 
 ref cultureInfo en-US

@@ -1,0 +1,365 @@
+table 'Work Center'
+	lineageTag: 5ea7a2d4-8a4b-4bcf-88da-8ddf9179d432
+	sourceLineageTag: [dbo].[EDW_T_D_MST_WORKCTR_CUR_D]
+
+	column WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: be2b68d9-d43c-4b02-b192-391a2bc0df06
+		sourceLineageTag: WRK_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center ID'
+		dataType: string
+		lineageTag: e36589fd-8b94-4862-bec0-2fde24864c41
+		sourceLineageTag: Work Center ID
+		summarizeBy: none
+		sourceColumn: Work Center ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Plant ID'
+		dataType: string
+		lineageTag: 46ace4b4-0b51-46d3-ac93-a22685f8e8bc
+		sourceLineageTag: Work Center Plant ID
+		summarizeBy: none
+		sourceColumn: Work Center Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Object ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: bdf7a95a-a582-4aec-9433-783507cb326d
+		sourceLineageTag: Work Center Object ID
+		summarizeBy: count
+		sourceColumn: Work Center Object ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Object Type'
+		dataType: string
+		lineageTag: 959ef0b5-d807-4d5f-9d8a-ea84e379e58f
+		sourceLineageTag: Work Center Object Type
+		summarizeBy: none
+		sourceColumn: Work Center Object Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Category'
+		dataType: string
+		lineageTag: 90d1ff39-c612-47a0-9856-ce616c418640
+		sourceLineageTag: Work Center Category
+		summarizeBy: none
+		sourceColumn: Work Center Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Location'
+		dataType: string
+		lineageTag: c5dee89c-a99e-4ab2-ac03-6a56804242e7
+		sourceLineageTag: Work Center Location
+		summarizeBy: none
+		sourceColumn: Work Center Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Person Responsible'
+		dataType: string
+		lineageTag: 2e21f2cb-4956-46a8-b820-82ac8cc16b9d
+		sourceLineageTag: Work Center Person Responsible
+		summarizeBy: none
+		sourceColumn: Work Center Person Responsible
+
+		annotation SummarizationSetBy = Automatic
+
+	column STD_VAL_KEY
+		dataType: string
+		lineageTag: 4d781a12-644e-406f-8461-3bf9f97e88bf
+		sourceLineageTag: STD_VAL_KEY
+		summarizeBy: none
+		sourceColumn: STD_VAL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Usage Code'
+		dataType: string
+		lineageTag: ab8d0042-bfcc-4466-a1d5-0f5a2e57893d
+		sourceLineageTag: Work Center Usage Code
+		summarizeBy: none
+		sourceColumn: Work Center Usage Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Capacity ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 82332534-df2f-4aa4-9e8e-c7078c3641d8
+		sourceLineageTag: Work Center Capacity ID
+		summarizeBy: count
+		sourceColumn: Work Center Capacity ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Supply Area'
+		dataType: string
+		lineageTag: 30785905-3d6f-478f-901d-19ede66a3116
+		sourceLineageTag: Work Center Supply Area
+		summarizeBy: none
+		sourceColumn: Work Center Supply Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Deletion Flag'
+		dataType: string
+		lineageTag: f750d8a3-b811-4f36-a49b-32037a675af5
+		sourceLineageTag: Work Center Deletion Flag
+		summarizeBy: none
+		sourceColumn: Work Center Deletion Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Locked Status'
+		dataType: string
+		lineageTag: 3abefc38-ac0f-4cf7-aebc-01c1f2449475
+		sourceLineageTag: Work Center Locked Status
+		summarizeBy: none
+		sourceColumn: Work Center Locked Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 2ca96224-e299-4f88-9055-06445a456ac4
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a9d275f7-f9c6-4c29-a7ab-08ae91cb5943
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8e16ecdb-aed2-4b11-a253-744c29c9cba3
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: f0507d90-9363-4356-86a1-f1f8729a5e38
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 660ac5ab-cb74-473c-8b2d-020a6646c9d4
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8ba37eb4-cb80-48fd-84cf-32a5ce1e2f4e
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Description'
+		dataType: string
+		lineageTag: da3e4daf-5b4a-47de-8ea7-283a3a1ae809
+		sourceLineageTag: Work Center Description
+		summarizeBy: none
+		sourceColumn: Work Center Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Category Description'
+		dataType: string
+		lineageTag: 43200b82-f8f5-4e10-8c97-179078ed639c
+		sourceLineageTag: Work Center Category Description
+		summarizeBy: none
+		sourceColumn: Work Center Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Person Responsible Name'
+		dataType: string
+		lineageTag: 2dc786b2-b756-4c2d-9b9e-44ba84692289
+		sourceLineageTag: Work Center Person Responsible Name
+		summarizeBy: none
+		sourceColumn: Work Center Person Responsible Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Control Key'
+		dataType: string
+		lineageTag: b0be7ce9-a7c6-4877-a87d-b6df810ec04c
+		sourceLineageTag: Work Center Control Key
+		summarizeBy: none
+		sourceColumn: Work Center Control Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Storage Location Storage Resource'
+		dataType: string
+		lineageTag: 57848a2f-1f30-4946-bed6-adb46401bdc4
+		sourceLineageTag: Work Center Storage Location Storage Resource
+		summarizeBy: none
+		sourceColumn: Work Center Storage Location Storage Resource
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center User Name Term'
+		dataType: string
+		lineageTag: babc91f6-cdab-4310-a6ed-5247f7061063
+		sourceLineageTag: Work Center User Name Term
+		summarizeBy: none
+		sourceColumn: Work Center User Name Term
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center User Name GRND'
+		dataType: string
+		lineageTag: e5f33108-f59b-4eec-98ee-e8fc051c50bc
+		sourceLineageTag: Work Center User Name GRND
+		summarizeBy: none
+		sourceColumn: Work Center User Name GRND
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Changed On Date Term'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b5032ef5-6326-4e40-b4c6-d36b0a8cd2d9
+		sourceLineageTag: Work Center Changed On Date Term
+		summarizeBy: none
+		sourceColumn: Work Center Changed On Date Term
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Changed On Date GRND'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 274ed329-99c7-40bc-ab6a-9877bf0b1219
+		sourceLineageTag: Work Center Changed On Date GRND
+		summarizeBy: none
+		sourceColumn: Work Center Changed On Date GRND
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Changed On Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: caa16613-ab41-40d9-8869-619f2d0a6350
+		sourceLineageTag: Work Center Changed On Date
+		summarizeBy: none
+		sourceColumn: Work Center Changed On Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Plant Description'
+		dataType: string
+		lineageTag: bf3b2dd4-3f56-4209-a25f-71bf4ee66c26
+		sourceLineageTag: Work Center Plant Description
+		summarizeBy: none
+		sourceColumn: Work Center Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Object Type Description'
+		dataType: string
+		lineageTag: 79b8339b-f1f2-4ff6-a56b-258416a80ac5
+		sourceLineageTag: Work Center Object Type Description
+		summarizeBy: none
+		sourceColumn: Work Center Object Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Location Description'
+		dataType: string
+		lineageTag: 290cab93-cccc-48ee-b433-8d95573b80a7
+		sourceLineageTag: Work Center Location Description
+		summarizeBy: none
+		sourceColumn: Work Center Location Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Standard Value Description'
+		dataType: string
+		lineageTag: 143bf27c-45d8-4f35-98a2-c01966fa4c3c
+		sourceLineageTag: Work Center Standard Value Description
+		summarizeBy: none
+		sourceColumn: Work Center Standard Value Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Usage Description'
+		dataType: string
+		lineageTag: 0bfbbf89-5967-4671-95bc-9eba6833acdc
+		sourceLineageTag: Work Center Usage Description
+		summarizeBy: none
+		sourceColumn: Work Center Usage Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Supply Area Description'
+		dataType: string
+		lineageTag: 7748681d-dc85-4f8a-8ee6-8f4566130c42
+		sourceLineageTag: Work Center Supply Area Description
+		summarizeBy: none
+		sourceColumn: Work Center Supply Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Control Description'
+		dataType: string
+		lineageTag: 56d4ee28-6a91-4efd-9cfe-2b98b4d06915
+		sourceLineageTag: Work Center Control Description
+		summarizeBy: none
+		sourceColumn: Work Center Control Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Storage Location Description'
+		dataType: string
+		lineageTag: edeb7eaf-819f-4fc5-9fbf-428c7ccbbdd1
+		sourceLineageTag: Work Center Storage Location Description
+		summarizeBy: none
+		sourceColumn: Work Center Storage Location Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Work Center' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_WORKCTR_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

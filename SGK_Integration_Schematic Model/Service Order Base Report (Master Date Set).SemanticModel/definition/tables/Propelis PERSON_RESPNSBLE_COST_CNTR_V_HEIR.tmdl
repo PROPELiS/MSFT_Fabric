@@ -1,0 +1,78 @@
+table 'Propelis PERSON_RESPNSBLE_COST_CNTR_V_HEIR'
+	lineageTag: 82fb70d4-2701-4123-8425-9ca0de01ff1c
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c93f8906-c30c-4230-ba44-80068f6f047d
+		summarizeBy: sum
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Controlling Area ID VH'
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: f5309706-8c27-4509-b4b4-66595d1705e4
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 54b3f402-ef26-4629-b0ad-b2ce8bf1a855
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 1d5a78fb-c23f-4fab-9314-a5b39cd7f1b8
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: da1b9c36-f955-44be-9414-12f8de19b8ee
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Child Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 5bb53833-3201-4fb0-82ab-a15496955f83
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Resp Cost Center Hierarchical Level VH'
+		dataType: string
+		sourceProviderType: varchar(24)
+		lineageTag: eb0b4bcb-81e7-4484-aec8-299afcdf5780
+		summarizeBy: none
+		sourceColumn: Person Resp Cost Center Hierarchical Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Propelis PERSON_RESPNSBLE_COST_CNTR_V_HEIR' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_PERSON_RESPNSBLE_COST_CNTR_V_HEIR = Source{[Schema="Propelis",Item="PERSON_RESPNSBLE_COST_CNTR_V_HEIR"]}[Data]
+				in
+				    Propelis_PERSON_RESPNSBLE_COST_CNTR_V_HEIR
+
+	annotation PBI_ResultType = Table
+

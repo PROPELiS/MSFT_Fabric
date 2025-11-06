@@ -1,0 +1,99 @@
+table 'Receiving Functional Area'
+	lineageTag: 557df228-78ff-45bd-826e-16a0743f6853
+	sourceLineageTag: [Propelis].[RECEIVING_FUNCTIONAL_AREA]
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 66486a1e-614a-4134-b73c-b69584b0b98f
+		sourceLineageTag: FUNCTNL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Receiving Functional Area ID'
+		dataType: string
+		lineageTag: c6b3ce30-dc86-47cc-89b9-72c293826c8f
+		sourceLineageTag: Receiving Functional Area ID
+		summarizeBy: none
+		sourceColumn: Receiving Functional Area ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Receiving Functional Area Description'
+		dataType: string
+		lineageTag: d2adde0a-37ac-4194-9342-4262365f93de
+		sourceLineageTag: Receiving Functional Area Description
+		summarizeBy: none
+		sourceColumn: Receiving Functional Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 6fc4aaa1-2e09-452c-87c2-8826d865e470
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7db2a807-c11e-4ae2-ba0b-380d16e5f820
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 123b9093-865e-40e1-9a23-ef653576ae0f
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: 7e3c1b9f-6bda-4650-8c05-da17bd4fdaf4
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 954fd88a-f400-41ca-b31b-f895b0a3cd80
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bf6c8228-6531-4941-8a58-329cac71c6c6
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Receiving Functional Area' = entity
+		mode: directLake
+		source
+			entityName: RECEIVING_FUNCTIONAL_AREA
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

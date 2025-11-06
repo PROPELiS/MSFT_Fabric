@@ -1,0 +1,78 @@
+table 'Profit Center Vertical Hierarchy'
+	lineageTag: 1aadd0fa-7cfc-4019-9301-e184c04afa12
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: abc3230a-04c2-4196-a4d3-b53d285be86e
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Controlling Area ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 70696fdf-2f8e-4dc1-9174-a1f74ff13a65
+		summarizeBy: none
+		sourceColumn: Profit Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6fb5a696-c802-4e49-965b-89f62ce0ea52
+		summarizeBy: none
+		sourceColumn: Profit Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b0417190-52ba-479e-b938-eb921dc26a45
+		summarizeBy: none
+		sourceColumn: Profit Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c0aece2f-6fd2-45b6-98b4-5c2b827032d9
+		summarizeBy: none
+		sourceColumn: Profit Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Child ID Description VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 24f44ea5-e7ae-40a7-ae73-c80d22b0860c
+		summarizeBy: none
+		sourceColumn: Profit Center Child ID Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Level VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c5f68286-c289-4a9b-949e-1d2fb3e77dbc
+		summarizeBy: none
+		sourceColumn: Profit Center Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Profit Center Vertical Hierarchy' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_HY_PROFCVZ_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_HY_PROFCVZ_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_HY_PROFCVZ_CUR_D
+
+	changedProperty = Name
+

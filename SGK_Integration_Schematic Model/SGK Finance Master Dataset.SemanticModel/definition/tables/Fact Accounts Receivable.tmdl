@@ -1,0 +1,1014 @@
+table 'Fact Accounts Receivable'
+	lineageTag: f12fd390-d444-4822-a605-05afe3cf93d9
+	sourceLineageTag: [Propelis].[EDW_T_FACT_FI_ACCTRCV2_CUR_D]
+
+	measure 'AR Company Currency Amount' = ```
+			sum('Fact Accounts Receivable'[CMPNY_CRNCY_AMT])	
+			```
+		lineageTag: c80b3f6f-5480-4bbf-94f3-32b0178bcb94
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AR Document Currency Amount' = sum('Fact Accounts Receivable'[DOCMT_CRNCY_AMT])
+		lineageTag: 3c13c69e-89d7-4ea8-ba70-1dfa605951fb
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AR Group Currency Amount' = sum('Fact Accounts Receivable'[GROUP_CRNCY_AMT])
+		lineageTag: 8470767b-f93e-4aa2-b661-da19b661de79
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Credits =
+			
+			CALCULATE(
+			    [AR Company Currency Amount],
+			    'Fact Accounts Receivable'[AR Debit Credit Indicator] = "H"
+			)
+		lineageTag: 8829c832-391c-4b94-b22d-9b5b796bf965
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Current Amount' = ```
+			
+			SUMX(
+			    FILTER(
+			        VALUES('Fact Accounts Receivable'[AR Document Header Number]),
+			        [Days Bucket] <= 0
+			    ),
+			    [AR Company Currency Amount]
+			)
+			
+			```
+		lineageTag: 385123a1-4438-415d-b92b-c2c3865f6cc0
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Net Balance' =
+			
+			CALCULATE(
+			    [AR Company Currency Amount],
+			    'Fact Accounts Receivable'[AR Debit Credit Indicator] = "S"
+			)
+		lineageTag: cf6736d2-5b60-4a87-a60a-0355e31f94db
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total AR' = [Credits] + [Net Balance]
+		lineageTag: 5192d495-2b91-45f8-af93-5a05432fb815
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cash Discount Days' = ```
+			
+			SUMX(
+			    FILTER(
+			        'Fact Accounts Receivable',
+			        NOT(ISBLANK('Fact Accounts Receivable'[AR Invoice Reference Number])) 
+			        || 'Fact Accounts Receivable'[AR Invoice Reference Number] <> "" 
+			        || 'Fact Accounts Receivable'[AR Debit Credit Indicator] <> "H"
+			    ),
+			    IF(
+			        'Fact Accounts Receivable'[AR Debit Credit Indicator] = "H" 
+			        && (ISBLANK('Fact Accounts Receivable'[AR Invoice Reference Number]) || 'Fact Accounts Receivable'[AR Invoice Reference Number] = ""),
+			        0,
+			        IF(
+			            'Fact Accounts Receivable'[AR Days Net] > 0,
+			            'Fact Accounts Receivable'[AR Days Net],
+			            IF(
+			                'Fact Accounts Receivable'[AR Days 2] > 0,
+			                'Fact Accounts Receivable'[AR Days 2],
+			                'Fact Accounts Receivable'[AR Days 1]
+			            )
+			        )
+			    )
+			)
+			```
+		formatString: 0
+		lineageTag: f5579fba-6d09-41b5-a926-35291910a83b
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+	measure 'Net Due Date' = ```
+			
+			MAX('Baseline Due Date'[Baseline Due Date]) + [Cash Discount Days] 
+			```
+		formatString: General Date
+		lineageTag: c613a639-57cc-4135-973a-c4209e6dc2c5
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+	measure 'Days Bucket' =
+			
+			VAR PostingDt = SELECTEDVALUE('Posting Date'[Posting Date])
+			VAR NetDueDt = [Net Due Date]
+			RETURN
+			DATEDIFF(PostingDt, NetDueDt, DAY)
+		formatString: 0
+		lineageTag: 5dedb609-a6b2-4717-bbb2-3634f1a8357e
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+	measure 'Payment Terms' =
+			
+			IF(
+			    ISBLANK('Fact Accounts Receivable'[AR Payment Terms]) || 'FactTable'[AR Payment Terms] = "",
+			    "#",
+			    'FactTable'[AR Payment Terms]
+			)
+		lineageTag: b71df733-e3fe-40f8-be9c-012c6a2e3e3c
+
+		changedProperty = Name
+
+	measure Amount_1_30 =
+			
+			SUMX(
+			    FILTER(
+			        VALUES('Fact Accounts Receivable'[AR Document Header Number]),
+			        [Days Bucket] >= 1 && [Days Bucket] <= 30
+			    ),
+			    [AR Company Currency Amount]
+			)
+		lineageTag: f0cad528-41f9-4ac8-80aa-651fb2f7328d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Amount_GE_121 =
+			
+			SUMX(
+			    FILTER(
+			        VALUES('Fact Accounts Receivable'[AR Document Header Number]),
+			        [Days Bucket] >= 121
+			    ),
+			    [AR Company Currency Amount]
+			)
+		lineageTag: d8dd1f86-e2c6-42ae-9591-580b64c4ffb6
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Amount_91_120 =
+			
+			SUMX(
+			    FILTER(
+			        VALUES('Fact Accounts Receivable'[AR Document Header Number]),
+			        [Days Bucket] >= 91 && [Days Bucket] <= 120
+			    ),
+			    [AR Company Currency Amount]
+			)
+		lineageTag: a9588670-8b86-4fa3-b5b4-f084680de20f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Amount_61_90 =
+			
+			SUMX(
+			    FILTER(
+			        VALUES('Fact Accounts Receivable'[AR Document Header Number]),
+			        [Days Bucket] >= 61 && [Days Bucket] <= 90
+			    ),
+			    [AR Company Currency Amount]
+			)
+		lineageTag: 4c8a45f7-c44f-453d-8b12-e9d9bee30be0
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Amount_31_60 =
+			
+			SUMX(
+			    FILTER(
+			        VALUES('Fact Accounts Receivable'[AR Document Header Number]),
+			        [Days Bucket] >= 31 && [Days Bucket] <= 60
+			    ),
+			    [AR Company Currency Amount]
+			)
+		lineageTag: f546232c-6325-4a00-969c-f08c88330302
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AR Dunning Level'
+		dataType: string
+		lineageTag: 0904a9e6-7a77-4f8b-ac6c-5f56d43261c7
+		sourceLineageTag: AR Dunning Level
+		summarizeBy: none
+		sourceColumn: AR Dunning Level
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DUNNING_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5cd5325a-fe64-44cf-b4d5-d03373ac3cdd
+		sourceLineageTag: DUNNING_KEY
+		summarizeBy: sum
+		sourceColumn: DUNNING_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Dunning Key Description'
+		dataType: string
+		lineageTag: 483ba0be-b6ee-4ef4-af5f-e42f3724706b
+		sourceLineageTag: AR Dunning Key Description
+		summarizeBy: none
+		sourceColumn: AR Dunning Key Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Expected Customer Sales Organization Description'
+		dataType: string
+		lineageTag: 9780aa76-38f0-4aaa-864c-e9442d60746c
+		sourceLineageTag: AR Expected Customer Sales Organization Description
+		summarizeBy: none
+		sourceColumn: AR Expected Customer Sales Organization Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Expected Sales Organization'
+		dataType: string
+		lineageTag: ea53ee2e-06f2-43c7-9485-c264ade98bf9
+		sourceLineageTag: AR Expected Sales Organization
+		summarizeBy: none
+		sourceColumn: AR Expected Sales Organization
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Expected Sales Organization Description'
+		dataType: string
+		lineageTag: 2637710b-4977-4845-b8ae-ea6ce795f659
+		sourceLineageTag: AR Expected Sales Organization Description
+		summarizeBy: none
+		sourceColumn: AR Expected Sales Organization Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Dunning Block'
+		dataType: string
+		lineageTag: 69c4ae50-e662-45c2-bfed-8ae2f14ee197
+		sourceLineageTag: AR Dunning Block
+		summarizeBy: none
+		sourceColumn: AR Dunning Block
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Dunning Block Description'
+		dataType: string
+		lineageTag: fe01da41-6ad2-4d7b-a315-2ba2f1a39fb4
+		sourceLineageTag: AR Dunning Block Description
+		summarizeBy: none
+		sourceColumn: AR Dunning Block Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_DUNNING_NOTICE_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: d56f86e0-ad98-4bd1-933c-6250ec419422
+		sourceLineageTag: LAST_DUNNING_NOTICE_DATE_KEY
+		summarizeBy: none
+		sourceColumn: LAST_DUNNING_NOTICE_DATE_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Controlling Area Description'
+		dataType: string
+		lineageTag: ee7d1d4a-d211-40ba-afd5-2a17088fc790
+		sourceLineageTag: AR Controlling Area Description
+		summarizeBy: none
+		sourceColumn: AR Controlling Area Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Ledger Code Description'
+		dataType: string
+		lineageTag: 22bdbb8b-c311-4cd8-b7a4-c0867ac1aae7
+		sourceLineageTag: AR Ledger Code Description
+		summarizeBy: none
+		sourceColumn: AR Ledger Code Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Item Text'
+		dataType: string
+		lineageTag: 3d209ec4-a394-4e31-a2f5-da2ecfb51c56
+		sourceLineageTag: AR Item Text
+		summarizeBy: none
+		sourceColumn: AR Item Text
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Deletion Flag'
+		dataType: string
+		lineageTag: cd867b27-c202-4ef6-82a9-c7d8b2583e78
+		sourceLineageTag: AR Deletion Flag
+		summarizeBy: none
+		sourceColumn: AR Deletion Flag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Debit Credit Indicator'
+		dataType: string
+		lineageTag: 5d378a55-59d7-4352-9c28-d244160e4fd5
+		sourceLineageTag: AR Debit Credit Indicator
+		summarizeBy: none
+		sourceColumn: AR Debit Credit Indicator
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Expected Customer Sales Organization'
+		dataType: string
+		lineageTag: 76338a62-6c89-4e02-8ccf-58ec15f6dd94
+		sourceLineageTag: AR Expected Customer Sales Organization
+		summarizeBy: none
+		sourceColumn: AR Expected Customer Sales Organization
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_SALES_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 2485b7c7-d66d-4995-af30-db607f251136
+		sourceLineageTag: CUST_SALES_AREA_KEY
+		summarizeBy: none
+		sourceColumn: CUST_SALES_AREA_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_CREDIT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 357e2d71-2e87-422f-834a-0c7440f3c62e
+		sourceLineageTag: CUST_CREDIT_KEY
+		summarizeBy: none
+		sourceColumn: CUST_CREDIT_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Document Type Description'
+		dataType: string
+		lineageTag: 487e1d95-dd35-4d12-bf11-8e134819df9e
+		sourceLineageTag: AR Document Type Description
+		summarizeBy: none
+		sourceColumn: AR Document Type Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Special GL Indicator Description'
+		dataType: string
+		lineageTag: a4dd0432-f330-4819-a9cd-fc096aa32c73
+		sourceLineageTag: AR Special GL Indicator Description
+		summarizeBy: none
+		sourceColumn: AR Special GL Indicator Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Posting Key Description'
+		dataType: string
+		lineageTag: 6497f72c-630b-4ef8-97d9-9a71d6342115
+		sourceLineageTag: AR Posting Key Description
+		summarizeBy: none
+		sourceColumn: AR Posting Key Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Payment Terms Description'
+		dataType: string
+		lineageTag: 65ba6827-9839-45bf-8b7a-f830a85f0210
+		sourceLineageTag: AR Payment Terms Description
+		summarizeBy: none
+		sourceColumn: AR Payment Terms Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 8cba725c-9aac-433f-bed0-be9800b5eaf2
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 308a9dbb-cc58-4a4d-9114-9fae12b751e5
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2764bc18-5321-46bc-bbd4-af589529ef46
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Controlling Area'
+		dataType: string
+		lineageTag: bf08de16-92bf-4115-b55a-61d1cc3958cd
+		sourceLineageTag: AR Controlling Area
+		summarizeBy: none
+		sourceColumn: AR Controlling Area
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column WBS_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 52ce77ef-8281-4144-801f-ffb1fb38ccff
+		sourceLineageTag: WBS_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: WBS_ELEMNT_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 943ee75e-7693-4e4d-a57c-49a13937e2ce
+		sourceLineageTag: SALES_AREA_KEY
+		summarizeBy: none
+		sourceColumn: SALES_AREA_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Days 2'
+		dataType: int64
+		formatString: 0
+		lineageTag: 15d6192f-43b4-4e7c-9ef9-57fff5b3581c
+		sourceLineageTag: AR Days 2
+		summarizeBy: sum
+		sourceColumn: AR Days 2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Days Net'
+		dataType: int64
+		formatString: 0
+		lineageTag: 77949f5c-01cc-46b4-af3a-386ce4953bb3
+		sourceLineageTag: AR Days Net
+		summarizeBy: sum
+		sourceColumn: AR Days Net
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Reference Key for Line Item'
+		dataType: string
+		lineageTag: 635ac435-cbdb-47c5-9900-cda5a96a8755
+		sourceLineageTag: AR Reference Key for Line Item
+		summarizeBy: none
+		sourceColumn: AR Reference Key for Line Item
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 29e0b96b-a870-40b4-be59-e151d0947868
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEG_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: f9fcf1a8-fee7-48c7-a653-c37ca435ad07
+		sourceLineageTag: SEG_KEY
+		summarizeBy: none
+		sourceColumn: SEG_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BILLING_DOCMT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b8ff0de-84b7-45a4-b6a3-ff0300873291
+		sourceLineageTag: BILLING_DOCMT_KEY
+		summarizeBy: none
+		sourceColumn: BILLING_DOCMT_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSTNG_KEY
+		dataType: string
+		lineageTag: 43448fb4-659f-446b-bf6f-c72185668694
+		sourceLineageTag: PSTNG_KEY
+		summarizeBy: none
+		sourceColumn: PSTNG_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEBIT_CREDIT_IND
+		dataType: string
+		lineageTag: fbc3fb1a-308a-4d2a-b7af-999240f42dfa
+		sourceLineageTag: DEBIT_CREDIT_IND
+		summarizeBy: none
+		sourceColumn: DEBIT_CREDIT_IND
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: f3d3d2b3-a64f-42a0-a3c9-92dddd41ebb6
+		sourceLineageTag: GL_KEY
+		summarizeBy: none
+		sourceColumn: GL_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BSLINE_DUE_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e98aba8-f4fa-47d9-9c5c-b2cce12256c0
+		sourceLineageTag: BSLINE_DUE_DATE_KEY
+		summarizeBy: none
+		sourceColumn: BSLINE_DUE_DATE_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Payment Terms'
+		dataType: string
+		lineageTag: 46efc64b-aeb1-423c-93c0-af95053afaa3
+		sourceLineageTag: AR Payment Terms
+		summarizeBy: none
+		sourceColumn: AR Payment Terms
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Days 1'
+		dataType: int64
+		formatString: 0
+		lineageTag: f0ad8787-a6a7-4075-b3f3-defb5a5e5997
+		sourceLineageTag: AR Days 1
+		summarizeBy: sum
+		sourceColumn: AR Days 1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Invoice Reference Number'
+		dataType: string
+		lineageTag: 68fd82ef-f2fb-45c3-bf1b-ffc88bea224f
+		sourceLineageTag: AR Invoice Reference Number
+		summarizeBy: none
+		sourceColumn: AR Invoice Reference Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Reason Code'
+		dataType: string
+		lineageTag: 2a4099db-8242-4fc7-a863-9dd5bdc1ee07
+		sourceLineageTag: AR Reason Code
+		summarizeBy: none
+		sourceColumn: AR Reason Code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Reason Code Description'
+		dataType: string
+		lineageTag: 12752b6b-4d11-402c-a2c2-1a2e7766bacd
+		sourceLineageTag: AR Reason Code Description
+		summarizeBy: none
+		sourceColumn: AR Reason Code Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 65d08cff-f2a6-4b88-b44e-6513667fd9a0
+		sourceLineageTag: DOCMT_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: DOCMT_CRNCY_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: fb32cddd-895f-4835-9203-261be6db3c0d
+		sourceLineageTag: CMPNY_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_CRNCY_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROUP_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: aef76667-1030-470b-9249-785c9398f1b7
+		sourceLineageTag: GROUP_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: GROUP_CRNCY_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Posting Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b3fa1ac-e2c6-48c3-b0cb-7602511a72e5
+		sourceLineageTag: AR Posting Period
+		summarizeBy: sum
+		sourceColumn: AR Posting Period
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Document Type'
+		dataType: string
+		lineageTag: 317465e5-4c6b-4659-9d6f-15b1c67cbef6
+		sourceLineageTag: AR Document Type
+		summarizeBy: none
+		sourceColumn: AR Document Type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Reference Number'
+		dataType: string
+		lineageTag: e95fe26d-b938-4b02-be2d-5f69d6caeb99
+		sourceLineageTag: AR Reference Number
+		summarizeBy: none
+		sourceColumn: AR Reference Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLEARING_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e5d88f26-ed57-4daf-bfb7-704e5a78de29
+		sourceLineageTag: CLEARING_DATE_KEY
+		summarizeBy: none
+		sourceColumn: CLEARING_DATE_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Assignment Number'
+		dataType: string
+		lineageTag: 0b010346-0a8a-4e13-ba95-035ec514a37a
+		sourceLineageTag: AR Assignment Number
+		summarizeBy: none
+		sourceColumn: AR Assignment Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Special GL Transaction Type'
+		dataType: string
+		lineageTag: 138b6d32-15cd-4d76-8210-e4be33a6df7e
+		sourceLineageTag: AR Special GL Transaction Type
+		summarizeBy: none
+		sourceColumn: AR Special GL Transaction Type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Special GL Indicator'
+		dataType: string
+		lineageTag: e9c4ea4a-3518-4597-af3c-1f2d4e6b2271
+		sourceLineageTag: AR Special GL Indicator
+		summarizeBy: none
+		sourceColumn: AR Special GL Indicator
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a3a1fc56-2f00-41a5-996f-4c0ae08414ef
+		sourceLineageTag: DOCMT_DATE_KEY
+		summarizeBy: none
+		sourceColumn: DOCMT_DATE_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSTNG_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: de2caf19-44e4-431d-b7bc-a786470c279c
+		sourceLineageTag: PSTNG_DATE_KEY
+		summarizeBy: none
+		sourceColumn: PSTNG_DATE_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Baseline Due Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a6dac2e-58e7-42ad-8caa-aa2f3945ee60
+		sourceLineageTag: Baseline Due Fiscal Year
+		summarizeBy: sum
+		sourceColumn: Baseline Due Fiscal Year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Ledger Code'
+		dataType: string
+		lineageTag: fa540cd3-3b7e-4ed4-8cac-05652eeb12cc
+		sourceLineageTag: AR Ledger Code
+		summarizeBy: none
+		sourceColumn: AR Ledger Code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Ledger Posting Item Number'
+		dataType: string
+		lineageTag: f412fb87-660f-41c5-a54e-c0b9e9eeef7e
+		sourceLineageTag: AR Ledger Posting Item Number
+		summarizeBy: none
+		sourceColumn: AR Ledger Posting Item Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAYER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: d51a35ec-8b44-45e8-8781-2ebd59ac6d9c
+		sourceLineageTag: PAYER_CUST_KEY
+		summarizeBy: none
+		sourceColumn: PAYER_CUST_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Document Line Item Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 848cd3b7-348a-4686-9f7c-10210c9caff8
+		sourceLineageTag: AR Document Line Item Number
+		summarizeBy: sum
+		sourceColumn: AR Document Line Item Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Clearing Document Number'
+		dataType: string
+		lineageTag: 6b897a5c-23ee-4c3b-9122-69d3b75c3a39
+		sourceLineageTag: AR Clearing Document Number
+		summarizeBy: none
+		sourceColumn: AR Clearing Document Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e548fac-fa16-47ba-a230-ce973da54b42
+		sourceLineageTag: CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AR Document Header Number'
+		dataType: string
+		lineageTag: f6999927-d0a3-4368-be44-2584a5f1bd09
+		sourceLineageTag: AR Document Header Number
+		summarizeBy: none
+		sourceColumn: AR Document Header Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CRNCY_AMT
+		dataType: double
+		lineageTag: b4772e39-9f00-48ad-97eb-a548947ecdd4
+		sourceLineageTag: CMPNY_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: CMPNY_CRNCY_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DOCMT_CRNCY_AMT
+		dataType: double
+		lineageTag: 8b684222-723e-4581-a093-4f569083a8e1
+		sourceLineageTag: DOCMT_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GROUP_CRNCY_AMT
+		dataType: double
+		lineageTag: 89cf05ab-f3a4-41d6-9967-15677f212a4f
+		sourceLineageTag: GROUP_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: GROUP_CRNCY_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PROFCHZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e49a1cf-f1d1-4b3d-86c5-cb5d5d5d8ac0
+		sourceLineageTag: PROFCHZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCHZ_PROFT_CNTR_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCVZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ca7e1ad7-7a98-4707-92fb-d1d9afd9cc1f
+		sourceLineageTag: PROFCVZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCVZ_PROFT_CNTR_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact Accounts Receivable' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_FACT_FI_ACCTRCV2_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+
+	changedProperty = IsHidden
+

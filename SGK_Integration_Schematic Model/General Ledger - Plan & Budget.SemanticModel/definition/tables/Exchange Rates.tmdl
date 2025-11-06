@@ -1,0 +1,141 @@
+table 'Exchange Rates'
+	lineageTag: bdf0b0e8-eec3-42a6-843d-3d1bcaee7a5d
+
+	column EXCHG_RT_TYP
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: aa67e138-82c1-461e-aad9-3be1bf2675e8
+		summarizeBy: none
+		sourceColumn: EXCHG_RT_TYP
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXCHG_RT_TYP_DESC
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 00307b58-c80b-4b6e-9bc9-a3b4f8bf1a72
+		summarizeBy: none
+		sourceColumn: EXCHG_RT_TYP_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'From Currency'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: b4523925-a6e1-4234-8f55-c45aa51ea921
+		summarizeBy: none
+		sourceColumn: From Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column TO_CRNCY
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 482742ec-3e86-4dcc-bf3f-ba0f0ba1881e
+		summarizeBy: none
+		sourceColumn: TO_CRNCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valid From Date'
+		dataType: dateTime
+		isNullable: false
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 371995b1-9347-4697-bd8a-806d3074576e
+		summarizeBy: none
+		sourceColumn: Valid From Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Exchange Rate'
+		dataType: double
+		sourceProviderType: decimal(20, 10)
+		lineageTag: 380d919a-8aa9-4200-b627-e3e55e68ed59
+		summarizeBy: sum
+		sourceColumn: Exchange Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0fd9d1b3-e7eb-40f3-abe2-7067c0888baf
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 4ecd7c2e-d513-47b9-91a1-d99914447787
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 9fc1e068-15c6-40ff-bade-ee876a5eb3e5
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fd7c9fcf-4231-4a58-929d-83d093665e3c
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 93a44d2c-fbcf-42fc-b71b-fc2e2ca03070
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4f1ffd75-6443-4fe9-a147-1197283a29db
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Exchange Rates' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_EXCHANGE_RATES = Source{[Schema="Propelis",Item="EXCHANGE_RATES"]}[Data]
+				in
+				    Propelis_EXCHANGE_RATES
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

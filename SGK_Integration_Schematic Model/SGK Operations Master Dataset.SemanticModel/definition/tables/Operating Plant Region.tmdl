@@ -1,0 +1,40 @@
+table 'Operating Plant Region'
+	lineageTag: 65f94836-eb7b-4675-91e1-25b429b4b6d6
+	sourceLineageTag: [Propelis].[OPERATING_PLANT_REGION]
+
+	column 'Operating Plant Business Function'
+		dataType: string
+		lineageTag: cb07cf74-0477-40d6-ba29-dbd1ea147284
+		sourceLineageTag: Operating Plant Business Function
+		summarizeBy: none
+		sourceColumn: Operating Plant Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Plant Region'
+		dataType: string
+		lineageTag: 36adf72b-0567-400a-ab85-8ad7b6210e92
+		sourceLineageTag: Operating Plant Region
+		summarizeBy: none
+		sourceColumn: Operating Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Plant'
+		dataType: string
+		lineageTag: 2ccfd523-55df-4caa-bb98-5f3078c86c2c
+		sourceLineageTag: Operating Plant
+		summarizeBy: none
+		sourceColumn: Operating Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Operating Plant Region' = entity
+		mode: directLake
+		source
+			entityName: OPERATING_PLANT_REGION
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

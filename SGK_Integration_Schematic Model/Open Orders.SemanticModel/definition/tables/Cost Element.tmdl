@@ -1,0 +1,132 @@
+table 'Cost Element'
+	lineageTag: adf28807-3e67-482c-bb25-3de01bfab7a5
+
+	column COST_ELEMNT_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 59cd30db-a386-4cad-a849-90ffcd21cfe7
+		summarizeBy: none
+		sourceColumn: COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1537072b-341d-457f-9946-6505ed307828
+		summarizeBy: none
+		sourceColumn: Cost Element ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Chart Of Accounts'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 36dc4f7b-4d36-46de-b85d-bc1e05207263
+		summarizeBy: none
+		sourceColumn: Cost Element Chart Of Accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 76f0b485-aa47-464b-bd16-4cdff738e360
+		summarizeBy: none
+		sourceColumn: Cost Element Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c7e4040f-71aa-4c78-92ab-647549b9d6cf
+		summarizeBy: none
+		sourceColumn: Cost Element Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3dedbbe3-32d4-4aa2-86a8-31bb7f52c6ab
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: da09e6cd-985e-4037-b859-d963bc63e415
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 0d52a2cd-a67a-4b61-b2cc-85ad4642ee92
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Current Record Indicator of Cost Element'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6bb160c9-aa24-4b56-b3f7-e1c431d84c01
+		summarizeBy: none
+		sourceColumn: Current Record Indicator of Cost Element
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 50f22466-0eb2-41e4-a9cf-5c2edec7bf62
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ef3f2d25-aaf8-4952-ad1b-16e53d84aa18
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Chart Of Accounts Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4d80bc59-8fd8-4b46-a215-32cd7290a067
+		summarizeBy: none
+		sourceColumn: Cost Element Chart Of Accounts Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Cost Element' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_COSTELM_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_COSTELM_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_COSTELM_CUR_D
+
+	changedProperty = Name
+

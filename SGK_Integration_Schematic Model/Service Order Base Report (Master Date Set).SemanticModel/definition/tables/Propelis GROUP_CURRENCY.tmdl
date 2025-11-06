@@ -1,0 +1,114 @@
+table 'Propelis GROUP_CURRENCY'
+	lineageTag: 65ed2163-e183-43e4-a9ca-4fd9791b2aeb
+
+	column CRNCY_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 69a792bd-da87-46f2-9035-3d2de37716c2
+		summarizeBy: sum
+		sourceColumn: CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Code Currency'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 55af5d5d-8ddd-46b1-8546-f78c7724df02
+		summarizeBy: none
+		sourceColumn: Group Code Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fa43310d-4b41-4fe0-a113-1474795affa7
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: dbd46d30-b57d-4800-9eb5-9957a794dd56
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 3d779e2f-4e08-48c4-800f-2bccc8592f2f
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7e224fb0-bc4e-49e4-96d0-92d37c5fe67f
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: dbb59019-7f7c-4063-87bf-67962862364f
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 88b939cb-fece-4d36-9b0b-5a0d5f786751
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Currency Short Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8053beaf-41d3-4101-86ef-f7eccc2e624f
+		summarizeBy: none
+		sourceColumn: Group Currency Short Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Currency Long Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0d0a91bf-7d81-4b3c-ba14-14112b712ecb
+		summarizeBy: none
+		sourceColumn: Group Currency Long Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Propelis GROUP_CURRENCY' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_GROUP_CURRENCY = Source{[Schema="Propelis",Item="GROUP_CURRENCY"]}[Data]
+				in
+				    Propelis_GROUP_CURRENCY
+
+	annotation PBI_ResultType = Table
+

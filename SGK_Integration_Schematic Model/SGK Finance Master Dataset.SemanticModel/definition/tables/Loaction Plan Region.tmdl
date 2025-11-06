@@ -1,0 +1,40 @@
+table 'Loaction Plan Region'
+	lineageTag: 6741f0f3-7709-4d75-9a40-b41431069b26
+	sourceLineageTag: [Propelis].[LOCATION_PLANT_REGION]
+
+	column 'Location Plant Business Function'
+		dataType: string
+		lineageTag: b03b8cb0-a306-4684-9d5a-fc61df034799
+		sourceLineageTag: Location Plant Business Function
+		summarizeBy: none
+		sourceColumn: Location Plant Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Location Plant Region'
+		dataType: string
+		lineageTag: aa565c93-f0f9-44a2-882d-32d7398b97d6
+		sourceLineageTag: Location Plant Region
+		summarizeBy: none
+		sourceColumn: Location Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Location Plant'
+		dataType: string
+		lineageTag: 94b1e0cd-41bf-4897-b662-4e0bd0f26555
+		sourceLineageTag: Location Plant
+		summarizeBy: none
+		sourceColumn: Location Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Loaction Plan Region' = entity
+		mode: directLake
+		source
+			entityName: LOCATION_PLANT_REGION
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

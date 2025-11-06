@@ -1,0 +1,72 @@
+table EDW_T_R_BASE_TARGET_PRICING_COMMENTS
+	lineageTag: 1d9a5a7f-7b5d-4b93-a953-2f1a415f9ca6
+
+	column 'Customer Partner Customer ID'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9691e081-24dd-459f-ad25-eb391bdf379c
+		summarizeBy: count
+		sourceColumn: Customer Partner Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Pricing Comments Sales Order'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f8565917-c0ec-40d5-8706-071226a2d999
+		summarizeBy: none
+		sourceColumn: Base Target Pricing Comments Sales Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Pricing Comments Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6d335fa1-7a25-47a9-9bbd-d3fb9a5c7f35
+		summarizeBy: none
+		sourceColumn: Base Target Pricing Comments Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Pricing Comments Email'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 13844f38-a52a-4d4a-a898-894db8776d20
+		summarizeBy: none
+		sourceColumn: Base Target Pricing Comments Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Pricing Comments'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4cbdf28e-2ceb-4dd4-8425-6596fa65297f
+		summarizeBy: none
+		sourceColumn: Base Target Pricing Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Pricing Comments Date Created'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: aefdb9c8-4d49-4aa4-9ad7-78feee38931a
+		summarizeBy: none
+		sourceColumn: Base Target Pricing Comments Date Created
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition EDW_T_R_BASE_TARGET_PRICING_COMMENTS = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_R_BASE_TARGET_PRICING_COMMENTS = Source{[Schema="dbo",Item="EDW_T_R_BASE_TARGET_PRICING_COMMENTS"]}[Data]
+				in
+				    dbo_EDW_T_R_BASE_TARGET_PRICING_COMMENTS
+
+	annotation PBI_ResultType = Table
+

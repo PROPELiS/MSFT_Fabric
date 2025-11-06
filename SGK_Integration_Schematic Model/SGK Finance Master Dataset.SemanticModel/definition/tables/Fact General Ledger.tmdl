@@ -1,0 +1,1422 @@
+table 'Fact General Ledger'
+	lineageTag: 8087e8a6-5e19-4e09-a76c-f48e71ddfa7b
+	sourceLineageTag: [Propelis].[EDW_V_FACT_FI_GENLDGR_CUR_D]
+
+	measure 'Company Currency Amount' = ```
+			sum('Fact General Ledger'[CMPNY_CRNCY_AMT])
+			
+			```
+		lineageTag: fc1c5168-d8cf-4673-b8f6-59e7b3e98b5f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Company Currency Tax Amount' = ```
+			sum('Fact General Ledger'[CMPNY_CRNCY_TAX_AMT])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: cdf3d2d6-b9dc-429d-8651-6d4d1ece4153
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Document Currency Amount' = ```
+			sum('Fact General Ledger'[DOCMT_CRNCY_AMT])
+			
+			```
+		lineageTag: cc3ab9f9-beab-4969-b592-838a0d2fa72f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Document Currency Tax Amount GL' = ```
+			sum('Fact General Ledger'[DOCMT_CRNCY_TAX_AMT])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 21478cf4-f13d-4d66-a7c9-569309e7b9ee
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'GL Amount for Updating in GL' = ```
+			sum('Fact General Ledger'[AMT_FOR_UPDATING_IN_GL])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 50a61fbc-5a9f-49aa-b319-714f16f68a04
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'GL Quantity' = ```
+			sum('Fact General Ledger'[QTY])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 375da96d-7774-4a2a-9673-9bf71f22955b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Group Currency Amount' = ```
+			sum('Fact General Ledger'[GROUP_CRNCY_AMT])
+			
+			```
+		lineageTag: e7a66a61-865d-442f-9ec3-d64d8d3b8fcb
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Transaction Currency Amount' = ```
+			sum('Fact General Ledger'[TRNSCTN_CRNCY_AMT])
+			
+			```
+		lineageTag: 19612deb-908c-4912-9f3d-bb54ab8356be
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Close-Out Revenue Amt - ALL' =
+			
+			IF (
+			    SELECTEDVALUE ( 'Fact COPA Actual'[COPA Currency Type] ) = "PEG Rate",
+			    SUMX (
+			        VALUES ( 'Company Currency'[Company Currency] ),
+			        CALCULATE (
+			            SUM ('Fact COPA Actual'[CLOSEOUT_REVNU_AMT] )
+			        ) *
+			        CALCULATE (
+			            SELECTEDVALUE ( EDW_T_D_MST_EXCHGRT_CUR_D[Exchange Rate])
+			        )
+			    ),
+			    SUM ( 'Fact COPA Actual'[CLOSEOUT_REVNU_AMT])
+			)
+		lineageTag: a2a11e9f-21b5-4d71-9e49-4451d170bb80
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Damaged Revenue Amt - ALL' =
+			
+			IF (
+			    SELECTEDVALUE ( 'Fact COPA Actual'[COPA Currency Type]) = "PEG Rate",
+			    SUMX (
+			        VALUES ( 'Company Currency'[Company Currency] ),
+			        CALCULATE (
+			            SUM ( 'Fact COPA Actual'[DAMAGED_REVNU_AMT] )
+			        ) *
+			        CALCULATE (
+			            SELECTEDVALUE ( EDW_T_D_MST_EXCHGRT_CUR_D[Exchange Rate] )
+			        )
+			    ),
+			    SUM ( 'Fact COPA Actual'[DAMAGED_REVNU_AMT] )
+			)
+		lineageTag: 6dd96836-b71f-4fd2-84a8-430a7250b206
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Exception Revenue Amt - ALL' = ```
+			
+			IF (
+			    SELECTEDVALUE ( 'Fact COPA Actual'[COPA Currency Type]) = "PEG Rate",
+			    SUMX (
+			        VALUES ( 'Company Currency'[Company Currency] ),
+			        CALCULATE (
+			            SUM ( 'Fact COPA Actual'[EXCEPTION_REVNU_AMT])
+			        ) *
+			        CALCULATE (
+			            SELECTEDVALUE ( EDW_T_D_MST_EXCHGRT_CUR_D[Exchange Rate] )
+			        )
+			    ),
+			    SUM ( 'Fact COPA Actual'[EXCEPTION_REVNU_AMT])
+			)
+			
+			```
+		lineageTag: 195e5a5b-477e-4526-a848-c162a71b6777
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Preneed Revenue Amt - ALL' =
+			
+			IF (
+			    SELECTEDVALUE ('Fact COPA Actual'[COPA Currency Type] ) = "PEG Rate",
+			    SUMX (
+			        VALUES ( 'Company Currency'[Company Currency] ),
+			        CALCULATE (
+			            SUM ( 'Fact COPA Actual'[PRENEED_REVNU_AMT] )
+			        ) *
+			        CALCULATE (
+			            SELECTEDVALUE ( EDW_T_D_MST_EXCHGRT_CUR_D[Exchange Rate] )
+			        )
+			    ),
+			    SUM ( 'Fact COPA Actual'[PRENEED_REVNU_AMT] )
+			)
+		lineageTag: 8cb31840-dadb-43e7-b4f2-529713c0fd3d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Promotion Revenue Amt - ALL' = ```
+			
+			IF (
+			    SELECTEDVALUE ( 'Fact COPA Actual'[COPA Currency Type] ) = "PEG Rate",
+			    SUMX (
+			        VALUES ( 'Company Currency'[Company Currency] ),
+			        CALCULATE (
+			            SUM ( 'Fact COPA Actual'[PROMOTION_REVNU_AMT] )
+			        ) *
+			        CALCULATE (
+			            SELECTEDVALUE ( EDW_T_D_MST_EXCHGRT_CUR_D[Exchange Rate] )
+			        )
+			    ),
+			    SUM ( 'Fact COPA Actual'[PROMOTION_REVNU_AMT] )
+			)
+			
+			```
+		lineageTag: a9c966ae-e180-4765-84ca-04cd19f5135e
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue Amt - ALL' =
+			
+			IF (
+			    SELECTEDVALUE ( 'Fact COPA Actual'[COPA Currency Type]) = "PEG Rate",
+			    SUMX (
+			        VALUES ( 'Company Currency'[Company Currency]),
+			        CALCULATE (
+			            SUM ( 'Fact COPA Actual'[REVNU_AMT])
+			        ) *
+			        CALCULATE (
+			            SELECTEDVALUE ( EDW_T_D_MST_EXCHGRT_CUR_D[Exchange Rate])
+			        )
+			    ),
+			    SUM ( 'Fact COPA Actual'[REVNU_AMT])
+			)
+		lineageTag: 95949153-837c-4943-bf29-7747fa96fe1e
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selling Price Amt - ALL' =
+			
+			IF (
+			    SELECTEDVALUE ( 'Fact COPA Actual'[COPA Currency Type]) = "PEG Rate",
+			    SUMX (
+			        VALUES ( 'Company Currency'[Company Currency] ),
+			        CALCULATE (
+			            SUM ( 'Fact COPA Actual'[SELLING_PRICE_AMT] )
+			        ) *
+			        CALCULATE (
+			            SELECTEDVALUE ( EDW_T_D_MST_EXCHGRT_CUR_D[Exchange Rate] )
+			        )
+			    ),
+			    SUM ( 'Fact COPA Actual'[SELLING_PRICE_AMT] )
+			)
+		lineageTag: 52fcd55c-35d3-4a82-ab91-fe2d41222a98
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Substitution Revenue Amt - ALL' =
+			
+			IF (
+			    SELECTEDVALUE ( 'Fact COPA Actual'[COPA Currency Type] ) = "PEG Rate",
+			    SUMX (
+			        VALUES ( 'Company Currency'[Company Currency]),
+			        CALCULATE (
+			            SUM ( 'Fact COPA Actual'[SUBSTITUTION_REVNU_AMT] )
+			        ) *
+			        CALCULATE (
+			            SELECTEDVALUE ( EDW_T_D_MST_EXCHGRT_CUR_D[Exchange Rate])
+			        )
+			    ),
+			    SUM ( 'Fact COPA Actual'[SUBSTITUTION_REVNU_AMT] )
+			)
+		lineageTag: c68ba072-ad44-41ee-a062-6fcf8479539e
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Labor Cost Amt - ALL' =
+			
+			IF (
+			    SELECTEDVALUE ( 'Fact COPA Actual'[COPA Currency Type]) = "PEG Rate",
+			    SUMX (
+			        VALUES ( 'Company Currency'[Company Currency]),
+			        CALCULATE (
+			            SUM ( 'Fact COPA Actual'[LABOR_COST_AMT] )
+			        ) *
+			        CALCULATE (
+			            SELECTEDVALUE ( EDW_T_D_MST_EXCHGRT_CUR_D[Exchange Rate])
+			        )
+			    ),
+			    SUM ( 'Fact COPA Actual'[LABOR_COST_AMT] )
+			)
+		lineageTag: 224cd93b-7aa7-46c1-9e87-789fcf1724f8
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Gross Sales - ALL' =
+			
+			[Close-Out Revenue Amt - ALL] +
+			[Damaged Revenue Amt - ALL] +
+			[Exception Revenue Amt - ALL] +
+			[Preneed Revenue Amt - ALL] +
+			[Promotion Revenue Amt - ALL] +
+			[Revenue Amt - ALL] +
+			[Selling Price Amt - ALL] +
+			[Substitution Revenue Amt - ALL]
+		lineageTag: c2e87551-9557-47dc-bf6f-64b91fe60ddf
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0a17e723-d35a-40d1-b7f5-87c63472c883
+		sourceLineageTag: CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: ab09b9a0-523a-471f-a0e0-9ac477f07a97
+		sourceLineageTag: GL Fiscal Year
+		summarizeBy: sum
+		sourceColumn: GL Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Number'
+		dataType: string
+		lineageTag: 1859fce1-0896-446d-a556-05fc21a72f30
+		sourceLineageTag: GL Document Number
+		summarizeBy: none
+		sourceColumn: GL Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Ledger'
+		dataType: string
+		lineageTag: 08e8e1da-3136-42f7-8f61-9db3947122df
+		sourceLineageTag: GL Ledger
+		summarizeBy: none
+		sourceColumn: GL Ledger
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Line Item'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f02095a-beb4-484b-8988-8e68ed689c60
+		sourceLineageTag: GL Document Line Item
+		summarizeBy: sum
+		sourceColumn: GL Document Line Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Controlling Area'
+		dataType: string
+		lineageTag: 7ed994b5-8b9e-45f4-b6e7-979103bb6136
+		sourceLineageTag: GL Controlling Area
+		summarizeBy: none
+		sourceColumn: GL Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRNSCTN_CRNCY_AMT
+		dataType: double
+		lineageTag: 1e9bed97-5021-4f23-88c4-f46c1fa05fde
+		sourceLineageTag: TRNSCTN_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: TRNSCTN_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CMPNY_CRNCY_AMT
+		dataType: double
+		lineageTag: 94edb1fd-669d-4cba-8316-2e07d59f80fe
+		sourceLineageTag: CMPNY_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: CMPNY_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GROUP_CRNCY_AMT
+		dataType: double
+		lineageTag: f2cc36cc-5e4d-42fe-ba1b-5276ff35e83b
+		sourceLineageTag: GROUP_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: GROUP_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TRNSCTN_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 2fbb67d4-3515-4869-81cb-f2be8df33274
+		sourceLineageTag: TRNSCTN_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: TRNSCTN_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 77a48293-b422-4760-9941-8067bed7596f
+		sourceLineageTag: CMPNY_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROUP_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: f228a3ee-4361-4576-9f04-957b08347634
+		sourceLineageTag: GROUP_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: GROUP_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Item Category'
+		dataType: string
+		lineageTag: f710d1f2-f2f7-4013-abde-0be292209018
+		sourceLineageTag: GL Item Category
+		summarizeBy: none
+		sourceColumn: GL Item Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Fiscal Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 299234ca-355a-4a73-88d3-f0c53bd3077f
+		sourceLineageTag: GL Fiscal Period
+		summarizeBy: sum
+		sourceColumn: GL Fiscal Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Line Item ID'
+		dataType: string
+		lineageTag: 922b2b69-4788-4290-84ef-bf2be4ec903f
+		sourceLineageTag: GL Document Line Item ID
+		summarizeBy: none
+		sourceColumn: GL Document Line Item ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Clearing Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 58271322-8b15-4701-9814-34838c2cae3c
+		sourceLineageTag: GL Clearing Fiscal Year
+		summarizeBy: sum
+		sourceColumn: GL Clearing Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Clearing Item'
+		dataType: int64
+		formatString: 0
+		lineageTag: eba8f0b8-9276-4c5c-b0bf-46b76d2e874f
+		sourceLineageTag: GL Clearing Item
+		summarizeBy: sum
+		sourceColumn: GL Clearing Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 64674fc7-e471-428f-bab0-2615d15d8f04
+		sourceLineageTag: CUST_KEY
+		summarizeBy: none
+		sourceColumn: CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column VNDR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: efe214ad-aaa7-4c03-9594-d6f8f01297c7
+		sourceLineageTag: VNDR_KEY
+		summarizeBy: none
+		sourceColumn: VNDR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reason Code for Payments'
+		dataType: string
+		lineageTag: 41f99873-6847-4d61-b687-67820ba4c033
+		sourceLineageTag: GL Reason Code for Payments
+		summarizeBy: none
+		sourceColumn: GL Reason Code for Payments
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reference Date for Settlement'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cf26acae-e2fb-4ae7-88ce-f5630435cf3a
+		sourceLineageTag: GL Reference Date for Settlement
+		summarizeBy: none
+		sourceColumn: GL Reference Date for Settlement
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Business Partner Reference Key'
+		dataType: string
+		lineageTag: 23f22a0f-9f31-4d32-8929-91ec3b0adb1c
+		sourceLineageTag: GL Business Partner Reference Key
+		summarizeBy: none
+		sourceColumn: GL Business Partner Reference Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Business Partner Reference Key 2'
+		dataType: string
+		lineageTag: 6b36e51d-52a4-479d-ba43-d4d6d9057c50
+		sourceLineageTag: GL Business Partner Reference Key 2
+		summarizeBy: none
+		sourceColumn: GL Business Partner Reference Key 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Special GL Transaction Type'
+		dataType: string
+		lineageTag: 263d3a5b-b929-4958-9508-b0ed8597b02f
+		sourceLineageTag: GL Special GL Transaction Type
+		summarizeBy: none
+		sourceColumn: GL Special GL Transaction Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Special GL Indicator'
+		dataType: string
+		lineageTag: caa065be-8e18-43c4-98f9-7066305147cf
+		sourceLineageTag: GL Special GL Indicator
+		summarizeBy: none
+		sourceColumn: GL Special GL Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Transaction Type'
+		dataType: string
+		lineageTag: f24320e3-fd7c-474a-ab42-0c72f394e62e
+		sourceLineageTag: GL Transaction Type
+		summarizeBy: none
+		sourceColumn: GL Transaction Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Value Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b71cca53-b622-464e-9c66-0f21e702cea2
+		sourceLineageTag: GL Value Date
+		summarizeBy: none
+		sourceColumn: GL Value Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Assignment Number'
+		dataType: string
+		lineageTag: 8282a47c-2c58-476a-96f9-9a3387f696dd
+		sourceLineageTag: GL Assignment Number
+		summarizeBy: none
+		sourceColumn: GL Assignment Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Item Text'
+		dataType: string
+		lineageTag: fdaf91aa-7851-4176-8b94-b57ee7767401
+		sourceLineageTag: GL Item Text
+		summarizeBy: none
+		sourceColumn: GL Item Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Quantity UOM'
+		dataType: string
+		lineageTag: fc48150f-bf9d-465b-b703-0afb0ad54b20
+		sourceLineageTag: GL Quantity UOM
+		summarizeBy: none
+		sourceColumn: GL Quantity UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c98d438-4a9e-4d7c-8f44-eb4827bf5fae
+		sourceLineageTag: FUNCTNL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Update Currency'
+		dataType: string
+		lineageTag: 2b638029-92a2-40ef-85ca-1ee5faa32d6a
+		sourceLineageTag: GL Update Currency
+		summarizeBy: none
+		sourceColumn: GL Update Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Is Open Item Management'
+		dataType: string
+		lineageTag: b381c060-4fd7-4f80-a1a9-fa0891705935
+		sourceLineageTag: GL Is Open Item Management
+		summarizeBy: none
+		sourceColumn: GL Is Open Item Management
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Tax Jurisdiction'
+		dataType: string
+		lineageTag: 81aeaa77-7855-4f0e-914f-f1b127b2f964
+		sourceLineageTag: GL Tax Jurisdiction
+		summarizeBy: none
+		sourceColumn: GL Tax Jurisdiction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Tax On Sales Or Purchases'
+		dataType: string
+		lineageTag: e39120d8-9ac1-4d2c-8f19-54adbe1e0e8e
+		sourceLineageTag: GL Tax On Sales Or Purchases
+		summarizeBy: none
+		sourceColumn: GL Tax On Sales Or Purchases
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Tax Type'
+		dataType: string
+		lineageTag: dec53462-c6b2-4b2e-970d-db88aacdd4b7
+		sourceLineageTag: GL Tax Type
+		summarizeBy: none
+		sourceColumn: GL Tax Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRADING_PRTNR_CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 97e427ea-eb1c-423b-889e-41b69fef364b
+		sourceLineageTag: TRADING_PRTNR_CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: TRADING_PRTNR_CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column WBS_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e2103f32-903c-4967-abe6-e5f960699598
+		sourceLineageTag: WBS_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: WBS_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Account Type'
+		dataType: string
+		lineageTag: b060c00f-bf9c-4b34-aafa-d497bbac760f
+		sourceLineageTag: GL Account Type
+		summarizeBy: none
+		sourceColumn: GL Account Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f998844-9030-4afd-8e3e-e4f656dc0314
+		sourceLineageTag: PRTNR_FUNCTNL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: PRTNR_FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ceeb1806-89bc-4e61-a073-b454fb7f3667
+		sourceLineageTag: COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b2eae13-d47a-4162-b693-5a5a244cacdc
+		sourceLineageTag: COST_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reference Key for Line Item'
+		dataType: string
+		lineageTag: db3bfe8c-8436-4986-bb5b-813e68b928a0
+		sourceLineageTag: GL Reference Key for Line Item
+		summarizeBy: none
+		sourceColumn: GL Reference Key for Line Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Payment Reference'
+		dataType: string
+		lineageTag: d9bc344c-9d69-4f61-b2b8-7497281d2045
+		sourceLineageTag: GL Payment Reference
+		summarizeBy: none
+		sourceColumn: GL Payment Reference
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 70f1ca59-0110-4f6c-bab0-3a1066b556be
+		sourceLineageTag: PLNT_KEY
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLEARING_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4dd20efd-367e-469e-8f43-f872d98b8530
+		sourceLineageTag: CLEARING_DATE_KEY
+		summarizeBy: none
+		sourceColumn: CLEARING_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Clearing Document Number'
+		dataType: string
+		lineageTag: 3c32611c-5c2b-42f6-8591-fcc5d8729cf3
+		sourceLineageTag: GL Clearing Document Number
+		summarizeBy: none
+		sourceColumn: GL Clearing Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c4a14e9-a4eb-4617-ab3f-44639bce6c65
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEG_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 155e936a-97f6-4880-bdb5-82b7c6c84772
+		sourceLineageTag: SEG_KEY
+		summarizeBy: none
+		sourceColumn: SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Debit/Credit Indicator'
+		dataType: string
+		lineageTag: c82a7cc6-e1cc-4107-9b44-3f99f6adc22c
+		sourceLineageTag: GL Debit/Credit Indicator
+		summarizeBy: none
+		sourceColumn: GL Debit/Credit Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Posting Key'
+		dataType: string
+		lineageTag: 28a40179-ac4e-40a0-b9cf-5a8eb06ad4b0
+		sourceLineageTag: GL Posting Key
+		summarizeBy: none
+		sourceColumn: GL Posting Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Invoice Document Number'
+		dataType: string
+		lineageTag: 45cc942a-8e3b-4d2e-aa7b-8cf5fa2cd1ae
+		sourceLineageTag: GL Invoice Document Number
+		summarizeBy: none
+		sourceColumn: GL Invoice Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column GL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e8eaa17-81a7-488f-959e-e70be0f3fc3c
+		sourceLineageTag: GL_KEY
+		summarizeBy: none
+		sourceColumn: GL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 564d6a4e-8e0f-4c72-a62e-d10d571a428d
+		sourceLineageTag: MATRL_KEY
+		summarizeBy: none
+		sourceColumn: MATRL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: acf06313-de1c-4d42-a89f-604718a81345
+		sourceLineageTag: PRTNR_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PRTNR_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_SEG_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f8adb84-df1d-4014-90e4-d2c33a99a022
+		sourceLineageTag: PRTNR_SEG_KEY
+		summarizeBy: none
+		sourceColumn: PRTNR_SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Type'
+		dataType: string
+		lineageTag: a8fc6d7c-923b-40da-b35d-ff295582d14d
+		sourceLineageTag: GL Document Type
+		summarizeBy: none
+		sourceColumn: GL Document Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Ledger in GL Accounting'
+		dataType: string
+		lineageTag: 73942144-3286-4b0d-abee-a7cd475270ce
+		sourceLineageTag: GL Ledger in GL Accounting
+		summarizeBy: none
+		sourceColumn: GL Ledger in GL Accounting
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e13b9acb-4ba5-4b07-be12-baca0155ea32
+		sourceLineageTag: DOCMT_DATE_KEY
+		summarizeBy: none
+		sourceColumn: DOCMT_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Creation Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e7734041-7b3e-41d5-8d6a-97eaea06e97a
+		sourceLineageTag: GL Document Creation Date
+		summarizeBy: none
+		sourceColumn: GL Document Creation Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Creation Time'
+		dataType: int64
+		formatString: 0
+		lineageTag: f72b99c0-0128-4168-878b-19cd7322c379
+		sourceLineageTag: GL Document Creation Time
+		summarizeBy: sum
+		sourceColumn: GL Document Creation Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Creation User Name'
+		dataType: string
+		lineageTag: 8915d3d3-7c47-4fb1-b775-b6baa748e068
+		sourceLineageTag: GL Document Creation User Name
+		summarizeBy: none
+		sourceColumn: GL Document Creation User Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSTNG_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f1dd5a4-86e0-4870-8df5-7b007b6fa3c5
+		sourceLineageTag: PSTNG_DATE_KEY
+		summarizeBy: none
+		sourceColumn: PSTNG_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Business Transaction'
+		dataType: string
+		lineageTag: 58ea0602-fc06-407c-b8f1-efe2c690c8b3
+		sourceLineageTag: GL Business Transaction
+		summarizeBy: none
+		sourceColumn: GL Business Transaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Status'
+		dataType: string
+		lineageTag: 0273e643-6807-409a-b3ab-2148125e34fc
+		sourceLineageTag: GL Document Status
+		summarizeBy: none
+		sourceColumn: GL Document Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reference Document Number'
+		dataType: string
+		lineageTag: 88449258-80c2-4246-8a39-4549c855aaf4
+		sourceLineageTag: GL Reference Document Number
+		summarizeBy: none
+		sourceColumn: GL Reference Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reference Key'
+		dataType: string
+		lineageTag: 9ea31848-bac2-4ba6-8429-4ee09b9498b4
+		sourceLineageTag: GL Reference Key
+		summarizeBy: none
+		sourceColumn: GL Reference Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reference Transaction'
+		dataType: string
+		lineageTag: 460d849d-e2e4-48c7-8fe7-de45ffe9797d
+		sourceLineageTag: GL Reference Transaction
+		summarizeBy: none
+		sourceColumn: GL Reference Transaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column BILLING_DOCMT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b7c571e-61be-4f52-85cf-62641cfbd26d
+		sourceLineageTag: BILLING_DOCMT_KEY
+		summarizeBy: none
+		sourceColumn: BILLING_DOCMT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Order Number'
+		dataType: string
+		lineageTag: 07c3cf82-f424-4812-ac7e-e1541a537b84
+		sourceLineageTag: GL Order Number
+		summarizeBy: none
+		sourceColumn: GL Order Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Purchase Order Item ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: cf7873af-36c9-4ca6-89be-694d591d5caa
+		sourceLineageTag: GL Purchase Order Item ID
+		summarizeBy: count
+		sourceColumn: GL Purchase Order Item ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PURCHS_ORDER_ITM_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 956e0a23-7897-438b-a30e-cc716ae87ca8
+		sourceLineageTag: PURCHS_ORDER_ITM_KEY
+		summarizeBy: none
+		sourceColumn: PURCHS_ORDER_ITM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Sales Order Item ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 225d6fdf-71ec-4812-b51d-b9488f54f3e7
+		sourceLineageTag: GL Sales Order Item ID
+		summarizeBy: count
+		sourceColumn: GL Sales Order Item ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_ORDER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5bc87e21-77e9-4ea0-8e16-e8554ef22a9e
+		sourceLineageTag: SALES_ORDER_KEY
+		summarizeBy: none
+		sourceColumn: SALES_ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column LCL_CRNCY_3_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: cb457176-d794-47cb-b276-cc530cfa2931
+		sourceLineageTag: LCL_CRNCY_3_KEY
+		summarizeBy: sum
+		sourceColumn: LCL_CRNCY_3_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Parked Document User Name'
+		dataType: string
+		lineageTag: f5366a64-fa22-4d6a-8ed9-b9c45def4ff9
+		sourceLineageTag: GL Parked Document User Name
+		summarizeBy: none
+		sourceColumn: GL Parked Document User Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 11fdc9f4-031a-49a8-8c4b-b76b31b8151c
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 941d2937-5de5-4fd6-bc38-4ae806bfe4cc
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e3b54830-9f40-425d-8abe-5bce491b8538
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Assignment Number for Special Accounts'
+		dataType: string
+		lineageTag: 051c2d48-15ae-4336-bf03-d83f5eab7840
+		sourceLineageTag: GL Assignment Number for Special Accounts
+		summarizeBy: none
+		sourceColumn: GL Assignment Number for Special Accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Ledger Description'
+		dataType: string
+		lineageTag: 1d8719d0-e988-4f58-a335-c37a82ef3f00
+		sourceLineageTag: GL Ledger Description
+		summarizeBy: none
+		sourceColumn: GL Ledger Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Controlling Area Description'
+		dataType: string
+		lineageTag: fd1c54f8-80e6-4517-ab4d-9c6e73ab3a5c
+		sourceLineageTag: GL Controlling Area Description
+		summarizeBy: none
+		sourceColumn: GL Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Item Category Description'
+		dataType: string
+		lineageTag: f7cfec4c-8681-4233-a70f-d0a50cf11f88
+		sourceLineageTag: GL Item Category Description
+		summarizeBy: none
+		sourceColumn: GL Item Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Reason Code Description'
+		dataType: string
+		lineageTag: 3893ea7a-e387-47aa-b172-7c542b0bfcb9
+		sourceLineageTag: GL Reason Code Description
+		summarizeBy: none
+		sourceColumn: GL Reason Code Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Special GI Indicator Description'
+		dataType: string
+		lineageTag: f57235a3-9e0d-4038-9770-b4213b11c6a1
+		sourceLineageTag: GL Special GI Indicator Description
+		summarizeBy: none
+		sourceColumn: GL Special GI Indicator Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Transaction Type Description'
+		dataType: string
+		lineageTag: 1bbe6c84-1815-444b-9637-39cc8e392994
+		sourceLineageTag: GL Transaction Type Description
+		summarizeBy: none
+		sourceColumn: GL Transaction Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Tax Type Description'
+		dataType: string
+		lineageTag: ac46575b-cff0-421d-815e-992d5c5a9586
+		sourceLineageTag: GL Tax Type Description
+		summarizeBy: none
+		sourceColumn: GL Tax Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Account Type Description'
+		dataType: string
+		lineageTag: 1b906cff-6983-4d99-9f78-5e234e9d45b3
+		sourceLineageTag: GL Account Type Description
+		summarizeBy: none
+		sourceColumn: GL Account Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Posting Key Description'
+		dataType: string
+		lineageTag: 0031e266-5dc7-4f27-8e2b-75e6f3da17a1
+		sourceLineageTag: GL Posting Key Description
+		summarizeBy: none
+		sourceColumn: GL Posting Key Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Type Description'
+		dataType: string
+		lineageTag: 65bf1269-a28c-4049-ba4a-1163c6ee9633
+		sourceLineageTag: GL Document Type Description
+		summarizeBy: none
+		sourceColumn: GL Document Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Status Description'
+		dataType: string
+		lineageTag: 6097bbe0-282d-4ab9-9fb1-0f5c3067563e
+		sourceLineageTag: GL Document Status Description
+		summarizeBy: none
+		sourceColumn: GL Document Status Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Timestamp'
+		dataType: int64
+		formatString: 0
+		lineageTag: f5cf5b1f-69a9-4eee-9dcd-bbd2c0d79178
+		sourceLineageTag: GL Timestamp
+		summarizeBy: sum
+		sourceColumn: GL Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Base UoM Description'
+		dataType: string
+		lineageTag: 17442e22-3275-45c5-a604-59fa5f21d990
+		sourceLineageTag: GL Base UoM Description
+		summarizeBy: none
+		sourceColumn: GL Base UoM Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 12fccb62-717e-4c1b-8bca-d70e340aca0e
+		sourceLineageTag: DOCMT_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: DOCMT_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GL_CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a1286aea-0046-4f4f-8508-892e0e3731e8
+		sourceLineageTag: GL_CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: GL_CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Transaction Code'
+		dataType: string
+		lineageTag: 28694f53-1093-4f91-b4b5-3f62d61f3535
+		sourceLineageTag: GL Transaction Code
+		summarizeBy: none
+		sourceColumn: GL Transaction Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASSET_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ab3bcdfc-3d29-4a18-ab1d-2ad2cebdbefc
+		sourceLineageTag: ASSET_KEY
+		summarizeBy: none
+		sourceColumn: ASSET_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Asset Transaction Type'
+		dataType: string
+		lineageTag: 1740b009-78c0-44e8-993b-1b730b60e596
+		sourceLineageTag: GL Asset Transaction Type
+		summarizeBy: none
+		sourceColumn: GL Asset Transaction Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Asset Transaction Type Description'
+		dataType: string
+		lineageTag: 768cc203-0867-4308-8780-d963d8bd22ad
+		sourceLineageTag: GL Asset Transaction Type Description
+		summarizeBy: none
+		sourceColumn: GL Asset Transaction Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Document Line Item In BSEG'
+		dataType: int64
+		formatString: 0
+		lineageTag: f10f336d-8597-4725-9994-1320a6e12e4c
+		sourceLineageTag: GL Document Line Item In BSEG
+		summarizeBy: sum
+		sourceColumn: GL Document Line Item In BSEG
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRFT_CNTR_TRD_PRTNR_GRP_ID
+		dataType: string
+		lineageTag: 46456bc1-502f-4dff-b8cb-20b9a0ed0508
+		sourceLineageTag: PRFT_CNTR_TRD_PRTNR_GRP_ID
+		summarizeBy: none
+		sourceColumn: PRFT_CNTR_TRD_PRTNR_GRP_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_PRFT_CNTR_TRD_PRTNR_GRP_ID
+		dataType: string
+		lineageTag: d58fb232-d7fc-4afb-b80f-e56e03bb7eb5
+		sourceLineageTag: PRTNR_PRFT_CNTR_TRD_PRTNR_GRP_ID
+		summarizeBy: none
+		sourceColumn: PRTNR_PRFT_CNTR_TRD_PRTNR_GRP_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_PRFT_CNTR_V_HIER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: fb65cfee-ab9e-4a03-b9ee-a4cb6502443f
+		sourceLineageTag: PRTNR_PRFT_CNTR_V_HIER_KEY
+		summarizeBy: none
+		sourceColumn: PRTNR_PRFT_CNTR_V_HIER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_PRFT_CNTR_H_HIER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4befa31c-acd4-40c1-9b39-407b4b740704
+		sourceLineageTag: PRTNR_PRFT_CNTR_H_HIER_KEY
+		summarizeBy: none
+		sourceColumn: PRTNR_PRFT_CNTR_H_HIER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_AMT
+		dataType: double
+		lineageTag: dc2a667f-8757-41d7-bd19-4168b2c43d3f
+		sourceLineageTag: DOCMT_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CMPNY_CRNCY_TAX_AMT
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c84ab624-edbd-4caa-a09c-17c841366f57
+		sourceLineageTag: CMPNY_CRNCY_TAX_AMT
+		summarizeBy: sum
+		sourceColumn: CMPNY_CRNCY_TAX_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column DOCMT_CRNCY_TAX_AMT
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6d05e310-31e7-4f41-afb2-58bf3b09e278
+		sourceLineageTag: DOCMT_CRNCY_TAX_AMT
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_TAX_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column QTY
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c17b12f5-d5e2-42c2-9bf8-96e77da0c67f
+		sourceLineageTag: QTY
+		summarizeBy: sum
+		sourceColumn: QTY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column AMT_FOR_UPDATING_IN_GL
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 58b0cc80-107f-4846-8231-01c1769b0f8c
+		sourceLineageTag: AMT_FOR_UPDATING_IN_GL
+		summarizeBy: sum
+		sourceColumn: AMT_FOR_UPDATING_IN_GL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ICGLGRP_GL_CD
+		dataType: string
+		lineageTag: 7afdced1-8e16-41eb-a2b0-ceb1594ec3ed
+		sourceLineageTag: ICGLGRP_GL_CD
+		summarizeBy: none
+		sourceColumn: ICGLGRP_GL_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTCHZ_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 68ac3100-b2b8-4984-9af5-8b20075f5e31
+		sourceLineageTag: COSTCHZ_COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COSTCHZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTCVZ_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 754e6113-09e7-41ab-82b0-486e5cf606d6
+		sourceLineageTag: COSTCVZ_COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COSTCVZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCHZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ac2db69-f74b-4152-9f6c-8effe698c1f4
+		sourceLineageTag: PROFCHZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCHZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCVZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b38cb57-532f-4c9d-9d60-9e5b731e269d
+		sourceLineageTag: PROFCVZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCVZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTEHZ_COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a55b83b2-fe70-44e1-94b0-449297eba287
+		sourceLineageTag: COSTEHZ_COST_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: COSTEHZ_COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTEVZ_COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 43ffcdfd-11cc-42a5-ab0e-8441e8a7fab2
+		sourceLineageTag: COSTEVZ_COST_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: COSTEVZ_COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact General Ledger' = entity
+		mode: directLake
+		source
+			entityName: EDW_V_FACT_FI_GENLDGR_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

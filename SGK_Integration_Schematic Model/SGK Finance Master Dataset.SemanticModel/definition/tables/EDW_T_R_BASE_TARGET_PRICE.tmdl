@@ -1,0 +1,50 @@
+table EDW_T_R_BASE_TARGET_PRICE
+	lineageTag: f68e6e4b-4abf-4780-9df2-8d1ca0332daa
+	sourceLineageTag: [dbo].[EDW_T_R_BASE_TARGET_PRICE]
+
+	column 'Base Target Price Sales Order'
+		dataType: string
+		lineageTag: 974d835d-8d37-42ca-8859-8063692d538d
+		sourceLineageTag: Base Target Price Sales Order
+		summarizeBy: none
+		sourceColumn: Base Target Price Sales Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Price Currency'
+		dataType: string
+		lineageTag: 6a1267c3-4243-4538-abf8-df83b97a8993
+		sourceLineageTag: Base Target Price Currency
+		summarizeBy: none
+		sourceColumn: Base Target Price Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Target Price'
+		dataType: double
+		lineageTag: bdc53e26-bc3e-4b91-9caf-fba644035f51
+		sourceLineageTag: Base Target Price
+		summarizeBy: sum
+		sourceColumn: Base Target Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Base Target Price Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ddc1ef7a-026d-459d-8f22-20a70514d20c
+		sourceLineageTag: Base Target Price Date
+		summarizeBy: none
+		sourceColumn: Base Target Price Date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_R_BASE_TARGET_PRICE = entity
+		mode: directLake
+		source
+			entityName: EDW_T_R_BASE_TARGET_PRICE
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

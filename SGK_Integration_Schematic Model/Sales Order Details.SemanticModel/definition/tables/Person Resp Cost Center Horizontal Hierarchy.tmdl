@@ -197,11 +197,11 @@ table 'Person Resp Cost Center Horizontal Hierarchy'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_PERSON_RESPNSBLE_COST_CNTR_H_HEIR = Source{[Schema="Propelis",Item="V_PERSON_RESPNSBLE_COST_CNTR_H_HEIR"]}[Data]
+				    Propelis_PERSON_RESPNSBLE_COST_CNTR_H_HEIR = Source{[Schema="Propelis",Item="PERSON_RESPNSBLE_COST_CNTR_H_HEIR"]}[Data]
 				in
-				    Propelis_V_PERSON_RESPNSBLE_COST_CNTR_H_HEIR
-
-	changedProperty = Name
+				    Propelis_PERSON_RESPNSBLE_COST_CNTR_H_HEIR
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

@@ -1,0 +1,1264 @@
+table 'Printer Cust'
+	lineageTag: b365bb3c-4091-4721-b829-293f17aee462
+
+	column CUST_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3dc20498-977b-4eb3-b670-75efbb3684f4
+		summarizeBy: none
+		sourceColumn: CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7d4e5987-5d05-4954-9be5-8f909171455e
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 0d2a5d4e-d589-41a2-abb5-618c7b8df30c
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 86778f2c-5b15-45b7-a837-bf6fcbb7260f
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 116dd8c2-e59f-439c-b040-ccd1f2f3b96a
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: e7b360af-7faa-4d2f-8271-a56b242a6365
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 7687a3e1-fd08-48ad-b2bb-de9df320b21e
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Customer ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b0851931-7f70-458b-912f-5f9e1d50e0c0
+		summarizeBy: none
+		sourceColumn: Parent Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Customer Legacy ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e090f022-5387-427b-a733-11ead9ed876d
+		summarizeBy: none
+		sourceColumn: Parent Customer Legacy ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Customer Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 83716ec2-5500-4fcc-800d-9567f9537b1f
+		summarizeBy: none
+		sourceColumn: Parent Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Line 2 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: bb0236ee-a084-45ab-9755-7dd82c59582e
+		summarizeBy: none
+		sourceColumn: Parent Cust Line 2 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Country Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 17197521-a69b-4bc6-b706-74dfa03fd842
+		summarizeBy: none
+		sourceColumn: Parent Cust Country Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Plant ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f2de8311-abb1-4c29-92b0-0bde050b75a5
+		summarizeBy: none
+		sourceColumn: Parent Cust Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Segment ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 789f194b-e188-4381-a3c8-24fcf1bcd587
+		summarizeBy: none
+		sourceColumn: Parent Cust Segment ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Industry'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7ae6dc79-03fe-4082-8fe0-5979804a8089
+		summarizeBy: none
+		sourceColumn: Parent Cust Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Vendor ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b6ccf2b3-4779-46c7-ba49-a3b5338b259b
+		summarizeBy: none
+		sourceColumn: Parent Cust Vendor ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Group Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2763c806-a8f5-417e-9fe5-41954c4b23de
+		summarizeBy: none
+		sourceColumn: Parent Cust Group Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Account Group Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2f2ad6ce-fb34-490e-aecb-692897178db6
+		summarizeBy: none
+		sourceColumn: Parent Cust Account Group Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Title'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f15e120d-a5e3-4618-877e-36aa9d3f2172
+		summarizeBy: none
+		sourceColumn: Parent Cust Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Search Term'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e1ab0f6b-5051-47ef-96d7-e5c5b90d8dd4
+		summarizeBy: none
+		sourceColumn: Parent Cust Search Term
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Street'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 36686ae2-4662-4dea-a443-c96baf966aac
+		summarizeBy: none
+		sourceColumn: Parent Cust Street
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust City'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8def9b13-1f56-4f69-b12b-0c0a45fe1e6c
+		summarizeBy: none
+		sourceColumn: Parent Cust City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Zip Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 63babac4-92ad-4b90-99fa-e3a6192e9543
+		summarizeBy: none
+		sourceColumn: Parent Cust Zip Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust State Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cefdd7e5-d02a-4442-8ac2-1d6334d1ec86
+		summarizeBy: none
+		sourceColumn: Parent Cust State Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Region Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: da428643-4d3d-42a6-bb74-bada381a6f98
+		summarizeBy: none
+		sourceColumn: Parent Cust Region Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Telephone Number 1'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0b7b18bd-6940-4708-8e44-02c0fda72d30
+		summarizeBy: none
+		sourceColumn: Parent Cust Telephone Number 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Telephone Number 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 507d0d8a-aae3-4e8e-9bef-9653702f655b
+		summarizeBy: none
+		sourceColumn: Parent Cust Telephone Number 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Fax Number Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 48dbcd02-6523-46fb-ab51-15837a4512a9
+		summarizeBy: none
+		sourceColumn: Parent Cust Fax Number Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Tax Number 1 Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: da1c1a3b-49ef-4ebb-bea0-636984b21c79
+		summarizeBy: none
+		sourceColumn: Parent Cust Tax Number 1 Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Tax Number 2 Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 10de5eb6-0e7e-4e47-96e7-c57abfcdb1bd
+		summarizeBy: none
+		sourceColumn: Parent Cust Tax Number 2 Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust VAT Number Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 456f606c-8ffd-4201-9d5c-9bf84d684f6c
+		summarizeBy: none
+		sourceColumn: Parent Cust VAT Number Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Credit Limit'
+		dataType: double
+		sourceProviderType: decimal(15, 3)
+		lineageTag: 4baa83ee-2bf4-41fb-ad84-403aa5c5149c
+		summarizeBy: none
+		sourceColumn: Parent Cust Credit Limit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Parent Cust Bonus Rate'
+		dataType: double
+		sourceProviderType: decimal(9, 3)
+		lineageTag: b3ae1162-09d8-40b0-b01f-50df1bc76604
+		summarizeBy: none
+		sourceColumn: Parent Cust Bonus Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Parent Cust Express Station'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: feca605d-77cf-496d-b232-e1d2c56a6af7
+		summarizeBy: none
+		sourceColumn: Parent Cust Express Station
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Transportation Zone'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 89db59fd-2b68-4d0b-84b0-69fccdbde161
+		summarizeBy: none
+		sourceColumn: Parent Cust Transportation Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Printer Location Characteristics'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: bf8da280-cb1b-43b5-8387-f42b42de04c1
+		summarizeBy: none
+		sourceColumn: Parent Cust Printer Location Characteristics
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Printer Region Characteristics'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 15c078ee-87f1-48ec-8dc3-4867cc410db0
+		summarizeBy: none
+		sourceColumn: Parent Cust Printer Region Characteristics
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Printer Site Characteristics'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 84ab20b1-9d4e-4a6c-8eb4-9fb64025069e
+		summarizeBy: none
+		sourceColumn: Parent Cust Printer Site Characteristics
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Created Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ab9bb08e-bd8b-4f0a-a310-64d316a23e37
+		summarizeBy: none
+		sourceColumn: Parent Cust Created Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Parent Cust Created User ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d6f19086-815d-4647-9d01-bfbd110b6b07
+		summarizeBy: none
+		sourceColumn: Parent Cust Created User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Updated Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 9005260d-6a10-4cbc-8cd8-05783c8a3bea
+		summarizeBy: none
+		sourceColumn: Parent Cust Updated Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Parent Cust Updated User ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 66ba8a3c-dd45-4208-ace5-b58cc68a0f3a
+		summarizeBy: none
+		sourceColumn: Parent Cust Updated User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Payment Terms Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c71383a5-4651-48fb-a9d9-3c321c6e405d
+		summarizeBy: none
+		sourceColumn: Parent Cust Payment Terms Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Sales Distribution'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0aff49c4-a292-48be-ac12-9da45d23847c
+		summarizeBy: none
+		sourceColumn: Parent Cust Sales Distribution
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Order Block For Sales Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 45c9611d-9e5b-4705-b852-2294fbc7ec08
+		summarizeBy: none
+		sourceColumn: Parent Cust Order Block For Sales Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Delivery Block For Sales Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cb68c7c5-ffc2-48d0-9fe4-ec0b0da4d42a
+		summarizeBy: none
+		sourceColumn: Parent Cust Delivery Block For Sales Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Corporate Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 67c2e13d-67b3-4961-a35d-fd224c67e1f8
+		summarizeBy: none
+		sourceColumn: Parent Cust Corporate Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Customer Classification'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 65c19818-9515-49c2-b4ba-c49f0e4157bb
+		summarizeBy: none
+		sourceColumn: Parent Cust Customer Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Classification Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 28665caa-cb92-4fdd-b1d1-2931ad66780b
+		summarizeBy: none
+		sourceColumn: Parent Cust Classification Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Printer Location'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4b6b5489-1bf2-4d3b-9fe3-3fc0b1a1fb47
+		summarizeBy: none
+		sourceColumn: Parent Cust Printer Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Printer Site'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 86080733-53e8-43aa-bca2-96b72514bf56
+		summarizeBy: none
+		sourceColumn: Parent Cust Printer Site
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Printer Region'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c372ddab-0a06-46f1-8f6c-a356833aa5fd
+		summarizeBy: none
+		sourceColumn: Parent Cust Printer Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 01'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f037dd65-dfc5-4bc7-9e7a-fac7f3218dfd
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 01
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 02'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d46be5e0-a496-4f17-8e65-c10d4c47bd3f
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 02
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 03'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ca47d5b3-07c0-41f6-a15e-d34b812f349f
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 03
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 04'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8a7c10fb-3b13-4ed5-81b3-1b2245b34b7b
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 04
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 05'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c13e012f-906f-4772-8821-05c889ae9d5c
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 05
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 06'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0fab3979-306f-4d18-8147-675a91a99f6c
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 06
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 07'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4c4ba6c6-b1fe-45ef-904e-925433b7434b
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 07
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 08'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 50da9954-ee91-4289-b817-465e4631b4c2
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 08
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 09'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c783548d-bc34-4751-be94-47790bf3cd28
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 09
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 10'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a1676c43-10a3-4e44-902f-e4a3157135d8
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 10
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 11'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4a11704c-babf-4b14-a35a-c9a5a2b249e4
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 11
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 12'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 79a2d8ca-bfad-4dc1-8767-12059e1bc201
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 12
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 13'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e45c81f1-06b9-4c5e-93f0-01a53c3499c4
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 13
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 14'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d779fb8f-2694-4292-8352-e0ca82522fed
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 14
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 15'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ac3ac665-5848-42e3-a13d-8c7f7b9486ed
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 15
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 16'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8285cecb-e4b1-4ac7-b77b-d0f39dc72a73
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 16
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 17'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a86cd663-645c-4198-b254-2184225f724b
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 17
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 18'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f0d95ec7-86ea-4197-887f-b0ae43bf1aea
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 18
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 19'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 96a71d1c-8880-4380-9e01-f8ee1cdea295
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 19
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Specific Field Label 20'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6f4ca1a6-9ad6-445b-82d5-6583a8150a49
+		summarizeBy: none
+		sourceColumn: Parent Cust Specific Field Label 20
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Condition Group 1'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 235d0560-d034-418c-a03b-e8cabcca1ffc
+		summarizeBy: none
+		sourceColumn: Parent Cust Condition Group 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Industry Code 1'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7f626dff-32d7-46dc-ac15-d1a83d7463b8
+		summarizeBy: none
+		sourceColumn: Parent Cust Industry Code 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Industry Code 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f33f81bd-8890-484e-932b-d03b2c300a90
+		summarizeBy: none
+		sourceColumn: Parent Cust Industry Code 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Industry Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8b2e6e04-a1aa-4f01-8af4-087008fb40fc
+		summarizeBy: none
+		sourceColumn: Parent Cust Industry Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Industry Code 1 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b7be3089-43d9-4c2d-8ce1-350e678dde9d
+		summarizeBy: none
+		sourceColumn: Parent Cust Industry Code 1 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Industry Code 2 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 298e174d-fa45-41d9-bfd5-bfeeb6889fae
+		summarizeBy: none
+		sourceColumn: Parent Cust Industry Code 2 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Assignment to Hierarchy'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 839bad9d-f82e-4403-989d-7273f7a0920d
+		summarizeBy: none
+		sourceColumn: Parent Cust Assignment to Hierarchy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Account Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2747d6c4-145b-4805-8d0b-574faab685bf
+		summarizeBy: none
+		sourceColumn: Parent Cust Account Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Region Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 96508cc9-c018-460b-9763-a77b796f1bce
+		summarizeBy: none
+		sourceColumn: Parent Cust Region Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Country Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ea5c4042-cfb5-4bf9-a0e3-0a722a456b1a
+		summarizeBy: none
+		sourceColumn: Parent Cust Country Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Transportation Zone Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 611e44ca-b6d6-478e-b31a-8e201b729f5d
+		summarizeBy: none
+		sourceColumn: Parent Cust Transportation Zone Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Plant Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d0443224-448c-4ff6-b3f7-fa2d1e09d2ac
+		summarizeBy: none
+		sourceColumn: Parent Cust Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Condition Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e6ec1997-9e2e-44a7-9660-ad9def8b109e
+		summarizeBy: none
+		sourceColumn: Parent Cust Condition Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Cental Billing Block'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 05ccd6d0-2844-48d0-8abf-98188b876a5e
+		summarizeBy: none
+		sourceColumn: Parent Cust Cental Billing Block
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Cental Billing Block Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 90192ddf-b20b-4003-b7b5-78af088ddbdf
+		summarizeBy: none
+		sourceColumn: Parent Cust Cental Billing Block Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Central Delivery Block'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4879bfad-49e1-4dc3-b540-4a18bf1bd867
+		summarizeBy: none
+		sourceColumn: Parent Cust Central Delivery Block
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Central Delivery Block Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 69146932-c9f4-497e-a4d6-9c3506b15d5f
+		summarizeBy: none
+		sourceColumn: Parent Cust Central Delivery Block Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Deletion Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4e39a129-81a3-4d36-a64e-0a2370aeaadf
+		summarizeBy: none
+		sourceColumn: Parent Cust Deletion Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRAL_PSTNG_BLK
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d6c510da-8e65-4ede-84e3-6573b0f768a6
+		summarizeBy: none
+		sourceColumn: CENTRAL_PSTNG_BLK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Tax Jurisdiction'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9726ec4b-0e70-4fa6-9691-917086d75b5b
+		summarizeBy: none
+		sourceColumn: Parent Cust Tax Jurisdiction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Central Sales Block'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 111245ee-bdf2-43b6-b681-4f24deaefdc9
+		summarizeBy: none
+		sourceColumn: Parent Cust Central Sales Block
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Central Deletion Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b3dab295-e27c-4f3c-9606-db11f1e33de0
+		summarizeBy: none
+		sourceColumn: Parent Cust Central Deletion Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Language Key'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c24fb799-58a9-4e9b-9d42-e872c543eebf
+		summarizeBy: none
+		sourceColumn: Parent Cust Language Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Trading Partner'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c171d719-f0f8-4aaa-9e2b-353cd8a07229
+		summarizeBy: none
+		sourceColumn: Parent Cust Trading Partner
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Trading Partner Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 27bd8d05-5edd-4a96-8ff6-3b4006cc89c4
+		summarizeBy: none
+		sourceColumn: Parent Cust Trading Partner Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Annual Sales'
+		dataType: double
+		sourceProviderType: decimal(8, 2)
+		lineageTag: 09114bd4-3891-44c0-ad9b-1784fd0f9751
+		summarizeBy: none
+		sourceColumn: Parent Cust Annual Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Parent Cust Annual Sales Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 952b2652-0a2a-4f83-a3d7-b32c9008c375
+		summarizeBy: none
+		sourceColumn: Parent Cust Annual Sales Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Sales Currency'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: faafe575-ac6c-4a3b-b4c9-6852fd490429
+		summarizeBy: none
+		sourceColumn: Parent Cust Sales Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Sales Currency Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dba6487d-b958-4f97-b980-b9f870759b5c
+		summarizeBy: none
+		sourceColumn: Parent Cust Sales Currency Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust One Time Account Group'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 447710f1-46a7-4096-9c7a-a2aad244a432
+		summarizeBy: none
+		sourceColumn: Parent Cust One Time Account Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust One Time Account Group Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 28747b29-912f-442b-aa2c-5235da73f21e
+		summarizeBy: none
+		sourceColumn: Parent Cust One Time Account Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust One Time Customer Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 384c9908-06a5-4854-9c81-2c39ff63ab63
+		summarizeBy: none
+		sourceColumn: Parent Cust One Time Customer Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Industry Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0fbac12b-eaca-4be5-8b3d-4076396f7f08
+		summarizeBy: none
+		sourceColumn: Parent Cust Industry Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Business Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 041177ca-e3ef-4807-ba1e-646b4ee7bec8
+		summarizeBy: none
+		sourceColumn: Parent Cust Business Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust DUNS Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 67a9cfd1-1c6c-4510-91d2-7140125a3021
+		summarizeBy: none
+		sourceColumn: Parent Cust DUNS Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust DUNS Plus 4'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f65cb462-41a7-45e3-9407-a2b1dc9c97e0
+		summarizeBy: none
+		sourceColumn: Parent Cust DUNS Plus 4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust City Coordinates'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f83d248d-5d1a-4b56-8db3-0cae37aa45a0
+		summarizeBy: none
+		sourceColumn: Parent Cust City Coordinates
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Tax Number 4 Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f401e130-3e41-4763-8fde-2b64ae8e9b44
+		summarizeBy: none
+		sourceColumn: Parent Cust Tax Number 4 Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Attribute 3'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9d5100d4-400a-4736-99e3-a7ac20a8569b
+		summarizeBy: none
+		sourceColumn: Parent Cust Attribute 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Attribute 3 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 26ef24fd-a245-4c56-89b3-756e77790215
+		summarizeBy: none
+		sourceColumn: Parent Cust Attribute 3 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust E Mail Address'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8f49d3e5-9aae-4041-bb24-596b8f9882b7
+		summarizeBy: none
+		sourceColumn: Parent Cust E Mail Address
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Mobile Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4d51ee0e-3053-46e6-9fb7-7b70af26134e
+		summarizeBy: none
+		sourceColumn: Parent Cust Mobile Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Search Term 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0546e841-fe21-4a4b-a55f-5583d18bd400
+		summarizeBy: none
+		sourceColumn: Parent Cust Search Term 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Street 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3798a102-3f19-4611-979e-498f20539bca
+		summarizeBy: none
+		sourceColumn: Parent Cust Street 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Street 3'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: da7c66b4-e2b6-45c9-ab55-f8cce577528a
+		summarizeBy: none
+		sourceColumn: Parent Cust Street 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Street 4'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: af45f89d-2d12-4e08-beb0-97848da9f5c7
+		summarizeBy: none
+		sourceColumn: Parent Cust Street 4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Street 5'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f0b0908b-43bb-40f8-8424-b8e36ff15e01
+		summarizeBy: none
+		sourceColumn: Parent Cust Street 5
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust PO Box'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f87688c1-578b-4ce2-8041-212c64032fed
+		summarizeBy: none
+		sourceColumn: Parent Cust PO Box
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust PO Box Postal Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f934a1b7-3389-4fed-b2f5-143276eef250
+		summarizeBy: none
+		sourceColumn: Parent Cust PO Box Postal Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust PO Box City'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0037bea5-014b-4984-a7db-43f0749e22ac
+		summarizeBy: none
+		sourceColumn: Parent Cust PO Box City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Region For PO Box'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ea3de3bb-7032-47d5-a03a-12f9b914bfa8
+		summarizeBy: none
+		sourceColumn: Parent Cust Region For PO Box
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust PO Box Country'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 000a26b7-6a1e-4180-8ff1-b75a30acca66
+		summarizeBy: none
+		sourceColumn: Parent Cust PO Box Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Transport Zone'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 604c7f38-9757-4c9f-b9db-ae859ee361d4
+		summarizeBy: none
+		sourceColumn: Parent Cust Transport Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Address Notes'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b57237e7-3e8d-416e-a656-1143b25c8f70
+		summarizeBy: none
+		sourceColumn: Parent Cust Address Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Tax Number 3 Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 93a0b178-e117-4c91-a745-57eb8402284a
+		summarizeBy: none
+		sourceColumn: Parent Cust Tax Number 3 Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Tax Number 5 Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 969389d1-81b2-4a07-85c1-2bcfdd063d6b
+		summarizeBy: none
+		sourceColumn: Parent Cust Tax Number 5 Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Industry Code 3'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4cda1778-c061-4a84-b20a-9e2a71558ed6
+		summarizeBy: none
+		sourceColumn: Parent Cust Industry Code 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Industry Code 3 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9952670f-24c7-4785-8ab3-11e1d49e1d60
+		summarizeBy: none
+		sourceColumn: Parent Cust Industry Code 3 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Industry Code 4'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 04823244-0ac8-455b-b17d-ffd2675a01c2
+		summarizeBy: none
+		sourceColumn: Parent Cust Industry Code 4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Industry Code 4 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1c445bad-687d-415b-a0f5-c198c70912a7
+		summarizeBy: none
+		sourceColumn: Parent Cust Industry Code 4 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Industry Code 5'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9098d249-f7ba-404d-a8dd-cb21824bccb6
+		summarizeBy: none
+		sourceColumn: Parent Cust Industry Code 5
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Industry Code 5 Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 706c6e9e-bad8-4e4b-b815-552f9b8cfdc3
+		summarizeBy: none
+		sourceColumn: Parent Cust Industry Code 5 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Central Order Block For Customer'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 67aec7bc-9357-40a4-81ac-6a69cd3fb2f2
+		summarizeBy: none
+		sourceColumn: Parent Cust Central Order Block For Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Cust Payment Block'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2e2d3120-2ef4-4b94-b533-b05ffe0e323f
+		summarizeBy: none
+		sourceColumn: Parent Cust Payment Block
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Printer Cust' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_PARENT_CUST = Source{[Schema="Propelis",Item="PARENT_CUST"]}[Data]
+				in
+				    Propelis_PARENT_CUST
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

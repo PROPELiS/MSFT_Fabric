@@ -1,0 +1,195 @@
+table EDW_T_D_MST_STORLOC_CUR_D
+	lineageTag: be884027-fe33-4c8e-a520-62055223758e
+
+	column STOR_LOC_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f21961d9-d987-47bc-82a5-5041ed72cc9e
+		summarizeBy: none
+		sourceColumn: STOR_LOC_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Storage Location Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 598daace-8a25-4d42-8d44-44984723571d
+		summarizeBy: none
+		sourceColumn: Storage Location Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Location Plant ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f40ff5a7-71b7-4d1b-a94e-72c586ba6a60
+		summarizeBy: none
+		sourceColumn: Store Location Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Location Warehouse Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 69f24699-bfe7-462a-b0fb-e66e4aa1e8f8
+		summarizeBy: none
+		sourceColumn: Store Location Warehouse Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Storage Location Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d2a78bf1-caa3-4c07-8660-7523978e5bd4
+		summarizeBy: none
+		sourceColumn: Storage Location Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Location Shipping Receiving Point'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ef155852-9606-4024-9d16-13f3e4f05559
+		summarizeBy: none
+		sourceColumn: Store Location Shipping Receiving Point
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Location Sales Organization'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e86f7afd-cd9a-42b0-8fb3-54bc41f6b16a
+		summarizeBy: none
+		sourceColumn: Store Location Sales Organization
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Location Vendor Account Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f51fa42c-8993-4b08-aa2a-cc71509c6f2f
+		summarizeBy: none
+		sourceColumn: Store Location Vendor Account Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Location Customer Account Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 09c166c7-fecc-4535-90b4-580eca4eef6b
+		summarizeBy: none
+		sourceColumn: Store Location Customer Account Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1b9d0d2a-a99f-45e9-a087-957ac5a60e21
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 2f1d6674-c878-4503-9cd8-b6422429eb57
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 70d064e8-9a13-4945-984d-f64440434f0e
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 09255724-03eb-4e7d-a6c1-6c342d9f895b
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: a11ec6ff-8a87-4e87-a9fd-87e28ad2bb55
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5bbf9aab-9085-465b-9919-85f2d254ca00
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Location Plant Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d551768f-3c4c-4b78-a80c-eb31d16083a7
+		summarizeBy: none
+		sourceColumn: Store Location Plant Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Location Warehouse Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4d8e183e-0aad-4bb0-b738-a45e4cb9a408
+		summarizeBy: none
+		sourceColumn: Store Location Warehouse Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Location Shipping Receiving Point Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2ba05db3-53aa-4ae3-ad57-92408febde5c
+		summarizeBy: none
+		sourceColumn: Store Location Shipping Receiving Point Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Location Sales Organization Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9c9c5f9e-4198-48eb-8ae6-bb44efc99b40
+		summarizeBy: none
+		sourceColumn: Store Location Sales Organization Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_STORLOC_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_STORLOC_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_STORLOC_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_STORLOC_CUR_D
+
+	annotation PBI_ResultType = Table
+

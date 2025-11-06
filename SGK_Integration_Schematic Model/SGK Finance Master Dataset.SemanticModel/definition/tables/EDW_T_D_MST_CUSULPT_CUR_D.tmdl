@@ -1,0 +1,125 @@
+table EDW_T_D_MST_CUSULPT_CUR_D
+	lineageTag: 6d0c1876-e211-4713-b0d7-646331065480
+	sourceLineageTag: [dbo].[EDW_T_D_MST_CUSULPT_CUR_D]
+
+	column CUST_UNLOADING_PNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a65153f2-a398-491e-aedd-ce9298110de2
+		sourceLineageTag: CUST_UNLOADING_PNT_KEY
+		summarizeBy: sum
+		sourceColumn: CUST_UNLOADING_PNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Number'
+		dataType: string
+		lineageTag: b7cd7a8f-1c51-4e5b-8712-4c33b45c94b6
+		sourceLineageTag: Customer Number
+		summarizeBy: none
+		sourceColumn: Customer Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unloading Point'
+		dataType: string
+		lineageTag: 4a093d15-fc9b-410f-a9ce-79d3e05d8e74
+		sourceLineageTag: Unloading Point
+		summarizeBy: none
+		sourceColumn: Unloading Point
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sequential Number for Unloading Points'
+		dataType: int64
+		formatString: 0
+		lineageTag: ff337ce0-5a25-4bcc-ad0b-3fe90390c2b6
+		sourceLineageTag: Sequential Number for Unloading Points
+		summarizeBy: sum
+		sourceColumn: Sequential Number for Unloading Points
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Factory Calendar'
+		dataType: string
+		lineageTag: fa091bac-800a-4757-a6b6-f087b7bacdcf
+		sourceLineageTag: Customer Factory Calendar
+		summarizeBy: none
+		sourceColumn: Customer Factory Calendar
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tax Classification Description'
+		dataType: string
+		lineageTag: 8f0e87d6-277d-42ef-bf28-000bd066f599
+		sourceLineageTag: Tax Classification Description
+		summarizeBy: none
+		sourceColumn: Tax Classification Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL Source System Code'
+		dataType: string
+		lineageTag: ff108816-e651-49ef-ae90-5e2ebc1d9a22
+		sourceLineageTag: ETL Source System Code
+		summarizeBy: none
+		sourceColumn: ETL Source System Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL Effective Begin Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d064c3af-ea04-4d26-963c-82c473894de1
+		sourceLineageTag: ETL Effective Begin Date
+		summarizeBy: none
+		sourceColumn: ETL Effective Begin Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL Effective End Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e8c4fe6c-b407-41cd-9025-1575f9752967
+		sourceLineageTag: ETL Effective End Date
+		summarizeBy: none
+		sourceColumn: ETL Effective End Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL Current Record Indicator'
+		dataType: string
+		lineageTag: c2384f4c-df75-471c-989c-5b40fc43f9d0
+		sourceLineageTag: ETL Current Record Indicator
+		summarizeBy: none
+		sourceColumn: ETL Current Record Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL Created Timestamp'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7ef1718a-c24d-4184-b6cd-49f369f72469
+		sourceLineageTag: ETL Created Timestamp
+		summarizeBy: none
+		sourceColumn: ETL Created Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETL Updated Timestamp'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b58ac4e0-429d-4f14-a85e-c2d80632ce92
+		sourceLineageTag: ETL Updated Timestamp
+		summarizeBy: none
+		sourceColumn: ETL Updated Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_CUSULPT_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_CUSULPT_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

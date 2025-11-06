@@ -1,0 +1,96 @@
+table TEC_T_D_ETL_JBSTATS2_CUR_D
+	lineageTag: 432488f2-c2c5-487b-a98f-88b7d7362e4d
+	sourceLineageTag: [dbo].[TEC_T_D_ETL_JBSTATS2_CUR_D]
+
+	column 'BODS Job ID'
+		dataType: string
+		lineageTag: bb436ba5-0d61-47c5-a825-fd79a2ebc7e6
+		sourceLineageTag: BODS Job ID
+		summarizeBy: none
+		sourceColumn: BODS Job ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Name'
+		dataType: string
+		lineageTag: 33c04429-b377-4737-a588-2ef719cc1a57
+		sourceLineageTag: Job Name
+		summarizeBy: none
+		sourceColumn: Job Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start Datetime'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a50b2132-8145-46c4-8706-80d8460744ac
+		sourceLineageTag: Start Datetime
+		summarizeBy: none
+		sourceColumn: Start Datetime
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'End Datetime'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b835911d-d0f4-450e-8d48-e621c6d0860a
+		sourceLineageTag: End Datetime
+		summarizeBy: none
+		sourceColumn: End Datetime
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Group Name'
+		dataType: string
+		lineageTag: 3fc5d228-ec9c-47c5-8aee-21332393678e
+		sourceLineageTag: Job Group Name
+		summarizeBy: none
+		sourceColumn: Job Group Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Time Duration'
+		dataType: int64
+		formatString: 0
+		lineageTag: e9be33e7-7889-41de-8eca-23bbc4946a8d
+		sourceLineageTag: Total Time Duration
+		summarizeBy: sum
+		sourceColumn: Total Time Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Batch Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8ec9f897-4b74-4d87-ac2b-1feaa72fe697
+		sourceLineageTag: Batch Date
+		summarizeBy: none
+		sourceColumn: Batch Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Status'
+		dataType: string
+		lineageTag: 339b43fe-71f2-45ae-b28d-7050d917e8d8
+		sourceLineageTag: Job Status
+		summarizeBy: none
+		sourceColumn: Job Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Status Code'
+		dataType: string
+		lineageTag: 4260bb9f-3a85-466a-9a85-8738524bdbd1
+		sourceLineageTag: Job Status Code
+		summarizeBy: none
+		sourceColumn: Job Status Code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TEC_T_D_ETL_JBSTATS2_CUR_D = entity
+		mode: directLake
+		source
+			entityName: TEC_T_D_ETL_JBSTATS2_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

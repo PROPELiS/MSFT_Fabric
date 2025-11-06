@@ -1,0 +1,143 @@
+table 'Customer Project Manager'
+	lineageTag: 9317ecfc-4cf1-4b76-9bed-7725f213ecbc
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 588c58b9-b529-4007-97ff-c90fdcd8b066
+		summarizeBy: none
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Contact Person ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8e8a4b88-549c-4c19-bce8-1bc33f1b8091
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Customer ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0af68bf6-2079-43c2-9d92-d2266bfdef47
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager First Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f6ba40b9-7975-484e-a97e-54ca44e8286b
+		summarizeBy: none
+		sourceColumn: Customer Project Manager First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 891c2506-bbac-4efe-a726-55c5435105fe
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Contact Person Dept'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 43d7bf20-9ba9-4e5b-90e5-af5b47f8b212
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person Dept
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Contact Person Dept Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4d3485b3-e1f4-4bbd-93dd-20b16256e374
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person Dept Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1cf7ff6a-7439-4a54-9cf5-41b53ce0118f
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: a81d52e3-2cdc-4d53-9d60-fe527a59a38a
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 5697d066-3870-446e-ad0a-2bbd619809f2
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 42caccb8-0545-4562-b049-26176aece346
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f5655c2f-b74e-4fe5-b914-e5e2fd846fdb
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 37bd29c6-127d-42c8-9dae-b1ab1ea72fe6
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Customer Project Manager' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_CUSTOMER_PROJECT_MANAGER = Source{[Schema="Propelis",Item="CUSTOMER_PROJECT_MANAGER"]}[Data]
+				in
+				    Propelis_CUSTOMER_PROJECT_MANAGER
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

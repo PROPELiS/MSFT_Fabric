@@ -1,0 +1,2434 @@
+table 'Fact COPA Actual'
+	lineageTag: 3037d07b-685c-461a-a50a-666ceb189505
+	sourceLineageTag: [Propelis].[EDW_T_FACT_CO_COPA3_CUR_D]
+
+	measure 'SO Quantity' = ```
+			sum('Fact COPA Actual'[SO_QTY])
+			
+			```
+		lineageTag: 09ca85ac-3d99-4888-8ca4-51400c334805
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue Amount' = ```
+			sum('Fact COPA Actual'[REVNU_AMT])
+			
+			
+			```
+		lineageTag: 8fb9c228-2d53-4294-ae6d-5a7906b59a55
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Lot Size Variance Amount' = ```
+			sum('Fact COPA Actual'[LOTSIZE_VRNC_AMT])
+			
+			```
+		lineageTag: cc90f9d0-24ae-4697-98f3-ea4097c1dbbf
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Production Costs Variance Amount' = ```
+			sum('Fact COPA Actual'[PROD_COSTS_VRNC_AMT])
+			
+			```
+		lineageTag: e5d45d29-1ce0-4229-a0d0-c6773730973d
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Quantity Variances Amount' = ```
+			sum('Fact COPA Actual'[QTY_VARIANCES_AMT])
+			
+			```
+		lineageTag: d185f48a-42fe-4229-9552-084363dc982c
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Price Variances Amount' = ```
+			sum('Fact COPA Actual'[PRICE_VARIANCES_AMT])
+			
+			```
+		lineageTag: 2a172f00-3835-4afd-a67e-91cdd15492c6
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Othr Variances Amount' = ```
+			sum('Fact COPA Actual'[OTHR_VARIANCES_AMT])
+			
+			```
+		lineageTag: 43c60311-0408-41f4-9df1-8027db62476c
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Resource Usage Variances Amount' = ```
+			sum('Fact COPA Actual'[RESOURCE_USAGE_VARIANCES_AMT])
+			
+			```
+		lineageTag: e79042f7-4738-44fb-96af-318a650dd433
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cash Discount Amount' = ```
+			sum('Fact COPA Actual'[CASH_DISCNT_AMT])
+			
+			```
+		lineageTag: d411e1ef-4e11-4cd6-98f3-4c04c1682348
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Stock Value Amount' = ```
+			sum('Fact COPA Actual'[STK_VAL_AMT])
+			
+			```
+		lineageTag: 1dae8a33-6cd7-4cb8-9e51-e0f2baa7d480
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Labor Cost Amount' = ```
+			sum('Fact COPA Actual'[LABOR_COST_AMT])
+			
+			```
+		lineageTag: 2299e661-6185-4cd1-80e4-d961efd8e00f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Material Cost Amount' = ```
+			sum('Fact COPA Actual'[MATRL_COST_AMT])
+			
+			```
+		lineageTag: aa43a771-939c-4e79-96a7-8ae24c75c9d8
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Overhead Cost Amount' = ```
+			sum('Fact COPA Actual'[OVERHEAD_COST_AMT])
+			
+			```
+		lineageTag: 39328076-1dc2-4628-adf9-95a08e3dbc4b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Discount On Invoice Amount' = ```
+			sum('Fact COPA Actual'[DISCNT_ON_INVC_AMT])
+			
+			```
+		lineageTag: 1328b9b4-2898-425a-92a6-927967689103
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'IC Markup Amount' = ```
+			sum('Fact COPA Actual'[IC_MARKUP_AMT])
+			
+			```
+		lineageTag: 788e3592-9af9-4762-8a60-598b5f5efeb9
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Direct Labor Amount' = ```
+			sum('Fact COPA Actual'[DIR_LABOR_AMT])
+			
+			```
+		lineageTag: 1eefb124-93e8-455d-9678-9128d1d64028
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'List Price Amount' = ```
+			sum('Fact COPA Actual'[LIST_PRICE_AMT])
+			
+			```
+		lineageTag: c8c12d37-9c41-4a7b-a6c9-886deb4b35f9
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Overhead Amount' = ```
+			sum('Fact COPA Actual'[OVERHEAD_AMT])
+			
+			```
+		lineageTag: 6592caed-adc3-47e5-90e2-a464c373306d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Rebates Amount' = ```
+			sum('Fact COPA Actual'[REBATES_AMT])
+			
+			```
+		lineageTag: 0ceaf9ea-2ee8-422d-a234-e24a3deadd54
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Prod Labour Variance Amount' = ```
+			sum('Fact COPA Actual'[PROD_LABOUR_VRNC_AMT])
+			
+			```
+		lineageTag: d49339b4-9883-4e7d-b338-08d629559610
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Prod Material Variance Amount' = ```
+			sum('Fact COPA Actual'[PROD_MAT_VRNC_AMT])
+			
+			```
+		lineageTag: 41cb3f0a-6707-486c-9217-38a788be7e18
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Other Material Variance Amount' = ```
+			sum('Fact COPA Actual'[OTHR_MAT_VRNC_AMT])
+			
+			```
+		lineageTag: 624c5510-bd44-48a3-a44d-2be0eb24a6c5
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Corporate Services Amount' = ```
+			sum('Fact COPA Actual'[CORPORATE_SERVICES_AMT])
+			
+			```
+		lineageTag: 3b0229d7-e537-4d57-ab1d-26a7bf5f86ab
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Rebates On Invoice Amount' = ```
+			sum('Fact COPA Actual'[REBATES_ON_INVC_AMT])
+			
+			```
+		lineageTag: 18f617bb-e562-413a-83f8-db60cec6ae03
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Freight Cost Amount' = ```
+			sum('Fact COPA Actual'[FREIGHT_COST_AMT])
+			
+			```
+		lineageTag: 0b093d44-6a0f-4f4f-8b06-9c6390b10909
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Realized FX AP AR Amount' = ```
+			sum('Fact COPA Actual'[REALIZED_FX_AP_AR_AMT])
+			
+			```
+		lineageTag: a424aebf-6a00-422b-bc9b-7af128353e19
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Labor Spend Variance Amount' = ```
+			sum('Fact COPA Actual'[LABOR_SPEND_VRNC_AMT])
+			
+			```
+		lineageTag: 79e90e11-45a3-4694-8175-9f71ce92d391
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Overhead Spend Variance Amount' = ```
+			sum('Fact COPA Actual'[OVERHEAD_SPEND_VRNC_AMT])
+			
+			```
+		lineageTag: d6aba89f-68d6-4a5c-bf5c-ea301c9b27a7
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selling Expense Amount' = ```
+			sum('Fact COPA Actual'[SELLING_EXPENSE_AMT])
+			
+			```
+		lineageTag: eab111bf-e837-44cb-b398-b57e14964f10
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'General Admin Amount' = ```
+			sum('Fact COPA Actual'[GENERAL_ADMIN_AMT])
+			
+			```
+		lineageTag: 8c9e4e38-fce2-41f0-9e8d-51a57a12ce92
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Profit Distribution Amount' = ```
+			sum('Fact COPA Actual'[PROFT_DISTRBN_AMT])
+			
+			```
+		lineageTag: ecc221c5-c4b6-487b-b02b-95c4c24950dc
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Division Services Amount' = ```
+			sum('Fact COPA Actual'[DIVISION_SERVICES_AMT])
+			
+			```
+		lineageTag: 55083523-df2f-4755-856e-2096d5ae6518
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cash Discount On Invoice Amount' = ```
+			sum('Fact COPA Actual'[CASHDISCOUNT_ON_INVC_AMT])
+			
+			```
+		lineageTag: 53d34f4a-c281-40df-9966-d798a9f06395
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Selling Price Amount' = ```
+			sum('Fact COPA Actual'[SELLING_PRICE_AMT])
+			
+			```
+		lineageTag: d5733a84-2d8e-4dac-8281-9e21b775189d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Close-Out Revenue Amount' = ```
+			sum('Fact COPA Actual'[CLOSEOUT_REVNU_AMT])
+			
+			```
+		lineageTag: 17b5637c-c48c-4771-9ac6-7cbf984da465
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Damaged Revenue Amount' = ```
+			sum('Fact COPA Actual'[DAMAGED_REVNU_AMT])
+			
+			```
+		lineageTag: e589acd7-9e02-4273-a43c-6cd98bee6211
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Substitution Revenue Amount' = ```
+			sum('Fact COPA Actual'[SUBSTITUTION_REVNU_AMT])
+			
+			```
+		lineageTag: a72f63a6-8205-45f7-8ce3-cc0dba18d622
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Promotion Revenue Amount' = ```
+			sum('Fact COPA Actual'[PROMOTION_REVNU_AMT])
+			
+			```
+		lineageTag: 029adfe1-2c33-496a-8422-fabfe2ca4626
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Exception Revenue Amount' = ```
+			sum('Fact COPA Actual'[EXCEPTION_REVNU_AMT])
+			
+			```
+		lineageTag: 10bc83a0-c5d8-4fc5-98d9-9472abe1077a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Preneed Revenue Amount' = ```
+			sum('Fact COPA Actual'[PRENEED_REVNU_AMT])
+			
+			```
+		lineageTag: 978eec66-2a85-484f-ac79-50976ae8c335
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cash Discount w/o Tax Amount' = ```
+			sum('Fact COPA Actual'[CASHDISC_WO_TAX_AMT])
+			
+			```
+		lineageTag: cb00bf26-d51d-43ca-a846-4050e14cd363
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Distribution Expense Amount' = ```
+			sum('Fact COPA Actual'[DISTRBN_EXPENSE_AMT])
+			
+			```
+		lineageTag: 0d37bab4-86ed-40a3-8a20-cf9807e1ee83
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Interco Material Cost Amount' = ```
+			sum('Fact COPA Actual'[INTERCO_MAT_COST_AMT])
+			
+			```
+		lineageTag: 7270adca-54bc-48c1-afa4-acc099fd11b5
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Outside Purchases Amount' = ```
+			sum('Fact COPA Actual'[OUTSIDE_PURCHASES_AMT])
+			
+			```
+		lineageTag: 353c1d38-3754-42a8-8d3c-17c3298b7d3f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Machine Costs Amount' = ```
+			sum('Fact COPA Actual'[MCHINE_COSTS_AMT]) 
+			
+			```
+		lineageTag: 3b4e2410-df61-4ed2-a5cd-e728c70a031f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Freight Revenue Amount' = ```
+			sum('Fact COPA Actual'[FRIEGHT_REVNU_AMT])
+			
+			```
+		lineageTag: e2c41fed-470c-42cb-9331-2494f8daf978
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Overhead Variances Amount' = ```
+			sum('Fact COPA Actual'[OVERHEAD_VARIANCES_AMT])
+			
+			```
+		lineageTag: 4980396a-c8de-4776-b6ee-9de3d7f510f3
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Incoming Freight Amount' = ```
+			sum('Fact COPA Actual'[INCOMING_FREIGHT_AMT])
+			
+			```
+		lineageTag: 2f256a3c-76dc-4f04-bab0-4dc056c53b5f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Outgoing Transport Amount' = ```
+			sum('Fact COPA Actual'[OUTGOING_TRNSPRT_AMT])
+			
+			```
+		lineageTag: 588417f4-9aa4-499f-9a5f-29f62bce3399
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Subcontracting Service Amount' = ```
+			sum('Fact COPA Actual'[SUBCONTRACTING_SERVC_AMT])
+			
+			```
+		lineageTag: 60816dcb-be18-4ad5-a51d-1d13f4cd2441
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'COPA Record Type'
+		dataType: string
+		lineageTag: cb1e3ac8-e895-4e8f-8f1e-2c39335fcdc8
+		sourceLineageTag: COPA Record Type
+		summarizeBy: none
+		sourceColumn: COPA Record Type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Version'
+		dataType: string
+		lineageTag: 800747c7-2af1-4e1c-b284-c56d6c31a81d
+		sourceLineageTag: COPA Version
+		summarizeBy: none
+		sourceColumn: COPA Version
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Period Year'
+		dataType: string
+		lineageTag: 73e3d3a9-5c8e-477d-bcea-66a931200c98
+		sourceLineageTag: COPA Period Year
+		summarizeBy: none
+		sourceColumn: COPA Period Year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Profit Segment'
+		dataType: string
+		lineageTag: 98ef57e3-58ee-4e34-95ab-5b58744d7e8e
+		sourceLineageTag: COPA Profit Segment
+		summarizeBy: none
+		sourceColumn: COPA Profit Segment
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Subnumber'
+		dataType: string
+		lineageTag: a9063afa-b652-451b-a0b5-0b1a649bed3b
+		sourceLineageTag: COPA Subnumber
+		summarizeBy: none
+		sourceColumn: COPA Subnumber
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Accounting Clerk Description'
+		dataType: string
+		lineageTag: b8bd71c9-3af1-4674-86d3-9dae9c86929e
+		sourceLineageTag: COPA Accounting Clerk Description
+		summarizeBy: none
+		sourceColumn: COPA Accounting Clerk Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Sub Brand'
+		dataType: string
+		lineageTag: e9e229ef-fb33-4b83-bad2-7d04d62523bd
+		sourceLineageTag: COPA Sub Brand
+		summarizeBy: none
+		sourceColumn: COPA Sub Brand
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Brand'
+		dataType: string
+		lineageTag: 4f0d0f46-aba6-4434-88ba-18457764ff3e
+		sourceLineageTag: COPA Brand
+		summarizeBy: none
+		sourceColumn: COPA Brand
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Product Hierarchy Code'
+		dataType: string
+		lineageTag: c160d488-4654-488b-8957-377e63838841
+		sourceLineageTag: COPA Product Hierarchy Code
+		summarizeBy: none
+		sourceColumn: COPA Product Hierarchy Code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Base UoM Description'
+		dataType: string
+		lineageTag: 3d923925-36be-4e33-8951-a948d71b70d7
+		sourceLineageTag: COPA Base UoM Description
+		summarizeBy: none
+		sourceColumn: COPA Base UoM Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Region'
+		dataType: string
+		lineageTag: eb7ec81c-5ac2-40ba-9902-5e6e3d89b126
+		sourceLineageTag: COPA Region
+		summarizeBy: none
+		sourceColumn: COPA Region
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Industry Code 1'
+		dataType: string
+		lineageTag: 1b4bca04-c791-4765-b182-8f275c3e211f
+		sourceLineageTag: COPA Industry Code 1
+		summarizeBy: none
+		sourceColumn: COPA Industry Code 1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Industry Code 1 Description'
+		dataType: string
+		lineageTag: 6ec87a0b-7519-4d61-afa6-4ac4afa9a081
+		sourceLineageTag: COPA Industry Code 1 Description
+		summarizeBy: none
+		sourceColumn: COPA Industry Code 1 Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Industry Code 2'
+		dataType: string
+		lineageTag: b0663cbb-8bf0-4bae-b721-8be1ebb97f88
+		sourceLineageTag: COPA Industry Code 2
+		summarizeBy: none
+		sourceColumn: COPA Industry Code 2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Industry Code 2 Description'
+		dataType: string
+		lineageTag: bf9126ff-e238-4633-bf6f-8f9f2860513c
+		sourceLineageTag: COPA Industry Code 2 Description
+		summarizeBy: none
+		sourceColumn: COPA Industry Code 2 Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Accounting Clerk'
+		dataType: string
+		lineageTag: d1bf9756-e84f-4f39-9459-e2c653e4f46b
+		sourceLineageTag: COPA Accounting Clerk
+		summarizeBy: none
+		sourceColumn: COPA Accounting Clerk
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Customer Group Description'
+		dataType: string
+		lineageTag: 43934bfb-fe36-4e7d-ae60-864cfd8897ca
+		sourceLineageTag: COPA Customer Group Description
+		summarizeBy: none
+		sourceColumn: COPA Customer Group Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNTRY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: c4685aa8-b5f4-4171-8afe-3321c45818a4
+		sourceLineageTag: CNTRY_KEY
+		summarizeBy: sum
+		sourceColumn: CNTRY_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Customer Group 2'
+		dataType: string
+		lineageTag: cf00a08f-62ed-4e69-bb06-7d35b306d378
+		sourceLineageTag: COPA Customer Group 2
+		summarizeBy: none
+		sourceColumn: COPA Customer Group 2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Customer Group 2 Description'
+		dataType: string
+		lineageTag: 5d6dcd45-82eb-413b-b49e-34c2694f4e23
+		sourceLineageTag: COPA Customer Group 2 Description
+		summarizeBy: none
+		sourceColumn: COPA Customer Group 2 Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Material Group'
+		dataType: string
+		lineageTag: 5d59017e-b738-4959-b468-da47d057b28d
+		sourceLineageTag: COPA Material Group
+		summarizeBy: none
+		sourceColumn: COPA Material Group
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Material Group Description'
+		dataType: string
+		lineageTag: bb0c5d23-6873-4af7-94b2-9e11828ac424
+		sourceLineageTag: COPA Material Group Description
+		summarizeBy: none
+		sourceColumn: COPA Material Group Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Distribution Channel Description'
+		dataType: string
+		lineageTag: c99fc970-092c-45d7-87f3-1702a83dfc8d
+		sourceLineageTag: COPA Distribution Channel Description
+		summarizeBy: none
+		sourceColumn: COPA Distribution Channel Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Division'
+		dataType: string
+		lineageTag: 6c0df0aa-2c7f-40cc-8b15-6d14e36faaac
+		sourceLineageTag: COPA Division
+		summarizeBy: none
+		sourceColumn: COPA Division
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Division Description'
+		dataType: string
+		lineageTag: ef7a2787-7621-4801-9941-e19bd7a11324
+		sourceLineageTag: COPA Division Description
+		summarizeBy: none
+		sourceColumn: COPA Division Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDUS_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 27dea6a1-e8c7-40c2-80f7-0811e33d913c
+		sourceLineageTag: INDUS_KEY
+		summarizeBy: sum
+		sourceColumn: INDUS_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Industry Description'
+		dataType: string
+		lineageTag: 004ca1d8-4240-4976-9c39-770c014e7703
+		sourceLineageTag: COPA Industry Description
+		summarizeBy: none
+		sourceColumn: COPA Industry Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Customer Group'
+		dataType: string
+		lineageTag: 563cbcc8-fdc9-42ee-8e1f-f549cfaa6bba
+		sourceLineageTag: COPA Customer Group
+		summarizeBy: none
+		sourceColumn: COPA Customer Group
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Customer Account Assignment Group Description'
+		dataType: string
+		lineageTag: a3bc7c4c-e8c1-46bf-88a9-e29880c04e9c
+		sourceLineageTag: COPA Customer Account Assignment Group Description
+		summarizeBy: none
+		sourceColumn: COPA Customer Account Assignment Group Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_SALES_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: b36f14bf-b019-49ce-8284-be73afcdd841
+		sourceLineageTag: MATRL_SALES_KEY
+		summarizeBy: none
+		sourceColumn: MATRL_SALES_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BRAND_OWNER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: db5b453f-849a-4882-b35e-6ea317dee396
+		sourceLineageTag: BRAND_OWNER_CUST_KEY
+		summarizeBy: none
+		sourceColumn: BRAND_OWNER_CUST_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Sales Organization'
+		dataType: string
+		lineageTag: ad0c1841-a548-4807-b743-b8324e8c48b2
+		sourceLineageTag: COPA Sales Organization
+		summarizeBy: none
+		sourceColumn: COPA Sales Organization
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Sales Organization Description'
+		dataType: string
+		lineageTag: a916f656-2b84-49d9-83ca-f234a3b51bd3
+		sourceLineageTag: COPA Sales Organization Description
+		summarizeBy: none
+		sourceColumn: COPA Sales Organization Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Distribution Channel'
+		dataType: string
+		lineageTag: bf55e5e0-ee1e-4ef6-a483-4edb0d58c229
+		sourceLineageTag: COPA Distribution Channel
+		summarizeBy: none
+		sourceColumn: COPA Distribution Channel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer PO Box Postal Code'
+		dataType: string
+		lineageTag: ea0d1d89-6cd1-4b97-b35a-74ec6bb70569
+		sourceLineageTag: Customer PO Box Postal Code
+		summarizeBy: none
+		sourceColumn: Customer PO Box Postal Code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Sales Office'
+		dataType: string
+		lineageTag: bf43827d-9839-4c3d-8cdd-1b6d07d12194
+		sourceLineageTag: COPA Sales Office
+		summarizeBy: none
+		sourceColumn: COPA Sales Office
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Sales Office Description'
+		dataType: string
+		lineageTag: 029e2554-5c1f-45b9-abfa-e68c25912da1
+		sourceLineageTag: COPA Sales Office Description
+		summarizeBy: none
+		sourceColumn: COPA Sales Office Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Sales Group'
+		dataType: string
+		lineageTag: 48446195-ed98-4aa3-9c40-3ff3a5255573
+		sourceLineageTag: COPA Sales Group
+		summarizeBy: none
+		sourceColumn: COPA Sales Group
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Sales Group Description'
+		dataType: string
+		lineageTag: 42bc8d2a-2c02-45d7-b219-0931adf74a5c
+		sourceLineageTag: COPA Sales Group Description
+		summarizeBy: none
+		sourceColumn: COPA Sales Group Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Customer Account Assignment Group'
+		dataType: string
+		lineageTag: 2d688a86-7333-41b2-86ab-16e157e76650
+		sourceLineageTag: COPA Customer Account Assignment Group
+		summarizeBy: none
+		sourceColumn: COPA Customer Account Assignment Group
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: bc78e2e5-cc68-43d5-bdcc-82009d4afdbc
+		sourceLineageTag: CUST_KEY
+		summarizeBy: none
+		sourceColumn: CUST_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Commission Group Description'
+		dataType: string
+		lineageTag: 077c5cba-137e-470d-83da-6f24a3d367cb
+		sourceLineageTag: COPA Commission Group Description
+		summarizeBy: none
+		sourceColumn: COPA Commission Group Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Order Reason'
+		dataType: string
+		lineageTag: dc3bea62-0a93-4754-af7c-eab6519fb2e6
+		sourceLineageTag: COPA Order Reason
+		summarizeBy: none
+		sourceColumn: COPA Order Reason
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Order Reason Description'
+		dataType: string
+		lineageTag: d13a6a7d-d14d-4ca2-99a6-78b0311fba75
+		sourceLineageTag: COPA Order Reason Description
+		summarizeBy: none
+		sourceColumn: COPA Order Reason Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Sales District'
+		dataType: string
+		lineageTag: bb7decef-1e65-4661-ac25-f8ca872a735d
+		sourceLineageTag: COPA Sales District
+		summarizeBy: none
+		sourceColumn: COPA Sales District
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Sales District Description'
+		dataType: string
+		lineageTag: 99f2a9f7-b4fb-4f0c-a593-b2f3ee792d20
+		sourceLineageTag: COPA Sales District Description
+		summarizeBy: none
+		sourceColumn: COPA Sales District Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Invoice Type Description'
+		dataType: string
+		lineageTag: b620b29d-6f4d-4cdd-8fe1-dd278ba12de4
+		sourceLineageTag: COPA Invoice Type Description
+		summarizeBy: none
+		sourceColumn: COPA Invoice Type Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Order Number'
+		dataType: string
+		lineageTag: 2374302c-4568-4e7d-8e81-30910526b2dc
+		sourceLineageTag: COPA Order Number
+		summarizeBy: none
+		sourceColumn: COPA Order Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Sales Document Description'
+		dataType: string
+		lineageTag: 83507260-39f3-4b70-bb2b-c292fc273fde
+		sourceLineageTag: COPA Sales Document Description
+		summarizeBy: none
+		sourceColumn: COPA Sales Document Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Ship To Zip Code'
+		dataType: string
+		lineageTag: a2a038e2-5c31-42f6-a2fa-9f41409e3bac
+		sourceLineageTag: COPA Ship To Zip Code
+		summarizeBy: none
+		sourceColumn: COPA Ship To Zip Code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Plan Actual Indicator'
+		dataType: string
+		lineageTag: b4716fa4-ea42-4170-a39e-9b6d3ac77f99
+		sourceLineageTag: COPA Plan Actual Indicator
+		summarizeBy: none
+		sourceColumn: COPA Plan Actual Indicator
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Plan Actual Indicator Description'
+		dataType: string
+		lineageTag: ca8dad46-4151-4f2a-be56-012d4994ea04
+		sourceLineageTag: COPA Plan Actual Indicator Description
+		summarizeBy: none
+		sourceColumn: COPA Plan Actual Indicator Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column WBS_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: d5907228-0e80-47c8-99cb-57c2c69fbcf0
+		sourceLineageTag: WBS_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: WBS_ELEMNT_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Cancelled Document'
+		dataType: string
+		lineageTag: fdff77e8-0610-46a2-9ef3-a3b8775ccee1
+		sourceLineageTag: COPA Cancelled Document
+		summarizeBy: none
+		sourceColumn: COPA Cancelled Document
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Cancelled Document Item'
+		dataType: string
+		lineageTag: 96bcdd03-6128-4e4a-bbc1-60239f436290
+		sourceLineageTag: COPA Cancelled Document Item
+		summarizeBy: none
+		sourceColumn: COPA Cancelled Document Item
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Ship To Telephone'
+		dataType: string
+		lineageTag: 284e3c60-3ee6-4ceb-8b32-8b4a9b488e11
+		sourceLineageTag: COPA Ship To Telephone
+		summarizeBy: none
+		sourceColumn: COPA Ship To Telephone
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRMS_OF_PYMT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 1af5cc58-47bd-4314-8b56-6fc4ccd948a0
+		sourceLineageTag: TRMS_OF_PYMT_KEY
+		summarizeBy: sum
+		sourceColumn: TRMS_OF_PYMT_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Terms of Payment Description'
+		dataType: string
+		lineageTag: a24dc913-fd3b-4ba0-9ec7-9d8077d4dc56
+		sourceLineageTag: COPA Terms of Payment Description
+		summarizeBy: none
+		sourceColumn: COPA Terms of Payment Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Ship To Address'
+		dataType: string
+		lineageTag: dd669a44-2d0d-484d-b8a4-d60ba713b3e9
+		sourceLineageTag: COPA Ship To Address
+		summarizeBy: none
+		sourceColumn: COPA Ship To Address
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Ship To Country'
+		dataType: string
+		lineageTag: d545e0ed-6b3e-4a0b-9fef-f54dad4d0be9
+		sourceLineageTag: COPA Ship To Country
+		summarizeBy: none
+		sourceColumn: COPA Ship To Country
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Ship To Region'
+		dataType: string
+		lineageTag: 40edbdd8-d1e6-48c4-a188-7a11dcdcc117
+		sourceLineageTag: COPA Ship To Region
+		summarizeBy: none
+		sourceColumn: COPA Ship To Region
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4da3c055-d408-4d0c-9b11-83cab6f8c26e
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Currency Type Description'
+		dataType: string
+		lineageTag: 900f51b1-6e1a-4651-b63a-e3830a515fbc
+		sourceLineageTag: COPA Currency Type Description
+		summarizeBy: none
+		sourceColumn: COPA Currency Type Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Created By'
+		dataType: string
+		lineageTag: 55a7c0da-4655-4098-a478-db3f5e320729
+		sourceLineageTag: COPA Created By
+		summarizeBy: none
+		sourceColumn: COPA Created By
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Controlling Area'
+		dataType: string
+		lineageTag: 84b79b9b-8cec-476d-bb7e-448b498bf510
+		sourceLineageTag: COPA Controlling Area
+		summarizeBy: none
+		sourceColumn: COPA Controlling Area
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Controlling Area Description'
+		dataType: string
+		lineageTag: 0e45306b-7531-4b7e-92a4-f2342c80d5ec
+		sourceLineageTag: COPA Controlling Area Description
+		summarizeBy: none
+		sourceColumn: COPA Controlling Area Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Ship To City'
+		dataType: string
+		lineageTag: 9e9bc832-0fcf-4057-a98a-6d47167f9091
+		sourceLineageTag: COPA Ship To City
+		summarizeBy: none
+		sourceColumn: COPA Ship To City
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BILLTO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d190e96-cb29-4664-8f3a-c57cc781ecfd
+		sourceLineageTag: BILLTO_CUST_KEY
+		summarizeBy: none
+		sourceColumn: BILLTO_CUST_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_SERVC_REPRESENTATIVE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c474fce-a992-43c1-8cb9-116c3ba69f12
+		sourceLineageTag: CUST_SERVC_REPRESENTATIVE_KEY
+		summarizeBy: none
+		sourceColumn: CUST_SERVC_REPRESENTATIVE_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GOODS_ISSUE_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a602e74c-36b6-4b12-a9a4-b7617bc22808
+		sourceLineageTag: GOODS_ISSUE_DATE_KEY
+		summarizeBy: none
+		sourceColumn: GOODS_ISSUE_DATE_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Created On Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3a4243b8-2116-4376-bb83-9cfb6b6cb4cb
+		sourceLineageTag: COPA Created On Date
+		summarizeBy: none
+		sourceColumn: COPA Created On Date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 6b61534b-836c-41f7-bba4-f1c9d5450101
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 892f53cb-942b-4851-b619-579b026b714d
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Order Quantity UoM'
+		dataType: string
+		lineageTag: f205352e-8c26-488c-8cf9-8c6ede373f72
+		sourceLineageTag: COPA Order Quantity UoM
+		summarizeBy: none
+		sourceColumn: COPA Order Quantity UoM
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Commission Group'
+		dataType: string
+		lineageTag: 785c6bb1-74f6-477c-a4f1-e9cfa029f88d
+		sourceLineageTag: COPA Commission Group
+		summarizeBy: none
+		sourceColumn: COPA Commission Group
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_SALES_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 423b26aa-4300-4eaf-94a3-14abc184707b
+		sourceLineageTag: CUST_SALES_AREA_KEY
+		summarizeBy: none
+		sourceColumn: CUST_SALES_AREA_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_REP_REPRESENTATIVE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e74b8817-1fed-45dd-93f9-b497e41cd8da
+		sourceLineageTag: SALES_REP_REPRESENTATIVE_KEY
+		summarizeBy: none
+		sourceColumn: SALES_REP_REPRESENTATIVE_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Sales Document Type'
+		dataType: string
+		lineageTag: e0b6173a-cff0-4119-afa6-29086fc3e4c8
+		sourceLineageTag: COPA Sales Document Type
+		summarizeBy: none
+		sourceColumn: COPA Sales Document Type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Direct Material Amount'
+		dataType: double
+		lineageTag: 878ebb39-dcb1-47ff-bd74-acf9d67a2fcd
+		sourceLineageTag: Direct Material Amount
+		summarizeBy: sum
+		sourceColumn: Direct Material Amount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'COPA Sales Order Line Item'
+		dataType: string
+		lineageTag: 79db742e-12a8-4753-a4ab-5b83ada98e86
+		sourceLineageTag: COPA Sales Order Line Item
+		summarizeBy: none
+		sourceColumn: COPA Sales Order Line Item
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Invoice Header Number'
+		dataType: string
+		lineageTag: 47fd3a63-4a97-4a0d-8c24-be4d85ebb1df
+		sourceLineageTag: COPA Invoice Header Number
+		summarizeBy: none
+		sourceColumn: COPA Invoice Header Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Invoice Item Number'
+		dataType: string
+		lineageTag: 39a3e10a-16b6-4336-ac3a-1fb8247b7c94
+		sourceLineageTag: COPA Invoice Item Number
+		summarizeBy: none
+		sourceColumn: COPA Invoice Item Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Year'
+		dataType: string
+		lineageTag: 745bffff-c7d7-4a20-950d-91b529803564
+		sourceLineageTag: COPA Year
+		summarizeBy: none
+		sourceColumn: COPA Year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Period'
+		dataType: string
+		lineageTag: 762d8048-1be4-4cdc-bf82-47333af89357
+		sourceLineageTag: COPA Period
+		summarizeBy: none
+		sourceColumn: COPA Period
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Invoice Type'
+		dataType: string
+		lineageTag: a02f4b44-c802-419f-9da2-90a7945a5249
+		sourceLineageTag: COPA Invoice Type
+		summarizeBy: none
+		sourceColumn: COPA Invoice Type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_ORDER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 850ba28e-e014-44fb-8147-83413ec9659c
+		sourceLineageTag: SALES_ORDER_KEY
+		summarizeBy: none
+		sourceColumn: SALES_ORDER_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e723324b-cfd0-455c-9eee-73b9cc62f6e2
+		sourceLineageTag: COST_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: COST_ELEMNT_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: b63bc6a8-1ff5-496b-8d4e-7656b73c8016
+		sourceLineageTag: MATRL_KEY
+		summarizeBy: none
+		sourceColumn: MATRL_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: de07698b-6fdf-44c7-b4c0-952279fa45c0
+		sourceLineageTag: PLNT_KEY
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ea11ba38-14bb-481e-abcd-b94537e8a64e
+		sourceLineageTag: SALES_AREA_KEY
+		summarizeBy: none
+		sourceColumn: SALES_AREA_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEG_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: bdd9ea42-e727-445a-bede-aed62939d6b4
+		sourceLineageTag: SEG_KEY
+		summarizeBy: none
+		sourceColumn: SEG_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3928f1cf-3711-47f1-bb2f-cf4f84690815
+		sourceLineageTag: CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: CRNCY_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARNT_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 17ee5c9d-1fcf-44d6-9733-b1d2d68a0c91
+		sourceLineageTag: PARNT_CUST_KEY
+		summarizeBy: none
+		sourceColumn: PARNT_CUST_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column RCD_TYP_DESC
+		dataType: string
+		lineageTag: 2c692422-d607-4de6-8e0f-c1c0965bc2bd
+		sourceLineageTag: RCD_TYP_DESC
+		summarizeBy: none
+		sourceColumn: RCD_TYP_DESC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHIPTO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b6b0b27-54f9-4cf7-a78e-283492c814df
+		sourceLineageTag: SHIPTO_CUST_KEY
+		summarizeBy: none
+		sourceColumn: SHIPTO_CUST_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e119efd-271e-4b53-ad39-554619ad465c
+		sourceLineageTag: CUST_CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: CUST_CMPNY_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 304c0525-5d25-4b03-847b-c7b4a893db22
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRTNR_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c9bb608-58ae-484a-b929-6803871db5b6
+		sourceLineageTag: PRTNR_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PRTNR_PROFT_CNTR_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Document Number'
+		dataType: string
+		lineageTag: 25115349-428c-4874-9faa-ea16d6446d97
+		sourceLineageTag: COPA Document Number
+		summarizeBy: none
+		sourceColumn: COPA Document Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Document Item Number'
+		dataType: string
+		lineageTag: 72b1a1e6-c30b-4c26-9b74-f47bcaddc970
+		sourceLineageTag: COPA Document Item Number
+		summarizeBy: none
+		sourceColumn: COPA Document Item Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BILLING_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: cd6ef8b0-9cf2-4234-9ddb-9736b2a05b5b
+		sourceLineageTag: BILLING_DATE_KEY
+		summarizeBy: none
+		sourceColumn: BILLING_DATE_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSTNG_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 019a2936-282e-4850-8651-4760970b9604
+		sourceLineageTag: PSTNG_DATE_KEY
+		summarizeBy: none
+		sourceColumn: PSTNG_DATE_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: aa843c1f-c2fb-4397-8fe3-674b8ac5194b
+		sourceLineageTag: CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOLDTO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 382c5e99-4861-4adc-b1b5-71c19ae7280e
+		sourceLineageTag: SOLDTO_CUST_KEY
+		summarizeBy: none
+		sourceColumn: SOLDTO_CUST_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COPA Currency Type'
+		dataType: string
+		lineageTag: 87a4e457-8f6a-4828-9e31-f23c6b45ea88
+		sourceLineageTag: COPA Currency Type
+		summarizeBy: none
+		sourceColumn: COPA Currency Type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SO_QTY
+		dataType: double
+		lineageTag: 202a76c7-1d94-44cd-a280-d80dab5b3785
+		sourceLineageTag: SO_QTY
+		summarizeBy: sum
+		sourceColumn: SO_QTY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column INCOMING_FREIGHT_AMT
+		dataType: double
+		lineageTag: 02ed40d5-58a6-4322-bc23-aeddba067a90
+		sourceLineageTag: INCOMING_FREIGHT_AMT
+		summarizeBy: sum
+		sourceColumn: INCOMING_FREIGHT_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OUTGOING_TRNSPRT_AMT
+		dataType: double
+		lineageTag: 9bb9b81a-829e-4f63-a4f3-48d068cbe814
+		sourceLineageTag: OUTGOING_TRNSPRT_AMT
+		summarizeBy: sum
+		sourceColumn: OUTGOING_TRNSPRT_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUBCONTRACTING_SERVC_AMT
+		dataType: double
+		lineageTag: 68bccbe5-d16f-4ba7-993e-9ca7a8ed7358
+		sourceLineageTag: SUBCONTRACTING_SERVC_AMT
+		summarizeBy: sum
+		sourceColumn: SUBCONTRACTING_SERVC_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FRIEGHT_REVNU_AMT
+		dataType: double
+		lineageTag: dc7ce63a-5b5a-4b9d-ab2f-8b08a71a552b
+		sourceLineageTag: FRIEGHT_REVNU_AMT
+		summarizeBy: sum
+		sourceColumn: FRIEGHT_REVNU_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OVERHEAD_VARIANCES_AMT
+		dataType: double
+		lineageTag: e907c7d9-87ff-42c4-85f5-b6e1fe5f4868
+		sourceLineageTag: OVERHEAD_VARIANCES_AMT
+		summarizeBy: sum
+		sourceColumn: OVERHEAD_VARIANCES_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CASHDISC_WO_TAX_AMT
+		dataType: double
+		lineageTag: 8365704b-d312-4da1-88ea-079fef928406
+		sourceLineageTag: CASHDISC_WO_TAX_AMT
+		summarizeBy: sum
+		sourceColumn: CASHDISC_WO_TAX_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DISTRBN_EXPENSE_AMT
+		dataType: double
+		lineageTag: 03d7fe89-92dc-4306-8599-3f28d20a627b
+		sourceLineageTag: DISTRBN_EXPENSE_AMT
+		summarizeBy: sum
+		sourceColumn: DISTRBN_EXPENSE_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column INTERCO_MAT_COST_AMT
+		dataType: double
+		lineageTag: 01e41167-de65-44a7-9a2e-9fd97bff11e8
+		sourceLineageTag: INTERCO_MAT_COST_AMT
+		summarizeBy: sum
+		sourceColumn: INTERCO_MAT_COST_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OUTSIDE_PURCHASES_AMT
+		dataType: double
+		lineageTag: 9831aa93-7410-467c-ac82-213ac010db7a
+		sourceLineageTag: OUTSIDE_PURCHASES_AMT
+		summarizeBy: sum
+		sourceColumn: OUTSIDE_PURCHASES_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MCHINE_COSTS_AMT
+		dataType: double
+		lineageTag: 05ccad8f-c622-496b-8c12-fbcfdca57d38
+		sourceLineageTag: MCHINE_COSTS_AMT
+		summarizeBy: sum
+		sourceColumn: MCHINE_COSTS_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CLOSEOUT_REVNU_AMT
+		dataType: double
+		lineageTag: ed8f7393-1e41-4663-bf61-3288906f8ebe
+		sourceLineageTag: CLOSEOUT_REVNU_AMT
+		summarizeBy: sum
+		sourceColumn: CLOSEOUT_REVNU_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DAMAGED_REVNU_AMT
+		dataType: double
+		lineageTag: bad53975-73ef-4699-a085-b6d345862ab4
+		sourceLineageTag: DAMAGED_REVNU_AMT
+		summarizeBy: sum
+		sourceColumn: DAMAGED_REVNU_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUBSTITUTION_REVNU_AMT
+		dataType: double
+		lineageTag: 7ffb4fbe-f5e1-42c0-b8a1-478586fba99e
+		sourceLineageTag: SUBSTITUTION_REVNU_AMT
+		summarizeBy: sum
+		sourceColumn: SUBSTITUTION_REVNU_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PROMOTION_REVNU_AMT
+		dataType: double
+		lineageTag: 414a1a23-387a-4f55-bdb2-9ac11be158e9
+		sourceLineageTag: PROMOTION_REVNU_AMT
+		summarizeBy: sum
+		sourceColumn: PROMOTION_REVNU_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EXCEPTION_REVNU_AMT
+		dataType: double
+		lineageTag: 2714404d-e03e-49b2-8319-0165c62f8914
+		sourceLineageTag: EXCEPTION_REVNU_AMT
+		summarizeBy: sum
+		sourceColumn: EXCEPTION_REVNU_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRENEED_REVNU_AMT
+		dataType: double
+		lineageTag: 47a68782-5a64-47f7-98b6-aa38a17b3533
+		sourceLineageTag: PRENEED_REVNU_AMT
+		summarizeBy: sum
+		sourceColumn: PRENEED_REVNU_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SELLING_EXPENSE_AMT
+		dataType: double
+		lineageTag: bee92b31-461a-40c0-9724-9b8212cab194
+		sourceLineageTag: SELLING_EXPENSE_AMT
+		summarizeBy: sum
+		sourceColumn: SELLING_EXPENSE_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GENERAL_ADMIN_AMT
+		dataType: double
+		lineageTag: e747075c-c6cc-42f6-8786-beaf21942e10
+		sourceLineageTag: GENERAL_ADMIN_AMT
+		summarizeBy: sum
+		sourceColumn: GENERAL_ADMIN_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PROFT_DISTRBN_AMT
+		dataType: double
+		lineageTag: 7ffac198-d17b-41c5-8d4d-7f30c91bd72e
+		sourceLineageTag: PROFT_DISTRBN_AMT
+		summarizeBy: sum
+		sourceColumn: PROFT_DISTRBN_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DIVISION_SERVICES_AMT
+		dataType: double
+		lineageTag: 7f84f3d6-2f8c-4b83-909c-983a41ac4ce9
+		sourceLineageTag: DIVISION_SERVICES_AMT
+		summarizeBy: sum
+		sourceColumn: DIVISION_SERVICES_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CASHDISCOUNT_ON_INVC_AMT
+		dataType: double
+		lineageTag: 8f3cbf8b-c11f-4da4-b104-b09fb96bac7a
+		sourceLineageTag: CASHDISCOUNT_ON_INVC_AMT
+		summarizeBy: sum
+		sourceColumn: CASHDISCOUNT_ON_INVC_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SELLING_PRICE_AMT
+		dataType: double
+		lineageTag: a6e41592-cd19-4b02-af53-2ade5f81dea3
+		sourceLineageTag: SELLING_PRICE_AMT
+		summarizeBy: sum
+		sourceColumn: SELLING_PRICE_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CORPORATE_SERVICES_AMT
+		dataType: double
+		lineageTag: 381264b8-1dde-4cdf-be08-cd2640fa7f7b
+		sourceLineageTag: CORPORATE_SERVICES_AMT
+		summarizeBy: sum
+		sourceColumn: CORPORATE_SERVICES_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REBATES_ON_INVC_AMT
+		dataType: double
+		lineageTag: c13b1c86-68f7-4e15-8931-e9a5d97c5db9
+		sourceLineageTag: REBATES_ON_INVC_AMT
+		summarizeBy: sum
+		sourceColumn: REBATES_ON_INVC_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FREIGHT_COST_AMT
+		dataType: double
+		lineageTag: 7ed6386f-849c-45f2-afeb-fa54d712807a
+		sourceLineageTag: FREIGHT_COST_AMT
+		summarizeBy: sum
+		sourceColumn: FREIGHT_COST_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REALIZED_FX_AP_AR_AMT
+		dataType: double
+		lineageTag: 3a01d7b2-b839-4302-b302-27a7b21669e1
+		sourceLineageTag: REALIZED_FX_AP_AR_AMT
+		summarizeBy: sum
+		sourceColumn: REALIZED_FX_AP_AR_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LABOR_SPEND_VRNC_AMT
+		dataType: double
+		lineageTag: 277df304-2ce3-4656-a586-4810ffb84c22
+		sourceLineageTag: LABOR_SPEND_VRNC_AMT
+		summarizeBy: sum
+		sourceColumn: LABOR_SPEND_VRNC_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OVERHEAD_SPEND_VRNC_AMT
+		dataType: double
+		lineageTag: e3deb7ce-94a2-49c2-8949-c23010dc7a20
+		sourceLineageTag: OVERHEAD_SPEND_VRNC_AMT
+		summarizeBy: sum
+		sourceColumn: OVERHEAD_SPEND_VRNC_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OVERHEAD_AMT
+		dataType: double
+		lineageTag: c32dd3fc-1d2b-4005-9d54-2d18d801f6b3
+		sourceLineageTag: OVERHEAD_AMT
+		summarizeBy: sum
+		sourceColumn: OVERHEAD_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REBATES_AMT
+		dataType: double
+		lineageTag: e65dcfe1-d497-465f-8304-5dc4f95bd01d
+		sourceLineageTag: REBATES_AMT
+		summarizeBy: sum
+		sourceColumn: REBATES_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PROD_LABOUR_VRNC_AMT
+		dataType: double
+		lineageTag: 16881516-04a6-4ead-9427-1b0e9e903718
+		sourceLineageTag: PROD_LABOUR_VRNC_AMT
+		summarizeBy: sum
+		sourceColumn: PROD_LABOUR_VRNC_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PROD_MAT_VRNC_AMT
+		dataType: double
+		lineageTag: 18c0b33e-3f16-4ed0-be90-8a77bfc2a54a
+		sourceLineageTag: PROD_MAT_VRNC_AMT
+		summarizeBy: sum
+		sourceColumn: PROD_MAT_VRNC_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OTHR_MAT_VRNC_AMT
+		dataType: double
+		lineageTag: 98a13791-8b9c-4537-815f-68a0f8289476
+		sourceLineageTag: OTHR_MAT_VRNC_AMT
+		summarizeBy: sum
+		sourceColumn: OTHR_MAT_VRNC_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MATRL_COST_AMT
+		dataType: double
+		lineageTag: d8b9b062-cf99-42c3-b728-cb7f043823f2
+		sourceLineageTag: MATRL_COST_AMT
+		summarizeBy: sum
+		sourceColumn: MATRL_COST_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OVERHEAD_COST_AMT
+		dataType: double
+		lineageTag: 10ff6ea5-e71b-406f-83bc-5e89681b7ce5
+		sourceLineageTag: OVERHEAD_COST_AMT
+		summarizeBy: sum
+		sourceColumn: OVERHEAD_COST_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DISCNT_ON_INVC_AMT
+		dataType: double
+		lineageTag: 22abf17e-d1ff-4b50-93cc-9a1cea2bdd2f
+		sourceLineageTag: DISCNT_ON_INVC_AMT
+		summarizeBy: sum
+		sourceColumn: DISCNT_ON_INVC_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IC_MARKUP_AMT
+		dataType: double
+		lineageTag: 945b84a7-dc8b-4209-a801-002f19be9cbe
+		sourceLineageTag: IC_MARKUP_AMT
+		summarizeBy: sum
+		sourceColumn: IC_MARKUP_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DIR_LABOR_AMT
+		dataType: double
+		lineageTag: 8cee649e-0dd3-4eca-b434-9ebf5eef5995
+		sourceLineageTag: DIR_LABOR_AMT
+		summarizeBy: sum
+		sourceColumn: DIR_LABOR_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LIST_PRICE_AMT
+		dataType: double
+		lineageTag: 512b911d-c390-4a52-97f9-66aadab6628a
+		sourceLineageTag: LIST_PRICE_AMT
+		summarizeBy: sum
+		sourceColumn: LIST_PRICE_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRICE_VARIANCES_AMT
+		dataType: double
+		lineageTag: 3cf1a5b5-b165-494d-8760-aa68f6e84d7f
+		sourceLineageTag: PRICE_VARIANCES_AMT
+		summarizeBy: sum
+		sourceColumn: PRICE_VARIANCES_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OTHR_VARIANCES_AMT
+		dataType: double
+		lineageTag: 794b2051-a0b1-4725-b61e-2c78d7f5ce7a
+		sourceLineageTag: OTHR_VARIANCES_AMT
+		summarizeBy: sum
+		sourceColumn: OTHR_VARIANCES_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RESOURCE_USAGE_VARIANCES_AMT
+		dataType: double
+		lineageTag: a66a8522-521d-41a6-a5f0-c9709a37349e
+		sourceLineageTag: RESOURCE_USAGE_VARIANCES_AMT
+		summarizeBy: sum
+		sourceColumn: RESOURCE_USAGE_VARIANCES_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CASH_DISCNT_AMT
+		dataType: double
+		lineageTag: 2647a818-d2f7-44b2-b267-983a4e6c1817
+		sourceLineageTag: CASH_DISCNT_AMT
+		summarizeBy: sum
+		sourceColumn: CASH_DISCNT_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column STK_VAL_AMT
+		dataType: double
+		lineageTag: 809b68ab-83b2-41d2-91a9-5cb8be7a5622
+		sourceLineageTag: STK_VAL_AMT
+		summarizeBy: sum
+		sourceColumn: STK_VAL_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LABOR_COST_AMT
+		dataType: double
+		lineageTag: 3b59dc15-27e6-455e-b776-de9e125bdb7f
+		sourceLineageTag: LABOR_COST_AMT
+		summarizeBy: sum
+		sourceColumn: LABOR_COST_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REVNU_AMT
+		dataType: double
+		lineageTag: 05c7746d-6341-4225-b617-e6a8d02a63bd
+		sourceLineageTag: REVNU_AMT
+		summarizeBy: sum
+		sourceColumn: REVNU_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LOTSIZE_VRNC_AMT
+		dataType: double
+		lineageTag: a85e70f7-4118-407b-a8ef-3bf3ed1797e6
+		sourceLineageTag: LOTSIZE_VRNC_AMT
+		summarizeBy: sum
+		sourceColumn: LOTSIZE_VRNC_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PROD_COSTS_VRNC_AMT
+		dataType: double
+		lineageTag: 345dca51-91d9-4992-a95b-12b2131b170d
+		sourceLineageTag: PROD_COSTS_VRNC_AMT
+		summarizeBy: sum
+		sourceColumn: PROD_COSTS_VRNC_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTY_VARIANCES_AMT
+		dataType: double
+		lineageTag: 0f9efc8d-5601-4577-b5a7-e1a81767a593
+		sourceLineageTag: QTY_VARIANCES_AMT
+		summarizeBy: sum
+		sourceColumn: QTY_VARIANCES_AMT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'COSTEHZ_COST_ELEMNT_KEY '
+		dataType: int64
+		formatString: 0
+		lineageTag: db1cd5a1-eed6-40d5-940c-46ab380e10c3
+		sourceLineageTag: "COSTEHZ_COST_ELEMNT_KEY "
+		summarizeBy: none
+		sourceColumn: "COSTEHZ_COST_ELEMNT_KEY "
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COSTEVZ_COST_ELEMNT_KEY '
+		dataType: int64
+		formatString: 0
+		lineageTag: 607e9640-63e4-4b16-8694-949a3fe16368
+		sourceLineageTag: "COSTEVZ_COST_ELEMNT_KEY "
+		summarizeBy: none
+		sourceColumn: "COSTEVZ_COST_ELEMNT_KEY "
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Partner_Profit_Center_Vertical_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 20194f49-9aa0-4f33-a6f0-7cc83678f699
+		sourceLineageTag: Partner_Profit_Center_Vertical_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: Partner_Profit_Center_Vertical_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Partner_Profit_Center_Horizontal_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 8360992a-6101-4081-b175-cdfcc84af543
+		sourceLineageTag: Partner_Profit_Center_Horizontal_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: Partner_Profit_Center_Horizontal_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCVZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9bdf574e-df2d-4708-92d6-a10051ec719c
+		sourceLineageTag: PROFCVZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCVZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCHZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: b03a01be-6003-423d-bde8-0d0960b67c49
+		sourceLineageTag: PROFCHZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCHZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact COPA Actual' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_FACT_CO_COPA3_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+
+	changedProperty = IsHidden
+

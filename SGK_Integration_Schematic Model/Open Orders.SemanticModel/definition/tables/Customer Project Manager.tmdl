@@ -1,0 +1,143 @@
+table 'Customer Project Manager'
+	lineageTag: dfb20837-3249-436e-8ae4-cacd5361206f
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1f564818-788d-44a1-a0c2-19e2eed87181
+		summarizeBy: sum
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Contact Person ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dc5dacc1-2c34-4e18-8855-e0404aa1d8bd
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Customer ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 05cba8f3-f5a4-4275-8bcf-e8c02c818998
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager First Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6374a806-5d94-4230-8ca4-bb8743c84049
+		summarizeBy: none
+		sourceColumn: Customer Project Manager First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3a79be56-659b-497e-8018-aff7b9311df4
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Contact Person Dept'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 38b579b1-bc24-4eb1-bb88-af0cafed8865
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person Dept
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Manager Contact Person Dept Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a71b5342-d7fc-4b04-8f8f-a470c21b8398
+		summarizeBy: none
+		sourceColumn: Customer Project Manager Contact Person Dept Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 614419b3-9044-4cd5-88b0-648b695d766b
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 784152e8-58aa-4183-b5e2-5d9d623f7eed
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 9c9cc184-156a-466a-8efe-84d2b89b05de
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 36b218fe-3ad3-4829-a799-5228aa40cfc0
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 8d5dd251-f9d9-4411-9994-31015c9e6dcf
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c00b9370-13d8-46ef-8de3-95daa06f7d5c
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Customer Project Manager' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_CUSTOMER_PROJECT_MANAGER = Source{[Schema="Propelis",Item="CUSTOMER_PROJECT_MANAGER"]}[Data]
+				in
+				    Propelis_CUSTOMER_PROJECT_MANAGER
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

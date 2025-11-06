@@ -1,0 +1,232 @@
+table 'Customer Partner'
+	lineageTag: c87462ad-1a64-40f4-9a2c-38ed03462303
+
+	column CUST_PRTNR_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 48ec3937-5dac-4b8f-953e-57b782ddbba6
+		summarizeBy: sum
+		sourceColumn: CUST_PRTNR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Customer ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: bfd57dcc-c9fb-4ced-b97f-d3b9a8c14b18
+		summarizeBy: none
+		sourceColumn: Customer Partner Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Sales Organization'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 061540e6-0b5f-43be-bb9e-15b5a3e7efc1
+		summarizeBy: none
+		sourceColumn: Customer Partner Sales Organization
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Sales Organization Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: edf6026f-c69a-4db6-bfbf-b151ca3dceb0
+		summarizeBy: none
+		sourceColumn: Customer Partner Sales Organization Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Distribution Channel'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fba23a3f-f9a8-41e2-9baf-ebc9efaf174e
+		summarizeBy: none
+		sourceColumn: Customer Partner Distribution Channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Distribution Channel Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ac5c424f-f6aa-472a-aa3a-3011a77a7d78
+		summarizeBy: none
+		sourceColumn: Customer Partner Distribution Channel Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Division'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7f49b8f4-c0f4-4909-ab29-1d5f051d849f
+		summarizeBy: none
+		sourceColumn: Customer Partner Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Division Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6370d39b-0433-40f2-bdd9-4b50602c973c
+		summarizeBy: none
+		sourceColumn: Customer Partner Division Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Customer Number of Business Partner'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 99846a2b-1b8c-4bb0-9615-057866ee1bdf
+		summarizeBy: none
+		sourceColumn: Customer Partner Customer Number of Business Partner
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Function'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 86ac9386-0a71-48a5-ac82-48b9650ec16c
+		summarizeBy: none
+		sourceColumn: Customer Partner Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Function Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8105eca4-efbf-4c2b-a5dd-f674906e1812
+		summarizeBy: none
+		sourceColumn: Customer Partner Function Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Personel ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a69853dc-d898-4f22-b88f-4fea498e3563
+		summarizeBy: none
+		sourceColumn: Customer Partner Personel ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Counter'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cc5a7c09-dcec-49e7-af42-67941d98cb5e
+		summarizeBy: sum
+		sourceColumn: Customer Partner Counter
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c378f5e5-99bd-4608-a232-175a24b5b4ba
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: dec496f9-415d-4072-803d-e3c01bd98e3c
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 5bd850a1-1707-4447-b4ad-cf80ab77f912
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Current Record Indicator of Customer Partner'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fa4ff092-b4c8-43d5-968c-38244609ec83
+		summarizeBy: none
+		sourceColumn: Current Record Indicator of Customer Partner
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 712bff62-285c-4ca2-a4a3-e7eda0c5c38d
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c4248d10-4dc2-415b-9391-fbf1f1116a16
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Vendor ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 642fa64d-08f3-4814-88a5-58fa6e192d64
+		summarizeBy: none
+		sourceColumn: Customer Partner Vendor ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Contact Person ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ee70c886-90d8-4391-b57d-4ddfb2cc4dc3
+		summarizeBy: none
+		sourceColumn: Customer Partner Contact Person ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 47c69635-1605-4a19-9ae5-a60e69ef0679
+		summarizeBy: none
+		sourceColumn: Customer Partner Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Partner Default Partner'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f3c24310-1c65-4175-8fa3-10ead058c8dd
+		summarizeBy: none
+		sourceColumn: Customer Partner Default Partner
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Customer Partner' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_CUSTPNR_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_CUSTPNR_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_CUSTPNR_CUR_D
+
+	changedProperty = Name
+

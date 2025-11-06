@@ -1254,11 +1254,11 @@ table 'Cylinder Owner Customer'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_CYLINDER_OWNER_CUST = Source{[Schema="Propelis",Item="V_CYLINDER_OWNER_CUST"]}[Data]
+				    Propelis_CYLINDER_OWNER_CUST = Source{[Schema="Propelis",Item="CYLINDER_OWNER_CUST"]}[Data]
 				in
-				    Propelis_V_CYLINDER_OWNER_CUST
-
-	changedProperty = Name
+				    Propelis_CYLINDER_OWNER_CUST
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

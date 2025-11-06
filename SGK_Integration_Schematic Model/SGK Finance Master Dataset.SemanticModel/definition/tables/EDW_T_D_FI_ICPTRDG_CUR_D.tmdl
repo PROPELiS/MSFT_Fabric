@@ -1,0 +1,29 @@
+table EDW_T_D_FI_ICPTRDG_CUR_D
+	lineageTag: f69e9cb6-9047-4995-b5c7-92548b8619c5
+	sourceLineageTag: [dbo].[EDW_T_D_FI_ICPTRDG_CUR_D]
+
+	column PROFT_CNTR_ID
+		dataType: string
+		lineageTag: a6806b08-c79b-4f99-8815-a6189fb213af
+		sourceLineageTag: PROFT_CNTR_ID
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRADING_PRTNR
+		dataType: string
+		lineageTag: 8d98bc9b-1de8-4cda-98df-9ae28c698a79
+		sourceLineageTag: TRADING_PRTNR
+		summarizeBy: none
+		sourceColumn: TRADING_PRTNR
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_FI_ICPTRDG_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_FI_ICPTRDG_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

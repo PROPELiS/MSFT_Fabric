@@ -181,11 +181,11 @@ table 'Order For Customer'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_ORDER_FOR_CUSTOMER = Source{[Schema="Propelis",Item="V_ORDER_FOR_CUSTOMER"]}[Data]
+				    Propelis_ORDER_FOR_CUSTOMER = Source{[Schema="Propelis",Item="ORDER_FOR_CUSTOMER"]}[Data]
 				in
-				    Propelis_V_ORDER_FOR_CUSTOMER
-
-	changedProperty = Name
+				    Propelis_ORDER_FOR_CUSTOMER
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

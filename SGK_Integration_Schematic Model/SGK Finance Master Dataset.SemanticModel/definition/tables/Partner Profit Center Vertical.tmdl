@@ -1,0 +1,77 @@
+table 'Partner Profit Center Vertical'
+	lineageTag: 4db5c088-ac63-4959-811b-976a9ca91b0d
+	sourceLineageTag: [Propelis].[PARTNER_PROFIT_CENTER_VERTICAL]
+
+	column PROFIT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d9ad06e-2fc6-4fa0-b6b3-176687983463
+		sourceLineageTag: PROFIT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFIT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Profit Center Controlling Area ID of VH'
+		dataType: string
+		lineageTag: dc21e3b3-8cd8-4443-b674-eb10dca45fb8
+		sourceLineageTag: Partner Profit Center Controlling Area ID of VH
+		summarizeBy: none
+		sourceColumn: Partner Profit Center Controlling Area ID of VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Profit Center Parent ID of VH'
+		dataType: string
+		lineageTag: d37a43d9-eb3c-4374-a73b-2ce639ab11c4
+		sourceLineageTag: Partner Profit Center Parent ID of VH
+		summarizeBy: none
+		sourceColumn: Partner Profit Center Parent ID of VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Profit Center Parent Description of VH'
+		dataType: string
+		lineageTag: d2cdc1ac-072e-4ef4-a53d-b5af8e80b8d9
+		sourceLineageTag: Partner Profit Center Parent Description of VH
+		summarizeBy: none
+		sourceColumn: Partner Profit Center Parent Description of VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Profit Center Child ID VH'
+		dataType: string
+		lineageTag: 1e58432f-4355-47d8-9d4a-313fdf79bdd5
+		sourceLineageTag: Partner Profit Center Child ID VH
+		summarizeBy: none
+		sourceColumn: Partner Profit Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Profit Center Child ID Description of VH'
+		dataType: string
+		lineageTag: f5e7259c-084c-4017-bc2d-2e29ea272649
+		sourceLineageTag: Partner Profit Center Child ID Description of VH
+		summarizeBy: none
+		sourceColumn: Partner Profit Center Child ID Description of VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Profit Center Level of VH'
+		dataType: string
+		lineageTag: 77d7b5f3-532e-4d2f-a0b2-5eae3bbc1414
+		sourceLineageTag: Partner Profit Center Level of VH
+		summarizeBy: none
+		sourceColumn: Partner Profit Center Level of VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Partner Profit Center Vertical' = entity
+		mode: directLake
+		source
+			entityName: PARTNER_PROFIT_CENTER_VERTICAL
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

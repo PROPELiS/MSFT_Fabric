@@ -1,53 +1,53 @@
 relationship 5b91daba-4e9c-be65-c2b0-edea1084deda
-	fromColumn: EDW_T_D_HY_COSTCHZ_CUR_D.COST_CNTR_KEY
-	toColumn: EDW_T_D_MST_COSCNTR_CUR_D.COST_CNTR_KEY
+	fromColumn: 'Cost Center Horizontal Hierarchy'.COST_CNTR_KEY
+	toColumn: 'Cost Center'.COST_CNTR_KEY
 
 relationship a44a7f47-a153-8007-4057-335fe881a02f
-	fromColumn: EDW_T_D_HY_COSTCVZ_CUR_D.COST_CNTR_KEY
-	toColumn: EDW_T_D_MST_COSCNTR_CUR_D.COST_CNTR_KEY
+	fromColumn: 'Cost Center Horizontal Vertical'.COST_CNTR_KEY
+	toColumn: 'Cost Center'.COST_CNTR_KEY
 
 relationship b4de2afe-7158-47f5-bf83-84782a24e906
-	fromColumn: EDW_T_D_HY_PROFCHZ_CUR_D.PROFT_CNTR_KEY
-	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+	fromColumn: 'Profit Center Horizontal Hierarchy'.PROFT_CNTR_KEY
+	toColumn: 'Profit Center'.PROFT_CNTR_KEY
 
 relationship a9e34877-5067-87cf-a32c-3c56c7bb8e31
 	crossFilteringBehavior: bothDirections
-	fromColumn: EDW_T_D_HY_PROFCVZ_CUR_D.PROFT_CNTR_KEY
-	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+	fromColumn: 'Profit Center Horizontal Vertical'.PROFT_CNTR_KEY
+	toColumn: 'Profit Center'.PROFT_CNTR_KEY
 
 relationship 31d87e3f-fd03-efce-5c57-2405791c4f6d
-	fromColumn: EDW_T_FACT_SAL_TMCONFN_CUR_D.ACTIVITY_TYP_KEY
-	toColumn: EDW_T_D_MST_ACTTYPE_CUR_D.ACTIVITY_TYP_KEY
+	fromColumn: 'Fact Time Confirmation Non Productive'.ACTIVITY_TYP_KEY
+	toColumn: 'Activity Type'.ACTIVITY_TYP_KEY
 
 relationship 1c983ffe-0842-a974-802f-d0094d89a6a5
-	fromColumn: EDW_T_FACT_SAL_TMCONFN_CUR_D.COST_CNTR_KEY
-	toColumn: EDW_T_D_MST_COSCNTR_CUR_D.COST_CNTR_KEY
+	fromColumn: 'Fact Time Confirmation Non Productive'.COST_CNTR_KEY
+	toColumn: 'Cost Center'.COST_CNTR_KEY
 
 relationship 584cdee2-abf1-2714-de3d-e2cfb86fbc78
-	fromColumn: EDW_T_FACT_SAL_TMCONFN_CUR_D.DOCMT_DATE_KEY
+	fromColumn: 'Fact Time Confirmation Non Productive'.DOCMT_DATE_KEY
 	toColumn: 'Document Date'.DATE_KEY
 
 relationship bfb065cf-d470-9a40-7fb7-33eaddd72278
-	fromColumn: EDW_T_FACT_SAL_TMCONFN_CUR_D.PERSONEL_NUM_KEY
-	toColumn: EDW_T_D_MST_PERSONL_CUR_D.PERSONEL_KEY
+	fromColumn: 'Fact Time Confirmation Non Productive'.PERSONEL_NUM_KEY
+	toColumn: Personnel.PERSONEL_KEY
 
 relationship ce215ec0-06f3-6855-d4dd-a72603e60652
-	fromColumn: EDW_T_FACT_SAL_TMCONFN_CUR_D.PERSONNEL_PLANT_REGION_PLANT
+	fromColumn: 'Fact Time Confirmation Non Productive'.PERSONNEL_PLANT_REGION_PLANT
 	toColumn: 'Personnel Plant Region'.'Personnel Plant'
 
 relationship 7d5f602a-574e-9ffd-b925-55fa37275c7e
-	fromColumn: EDW_T_FACT_SAL_TMCONFN_CUR_D.PLANT_REGION_PLANT
+	fromColumn: 'Fact Time Confirmation Non Productive'.PLANT_REGION_PLANT
 	toColumn: 'Plant Region'.PLANT
 
 relationship 15c47958-c38c-3250-793b-26995897aef1
-	fromColumn: EDW_T_FACT_SAL_TMCONFN_CUR_D.PLNT_KEY
-	toColumn: EDW_T_D_MST_PLANT_CUR_D.PLNT_KEY
+	fromColumn: 'Fact Time Confirmation Non Productive'.PLNT_KEY
+	toColumn: Plant.PLNT_KEY
 
 relationship 10e5c690-922d-85d4-a472-16d589299002
-	fromColumn: EDW_T_FACT_SAL_TMCONFN_CUR_D.PROFT_CNTR_KEY
-	toColumn: EDW_T_D_MST_PROFCTR_CUR_D.PROFT_CNTR_KEY
+	fromColumn: 'Fact Time Confirmation Non Productive'.PROFT_CNTR_KEY
+	toColumn: 'Profit Center'.PROFT_CNTR_KEY
 
 relationship a9e6721f-51f0-2c42-e6cf-412b9464a445
-	fromColumn: EDW_T_FACT_SAL_TMCONFN_CUR_D.PSTNG_DATE_KEY
+	fromColumn: 'Fact Time Confirmation Non Productive'.PSTNG_DATE_KEY
 	toColumn: 'Posting Date'.DATE_KEY
 

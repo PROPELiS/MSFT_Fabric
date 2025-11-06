@@ -1,0 +1,523 @@
+table 'Fact Accounts Payable'
+	lineageTag: 2085a133-99c7-4430-b99d-7bf618b9f8fc
+
+	measure 'Company Currency Amount' = sum('Fact Accounts Payable'[CMPNY_CRNCY_AMT])
+		lineageTag: 78cae039-a663-4025-840b-85596eead2f4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Group Currency Amount' = sum('Fact Accounts Payable'[GROUP_CRNCY_AMT])
+		lineageTag: 94f5c410-a218-4c5e-8e08-d02858ef930e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Document Currency Amount' = sum('Fact Accounts Payable'[DOCMT_CRNCY_AMT])
+		lineageTag: defcdabd-b644-4700-91a6-b792054de260
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cash Discounts Day 1' = sum('Fact Accounts Payable'[CASH_DISCOUNTS_DAY_1])
+		lineageTag: f2f92b9c-d701-4e17-ba66-ddec2cde7aab
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cash Discounts Day 2' = sum('Fact Accounts Payable'[CASH_DISCOUNTS_DAY_2])
+		lineageTag: e538c036-e617-4321-8cdf-99e406981092
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CMPNY_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 24a46bed-3f19-4bdf-924b-f6bb99bece71
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Fiscal Year'
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9ab7b9c2-bc58-4458-9466-bb7c33d97a5e
+		summarizeBy: sum
+		sourceColumn: AP Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Document Header Number'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 5c35838d-085b-4916-9e6a-7c0aa4d52a10
+		summarizeBy: none
+		sourceColumn: AP Document Header Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Ledger Posting Item Number'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 88f71170-853f-44c2-a471-a771238edb0e
+		summarizeBy: none
+		sourceColumn: AP Ledger Posting Item Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Ledger Code'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 8876782b-b170-4f6c-8d02-d3b15996a7ac
+		summarizeBy: none
+		sourceColumn: AP Ledger Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column VNDR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2e4604d1-768c-4e9a-97c5-3804e5f26676
+		summarizeBy: none
+		sourceColumn: VNDR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Document Line Item Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d2d81015-ff07-461d-92d2-6b3e699d2b05
+		summarizeBy: sum
+		sourceColumn: AP Document Line Item Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Clearing Document Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 64689d10-2929-4163-8519-28c28c4a8a25
+		summarizeBy: none
+		sourceColumn: AP Clearing Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLEARING_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: db8d3d74-215f-4b1d-b1d4-671a39f33fdc
+		summarizeBy: none
+		sourceColumn: CLEARING_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Assignment Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 243dda9e-07e8-4f4c-9e7d-aeaafb4bc56b
+		summarizeBy: none
+		sourceColumn: AP Assignment Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Special GL Transaction Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ff1e37d9-f332-462a-8aaa-169f7ae171eb
+		summarizeBy: none
+		sourceColumn: AP Special GL Transaction Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Special GL Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 978fb298-1420-4300-abaf-9ba5c20a434a
+		summarizeBy: none
+		sourceColumn: AP Special GL Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 38f52300-8e67-4e6e-b7f2-ec476ef28d95
+		summarizeBy: none
+		sourceColumn: DOCMT_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSTNG_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8d64e6ba-ed5e-4600-9351-183f77fdc477
+		summarizeBy: none
+		sourceColumn: PSTNG_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 69485111-311a-4491-82b9-cbda64080113
+		summarizeBy: none
+		sourceColumn: DOCMT_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6874356e-c1e3-4fed-bd3d-568b72cf5cc9
+		summarizeBy: none
+		sourceColumn: CMPNY_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROUP_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4ba06fb4-de76-4a56-88f7-3c111a1bd162
+		summarizeBy: none
+		sourceColumn: GROUP_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Posting Period'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 33c1a13e-fd62-4805-a140-7d93cbe09213
+		summarizeBy: sum
+		sourceColumn: AP Posting Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Document Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 207f3226-1731-4b72-863e-d1b392785f15
+		summarizeBy: none
+		sourceColumn: AP Document Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Reference Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 18772037-9999-4639-839f-0df30098c026
+		summarizeBy: none
+		sourceColumn: AP Reference Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Invoice Reference Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 94659ddf-6118-4349-b532-4b50a4b872fc
+		summarizeBy: none
+		sourceColumn: AP Invoice Reference Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Reason Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 006f2690-1871-4234-bc5e-7e9a6705d1c8
+		summarizeBy: none
+		sourceColumn: AP Reason Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Reason Code Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 471f5e72-de65-46f5-bc07-9c229a6ddfad
+		summarizeBy: none
+		sourceColumn: AP Reason Code Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSTNG_KEY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2abf3563-5969-48d8-a42f-1c134ce449f6
+		summarizeBy: none
+		sourceColumn: PSTNG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Debit Credit Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8d4f31a5-1bd4-484b-9150-79984f9def3c
+		summarizeBy: none
+		sourceColumn: AP Debit Credit Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column GL_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a220da5e-ef7e-4ee6-8456-508a26fd42ab
+		summarizeBy: none
+		sourceColumn: GL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column BSLINE_DUE_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f8709d5a-a0ca-47ea-bd6d-4a7c08052db8
+		summarizeBy: none
+		sourceColumn: BSLINE_DUE_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Payment Terms'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 06fc817d-45c2-4ee5-9775-bf929a56d046
+		summarizeBy: none
+		sourceColumn: AP Payment Terms
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Net Payments Term Period'
+		dataType: double
+		sourceProviderType: decimal(3, 0)
+		lineageTag: 19a02d84-7627-4f53-861b-8c13e6a435e7
+		summarizeBy: sum
+		sourceColumn: AP Net Payments Term Period
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AP Reference Key Line Item'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e259301d-1909-49f9-93dd-bba76c288f15
+		summarizeBy: none
+		sourceColumn: AP Reference Key Line Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7a4e8a36-b847-402d-a4a7-a4f71ade1566
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEG_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9c1d03ee-9874-48e2-9cd5-946917b8e9b6
+		summarizeBy: none
+		sourceColumn: SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a1f888fc-eb5e-4151-84e1-cef6ae82cc09
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 40e1d2ca-19c7-47c4-be77-3e7a93da583f
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4fdaa626-3b6b-45ed-8340-2bce3b106266
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Special GL Indicator Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b9090fb0-857b-438f-b64a-d6d1be965535
+		summarizeBy: none
+		sourceColumn: AP Special GL Indicator Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Ledger Code Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b03db9a7-47c2-49ee-a079-5f4d8ddb2ecb
+		summarizeBy: none
+		sourceColumn: AP Ledger Code Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Document Type Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9af3475c-13c3-4a3a-b7f0-5b62b8e7f5be
+		summarizeBy: none
+		sourceColumn: AP Document Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Posting Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c07f092b-b22d-4cc7-93ee-41922a95d541
+		summarizeBy: none
+		sourceColumn: AP Posting Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Payment Terms Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 322c0c4d-d7fd-476f-a08c-ff32b32e29af
+		summarizeBy: none
+		sourceColumn: AP Payment Terms Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Tax Code On Purchases'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1bce8bbf-b86b-4f6b-a810-67d3e709454a
+		summarizeBy: none
+		sourceColumn: AP Tax Code On Purchases
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Special GL Accounts Assignment Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 00ff673a-46f6-46f2-b448-8378cf89067a
+		summarizeBy: none
+		sourceColumn: AP Special GL Accounts Assignment Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Entered By'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5ecc9f0f-c414-4f0f-bfbc-a141f4a58eac
+		summarizeBy: none
+		sourceColumn: AP Entered By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Payment Method'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fa3c1c85-4e93-4bc0-b00b-fe83f237a4d8
+		summarizeBy: none
+		sourceColumn: AP Payment Method
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AP Payment Method Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 908d485f-18b4-492d-9a33-0cd35fcc74d4
+		summarizeBy: none
+		sourceColumn: AP Payment Method Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_AMT
+		dataType: double
+		sourceProviderType: decimal(23, 2)
+		lineageTag: ace304be-feb8-4e43-bcf2-0304e1c655a5
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GROUP_CRNCY_AMT
+		dataType: double
+		sourceProviderType: decimal(23, 2)
+		lineageTag: 2d3f0054-526c-4b80-8751-e4b729c2a73c
+		summarizeBy: sum
+		sourceColumn: GROUP_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CASH_DISCOUNTS_DAY_1
+		dataType: double
+		sourceProviderType: decimal(3, 0)
+		lineageTag: 3699d17d-bd00-4e75-ac48-3bb612eed396
+		summarizeBy: sum
+		sourceColumn: CASH_DISCOUNTS_DAY_1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CASH_DISCOUNTS_DAY_2
+		dataType: double
+		sourceProviderType: decimal(3, 0)
+		lineageTag: 72d6d048-b110-41aa-8858-b53491203e41
+		summarizeBy: sum
+		sourceColumn: CASH_DISCOUNTS_DAY_2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CMPNY_CRNCY_AMT
+		dataType: double
+		sourceProviderType: decimal(23, 2)
+		lineageTag: 61766e80-eaf0-455b-97f3-a3f7d30c0105
+		summarizeBy: sum
+		sourceColumn: CMPNY_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Fact Accounts Payable' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_EDW_T_FACT_FI_ACCTPAY2_CUR_D = Source{[Schema="Propelis",Item="EDW_T_FACT_FI_ACCTPAY2_CUR_D"]}[Data]
+				in
+				    Propelis_EDW_T_FACT_FI_ACCTPAY2_CUR_D
+
+	annotation PBI_ResultType = Table
+

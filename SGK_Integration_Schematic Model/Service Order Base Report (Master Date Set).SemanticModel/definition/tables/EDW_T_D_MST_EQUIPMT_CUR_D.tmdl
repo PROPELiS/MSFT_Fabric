@@ -1,0 +1,291 @@
+table EDW_T_D_MST_EQUIPMT_CUR_D
+	lineageTag: 9e54428f-bc33-4d24-ae50-ed5c0b181a6f
+
+	column EQUIP_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c0f12023-574a-4b5a-a96d-c43cf428ff29
+		summarizeBy: sum
+		sourceColumn: EQUIP_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Equipment
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 32b32d6b-98d7-433b-b533-373e680f24d6
+		summarizeBy: none
+		sourceColumn: Equipment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 147aadab-af8d-4baf-ae8c-30e0003398c0
+		summarizeBy: none
+		sourceColumn: Equipment Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Category'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: da796e37-cbe6-4451-bfa6-2282d8727c3e
+		summarizeBy: none
+		sourceColumn: Equipment Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Weight Of Object'
+		dataType: double
+		sourceProviderType: decimal(13, 3)
+		lineageTag: 13103749-dac6-4f68-b6e3-7b41f944b2ce
+		summarizeBy: sum
+		sourceColumn: Equipment Weight Of Object
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Equipment Unit Of Weight'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a785fcca-7bc4-42e9-8610-078225012c5c
+		summarizeBy: none
+		sourceColumn: Equipment Unit Of Weight
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Warranty End Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 1d3a5a2f-48a9-4d15-954a-bc6e21570d2e
+		summarizeBy: none
+		sourceColumn: Equipment Warranty End Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Equipment Note'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dae5404c-03f7-4a46-81e2-8bfdcec9f937
+		summarizeBy: none
+		sourceColumn: Equipment Note
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Object Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 35c59ff6-dbcd-4d49-b91b-e1a7b84dd43d
+		summarizeBy: none
+		sourceColumn: Equipment Object Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Material'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ce6f3f14-89b1-4058-90cb-7852d25c69b4
+		summarizeBy: none
+		sourceColumn: Equipment Material
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Serial Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: afa95bbe-184f-414e-a4d0-70e3ae8b4f7b
+		summarizeBy: none
+		sourceColumn: Equipment Serial Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Size'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f91e385f-55ea-4d1c-8de6-6dbd9974717d
+		summarizeBy: none
+		sourceColumn: Equipment Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Date Last Goods Movement'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: da9c92d3-7c1a-4457-87a3-eba569968ee1
+		summarizeBy: none
+		sourceColumn: Equipment Date Last Goods Movement
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Equipment Authorization Group Origin'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 463ce1c5-a366-4573-b59e-8ce50f04bf68
+		summarizeBy: none
+		sourceColumn: Equipment Authorization Group Origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Data Exists'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4b6ada2e-f96c-4d6a-994d-9fc7f1cee0f0
+		summarizeBy: none
+		sourceColumn: Equipment Data Exists
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Serialization Data'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6b187857-f327-49e9-b9b2-8b36b131fe7f
+		summarizeBy: none
+		sourceColumn: Equipment Serialization Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment EQSI Exists'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0b2370ad-738d-4540-8e4e-2e23282bbb16
+		summarizeBy: none
+		sourceColumn: Equipment EQSI Exists
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Stock Check'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9987c4cc-b0e9-42f3-80d4-7f972a65bbcf
+		summarizeBy: none
+		sourceColumn: Equipment Stock Check
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a29f8e15-dfa5-4b16-a5ba-b645d7606b2e
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: dec8142e-e61d-4242-88ed-6ef3bc2aea56
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: c8cf9e75-cb21-4547-99d9-d5cff8dccba9
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9033fcc9-1dfb-4543-9714-b7cafe017805
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f9ea47cf-187a-428a-b052-b46dd69d07cc
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 0f1d3308-c9ad-4c66-beb1-930f0271af27
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Stock Type Of Goods Movement'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2dd5187b-b7c0-4256-be07-505431f7a644
+		summarizeBy: none
+		sourceColumn: Equipment Stock Type Of Goods Movement
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Plant'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c2b66045-8e93-4333-8bc6-97355515924c
+		summarizeBy: none
+		sourceColumn: Equipment Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Storage Location'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c2f9d766-ccad-442f-aef9-9f6fc4b3d217
+		summarizeBy: none
+		sourceColumn: Equipment Storage Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment Special Stock Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 56c74129-1c13-4fd9-8e4a-4a7383e4deef
+		summarizeBy: none
+		sourceColumn: Equipment Special Stock Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Equipment System Status'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fc01cfa3-6899-4c1b-9e10-e959a413b680
+		summarizeBy: none
+		sourceColumn: Equipment System Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_EQUIPMT_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_EQUIPMT_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_EQUIPMT_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_EQUIPMT_CUR_D
+

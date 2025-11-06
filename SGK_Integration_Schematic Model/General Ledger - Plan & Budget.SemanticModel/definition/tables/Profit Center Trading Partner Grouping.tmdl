@@ -1,0 +1,34 @@
+table 'Profit Center Trading Partner Grouping'
+	lineageTag: 2a6ad6cc-71bd-4f41-bed5-9823c4fd1f92
+
+	column PROFT_CNTR_ID
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 83ef31d6-ec2a-4797-9bd2-95d9d0e2e811
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trading Partner ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c801179e-bcbb-4e61-a415-dcbd30080c86
+		summarizeBy: none
+		sourceColumn: Trading Partner ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Profit Center Trading Partner Grouping' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_Profit_Center_Trading_Partner_Grouping = Source{[Schema="Propelis",Item="Profit_Center_Trading_Partner_Grouping"]}[Data]
+				in
+				    Propelis_Profit_Center_Trading_Partner_Grouping
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

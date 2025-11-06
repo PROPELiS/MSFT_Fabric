@@ -1,0 +1,403 @@
+table EDW_T_D_MST_PROFCTR_CUR_D
+	lineageTag: 7cd3bea5-3621-42de-8808-74ef18475eda
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 319adb77-7ff4-475f-8fa3-20a4cafaab83
+		summarizeBy: sum
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6b6f9c5d-68d5-45ea-b0da-2b0c80e0a6fd
+		summarizeBy: none
+		sourceColumn: Profit Center ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4f8fa84d-17e9-44d7-8631-991e4c5cef32
+		summarizeBy: none
+		sourceColumn: Profit Center Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legacy Profit Center Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0617996e-4bca-4561-a8c9-edfcf0bb70be
+		summarizeBy: none
+		sourceColumn: Legacy Profit Center Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legacy Profit Center Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 388ef922-ccbb-4798-9834-ede6d1b5d714
+		summarizeBy: none
+		sourceColumn: Legacy Profit Center Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Controlling Area ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 491d5b3b-9994-4509-a0d8-13cc6d3a6577
+		summarizeBy: none
+		sourceColumn: Profit Center Controlling Area ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center User Responsible ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a04d7b58-edfa-48ea-9cfd-792baf35fe42
+		summarizeBy: none
+		sourceColumn: Profit Center User Responsible ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Person Responsible'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 06815df4-946b-4c4d-bfaa-f7145e7ee904
+		summarizeBy: none
+		sourceColumn: Profit Center Person Responsible
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Language Type Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 550708f6-826d-465b-b4aa-7289936c3560
+		summarizeBy: none
+		sourceColumn: Profit Center Language Type Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Segment ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: eec09165-d4d6-4014-aa9f-e8732e02c748
+		summarizeBy: none
+		sourceColumn: Profit Center Segment ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Address Line 1'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8aff732f-444b-418c-9a01-3e7a792c6926
+		summarizeBy: none
+		sourceColumn: Profit Center Address Line 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Address Line 2'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: d3d7f21b-df16-4fd0-ba36-4d9b0370ca93
+		summarizeBy: none
+		sourceColumn: Profit Center Address Line 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center City Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0ed092b5-00a5-4c0b-977f-5bc8318c32ab
+		summarizeBy: none
+		sourceColumn: Profit Center City Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center District Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 24977f92-2c38-4799-b9a7-b02edcafc02b
+		summarizeBy: none
+		sourceColumn: Profit Center District Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Postal Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a85926ac-d161-4e9d-8f5c-5bcb78848e68
+		summarizeBy: none
+		sourceColumn: Profit Center Postal Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Country Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ecc872e1-a525-4ac6-9577-c2f0ca857828
+		summarizeBy: none
+		sourceColumn: Profit Center Country Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Region Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1bed4791-bfb7-4525-a788-60475e514e42
+		summarizeBy: none
+		sourceColumn: Profit Center Region Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Created Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 8844099b-7607-4e23-a9b6-2edf5456c001
+		summarizeBy: none
+		sourceColumn: Profit Center Created Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Profit Center Created User ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 490bc0ce-cac1-464d-9fa9-3ef0ac3350ba
+		summarizeBy: none
+		sourceColumn: Profit Center Created User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Updated Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 831a08f0-1e6b-4e4a-b7f3-1020492f5a73
+		summarizeBy: none
+		sourceColumn: Profit Center Updated Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Profit Center Updated User ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 664f8bbb-9310-4aee-b239-564eb68c083d
+		summarizeBy: none
+		sourceColumn: Profit Center Updated User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 81ba81af-6d9e-4d56-ae1c-de47c8627918
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 3b27873d-5376-477c-8d61-c20c9183a703
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: c2cf8401-95bc-40a6-87fa-982874db376f
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 67ffdba0-9209-423c-89a4-10a678b6bdf6
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: e5c2b094-ddbe-444b-bd5f-66721553da91
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 1f787d37-b9d3-427d-9da0-2a1fcf4aef74
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Company Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 727ed153-5797-4ed8-ab56-d63b0ae17b3a
+		summarizeBy: none
+		sourceColumn: Profit Center Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Long Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c5358e0c-8f84-4c31-8819-cc48efb96cf4
+		summarizeBy: none
+		sourceColumn: Profit Center Long Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Short Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7afb3685-93cb-4f58-9bcd-89dee2840767
+		summarizeBy: none
+		sourceColumn: Profit Center Short Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Lock Indicator'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 65be84c9-023e-45de-bfae-a587b6016a62
+		summarizeBy: none
+		sourceColumn: Profit Center Lock Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Name 1'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b99dbc16-8e36-498b-aeed-1773baa60496
+		summarizeBy: none
+		sourceColumn: Profit Center Name 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Area'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 00b37bdc-8226-4e92-b7a6-8b774ae77a59
+		summarizeBy: none
+		sourceColumn: Profit Center Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Generic Master Record Status'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cc9b960a-9b9b-47a3-a8dc-e7ebf64cebab
+		summarizeBy: none
+		sourceColumn: Profit Center Generic Master Record Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Status Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6fb3ea1f-e6c0-45cb-83c6-315be054e5e0
+		summarizeBy: none
+		sourceColumn: Profit Center Status Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Controlling Area Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: deb85983-f619-4809-a107-a859daea013f
+		summarizeBy: none
+		sourceColumn: Profit Center Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Country Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 84c86a0a-a07a-4473-9a75-1f522538977c
+		summarizeBy: none
+		sourceColumn: Profit Center Country Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Company Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 5f513c3d-f7df-436b-9baa-fa65b3cfe7d1
+		summarizeBy: none
+		sourceColumn: Profit Center Company Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Tax Jurisdiction'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 11c617d3-6d73-4fdb-9525-e706c36e2b2d
+		summarizeBy: none
+		sourceColumn: Profit Center Tax Jurisdiction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Valid To Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 99a3b2b9-adff-4ccb-955c-77aee1bb33b4
+		summarizeBy: none
+		sourceColumn: Profit Center Valid To Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Profit Center Valid From Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ebcb52ba-0bd3-417d-b4e4-b6572c6e531a
+		summarizeBy: none
+		sourceColumn: Profit Center Valid From Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition EDW_T_D_MST_PROFCTR_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_MST_PROFCTR_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_MST_PROFCTR_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_MST_PROFCTR_CUR_D
+

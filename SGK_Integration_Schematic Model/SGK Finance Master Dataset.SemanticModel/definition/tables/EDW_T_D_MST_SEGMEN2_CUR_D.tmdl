@@ -1,0 +1,97 @@
+table EDW_T_D_MST_SEGMEN2_CUR_D
+	lineageTag: d75ba976-effc-40ee-8cec-ccd1a452e020
+	sourceLineageTag: [dbo].[EDW_T_D_MST_SEGMEN2_CUR_D]
+
+	column SEG_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a37e640-5f5d-446e-a14c-a9bc84e2a3ec
+		sourceLineageTag: SEG_KEY
+		summarizeBy: none
+		sourceColumn: SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 08f8e655-e619-4294-8e45-cc426f18fc4c
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0a0572b1-0de4-4665-b72f-cf5bda1409d6
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: f4cd428a-f0be-4c72-88d1-541009c135da
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4d154846-70a5-470c-bed5-4bd8e980da05
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 24752925-6fc8-4240-a9ca-b6d17431613c
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 5b1a3446-b09e-4545-a038-62e478711f39
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column Segment
+		dataType: string
+		lineageTag: 04fc98f8-42b9-4336-b44d-12ae591d2e31
+		sourceLineageTag: Segment
+		summarizeBy: none
+		sourceColumn: Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Name'
+		dataType: string
+		lineageTag: 6096c3f7-4408-4798-b0cd-c44b703a4e48
+		sourceLineageTag: Segment Name
+		summarizeBy: none
+		sourceColumn: Segment Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_SEGMEN2_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_SEGMEN2_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

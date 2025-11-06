@@ -8,20 +8,22 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["EDW_T_FACT_SAL_TMCONFN_CUR_D","EDW_T_D_MST_PLANT_CUR_D","EDW_T_D_MST_DATE_CUR_D","EDW_T_D_MST_COSCNTR_CUR_D","EDW_T_D_HY_COSTCHZ_CUR_D","EDW_T_D_HY_COSTCVZ_CUR_D","EDW_T_D_MST_ACTTYPE_CUR_D","EDW_T_D_MST_PERSONL_CUR_D","EDW_T_D_HY_PROFCHZ_CUR_D","EDW_T_D_HY_PROFCVZ_CUR_D","EDW_T_D_MST_PROFCTR_CUR_D","EDW_T_R_SGK_OPERREG_CUR_D","Document Date","Posting Date","Plant Region","Personnel Plant Region"]
+annotation PBI_QueryOrder = ["Fact Time Confirmation Non Productive","Plant","Date","Cost Center","Cost Center Horizontal Hierarchy","Cost Center Horizontal Vertical","Activity Type","Personnel","Profit Center Horizontal Hierarchy","Profit Center Horizontal Vertical","Profit Center","Operating Region","Document Date","Posting Date","Plant Region","Personnel Plant Region"]
 
-ref table EDW_T_FACT_SAL_TMCONFN_CUR_D
-ref table EDW_T_D_MST_PLANT_CUR_D
-ref table EDW_T_D_MST_DATE_CUR_D
-ref table EDW_T_D_MST_COSCNTR_CUR_D
-ref table EDW_T_D_HY_COSTCHZ_CUR_D
-ref table EDW_T_D_HY_COSTCVZ_CUR_D
-ref table EDW_T_D_MST_ACTTYPE_CUR_D
-ref table EDW_T_D_MST_PERSONL_CUR_D
-ref table EDW_T_D_HY_PROFCHZ_CUR_D
-ref table EDW_T_D_HY_PROFCVZ_CUR_D
-ref table EDW_T_D_MST_PROFCTR_CUR_D
-ref table EDW_T_R_SGK_OPERREG_CUR_D
+annotation PBI_ProTooling = ["WebModelingEdit"]
+
+ref table 'Fact Time Confirmation Non Productive'
+ref table Plant
+ref table Date
+ref table 'Cost Center'
+ref table 'Cost Center Horizontal Hierarchy'
+ref table 'Cost Center Horizontal Vertical'
+ref table 'Activity Type'
+ref table Personnel
+ref table 'Profit Center Horizontal Hierarchy'
+ref table 'Profit Center Horizontal Vertical'
+ref table 'Profit Center'
+ref table 'Operating Region'
 ref table 'Document Date'
 ref table 'Posting Date'
 ref table 'Plant Region'

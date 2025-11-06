@@ -1,0 +1,563 @@
+table 'Document Date'
+	lineageTag: e1c31bae-eb2b-486e-92d6-02d6dc313d0a
+
+	column DATE_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 28334820-e07a-4fae-8b7b-b5c443318064
+		summarizeBy: none
+		sourceColumn: DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		sourceProviderType: date
+		lineageTag: 3df3f34d-f298-4280-b218-e074dd0e08a8
+		summarizeBy: none
+		sourceColumn: Entry Create Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Entry Create Fiscal Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8b589389-95a0-4c06-ab0c-1b36c10d92a4
+		summarizeBy: sum
+		sourceColumn: Entry Create Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Fiscal Period'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cbd2f15d-2bdb-4aed-a4e8-39c6c826a0cb
+		summarizeBy: sum
+		sourceColumn: Entry Create Fiscal Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Fiscal Period Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 76d6740b-3986-4113-b251-653b2fdae16c
+		summarizeBy: none
+		sourceColumn: Entry Create Fiscal Period Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Fiscal Quarter Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3ed29c63-fc03-40f6-bc8a-a2562723ebe3
+		summarizeBy: sum
+		sourceColumn: Entry Create Fiscal Quarter Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Fiscal Quarter Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0b722e8b-330b-40be-8e62-c9c9d6fed6b3
+		summarizeBy: none
+		sourceColumn: Entry Create Fiscal Quarter Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e14e102c-98b5-406c-82b5-d7a05c83a735
+		summarizeBy: sum
+		sourceColumn: Entry Create Calendar Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Month Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 907535cd-5034-4ab2-8e66-88295a8c2a0a
+		summarizeBy: sum
+		sourceColumn: Entry Create Calendar Month Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Month Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 9442c7fd-b34e-444d-9851-75142f3a685b
+		summarizeBy: none
+		sourceColumn: Entry Create Calendar Month Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Month Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1ec5151c-0ec7-4569-a261-722cf9cfc98d
+		summarizeBy: none
+		sourceColumn: Entry Create Calendar Month Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Quarter'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5df2acc4-1875-4838-a92f-60ad04313e4f
+		summarizeBy: sum
+		sourceColumn: Entry Create Calendar Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Quarter Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ce694017-d411-49bc-940a-d0760c14abe9
+		summarizeBy: none
+		sourceColumn: Entry Create Calendar Quarter Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Weekday Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 05700b4f-2b0e-4d15-99e9-b608f32c0ade
+		summarizeBy: sum
+		sourceColumn: Entry Create Calendar Weekday Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Weekday Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c234b913-bc8f-4b7c-a467-062bc6ed76a2
+		summarizeBy: none
+		sourceColumn: Entry Create Calendar Weekday Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Day in Month'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9db2a8f8-c8c9-4b0a-bd37-0cc3a475d5f0
+		summarizeBy: sum
+		sourceColumn: Entry Create Calendar Day in Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Day in Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7e8345b5-c377-41b1-8b45-b4352b57f6f9
+		summarizeBy: sum
+		sourceColumn: Entry Create Calendar Day in Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Week'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 065eaf75-06dd-47f5-b773-bc831ddb6cee
+		summarizeBy: sum
+		sourceColumn: Entry Create Calendar Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Month in Quarter Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 38d10a77-b1fd-401e-b544-bcf35b25e839
+		summarizeBy: sum
+		sourceColumn: Entry Create Calendar Month in Quarter Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Days in Month'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3b7f69ea-f462-4b3e-9d1e-1b2d0141136e
+		summarizeBy: sum
+		sourceColumn: Entry Create Calendar Days in Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 23a76a13-08e5-46b7-9c92-5026c3b73b33
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2e0d234d-d2b8-4372-8377-f074449a63ca
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c693af50-91cb-4964-93fb-b396b7fdffc5
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Day Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b53ab217-c0cb-4d04-b291-673e9daa5e17
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Day Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Day Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7bb55130-bd57-4092-a4b1-9798e6bea7e9
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Day Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Calendar Week Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a41057fa-9b39-4587-98f9-720d4e35156c
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Calendar Week Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Calendar Week Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bc0b227f-ace8-412b-a428-99b176ba79c6
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Calendar Week Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Month Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4e349f50-781a-4fb8-9322-e155d12e6afb
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Month Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Month Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 317dbcf8-1bc4-4ded-b14f-70d26db5bef0
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Month Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Month Minus 12 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6c329f0a-c0ba-4e8b-a4e6-1de1ae81dbe5
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Month Minus 12 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Quarter Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d9d96eea-588b-4463-882f-c66bb0378454
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Quarter Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Quarter Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b403d51a-8fb0-4273-b961-ade0f0ac1c57
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Quarter Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Quarter Minus 4 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e8c0b447-25c7-42fe-bbf2-cafac2663f95
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Quarter Minus 4 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Calendar Year Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9f56fabb-8a93-4970-92d3-ee349dfc0d3c
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Calendar Year Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Calendar Year Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a81e011f-0e54-4140-a30c-3ee3dae21087
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Calendar Year Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Calendar Year Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: baf64f8b-3157-4046-947a-93474a6ee3bd
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Calendar Year Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Fiscal Year Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7c2e3c7e-9df8-4424-928e-3edea8dff9c5
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Fiscal Year Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Fiscal Year Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6fe8c23f-39f5-4bca-97d8-11edb63d5a66
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Fiscal Year Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Fiscal Year Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: aae745eb-e976-4843-88e2-4bf8c82465f7
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Fiscal Year Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Calendar Year Plus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4667f2e8-b438-4307-a33d-4dba70bb2018
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Calendar Year Plus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Fiscal Year Plus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 518838b8-971d-4900-8656-6f59469d360b
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Fiscal Year Plus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Day in Fiscal Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1955987d-748e-4e04-9eac-618aa44c3bc8
+		summarizeBy: sum
+		sourceColumn: Entry Create Day in Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_WEEKDAY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 753dd890-5f8b-4963-a54a-da4b56880d6f
+		summarizeBy: sum
+		sourceColumn: IS_WEEKDAY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Fiscal Week'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4d4fe3a9-f0f0-4ff5-b2db-c86d385d4006
+		summarizeBy: sum
+		sourceColumn: Entry Create Fiscal Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Fiscal Week Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 394f2254-7614-4f27-abcf-d7727e97bf99
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Fiscal Week Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Fiscal Week Minus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fb912356-d41f-4994-bd4a-9196d588d71a
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Fiscal Week Minus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Fiscal Weekday Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 42d80f42-f362-422e-902b-4d32c8074322
+		summarizeBy: sum
+		sourceColumn: Entry Create Fiscal Weekday Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Fiscal Weekday Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7479246b-67ab-40eb-91b6-5623d806d65b
+		summarizeBy: none
+		sourceColumn: Entry Create Fiscal Weekday Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Month Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e8cfc896-dba7-4949-90ef-e79aaf5a9512
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Month Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Fiscal Week Minus 2 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a53b7ca4-73fc-42d7-a31f-c2906c8ca582
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Fiscal Week Minus 2 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Fiscal Week Minus 6 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 33196023-a593-4f0c-9489-5dfb85bc0a3a
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Fiscal Week Minus 6 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Fiscal Week Minus 3 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4b9994ca-283f-49af-af8b-e977cdeafcb6
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Fiscal Week Minus 3 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Fiscal Week Minus 4 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 077aeb72-45cc-47dc-afdc-68cf78f9a940
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Fiscal Week Minus 4 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Fiscal Week Minus 5 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fee0568d-a401-46a0-ad97-9641ad1ecc99
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Fiscal Week Minus 5 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Fiscal Week Minus 7 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fc2de920-a11c-4902-a011-9301821e3774
+		summarizeBy: sum
+		sourceColumn: Entry Create Current Fiscal Week Minus 7 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Document Date' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_DOCUMENT_DATE = Source{[Schema="Propelis",Item="DOCUMENT_DATE"]}[Data]
+				in
+				    Propelis_DOCUMENT_DATE
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

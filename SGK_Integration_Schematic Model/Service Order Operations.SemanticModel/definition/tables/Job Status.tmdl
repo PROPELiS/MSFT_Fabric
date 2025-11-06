@@ -1,0 +1,104 @@
+table 'Job Status'
+	lineageTag: 6803d41e-25db-451c-985f-2ba5bb8ab901
+
+	column 'BODS Job ID'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: abd30200-f491-4d10-9b16-5a25fd2c249d
+		summarizeBy: none
+		sourceColumn: BODS Job ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Name'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 80504a10-26f6-4b7e-9432-fd948a08b1cf
+		summarizeBy: none
+		sourceColumn: Job Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start Datetime'
+		dataType: dateTime
+		isNullable: false
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 060c6bb1-dd7b-42b0-8152-1efeba03f417
+		summarizeBy: none
+		sourceColumn: Start Datetime
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'End Datetime'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 21e6e980-cfe9-4fda-898a-6fa033e614dc
+		summarizeBy: none
+		sourceColumn: End Datetime
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Group Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 93bfcedf-7799-47c6-a6cf-a6e2ed72dd2e
+		summarizeBy: none
+		sourceColumn: Job Group Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Time Duration'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: aee38a2e-d530-444c-9dc3-119688f72080
+		summarizeBy: sum
+		sourceColumn: Total Time Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Batch Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: d3cabbfc-fc79-4603-919a-5323820f28af
+		summarizeBy: none
+		sourceColumn: Batch Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Job Status'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: ba2ff895-7aa0-4668-b65e-2552f538941e
+		summarizeBy: none
+		sourceColumn: Job Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Status Code'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2b3fdc94-dab7-4d01-9041-2ecd66ffde99
+		summarizeBy: none
+		sourceColumn: Job Status Code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Job Status' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_TEC_T_D_ETL_JBSTATS2_CUR_D = Source{[Schema="dbo",Item="TEC_T_D_ETL_JBSTATS2_CUR_D"]}[Data]
+				in
+				    dbo_TEC_T_D_ETL_JBSTATS2_CUR_D
+
+	changedProperty = Name
+

@@ -1,0 +1,78 @@
+table EDW_T_D_HY_COSTCVZ_CUR_D
+	lineageTag: 4f05fcd3-70e4-4a30-a996-ee52c5bfd2ea
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 673b1366-1b82-42a9-83fd-cc833d6581ad
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Controlling Area ID VH'
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: 558c2efc-7d8e-48fe-8204-02eb0031027a
+		summarizeBy: none
+		sourceColumn: Cost Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 56295bea-056b-465c-895c-eb9005e5996f
+		summarizeBy: none
+		sourceColumn: Cost Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 975f6b0a-cca0-4446-8e20-abe42d35bab7
+		summarizeBy: none
+		sourceColumn: Cost Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 5b4bf43c-aca2-4d2e-bf95-644cafa581e0
+		summarizeBy: none
+		sourceColumn: Cost Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Child Description VH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: ddc0be3c-b440-469a-9822-cd828a8f40c3
+		summarizeBy: none
+		sourceColumn: Cost Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Hierarchical Level VH'
+		dataType: string
+		sourceProviderType: varchar(24)
+		lineageTag: 76292cf8-d47d-426a-86f5-c095ea80ecd9
+		summarizeBy: none
+		sourceColumn: Cost Center Hierarchical Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_HY_COSTCVZ_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_HY_COSTCVZ_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_HY_COSTCVZ_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_HY_COSTCVZ_CUR_D
+
+	annotation PBI_ResultType = Table
+

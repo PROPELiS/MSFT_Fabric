@@ -1,0 +1,497 @@
+table 'Fact Cost Center Cost Summary'
+	lineageTag: 978d7004-95d3-4827-a94d-f8c5c059ed2b
+	sourceLineageTag: [Propelis].[EDW_T_FACT_CO_CCCSUMM_CUR_D]
+
+	measure 'Summary Company Currency Amount' = ```
+			sum('Fact Cost Center Cost Summary'[CMPNY_CRNCY_AMT])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 599cdc85-5f14-45cc-b0ce-27a1b701082b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Summary Document Currency Amount' = ```
+			sum('Fact Cost Center Cost Summary'[DOCMT_CRNCY_AMT])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a44e0077-56ed-453c-814f-13ad2762340c
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Summary Group Currency Amount' = ```
+			sum('Fact Cost Center Cost Summary'[GROUP_CRNCY_AMT])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 67db54bc-d27e-4bc6-85c3-f1daf8f3fb1f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Absorption Analysis' =
+			
+			IF (
+			    SELECTEDVALUE (  'Fact Cost Center Cost Summary'[Cost Element Grouping] ) = "Secondary"
+			        && SELECTEDVALUE ( 'Fact Cost Center Cost Summary'[Summary Debit Credit Indicator] ) = "H",
+			    "Credit",
+			    IF (
+			        SELECTEDVALUE ( 'Fact Cost Center Cost Summary'[Value Type] ) = "Statistical",
+			        "Statistical",
+			        "Debit"
+			    )
+			)
+		lineageTag: 4a0a959c-9d21-493d-9b14-f0659aae977f
+
+		changedProperty = Name
+
+	column 'Summary Ledger'
+		dataType: string
+		lineageTag: de7012f0-99ec-41c7-bf66-098a0b4dd8be
+		sourceLineageTag: Summary Ledger
+		summarizeBy: none
+		sourceColumn: Summary Ledger
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Object Number'
+		dataType: string
+		lineageTag: 91ea9a20-d8ec-412a-92bf-2d808d7841f8
+		sourceLineageTag: Summary Object Number
+		summarizeBy: none
+		sourceColumn: Summary Object Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8be39ae9-805e-4b7f-9d61-9937eb734342
+		sourceLineageTag: Summary Year
+		summarizeBy: sum
+		sourceColumn: Summary Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Value Type'
+		dataType: string
+		lineageTag: ffaf01a3-14ab-4672-8496-72b8131f4b6e
+		sourceLineageTag: Summary Value Type
+		summarizeBy: none
+		sourceColumn: Summary Value Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Version'
+		dataType: string
+		lineageTag: 578b30c0-f43f-4025-bc02-f444fec90f31
+		sourceLineageTag: Summary Version
+		summarizeBy: none
+		sourceColumn: Summary Version
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: bb83852a-7334-4689-8e7e-0488b723f6a2
+		sourceLineageTag: COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary CO Subkey'
+		dataType: string
+		lineageTag: bd919632-1ad4-4359-8650-88d06f171561
+		sourceLineageTag: Summary CO Subkey
+		summarizeBy: none
+		sourceColumn: Summary CO Subkey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Business Transaction'
+		dataType: string
+		lineageTag: d18a9e4f-ac38-40a8-9f16-4ccd6a944210
+		sourceLineageTag: Summary Business Transaction
+		summarizeBy: none
+		sourceColumn: Summary Business Transaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Trading Partner'
+		dataType: string
+		lineageTag: 1eb93dcb-1b22-4807-b36f-25e1f0b33b86
+		sourceLineageTag: Summary Trading Partner
+		summarizeBy: none
+		sourceColumn: Summary Trading Partner
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Trading Partner Business Area'
+		dataType: string
+		lineageTag: cef1c3d1-2c0f-48de-afba-b5a00b7dc363
+		sourceLineageTag: Summary Trading Partner Business Area
+		summarizeBy: none
+		sourceColumn: Summary Trading Partner Business Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Debit Credit Indicator'
+		dataType: string
+		lineageTag: 7be9aa5e-ce8d-400c-b8ef-3d2663149f11
+		sourceLineageTag: Summary Debit Credit Indicator
+		summarizeBy: none
+		sourceColumn: Summary Debit Credit Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 88930b57-771b-4e60-baee-eddc35f11cb8
+		sourceLineageTag: DOCMT_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: DOCMT_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Period Block'
+		dataType: int64
+		formatString: 0
+		lineageTag: 941186ef-5c72-431f-83eb-e7c3220fb6c6
+		sourceLineageTag: Summary Period Block
+		summarizeBy: sum
+		sourceColumn: Summary Period Block
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e016b1c1-5c22-4b94-b6f7-7674030369e2
+		sourceLineageTag: CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: c0a6e60d-5f9f-4ce4-946d-d5f4ffd897bf
+		sourceLineageTag: FUNCTNL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEG_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a82808c4-8164-488a-9768-0c2def25d7eb
+		sourceLineageTag: SEG_KEY
+		summarizeBy: none
+		sourceColumn: SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a400b9b5-997a-427e-a85b-26d7cc522489
+		sourceLineageTag: COST_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 62abd574-c50f-44df-978e-3917107cab15
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 04800911-28f0-4197-8c06-4d44b4731854
+		sourceLineageTag: CMPNY_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROUP_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: c5c1b0aa-8567-4994-bc39-05337fae49dc
+		sourceLineageTag: GROUP_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: GROUP_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_AMT
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e2192cad-24c2-4c53-bbeb-422f2d7baa4f
+		sourceLineageTag: DOCMT_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CMPNY_CRNCY_AMT
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: cdbe56c9-ee09-4b7f-bf1d-88096ed5a280
+		sourceLineageTag: CMPNY_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: CMPNY_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column GROUP_CRNCY_AMT
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6132d7a5-388f-4275-9511-f9f9846d30f9
+		sourceLineageTag: GROUP_CRNCY_AMT
+		summarizeBy: sum
+		sourceColumn: GROUP_CRNCY_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Summary Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bd99d62-cfd1-4f59-aeb1-235342767800
+		sourceLineageTag: Summary Period
+		summarizeBy: sum
+		sourceColumn: Summary Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Partner Object Type'
+		dataType: string
+		lineageTag: b4ac4a26-df98-4423-b5af-42d0bc8c2b0b
+		sourceLineageTag: Summary Partner Object Type
+		summarizeBy: none
+		sourceColumn: Summary Partner Object Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Partner Object Type Description'
+		dataType: string
+		lineageTag: 12a72147-7ad5-461c-b27f-11e9708220cc
+		sourceLineageTag: Summary Partner Object Type Description
+		summarizeBy: none
+		sourceColumn: Summary Partner Object Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Value Type Description'
+		dataType: string
+		lineageTag: 9a73553d-956b-43e3-a0de-496833586b07
+		sourceLineageTag: Summary Value Type Description
+		summarizeBy: none
+		sourceColumn: Summary Value Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 624e1926-ded9-4c1e-96ff-32439de24dc5
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6fd0cb33-1bd6-448f-a074-4f27b7c8d859
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5b9baf98-9875-431a-81ef-c1411e1c6540
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Partner Object'
+		dataType: string
+		lineageTag: c3ee5bd7-5e18-4716-86a9-991a8180d708
+		sourceLineageTag: Summary Partner Object
+		summarizeBy: none
+		sourceColumn: Summary Partner Object
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Source Object'
+		dataType: string
+		lineageTag: 0a3f5a3e-be2e-4a0d-b019-aa1ffffbe18a
+		sourceLineageTag: Summary Source Object
+		summarizeBy: none
+		sourceColumn: Summary Source Object
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Ledger Description'
+		dataType: string
+		lineageTag: bc21194b-9b6e-489d-8490-ba7588d8370c
+		sourceLineageTag: Summary Ledger Description
+		summarizeBy: none
+		sourceColumn: Summary Ledger Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Trading Partner Description'
+		dataType: string
+		lineageTag: 5d22e561-d2e7-4edb-b261-c8bfe754b19e
+		sourceLineageTag: Summary Trading Partner Description
+		summarizeBy: none
+		sourceColumn: Summary Trading Partner Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Trading Partner Business Area Desc'
+		dataType: string
+		lineageTag: bd7ce4f1-6be0-40ad-a95c-6c9bebfc0990
+		sourceLineageTag: Summary Trading Partner Business Area Desc
+		summarizeBy: none
+		sourceColumn: Summary Trading Partner Business Area Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTROLLING_AREA_COST_ELEMNT_KE
+		dataType: int64
+		formatString: 0
+		lineageTag: 765ec32b-99bf-460f-8b76-0b38cf74831c
+		sourceLineageTag: CONTROLLING_AREA_COST_ELEMNT_KE
+		summarizeBy: none
+		sourceColumn: CONTROLLING_AREA_COST_ELEMNT_KE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTEHZ_COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c67eab5-94f4-417a-8734-61dfdc8508b2
+		sourceLineageTag: COSTEHZ_COST_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: COSTEHZ_COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTEVZ_COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: d5ecea37-63de-4b35-8727-17a208504d98
+		sourceLineageTag: COSTEVZ_COST_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: COSTEVZ_COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCHZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 02291822-40ae-4f70-b87f-1e2a586208eb
+		sourceLineageTag: PROFCHZ_PROFT_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: PROFCHZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCVZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0460f2fa-4a33-4a04-8423-95ae4f15b8a0
+		sourceLineageTag: PROFCVZ_PROFT_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: PROFCVZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTCHZ_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c4af5ee-ea14-4a75-b064-001f6cc20963
+		sourceLineageTag: COSTCHZ_COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COSTCHZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTCVZ_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: f8960757-620b-44d8-8e9b-82fcf0a66fce
+		sourceLineageTag: COSTCVZ_COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COSTCVZ_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Grouping'
+		dataType: string
+		lineageTag: 63b30f81-1f4a-4272-aedb-9401cab86d60
+		sourceLineageTag: Cost Element Grouping
+		summarizeBy: none
+		sourceColumn: Cost Element Grouping
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Type'
+		dataType: string
+		lineageTag: c16ae70a-f6b5-4e2e-b896-4cdaf1aea785
+		sourceLineageTag: Cost Element Type
+		summarizeBy: none
+		sourceColumn: Cost Element Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value Type'
+		dataType: string
+		lineageTag: f6cb5dc3-a2d1-4897-8825-b5d307353143
+		sourceLineageTag: Value Type
+		summarizeBy: none
+		sourceColumn: Value Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact Cost Center Cost Summary' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_FACT_CO_CCCSUMM_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

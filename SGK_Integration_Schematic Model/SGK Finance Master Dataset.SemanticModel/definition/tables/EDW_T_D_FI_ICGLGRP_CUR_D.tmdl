@@ -1,0 +1,65 @@
+table EDW_T_D_FI_ICGLGRP_CUR_D
+	lineageTag: 68229b9e-593d-41c6-8be0-ff24770f5b0e
+	sourceLineageTag: [dbo].[EDW_T_D_FI_ICGLGRP_CUR_D]
+
+	column GL_ID
+		dataType: string
+		lineageTag: a9fac558-3f07-417b-aaeb-37ce063fcf68
+		sourceLineageTag: GL_ID
+		summarizeBy: none
+		sourceColumn: GL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Description'
+		dataType: string
+		lineageTag: c9a96201-b23f-4b1d-b7ca-10d52f9628c3
+		sourceLineageTag: General Ledger Description
+		summarizeBy: none
+		sourceColumn: General Ledger Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Account Group'
+		dataType: string
+		lineageTag: eaa55059-c996-4ba8-9c65-d8626e79dd28
+		sourceLineageTag: General Ledger Account Group
+		summarizeBy: none
+		sourceColumn: General Ledger Account Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Account Group Description'
+		dataType: string
+		lineageTag: 7cc618f2-f5f3-4c3c-9efb-254bca80013d
+		sourceLineageTag: General Ledger Account Group Description
+		summarizeBy: none
+		sourceColumn: General Ledger Account Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'General Ledger Type'
+		dataType: string
+		lineageTag: f86c31fb-fe89-4c37-81df-0ba93934c8bf
+		sourceLineageTag: General Ledger Type
+		summarizeBy: none
+		sourceColumn: General Ledger Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column REVAL_IND
+		dataType: string
+		lineageTag: deb2a486-461d-4f09-b648-f5653a5e2421
+		sourceLineageTag: REVAL_IND
+		summarizeBy: none
+		sourceColumn: REVAL_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_FI_ICGLGRP_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_FI_ICGLGRP_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

@@ -1,0 +1,340 @@
+table 'Fact Time Confirmation Non Productive'
+	lineageTag: d4c1e79d-6b18-4849-a516-9158ec5744db
+
+	measure 'Activity Qty' = sum('Fact Time Confirmation Non Productive'[ACTIVITY_QTY])
+		lineageTag: 63b12231-5c68-4051-a78a-563ce9e26a3b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Actual Wrk' = sum('Fact Time Confirmation Non Productive'[ACTUAL_WRK])
+		lineageTag: fe40c918-dc8a-47b1-a6c7-7859df53ba7d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Actual Wrk In Hrs' = sum('Fact Time Confirmation Non Productive'[ACTUAL_WRK_IN_HRS])
+		lineageTag: cbadc824-834b-4e5b-8301-920e54c56db6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Controlling Area'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: ae1091ad-c035-4162-b1c3-4c71a4deae16
+		summarizeBy: none
+		sourceColumn: Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Document Number'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 9d8f7620-6a92-4c58-a859-e9a04316f48b
+		summarizeBy: none
+		sourceColumn: Document Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Row'
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f89df4b4-4361-4453-915a-8a2796ae5a5e
+		summarizeBy: sum
+		sourceColumn: Posting Row
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5726091d-8bb0-4613-b0c4-fbe6185fb043
+		summarizeBy: sum
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = User
+
+	column 'Version Header'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: fd43bd81-8eb2-4456-b33c-46307254bb09
+		summarizeBy: none
+		sourceColumn: Version Header
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Transaction Header'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 7b4544bd-f72b-4705-8714-2aea23b6f2c6
+		summarizeBy: none
+		sourceColumn: Business Transaction Header
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2647b7af-9c06-4832-8458-cd127cada44f
+		summarizeBy: none
+		sourceColumn: DOCMT_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PSTNG_DATE_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7a0577a4-30b4-4701-8ea1-cfe468e1a8e2
+		summarizeBy: none
+		sourceColumn: PSTNG_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Document Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0a96c818-a8b9-42b0-a8d4-f97b71891de3
+		summarizeBy: none
+		sourceColumn: Document Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'User Name'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2555e5c8-7952-4394-9534-42d6908401b7
+		summarizeBy: none
+		sourceColumn: User Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d8bfe4ef-4f4a-437d-adf5-602f5a5f0821
+		summarizeBy: sum
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ba166120-c38a-434b-ae49-0d1f19d7526b
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8928b988-bedc-4340-ad2e-af6b0390439c
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_TYP_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 62370752-e9c8-4edd-95d9-34ce0a9e3b4a
+		summarizeBy: none
+		sourceColumn: ACTIVITY_TYP_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value Type'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3993f262-934f-45d3-a750-7c5a4f365a25
+		summarizeBy: none
+		sourceColumn: Value Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Version
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 94d8229f-3e40-4569-b310-c3271207607a
+		summarizeBy: none
+		sourceColumn: Version
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Transaction'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4485b666-ec6b-4b86-9bc4-15ed3bd31310
+		summarizeBy: none
+		sourceColumn: Business Transaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSONEL_NUM_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8e58204b-7553-41dc-9403-4b5be7f44148
+		summarizeBy: none
+		sourceColumn: PERSONEL_NUM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity UOM'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 3c2a7fb0-037c-4818-9a79-44a9180b22c4
+		summarizeBy: none
+		sourceColumn: Activity UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_QTY
+		dataType: double
+		sourceProviderType: decimal(38, 10)
+		lineageTag: c7137184-38c3-49b8-b25e-9017a1de1b4c
+		summarizeBy: sum
+		sourceColumn: ACTIVITY_QTY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Actual Work UOM'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4e23109d-1ca7-494e-a064-f2948b6c1a40
+		summarizeBy: none
+		sourceColumn: Actual Work UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTUAL_WRK
+		dataType: double
+		sourceProviderType: decimal(38, 10)
+		lineageTag: 5914a20c-6110-4669-bafc-50a1305777fa
+		summarizeBy: sum
+		sourceColumn: ACTUAL_WRK
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ACTUAL_WRK_IN_HRS
+		dataType: double
+		sourceProviderType: decimal(38, 10)
+		lineageTag: 89028dd0-7b0c-41d9-9a23-e68730579df4
+		summarizeBy: sum
+		sourceColumn: ACTUAL_WRK_IN_HRS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Actual Work in Hours UOM'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 44e0fba9-5d53-45cc-97cd-520d1ba8f348
+		summarizeBy: none
+		sourceColumn: Actual Work in Hours UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Object Number'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 07d2ae8a-719d-4368-80b3-5bb149e312b1
+		summarizeBy: none
+		sourceColumn: Object Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 93d18727-d949-4f1b-a708-bfc8bd03e2f4
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b16d0adf-0cdc-417b-b801-2d5ccd6f5e6b
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: e446be50-ebad-4f14-abec-e4be9a639b22
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 34aeb2dd-22d9-445d-bced-2d39f0f3950a
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 577c04c3-7ba5-4a0f-b5e1-dbbb5519c8a1
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANT_REGION_PLANT
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: dd36435a-f15b-4090-9a4a-156961ec9ac2
+		summarizeBy: none
+		sourceColumn: PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSONNEL_PLANT_REGION_PLANT
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 689f20d2-bb41-46bd-a322-9279bc19a264
+		summarizeBy: none
+		sourceColumn: PERSONNEL_PLANT_REGION_PLANT
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact Time Confirmation Non Productive' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_EDW_T_FACT_SAL_TMCONFN_CUR_D = Source{[Schema="Propelis",Item="EDW_T_FACT_SAL_TMCONFN_CUR_D"]}[Data]
+				in
+				    Propelis_EDW_T_FACT_SAL_TMCONFN_CUR_D
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

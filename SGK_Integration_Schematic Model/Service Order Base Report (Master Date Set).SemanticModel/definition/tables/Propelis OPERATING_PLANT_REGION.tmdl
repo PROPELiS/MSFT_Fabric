@@ -1,0 +1,41 @@
+table 'Propelis OPERATING_PLANT_REGION'
+	lineageTag: b6b6e9d4-2bd6-45b3-a118-16e424b6bf8d
+
+	column 'Operating Plant Business Function'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 823bb59d-506e-4d85-b5d6-877ff6bb0246
+		summarizeBy: none
+		sourceColumn: Operating Plant Business Function
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Plant Region'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e7ac202b-9af6-4211-b286-84aae72f0478
+		summarizeBy: none
+		sourceColumn: Operating Plant Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Plant'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6506c439-bab9-48ed-8527-3c98d0401d68
+		summarizeBy: none
+		sourceColumn: Operating Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Propelis OPERATING_PLANT_REGION' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_OPERATING_PLANT_REGION = Source{[Schema="Propelis",Item="OPERATING_PLANT_REGION"]}[Data]
+				in
+				    Propelis_OPERATING_PLANT_REGION
+
+	annotation PBI_ResultType = Table
+

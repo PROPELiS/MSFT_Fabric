@@ -1,0 +1,104 @@
+table 'Receiving Functional Area'
+	lineageTag: 767fbcbf-8669-432f-b213-adeda59b6c79
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8418cddd-829f-40a2-be8c-1d0109490be5
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Receiving Functional Area ID'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: bebdde65-f96a-4320-a86a-a04d1cd8bb8c
+		summarizeBy: none
+		sourceColumn: Receiving Functional Area ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Receiving Functional Area Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a63a6b4b-d53a-46ab-b23f-d79a2e5af495
+		summarizeBy: none
+		sourceColumn: Receiving Functional Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8cfb229e-50c6-4ce1-b4a2-4d19a2b86dfe
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 13428ce9-6eed-4a42-b69f-79026c43545d
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: f8ff9590-47ba-49bf-b9f1-1ec7bb00f690
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8bd18b97-a832-4208-bd4c-d7cc953d7a7c
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5f245ace-2a54-41e5-8b29-7902701447be
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4fd35117-abfb-45dc-82ca-38025b1a159e
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Receiving Functional Area' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_RECEIVING_FUNCTIONAL_AREA = Source{[Schema="Propelis",Item="RECEIVING_FUNCTIONAL_AREA"]}[Data]
+				in
+				    Propelis_RECEIVING_FUNCTIONAL_AREA
+
+	annotation PBI_ResultType = Table
+

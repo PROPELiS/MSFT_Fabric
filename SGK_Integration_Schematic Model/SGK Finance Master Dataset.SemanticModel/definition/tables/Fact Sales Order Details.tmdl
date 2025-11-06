@@ -1,0 +1,1533 @@
+table 'Fact Sales Order Details'
+	lineageTag: 7811bf77-0b9a-4fc7-b3bd-7c568c590ac9
+	sourceLineageTag: [Propelis].[EDW_T_FACT_SAL_SALORDD_CUR_D]
+
+	measure 'Company Currency Net Value Amount' = ```
+			sum('Fact Sales Order Details'[CMPNY_CRNCY_NET_VAL_AMT])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 88af5e9e-7ae5-418e-9e6d-14f1a5b33086
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Document Currency Tax Amount' = sum('Fact Sales Order Details'[DOCMT_CRNCY_TAX_AMT])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 301c282b-4a4d-4773-83e8-43e922973c32
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Document Currency Net Value Amount' = sum('Fact Sales Order Details'[DOCMT_CRNCY_NET_VAL_AMT])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1ee24b2d-b7c8-4e73-80cd-31b60786d80b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Document Currency Net Price' = sum('Fact Sales Order Details'[DOCMT_CRNCY_NET_PRICE])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b51c8cc1-407b-4540-a874-21858557ae39
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sales Order Quantity' = ```
+			sum('Fact Sales Order Details'[SALES_ORDER_QTY])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 3ad2e99f-de04-4fe2-ac6b-12f6350dec54
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Group Currency Net Value Amount' = sum('Fact Sales Order Details'[GROUP_CRNCY_NET_VAL_AMT])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6d58f5c9-4e66-430b-9a16-f5cf251209a2
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Quantity Netted' = ```
+			sum('Fact Sales Order Details'[QTY_NETTED])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d22b767d-dcaa-4ab4-a4b9-e2bfc341efbf
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Delivered Quantity' = sum('Fact Sales Order Details'[DLVRD_QTY])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6fb2d303-e51a-45af-9168-c1dc88b3e45c
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sales Target Quantity' = sum('Fact Sales Order Details'[SALES_TRGT_QTY])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 79d846f6-b5e8-416c-b3e1-77a29c123697
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'SO Cumulative Confirmed Quantity in Base Unit' = sum('Fact Sales Order Details'[CMLT_CONFIRMED_QTY_IN_BASE_UNIT])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: bd11f64e-b9c7-435a-91e8-65616c248cc0
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Sales - Global' = sum('Fact Sales Order Details'[GROUP_CRNCY_NET_VAL_AMT])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 57a1d67d-7580-4da4-95cb-268eed432b09
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SALES_ORDER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d1d6f6f-fec5-47e0-a95f-94765620525c
+		sourceLineageTag: SALES_ORDER_KEY
+		summarizeBy: none
+		sourceColumn: SALES_ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Order ID'
+		dataType: string
+		lineageTag: 963132cc-28bc-4563-b3de-2b4fa0dbeaa1
+		sourceLineageTag: Sales Order ID
+		summarizeBy: none
+		sourceColumn: Sales Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Order Item ID'
+		dataType: string
+		lineageTag: aee3c842-54a6-491f-b3b6-3fa631fea239
+		sourceLineageTag: Sales Order Item ID
+		summarizeBy: none
+		sourceColumn: Sales Order Item ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 77f6fa44-022a-4447-b578-3ab5ee0c8e70
+		sourceLineageTag: DOCMT_DATE_KEY
+		summarizeBy: none
+		sourceColumn: DOCMT_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column REQD_DLVRY_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: c1d6b433-094c-4ca9-a283-e6b6fb682fbf
+		sourceLineageTag: REQD_DLVRY_DATE_KEY
+		summarizeBy: none
+		sourceColumn: REQD_DLVRY_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b553141-31ec-4f36-b640-776f1b59291e
+		sourceLineageTag: CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOIPTNR_KEY
+		dataType: string
+		lineageTag: 6a8381e2-212d-456a-8f36-253cf5cd0c55
+		sourceLineageTag: SOIPTNR_KEY
+		summarizeBy: none
+		sourceColumn: SOIPTNR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column V_D_SAL_PRDVCON_KEY
+		dataType: string
+		lineageTag: d0c1d8b8-6644-4dd1-a90b-776364526fab
+		sourceLineageTag: V_D_SAL_PRDVCON_KEY
+		summarizeBy: none
+		sourceColumn: V_D_SAL_PRDVCON_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column FORWARDING_AGENT_VENDOR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 68562b71-6b3f-4e7f-94a1-df540cb3599f
+		sourceLineageTag: FORWARDING_AGENT_VENDOR_KEY
+		summarizeBy: none
+		sourceColumn: FORWARDING_AGENT_VENDOR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORDER_FOR_CUSTOMER_ADDR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 9469a9ca-4ba7-4909-b959-eabd53c9393f
+		sourceLineageTag: ORDER_FOR_CUSTOMER_ADDR_KEY
+		summarizeBy: none
+		sourceColumn: ORDER_FOR_CUSTOMER_ADDR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SO_PARENT_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: c673925f-8ae2-47bc-a03c-1f3738e1f77e
+		sourceLineageTag: SO_PARENT_CUST_KEY
+		summarizeBy: none
+		sourceColumn: SO_PARENT_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column MST_PRTHRCY_PRDT_HIERCHY_CD
+		dataType: string
+		lineageTag: 28beb657-2ce8-4ea7-b048-f32f9f40c557
+		sourceLineageTag: MST_PRTHRCY_PRDT_HIERCHY_CD
+		summarizeBy: none
+		sourceColumn: MST_PRTHRCY_PRDT_HIERCHY_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMPANY_INFO_CMPNY_CD_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: c398d427-1a7a-4c1f-951b-c235b8f5fb71
+		sourceLineageTag: COMPANY_INFO_CMPNY_CD_KEY
+		summarizeBy: none
+		sourceColumn: COMPANY_INFO_CMPNY_CD_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SAL_SALORDH_INVOICE_CREATION_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 18ec83eb-d385-464c-b36c-ded05e6ea4ab
+		sourceLineageTag: SAL_SALORDH_INVOICE_CREATION_DATE_KEY
+		summarizeBy: none
+		sourceColumn: SAL_SALORDH_INVOICE_CREATION_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SAL_SALORDH_CREATED_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5cc78cdb-ab25-4c7a-bbf4-7e5cdc0f2916
+		sourceLineageTag: SAL_SALORDH_CREATED_DATE_KEY
+		summarizeBy: none
+		sourceColumn: SAL_SALORDH_CREATED_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANT_REGION_PLANT_ID
+		dataType: string
+		lineageTag: b620ccfc-06b9-4edf-8eca-ee18a6a6db12
+		sourceLineageTag: PLANT_REGION_PLANT_ID
+		summarizeBy: none
+		sourceColumn: PLANT_REGION_PLANT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESPNSBLE_COST_CNTR_V_HEIR_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 6256ef3e-979d-49cf-816e-08f3ba0a9694
+		sourceLineageTag: RESPNSBLE_COST_CNTR_V_HEIR_COST_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: RESPNSBLE_COST_CNTR_V_HEIR_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSON_RESPNSBLE_COST_CNTR_H_HEIR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 6114e06d-579f-4c3b-894e-7312375ebf6c
+		sourceLineageTag: PERSON_RESPNSBLE_COST_CNTR_H_HEIR_KEY
+		summarizeBy: none
+		sourceColumn: PERSON_RESPNSBLE_COST_CNTR_H_HEIR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Customer Purchase Order Type Description'
+		dataType: string
+		lineageTag: 911cc232-9031-4ea6-88cc-7796fe7414bc
+		sourceLineageTag: SO Customer Purchase Order Type Description
+		summarizeBy: none
+		sourceColumn: SO Customer Purchase Order Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORDER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0fc8c44a-fbee-498c-b787-7c6c894dcdb7
+		sourceLineageTag: ORDER_KEY
+		summarizeBy: none
+		sourceColumn: ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Price Group'
+		dataType: string
+		lineageTag: 4ea264d4-0057-4def-bcef-d760c7354319
+		sourceLineageTag: SO Price Group
+		summarizeBy: none
+		sourceColumn: SO Price Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Price Group Description'
+		dataType: string
+		lineageTag: 314db86c-d777-486a-a16a-1433a37100ee
+		sourceLineageTag: SO Price Group Description
+		summarizeBy: none
+		sourceColumn: SO Price Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMLT_CONFIRMED_QTY_IN_BASE_UNIT
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: aa54753c-be6b-4ae7-b2e6-96ec6a627f2b
+		sourceLineageTag: CMLT_CONFIRMED_QTY_IN_BASE_UNIT
+		summarizeBy: sum
+		sourceColumn: CMLT_CONFIRMED_QTY_IN_BASE_UNIT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'SO Base Unit Of Measure'
+		dataType: string
+		lineageTag: 49053990-5f55-41d6-b761-b2657a358e3c
+		sourceLineageTag: SO Base Unit Of Measure
+		summarizeBy: none
+		sourceColumn: SO Base Unit Of Measure
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREATED_BY
+		dataType: string
+		lineageTag: 84646533-b6c5-454f-b6b2-cb191ac404d9
+		sourceLineageTag: CREATED_BY
+		summarizeBy: none
+		sourceColumn: CREATED_BY
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNITIZATION_AGENT_VNDR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b820996-fe84-485d-86ec-34aef2b493e6
+		sourceLineageTag: UNITIZATION_AGENT_VNDR_KEY
+		summarizeBy: none
+		sourceColumn: UNITIZATION_AGENT_VNDR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Designable E Services Flag'
+		dataType: string
+		lineageTag: 376a3b9c-c246-45e2-b300-05c1104303b6
+		sourceLineageTag: SO Designable E Services Flag
+		summarizeBy: none
+		sourceColumn: SO Designable E Services Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Agreed Delivery Time'
+		dataType: string
+		lineageTag: 8415960d-2984-4079-b08e-ccbeaa87ccb9
+		sourceLineageTag: SO Agreed Delivery Time
+		summarizeBy: none
+		sourceColumn: SO Agreed Delivery Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Deceased Name'
+		dataType: string
+		lineageTag: 7e0eecc0-7e55-4aa4-82ab-9c0a37e89ad9
+		sourceLineageTag: SO Deceased Name
+		summarizeBy: none
+		sourceColumn: SO Deceased Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Customer Purchase Order Type'
+		dataType: string
+		lineageTag: 833db4db-05d4-44a6-8f71-f1f229efe311
+		sourceLineageTag: SO Customer Purchase Order Type
+		summarizeBy: none
+		sourceColumn: SO Customer Purchase Order Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_POJECT_MGR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ba119606-1ca7-4775-a32c-bae25767a9aa
+		sourceLineageTag: CUST_POJECT_MGR_KEY
+		summarizeBy: none
+		sourceColumn: CUST_POJECT_MGR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Item Category'
+		dataType: string
+		lineageTag: 8989af37-d035-4265-8360-227c5979af78
+		sourceLineageTag: SO Item Category
+		summarizeBy: none
+		sourceColumn: SO Item Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Item Category Description'
+		dataType: string
+		lineageTag: 1eb50eba-468f-4e98-8c3b-6c364e96026e
+		sourceLineageTag: SO Item Category Description
+		summarizeBy: none
+		sourceColumn: SO Item Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHIP_TO_ADDR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a3001d99-128a-4202-bf45-cd879f22068f
+		sourceLineageTag: SHIP_TO_ADDR_KEY
+		summarizeBy: none
+		sourceColumn: SHIP_TO_ADDR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Delivery Priority Code'
+		dataType: string
+		lineageTag: 4e88480b-fa11-4ef3-8d5b-8d9ba597ab55
+		sourceLineageTag: SO Delivery Priority Code
+		summarizeBy: none
+		sourceColumn: SO Delivery Priority Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Delivery Priority Description'
+		dataType: string
+		lineageTag: 61766521-134d-464f-8a2f-f29ee8cf45a3
+		sourceLineageTag: SO Delivery Priority Description
+		summarizeBy: none
+		sourceColumn: SO Delivery Priority Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Ship To Purchase Order Number'
+		dataType: string
+		lineageTag: 110c3bce-f41c-453d-a3d8-3c5130c23095
+		sourceLineageTag: SO Ship To Purchase Order Number
+		summarizeBy: none
+		sourceColumn: SO Ship To Purchase Order Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Ship To Purchase Order Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7ca4aa32-a456-4bf1-8f65-7f2fb4f18e70
+		sourceLineageTag: SO Ship To Purchase Order Date
+		summarizeBy: none
+		sourceColumn: SO Ship To Purchase Order Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Customer Condition Group 1'
+		dataType: string
+		lineageTag: 44d80873-746b-4c5f-9c1f-19a2e5006474
+		sourceLineageTag: SO Customer Condition Group 1
+		summarizeBy: none
+		sourceColumn: SO Customer Condition Group 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Customer Condition Group 1 Description'
+		dataType: string
+		lineageTag: 46574194-9019-4608-a826-f9e97da4ff48
+		sourceLineageTag: SO Customer Condition Group 1 Description
+		summarizeBy: none
+		sourceColumn: SO Customer Condition Group 1 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Customer Material Number'
+		dataType: string
+		lineageTag: e2bae596-f8ef-4fe8-b655-055342b73565
+		sourceLineageTag: SO Customer Material Number
+		summarizeBy: none
+		sourceColumn: SO Customer Material Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_RESPNSBLE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c7f4468-8d97-40aa-80e0-9ea4acd09988
+		sourceLineageTag: EMPL_RESPNSBLE_KEY
+		summarizeBy: none
+		sourceColumn: EMPL_RESPNSBLE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Billing Status Of Delivery Description'
+		dataType: string
+		lineageTag: defe5952-3fb4-4252-89c5-bca359cfe9d8
+		sourceLineageTag: SO Billing Status Of Delivery Description
+		summarizeBy: none
+		sourceColumn: SO Billing Status Of Delivery Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Results Analysis Description'
+		dataType: string
+		lineageTag: cbed720b-0871-4f3b-a6cc-7c5577e63cec
+		sourceLineageTag: SO Results Analysis Description
+		summarizeBy: none
+		sourceColumn: SO Results Analysis Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Internal Customer Reference Number'
+		dataType: string
+		lineageTag: dba72176-19a1-4a80-b52e-0fc30cb4f8ac
+		sourceLineageTag: SO Internal Customer Reference Number
+		summarizeBy: none
+		sourceColumn: SO Internal Customer Reference Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Hierarchy'
+		dataType: string
+		lineageTag: 7dc9cc6b-9da1-466e-ac8c-da8c64c92430
+		sourceLineageTag: Product Hierarchy
+		summarizeBy: none
+		sourceColumn: Product Hierarchy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Sold To Purchase Order Number'
+		dataType: string
+		lineageTag: ecfdfaad-e4ab-4744-b66f-83d0a58a5242
+		sourceLineageTag: SO Sold To Purchase Order Number
+		summarizeBy: none
+		sourceColumn: SO Sold To Purchase Order Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Sold To Purchase Order Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dda2a2d4-e293-487b-800a-18172b66673d
+		sourceLineageTag: SO Sold To Purchase Order Date
+		summarizeBy: none
+		sourceColumn: SO Sold To Purchase Order Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Usage Description'
+		dataType: string
+		lineageTag: c4b83958-e65c-435e-a49f-888f33214d32
+		sourceLineageTag: SO Usage Description
+		summarizeBy: none
+		sourceColumn: SO Usage Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Reference Status Description'
+		dataType: string
+		lineageTag: c9f97159-ca9d-49b8-a151-a07c07372bca
+		sourceLineageTag: SO Reference Status Description
+		summarizeBy: none
+		sourceColumn: SO Reference Status Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Total Reference Status Description'
+		dataType: string
+		lineageTag: 86915490-cd7b-4c60-8df4-d94651199981
+		sourceLineageTag: SO Total Reference Status Description
+		summarizeBy: none
+		sourceColumn: SO Total Reference Status Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Billing Block Description'
+		dataType: string
+		lineageTag: 47a05fb7-c43d-4b96-bac6-d1712f15aaa1
+		sourceLineageTag: SO Billing Block Description
+		summarizeBy: none
+		sourceColumn: SO Billing Block Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Delivery Status Indicator Description'
+		dataType: string
+		lineageTag: 4ef2ab13-60bb-45f2-8b39-5bf20bae18ae
+		sourceLineageTag: SO Delivery Status Indicator Description
+		summarizeBy: none
+		sourceColumn: SO Delivery Status Indicator Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Relevant For Billing Description'
+		dataType: string
+		lineageTag: eee4cc66-2108-49f4-ba16-c0dfbb72275d
+		sourceLineageTag: SO Relevant For Billing Description
+		summarizeBy: none
+		sourceColumn: SO Relevant For Billing Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Purchase Order Item Number'
+		dataType: string
+		lineageTag: 2f84f0fb-0806-431c-8ea3-6d977fb4c5de
+		sourceLineageTag: SO Purchase Order Item Number
+		summarizeBy: none
+		sourceColumn: SO Purchase Order Item Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Line Item System Status'
+		dataType: string
+		lineageTag: db9a1696-07ff-4931-a576-87be6c7033a6
+		sourceLineageTag: SO Line Item System Status
+		summarizeBy: none
+		sourceColumn: SO Line Item System Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Overall Status Description'
+		dataType: string
+		lineageTag: b93b8bfa-63d7-40ee-b9f1-402f3c9d912c
+		sourceLineageTag: SO Overall Status Description
+		summarizeBy: none
+		sourceColumn: SO Overall Status Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Status Description'
+		dataType: string
+		lineageTag: 5994e34a-666b-418b-9579-957dea4fc45c
+		sourceLineageTag: Delivery Status Description
+		summarizeBy: none
+		sourceColumn: Delivery Status Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Order Related Bill Status Description'
+		dataType: string
+		lineageTag: 99773dda-9c71-4a07-ae52-86052030c1c0
+		sourceLineageTag: SO Order Related Bill Status Description
+		summarizeBy: none
+		sourceColumn: SO Order Related Bill Status Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Shipping Condition Description'
+		dataType: string
+		lineageTag: b52176ee-b97d-42d8-bce5-d270b7dd6667
+		sourceLineageTag: SO Shipping Condition Description
+		summarizeBy: none
+		sourceColumn: SO Shipping Condition Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Billing Status Of Delivery'
+		dataType: string
+		lineageTag: bce4b935-ceb7-4c36-baec-44d9ab3f8058
+		sourceLineageTag: SO Billing Status Of Delivery
+		summarizeBy: none
+		sourceColumn: SO Billing Status Of Delivery
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Approval'
+		dataType: string
+		lineageTag: 02efcca0-bfd8-465e-9822-d7e14bea3321
+		sourceLineageTag: SO Approval
+		summarizeBy: none
+		sourceColumn: SO Approval
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Arrangement'
+		dataType: string
+		lineageTag: 325d2e2d-1b34-4925-bba3-6de989068c71
+		sourceLineageTag: SO Arrangement
+		summarizeBy: none
+		sourceColumn: SO Arrangement
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Delivery'
+		dataType: string
+		lineageTag: acb54281-af66-4032-abcd-a7de499324af
+		sourceLineageTag: SO Delivery
+		summarizeBy: none
+		sourceColumn: SO Delivery
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Fixed DET'
+		dataType: string
+		lineageTag: b0a972ae-334c-43e4-b696-7c0df3b8af6c
+		sourceLineageTag: SO Fixed DET
+		summarizeBy: none
+		sourceColumn: SO Fixed DET
+
+		annotation SummarizationSetBy = Automatic
+
+	column RSLTS_ANALYSIS_KEY
+		dataType: string
+		lineageTag: e4280b08-be00-4785-9907-80d66ad202c9
+		sourceLineageTag: RSLTS_ANALYSIS_KEY
+		summarizeBy: none
+		sourceColumn: RSLTS_ANALYSIS_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Relevant For Billing'
+		dataType: string
+		lineageTag: 11af3a27-90e2-427a-ac25-227b1e39db41
+		sourceLineageTag: SO Relevant For Billing
+		summarizeBy: none
+		sourceColumn: SO Relevant For Billing
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Item Is Relevant For Delivery'
+		dataType: string
+		lineageTag: 69ed14b7-fecd-43e7-9dd3-231f7acac898
+		sourceLineageTag: SO Item Is Relevant For Delivery
+		summarizeBy: none
+		sourceColumn: SO Item Is Relevant For Delivery
+
+		annotation SummarizationSetBy = Automatic
+
+	column WBS_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: fe9bda5f-bab9-4d20-ad77-7c3314b7cfaa
+		sourceLineageTag: WBS_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: WBS_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGENCY_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: fea77238-0209-437d-baa4-e5e7df29efef
+		sourceLineageTag: AGENCY_CUST_KEY
+		summarizeBy: none
+		sourceColumn: AGENCY_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRINTER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e78557b-ae5e-42b0-b8f2-3e4fa8ccf100
+		sourceLineageTag: PRINTER_CUST_KEY
+		summarizeBy: none
+		sourceColumn: PRINTER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUPLR_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: d94e25fe-be63-42a9-91b4-48879944b07a
+		sourceLineageTag: SUPLR_CUST_KEY
+		summarizeBy: none
+		sourceColumn: SUPLR_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Is Sales Schedule Line Created'
+		dataType: string
+		lineageTag: cc2d7ae3-2a83-4e73-bb46-a506ca1882cb
+		sourceLineageTag: SO Is Sales Schedule Line Created
+		summarizeBy: none
+		sourceColumn: SO Is Sales Schedule Line Created
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CHARS_ENCOWAY_JS_HDR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 161ec1d3-3ef4-4031-b5ee-4a71fa408d7a
+		sourceLineageTag: DOCMT_CHARS_ENCOWAY_JS_HDR_KEY
+		summarizeBy: none
+		sourceColumn: DOCMT_CHARS_ENCOWAY_JS_HDR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPL_RESPNSBLE_2_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: fd7230cd-091a-4f5d-9e8c-85edbcefebf7
+		sourceLineageTag: EMPL_RESPNSBLE_2_KEY
+		summarizeBy: none
+		sourceColumn: EMPL_RESPNSBLE_2_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO BOM Item Number'
+		dataType: string
+		lineageTag: 972e8e0e-1410-426d-b0fd-a83f4dc58a21
+		sourceLineageTag: SO BOM Item Number
+		summarizeBy: none
+		sourceColumn: SO BOM Item Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_MATRL_INFO_RCD_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 07de188f-addf-43c6-86a8-4fad0656c3a4
+		sourceLineageTag: CUST_MATRL_INFO_RCD_KEY
+		summarizeBy: none
+		sourceColumn: CUST_MATRL_INFO_RCD_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Changed On Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: df6ca9ca-24d5-44db-8f17-6990463b59fb
+		sourceLineageTag: SO Changed On Date
+		summarizeBy: none
+		sourceColumn: SO Changed On Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Creation Timestamp'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 12bfbd0f-df4b-4229-9443-dbb147105945
+		sourceLineageTag: SO Creation Timestamp
+		summarizeBy: none
+		sourceColumn: SO Creation Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Delivery Status Indicator'
+		dataType: string
+		lineageTag: 2ee3214c-8652-4e80-a325-5fc98e461772
+		sourceLineageTag: SO Delivery Status Indicator
+		summarizeBy: none
+		sourceColumn: SO Delivery Status Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Sales UoM'
+		dataType: string
+		lineageTag: d537e1f3-589d-4c23-9a8f-f13861ad8163
+		sourceLineageTag: SO Sales UoM
+		summarizeBy: none
+		sourceColumn: SO Sales UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_TRGT_QTY
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6546e312-5861-433e-a40f-b0201d3ccf85
+		sourceLineageTag: SALES_TRGT_QTY
+		summarizeBy: sum
+		sourceColumn: SALES_TRGT_QTY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'SO Target Quantity UoM'
+		dataType: string
+		lineageTag: d169a95c-08f5-4d2e-a274-9d64bded67f0
+		sourceLineageTag: SO Target Quantity UoM
+		summarizeBy: none
+		sourceColumn: SO Target Quantity UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column DLVRD_QTY
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 8b627314-8e10-4339-9261-a52e56cf6bc5
+		sourceLineageTag: DLVRD_QTY
+		summarizeBy: sum
+		sourceColumn: DLVRD_QTY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'SO Reference Status'
+		dataType: string
+		lineageTag: 7b088dcb-f53b-441f-b314-322962a4d4a9
+		sourceLineageTag: SO Reference Status
+		summarizeBy: none
+		sourceColumn: SO Reference Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Total Reference Status'
+		dataType: string
+		lineageTag: d0f7e2c7-3067-4f5f-b9bd-b8352021ad45
+		sourceLineageTag: SO Total Reference Status
+		summarizeBy: none
+		sourceColumn: SO Total Reference Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Billing Block'
+		dataType: string
+		lineageTag: 92ed7cfa-f609-4a55-a70f-0f208c96d80b
+		sourceLineageTag: SO Billing Block
+		summarizeBy: none
+		sourceColumn: SO Billing Block
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSON_RESPNSBLE_COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d0faae6-59c6-4ab5-a5b7-a6742820eaa6
+		sourceLineageTag: PERSON_RESPNSBLE_COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PERSON_RESPNSBLE_COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARNT_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 79b5803c-583b-490c-94ff-db279fef9348
+		sourceLineageTag: PARNT_CUST_KEY
+		summarizeBy: none
+		sourceColumn: PARNT_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREATION_DATE_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: f658fb4b-8676-4204-9f63-fd24d037cb40
+		sourceLineageTag: CREATION_DATE_KEY
+		summarizeBy: none
+		sourceColumn: CREATION_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Usage'
+		dataType: string
+		lineageTag: 82eb57e2-4df4-434c-b924-d77d24ca3b09
+		sourceLineageTag: SO Usage
+		summarizeBy: none
+		sourceColumn: SO Usage
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Higher-Level Item'
+		dataType: int64
+		formatString: 0
+		lineageTag: ad84eba9-6d20-4e3d-9127-6e18a55dce10
+		sourceLineageTag: SO Higher-Level Item
+		summarizeBy: sum
+		sourceColumn: SO Higher-Level Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Alternative to Item'
+		dataType: int64
+		formatString: 0
+		lineageTag: 821259c0-e5db-4d56-897e-19f64758c7ab
+		sourceLineageTag: SO Alternative to Item
+		summarizeBy: sum
+		sourceColumn: SO Alternative to Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_ENTERED_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: bb4faf1c-ca90-4f11-81bf-32371a8dc1f6
+		sourceLineageTag: MATRL_ENTERED_KEY
+		summarizeBy: none
+		sourceColumn: MATRL_ENTERED_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Reference Document'
+		dataType: string
+		lineageTag: 360a2b4a-5969-4499-84ed-472b8d896451
+		sourceLineageTag: SO Reference Document
+		summarizeBy: none
+		sourceColumn: SO Reference Document
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Reference Item'
+		dataType: int64
+		formatString: 0
+		lineageTag: d9e444be-7d09-4f28-bdb6-f5128ff4a3d7
+		sourceLineageTag: SO Reference Item
+		summarizeBy: sum
+		sourceColumn: SO Reference Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Inco Terms 2'
+		dataType: string
+		lineageTag: eb1cb5d9-a199-4227-82bb-dc0b87f70792
+		sourceLineageTag: SO Inco Terms 2
+		summarizeBy: none
+		sourceColumn: SO Inco Terms 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Billing Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e98f48c6-b8b2-4115-89a8-ed02141c1b9e
+		sourceLineageTag: SO Billing Date
+		summarizeBy: none
+		sourceColumn: SO Billing Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 592f1af9-60f8-4105-a5a0-1db9abc7f8cd
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7c4ca682-0339-4fae-aebb-23c423dadeeb
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7e206db4-78e2-4af3-bfba-83c1494cc554
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CYLINDER_OWNER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 747dc3b0-5d12-4b5c-98d9-73f3f469b518
+		sourceLineageTag: CYLINDER_OWNER_CUST_KEY
+		summarizeBy: none
+		sourceColumn: CYLINDER_OWNER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Delivery Group'
+		dataType: string
+		lineageTag: 648de1fb-0dd0-4d83-bd88-8f37071ab6ea
+		sourceLineageTag: SO Delivery Group
+		summarizeBy: none
+		sourceColumn: SO Delivery Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column QTY_NETTED
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 87b036c3-9b48-4d67-8756-72348530308a
+		sourceLineageTag: QTY_NETTED
+		summarizeBy: sum
+		sourceColumn: QTY_NETTED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'SO Reason For Rejection Description'
+		dataType: string
+		lineageTag: bb50dc87-071f-403b-a753-d3ebdf15c9ab
+		sourceLineageTag: SO Reason For Rejection Description
+		summarizeBy: none
+		sourceColumn: SO Reason For Rejection Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Shipping Condition'
+		dataType: string
+		lineageTag: 30a48b5c-143e-4942-91fe-b686f65dce14
+		sourceLineageTag: SO Shipping Condition
+		summarizeBy: none
+		sourceColumn: SO Shipping Condition
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Inco Terms'
+		dataType: string
+		lineageTag: 7e95bb17-21b0-47b8-9555-56e62fb99e44
+		sourceLineageTag: SO Inco Terms
+		summarizeBy: none
+		sourceColumn: SO Inco Terms
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Inco Terms Description'
+		dataType: string
+		lineageTag: 0daa086a-6c97-466c-93f8-aeb9360c9903
+		sourceLineageTag: SO Inco Terms Description
+		summarizeBy: none
+		sourceColumn: SO Inco Terms Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Order Header Encoway Id'
+		dataType: string
+		lineageTag: d2c82177-07a4-4ba7-a588-94188b6d1917
+		sourceLineageTag: Sales Order Header Encoway Id
+		summarizeBy: none
+		sourceColumn: Sales Order Header Encoway Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Encoway Version'
+		dataType: string
+		lineageTag: 1250e7fb-c3e8-4ad1-b1e7-e9d5475d5a86
+		sourceLineageTag: SO Encoway Version
+		summarizeBy: none
+		sourceColumn: SO Encoway Version
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Encoway Part'
+		dataType: string
+		lineageTag: d54e32f2-01be-4c25-a41d-7e4d071cdecb
+		sourceLineageTag: SO Encoway Part
+		summarizeBy: none
+		sourceColumn: SO Encoway Part
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Encoway Description'
+		dataType: string
+		lineageTag: c9d22a0b-2d93-4c4b-b3b5-009827b4c24f
+		sourceLineageTag: SO Encoway Description
+		summarizeBy: none
+		sourceColumn: SO Encoway Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Encoway Number'
+		dataType: string
+		lineageTag: 595fb4eb-8fe8-404a-829e-24cd670a4af0
+		sourceLineageTag: SO Encoway Number
+		summarizeBy: none
+		sourceColumn: SO Encoway Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Material Description'
+		dataType: string
+		lineageTag: 7efc96cc-edfb-44da-a3c4-b36c69c35e58
+		sourceLineageTag: SO Material Description
+		summarizeBy: none
+		sourceColumn: SO Material Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROUP_CRNCY_NET_VAL_AMT
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 65a14f16-c157-4edf-aa5b-b2eddcbb69c4
+		sourceLineageTag: GROUP_CRNCY_NET_VAL_AMT
+		summarizeBy: sum
+		sourceColumn: GROUP_CRNCY_NET_VAL_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'SO Shipping Point'
+		dataType: string
+		lineageTag: d699df10-6d0b-4067-a7ba-ca89a06995ea
+		sourceLineageTag: SO Shipping Point
+		summarizeBy: none
+		sourceColumn: SO Shipping Point
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Reason For Rejection'
+		dataType: string
+		lineageTag: 8207b224-8764-4ee4-bee4-0290de12babe
+		sourceLineageTag: SO Reason For Rejection
+		summarizeBy: none
+		sourceColumn: SO Reason For Rejection
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Overall Status'
+		dataType: string
+		lineageTag: 578810c2-2318-442a-9b76-a34197fcf617
+		sourceLineageTag: SO Overall Status
+		summarizeBy: none
+		sourceColumn: SO Overall Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Delivery Status'
+		dataType: string
+		lineageTag: 5eaf2647-091c-44a2-aa9e-b5dd2e00e29c
+		sourceLineageTag: SO Delivery Status
+		summarizeBy: none
+		sourceColumn: SO Delivery Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SO Order Related Bill Status'
+		dataType: string
+		lineageTag: 9058919e-0ff6-4c44-b96a-62e81d57812e
+		sourceLineageTag: SO Order Related Bill Status
+		summarizeBy: none
+		sourceColumn: SO Order Related Bill Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_ORDER_QTY
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c8d71854-ebbd-47e7-9e38-465b4a8f7b48
+		sourceLineageTag: SALES_ORDER_QTY
+		summarizeBy: sum
+		sourceColumn: SALES_ORDER_QTY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'SO Unit Of Measure'
+		dataType: string
+		lineageTag: 58ed7bc4-78d7-4873-be2e-f49c269b96e4
+		sourceLineageTag: SO Unit Of Measure
+		summarizeBy: none
+		sourceColumn: SO Unit Of Measure
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_NET_PRICE
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6cc729ec-e586-4bf6-8276-1ca9d79c464e
+		sourceLineageTag: DOCMT_CRNCY_NET_PRICE
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_NET_PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column DOCMT_CRNCY_NET_VAL_AMT
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 22b0b374-3229-4034-b3d5-84eaca3d2874
+		sourceLineageTag: DOCMT_CRNCY_NET_VAL_AMT
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_NET_VAL_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column DOCMT_CRNCY_TAX_AMT
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9369f797-d34e-48b1-9ca6-043109b9dadb
+		sourceLineageTag: DOCMT_CRNCY_TAX_AMT
+		summarizeBy: sum
+		sourceColumn: DOCMT_CRNCY_TAX_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CMPNY_CRNCY_NET_VAL_AMT
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: cd5a0d91-e476-481f-93e9-e8f8e91203f1
+		sourceLineageTag: CMPNY_CRNCY_NET_VAL_AMT
+		summarizeBy: sum
+		sourceColumn: CMPNY_CRNCY_NET_VAL_AMT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CUST_SALES_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 754e3efb-fd55-422c-8b57-9361763c528e
+		sourceLineageTag: CUST_SALES_AREA_KEY
+		summarizeBy: none
+		sourceColumn: CUST_SALES_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEG_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ee7232d8-f852-42c8-a62e-047df4403465
+		sourceLineageTag: SEG_KEY
+		summarizeBy: none
+		sourceColumn: SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: c3ba588f-1eb6-442a-bbd1-84e631cbb06f
+		sourceLineageTag: SALES_AREA_KEY
+		summarizeBy: none
+		sourceColumn: SALES_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCMT_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: de52abf5-47ef-46bf-bae6-b4877667df08
+		sourceLineageTag: DOCMT_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: DOCMT_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CMPNY_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 89c5e824-0905-4b49-95dd-6a46293cbf04
+		sourceLineageTag: CMPNY_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: CMPNY_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROUP_CRNCY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5def5fd0-4530-4908-93fd-3461a8e5a089
+		sourceLineageTag: GROUP_CRNCY_KEY
+		summarizeBy: none
+		sourceColumn: GROUP_CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_CONTACT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 875edcd3-2740-47b2-92d6-33ee6dc47649
+		sourceLineageTag: CUST_CONTACT_KEY
+		summarizeBy: none
+		sourceColumn: CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_PERSON_PERSONEL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 716802e1-2536-4d2f-b4f8-15bf7ab1d0da
+		sourceLineageTag: SALES_PERSON_PERSONEL_KEY
+		summarizeBy: none
+		sourceColumn: SALES_PERSON_PERSONEL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSON_RESPNSBLE_PERSONEL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: cd529fa7-9025-45a7-8f92-757e121703ba
+		sourceLineageTag: PERSON_RESPNSBLE_PERSONEL_KEY
+		summarizeBy: none
+		sourceColumn: PERSON_RESPNSBLE_PERSONEL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATRL_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e955099d-abce-45e2-a699-68e391f6f5af
+		sourceLineageTag: MATRL_KEY
+		summarizeBy: none
+		sourceColumn: MATRL_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b41c487-c022-4bbb-b594-c2b1a292f3df
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUST_CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3ddce1c3-c4bb-4d9a-a89c-3add4b406cd0
+		sourceLineageTag: CUST_CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: CUST_CMPNY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 30aa7298-dc7a-4def-bd4a-6041e147bb57
+		sourceLineageTag: PLNT_KEY
+		summarizeBy: none
+		sourceColumn: PLNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOLDTO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 167461f8-e796-47b6-b21f-1cd239834466
+		sourceLineageTag: SOLDTO_CUST_KEY
+		summarizeBy: none
+		sourceColumn: SOLDTO_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column BILLTO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 307166af-2ef4-4b7a-ba78-edbba9f06734
+		sourceLineageTag: BILLTO_CUST_KEY
+		summarizeBy: none
+		sourceColumn: BILLTO_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAYER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 05570b71-193d-435f-a343-1137e0106e33
+		sourceLineageTag: PAYER_CUST_KEY
+		summarizeBy: none
+		sourceColumn: PAYER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHIPTO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e5ccb3b-0646-4dec-9827-d16af17ce95a
+		sourceLineageTag: SHIPTO_CUST_KEY
+		summarizeBy: none
+		sourceColumn: SHIPTO_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column BRAND_OWNER_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f2a4f77-5875-4d1f-8120-b0a694434313
+		sourceLineageTag: BRAND_OWNER_CUST_KEY
+		summarizeBy: none
+		sourceColumn: BRAND_OWNER_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCHZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 45eb7a15-a7ce-4a10-8100-38408f907b9d
+		sourceLineageTag: PROFCHZ_PROFT_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: PROFCHZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCVZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: b902ee22-d7f3-447b-85bc-07305e19aafd
+		sourceLineageTag: PROFCVZ_PROFT_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: PROFCVZ_PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUSTCNT_CUST_CONTACT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 66b2786e-35f4-4c75-962f-79dec8cd21b1
+		sourceLineageTag: CUSTCNT_CUST_CONTACT_KEY
+		summarizeBy: sum
+		sourceColumn: CUSTCNT_CUST_CONTACT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERSON_RESPNSBLE_COST_CNTR_V_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: bae7e53d-7d4f-4114-bef3-4e1b1fd4abd9
+		sourceLineageTag: PERSON_RESPNSBLE_COST_CNTR_V_KEY
+		summarizeBy: sum
+		sourceColumn: PERSON_RESPNSBLE_COST_CNTR_V_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact Sales Order Details' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_FACT_SAL_SALORDD_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

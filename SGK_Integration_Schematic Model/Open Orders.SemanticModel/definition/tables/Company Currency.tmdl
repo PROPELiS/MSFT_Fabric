@@ -1,0 +1,116 @@
+table 'Company Currency'
+	lineageTag: 216548b7-8d1b-4512-9894-7e17880c1115
+
+	column CRNCY_KEY
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 339c9191-eab3-4671-831e-6aaa0ddad57e
+		summarizeBy: none
+		sourceColumn: CRNCY_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Currency'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 84ef22b1-3aff-44d3-be73-4ad6b16ab1a6
+		summarizeBy: none
+		sourceColumn: Company Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 32b4c8cd-cf99-4678-b340-4bb7d8a6e149
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 16961ebf-d40f-47e1-a2bb-4776998845ac
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: c7607431-2c16-421d-a48a-4ced78909ce0
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		sourceProviderType: varchar(1)
+		lineageTag: fde102eb-6540-43c0-83c1-abe7077065d7
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: dc217658-4148-4aa4-8935-1e7f9bc02468
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4ae8a230-8864-4f16-b9bc-5fbec4eabfb8
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Currency Short Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: c7f72e5a-7614-4de0-9fd1-d7fff4e05824
+		summarizeBy: none
+		sourceColumn: Company Currency Short Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Currency Long Description'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: acb30dfa-bbb8-40bd-8bd3-f518cdff682d
+		summarizeBy: none
+		sourceColumn: Company Currency Long Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Company Currency' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    Propelis_COMPANY_CURRENCY = Source{[Schema="Propelis",Item="COMPANY_CURRENCY"]}[Data]
+				in
+				    Propelis_COMPANY_CURRENCY
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

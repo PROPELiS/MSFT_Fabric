@@ -307,9 +307,11 @@ table 'Sales Person Personnel'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_SALES_PERSON_PERSONEL = Source{[Schema="Propelis",Item="V_SALES_PERSON_PERSONEL"]}[Data]
+				    Propelis_SALES_PERSON_PERSONEL = Source{[Schema="Propelis",Item="SALES_PERSON_PERSONEL"]}[Data]
 				in
-				    Propelis_V_SALES_PERSON_PERSONEL
+				    Propelis_SALES_PERSON_PERSONEL
 
-	changedProperty = Name
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

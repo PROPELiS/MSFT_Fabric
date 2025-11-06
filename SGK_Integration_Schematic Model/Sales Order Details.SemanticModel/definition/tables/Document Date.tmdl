@@ -34,16 +34,6 @@ table 'Document Date'
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Entry Create Fiscal Period Number'
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
-		lineageTag: 47445452-6fda-4f02-82d7-060b7df164bb
-		summarizeBy: none
-		sourceColumn: Entry Create Fiscal Period Number
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'Entry Create Fiscal Period Code'
 		dataType: string
 		sourceProviderType: varchar(max)
@@ -110,16 +100,6 @@ table 'Document Date'
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Entry Create Calendar Quarter Number'
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
-		lineageTag: 258a9d40-034a-44a3-8d13-85c9ad22f7cb
-		summarizeBy: none
-		sourceColumn: Entry Create Calendar Quarter Number
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'Entry Create Calendar Quarter Code'
 		dataType: string
 		sourceProviderType: varchar(max)
@@ -148,26 +128,6 @@ table 'Document Date'
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Entry Create Calendar Day In Month'
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
-		lineageTag: c8858d41-a849-4201-8be8-52124ed04650
-		summarizeBy: none
-		sourceColumn: Entry Create Calendar Day In Month
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Entry Create Calendar Day In Year'
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
-		lineageTag: f044ed7c-467b-48d3-b5fa-93892da6eb41
-		summarizeBy: none
-		sourceColumn: Entry Create Calendar Day In Year
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'Entry Create Calendar Week'
 		dataType: int64
 		formatString: 0
@@ -175,26 +135,6 @@ table 'Document Date'
 		lineageTag: 06142275-19ea-45ac-8520-2b9b5711e746
 		summarizeBy: none
 		sourceColumn: Entry Create Calendar Week
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Entry Create Calendar Month In Quarter Number'
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
-		lineageTag: ba527287-8330-4ee1-91e0-826ffdf64021
-		summarizeBy: none
-		sourceColumn: Entry Create Calendar Month In Quarter Number
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Entry Create Calendar Days In Month'
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
-		lineageTag: 7d2d3ef0-382d-4a1a-8887-91de42a93f04
-		summarizeBy: none
-		sourceColumn: Entry Create Calendar Days In Month
 
 		annotation SummarizationSetBy = Automatic
 
@@ -397,36 +337,6 @@ table 'Document Date'
 
 		annotation SummarizationSetBy = Automatic
 
-	column CURR_FISCAL_YR_PLUS_1_FLG
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
-		lineageTag: 8f688573-3433-43dc-a552-ca7ff437c128
-		summarizeBy: none
-		sourceColumn: CURR_FISCAL_YR_PLUS_1_FLG
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Entry Create Day In Fiscal Year'
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
-		lineageTag: 351226fa-680c-4275-ac21-85ab53d01c18
-		summarizeBy: none
-		sourceColumn: Entry Create Day In Fiscal Year
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Entry Create Date Is Weekday'
-		dataType: int64
-		formatString: 0
-		sourceProviderType: int
-		lineageTag: a0152770-ab10-4b68-848a-9cdb42fecc37
-		summarizeBy: none
-		sourceColumn: Entry Create Date Is Weekday
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'Entry Create Fiscal Week'
 		dataType: int64
 		formatString: 0
@@ -546,14 +456,106 @@ table 'Document Date'
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Entry Create Fiscal Period'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3e82b232-bc82-49f2-b855-5bd3b1f46d86
+		summarizeBy: none
+		sourceColumn: Entry Create Fiscal Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Quarter'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9470e848-e825-41c7-90cb-d9b499170700
+		summarizeBy: none
+		sourceColumn: Entry Create Calendar Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Day in Month'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 209e7ae7-5ecb-4012-9826-622f4fb6709c
+		summarizeBy: none
+		sourceColumn: Entry Create Calendar Day in Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Day in Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 533b8f6f-1617-4ece-acc1-ba348cce009e
+		summarizeBy: none
+		sourceColumn: Entry Create Calendar Day in Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Month in Quarter Number'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f81d0bae-df8e-4706-b54b-c0579aa2252c
+		summarizeBy: none
+		sourceColumn: Entry Create Calendar Month in Quarter Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Calendar Days in Month'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8f818e56-ff4e-444d-acb8-7d2581ce014d
+		summarizeBy: none
+		sourceColumn: Entry Create Calendar Days in Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Current Fiscal Year Plus 1 Flag'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3dc03dbb-1857-4727-a3ee-c231e3717532
+		summarizeBy: none
+		sourceColumn: Entry Create Current Fiscal Year Plus 1 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entry Create Day in Fiscal Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4e894071-8541-4776-b7bb-620b543e8e1e
+		summarizeBy: none
+		sourceColumn: Entry Create Day in Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_WEEKDAY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 832a2ad0-2c9a-4a6d-9fa4-05014f9611da
+		summarizeBy: none
+		sourceColumn: IS_WEEKDAY
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Document Date' = m
 		mode: directQuery
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_DOCUMENT_DATE = Source{[Schema="Propelis",Item="V_DOCUMENT_DATE"]}[Data]
+				    Propelis_DOCUMENT_DATE = Source{[Schema="Propelis",Item="DOCUMENT_DATE"]}[Data]
 				in
-				    Propelis_V_DOCUMENT_DATE
+				    Propelis_DOCUMENT_DATE
 
-	changedProperty = Name
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

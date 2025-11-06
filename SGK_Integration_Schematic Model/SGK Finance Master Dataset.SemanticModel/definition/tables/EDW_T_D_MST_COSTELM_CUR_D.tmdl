@@ -1,0 +1,124 @@
+table EDW_T_D_MST_COSTELM_CUR_D
+	lineageTag: 32792dc1-b41a-47ef-b5d6-fca78ae416f9
+	sourceLineageTag: [dbo].[EDW_T_D_MST_COSTELM_CUR_D]
+
+	column COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 257c4cf3-4516-411c-9b07-ed87fcc5ee15
+		sourceLineageTag: COST_ELEMNT_KEY
+		summarizeBy: none
+		sourceColumn: COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element ID'
+		dataType: string
+		lineageTag: 42e468d7-07dd-4de4-87da-670e71649e9b
+		sourceLineageTag: Cost Element ID
+		summarizeBy: none
+		sourceColumn: Cost Element ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Chart Of Accounts'
+		dataType: string
+		lineageTag: 4a171704-27af-47cb-9220-7c838ff3a1a2
+		sourceLineageTag: Cost Element Chart Of Accounts
+		summarizeBy: none
+		sourceColumn: Cost Element Chart Of Accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Name'
+		dataType: string
+		lineageTag: d64a0fed-f11e-4637-8d2d-223feabe59b9
+		sourceLineageTag: Cost Element Name
+		summarizeBy: none
+		sourceColumn: Cost Element Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Description'
+		dataType: string
+		lineageTag: 85af092d-1f62-499e-9ff3-eae6dd708d7b
+		sourceLineageTag: Cost Element Description
+		summarizeBy: none
+		sourceColumn: Cost Element Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 409c538a-cb05-480e-963e-52aee4cc963e
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 099214d3-3c57-4d74-8f83-0cf3ae7b4709
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f4c4095a-306f-422b-a784-f9bea0837a90
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Record Indicator of Cost Element'
+		dataType: string
+		lineageTag: d744c3ff-9369-48d7-baf5-9381dca77c6f
+		sourceLineageTag: Current Record Indicator of Cost Element
+		summarizeBy: none
+		sourceColumn: Current Record Indicator of Cost Element
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9ac4f7af-06b4-4f10-8443-828700f395c3
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2968866d-49ef-461d-a458-d9b91d80f190
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Chart Of Accounts Description'
+		dataType: string
+		lineageTag: 2c6fbe43-35e3-4e84-bdc1-a30864c18323
+		sourceLineageTag: Cost Element Chart Of Accounts Description
+		summarizeBy: none
+		sourceColumn: Cost Element Chart Of Accounts Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_COSTELM_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_COSTELM_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

@@ -1254,9 +1254,11 @@ table 'Ship To Customer'
 		source =
 				let
 				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
-				    Propelis_V_SHIP_TO_CUST = Source{[Schema="Propelis",Item="V_SHIP_TO_CUST"]}[Data]
+				    Propelis_SHIP_TO_CUST = Source{[Schema="Propelis",Item="SHIP_TO_CUST"]}[Data]
 				in
-				    Propelis_V_SHIP_TO_CUST
+				    Propelis_SHIP_TO_CUST
 
-	changedProperty = Name
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

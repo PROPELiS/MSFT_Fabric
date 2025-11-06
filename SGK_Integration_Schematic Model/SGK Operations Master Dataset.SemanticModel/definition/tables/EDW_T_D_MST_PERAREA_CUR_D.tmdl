@@ -1,0 +1,178 @@
+table EDW_T_D_MST_PERAREA_CUR_D
+	lineageTag: 3c41097c-35b3-43d1-9835-6960b7df58f1
+	sourceLineageTag: [dbo].[EDW_T_D_MST_PERAREA_CUR_D]
+
+	column PERSONEL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b24765e-08ff-42a7-90d2-436a94b37c3e
+		sourceLineageTag: PERSONEL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: PERSONEL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Personnel Area'
+		dataType: string
+		lineageTag: e73df47f-b8d0-4a7e-9cb6-c5e772310dc1
+		sourceLineageTag: Personnel Area
+		summarizeBy: none
+		sourceColumn: Personnel Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Grouping'
+		dataType: string
+		lineageTag: 04a19682-2cfa-4c7a-a9f0-f5cafe0843e4
+		sourceLineageTag: Country Grouping
+		summarizeBy: none
+		sourceColumn: Country Grouping
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code'
+		dataType: string
+		lineageTag: 8433dda7-4096-4785-b149-ef922c6b9cba
+		sourceLineageTag: Company Code
+		summarizeBy: none
+		sourceColumn: Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Personnel Area Text'
+		dataType: string
+		lineageTag: bcc5eb15-01d1-47b8-b065-c446f8831dee
+		sourceLineageTag: Personnel Area Text
+		summarizeBy: none
+		sourceColumn: Personnel Area Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'House Number'
+		dataType: string
+		lineageTag: 88b7e46e-9b78-464a-9f05-811039120c14
+		sourceLineageTag: House Number
+		summarizeBy: none
+		sourceColumn: House Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Box'
+		dataType: string
+		lineageTag: 7b3959ac-a802-47bb-9710-cd4f6f2f9815
+		sourceLineageTag: PO Box
+		summarizeBy: none
+		sourceColumn: PO Box
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: b243ea16-cf48-4896-9921-b3262edf03a5
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: a8c40cb1-52b0-4752-98c8-c373f8094c24
+		sourceLineageTag: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 2f8cedc6-9acd-4a49-a291-2779c275fbc9
+		sourceLineageTag: Region
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column County
+		dataType: string
+		lineageTag: 363c55e6-9664-470b-8b71-b6ad985b085c
+		sourceLineageTag: County
+		summarizeBy: none
+		sourceColumn: County
+
+		annotation SummarizationSetBy = Automatic
+
+	column Address
+		dataType: string
+		lineageTag: d87a5751-482e-4430-a6cd-5cb50f753b1c
+		sourceLineageTag: Address
+		summarizeBy: none
+		sourceColumn: Address
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 29f5f6ba-2069-47c6-bba4-48d9b457fed3
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d1f54745-edf0-4e14-bc7c-f48bfdb593a9
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 74c0373a-2488-44d5-b3b1-f3a611bd858f
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: 167e8538-0787-460f-9798-dd5d56371daf
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8634522d-52a7-4141-a787-d0aa3a91ad1a
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e87f90eb-96a2-4314-9036-5b424146017e
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_MST_PERAREA_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_PERAREA_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

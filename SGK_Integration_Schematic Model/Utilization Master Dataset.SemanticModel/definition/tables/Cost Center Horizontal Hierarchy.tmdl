@@ -1,0 +1,205 @@
+table 'Cost Center Horizontal Hierarchy'
+	lineageTag: b1fd156e-53dc-4ac1-b7da-5f553f240c26
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 12af2cee-c7b8-4c3b-a62b-b056e4e3be7d
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTROLLING_AREA_ID
+		dataType: string
+		sourceProviderType: varchar(4)
+		lineageTag: e305409e-6063-4f6a-96d9-09cafbbc1658
+		summarizeBy: none
+		sourceColumn: CONTROLLING_AREA_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center ID Leaf level HH'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3dafc448-9c36-4d5c-a012-8b430c4cf482
+		summarizeBy: sum
+		sourceColumn: Cost Center ID Leaf level HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column LVL_0_ID
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 1404d543-bef5-4342-917b-1b466187ccd3
+		summarizeBy: none
+		sourceColumn: LVL_0_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LVL_0_DESC
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 7874e029-e485-4873-a37a-0c33521a8a1d
+		summarizeBy: none
+		sourceColumn: LVL_0_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 1 ID HH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 1a1572c1-ae3a-4caa-999c-9019645d4502
+		summarizeBy: none
+		sourceColumn: Cost Center Level 1 ID HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 1 Description HH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 07a04031-aaf4-4b37-86d0-143a8b090e84
+		summarizeBy: none
+		sourceColumn: Cost Center Level 1 Description HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 2 ID HH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 6643576b-452d-44df-a3cc-0a11a8aeb4de
+		summarizeBy: none
+		sourceColumn: Cost Center Level 2 ID HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 2 Description HH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: f1e84fa7-4eef-490e-b170-0e1bb0d2c864
+		summarizeBy: none
+		sourceColumn: Cost Center Level 2 Description HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 3 ID HH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 6981bfdf-255d-421c-8543-285c0727558a
+		summarizeBy: none
+		sourceColumn: Cost Center Level 3 ID HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 3 Description HH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 527f88ef-1423-4f9e-ae8c-f17f96c9c785
+		summarizeBy: none
+		sourceColumn: Cost Center Level 3 Description HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 4 ID HH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: ec45e31c-b459-4948-9e3f-0f9b7c9a8571
+		summarizeBy: none
+		sourceColumn: Cost Center Level 4 ID HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 4 Description HH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 076fa1a7-6d5e-49f5-9d05-f011a1c411e2
+		summarizeBy: none
+		sourceColumn: Cost Center Level 4 Description HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 5 ID HH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: f54533ae-b776-43cb-9cbe-8da11163efbf
+		summarizeBy: none
+		sourceColumn: Cost Center Level 5 ID HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 5 Description HH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 57e5c8a1-2058-43d5-8c7c-6f6727e5b195
+		summarizeBy: none
+		sourceColumn: Cost Center Level 5 Description HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 6 ID HH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 25b68ad2-143f-4da6-bbda-3a74b9648219
+		summarizeBy: none
+		sourceColumn: Cost Center Level 6 ID HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 6 Description HH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 24b36c92-0fae-4b9d-a4f4-eea74cbbce3d
+		summarizeBy: none
+		sourceColumn: Cost Center Level 6 Description HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 7 ID HH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 62f30f55-4f69-4c4f-880d-6bad4d5e6622
+		summarizeBy: none
+		sourceColumn: Cost Center Level 7 ID HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 7 Description HH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 601fb4ca-0730-4df2-a952-b3b20b9f478a
+		summarizeBy: none
+		sourceColumn: Cost Center Level 7 Description HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 8 ID HH'
+		dataType: string
+		sourceProviderType: varchar(12)
+		lineageTag: 50ed9554-590b-469a-8782-2e2e6a02c5e7
+		summarizeBy: none
+		sourceColumn: Cost Center Level 8 ID HH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Level 8 Description HH'
+		dataType: string
+		sourceProviderType: varchar(64)
+		lineageTag: 83d139ab-07c5-40ff-9ca6-b8c9396df95f
+		summarizeBy: none
+		sourceColumn: Cost Center Level 8 Description HH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Cost Center Horizontal Hierarchy' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_HY_COSTCHZ_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_HY_COSTCHZ_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_HY_COSTCHZ_CUR_D
+
+	annotation PBI_NavigationStepName = Navigation
+

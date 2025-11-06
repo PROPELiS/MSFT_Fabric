@@ -1,0 +1,87 @@
+table EDW_T_D_HY_COSTEVZ_CUR_D
+	lineageTag: 802810cc-b442-4116-a396-1c2254aa5e5e
+
+	column COST_ELEMNT_KEY
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 95095c7d-cdab-4b93-a6f0-e49515d00d09
+		summarizeBy: none
+		sourceColumn: COST_ELEMNT_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Controlling Area ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 593a89ea-32a9-4c55-a6ad-18d85b765b57
+		summarizeBy: none
+		sourceColumn: Cost Element Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Parent ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 6699ea8f-fd84-4c32-92e2-0394333fb880
+		summarizeBy: none
+		sourceColumn: Cost Element Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Parent Description VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 41fa5f2b-81e3-4e73-a1ac-618c1c6c4ce5
+		summarizeBy: none
+		sourceColumn: Cost Element Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Child ID VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 1395409b-acaf-47d3-aaab-d1800ff5aaf3
+		summarizeBy: none
+		sourceColumn: Cost Element Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Child Description VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 611b8b49-abe6-4f44-bb64-d62738d38395
+		summarizeBy: none
+		sourceColumn: Cost Element Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Hierarchical Level VH'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 4c18f7e6-a47c-4b17-a138-1b654458b695
+		summarizeBy: none
+		sourceColumn: Cost Element Hierarchical Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Chart of Accounts'
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: e8295da7-365e-4b49-81d1-53ac6aeb0a3c
+		summarizeBy: none
+		sourceColumn: Chart of Accounts
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_HY_COSTEVZ_CUR_D = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("c2rbjb2faruufollpwcl3w3nue-ozi5pscjxf7e7jsyxglgapwiym.datawarehouse.fabric.microsoft.com", "GLOBAL_EDW"),
+				    dbo_EDW_T_D_HY_COSTEVZ_CUR_D = Source{[Schema="dbo",Item="EDW_T_D_HY_COSTEVZ_CUR_D"]}[Data]
+				in
+				    dbo_EDW_T_D_HY_COSTEVZ_CUR_D
+
+	annotation PBI_ResultType = Table
+

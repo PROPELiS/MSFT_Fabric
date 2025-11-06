@@ -1,0 +1,99 @@
+table 'Partner Functional Area'
+	lineageTag: 3ca76784-ec73-4bad-b6a9-0f3cc6b1999d
+	sourceLineageTag: [Propelis].[PARTNER_FUNCTIONAL_AREA]
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: ac9b1113-11d4-4379-a8ac-f59e407653cf
+		sourceLineageTag: FUNCTNL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Functional Area ID'
+		dataType: string
+		lineageTag: db93e4f5-b7d5-4a5e-a715-392deee9d078
+		sourceLineageTag: Partner Functional Area ID
+		summarizeBy: none
+		sourceColumn: Partner Functional Area ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Partner Functional Area Description'
+		dataType: string
+		lineageTag: 2f1fed68-863d-42d1-9e44-b1414a74a357
+		sourceLineageTag: Partner Functional Area Description
+		summarizeBy: none
+		sourceColumn: Partner Functional Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: d8a91a09-6168-4e34-9310-8a97bc3c62d5
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 983c7773-6f04-4344-9fa8-b6835c6e9bd8
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 28b445e1-47d7-426b-a571-357046088623
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: be476a50-d8bb-4735-a74e-704d23bdb596
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: eaf69406-434f-4631-83fa-58aed0ab17ee
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b08ff44d-cc44-403c-9638-2ed8717c52d8
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Partner Functional Area' = entity
+		mode: directLake
+		source
+			entityName: PARTNER_FUNCTIONAL_AREA
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

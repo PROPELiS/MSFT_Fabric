@@ -1,0 +1,110 @@
+table EDW_T_D_HY_BPCGLHZ_CUR_D
+	lineageTag: 850e6efe-072f-4499-a26f-c132c01969cd
+	sourceLineageTag: [dbo].[EDW_T_D_HY_BPCGLHZ_CUR_D]
+
+	column 'BPC GL Level 1 ID'
+		dataType: string
+		lineageTag: 79073bc1-d7fd-4dc3-a580-d1b6c48f3479
+		sourceLineageTag: BPC GL Level 1 ID
+		summarizeBy: none
+		sourceColumn: BPC GL Level 1 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BPC GL Level 1 Description'
+		dataType: string
+		lineageTag: 3d503974-ccae-4edb-b439-32314a6ca8fa
+		sourceLineageTag: BPC GL Level 1 Description
+		summarizeBy: none
+		sourceColumn: BPC GL Level 1 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BPC GL Level 2 ID'
+		dataType: string
+		lineageTag: 4774e370-9dcb-499a-8742-6f5574d26f8f
+		sourceLineageTag: BPC GL Level 2 ID
+		summarizeBy: none
+		sourceColumn: BPC GL Level 2 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BPC GL Level 2 Description'
+		dataType: string
+		lineageTag: 562dbe7e-fdeb-4a0c-a2db-891efe9f46f6
+		sourceLineageTag: BPC GL Level 2 Description
+		summarizeBy: none
+		sourceColumn: BPC GL Level 2 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BPC GL Level 3 ID'
+		dataType: string
+		lineageTag: 267fc284-522b-41a0-a4e3-5039deeb26ee
+		sourceLineageTag: BPC GL Level 3 ID
+		summarizeBy: none
+		sourceColumn: BPC GL Level 3 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BPC GL Level 3 Description'
+		dataType: string
+		lineageTag: 774bf09f-548b-4bba-a8c5-7e299f5e4c20
+		sourceLineageTag: BPC GL Level 3 Description
+		summarizeBy: none
+		sourceColumn: BPC GL Level 3 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BPC GL Level 4 ID'
+		dataType: string
+		lineageTag: 4b06e913-4608-4d3a-93f0-7952513a93c4
+		sourceLineageTag: BPC GL Level 4 ID
+		summarizeBy: none
+		sourceColumn: BPC GL Level 4 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BPC GL Level 4 Description'
+		dataType: string
+		lineageTag: 548e6e1e-6e2f-4bd4-9b3e-526da4450393
+		sourceLineageTag: BPC GL Level 4 Description
+		summarizeBy: none
+		sourceColumn: BPC GL Level 4 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BPC GL Level 5 ID'
+		dataType: string
+		lineageTag: 60ca769c-f637-438d-a87b-e3456abf9cd2
+		sourceLineageTag: BPC GL Level 5 ID
+		summarizeBy: none
+		sourceColumn: BPC GL Level 5 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BPC GL Level 5 Description'
+		dataType: string
+		lineageTag: 15f0ed6a-fe61-44f8-8990-518d9f25187c
+		sourceLineageTag: BPC GL Level 5 Description
+		summarizeBy: none
+		sourceColumn: BPC GL Level 5 Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACCT_ID
+		dataType: string
+		lineageTag: 91127c6a-1511-4fe6-82e2-9ff56945c4a8
+		sourceLineageTag: ACCT_ID
+		summarizeBy: none
+		sourceColumn: ACCT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EDW_T_D_HY_BPCGLHZ_CUR_D = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_HY_BPCGLHZ_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
