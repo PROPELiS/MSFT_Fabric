@@ -1,0 +1,172 @@
+{
+  "config": "{\"version\":\"5.67\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY25SU10\",\"type\":2,\"version\":{\"visual\":\"2.1.0\",\"report\":\"3.0.0\",\"page\":\"2.3.0\"}}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY25SU10",
+            "path": "BaseThemes/CY25SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    },
+    {
+      "resourcePackage": {
+        "items": [
+          {
+            "name": "images_(1)415932143536227.png",
+            "path": "images_(1)415932143536227.png",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"191L\"}}}}}]}}",
+      "displayName": "SGK Global Time Cards Reports",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "e9de74c7852210d1cfae",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"15a247c50beae8ef928c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":8.653985458642985,\"y\":201.51423282268667,\"z\":2000,\"width\":210,\"height\":84,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Plant.Plant ID\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Plant\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Plant ID\"},\"Name\":\"Plant.Plant ID\",\"NativeReferenceName\":\"Plant ID\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}],\"background\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"100D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 84.00,
+          "width": 210.00,
+          "x": 8.65,
+          "y": 201.51,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"1ec52700f4a46c217f44\",\"layouts\":[{\"id\":0,\"position\":{\"x\":237.3664582942076,\"y\":201.51423282268667,\"z\":5000,\"width\":1031.0605532154643,\"height\":508.1125747860381,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Personnel.Personnel Number\"},{\"queryRef\":\"Plant.Plant ID\"},{\"queryRef\":\"Personnel.Personnel Employee First Name\"},{\"queryRef\":\"Personnel.Personnel Employee Last Name\"},{\"queryRef\":\"Personnel.Personnel Success Factors ID\"},{\"queryRef\":\"Work Date.Date\"},{\"queryRef\":\"Fact Cats DB.Start Time\"},{\"queryRef\":\"Fact Cats DB.End Time\"},{\"queryRef\":\"Fact Time Card.Shift Start Time 2\"},{\"queryRef\":\"Fact Time Card.Shift End Time 2\"},{\"queryRef\":\"Fact Time Card.Shift Scheduled Start Time\"},{\"queryRef\":\"Fact Time Card.Shift Scheduled End Time\"},{\"queryRef\":\"Fact Time Card.Approved Working Hours\"},{\"queryRef\":\"Fact Time Card.Absence Hours\"},{\"queryRef\":\"Fact Time Card.Lunch Hours\"},{\"queryRef\":\"Fact Time Card.Total Hours\"},{\"queryRef\":\"Fact Time Card.Overtime Hours\"},{\"queryRef\":\"Fact Time Card.Comments\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p1\",\"Entity\":\"Plant\",\"Type\":0},{\"Name\":\"w\",\"Entity\":\"Work Date\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"Fact Time Card\",\"Type\":0},{\"Name\":\"f1\",\"Entity\":\"Fact Cats DB\",\"Type\":0},{\"Name\":\"p2\",\"Entity\":\"Personnel\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"Plant ID\"},\"Name\":\"Plant.Plant ID\",\"NativeReferenceName\":\"Plant ID\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Date\"},\"Name\":\"Work Date.Date\",\"NativeReferenceName\":\"Posting Date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Shift Start Time 2\"},\"Name\":\"Fact Time Card.Shift Start Time 2\",\"NativeReferenceName\":\"Shift Start Time 2\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Shift End Time 2\"},\"Name\":\"Fact Time Card.Shift End Time 2\",\"NativeReferenceName\":\"Shift End Time 2\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Shift Scheduled Start Time\"},\"Name\":\"Fact Time Card.Shift Scheduled Start Time\",\"NativeReferenceName\":\"Shift Scheduled Start Time\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Shift Scheduled End Time\"},\"Name\":\"Fact Time Card.Shift Scheduled End Time\",\"NativeReferenceName\":\"Shift Scheduled End Time\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Approved Working Hours\"},\"Name\":\"Fact Time Card.Approved Working Hours\",\"NativeReferenceName\":\"Approved Working Hours\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Absence Hours\"},\"Name\":\"Fact Time Card.Absence Hours\",\"NativeReferenceName\":\"Absence Hours\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Lunch Hours\"},\"Name\":\"Fact Time Card.Lunch Hours\",\"NativeReferenceName\":\"Lunch Hours\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Hours\"},\"Name\":\"Fact Time Card.Total Hours\",\"NativeReferenceName\":\"Total Hours\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Overtime Hours\"},\"Name\":\"Fact Time Card.Overtime Hours\",\"NativeReferenceName\":\"Overtime Hours\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Comments\"},\"Name\":\"Fact Time Card.Comments\",\"NativeReferenceName\":\"Comments\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f1\"}},\"Property\":\"Start Time\"},\"Name\":\"Fact Cats DB.Start Time\",\"NativeReferenceName\":\"Start Time (Punch IN)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f1\"}},\"Property\":\"End Time\"},\"Name\":\"Fact Cats DB.End Time\",\"NativeReferenceName\":\"End Time (Punch Out)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p2\"}},\"Property\":\"Personnel Number\"},\"Name\":\"Personnel.Personnel Number\",\"NativeReferenceName\":\"Personnel Number1\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p2\"}},\"Property\":\"Personnel Employee First Name\"},\"Name\":\"Personnel.Personnel Employee First Name\",\"NativeReferenceName\":\" Employee First Name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p2\"}},\"Property\":\"Personnel Employee Last Name\"},\"Name\":\"Personnel.Personnel Employee Last Name\",\"NativeReferenceName\":\" Employee Last Name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p2\"}},\"Property\":\"Personnel Success Factors ID\"},\"Name\":\"Personnel.Personnel Success Factors ID\",\"NativeReferenceName\":\"Success Factors ID\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Date\"}}}]},\"columnProperties\":{\"Work Date.Date\":{\"displayName\":\"Posting Date\"},\"Fact Cats DB.Start Time\":{\"displayName\":\"Start Time (Punch IN)\"},\"Fact Cats DB.End Time\":{\"displayName\":\"End Time (Punch Out)\"},\"Personnel.Personnel Employee First Name\":{\"displayName\":\" Employee First Name\"},\"Personnel.Personnel Employee Last Name\":{\"displayName\":\" Employee Last Name\"},\"Personnel.Personnel Success Factors ID\":{\"displayName\":\"Success Factors ID\"},\"Fact Time Card.Shift Start Time 2\":{\"formatString\":\"0\"},\"Fact Time Card.Approved Working Hours\":{\"formatString\":\"0\"},\"Fact Time Card.Absence Hours\":{\"formatString\":\"0\"},\"Fact Time Card.Total Hours\":{\"formatString\":\"0\"},\"Fact Time Card.Lunch Hours\":{\"formatString\":\"0\"},\"Fact Time Card.Overtime Hours\":{\"formatString\":\"0\"},\"Fact Time Card.Shift End Time 2\":{\"formatString\":\"0\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"107.89038673388185D\"}}}},\"selector\":{\"metadata\":\"Work Date.Date\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"126.64383707414345D\"}}}},\"selector\":{\"metadata\":\"Fact Time Card.Shift Scheduled Start Time\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"121.64255417021371D\"}}}},\"selector\":{\"metadata\":\"Fact Time Card.Shift Scheduled End Time\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"126.75341985564324D\"}}}},\"selector\":{\"metadata\":\"Fact Time Card.Approved Working Hours\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"95.16439397681738D\"}}}},\"selector\":{\"metadata\":\"Fact Cats DB.End Time\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"92.16437628536646D\"}}}},\"selector\":{\"metadata\":\"Fact Cats DB.Start Time\"}}],\"grid\":[{\"properties\":{\"gridVertical\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"gridVerticalWeight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}],\"columnFormatting\":[{\"properties\":{\"styleValues\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}},\"selector\":{\"metadata\":\"Fact Time Card.Shift Start Time 2\"}}],\"total\":[{\"properties\":{\"totals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"columnHeaders\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}]},\"vcObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Minimal'\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}]}}}",
+          "filters": "[{\"name\":\"9371767f290822ddb7b8\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Fact Cats DB\"}},\"Property\":\"Start Time\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact Cats DB\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Start Time\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'003500'\"}}],[{\"Literal\":{\"Value\":\"'004000'\"}}],[{\"Literal\":{\"Value\":\"'031700'\"}}],[{\"Literal\":{\"Value\":\"'004100'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{}}]},\"isHiddenInViewMode\":false},{\"name\":\"a388add5e5d0e1a86dca\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Fact Cats DB\"}},\"Property\":\"End Time\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact Cats DB\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"End Time\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'004700'\"}}],[{\"Literal\":{\"Value\":\"'004800'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{},\"isHiddenInViewMode\":false}]",
+          "height": 508.11,
+          "width": 1031.06,
+          "x": 237.37,
+          "y": 201.51,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"4a46e962f20b914bde21\",\"layouts\":[{\"id\":0,\"position\":{\"x\":8.653985458642985,\"y\":294.2355055938615,\"z\":7000,\"width\":208.93193464438065,\"height\":82.83100367558286,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Plant.Plant Name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Plant\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Plant Name\"},\"Name\":\"Plant.Plant Name\",\"NativeReferenceName\":\"Plant Name\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}],\"background\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"100D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 82.83,
+          "width": 208.93,
+          "x": 8.65,
+          "y": 294.24,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"5348ec4b6d3b73d0d649\",\"layouts\":[{\"id\":0,\"position\":{\"x\":441.35325839079223,\"y\":9.890269095591984,\"z\":4000,\"width\":522.9479784294261,\"height\":42.03364365626593,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"\"}],\"horizontalTextAlignment\":\"center\"}]}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"3D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"' SGK Global CATS Timecards Report'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"18D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 42.03,
+          "width": 522.95,
+          "x": 441.35,
+          "y": 9.89,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"57558a1e540819dd3483\",\"layouts\":[{\"id\":0,\"position\":{\"x\":761.5507203605828,\"y\":91.48498913422584,\"z\":10000,\"width\":242.3115928420036,\"height\":98.90269095591984,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Fact Time Card.Lunch Hours\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact Time Card\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Lunch Hours\"},\"Name\":\"Fact Time Card.Lunch Hours\",\"NativeReferenceName\":\"Lunch Hours\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Lunch Hours\"}}}]},\"columnProperties\":{\"Fact Time Confirmation Service Orders.Actual Work in Hours\":{\"formatString\":null}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"preserveWhitespace\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"36D\"}}}}}],\"wordWrap\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 98.90,
+          "width": 242.31,
+          "x": 761.55,
+          "y": 91.48,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"73ff8112b83478001730\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":2.272727272727273,\"z\":1000,\"width\":223.86363636363637,\"height\":73.86363636363636,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"images_(1)415932143536227.png\"}}}}}],\"imageScaling\":[{\"properties\":{\"imageScalingType\":{\"expr\":{\"Literal\":{\"Value\":\"'Fill'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 73.86,
+          "width": 223.86,
+          "x": 0.00,
+          "y": 2.27,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"7cf9060e12004237b405\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":74.13399644312942,\"z\":0,\"width\":1600.327358000598,\"height\":12.892868946631204,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 12.89,
+          "width": 1600.33,
+          "x": 0.00,
+          "y": 74.13,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"bae8b61c33dda2535e50\",\"layouts\":[{\"id\":0,\"position\":{\"x\":503.16744023824214,\"y\":91.48498913422584,\"z\":9000,\"width\":249.72929466369757,\"height\":98.90269095591984,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Fact Time Card.Overtime Hours\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact Time Card\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Overtime Hours\"},\"Name\":\"Fact Time Card.Overtime Hours\",\"NativeReferenceName\":\"Overtime Hours\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Overtime Hours\"}}}]},\"columnProperties\":{\"Fact Time Confirmation Service Orders.Actual Work in Hours\":{\"formatString\":null}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"preserveWhitespace\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"36D\"}}}}}],\"wordWrap\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}],\"title\":[{\"properties\":{\"titleWrap\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 98.90,
+          "width": 249.73,
+          "x": 503.17,
+          "y": 91.48,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"d44acac2d6d628e6ae0e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":217.0818215173876,\"y\":34.24409202712434,\"z\":3000,\"width\":15.585361544838083,\"height\":685.7559079728757,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 685.76,
+          "width": 15.59,
+          "x": 217.08,
+          "y": 34.24,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"d71576f99df818cf45be\",\"layouts\":[{\"id\":0,\"position\":{\"x\":7.417701821693988,\"y\":95.19384004507285,\"z\":12000,\"width\":210.16821828132964,\"height\":95,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Work Date.Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"w\",\"Entity\":\"Work Date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Date\"},\"Name\":\"Work Date.Date\",\"NativeReferenceName\":\"Posting Date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Date\"}}}]},\"columnProperties\":{\"EDW_T_D_MST_DATE_CUR_D.THE_DATE\":{\"displayName\":\"Calendar Date\"},\"Work Date.Date\":{\"displayName\":\"Posting Date\"}},\"syncGroup\":{\"groupName\":\"Date\",\"fieldChanges\":true,\"filterChanges\":true},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2024-01-01T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"w\",\"Entity\":\"Work Date\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"w\"}},\"Property\":\"Date\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2024-01-01T00:00:00'\"}}}}}]}}}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}],\"date\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}],\"background\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"100D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 95.00,
+          "width": 210.17,
+          "x": 7.42,
+          "y": 95.19,
+          "z": 12000.00
+        },
+        {
+          "config": "{\"name\":\"dd333964a0e0d1c5ff9b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":8.653985458642985,\"y\":389.42934563893436,\"z\":8000,\"width\":210,\"height\":84,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Cost Center.Cost Center ID\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Cost Center\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Cost Center ID\"},\"Name\":\"Cost Center.Cost Center ID\",\"NativeReferenceName\":\"Cost Center ID\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}],\"background\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"100D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 84.00,
+          "width": 210.00,
+          "x": 8.65,
+          "y": 389.43,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"f185a689c485c6048717\",\"layouts\":[{\"id\":0,\"position\":{\"x\":8.653985458642985,\"y\":482.1506184101092,\"z\":13000,\"width\":210.16821828132964,\"height\":84.06728731253186,\"tabOrder\":13000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Personnel.Personnel Number\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p1\",\"Entity\":\"Personnel\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"Personnel Number\"},\"Name\":\"Personnel.Personnel Number\",\"NativeReferenceName\":\"Personnel Number\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}],\"background\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"100D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 84.07,
+          "width": 210.17,
+          "x": 8.65,
+          "y": 482.15,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"f60de44fa321bc03f602\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1016.2251495720762,\"y\":92.72127277117484,\"z\":11000,\"width\":252.20186193759557,\"height\":98.90269095591984,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Fact Time Card.Absence Hours\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact Time Card\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Absence Hours\"},\"Name\":\"Fact Time Card.Absence Hours\",\"NativeReferenceName\":\"Absence Hours\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Absence Hours\"}}}]},\"columnProperties\":{\"Fact Time Confirmation Service Orders.Actual Work in Hours\":{\"formatString\":null}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"preserveWhitespace\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"36D\"}}}}}],\"wordWrap\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 98.90,
+          "width": 252.20,
+          "x": 1016.23,
+          "y": 92.72,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"ff0f223c4aadcfd94a0d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":237.3664582942076,\"y\":91.48498913422584,\"z\":6000,\"width\":257.1469964853916,\"height\":98.90269095591984,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Fact Time Card.Total Hours\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact Time Card\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Hours\"},\"Name\":\"Fact Time Card.Total Hours\",\"NativeReferenceName\":\"Total Hours\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Hours\"}}}]},\"columnProperties\":{\"Fact Time Confirmation Service Orders.Actual Work in Hours\":{\"formatString\":null}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"2L\"}}},\"preserveWhitespace\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"36D\"}}}}}],\"wordWrap\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 98.90,
+          "width": 257.15,
+          "x": 237.37,
+          "y": 91.48,
+          "z": 6000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

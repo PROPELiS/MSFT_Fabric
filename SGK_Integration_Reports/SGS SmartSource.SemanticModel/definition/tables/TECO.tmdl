@@ -1,0 +1,322 @@
+table TECO
+	lineageTag: 47c5fc13-5ef1-4d36-a964-924f2f6f63e3
+
+	measure 'Total Service Hours' = SUM(TECO[Hours])
+		formatString: #,0.00
+		lineageTag: e57594b0-ad48-4fa3-964b-64d823e03f3a
+
+	measure 'Total Service Orders' = ```
+			DISTINCTCOUNT(TECO[FormattedJobNumber])
+			
+			```
+		formatString: #,0
+		lineageTag: 0c3003b0-ad7f-4ef3-9eeb-a3023b1bc2c5
+
+	measure 'Original Hours' = ```
+			
+			CALCULATE(
+			    SUM(TECO[Hours]),
+			    TECO[JobStageType] = "Build"
+			)
+			
+			```
+		lineageTag: 32b32729-65ba-466c-bb78-565839437d6a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Change Hours' = ```
+			
+			CALCULATE(
+			    SUM(TECO[Hours]),
+			    TECO[JobStageType] = "ClientAmend"
+			)
+			
+			```
+		lineageTag: a05f1d3d-eb50-4011-98ab-5d44fe7f9a6f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Rework Internal Hours' = ```
+			
+			CALCULATE(
+			    SUM(TECO[Hours]),
+			    TECO[JobStageType] = "Internal Rework"
+			)
+			
+			```
+		lineageTag: 7f6e5aea-32d0-462e-9435-8d4c8e4ff634
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Rework External Hours' = ```
+			
+			CALCULATE(
+			    SUM(TECO[Hours]),
+			    TECO[JobStageType] = "SGSAmend"
+			)
+			
+			```
+		lineageTag: f3cf2a77-4cc9-4951-9bf4-2424b94a9405
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Rework %' = ```
+			
+			DIVIDE(
+			    [Rework External Hours] + [Rework Internal Hours],
+			    [Total Service Hours],
+			
+			    BLANK()
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 038d171d-9d8e-47e7-856b-222260647cae
+
+	measure 'Original Rounds' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(TECO[JobStageId]),
+			    TECO[JobStageType] = "Build"
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: bb0615f0-6142-4985-9d56-def9c805078f
+
+	measure Rounds = ```
+			DISTINCTCOUNT(TECO[JobStageId])
+			
+			```
+		formatString: #,0
+		lineageTag: b99ff6f2-1ad4-4c77-8235-3cc86dcc283c
+
+	measure 'Change Rounds' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(TECO[JobStageId]),
+			    TECO[JobStageType] = "ClientAmend"
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 6120c2a8-f64d-4b26-92e6-730c31c7d610
+
+	measure 'Rework Internal Rounds' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(TECO[JobStageId]),
+			    TECO[JobStageType] = "Internal Rework"
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: fe19914d-831e-4169-aade-f4b4d0973de1
+
+	measure 'Rework External Rounds' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(TECO[JobStageId]),
+			    TECO[JobStageType] = "SGSAmend"
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 12a57f19-6ff9-411b-b0ec-2952e3abfca5
+
+	measure 'Hours per Order' = [Total Service Hours] / [Total Service Orders]
+		lineageTag: 6d48a1a3-7de8-4adf-a92f-f8310eb035ba
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hours per Round' = [Total Service Hours] / [Rounds]
+		lineageTag: 541bf4c9-c136-4cf6-abfa-519e44309edb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hours per Original Round' = [Original Hours] / [Original Rounds]
+		lineageTag: 1c49455a-d58a-4eeb-b9e0-a8e94ba83029
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hours per Change Round' = [Change Hours] / [Change Rounds]
+		lineageTag: bed555dc-92f5-4a45-94ea-f241e59c18c6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hours per Internal Rework Round' = [Rework Internal Hours] / [Rework Internal Rounds]
+		lineageTag: a2ddb0d8-dedf-4fd7-97ec-74b3e25c9471
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hours per External Rework Round' = [Rework External Hours] / [Rework External Rounds]
+		lineageTag: de7c533d-94df-408a-a2f1-8947bf63403d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HEXKeyCalendarDate
+		dataType: string
+		lineageTag: bd874835-21b3-49ce-8b96-5f54105036cc
+		summarizeBy: none
+		sourceColumn: HEXKeyCalendarDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyCustomer
+		dataType: string
+		lineageTag: b8dc09f9-eb12-452d-a9f0-ddc3a4cb80d7
+		summarizeBy: none
+		sourceColumn: HEXKeyCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeySites
+		dataType: string
+		lineageTag: 38143c90-696a-464e-8597-5ca719f31de8
+		summarizeBy: none
+		sourceColumn: HEXKeySites
+
+		annotation SummarizationSetBy = Automatic
+
+	column FormattedJobNumber
+		dataType: string
+		lineageTag: fe62067a-b5bc-4467-89e6-914909323d48
+		summarizeBy: none
+		sourceColumn: FormattedJobNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOBDescription
+		dataType: string
+		lineageTag: e2633f3c-6e5e-484d-9c33-5eae53cde33e
+		summarizeBy: none
+		sourceColumn: LOBDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceDescription
+		dataType: string
+		lineageTag: 6d0cfd29-0abf-4d12-ae50-fc102c00fcf7
+		summarizeBy: none
+		sourceColumn: ServiceDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubServiceDescription
+		dataType: string
+		lineageTag: b94f7602-847e-4a75-bb01-f439c7d14a1d
+		summarizeBy: none
+		sourceColumn: SubServiceDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobStageType
+		dataType: string
+		lineageTag: 1a6d8206-c02b-443c-b107-719f4d2bdfca
+		summarizeBy: none
+		sourceColumn: JobStageType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hours
+		dataType: double
+		lineageTag: cab0a460-01ee-47dd-bd8d-63a3cf213dae
+		summarizeBy: sum
+		sourceColumn: Hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column JobStage
+		dataType: double
+		lineageTag: 2dfaad9d-6e08-4f2e-9ec2-7255558a7f8d
+		summarizeBy: sum
+		sourceColumn: JobStage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column JobStageId
+		dataType: double
+		lineageTag: 3cae0039-ccf9-4b04-aa76-0a533026cda4
+		summarizeBy: count
+		sourceColumn: JobStageId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Invoiced_Date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 69773510-58cb-438f-bc3f-1d35bc284061
+		summarizeBy: none
+		sourceColumn: Invoiced_Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column InvoiceYear = ```
+			YEAR([Invoiced_Date])
+			
+			```
+		formatString: 0
+		lineageTag: 03c652ba-88a2-415d-ac77-d4ec76d2aa33
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceQuarter = ```
+			"Q" & FORMAT(QUARTER([Invoiced_Date]), "0")
+			
+			```
+		lineageTag: 1dfb2339-2d35-4b2b-8c12-b118d13b9546
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceMonthNum = ```
+			MONTH([Invoiced_Date])
+			
+			```
+		formatString: 0
+		lineageTag: 8ab7fa1a-5d2f-4e38-8bfa-cd77d72a30a2
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceMonthName = ```
+			FORMAT([Invoiced_Date], "mmm")
+			
+			```
+		lineageTag: 167c6332-03ff-45a7-a7ff-6e73ccfe7561
+		summarizeBy: none
+		sortByColumn: InvoiceMonthNum
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOBCombined
+		dataType: string
+		lineageTag: eb145b75-20e6-4491-9b17-0c6979e59870
+		summarizeBy: none
+		sourceColumn: LOBCombined
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TECO = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(Snowflake.Databases("ma79806.central-us.azure.snowflakecomputing.com","WH_PROD_ADHOC_XS",[Implementation="2.0"]){[Name="SGSEDW"]}[Data], "WITH FirstAmend AS (#(lf)    SELECT#(lf)        jv.""FormattedJobNumber"",#(lf)        js.""JobStageId"",#(lf)        fi.""HEXKeyJobItem""                 AS ""HEXKeyJobItem"",#(lf)        hist.""HEXKeyJobTask""               AS ""HEXKeyJobTask"",#(lf)        MIN(hist.""JobTaskHistoryDateTime"") AS ""FirstAmendTime""#(lf)    FROM dbo.""FactJobTaskHistory"" hist#(lf)    JOIN dbo.""FactJobItem""       fi  ON hist.""HEXKeyJobItem""   = fi.""HEXKeyJobItem""#(lf)    JOIN dbo.""DimJobversion""     jv  ON fi.""HEXKeyJobVersion""  = jv.""HEXKeyJobVersion""#(lf)    JOIN dbo.""DimJobStage""       js  ON fi.""HEXKeyJobStage""    = js.""HEXKeyJobStage""#(lf)    WHERE hist.""JobTaskHistoryStatusLabel"" = 'Amends Required'#(lf)    GROUP BY#(lf)        jv.""FormattedJobNumber"",#(lf)        js.""JobStageId"",#(lf)        fi.""HEXKeyJobItem"",#(lf)        hist.""HEXKeyJobTask""#(lf)),#(lf)Base AS (#(lf)    SELECT#(lf)        cal.""HEXKeyCalendarDate"",#(lf)        CASE #(lf)            WHEN jv.""JobStatus"" IN ('COMPLETE','CLOSED PENDING PON','INVOICED','ON APPROVAL') #(lf)                 THEN jv.""JobInvoiceDate""#(lf)            ELSE NULL#(lf)        END AS ""Invoiced_Date"",#(lf)        fv.""HEXKeyCustomer"",#(lf)        site.""HEXKeySites"",#(lf)        jv.""FormattedJobNumber"",#(lf)        js.""JobStage"",#(lf)        js.""JobStageId"",#(lf)        ji.""JobItemId"",#(lf)        fi.""HEXKeyJobItem"",#(lf)        jt.""JobTaskDescription"",#(lf)        hist.""HEXKeyJobTask"",#(lf)        dpmi.""LOBDescription"",#(lf)        dpmi.""ServiceDescription"",#(lf)        dpmi.""SubServiceDescription"",#(lf)#(lf)        /* NEW: LOBCombined */#(lf)        CASE#(lf)          WHEN TRIM(COALESCE(dpmi.""LOBDescription"", '')) NOT IN ('', 'Old Department')#(lf)               THEN TRIM(dpmi.""LOBDescription"")#(lf)          WHEN UPPER(TRIM(COALESCE(dpmi.""PriceMatrixItemSalesAccountCodeName"", ''))) IN (#(lf)            /* Print Solutions (exacts/synonyms) */#(lf)            'DAX PLATES - CORRUGATE','DAX PLATES - FLEXO','DAX CYLINDERS - CYLINDERS','DAX FLEXO',#(lf)            'FLEXO','CORRUGATE','DRY OFFSET PLATES'#(lf)          ) THEN 'Print Solutions'#(lf)          WHEN#(lf)            UPPER(TRIM(COALESCE(dpmi.""PriceMatrixItemSalesAccountCodeName"", ''))) IN (#(lf)              /* Graphic Solutions (exacts) */#(lf)              'DAX GRAPHIC SERVICES - PRE-MEDIA/REPRO/PRE-PRESS',#(lf)              'DAX GRAPHIC SERVICES - PRODUCTION ART',#(lf)              'DAX GRAPHIC SERVICES - PROOFING',#(lf)              'DAX GRAPHIC SERVICES - 3D',#(lf)              'DAX GRAPHIC SERVICES - PRE-PRESS COLOR CORRECTION',#(lf)              'DAX MANAGED SERVICES - PROJECT MANAGEMENT',#(lf)              'DAX MANAGED SERVICES - SAAS TECHNOLOGY WORKFLOW',#(lf)              'DAX MANAGED SERVICES - DAM/PIM',#(lf)              'EXT. BARCO JOB ASSEMBLY',#(lf)              'DAX MANAGED SERVICES - CLIENT DIRECTED RESOURCES',#(lf)              'DAX GRAPHIC SERVICES - DIELINE CREATION',#(lf)              '9991 - EXT. BARCO JOB ASSEMBLY',#(lf)              'ARTWORK','DAX PRE-MEDIA',#(lf)              /* common synonyms you saw in your output */#(lf)              'PRE-PRESS','PRODUCTION ART','PROOFING','3D',#(lf)              'COLOR RETOUCHING','GRAPHICS ALL OTHER','GRAPHICS CLIENT SERVICE',#(lf)              'PACKSHOTS & CONTENT','ADAPTIVE'#(lf)            )#(lf)            OR REGEXP_LIKE(#(lf)                 UPPER(TRIM(COALESCE(dpmi.""PriceMatrixItemSalesAccountCodeName"", ''))),#(lf)                 '(PRE[- ]?PRESS|PRE[- ]?MEDIA|PRODUCTION ART|PROOF|COLOR|DIELINE|3D|PACKSHOTS|CONTENT|ADAPTIVE)'#(lf)               )#(lf)          THEN 'Graphic Solutions'#(lf)          ELSE 'Other'#(lf)        END AS ""LOBCombined"",#(lf)#(lf)        /* JobStageType: only Internal Rework when AFTER the first amend on SAME Stage+Item+Task */#(lf)        CASE#(lf)            WHEN fa.""FirstAmendTime"" IS NOT NULL#(lf)             AND hist.""JobTaskHistoryStatusLabel"" = 'In Progress'#(lf)             AND hist.""JobTaskHistoryDateTime"" > fa.""FirstAmendTime""#(lf)            THEN 'Internal Rework'#(lf)            WHEN js.""ReasonCodeDesc"" = 'Amend' AND js.""FaultOf"" IN ('SGS', 'Combined') THEN 'SGSAmend'#(lf)            WHEN js.""ReasonCodeDesc"" = 'Amend' AND js.""FaultOf"" IN ('Customer', 'Third Party') THEN 'ClientAmend'#(lf)            ELSE 'Build'#(lf)        END AS ""JobStageType"",#(lf)#(lf)        /* carry minutes; no filtering yet */#(lf)        COALESCE(hist.""JobTaskHistoryWorkMinutesOutlierRemoved"", 0) AS work_mins,#(lf)#(lf)        /* role-group filter applied only at SUM time later */#(lf)        CASE #(lf)            WHEN emp.""JobRoleGroup"" IN ('CGI','Quality','Operator') #(lf)            THEN COALESCE(hist.""JobTaskHistoryWorkMinutesOutlierRemoved"", 0)#(lf)            ELSE 0#(lf)        END AS work_mins_allowed#(lf)    FROM dbo.""FactJobTaskHistory"" hist#(lf)    LEFT JOIN dbo.""FactJobTaskiRFTOnly"" irft #(lf)           ON hist.""HEXKeyJobTask"" = irft.""HEXKeyJobTask""    #(lf)    LEFT JOIN dbo.""DimJobTask"" jt #(lf)           ON hist.""HEXKeyJobTask"" = jt.""HEXKeyJobTask""#(lf)    LEFT JOIN dbo.""DimJobItem"" ji #(lf)           ON hist.""HEXKeyJobItem"" = ji.""HEXKeyJobItemId"" #(lf)    LEFT JOIN dbo.""FactJobItem"" fi #(lf)           ON hist.""HEXKeyJobItem"" = fi.""HEXKeyJobItem"" #(lf)    INNER JOIN dbo.""DimPriceMatrixItems"" dpmi #(lf)           ON dpmi.""HexKeyPriceMartrixItems"" = fi.""HEXKeyPriceMatrixItems""#(lf)    LEFT JOIN dbo.""DimJobStage"" js #(lf)           ON fi.""HEXKeyJobStage"" = js.""HEXKeyJobStage""#(lf)    LEFT JOIN dbo.""DimJobversion"" jv #(lf)           ON jv.""HEXKeyJobVersion"" = fi.""HEXKeyJobVersion""#(lf)    LEFT JOIN dbo.""FactJobVersion"" fv #(lf)           ON jv.""HEXKeyJobVersion"" = fv.""HEXKeyJobVersion""#(lf)    INNER JOIN dbo.""DimCustomer"" cust #(lf)           ON fv.""HEXKeyCustomer"" = cust.""HEXKeyCombineCustomer""#(lf)    LEFT JOIN dbo.""DimEmployee"" emp #(lf)           ON emp.""HEXKeyEmployees"" = hist.""HEXKeyJobTaskOperator""#(lf)    INNER JOIN dbo.""DimSite"" site #(lf)           ON site.""HEXKeySites"" = hist.""HEXKeyOperatorSite""#(lf)    /* join the first amend ON Job + Stage + Item + Task */#(lf)    LEFT JOIN FirstAmend fa#(lf)           ON  fa.""FormattedJobNumber"" = jv.""FormattedJobNumber""#(lf)           AND fa.""JobStageId""         = js.""JobStageId""#(lf)           AND fa.""HEXKeyJobItem""      = fi.""HEXKeyJobItem""#(lf)           AND fa.""HEXKeyJobTask""      = hist.""HEXKeyJobTask""#(lf)    /* fast key-based calendar join */#(lf)    INNER JOIN dbo.""DimCalendarDate"" cal #(lf)           ON hist.""HEXKeyJobTaskHistory"" = cal.""HEXKeyCalendarDate""#(lf)    WHERE cal.""CalendarDate"" > DATE '2024-01-01'#(lf)      AND hist.""JobTaskHistoryStatusLabel"" IN ('In Progress','Amends Required')#(lf)      -- keep all roles; we filter at SUM-time#(lf)      --AND cust.""SimplifiedGroupName"" IN ('MONDELEZ')#(lf)      --AND jv.""FormattedJobNumber"" = '8010560-1'#(lf))#(lf)SELECT#(lf)    ""HEXKeyCalendarDate"",#(lf)    ""Invoiced_Date"",#(lf)    ""HEXKeyCustomer"",#(lf)    ""HEXKeySites"",#(lf)    ""FormattedJobNumber"",#(lf)    ""JobStage"",#(lf)    ""JobStageId"",#(lf)    ""LOBCombined"",#(lf)    ""LOBDescription"",#(lf)    ""ServiceDescription"",#(lf)    ""SubServiceDescription"",#(lf)    ""JobStageType"",#(lf)    SUM(work_mins_allowed) / 60.0 AS ""Hours""#(lf)FROM Base#(lf)WHERE ""LOBCombined"" IN ('Graphic Solutions','Print Solutions')#(lf)GROUP BY#(lf)    ""HEXKeyCalendarDate"",#(lf)    ""Invoiced_Date"",#(lf)    ""HEXKeyCustomer"",#(lf)    ""HEXKeySites"",#(lf)    ""FormattedJobNumber"",#(lf)    ""JobStage"",#(lf)    ""JobStageId"",#(lf)    ""LOBCombined"",#(lf)    ""LOBDescription"",#(lf)    ""ServiceDescription"",#(lf)    ""SubServiceDescription"",#(lf)    ""JobStageType""", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

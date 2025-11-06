@@ -1,0 +1,309 @@
+table ItemsBooked
+	lineageTag: 5e66ee23-6f1b-44cf-8dad-e21b15655bfc
+
+	measure 'Total Items' = ```
+			
+			SUM ( ItemsBooked[ItemCount] )
+			
+			```
+		lineageTag: 2fbe532a-c110-44ad-bca2-ccf3f5c31ea4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Items - Prev Rolling 6 Wks' = ```
+			
+			AVERAGEX(
+			    DATESINPERIOD(
+			        DimCalendarDate[CalendarDate],
+			        SELECTEDVALUE(DimCalendarDate[WeekEndingDate]) - 42,  -- anchor at end of previous block
+			        -42,
+			        DAY
+			    ),
+			    CALCULATE(
+			        [Total Items],
+			        FILTER(
+			            ALL(DimCalendarDate),
+			            DimCalendarDate[CalendarDate] = EARLIER(DimCalendarDate[CalendarDate])
+			        )
+			    )
+			) * 7
+			
+			```
+		lineageTag: 3618845b-4a22-4130-aa89-0d992c7a9c30
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Items - Prior Week' = ```
+			
+			CALCULATE(
+			    [Total Items],
+			    FILTER(
+			        ALL(DimCalendarDate),
+			        DimCalendarDate[WeekEndingDate] = 
+			            SELECTEDVALUE(DimCalendarDate[WeekEndingDate]) - 7
+			    )
+			)
+			
+			```
+		lineageTag: 2e0e5a0f-8903-4037-a60d-19530974a54e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Items - QTD CY' = ```
+			
+			CALCULATE(
+			    [Total Items],
+			    DATESQTD(DimCalendarDate[CalendarDate]),
+			    FILTER(
+			        ALL(DimCalendarDate),
+			        DimCalendarDate[CalendarDate] <= SELECTEDVALUE(DimCalendarDate[WeekEndingDate])
+			    )
+			)
+			
+			```
+		lineageTag: 6f8f2b53-1799-4306-ab5e-c50cf2e483cb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Items - QTD PY' = ```
+			
+			CALCULATE(
+			    [Total Items],
+			    DATESQTD(
+			        DATEADD(DimCalendarDate[CalendarDate], -1, YEAR)
+			    ),
+			    FILTER(
+			        ALL(DimCalendarDate),
+			        DimCalendarDate[CalendarDate] <= SELECTEDVALUE(DimCalendarDate[WeekEndingDate]) - 365
+			    )
+			)
+			
+			```
+		lineageTag: 818e3596-f4cf-433a-bc34-5060d06fc675
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Items - Rolling 6 Wks' = ```
+			
+			AVERAGEX(
+			    DATESINPERIOD(
+			        DimCalendarDate[CalendarDate],
+			        SELECTEDVALUE(DimCalendarDate[WeekEndingDate]),
+			        -42,
+			        DAY
+			    ),
+			    CALCULATE(
+			        [Total Items],
+			        FILTER(
+			            ALL(DimCalendarDate),
+			            DimCalendarDate[CalendarDate] = EARLIER(DimCalendarDate[CalendarDate])
+			        )
+			    )
+			) * 7
+			
+			```
+		lineageTag: ee84992e-7e46-4a08-8060-9a59fd3c5065
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Items - YTD CY' = ```
+			
+			CALCULATE(
+			    [Total Items],
+			    DATESYTD(
+			        DimCalendarDate[CalendarDate],
+			        "12/31"  // adjust if fiscal year doesn't end Dec 31
+			    ),
+			    FILTER(
+			        ALL(DimCalendarDate),
+			        DimCalendarDate[CalendarDate] <= SELECTEDVALUE(DimCalendarDate[WeekEndingDate])
+			    )
+			)
+			
+			```
+		lineageTag: 360d989a-1a39-47e9-8268-d159db3d4800
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Items - YTD PY' = ```
+			
+			CALCULATE(
+			    [Total Items],
+			    DATESYTD(
+			        DATEADD(DimCalendarDate[CalendarDate], -1, YEAR),
+			        "12/31"
+			    ),
+			    FILTER(
+			        ALL(DimCalendarDate),
+			        DimCalendarDate[CalendarDate] <= SELECTEDVALUE(DimCalendarDate[WeekEndingDate]) - 365
+			    )
+			)
+			
+			```
+		lineageTag: c141113c-a3fc-49ca-bbca-98f1b513b219
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Chg vs Prev Rolling 6 Wks - Item' = ```
+			
+			DIVIDE(
+			    [Total Items - Rolling 6 Wks] - [Total Items - Prev Rolling 6 Wks],
+			    [Total Items - Prev Rolling 6 Wks],
+			    BLANK()
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0d9a9623-3d91-4816-bd5e-a35fed36a776
+
+	measure '% Chg vs Prior Week - Item' = ```
+			
+			DIVIDE(
+			    [Total Items] - [Total Items - Prior Week],
+			    [Total Items - Prior Week],
+			    BLANK()
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ce929c4e-0616-440e-ae75-485b51e71a0c
+
+	measure '% Chg vs PY QTD - Item' = ```
+			
+			DIVIDE(
+			    [Total Items - QTD CY] - [Total Items - QTD PY],
+			    [Total Items - QTD PY],
+			    BLANK()
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a24fdc19-8aff-4745-b8af-5f4afd84e449
+
+	measure '% Chg vs PY YTD - Item' = ```
+			
+			DIVIDE(
+			    [Total Items - YTD CY] - [Total Items - YTD PY],
+			    [Total Items - YTD PY],
+			    BLANK()
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d38d11e6-6fb9-415c-8fdf-097f1cce580d
+
+	measure 'Chg vs PY QTD - Item' = ```
+			
+			
+			    [Total Items - QTD CY] - [Total Items - QTD PY]
+			
+			```
+		lineageTag: 15fcb762-d553-43e2-b317-c79c078a79d9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Chg vs PY YTD - Item' = ```
+			
+			
+			    [Total Items - YTD CY] - [Total Items - YTD PY]
+			
+			```
+		lineageTag: f235342e-bbb7-43a7-9051-daf52b949264
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Worktype
+		dataType: string
+		lineageTag: 750a329e-eb06-4fb9-b5a8-a285eefce23f
+		summarizeBy: none
+		sourceColumn: Worktype
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceType
+		dataType: string
+		lineageTag: 263f7912-6240-4677-95c3-6124da05e278
+		summarizeBy: none
+		sourceColumn: ServiceType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemComplexity
+		dataType: string
+		lineageTag: f21153b1-2f6d-4b08-bc5a-aa49a74cdcf9
+		summarizeBy: none
+		sourceColumn: ItemComplexity
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOBCombined
+		dataType: string
+		lineageTag: 3f126b05-c967-41ed-b316-480630b85030
+		summarizeBy: none
+		sourceColumn: LOBCombined
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7609a072-43fd-4e46-957e-eb7f839697e6
+		summarizeBy: none
+		sourceColumn: CalendarDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HEXKeyCustomer
+		dataType: string
+		lineageTag: 3b538a20-184e-4f0a-affe-9ba7525da5a1
+		summarizeBy: none
+		sourceColumn: HEXKeyCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyItemManagerSite
+		dataType: string
+		lineageTag: ff41b904-7a9b-486b-b070-7ba301f55176
+		summarizeBy: none
+		sourceColumn: HEXKeyItemManagerSite
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobPrintProcess
+		dataType: string
+		lineageTag: 30d4da1a-cba2-471b-800d-2b6fceaaf5fe
+		summarizeBy: none
+		sourceColumn: JobPrintProcess
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderType
+		dataType: string
+		lineageTag: 427abcc0-6baf-4629-b88f-392c8a62126d
+		summarizeBy: none
+		sourceColumn: OrderType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemCount
+		dataType: double
+		lineageTag: a4a126de-4ddf-4914-b056-56e2c1b8d1c7
+		summarizeBy: sum
+		sourceColumn: ItemCount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition ItemsBooked = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(Snowflake.Databases("ma79806.central-us.azure.snowflakecomputing.com","WH_PROD_ADHOC_XS",[Implementation="2.0"]){[Name="SGSEDW"]}[Data], "WITH base AS (#(lf)  SELECT#(lf)    CASE#(lf)      WHEN TRIM(pmi.""LOBDescription"") NOT IN ('', 'Old Department') THEN TRIM(pmi.""LOBDescription"")#(lf)      WHEN UPPER(TRIM(pmi.""PriceMatrixItemSalesAccountCodeName"")) IN (#(lf)        'DAX PLATES - CORRUGATE','DAX PLATES - FLEXO','DAX CYLINDERS - CYLINDERS','DAX FLEXO',#(lf)        'FLEXO','CORRUGATE','DRY OFFSET PLATES'#(lf)      ) THEN 'Print Solutions'#(lf)      WHEN UPPER(TRIM(pmi.""PriceMatrixItemSalesAccountCodeName"")) IN (#(lf)        'DAX GRAPHIC SERVICES - PRE-MEDIA/REPRO/PRE-PRESS',#(lf)        'DAX GRAPHIC SERVICES - PRODUCTION ART',#(lf)        'DAX GRAPHIC SERVICES - PROOFING',#(lf)        'DAX GRAPHIC SERVICES - 3D',#(lf)        'DAX GRAPHIC SERVICES - PRE-PRESS COLOR CORRECTION',#(lf)        'DAX MANAGED SERVICES - PROJECT MANAGEMENT',#(lf)        'DAX MANAGED SERVICES - SAAS TECHNOLOGY WORKFLOW',#(lf)        'DAX MANAGED SERVICES - DAM/PIM',#(lf)        'EXT. BARCO JOB ASSEMBLY',#(lf)        'DAX MANAGED SERVICES - CLIENT DIRECTED RESOURCES',#(lf)        'DAX GRAPHIC SERVICES - DIELINE CREATION',#(lf)        '9991 - EXT. BARCO JOB ASSEMBLY',#(lf)        'ARTWORK','DAX PRE-MEDIA',#(lf)        'PRE-PRESS','PRODUCTION ART','PROOFING','3D',#(lf)        'COLOR RETOUCHING','GRAPHICS ALL OTHER','GRAPHICS CLIENT SERVICE'#(lf)      )#(lf)      OR REGEXP_LIKE(UPPER(TRIM(pmi.""PriceMatrixItemSalesAccountCodeName"")),#(lf)        '(PRE[- ]?PRESS|PRE[- ]?MEDIA|PRODUCTION ART|PROOF|COLOR|DIELINE|3D|PACKSHOTS|CONTENT|ADAPTIVE)')#(lf)      THEN 'Graphic Solutions'#(lf)      ELSE 'Other'#(lf)    END AS ""LOBCombined"",#(lf)    CAST(ji.""JobItemBookedDateTime"" AS DATE) AS ""CalendarDate"",#(lf)    fv.""HEXKeyCustomer"",#(lf)    fi.""HEXKeyItemManagerSite"",#(lf)    fi.""HEXKeyJobItem"",#(lf)    fi.""JobItemId"",#(lf)    pmiiw.""Worktype"",#(lf)    pmiis.""ServiceType"",#(lf)    jv.""FormattedJobNumber"",#(lf)    fv.""JobPrintProcess"",#(lf)    jv.""OrderType""#(lf)  FROM dbo.""FactJobItem"" fi#(lf)  LEFT JOIN dbo.""DimJobItem"" ji#(lf)    ON fi.""HEXKeyJobItem"" = ji.""HEXKeyJobItemId""#(lf)  LEFT JOIN dbo.""DimPriceMatrixItems"" pmi#(lf)    ON fi.""HEXKeyPriceMatrixItems"" = pmi.""HexKeyPriceMartrixItems""#(lf)  LEFT JOIN SILVER.MYSGSEU.""tbl_price_matrix_items"" pmii#(lf)    ON pmi.""PriceMatrixItemId"" = pmii.""PriceMatrixItemId""#(lf)  LEFT JOIN SILVER.MYSGSEU.""MasterData_WorkTypes"" pmiiw#(lf)    ON pmii.""WorkTypeId"" = pmiiw.""Code""#(lf)  LEFT JOIN SILVER.MYSGSEU.""MasterData_ServiceTypes"" pmiis#(lf)    ON pmii.""ServiceTypeId"" = pmiis.""Code""#(lf)  LEFT JOIN dbo.""FactJobVersion"" fv#(lf)    ON fi.""HEXKeyJobVersion"" = fv.""HEXKeyJobVersion""#(lf)  LEFT JOIN dbo.""DimJobversion"" jv#(lf)    ON fv.""HEXKeyJobVersion"" = jv.""HEXKeyJobVersion""#(lf)  WHERE ji.""JobItemBookedDateTime"" > '2024-01-01'#(lf)),#(lf)#(lf)task_first AS (#(lf)  SELECT#(lf)      t.""HEXKeyJobItem"",#(lf)      t.""ItemComplexity"",#(lf)      ROW_NUMBER() OVER (#(lf)        PARTITION BY t.""HEXKeyJobItem""#(lf)        ORDER BY t.""JobTaskHistoryDateTime"" ASC, t.""JobTaskHistoryId"" ASC#(lf)      ) AS rn#(lf)  FROM dbo.""FactJobTaskHistory"" t#(lf)  QUALIFY rn = 1#(lf))#(lf)#(lf)SELECT#(lf)  b.""Worktype"",#(lf)  b.""ServiceType"",#(lf)  tf.""ItemComplexity"",#(lf)  b.""LOBCombined"",#(lf)  b.""CalendarDate"",#(lf)  b.""HEXKeyCustomer"",#(lf)  b.""HEXKeyItemManagerSite"",#(lf)  b.""JobPrintProcess"",#(lf)  b.""OrderType"",#(lf)  COUNT(DISTINCT b.""JobItemId"") AS ""ItemCount""#(lf)FROM base b#(lf)LEFT JOIN task_first tf#(lf)  ON b.""HEXKeyJobItem"" = tf.""HEXKeyJobItem""#(lf)WHERE b.""LOBCombined"" IN ('Graphic Solutions','Print Solutions')#(lf)GROUP BY#(lf)  b.""Worktype"",#(lf)  b.""ServiceType"",#(lf)  tf.""ItemComplexity"",#(lf)  b.""LOBCombined"",#(lf)  b.""CalendarDate"",#(lf)  b.""HEXKeyCustomer"",#(lf)  b.""HEXKeyItemManagerSite"",#(lf)  b.""JobPrintProcess"",#(lf)  b.""OrderType""#(lf)ORDER BY#(lf)  b.""CalendarDate"",#(lf)  b.""HEXKeyCustomer"",#(lf)  b.""HEXKeyItemManagerSite"",#(lf)  b.""LOBCombined""", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

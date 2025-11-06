@@ -1,0 +1,127 @@
+{
+  "config": "{\"version\":\"5.67\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY25SU10\",\"type\":2,\"version\":{\"visual\":\"2.1.0\",\"report\":\"3.0.0\",\"page\":\"2.3.0\"}}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY25SU10",
+            "path": "BaseThemes/CY25SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    },
+    {
+      "resourcePackage": {
+        "items": [
+          {
+            "name": "images_(1)415932143536227.png",
+            "path": "images_(1)415932143536227.png",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Detailed G/L Account",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "76dfa9471d9ec91408e7",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0b23a373ab264993956a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":224.42787541055057,\"height\":73.95918621484053,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"images_(1)415932143536227.png\"}}}}}],\"imageScaling\":[{\"properties\":{\"imageScalingType\":{\"expr\":{\"Literal\":{\"Value\":\"'Fill'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 73.96,
+          "width": 224.43,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"3a425fb7bd4a0feb1057\",\"layouts\":[{\"id\":0,\"position\":{\"x\":220.02848129788194,\"y\":0,\"z\":4000,\"width\":16.24371338440739,\"height\":719.9833986480397,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 719.98,
+          "width": 16.24,
+          "x": 220.03,
+          "y": 0.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"68d4bbd447ade631d454\",\"layouts\":[{\"id\":0,\"position\":{\"x\":233.3187922487607,\"y\":87.12537178909419,\"z\":6000,\"width\":1036.6442541685444,\"height\":624.6446146913024,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"EDW_T_D_MST_CMPNYCD_CUR_D.Company Code\"},{\"queryRef\":\"EDW_T_D_MST_PROFCTR_CUR_D.Profit Center ID\"},{\"queryRef\":\"EDW_T_D_MST_PROFCTR_CUR_D.Profit Center Description\"},{\"queryRef\":\"EDW_T_D_MST_GENLDGR_CUR_D.General Ledger Account\"},{\"queryRef\":\"EDW_T_D_MST_GENLDGR_CUR_D.General Ledger Account Group Description\"},{\"queryRef\":\"Partner Profit Center.Partner Profit Center ID\"},{\"queryRef\":\"Partner Profit Center.Partner Profit Center Short Description\"},{\"queryRef\":\"Posting Date.Posting Date\"},{\"queryRef\":\"Clearing Date.Clearing Date\"},{\"queryRef\":\"Fact General Ledger.GL Document Number\"},{\"queryRef\":\"Sum(Fact General Ledger.GL Document Line Item)\"},{\"queryRef\":\"Sum(Posting Date.Posting Fiscal Year)\"},{\"queryRef\":\"Posting Date.Posting Fiscal Period Code\"},{\"queryRef\":\"Fact General Ledger.Company Currency Amount\"},{\"queryRef\":\"EDW_T_D_MST_CMPNYCD_CUR_D.Company Currency Code\"},{\"queryRef\":\"Fact General Ledger.Group Currency Amount\"},{\"queryRef\":\"Fact General Ledger.Document Currency Amount\"},{\"queryRef\":\"Fact General Ledger.Transaction Currency Amount\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"EDW_T_D_MST_CMPNYCD_CUR_D\",\"Type\":0},{\"Name\":\"e1\",\"Entity\":\"EDW_T_D_MST_PROFCTR_CUR_D\",\"Type\":0},{\"Name\":\"e2\",\"Entity\":\"EDW_T_D_MST_GENLDGR_CUR_D\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"Partner Profit Center\",\"Type\":0},{\"Name\":\"p1\",\"Entity\":\"Posting Date\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Clearing Date\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"Fact General Ledger\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Company Code\"},\"Name\":\"EDW_T_D_MST_CMPNYCD_CUR_D.Company Code\",\"NativeReferenceName\":\"Company Code\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e1\"}},\"Property\":\"Profit Center ID\"},\"Name\":\"EDW_T_D_MST_PROFCTR_CUR_D.Profit Center ID\",\"NativeReferenceName\":\"Profit Center ID\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e1\"}},\"Property\":\"Profit Center Description\"},\"Name\":\"EDW_T_D_MST_PROFCTR_CUR_D.Profit Center Description\",\"NativeReferenceName\":\"Profit Center Description\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e2\"}},\"Property\":\"General Ledger Account\"},\"Name\":\"EDW_T_D_MST_GENLDGR_CUR_D.General Ledger Account\",\"NativeReferenceName\":\"General Ledger Account\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e2\"}},\"Property\":\"General Ledger Account Group Description\"},\"Name\":\"EDW_T_D_MST_GENLDGR_CUR_D.General Ledger Account Group Description\",\"NativeReferenceName\":\"General Ledger Account Group Description\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Partner Profit Center ID\"},\"Name\":\"Partner Profit Center.Partner Profit Center ID\",\"NativeReferenceName\":\"Partner Profit Center ID\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Partner Profit Center Short Description\"},\"Name\":\"Partner Profit Center.Partner Profit Center Short Description\",\"NativeReferenceName\":\"Partner Profit Center Short Description\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"Posting Date\"},\"Name\":\"Posting Date.Posting Date\",\"NativeReferenceName\":\"Posting Date\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Clearing Date\"},\"Name\":\"Clearing Date.Clearing Date\",\"NativeReferenceName\":\"Clearing Date\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"GL Document Number\"},\"Name\":\"Fact General Ledger.GL Document Number\",\"NativeReferenceName\":\"GL Document Number\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"GL Document Line Item\"},\"Name\":\"Sum(Fact General Ledger.GL Document Line Item)\",\"NativeReferenceName\":\"GL Document Line Item\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"Posting Fiscal Year\"},\"Name\":\"Sum(Posting Date.Posting Fiscal Year)\",\"NativeReferenceName\":\"Posting Fiscal Year\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"Posting Fiscal Period Code\"},\"Name\":\"Posting Date.Posting Fiscal Period Code\",\"NativeReferenceName\":\"Posting Fiscal Period Code\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Company Currency Amount\"},\"Name\":\"Fact General Ledger.Company Currency Amount\",\"NativeReferenceName\":\"Company Currency Amount\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Company Currency Code\"},\"Name\":\"EDW_T_D_MST_CMPNYCD_CUR_D.Company Currency Code\",\"NativeReferenceName\":\"Company Currency Code\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Group Currency Amount\"},\"Name\":\"Fact General Ledger.Group Currency Amount\",\"NativeReferenceName\":\"Group Currency Amount\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Document Currency Amount\"},\"Name\":\"Fact General Ledger.Document Currency Amount\",\"NativeReferenceName\":\"Document Currency Amount\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Transaction Currency Amount\"},\"Name\":\"Fact General Ledger.Transaction Currency Amount\",\"NativeReferenceName\":\"Transaction Currency Amount\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e2\"}},\"Property\":\"General Ledger Account\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"104.99623192356114D\"}}}},\"selector\":{\"metadata\":\"EDW_T_D_MST_CMPNYCD_CUR_D.Company Code\"}}],\"grid\":[{\"properties\":{\"gridVertical\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"titleWrap\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"100D\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'BoldHeader'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 624.64,
+          "width": 1036.64,
+          "x": 233.32,
+          "y": 87.13,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"6ff0fe51ac843743629c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":6.9732205178842,\"y\":206.40732732937232,\"z\":7000,\"width\":213.3805478472565,\"height\":101.80901956110932,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"EDW_T_D_MST_CMPNYCD_CUR_D.Company Code\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"EDW_T_D_MST_CMPNYCD_CUR_D\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Company Code\"},\"Name\":\"EDW_T_D_MST_CMPNYCD_CUR_D.Company Code\",\"NativeReferenceName\":\"Company Code\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}],\"header\":[{\"properties\":{\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}],\"date\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"100D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"title\":[{\"properties\":{\"titleWrap\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 101.81,
+          "width": 213.38,
+          "x": 6.97,
+          "y": 206.41,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"867324a9f030fb088e02\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":74.13399644312942,\"z\":0,\"width\":1600.327358000598,\"height\":12.892868946631204,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 12.89,
+          "width": 1600.33,
+          "x": 0.00,
+          "y": 74.13,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"98b40eda348109f19e0c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":5.906804867057233,\"y\":95.98557908968003,\"z\":3000,\"width\":212.6449752140604,\"height\":94.50887787291573,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Posting Date.Posting Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Posting Date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Posting Date\"},\"Name\":\"Posting Date.Posting Date\",\"NativeReferenceName\":\"Posting Date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Posting Date\"}}}]},\"columnProperties\":{\"EDW_T_D_MST_DATE_CUR_D.THE_DATE\":{\"displayName\":\"Calendar Date\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2020-01-24T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}],\"date\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}],\"background\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"100D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 94.51,
+          "width": 212.64,
+          "x": 5.91,
+          "y": 95.99,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"bc71487bb570e0993db1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":6.9732205178842,\"y\":322.16278792625,\"z\":2000,\"width\":213.3805478472565,\"height\":101.80901956110932,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"EDW_T_D_MST_PROFCTR_CUR_D.Profit Center ID\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e1\",\"Entity\":\"EDW_T_D_MST_PROFCTR_CUR_D\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e1\"}},\"Property\":\"Profit Center ID\"},\"Name\":\"EDW_T_D_MST_PROFCTR_CUR_D.Profit Center ID\",\"NativeReferenceName\":\"Profit Center ID\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}],\"header\":[{\"properties\":{\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}],\"date\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"100D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"title\":[{\"properties\":{\"titleWrap\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 101.81,
+          "width": 213.38,
+          "x": 6.97,
+          "y": 322.16,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"c46dbbaf74209e74a586\",\"layouts\":[{\"id\":0,\"position\":{\"x\":574.5933706736581,\"y\":15.34108513934524,\"z\":5000,\"width\":354.23960230851736,\"height\":44.62861131445888,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"\"}],\"horizontalTextAlignment\":\"center\"}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Detailed G/L Account'\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"22D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 44.63,
+          "width": 354.24,
+          "x": 574.59,
+          "y": 15.34,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"fbc3e8a2defcb64e644e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":6.9732205178842,\"y\":437.9182485231278,\"z\":8000,\"width\":213.3805478472565,\"height\":101.80901956110932,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"EDW_T_D_MST_GENLDGR_CUR_D.General Ledger Account\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"EDW_T_D_MST_GENLDGR_CUR_D\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"General Ledger Account\"},\"Name\":\"EDW_T_D_MST_GENLDGR_CUR_D.General Ledger Account\",\"NativeReferenceName\":\"General Ledger Account\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}],\"header\":[{\"properties\":{\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}}}}],\"date\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"100D\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"title\":[{\"properties\":{\"titleWrap\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 101.81,
+          "width": 213.38,
+          "x": 6.97,
+          "y": 437.92,
+          "z": 8000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

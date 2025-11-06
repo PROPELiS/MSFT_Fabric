@@ -1,0 +1,126 @@
+table DimSite
+	lineageTag: f3200154-2cad-474d-901a-07a517fd9ee5
+
+	column HEXKeySites
+		dataType: string
+		lineageTag: 8ae60acb-15df-40f9-8e93-e105e58aeea6
+		summarizeBy: none
+		sourceColumn: HEXKeySites
+
+		annotation SummarizationSetBy = Automatic
+
+	column SiteId
+		dataType: double
+		lineageTag: 2e10a518-8a59-4a82-9ba7-40325d971a44
+		summarizeBy: count
+		sourceColumn: SiteId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SiteLBC
+		dataType: double
+		lineageTag: d9d2fd8e-a142-46c1-b4a3-8c7fb0bc2ac2
+		summarizeBy: sum
+		sourceColumn: SiteLBC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SiteName
+		dataType: string
+		lineageTag: 4653de37-5185-4712-8ab7-5b85ed19041d
+		summarizeBy: none
+		sourceColumn: SiteName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryISO3
+		dataType: string
+		lineageTag: f123accb-b354-4236-b3e5-4695311cb16b
+		summarizeBy: none
+		sourceColumn: CountryISO3
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryName
+		dataType: string
+		lineageTag: 3106320e-cd6f-4875-b951-ff45349c9aef
+		summarizeBy: none
+		sourceColumn: CountryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionCode
+		dataType: string
+		lineageTag: 45cd1105-b64e-41cf-9027-898e85692723
+		summarizeBy: none
+		sourceColumn: RegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionName
+		dataType: string
+		lineageTag: 98cb0044-79fc-4407-a3ae-6dbcbbc466fd
+		summarizeBy: none
+		sourceColumn: RegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: string
+		lineageTag: 21740b32-6ce2-466e-a627-2ad9f57563bf
+		summarizeBy: none
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column Longitude
+		dataType: string
+		lineageTag: 2a9d250b-427c-453d-87b2-6d3dff144a8f
+		summarizeBy: none
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column InactiveSite
+		dataType: string
+		lineageTag: 0aa95081-928b-4f83-af32-612921896455
+		summarizeBy: none
+		sourceColumn: InactiveSite
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubRegionCode
+		dataType: string
+		lineageTag: f625528a-b5a6-4230-93f2-4a9366cba44b
+		summarizeBy: none
+		sourceColumn: SubRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubRegionName
+		dataType: string
+		lineageTag: 1089a9a0-1ce4-401f-a100-c7634f8b341e
+		summarizeBy: none
+		sourceColumn: SubRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimSite = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("ma79806.central-us.azure.snowflakecomputing.com","WH_PROD_ADHOC_XS",[Implementation="2.0"]),
+				    SGSEDW_Database = Source{[Name="SGSEDW",Kind="Database"]}[Data],
+				    DBO_Schema = SGSEDW_Database{[Name="DBO",Kind="Schema"]}[Data],
+				    DimSite_Table = DBO_Schema{[Name="DimSite",Kind="Table"]}[Data]
+				in
+				    DimSite_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

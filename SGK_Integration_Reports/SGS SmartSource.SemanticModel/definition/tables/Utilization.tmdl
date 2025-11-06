@@ -1,0 +1,267 @@
+table Utilization
+	lineageTag: 820c9bf9-7493-4aca-b77f-525a9708bce9
+
+	measure 'Billable Hours' = SUM(Utilization[UtilNum]) / 60
+		formatString: #,0.0
+		lineageTag: 69ca9012-f8de-4e70-b88c-d5a7ad5a38dd
+
+	measure 'Available Hours' = SUM(Utilization[PunchMinutes]) / 60
+		formatString: #,0.0
+		lineageTag: 232c3ddb-8ab7-43ff-a214-cf71f9338a22
+
+	measure 'Non Billable Hours' = [Available Hours] - [Billable Hours]
+		formatString: #,0.0
+		lineageTag: 06706d0f-f3f4-4116-be9c-d30dd867a806
+
+	measure 'Overtime %' = ```
+			
+			DIVIDE(
+			    Utilization[OT Hours],
+			    Utilization[Regular Hours],
+			
+			    BLANK()
+			)
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: e5403b49-b1cf-4c3f-9c0e-f9131e8954aa
+
+	measure 'OT Hours' = SUM(Utilization[OT])
+		formatString: #,0.0
+		lineageTag: 37448170-6c0f-41b7-af7c-0eef97de8b02
+
+	measure 'Direct Utilization %' = ```
+			
+			DIVIDE(
+			    Utilization[Billable Hours],
+			    Utilization[Available Hours],
+			
+			    BLANK()
+			)
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: d67eecb1-cd3e-4ac5-a31f-9ab3058a33b6
+
+	measure 'Direct Utilization % MTD' = ```
+			
+			DIVIDE(
+			    CALCULATE([Billable Hours], DATESMTD(DimCalendarDate[CalendarDate])),
+			    CALCULATE([Available Hours], DATESMTD(DimCalendarDate[CalendarDate])),
+			    BLANK()
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: bb0c1e96-bebf-4ae2-8d77-72ae095a625b
+
+	measure 'Direct Utilization % YTD' = ```
+			
+			DIVIDE(
+			    CALCULATE([Billable Hours], DATESYTD(DimCalendarDate[CalendarDate])),
+			    CALCULATE([Available Hours], DATESYTD(DimCalendarDate[CalendarDate])),
+			    BLANK()
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f242661b-43dc-4867-bc7f-551c75fd7ca4
+
+	measure 'Direct Utilization % - L13M' = ```
+			
+			VAR AnchorDate =
+			    MAX(DimCalendarDate[WeekEndingDate])  // latest visible date in slicer
+			RETURN
+			DIVIDE(
+			    CALCULATE(
+			        [Billable Hours],
+			        DATESINPERIOD(
+			            DimCalendarDate[CalendarDate],
+			            AnchorDate,
+			            -13,
+			            MONTH
+			        ),
+			        REMOVEFILTERS(DimCalendarDate)  // remove slicer limits so 13 months of data can come in
+			    ),
+			    CALCULATE(
+			        [Available Hours],
+			        DATESINPERIOD(
+			            DimCalendarDate[CalendarDate],
+			            AnchorDate,
+			            -13,
+			            MONTH
+			        ),
+			        REMOVEFILTERS(DimCalendarDate)
+			    ),
+			    BLANK()
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b1c28181-b653-4c8a-9b49-4fda650d1983
+
+	measure 'Selected Region/Subregion' = ```
+			
+			VAR RegionText = 
+			    IF(
+			        ISFILTERED(DimSite[RegionName]),
+			        CONCATENATEX(VALUES(DimSite[RegionName]), DimSite[RegionName], ", "),
+			        "All"
+			    )
+			
+			VAR SubregionText = 
+			    IF(
+			        ISFILTERED(DimSite[SubRegionName]),
+			        CONCATENATEX(VALUES(DimSite[SubRegionName]), DimSite[SubRegionName], ", "),
+			        "All"
+			    )
+			
+			RETURN
+			"Region: " & RegionText & UNICHAR(10) & "SubRegion: " & SubregionText
+			
+			```
+		lineageTag: 07cee1ba-1880-4ad6-807a-b461d3128983
+
+	measure 'Billable Hours MTD' = ```
+			
+			CALCULATE(
+			    [Billable Hours],
+			    DATESMTD(DimCalendarDate[CalendarDate])
+			)
+			
+			```
+		lineageTag: 905faf57-42a7-4ad1-a797-4b93908d4437
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Billable Hours YTD' = ```
+			
+			CALCULATE(
+			    [Billable Hours],
+			    DATESYTD(DimCalendarDate[CalendarDate])
+			)
+			
+			```
+		lineageTag: 35721d14-9746-4e82-9984-47ecb56a3d35
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Regular Hours' = [Available Hours] - [OT Hours]
+		lineageTag: 14a813e8-bc1e-4699-88a2-63a65f3bddd9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HEXKeyWorkDate
+		dataType: string
+		lineageTag: 730c46cb-1ff7-4d58-a64d-5cd2fbdd092e
+		summarizeBy: none
+		sourceColumn: HEXKeyWorkDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeySite
+		dataType: string
+		lineageTag: 76a05ef4-260c-465c-8182-b478b8816017
+		summarizeBy: none
+		sourceColumn: HEXKeySite
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeNumber
+		dataType: string
+		lineageTag: b2447712-fb71-4b50-8834-2aa18856f2a8
+		summarizeBy: none
+		sourceColumn: EmployeeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobRoleGroup
+		dataType: string
+		lineageTag: bdd645f2-2d96-47c5-b12e-4e60bbd38890
+		summarizeBy: none
+		sourceColumn: JobRoleGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobTitle
+		dataType: string
+		lineageTag: 0e30a402-44cb-4ad0-8152-ff6c67651b46
+		summarizeBy: none
+		sourceColumn: JobTitle
+
+		annotation SummarizationSetBy = Automatic
+
+	column UtilNum
+		dataType: double
+		lineageTag: ee6b1f6c-793c-4cbf-89da-12c83e19622e
+		summarizeBy: sum
+		sourceColumn: UtilNum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PunchMinutes
+		dataType: double
+		lineageTag: 37c25ff8-ed31-4b30-a63f-c3becd21d111
+		summarizeBy: sum
+		sourceColumn: PunchMinutes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OT
+		dataType: double
+		lineageTag: 4a8ca45b-29f8-437d-b48c-fd703d0253e1
+		summarizeBy: sum
+		sourceColumn: OT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SGSOrSGKIndicator
+		dataType: string
+		lineageTag: 0ff89ada-ea69-4314-b444-933738800a76
+		summarizeBy: none
+		sourceColumn: SGSOrSGKIndicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeName
+		dataType: string
+		lineageTag: 39d76e8b-2076-437a-b5d4-1a4214accf1a
+		summarizeBy: none
+		sourceColumn: EmployeeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentName
+		dataType: string
+		lineageTag: 5d0426c1-70b9-4def-9098-10118a9a6fe3
+		summarizeBy: none
+		sourceColumn: DepartmentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUP_Level1_Name
+		dataType: string
+		lineageTag: 077fb985-bae6-4ece-9c0e-3ccfd709cacb
+		summarizeBy: none
+		sourceColumn: SUP_Level1_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Utilization = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(Snowflake.Databases("ma79806.central-us.azure.snowflakecomputing.com","WH_PROD_ADHOC_XS",[Implementation="2.0"]){[Name="SGSEDW"]}[Data], "SELECT#(lf)            kpi.""HEXKeyWorkDate"",#(lf)            kpi.""HEXKeySite"",#(lf)            emp.""SGSOrSGKIndicator"",#(lf)            emp.""EmployeeNumber"",#(lf)            emp.""EmployeeName"",#(lf)            emp.""DepartmentName"",#(lf)            emp.""JobTitle"",#(lf)            emp.""JobRoleGroup"",  #(lf)            emp.""SUP_Level1_Name"",#(lf)            SUM(kpi.""OperatorDailyTotalTaskDurationMinutes"") AS ""UtilNum"",#(lf)            SUM(kpi.""OperatorDailyTotalPunchMinutesnonTimeLoss"") AS ""PunchMinutes"",#(lf)            SUM(kpi.""OperatorDailyOvertimeHoursPunched"") AS ""OT""#(lf)        FROM#(lf)            dbo.""FactKPIIndexWage"" kpi#(lf)            LEFT OUTER JOIN dbo.""DimEmployee"" emp ON kpi.""HEXKeyOperator"" = emp.""HEXKeyEmployees""#(lf)            LEFT OUTER JOIN dbo.""DimCalendarDate"" cal ON kpi.""HEXKeyWorkDate"" = cal.""HEXKeyCalendarDate""#(lf)        WHERE#(lf)            cal.""YearNumber_YYYY"" IN (2024, 2025) and emp.""JobRoleGroup"" IN ('Operator','Quality','CGI') #(lf)        GROUP BY#(lf)            kpi.""HEXKeyWorkDate"",#(lf)            kpi.""HEXKeySite"",#(lf)            emp.""SGSOrSGKIndicator"",#(lf)            emp.""EmployeeNumber"",#(lf)            emp.""EmployeeName"",#(lf)            emp.""DepartmentName"",#(lf)            emp.""JobTitle"",#(lf)            emp.""JobRoleGroup"",  #(lf)            emp.""SUP_Level1_Name""", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

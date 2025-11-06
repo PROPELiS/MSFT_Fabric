@@ -1,0 +1,52 @@
+relationship fc9296fd-3bcb-d938-fca8-47aa8d2fe100
+	fromColumn: OpenOrders.HEXKeyCustomer
+	toColumn: DimCustomer.HEXKeyCombineCustomer
+
+relationship 990a813f-2107-9a93-2874-d11b0e18f894
+	fromColumn: OpenOrders.HEXKeyJobBookDate
+	toColumn: DimCalendarDate.HEXKeyCalendarDate
+
+relationship a19c9991-a10e-293c-cadd-6714abb690e2
+	fromColumn: OpenOrders.HEXKeyProjectManagerSite
+	toColumn: DimSite.HEXKeySites
+
+relationship AutoDetected_f950766d-caeb-420d-b72f-4a5eb2b3c37b
+	fromColumn: SmartSource.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.HEXKeyCalendarDate
+
+relationship 0fdbb91c-0292-2eda-2028-d7072300dda3
+	fromColumn: SmartSource.HEXKeyCustomer
+	toColumn: DimCustomer.HEXKeyCombineCustomer
+
+relationship eaf69c66-6305-8f91-b0b3-089564fde1f9
+	fromColumn: Utilization.HEXKeyWorkDate
+	toColumn: DimCalendarDate.HEXKeyCalendarDate
+
+relationship 949efba8-0f3a-a8aa-4ed9-da77f45a83f8
+	fromColumn: Utilization.HEXKeySite
+	toColumn: DimSite.HEXKeySites
+
+relationship AutoDetected_c2dcf657-9db5-4f87-8ac3-3f75dc19bd70
+	fromColumn: TECO.HEXKeyCalendarDate
+	toColumn: DimCalendarDate.HEXKeyCalendarDate
+
+relationship AutoDetected_f8bf5721-8792-40cd-8bc4-22f73b5aeb8a
+	fromColumn: TECO.HEXKeySites
+	toColumn: DimSite.HEXKeySites
+
+relationship f3748db3-5ddc-cdd8-4a00-2ceb62dfeffa
+	fromColumn: TECO.HEXKeyCustomer
+	toColumn: DimCustomer.HEXKeyCombineCustomer
+
+relationship 184cde20-23a1-4866-2efb-a0daf4bb433e
+	fromColumn: ItemsBooked.CalendarDate
+	toColumn: DimCalendarDate.CalendarDate
+
+relationship 89d30910-2cbf-82f8-6b1c-a968fa4b88ee
+	fromColumn: ItemsBooked.HEXKeyCustomer
+	toColumn: DimCustomer.HEXKeyCombineCustomer
+
+relationship 6b0a06d7-79e9-f73f-669d-02cd700e49aa
+	fromColumn: ItemsBooked.HEXKeyItemManagerSite
+	toColumn: DimSite.HEXKeySites
+

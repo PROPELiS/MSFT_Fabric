@@ -1,0 +1,161 @@
+table SmartSource
+	lineageTag: a6238cb0-59d3-41fa-8db3-a6280126365a
+
+	measure 'SS Hours' = ```
+			
+			CALCULATE(
+			    SUM(SmartSource[Hours]),
+			    SmartSource[Site_Type] = "GPN"
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 7010ff8f-d559-4ffb-a1ec-5c7c7e0c5293
+
+	measure 'SS %' = ```
+			
+			DIVIDE(
+			    SmartSource[SS Hours],
+			    SmartSource[Total Hours],
+			
+			    BLANK()
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d7670b07-774a-4b89-b859-f03590284fe7
+
+	measure 'Total Hours' = ```
+			sum(SmartSource[Hours])
+			    
+			```
+		formatString: #,0
+		lineageTag: 88ba3635-e37e-473c-b0cd-c5835b69500a
+
+	measure 'Target Hours' = ```
+			0.8 * [Total Hours]
+			
+			```
+		lineageTag: 19fc1ab1-d3b4-4887-81dc-f63cdb407a16
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Missed Target Hours' = [Target Hours] - [SS Hours]
+		lineageTag: d6b2de71-efaf-4b17-b148-869752470597
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'SS % Target' = 0.8
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 57d8db10-56e0-40bd-843e-c0d822826a35
+
+	column HEXKeyCalendarDate
+		dataType: string
+		lineageTag: 80ae6ed9-9fed-4876-a13f-e0df35d424c0
+		summarizeBy: none
+		sourceColumn: HEXKeyCalendarDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEXKeyCustomer
+		dataType: string
+		lineageTag: 131d7aea-a383-487c-b32a-49779c97b352
+		summarizeBy: none
+		sourceColumn: HEXKeyCustomer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Originating_Region
+		dataType: string
+		lineageTag: 98ddbeac-7800-4901-8ec0-c08f8c4f0d03
+		summarizeBy: none
+		sourceColumn: Originating_Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Originating_SubRegion
+		dataType: string
+		lineageTag: 2d200b77-e197-4d07-846d-9dc1d9170021
+		summarizeBy: none
+		sourceColumn: Originating_SubRegion
+
+		annotation SummarizationSetBy = Automatic
+
+	column Originating_Site
+		dataType: string
+		lineageTag: b49ce7ae-2a8d-405e-852c-e699a0bd9fe4
+		summarizeBy: none
+		sourceColumn: Originating_Site
+
+		annotation SummarizationSetBy = Automatic
+
+	column Production_Region
+		dataType: string
+		lineageTag: 8f6ba4ef-5f81-475f-b39b-5f3c8edea1a7
+		summarizeBy: none
+		sourceColumn: Production_Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Production_SubRegion
+		dataType: string
+		lineageTag: 42be3fd4-7869-4b86-a157-b4e1a401e206
+		summarizeBy: none
+		sourceColumn: Production_SubRegion
+
+		annotation SummarizationSetBy = Automatic
+
+	column Production_Site
+		dataType: string
+		lineageTag: c44e298f-d232-43d5-aafa-98f43aee8806
+		summarizeBy: none
+		sourceColumn: Production_Site
+
+		annotation SummarizationSetBy = Automatic
+
+	column PM_Site_Type
+		dataType: string
+		lineageTag: 9ad01775-3c7d-4d3f-bc34-c8a4e7c674e7
+		summarizeBy: none
+		sourceColumn: PM_Site_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Site_Type
+		dataType: string
+		lineageTag: 94e7d9a7-4939-4729-b4fb-b4e8be4cb287
+		summarizeBy: none
+		sourceColumn: Site_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hours
+		dataType: double
+		lineageTag: 1f6595cb-3294-417b-9bb0-e2ecddc583e7
+		summarizeBy: sum
+		sourceColumn: Hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LOBCombined
+		dataType: string
+		lineageTag: b36145e7-4b05-4025-94d9-dad14e37df91
+		summarizeBy: none
+		sourceColumn: LOBCombined
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SmartSource = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(Snowflake.Databases("ma79806.central-us.azure.snowflakecomputing.com","WH_PROD_ADHOC_XS",[Implementation="2.0"]){[Name="SGSEDW"]}[Data], "WITH src AS (#(lf)  SELECT#(lf)    cal.""HEXKeyCalendarDate"",#(lf)    hist.""HEXKeyPrimaryContactCustomer"" AS ""HEXKeyCustomer"",#(lf)#(lf)    /* Originating (PM) site info */#(lf)    pmsite.""RegionName""     AS ""Originating_Region"",#(lf)    pmsite.""SubRegionName""  AS ""Originating_SubRegion"",#(lf)    pmsite.""SiteName""       AS ""Originating_Site"",#(lf)#(lf)    /* Production site info */#(lf)    site.""RegionName""       AS ""Production_Region"",#(lf)    site.""SubRegionName""    AS ""Production_SubRegion"",#(lf)    site.""SiteName""         AS ""Production_Site"",#(lf)#(lf)    /* Site type flags */#(lf)    CASE #(lf)      WHEN pmsite.""SiteName"" IN ('SGS Coimbatore','SGS Manila, PH','SGS Mumbai, IN','SGS Chennai, IN','SGS Queretaro, SA','SGS Mauritius, MU','SGS Guangzhou, CN') THEN 'GPN'#(lf)      ELSE 'PROD'#(lf)    END AS ""PM_Site_Type"",#(lf)    CASE #(lf)      WHEN site.""SiteName"" IN ('SGS Coimbatore','SGS Manila, PH','SGS Mumbai, IN','SGS Chennai, IN','SGS Queretaro, SA','SGS Mauritius, MU','SGS Guangzhou, CN') THEN 'GPN'#(lf)      ELSE 'PROD'#(lf)    END AS ""Site_Type"",#(lf)#(lf)    /* --- LOB mapping (same logic as before, Snowflake-safe) --- */#(lf)    CASE#(lf)      WHEN TRIM(pmi.""LOBDescription"") NOT IN ('', 'Old Department') THEN TRIM(pmi.""LOBDescription"")#(lf)      WHEN UPPER(TRIM(pmi.""PriceMatrixItemSalesAccountCodeName"")) IN (#(lf)        /* Print Solutions (exacts/synonyms) */#(lf)        'DAX PLATES - CORRUGATE','DAX PLATES - FLEXO','DAX CYLINDERS - CYLINDERS','DAX FLEXO',#(lf)        'FLEXO','CORRUGATE','DRY OFFSET PLATES'#(lf)      ) THEN 'Print Solutions'#(lf)      WHEN#(lf)        UPPER(TRIM(pmi.""PriceMatrixItemSalesAccountCodeName"")) IN (#(lf)          /* Graphic Solutions (exacts) */#(lf)          'DAX GRAPHIC SERVICES - PRE-MEDIA/REPRO/PRE-PRESS',#(lf)          'DAX GRAPHIC SERVICES - PRODUCTION ART',#(lf)          'DAX GRAPHIC SERVICES - PROOFING',#(lf)          'DAX GRAPHIC SERVICES - 3D',#(lf)          'DAX GRAPHIC SERVICES - PRE-PRESS COLOR CORRECTION',#(lf)          'DAX MANAGED SERVICES - PROJECT MANAGEMENT',#(lf)          'DAX MANAGED SERVICES - SAAS TECHNOLOGY WORKFLOW',#(lf)          'DAX MANAGED SERVICES - DAM/PIM',#(lf)          'EXT. BARCO JOB ASSEMBLY',#(lf)          'DAX MANAGED SERVICES - CLIENT DIRECTED RESOURCES',#(lf)          'DAX GRAPHIC SERVICES - DIELINE CREATION',#(lf)          '9991 - EXT. BARCO JOB ASSEMBLY',#(lf)          'ARTWORK','DAX PRE-MEDIA',#(lf)          /* common synonyms you saw in your output */#(lf)          'PRE-PRESS','PRODUCTION ART','PROOFING','3D',#(lf)          'COLOR RETOUCHING','GRAPHICS ALL OTHER','GRAPHICS CLIENT SERVICE',#(lf)          'PACKSHOTS & CONTENT','ADAPTIVE'#(lf)        )#(lf)        OR REGEXP_LIKE(#(lf)             UPPER(TRIM(pmi.""PriceMatrixItemSalesAccountCodeName"")),#(lf)             '(PRE[- ]?PRESS|PRE[- ]?MEDIA|PRODUCTION ART|PROOF|COLOR|DIELINE|3D|PACKSHOTS|CONTENT|ADAPTIVE)'#(lf)           )#(lf)      THEN 'Graphic Solutions'#(lf)      ELSE 'Other'#(lf)    END AS ""LOBCombined"",#(lf)#(lf)    /* fact */#(lf)    (SUM(hist.""JobTaskHistoryWorkMinutes"") / 60.0) AS ""Hours""#(lf)  FROM dbo.""FactJobTaskHistory"" hist #(lf)  LEFT JOIN dbo.""DimCustomer""      cust  ON hist.""HEXKeyPrimaryContactCustomer"" = cust.""HEXKeyCombineCustomer""#(lf)  LEFT JOIN dbo.""DimEmployee""      emp   ON hist.""HEXKeyJobTaskOperator""       = emp.""HEXKeyEmployees""#(lf)  LEFT JOIN dbo.""DimCalendarDate""  cal   ON hist.""HEXKeyJobTaskHistory""        = cal.""HEXKeyCalendarDate""#(lf)  LEFT JOIN dbo.""DimJobTask""       jt    ON hist.""HEXKeyJobTask""               = jt.""HEXKeyJobTask""#(lf)  LEFT JOIN dbo.""DimSite""          site  ON hist.""HEXKeyOperatorSite""          = site.""HEXKeySites""#(lf)  LEFT JOIN dbo.""DimSite""          pmsite ON hist.""HEXKeyProjectManagerSite""   = pmsite.""HEXKeySites""#(lf)  LEFT JOIN dbo.""FactJobItem""      fi    ON fi.""HEXKeyJobItem""               = hist.""HEXKeyJobItem""#(lf)  LEFT JOIN dbo.""DimPriceMatrixItems"" pmi ON pmi.""HexKeyPriceMartrixItems""     = fi.""HEXKeyPriceMatrixItems""#(lf)  WHERE#(lf)      cal.""YearNumber_YYYY"" IN (2024, 2025)#(lf)      AND jt.""ProductionTaskGroup"" <> 90 #(lf)      AND emp.""JobRoleGroup"" IN ('Operator', 'Quality', 'CGI')#(lf)  GROUP BY#(lf)    cal.""HEXKeyCalendarDate"",#(lf)    hist.""HEXKeyPrimaryContactCustomer"",#(lf)    pmsite.""RegionName"", pmsite.""SubRegionName"", pmsite.""SiteName"",#(lf)    site.""RegionName"",   site.""SubRegionName"",   site.""SiteName"",#(lf)    ""PM_Site_Type"", ""Site_Type"",#(lf)    ""LOBCombined""#(lf))#(lf)#(lf)SELECT#(lf)  ""HEXKeyCalendarDate"",#(lf)  ""HEXKeyCustomer"",#(lf)  ""Originating_Region"",#(lf)  ""Originating_SubRegion"",#(lf)  ""Originating_Site"",#(lf)  ""Production_Region"",#(lf)  ""Production_SubRegion"",#(lf)  ""Production_Site"",#(lf)  ""PM_Site_Type"",#(lf)  ""Site_Type"",#(lf)  ""LOBCombined"",#(lf)  ""Hours""#(lf)FROM src#(lf)WHERE ""LOBCombined"" IN ('Graphic Solutions','Print Solutions')#(lf)AND ""Originating_Region"" IN ('OPS - Americas','OPS - EU','OPS - GAMEA')#(lf)ORDER BY ""HEXKeyCalendarDate"",""HEXKeyCustomer"",""LOBCombined""", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

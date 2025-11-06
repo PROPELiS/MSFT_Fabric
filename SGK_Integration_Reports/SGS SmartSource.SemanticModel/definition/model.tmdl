@@ -1,0 +1,24 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["DimCalendarDate","DimCustomer","DimEmployee","DimSite","OpenOrders","SmartSource","Utilization","TECO","ItemsBooked"]
+
+ref table DimCalendarDate
+ref table DimCustomer
+ref table DimEmployee
+ref table DimSite
+ref table OpenOrders
+ref table SmartSource
+ref table Utilization
+ref table TECO
+ref table ItemsBooked
+
+ref cultureInfo en-US
+

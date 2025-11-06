@@ -1,0 +1,360 @@
+table DimCalendarDate
+	lineageTag: 238197d3-c9d9-45be-8b5f-a65f1da30258
+
+	column HEXKeyCalendarDate
+		dataType: string
+		lineageTag: dd56d9e0-26ab-45e6-a5c7-4c8b60989f17
+		summarizeBy: none
+		sourceColumn: HEXKeyCalendarDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarDate_YYYYMMDD
+		dataType: double
+		lineageTag: d028bb59-62b5-42cc-96b7-34a3da71c7d8
+		summarizeBy: sum
+		sourceColumn: CalendarDate_YYYYMMDD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CalendarDate_YYYY-MM-DD
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 67cff789-a256-4989-8cd7-568fe2ece6a9
+		summarizeBy: none
+		sourceColumn: CalendarDate_YYYY-MM-DD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CalendarDate
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 3fbbbd68-1d57-43da-ba4c-50f3ed28c98b
+		summarizeBy: none
+		sourceColumn: CalendarDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column AccountsReceivableDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e28a7cd7-a357-41a5-8203-aa108a6f0262
+		summarizeBy: none
+		sourceColumn: AccountsReceivableDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column YearNumber_YYYY
+		dataType: double
+		formatString: 0
+		lineageTag: 0e5530a7-e0ef-44ca-b181-c15f191d3a16
+		summarizeBy: sum
+		sourceColumn: YearNumber_YYYY
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterNumber
+		dataType: double
+		lineageTag: 80c77c18-ec56-4f14-88f1-04fc773fb8c3
+		summarizeBy: sum
+		sourceColumn: QuarterNumber
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QuarterName
+		dataType: string
+		lineageTag: 411cb1a8-2b1f-4133-8df5-50c2640662a2
+		summarizeBy: none
+		sourceColumn: QuarterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearAndQuarterName
+		dataType: string
+		lineageTag: 77825c3b-91d2-4e68-8f25-a74894147051
+		summarizeBy: none
+		sourceColumn: YearAndQuarterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		dataType: double
+		lineageTag: 408040dc-9d35-46e5-b613-b5333a7651a3
+		summarizeBy: sum
+		sourceColumn: MonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MonthName
+		dataType: string
+		lineageTag: 1de21301-7433-4ef3-b56e-5774566d4d02
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNameAbbreviated
+		dataType: string
+		lineageTag: b1a14322-358e-4620-bb40-9f021d8aecb2
+		summarizeBy: none
+		sourceColumn: MonthNameAbbreviated
+		sortByColumn: MonthNumber
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNameDayAndYear
+		dataType: string
+		lineageTag: 7da5a587-0f44-4c83-94a6-6edb411560bc
+		summarizeBy: none
+		sourceColumn: MonthNameDayAndYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNameAndYear
+		dataType: string
+		lineageTag: 44c70133-87c4-4c59-a247-758327df26c5
+		summarizeBy: none
+		sourceColumn: MonthNameAndYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfMonthNumber
+		dataType: double
+		lineageTag: 7dc9bce6-d4ab-4274-9087-795e442b790a
+		summarizeBy: sum
+		sourceColumn: DayOfMonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column WeekOfMonthNumber
+		dataType: double
+		lineageTag: 1a39bed1-11b6-488c-9647-434fdcb22068
+		summarizeBy: sum
+		sourceColumn: WeekOfMonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DayOfWeekName
+		dataType: string
+		lineageTag: 5a44d435-0025-4a76-8ee4-1e357cd6f481
+		summarizeBy: none
+		sourceColumn: DayOfWeekName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeekNameAbbreviated
+		dataType: string
+		lineageTag: 87da4e1a-b593-447f-9f6e-f69b0e4705d8
+		summarizeBy: none
+		sourceColumn: DayOfWeekNameAbbreviated
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeekNumber
+		dataType: double
+		lineageTag: 5b9c714c-0b6f-408f-b334-a912bacf0f31
+		summarizeBy: sum
+		sourceColumn: DayOfWeekNumber
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DayOfYearNumber
+		dataType: double
+		lineageTag: b20a6e81-e69e-4372-a3d9-003730a6ac92
+		summarizeBy: sum
+		sourceColumn: DayOfYearNumber
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column WeekOfYearNumber
+		dataType: double
+		lineageTag: ea27d91a-0071-4f26-87a5-a6c1a662411d
+		summarizeBy: sum
+		sourceColumn: WeekOfYearNumber
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IsWeekday
+		dataType: string
+		lineageTag: d63484e0-df7a-4226-ab20-15224c174586
+		summarizeBy: none
+		sourceColumn: IsWeekday
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCurrentMonth
+		dataType: string
+		lineageTag: b8deb1bb-916c-41df-8cbe-7d03b6029791
+		summarizeBy: none
+		sourceColumn: IsCurrentMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCurrentYear
+		dataType: string
+		lineageTag: 8d8c9383-2910-43e4-bcc7-df480d1eb3aa
+		summarizeBy: none
+		sourceColumn: IsCurrentYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsPreviousMonth
+		dataType: string
+		lineageTag: 7c3c365e-f849-476a-a1a0-f0e30fc8878f
+		summarizeBy: none
+		sourceColumn: IsPreviousMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsPreviousYear
+		dataType: string
+		lineageTag: 6a3c7323-79a5-42aa-a8ae-25be89677740
+		summarizeBy: none
+		sourceColumn: IsPreviousYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsYearToDate
+		dataType: string
+		lineageTag: 8ff8dacc-7868-41df-a5a0-1461de91e9c5
+		summarizeBy: none
+		sourceColumn: IsYearToDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsMonthToDate
+		dataType: string
+		lineageTag: 14cea16d-8d44-4a8e-9d5c-27d7efdfeab2
+		summarizeBy: none
+		sourceColumn: IsMonthToDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsPreviousYearToDate
+		dataType: string
+		lineageTag: d31f7c71-e133-4087-905b-28715d4841ac
+		summarizeBy: none
+		sourceColumn: IsPreviousYearToDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsPreviousYearMonthToDate
+		dataType: string
+		lineageTag: 9d8f3a8f-4d88-4472-964c-0ddc1f1b8280
+		summarizeBy: none
+		sourceColumn: IsPreviousYearMonthToDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLastDayOfMonth
+		dataType: string
+		lineageTag: c89ea065-2ebc-45c7-9770-25a5c108cf83
+		summarizeBy: none
+		sourceColumn: IsLastDayOfMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLastDayOfQuarter
+		dataType: string
+		lineageTag: 8aab14a0-87db-40dc-b461-5c2866a5e735
+		summarizeBy: none
+		sourceColumn: IsLastDayOfQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLastDayOfWeek
+		dataType: string
+		lineageTag: bf6ac163-ccd7-4f5b-8228-59291f8e7c4d
+		summarizeBy: none
+		sourceColumn: IsLastDayOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsLastDayOfYear
+		dataType: string
+		lineageTag: acd94aea-99e4-4146-838b-324dd80697d0
+		summarizeBy: none
+		sourceColumn: IsLastDayOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column YYYYMM
+		dataType: string
+		lineageTag: b67c2ad3-8548-45e9-bb21-44f2700be954
+		summarizeBy: none
+		sourceColumn: YYYYMM
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISOYrWeek
+		dataType: double
+		lineageTag: e078728a-e64a-4564-8d3a-395b0b4fcc40
+		summarizeBy: sum
+		sourceColumn: ISOYrWeek
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column WeekEndingDate = ```
+			
+			DimCalendarDate[CalendarDate] + (7 - WEEKDAY(DimCalendarDate[CalendarDate], 2))
+			
+			```
+		formatString: Short Date
+		lineageTag: ac390138-bd36-47d4-8644-e32c811e02a4
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MonthNumAndName
+		dataType: string
+		lineageTag: 38f5f046-c170-4936-b623-8586597c69b9
+		summarizeBy: none
+		sourceColumn: MonthNumAndName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCalendarDate = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("ma79806.central-us.azure.snowflakecomputing.com","WH_PROD_ADHOC_XS",[Implementation="2.0"]),
+				    SGSEDW_Database = Source{[Name="SGSEDW",Kind="Database"]}[Data],
+				    DBO_Schema = SGSEDW_Database{[Name="DBO",Kind="Schema"]}[Data],
+				    DimCalendarDate_Table = DBO_Schema{[Name="DimCalendarDate",Kind="Table"]}[Data]
+				in
+				    DimCalendarDate_Table
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
