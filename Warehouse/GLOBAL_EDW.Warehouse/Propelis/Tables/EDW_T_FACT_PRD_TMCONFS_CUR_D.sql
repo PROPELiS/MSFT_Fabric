@@ -79,5 +79,8 @@ CREATE TABLE [Propelis].[EDW_T_FACT_PRD_TMCONFS_CUR_D] (
 	[COSTCHZ_COST_CNTR_KEY] int NULL, 
 	[COSTCVZ_COST_CNTR_KEY] int NULL, 
 	[PRDVCON_KEY] varchar(max) NULL, 
-	[SOLDTO_CUST_KEY] int NULL
+	[SOLDTO_CUST_KEY] int NULL, 
+	[Activity] varchar(max) NULL, 
+	[Utilization Type] varchar(max) NULL, 
+	[AG] varchar(max) NULL
 );

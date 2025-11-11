@@ -5077,8 +5077,8 @@
                 "properties": {
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
-                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
                     "rootFolder": "Tables"
                   },
                   "annotations": []
@@ -5105,7 +5105,7 @@
               },
               "schema": [],
               "externalReferences": {
-                "connection": "1ca94906-96ed-4a41-b5d8-f42deb7ccc01"
+                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
               },
               "annotations": []
             }
@@ -5127,21 +5127,9 @@
               },
               {
                 "source": {
-                  "name": "EmployeeName",
+                  "name": "JobId",
                   "type": "String",
                   "physicalType": "string"
-                },
-                "sink": {
-                  "name": "EmployeeName",
-                  "type": "String",
-                  "physicalType": "VARCHAR"
-                }
-              },
-              {
-                "source": {
-                  "name": "JobId",
-                  "type": "Int64",
-                  "physicalType": "long"
                 },
                 "sink": {
                   "name": "JobId",
@@ -5238,8 +5226,8 @@
               {
                 "source": {
                   "name": "PayCodeId",
-                  "type": "Int64",
-                  "physicalType": "long"
+                  "type": "String",
+                  "physicalType": "string"
                 },
                 "sink": {
                   "name": "PayCodeId",
@@ -5378,8 +5366,6 @@
           "secureOutput": false
         },
         "name": "Copy Timecards ActualTotals to SF",
-        "state": "Inactive",
-        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "Truncate Bronze ActualTotal",
@@ -5780,7 +5766,7 @@
         },
         "policy": {
           "timeout": "0.12:00:00",
-          "retry": 0,
+          "retry": 3,
           "retryIntervalInSeconds": 30,
           "secureInput": false,
           "secureOutput": false

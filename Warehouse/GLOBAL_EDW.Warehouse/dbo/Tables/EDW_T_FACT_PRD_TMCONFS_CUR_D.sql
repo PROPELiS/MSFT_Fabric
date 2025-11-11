@@ -78,7 +78,8 @@ CREATE TABLE [dbo].[EDW_T_FACT_PRD_TMCONFS_CUR_D] (
 	[WORKCVZ_WRK_CNTR_KEY] int NULL, 
 	[COSTCHZ_COST_CNTR_KEY] int NULL, 
 	[COSTCVZ_COST_CNTR_KEY] int NULL, 
-	[Account_Indicator] int NULL, 
 	[Hours_Of_Original] decimal(18,4) NULL, 
-	[Hours_Of_Approval] decimal(18,4) NULL
+	[Hours_Of_Approval] decimal(18,4) NULL, 
+	[Hours Of Change] decimal(18,4) NULL, 
+	[Hours Of Rework Ext w\Change] decimal(18,4) NULL
 );

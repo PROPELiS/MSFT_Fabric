@@ -29,5 +29,10 @@ CREATE TABLE [Propelis].[EDW_T_FACT_FI_BPCDTAU_CUR_D] (
 	[PROFCHZ_PROFT_CNTR_KEY] int NULL, 
 	[PROFCVZ_PROFT_CNTR_KEY] int NULL, 
 	[INTER_COMPANY_PC_HH_PROFT_CNTR_KEY] int NULL, 
-	[INTER_COMP_PC_VH_PROFT_CNTR_KEY] int NULL
+	[INTER_COMP_PC_VH_PROFT_CNTR_KEY] int NULL, 
+	[FYQ] varchar(25) NULL, 
+	[MST_DATE_KEY] varchar(max) NULL, 
+	[Functional_GL_Key] varchar(max) NULL, 
+	[Period] int NULL, 
+	[Last Month of Quarter] int NULL
 );
