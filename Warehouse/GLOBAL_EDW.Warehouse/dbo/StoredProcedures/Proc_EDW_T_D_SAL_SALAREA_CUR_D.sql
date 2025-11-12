@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_SAL_SALAREA_CUR_D]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_D_SAL_SALAREA_CUR_D]
 AS
 BEGIN
     -- Step 1: Update existing records in target table
@@ -22,7 +22,7 @@ BEGIN
         T.[ETL_UPDTD_TS]                    = S.[ETL_UPDTD_TS],
         T.[BIZ_SEG]                         = S.[BIZ_SEG]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_SAL_SALAREA_CUR_D] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_SAL_SALAREA_CUR_D] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_SAL_SALAREA_CUR_D] AS S
         ON T.[SALES_AREA_KEY] = S.[SALES_AREA_KEY];
 
     -- Step 2: Insert new records from source into target table
@@ -65,7 +65,7 @@ BEGIN
         S.[ETL_CREATED_TS],
         S.[ETL_UPDTD_TS],
         S.[BIZ_SEG]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_SAL_SALAREA_CUR_D] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_SAL_SALAREA_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_SAL_SALAREA_CUR_D] AS T
         ON T.[SALES_AREA_KEY] = S.[SALES_AREA_KEY]
     WHERE T.[SALES_AREA_KEY] IS NULL;

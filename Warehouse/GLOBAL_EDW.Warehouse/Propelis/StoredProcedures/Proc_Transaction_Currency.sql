@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_Transaction_Currency]
+CREATE     PROCEDURE [Propelis].[Proc_Transaction_Currency]
 AS
 BEGIN
     ----------------------------------------------------------------------
@@ -16,7 +16,7 @@ BEGIN
         T.[Transaction Currency Short Description] = S.[SHORT_DESC],
         T.[Transaction Currency Long Description] = S.[LONG_DESC]
     FROM [GLOBAL_EDW].[Propelis].[Transaction_Currency] T
-    INNER JOIN [GLOBAL_EDW_Mirror].[dbo].[EDW_T_D_MST_CRNCY_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CRNCY_CUR_D] S
         ON T.[CRNCY_KEY] = S.[CRNCY_KEY];
 
     ----------------------------------------------------------------------
@@ -45,7 +45,7 @@ BEGIN
         S.[ETL_UPDTD_TS],
         S.[SHORT_DESC],
         S.[LONG_DESC]
-    FROM [GLOBAL_EDW_Mirror].[dbo].[EDW_T_D_MST_CRNCY_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CRNCY_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[Transaction_Currency] T
         ON T.[CRNCY_KEY] = S.[CRNCY_KEY]
     WHERE T.[CRNCY_KEY] IS NULL;

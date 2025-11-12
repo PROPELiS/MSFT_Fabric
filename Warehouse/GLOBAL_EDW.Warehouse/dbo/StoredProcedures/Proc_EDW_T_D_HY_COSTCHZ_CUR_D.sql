@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_HY_COSTCHZ_CUR_D]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_D_HY_COSTCHZ_CUR_D]
 AS
 BEGIN
     --Load source data into a temp table with a hash key
@@ -53,7 +53,7 @@ BEGIN
             )
         ) AS HashKey
     INTO #SourceData
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_HY_COSTCHZ_CUR_D] AS S;
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_HY_COSTCHZ_CUR_D] AS S;
 
     --Update changed rows in target (hash mismatch)
     UPDATE T

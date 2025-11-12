@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D]
 AS
 BEGIN
     -- Step 1: Remove all existing data from Warehouse target table
@@ -32,7 +32,7 @@ SELECT
 
 
 
-FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D];
+FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D];
  
 -- Step 3: Return success message
     PRINT 'Succeeded';

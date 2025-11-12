@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_BILLING_DATE]
+CREATE     PROCEDURE [Propelis].[Proc_BILLING_DATE]
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -64,7 +64,7 @@ BEGIN
     FROM
         [GLOBAL_EDW].[Propelis].[BILLING_DATE] T
     INNER JOIN
-        [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_DATE_CUR_D] S ON T.[DATE_KEY] = S.[DATE_KEY];
+        [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_DATE_CUR_D] S ON T.[DATE_KEY] = S.[DATE_KEY];
 
     -- =================================================================
     -- Step 2: Insert new records that do not exist in the target
@@ -183,7 +183,7 @@ BEGIN
         S.[CURR_FISCAL_WK_MINUS_5_FLG],
         S.[CURR_FISCAL_WK_MINUS_7_FLG]
     FROM
-        [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_DATE_CUR_D] S
+        [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_DATE_CUR_D] S
     LEFT JOIN
         [GLOBAL_EDW].[Propelis].[BILLING_DATE] T ON T.[DATE_KEY] = S.[DATE_KEY]
     WHERE

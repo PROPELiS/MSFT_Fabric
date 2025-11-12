@@ -1,4 +1,4 @@
-CREATE      PROCEDURE [dbo].[Proc_EDW_T_O_PRD_HBPRJNM_CUR_D]
+CREATE   PROCEDURE [dbo].[Proc_EDW_T_O_PRD_HBPRJNM_CUR_D]
 AS
 BEGIN
     -- Step 1: Update existing records in target table
@@ -15,7 +15,7 @@ BEGIN
                 T.[HubX Milestone9 In Date]	= S.[MILESTONE9_IN_DATE]
 
     FROM [GLOBAL_EDW].[dbo].[EDW_T_O_PRD_HBPRJNM_CUR_D] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_O_PRD_HBPRJNM_CUR_D] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_O_PRD_HBPRJNM_CUR_D] AS S
         ON T.[HubX Service Order ID] = S.[SERVC_ORDER_ID]
 		AND T.[HubX Job ID] = S.[JOB_ID];
 
@@ -43,7 +43,7 @@ BEGIN
          S.[ZLP_BB_COL_PROFILE],
          S.[MILESTONE9_IN_DATE]
 
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_O_PRD_HBPRJNM_CUR_D] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_O_PRD_HBPRJNM_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_O_PRD_HBPRJNM_CUR_D] AS T
         ON T.[HubX Service Order ID] = S.[SERVC_ORDER_ID]
 		AND T.[HubX Job ID] = S.[JOB_ID]

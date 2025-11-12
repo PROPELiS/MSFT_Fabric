@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_R_BASE_TARGET_PRICE]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_R_BASE_TARGET_PRICE]
 AS
 BEGIN
     -- 1. UPDATE existing rows
@@ -8,7 +8,7 @@ BEGIN
         T.[Base Target Price]          = S.[PRICE],
         T.[Base Target Price Date]     = S.[PRICE_DATE]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_R_BASE_TARGET_PRICE] AS T   -- target
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_R_BASE_TARGET_PRICE] AS S  -- source
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_R_BASE_TARGET_PRICE] AS S  -- source
         ON T.[Base Target Price Sales Order] = S.[SALES_ORDER];
 
     -- 2. INSERT new rows
@@ -24,7 +24,7 @@ BEGIN
         S.[CURRENCY],
         S.[PRICE],
         S.[PRICE_DATE]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_R_BASE_TARGET_PRICE] AS S  -- source
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_R_BASE_TARGET_PRICE] AS S  -- source
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_R_BASE_TARGET_PRICE] AS T   -- target
         ON T.[Base Target Price Sales Order] = S.[SALES_ORDER]
     WHERE T.[Base Target Price Sales Order] IS NULL;

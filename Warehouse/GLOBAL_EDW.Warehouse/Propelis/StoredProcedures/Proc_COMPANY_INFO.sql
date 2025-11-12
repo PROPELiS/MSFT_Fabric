@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_COMPANY_INFO]
+CREATE     PROCEDURE [Propelis].[Proc_COMPANY_INFO]
 AS
 BEGIN
     -----------------------------------------------------------------
@@ -39,7 +39,7 @@ BEGIN
         T.[Fiscal Year Variant Description] = S.[FISCAL_YR_VARIANT_DESC],
         T.[Credit Control Area Description] = S.[CREDIT_CTRL_AREA_DESC]
     FROM [GLOBAL_EDW].[Propelis].[COMPANY_INFO] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_CMPNYCD_CUR_D] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CMPNYCD_CUR_D] AS S
         ON T.[CMPNY_KEY] = S.[CMPNY_KEY];
 
     -----------------------------------------------------------------
@@ -114,7 +114,7 @@ BEGIN
         S.[CNTRY_DESC],
         S.[FISCAL_YR_VARIANT_DESC],
         S.[CREDIT_CTRL_AREA_DESC]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_CMPNYCD_CUR_D] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CMPNYCD_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[COMPANY_INFO] AS T
         ON T.[CMPNY_KEY] = S.[CMPNY_KEY]
     WHERE T.[CMPNY_KEY] IS NULL;

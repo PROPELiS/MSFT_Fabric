@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_FI_ASSETHR_CUR_D]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_D_FI_ASSETHR_CUR_D]
 AS
 BEGIN
     ----------------------------------------------------------------------
@@ -33,7 +33,7 @@ BEGIN
         T.[Asset Cost Center] = S.[COST_CNTR],
         T.[Asset Plant] = S.[PLNT]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_FI_ASSETHR_CUR_D] T
-    INNER JOIN [GLOBAL_EDW_02_MIRROR].[GLOBAL_EDW].[EDW_T_D_FI_ASSETHR_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_FI_ASSETHR_CUR_D] S
         ON T.[ASSET_KEY] = S.[ASSET_KEY];
 
     ----------------------------------------------------------------------
@@ -96,7 +96,7 @@ BEGIN
         S.[SERIAL_NUM],
         S.[COST_CNTR],
         S.[PLNT]
-    FROM [GLOBAL_EDW_02_MIRROR].[GLOBAL_EDW].[EDW_T_D_FI_ASSETHR_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_FI_ASSETHR_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_FI_ASSETHR_CUR_D] T
         ON T.[ASSET_KEY] = S.[ASSET_KEY]
     WHERE T.[ASSET_KEY] IS NULL;

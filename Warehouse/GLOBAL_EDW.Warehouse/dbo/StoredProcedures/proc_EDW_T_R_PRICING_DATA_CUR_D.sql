@@ -18,7 +18,7 @@ BEGIN
         T.[red]                   = S.[RED],
         T.[notes]                 = S.[NOTES]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_R_PRICING_DATA_CUR_D] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_R_PRICING_DATA_CUR_D] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_R_PRICING_DATA_CUR_D] AS S
         ON T.[sold to] = S.[SOLD_TO];   
 
 
@@ -52,7 +52,7 @@ BEGIN
         S.[YELLOW],
         S.[RED],
         S.[NOTES]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_R_PRICING_DATA_CUR_D] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_R_PRICING_DATA_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_R_PRICING_DATA_CUR_D] AS T
         ON T.[sold to] = S.[SOLD_TO]
     WHERE T.[sold to] IS NULL;   

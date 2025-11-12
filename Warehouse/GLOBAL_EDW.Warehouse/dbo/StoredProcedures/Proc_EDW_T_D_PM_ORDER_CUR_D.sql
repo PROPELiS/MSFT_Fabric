@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_PM_ORDER_CUR_D]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_D_PM_ORDER_CUR_D]
 AS
 BEGIN
     -- Update existing records
@@ -91,7 +91,7 @@ BEGIN
         T.[Is Closed]                    = S.[IS_CLSD],
         T.[Deletion Indicator]           = S.[DELETION_IND]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_PM_ORDER_CUR_D] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_PM_ORDER_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_PM_ORDER_CUR_D] S
         ON T.[ORDER_KEY] = S.[ORDER_KEY];
 
     -- Insert new records
@@ -272,7 +272,7 @@ BEGIN
         S.[IS_COMPLETED],
         S.[IS_CLSD],
         S.[DELETION_IND]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_PM_ORDER_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_PM_ORDER_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_PM_ORDER_CUR_D] T
         ON T.[ORDER_KEY] = S.[ORDER_KEY]
     WHERE T.[ORDER_KEY] IS NULL;

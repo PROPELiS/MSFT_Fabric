@@ -1,10 +1,10 @@
-CREATE PROCEDURE [dbo].[Proc_EDW_T_D_HY_BPCGLHZ_CUR_D]
+CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_HY_BPCGLHZ_CUR_D]
 AS  
 BEGIN  
     -- Update existing records
     UPDATE T
     SET
-      T.[BPC GL Account ID]=S.[ACCT_ID],
+      T.[ACCT_ID]=S.[ACCT_ID],
       T.[BPC GL Level 1 ID]=S.[LVL_1_ID],
       T.[BPC GL Level 1 Description]=S.[LVL_1_DESC],
       T.[BPC GL Level 2 ID]=S.[LVL_2_ID],
@@ -16,11 +16,11 @@ BEGIN
       T.[BPC GL Level 5 ID]=S.[LVL_5_ID],
       T.[BPC GL Level 5 Description]=S.[LVL_5_DESC]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_HY_BPCGLHZ_CUR_D] AS T
-    INNER JOIN [GLOBAL_EDW_02_MIRROR].[GLOBAL_EDW].[EDW_T_D_HY_BPCGLHZ_CUR_D] AS S
-        ON T.[BPC GL Account ID] = S.[ACCT_ID];
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_HY_BPCGLHZ_CUR_D] AS S
+        ON T.[ACCT_ID] = S.[ACCT_ID];
 
     INSERT INTO [GLOBAL_EDW].[dbo].[EDW_T_D_HY_BPCGLHZ_CUR_D]  (
-         [BPC GL Account ID],
+         [ACCT_ID],
          [BPC GL Level 1 ID],
          [BPC GL Level 1 Description],
          [BPC GL Level 2 ID],
@@ -46,8 +46,8 @@ BEGIN
         S.[LVL_5_ID],
         S.[LVL_5_DESC]
 
-    FROM [GLOBAL_EDW_02_MIRROR].[GLOBAL_EDW].[EDW_T_D_HY_BPCGLHZ_CUR_D] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_HY_BPCGLHZ_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_HY_BPCGLHZ_CUR_D]  AS T
-        ON T.[BPC GL Account ID] = S.[ACCT_ID]
-    WHERE T.[BPC GL Account ID] IS NULL;
+        ON T.[ACCT_ID] = S.[ACCT_ID]
+    WHERE T.[ACCT_ID] IS NULL;
 END;

@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_R_BASE_TARGET_PRICING_COMMENTS]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_R_BASE_TARGET_PRICING_COMMENTS]
 AS
 BEGIN
     -- 1. UPDATE existing rows
@@ -11,7 +11,7 @@ BEGIN
         T.[Base Target Pricing Comments]             = S.[COMMENT],
         T.[Base Target Pricing Comments Date Created]= S.[DATE_CREATE]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_R_BASE_TARGET_PRICING_COMMENTS] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_R_BASE_TARGET_PRICING_COMMENTS] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_R_BASE_TARGET_PRICING_COMMENTS] AS S
         ON T.[Customer Partner Customer ID] = S.[ID];
 
     -- 2. INSERT new rows
@@ -31,7 +31,7 @@ BEGIN
         S.[EMAIL],
         S.[COMMENT],
         S.[DATE_CREATE]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_R_BASE_TARGET_PRICING_COMMENTS] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_R_BASE_TARGET_PRICING_COMMENTS] AS S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_R_BASE_TARGET_PRICING_COMMENTS] AS T
         ON T.[Customer Partner Customer ID] = S.[ID]
     WHERE T.[Customer Partner Customer ID] IS NULL;

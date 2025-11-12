@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_HY_GLACTHZ_CUR_D]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_D_HY_GLACTHZ_CUR_D]
 AS
 BEGIN
 
@@ -86,7 +86,7 @@ BEGIN
 			ISNULL(S.[LVL_6_NODENAME], '')
         )) AS HashKey
     INTO #SourceData
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_HY_GLACTHZ_CUR_D] AS S;
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_HY_GLACTHZ_CUR_D] AS S;
 
     ------------------------------------------------------------------
     -- Step 2: Update changed rows in target (hash mismatch)

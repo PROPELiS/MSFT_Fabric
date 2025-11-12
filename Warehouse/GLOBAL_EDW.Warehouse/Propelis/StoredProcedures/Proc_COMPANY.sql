@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_COMPANY]
+CREATE     PROCEDURE [Propelis].[Proc_COMPANY]
 AS
 BEGIN
     UPDATE T
@@ -38,7 +38,7 @@ BEGIN
         T.[Company Credit Control Area Description]	       = S.[CREDIT_CTRL_AREA_DESC]
 
  FROM [GLOBAL_EDW].[Propelis].[COMPANY] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_CMPNYCD_CUR_D] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CMPNYCD_CUR_D] AS S
         ON T.[CMPNY_KEY] = S.[CMPNY_KEY];
 
     -- Step 2: Insert new records from mirror into target table
@@ -113,7 +113,7 @@ BEGIN
        S.[FISCAL_YR_VARIANT_DESC],
        S.[CREDIT_CTRL_AREA_DESC]
 	   
-	FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_CMPNYCD_CUR_D] AS S
+	FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CMPNYCD_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[COMPANY] AS T
         ON T.[CMPNY_KEY] = S.[CMPNY_KEY]
     WHERE T.[CMPNY_KEY] IS NULL;
