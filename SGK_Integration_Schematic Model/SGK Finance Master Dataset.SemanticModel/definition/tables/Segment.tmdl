@@ -1,0 +1,155 @@
+table Segment
+	lineageTag: 41d709c2-8fe8-4411-9e11-6e3f6f076a73
+	sourceLineageTag: [dbo].[EDW_T_D_MST_SEGMENT_CUR_D]
+
+	column SEG_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d22aa1a-0e76-4e93-89e1-84c14d386c20
+		sourceLineageTag: SEG_KEY
+		summarizeBy: none
+		sourceColumn: SEG_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment ID'
+		dataType: string
+		lineageTag: d9c7c502-9991-4df3-b865-c1249c6e1097
+		sourceLineageTag: Segment ID
+		summarizeBy: none
+		sourceColumn: Segment ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Code Description'
+		dataType: string
+		lineageTag: 790bb4ed-0401-4264-823d-448575e77aac
+		sourceLineageTag: Segment Code Description
+		summarizeBy: none
+		sourceColumn: Segment Code Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Business Unit Code'
+		dataType: string
+		lineageTag: 7bb050f8-f327-40c1-a1b6-66873e7dfd33
+		sourceLineageTag: Segment Business Unit Code
+		summarizeBy: none
+		sourceColumn: Segment Business Unit Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Business Unit Code Description'
+		dataType: string
+		lineageTag: 4495577c-59c9-4ea0-acab-92485356814b
+		sourceLineageTag: Segment Business Unit Code Description
+		summarizeBy: none
+		sourceColumn: Segment Business Unit Code Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Created Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 19a2e5e3-cede-48ee-ab2e-f3bc5fd78aa8
+		sourceLineageTag: Segment Created Date
+		summarizeBy: none
+		sourceColumn: Segment Created Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Created User ID'
+		dataType: string
+		lineageTag: 84c41a62-f638-4547-b2f0-c55a8e217ab9
+		sourceLineageTag: Segment Created User ID
+		summarizeBy: none
+		sourceColumn: Segment Created User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Updated Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3049ee0d-0825-4001-a234-7d77042a4179
+		sourceLineageTag: Segment Updated Date
+		summarizeBy: none
+		sourceColumn: Segment Updated Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Updated User ID'
+		dataType: string
+		lineageTag: 8935bb56-b201-4251-a827-7353d759fe32
+		sourceLineageTag: Segment Updated User ID
+		summarizeBy: none
+		sourceColumn: Segment Updated User ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: a3acc131-547d-452e-b48a-91a767fa018c
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ac8ad732-2137-4051-a24b-b7596a9f34e2
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 484e0e98-a402-4556-bfb0-cb3ab43b668c
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: 6cbbfdb1-bcf5-4068-8c07-20d701f4d618
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7f76f4ae-f8ca-42ec-b6d4-ca56532ff500
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dd300378-90ff-4609-86ec-62f69ce9c165
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Segment = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_SEGMENT_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

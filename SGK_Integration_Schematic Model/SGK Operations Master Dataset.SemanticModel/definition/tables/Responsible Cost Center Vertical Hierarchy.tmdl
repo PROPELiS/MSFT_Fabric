@@ -1,0 +1,77 @@
+table 'Responsible Cost Center Vertical Hierarchy'
+	lineageTag: b64534bf-70de-43f1-8d89-525682657089
+	sourceLineageTag: [Propelis].[RESP_COST_CENTER_VERTICAL_HIERARCHY]
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a4ca5566-c84f-420c-962a-d158cd57f2e0
+		sourceLineageTag: COST_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Controlling Area ID VH'
+		dataType: string
+		lineageTag: f398338f-0c21-4cdb-9669-fc70a4e425ac
+		sourceLineageTag: Resp Cost Center Controlling Area ID VH
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Parent ID VH'
+		dataType: string
+		lineageTag: 700b8c12-e1cf-4b1f-ac9e-2cfe34078105
+		sourceLineageTag: Resp Cost Center Parent ID VH
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Parent Description VH'
+		dataType: string
+		lineageTag: f2a1d150-efd7-41a8-9ad0-74d660407249
+		sourceLineageTag: Resp Cost Center Parent Description VH
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Child ID VH'
+		dataType: string
+		lineageTag: 3995a170-b273-43f0-885e-aa0b06bfd8f9
+		sourceLineageTag: Resp Cost Center Child ID VH
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Child Description VH'
+		dataType: string
+		lineageTag: e6cc34cd-5158-41e3-9c19-051eee1efacd
+		sourceLineageTag: Resp Cost Center Child Description VH
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Resp Cost Center Hierarchical Level VH'
+		dataType: string
+		lineageTag: caa01e60-46f5-4c80-b7fb-2fe6837dd581
+		sourceLineageTag: Resp Cost Center Hierarchical Level VH
+		summarizeBy: none
+		sourceColumn: Resp Cost Center Hierarchical Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Responsible Cost Center Vertical Hierarchy' = entity
+		mode: directLake
+		source
+			entityName: RESP_COST_CENTER_VERTICAL_HIERARCHY
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

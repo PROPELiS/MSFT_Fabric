@@ -1,0 +1,144 @@
+table 'Customer Material Info Record'
+	lineageTag: 7c4ced8b-4635-469f-baa4-140de40f84e0
+	sourceLineageTag: [dbo].[EDW_T_D_MST_CUSTMINR_CUR_D]
+
+	column CUST_MATRL_INFO_RCD_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 10ac703e-920d-4f39-b099-0f6dd2a90e85
+		sourceLineageTag: CUST_MATRL_INFO_RCD_KEY
+		summarizeBy: none
+		sourceColumn: CUST_MATRL_INFO_RCD_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Sales Organization'
+		dataType: string
+		lineageTag: 38753fa2-f450-47ed-85f3-fa9992cde178
+		sourceLineageTag: CMIR Sales Organization
+		summarizeBy: none
+		sourceColumn: CMIR Sales Organization
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Distribution Channel'
+		dataType: string
+		lineageTag: 54b5f42b-dd53-4a8e-a326-16d80d46529d
+		sourceLineageTag: CMIR Distribution Channel
+		summarizeBy: none
+		sourceColumn: CMIR Distribution Channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Customer Number'
+		dataType: string
+		lineageTag: ce1c72b1-f2b5-48d1-92b8-f62aa4f4e526
+		sourceLineageTag: CMIR Customer Number
+		summarizeBy: none
+		sourceColumn: CMIR Customer Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Material ID'
+		dataType: string
+		lineageTag: 5bf48cec-3df4-4ac2-b4cb-fb46f37354b4
+		sourceLineageTag: CMIR Material ID
+		summarizeBy: none
+		sourceColumn: CMIR Material ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Customer Material ID'
+		dataType: string
+		lineageTag: 1b365e32-b0fd-4be6-b095-f57f80017cb9
+		sourceLineageTag: CMIR Customer Material ID
+		summarizeBy: none
+		sourceColumn: CMIR Customer Material ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Base UoM'
+		dataType: string
+		lineageTag: 54680b8d-8602-4608-be58-cfdcc5f990cb
+		sourceLineageTag: CMIR Base UoM
+		summarizeBy: none
+		sourceColumn: CMIR Base UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: c38e4e9d-97c6-423c-aac4-d87df210fc85
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ec28e06c-1ecc-4b91-855c-6f008b1f095a
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 236f220c-421b-42a1-bd14-25b7ae09c478
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Record Indicator of Customer Material Info Record'
+		dataType: string
+		lineageTag: af8a7120-09a9-4543-9cbc-a633c028ea67
+		sourceLineageTag: Current Record Indicator of Customer Material Info Record
+		summarizeBy: none
+		sourceColumn: Current Record Indicator of Customer Material Info Record
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b2c332bb-c48b-4baf-a3b8-276e08c3aeda
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d830d10d-d802-43b6-a0a5-0226fe220812
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CMIR Customer Description'
+		dataType: string
+		lineageTag: 8c4bf649-7464-48a4-8174-4a62caab9506
+		sourceLineageTag: CMIR Customer Description
+		summarizeBy: none
+		sourceColumn: CMIR Customer Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Customer Material Info Record' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_MST_CUSTMINR_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

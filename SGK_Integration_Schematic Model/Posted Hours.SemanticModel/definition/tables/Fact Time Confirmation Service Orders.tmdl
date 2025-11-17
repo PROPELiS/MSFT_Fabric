@@ -701,11 +701,6 @@ table 'Fact Time Confirmation Service Orders'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure Measure
-		lineageTag: 86127a70-1705-4292-bcf6-b9df7d808021
-
-		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
-
 	measure '%Change_Internal Hours' = ```
 			
 			VAR CurrentFY =
@@ -801,6 +796,11 @@ table 'Fact Time Confirmation Service Orders'
 		lineageTag: 0f67d9c9-f8dc-407e-8b2e-d8b61df2d046
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Measure
+		lineageTag: 5faa2645-2fae-48ac-aa82-880463305d76
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
 
 	column SEG_CD_KEY
 		dataType: int64

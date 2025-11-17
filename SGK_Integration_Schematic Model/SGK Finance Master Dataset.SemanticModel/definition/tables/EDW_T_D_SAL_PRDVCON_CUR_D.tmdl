@@ -3112,6 +3112,15 @@ table EDW_T_D_SAL_PRDVCON_CUR_D
 
 		annotation SummarizationSetBy = Automatic
 
+	column PRDVCON_KEY
+		dataType: string
+		lineageTag: 78723500-2a50-40df-836a-ae2c18f72add
+		sourceLineageTag: PRDVCON_KEY
+		summarizeBy: none
+		sourceColumn: PRDVCON_KEY
+
+		annotation SummarizationSetBy = Automatic
+
 	partition EDW_T_D_SAL_PRDVCON_CUR_D = entity
 		mode: directLake
 		source

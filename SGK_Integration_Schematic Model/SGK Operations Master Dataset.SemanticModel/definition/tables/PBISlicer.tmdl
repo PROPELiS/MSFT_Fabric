@@ -1,0 +1,29 @@
+table PBISlicer
+	lineageTag: e5e35207-e4b9-4973-b73d-78b10707d534
+	sourceLineageTag: [dbo].[PBISlicer]
+
+	column SlicerIdentifier
+		dataType: string
+		lineageTag: 50353958-fdbb-4379-adc7-47444e0744b4
+		sourceLineageTag: SlicerIdentifier
+		summarizeBy: none
+		sourceColumn: SlicerIdentifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column Slicer
+		dataType: string
+		lineageTag: 51ee4573-e0ae-4db1-aedf-5771f56ab201
+		sourceLineageTag: Slicer
+		summarizeBy: none
+		sourceColumn: Slicer
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PBISlicer = entity
+		mode: directLake
+		source
+			entityName: PBISlicer
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+

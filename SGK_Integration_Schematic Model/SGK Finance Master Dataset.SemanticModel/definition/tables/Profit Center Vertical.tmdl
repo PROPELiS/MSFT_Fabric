@@ -1,0 +1,77 @@
+table 'Profit Center Vertical'
+	lineageTag: 1714d297-4ff8-4ad1-a4a5-dccc698b9bf4
+	sourceLineageTag: [dbo].[EDW_T_D_HY_PROFCVZ_CUR_D]
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: eb0097fb-e87e-458d-903d-b47a1862cdce
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Controlling Area ID VH'
+		dataType: string
+		lineageTag: 69fde585-e1bf-44d4-9bc8-1c4d92018afc
+		sourceLineageTag: Profit Center Controlling Area ID VH
+		summarizeBy: none
+		sourceColumn: Profit Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Parent ID VH'
+		dataType: string
+		lineageTag: dc620934-33d0-4a4a-a58c-365067a07cfe
+		sourceLineageTag: Profit Center Parent ID VH
+		summarizeBy: none
+		sourceColumn: Profit Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Parent Description VH'
+		dataType: string
+		lineageTag: ed076b6d-6317-445f-91a8-d1270577b941
+		sourceLineageTag: Profit Center Parent Description VH
+		summarizeBy: none
+		sourceColumn: Profit Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Child ID VH'
+		dataType: string
+		lineageTag: c2745248-e500-46b6-a859-14e1c30f6883
+		sourceLineageTag: Profit Center Child ID VH
+		summarizeBy: none
+		sourceColumn: Profit Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Child ID Description VH'
+		dataType: string
+		lineageTag: f320d4c8-9437-4ce4-8a12-e34779b84a02
+		sourceLineageTag: Profit Center Child ID Description VH
+		summarizeBy: none
+		sourceColumn: Profit Center Child ID Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center Level VH'
+		dataType: string
+		lineageTag: 89d01024-e180-460c-a0af-ab98d705e75a
+		sourceLineageTag: Profit Center Level VH
+		summarizeBy: none
+		sourceColumn: Profit Center Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Profit Center Vertical' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_HY_PROFCVZ_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

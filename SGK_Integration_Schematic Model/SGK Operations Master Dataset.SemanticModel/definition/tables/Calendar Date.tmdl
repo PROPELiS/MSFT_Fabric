@@ -14,13 +14,19 @@ table 'Calendar Date'
 
 	column Date
 		dataType: dateTime
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: eb5daa95-1a20-46cb-98ae-e78e1d5e6912
 		sourceLineageTag: Date
 		summarizeBy: none
 		sourceColumn: Date
 
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column 'Date Fiscal Year'
 		dataType: int64
@@ -541,6 +547,15 @@ table 'Calendar Date'
 		sourceLineageTag: Date Current Fiscal Week Minus 7 Flag
 		summarizeBy: sum
 		sourceColumn: Date Current Fiscal Week Minus 7 Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column MST_DATE_KEY
+		dataType: string
+		lineageTag: 1122d1c3-cc94-4e23-b600-22f7aecb0f96
+		sourceLineageTag: MST_DATE_KEY
+		summarizeBy: none
+		sourceColumn: MST_DATE_KEY
 
 		annotation SummarizationSetBy = Automatic
 

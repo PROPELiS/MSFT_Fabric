@@ -1,0 +1,77 @@
+table 'Entity Hierarchy'
+	lineageTag: 25dcb946-f917-45c8-9d37-08b887d62c74
+	sourceLineageTag: [dbo].[EDW_T_D_HY_ENTYHZ_CUR_D]
+
+	column 'Lvl 0 Id'
+		dataType: string
+		lineageTag: 63c30997-5d83-4931-a497-0ae04679e25b
+		sourceLineageTag: Lvl 0 Id
+		summarizeBy: none
+		sourceColumn: Lvl 0 Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Level 1'
+		dataType: string
+		lineageTag: a44cb29c-210c-4479-a6b1-2f187bbed01e
+		sourceLineageTag: Entity Level 1
+		summarizeBy: none
+		sourceColumn: Entity Level 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Level 2'
+		dataType: string
+		lineageTag: d8d1dc7a-d026-4063-a31b-0ca6cd198b50
+		sourceLineageTag: Entity Level 2
+		summarizeBy: none
+		sourceColumn: Entity Level 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Level 3'
+		dataType: string
+		lineageTag: 69f9d0d7-8c65-4bac-bb1c-b99017084d77
+		sourceLineageTag: Entity Level 3
+		summarizeBy: none
+		sourceColumn: Entity Level 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Level 4'
+		dataType: string
+		lineageTag: 47b94bd8-b589-4b02-99a1-10ebe85909e9
+		sourceLineageTag: Entity Level 4
+		summarizeBy: none
+		sourceColumn: Entity Level 4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity ID'
+		dataType: string
+		lineageTag: 35cb0cdb-6ce2-4eda-8d82-2b0ab18e73f9
+		sourceLineageTag: Entity ID
+		summarizeBy: none
+		sourceColumn: Entity ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Level'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9df85785-2346-4814-aae1-34ccf1ea9489
+		sourceLineageTag: Entity Level
+		summarizeBy: none
+		sourceColumn: Entity Level
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Entity Hierarchy' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_HY_ENTYHZ_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

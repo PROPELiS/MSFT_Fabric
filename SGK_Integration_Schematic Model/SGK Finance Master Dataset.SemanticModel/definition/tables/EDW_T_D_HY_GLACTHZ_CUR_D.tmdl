@@ -345,6 +345,15 @@ table EDW_T_D_HY_GLACTHZ_CUR_D
 
 		annotation SummarizationSetBy = Automatic
 
+	column GLACTHZ_KEY
+		dataType: string
+		lineageTag: deee10a9-a2d0-47d7-97ad-b79aec219d74
+		sourceLineageTag: GLACTHZ_KEY
+		summarizeBy: none
+		sourceColumn: GLACTHZ_KEY
+
+		annotation SummarizationSetBy = Automatic
+
 	partition EDW_T_D_HY_GLACTHZ_CUR_D = entity
 		mode: directLake
 		source

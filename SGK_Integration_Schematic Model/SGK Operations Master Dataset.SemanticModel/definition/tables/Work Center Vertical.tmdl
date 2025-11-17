@@ -1,0 +1,77 @@
+table 'Work Center Vertical'
+	lineageTag: aad26180-8bd7-4309-bd29-01a84d2d648a
+	sourceLineageTag: [dbo].[EDW_T_D_HY_WORKCVZ_CUR_D]
+
+	column WRK_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f7d586f-f23e-43e2-90f0-7a90bf0aed53
+		sourceLineageTag: WRK_CNTR_KEY
+		summarizeBy: sum
+		sourceColumn: WRK_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Plant ID'
+		dataType: string
+		lineageTag: 2c256a21-d92c-47e4-b511-77636c83bc8e
+		sourceLineageTag: Work Center Plant ID
+		summarizeBy: none
+		sourceColumn: Work Center Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Parent ID VH'
+		dataType: string
+		lineageTag: d87a27a4-716d-4194-80f1-c53a2a987eee
+		sourceLineageTag: Work Center Parent ID VH
+		summarizeBy: none
+		sourceColumn: Work Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Parent Description VH'
+		dataType: string
+		lineageTag: 54306863-76c6-4f39-8ae5-a3d0974e194c
+		sourceLineageTag: Work Center Parent Description VH
+		summarizeBy: none
+		sourceColumn: Work Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Child ID VH'
+		dataType: string
+		lineageTag: 14b252a0-3ad8-4148-a8b8-2635afdb1674
+		sourceLineageTag: Work Center Child ID VH
+		summarizeBy: none
+		sourceColumn: Work Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Child Description VH'
+		dataType: string
+		lineageTag: 674843a1-1371-46a2-b62c-9edfb5b09f15
+		sourceLineageTag: Work Center Child Description VH
+		summarizeBy: none
+		sourceColumn: Work Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Center Level VH'
+		dataType: string
+		lineageTag: ee281f84-3bfe-4047-91f5-a6d3476ecd5d
+		sourceLineageTag: Work Center Level VH
+		summarizeBy: none
+		sourceColumn: Work Center Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Work Center Vertical' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_HY_WORKCVZ_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

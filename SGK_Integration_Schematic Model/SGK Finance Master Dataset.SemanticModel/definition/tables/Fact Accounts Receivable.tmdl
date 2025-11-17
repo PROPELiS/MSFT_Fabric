@@ -146,9 +146,10 @@ table 'Fact Accounts Receivable'
 	measure 'Payment Terms' =
 			
 			IF(
-			    ISBLANK('Fact Accounts Receivable'[AR Payment Terms]) || 'FactTable'[AR Payment Terms] = "",
+			    ISBLANK(SELECTEDVALUE('Fact Accounts Receivable'[AR Payment Terms])) ||
+			    SELECTEDVALUE('Fact Accounts Receivable'[AR Payment Terms]) = "",
 			    "#",
-			    'FactTable'[AR Payment Terms]
+			    SELECTEDVALUE('Fact Accounts Receivable'[AR Payment Terms])
 			)
 		lineageTag: b71df733-e3fe-40f8-be9c-012c6a2e3e3c
 

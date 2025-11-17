@@ -459,6 +459,15 @@ table 'Fact General Ledger Plan & Budget'
 
 		annotation SummarizationSetBy = Automatic
 
+	column GLACTHZ_KEY
+		dataType: string
+		lineageTag: 59ae8e89-04e7-4416-b5db-3dc89263d17c
+		sourceLineageTag: GLACTHZ_KEY
+		summarizeBy: none
+		sourceColumn: GLACTHZ_KEY
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Fact General Ledger Plan & Budget' = entity
 		mode: directLake
 		source

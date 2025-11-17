@@ -1,0 +1,1637 @@
+table 'Fact BPC'
+	lineageTag: 7a2faa1a-d0e8-478d-9c0d-d59c0d91f7b2
+	sourceLineageTag: [Propelis].[EDW_T_FACT_FI_BPCDTAU_CUR_D]
+
+	measure 'Revenue - Actuals' =
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_REVENUE_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+		formatString: 0
+		lineageTag: f8e09675-78ec-466b-acb8-39e4b956d7c8
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+	measure 'Net Identifiable Assets-Actuals' =
+			
+			SUMX(
+			    FILTER(
+			        'Fact BPC',
+			        'Fact BPC'[Version] = "ACTUAL" &&
+			        'Fact BPC'[Scope] = "MIC" &&
+			        'Fact BPC'[ENTITY ID] <> "CONSO" &&
+			        'Fact BPC'[Flow] = "F99" &&
+			        RELATED('EDW_T_D_FI_MELTGRP_CUR_D'[MELT_NIA_VAL]) = 1
+			    ),
+			    VAR acctStartsWith2 =
+			        LEFT('Fact BPC'[ACCT ID], 1) = "2"
+			    RETURN
+			        IF(
+			            acctStartsWith2,
+			            -1 * 'Fact BPC'[Signdata Amt - Current],
+			            'Fact BPC'[Signdata Amt - Current]
+			        )
+			)
+		formatString: 0
+		lineageTag: cc11f9db-456e-46f1-85fe-45abce01c08a
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+	measure 'Net Identifiable Assets-Budget' =
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+				'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_NIA_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99"
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 42607575-8b35-419e-a186-9ba404d740f9
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'ADJ OPER CF -Actuals' =
+			
+			SUMX(
+			    FILTER(
+			        'Fact BPC',
+			        'Fact BPC'[Version] = "ACTUAL" &&
+			        'Fact BPC'[Scope] = "MIC" &&
+			        'Fact BPC'[ENTITY ID] <> "CONSO" &&
+			        'Fact BPC'[Flow] = "F99" &&
+			        RELATED('EDW_T_D_FI_MELTGRP_CUR_D'[MELT_ADJ_OPER_CF_VAL]) = 1
+			    ),
+			    VAR acctStartsWith2 =
+			        LEFT('Fact BPC'[ACCT ID], 1) = "2"
+			    RETURN
+			        IF(
+			            acctStartsWith2,
+			            -1 * 'Fact BPC'[Signdata Amt - Current],
+			            'Fact BPC'[Signdata Amt - Current]
+			        )
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1b2cec73-f777-421b-9bc1-f377c234fd93
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Signdata Amt' = ```
+			sum('Fact BPC'[Signdata Amount])
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 635ec39b-c1d4-4d10-9e2f-996fdde9521e
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Signdata Amount - Current' = sum('Fact BPC'[Signdata Amt - Current])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f773b7cd-70c3-4762-b95b-48f46d0dad31
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Revenue - Actuals - Cumulative' =
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amount]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_REVENUE_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 82d6e3b9-1d06-4008-9724-dd8360a79a31
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Revenue - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_REVENUE_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: f09de46f-38c0-4a1f-9a1f-c5eca5ca96b6
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+	measure 'EBITDA BU - Actuals' =
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_ADJEBITDA_BU_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c7045239-2398-4aa2-9d95-3e1c6e1a1bf5
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'EBITDA BU - Budget' =
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_ADJEBITDA_BU_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a88cb2ce-9112-4ba5-892e-18db66d9dad7
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'EBITDA CORP - Actuals' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_ADJEBITDA_CORP_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 82244471-526c-4468-974c-e266583072bf
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'EBITDA CORP - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_ADJEBITDA_CORP_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9cde3e01-2326-4cbf-b172-452fd70d21e7
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Capital Investment - Actuals' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_CAPEX_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] = "CONSO",
+			    'Fact BPC'[Flow] = "F20A"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f33aa31c-299e-4935-a00b-7b4463d5814d
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Capital Investment - Budget' =
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_CAPEX_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F20A"
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: dd8bd518-117c-41cf-a637-f973c4ecaf0f
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Gross Profit - Actuals' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_GP_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2cc1104c-c18b-43f9-ac83-4b9ca9f352cd
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Gross Profit - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_GP_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b6421c00-a25a-4a64-a767-0e956ece6418
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Labor Cost - Actuals' =
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_TOTAL_LABOR_COST_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d677fd7d-b074-49bc-84c1-d0ae9c3f80c3
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Labor Cost - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_TOTAL_LABOR_COST_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2a59feeb-8c31-4298-9de7-f16b39018bea
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'ADJ OPER CF - Budget' =
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_ADJ_OPER_CF_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ab9fb470-4104-4b21-ad8f-49d3ad4f3dbc
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DII - Actuals' =
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DII_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2b22ef86-3022-42b4-a529-a2d87c8b99ed
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DII - Budget' =
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DII_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e19606f0-967a-4d8d-ba6e-58d28ab6e9a7
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DPO - Actuals' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DPO_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6491e943-b247-4a93-b7d6-d8abc041b676
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DPO - Budget' =
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DPO_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2b0554ad-132a-47ca-a7ba-caa5121162a1
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DPO Numerator - Actuals' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DPO_NUMERATOR_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: cdda3d17-81cc-42c9-9edc-a97a7d4cd102
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DPO Numerator - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DPO_NUMERATOR_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5e82c688-57ef-4876-bfc9-66206fa2e6cf
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DPO Denominator - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DII_DPO_DENOMINATOR_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10",
+			    'Fact BPC'[Functional Area ID] IN { "50", "51", "52", "53", "88", "89" }
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f5a4ed76-008a-4df7-a373-b08ffe01c70e
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DSO - Actuals' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DSO_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 347d5264-9bca-441e-8866-2c156d29c5c6
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DSO - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DSO_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a9ea2061-22dd-42a0-882e-58daa411261c
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DSO Numerator - Actuals' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DSO_NUMERATOR_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2ecd1aa6-058b-4b57-9153-dc725ae9731a
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DSO Numerator - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DSO_NUMERATOR_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a6b2ff6d-0c00-4923-bd1e-ffc556492b70
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'End Cash Balance - Actuals' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_END_CASH_BALANCE_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 8c262cf9-1c14-48bc-aa85-a138e168ecab
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'End Cash Balance - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_END_CASH_BALANCE_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 867f64bc-f48e-429a-b10e-f169dc3a3e71
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Leverage Ratio - Actuals' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_LEVERAGE_RATIO_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2832fc4d-3955-4aec-b5de-e4187804f9f9
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Leverage Ratio - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_LEVERAGE_RATIO_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 410d6973-5fa3-42b3-8317-3746e8ad153c
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'LT Debt - Actuals' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_LT_DEBT_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a93360dc-9764-4610-a391-e171065cdbcd
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'LT Debt - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_LT_DEBT_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e31ad6e5-a181-4881-948f-1bf908097ee8
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DPO Denominator NoELIM' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DII_DPO_DENOMINATOR_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10",
+			    'Fact BPC'[Functional Area ID] IN { "50", "51", "52", "53", "54", "88", "99" },
+			    'Fact BPC'[ACCT ID] <> "ELIM_SALECOGS"
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 432c1704-8622-4292-a5bf-78c7f1c294e5
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DPO Denom ELIM' = ```
+			
+			CALCULATE(
+			    SUMX(
+			        'Fact BPC',
+			        IF(
+			            'Fact BPC'[ACCT ID] = "ELIM_SALECOGS",
+			            'Fact BPC'[Signdata Amt - Current] * -1,
+			            0
+			        )
+			    ),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DII_DPO_DENOMINATOR_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10",
+			    'Fact BPC'[Functional Area ID] IN { "50", "51", "52", "53", "54", "88", "99" }
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c1babbed-35fd-4522-9a63-68d62ffc3058
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'MELT ICS Sales - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_GP_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10",
+			    'Fact BPC'[ACCT ID] IN {
+			        "4188888", "410010", "410097", "410099", 
+			        "422100", "410012", "410096", "410015", 
+			        "410013", "410011"
+			    }
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 02661838-fb71-4ad8-9c6e-d7332265cf1a
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'MELT ICS Sales - Actuals' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_GP_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F10",
+			    'Fact BPC'[ACCT ID] IN {
+			        "4188888", "410010", "410097", "410099",
+			        "422100", "410012", "410096", "410015",
+			        "410013", "410011"
+			    }
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 0aa4e5ba-95a1-4e5d-b883-8a813ff8ea88
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DPO Denominator - Actuals' = ```
+			
+			[DPO Denom ELIM] + [DPO Denominator NoELIM]
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: cf64e7fe-903b-46db-b249-1ef418e3ff95
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DPO - Actuals Monthly' = ```
+			
+			VAR DPO_Denominator = [DPO Denominator - Actuals]
+			VAR DPO_Numerator = [DPO Numerator - Actuals]
+			VAR Denominator_Per_Day = DIVIDE(DPO_Denominator, 30, 0)
+			RETURN
+			IF(
+			    Denominator_Per_Day = 0,
+			    0,
+			    DIVIDE(DPO_Numerator, Denominator_Per_Day, 0)
+			)
+			
+			```
+		lineageTag: e7de970b-5945-4410-8bf3-39d85fa2bfea
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DPO Numerator QTR - Actuals' =
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DPO_NUMERATOR_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99",
+			    VALUE(RIGHT('Fact BPC'[FYQ], 1)) * 3 = 'Fact BPC'[FYP]
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b4ed1eb5-7faf-4f63-9149-78dad0cc1203
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DPO Numerator QTR - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DPO_NUMERATOR_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99",
+			    VALUE(RIGHT('Fact BPC'[FYQ], 1)) * 3 = 'Fact BPC'[FYP]
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c155de96-5c27-48a0-aa3a-14e881f3399b
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DPO - Actuals Quarterly' = ```
+			
+			IF(
+			    [DPO Denominator - Actuals] / 90 = 0,
+			    0,
+			    [DPO Numerator QTR - Actuals] / ([DPO Denominator - Actuals] / 90)
+			)
+			
+			```
+		lineageTag: cc1fcb07-a367-4f60-9efc-d01c5fbdfdee
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DPO - Actuals Quarterly NoDel' =
+			
+			IF(
+			    [DPO Denominator - Actuals] / 90 = 0,
+			    0,
+			    [DPO Numerator QTR - Actuals] / ([DPO Denominator - Actuals] / 90)
+			)
+		lineageTag: 43d7c951-c6d5-4ed9-870c-9fa96ee97134
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Quarterly Revenue - Actuals' =
+			
+			CALCULATE(
+			    [Revenue - Actuals],
+			    ALLEXCEPT(
+			        'Fact BPC',
+			        'Fact BPC'[FYQ],
+			        'Fact BPC'[Fiscal Year]
+			    )
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a05b7931-283a-4064-afac-5a304f487b06
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DPO Budget - Quarterly' = ```
+			
+			IF(
+			    [DPO Denominator - Budget] / 90 = 0,
+			    0,
+			    [DPO Numerator QTR - Budget] / ([DPO Denominator - Budget] / 90)
+			)
+			
+			```
+		lineageTag: 3910774c-91f3-4a2e-b331-a4253581dcdd
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DII Numerator QTR - Budget' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DII_NUMERATOR_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99",
+			    VALUE(RIGHT('Fact BPC'[FYQ], 1)) * 3 = 'Fact BPC'[FYP]
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 23e69e23-7545-4416-a421-7c45ad814081
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DII Numerator QTR - Actuals' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DII_NUMERATOR_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99",
+			    VALUE(RIGHT('Fact BPC'[FYQ], 1)) * 3 = 'Fact BPC'[FYP]
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e4bb22e5-0eab-47e1-80d4-07e299365a6a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DII Budget - Quarterly' = ```
+			
+			IF(
+			    [DPO Denominator - Budget] / 90 = 0,
+			    0,
+			    [DII Numerator QTR - Budget] / ([DPO Denominator - Budget] / 90)
+			)
+			
+			```
+		lineageTag: f65787c0-c0b8-4ea0-9bba-ac05511daafe
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DSO Numerator QTR - Budget' =
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DSO_NUMERATOR_VAL] = 1,
+			    'Fact BPC'[Version] = "BUDGET",
+			    'Fact BPC'[Scope] = "PCTR",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99",
+			    VALUE(RIGHT('Fact BPC'[FYQ], 1)) * 3 = 'Fact BPC'[FYP]
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6979e4a2-a603-4e49-8754-a0fc9229f895
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DSO Budget - Quarterly' =
+			
+			IF(
+			    [Revenue - Budget] / 90 = 0,
+			    0,
+			    [DSO Numerator QTR - Budget] / ([Revenue - Budget] / 90)
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 275d4fba-2f06-4941-a99c-c017881e1867
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DSO Numerator QTR - Actuals' = ```
+			
+			CALCULATE(
+			    SUM('Fact BPC'[Signdata Amt - Current]),
+			    'EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DSO_NUMERATOR_VAL] = 1,
+			    'Fact BPC'[Version] = "ACTUAL",
+			    'Fact BPC'[Scope] = "MIC",
+			    'Fact BPC'[ENTITY ID] <> "CONSO",
+			    'Fact BPC'[Flow] = "F99",
+			    VALUE(RIGHT('Fact BPC'[FYQ], 1)) * 3 = 'Fact BPC'[Last Month of Quarter]
+			)
+			
+			```
+		formatString: 0
+		lineageTag: f60d2011-fd7d-473f-9cd2-3b9d6c46831c
+
+		changedProperty = Name
+
+	measure 'GP - Budget 2' = ```
+			
+			([Revenue - Budget] + [MELT ICS Sales - Budget]) - [DPO Denominator - Budget]
+			
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5b72a3ca-b1a8-4c4f-92b6-98aef0f8bc06
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'GP - Actuals 2' = ```
+			
+			([Revenue - Actuals] + [MELT ICS Sales - Actuals]) - [DPO Denominator - Actuals]
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 64c85125-a0f2-4cdb-a91a-e55e48cec416
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DII - Actuals Quarterly' =
+			
+			IF(
+			    [DPO Denominator - Actuals] / 90 = 0,
+			    0,
+			    [DII Numerator QTR - Actuals] / ([DPO Denominator - Actuals] / 90)
+			)
+		lineageTag: fd2990eb-6363-4d9d-99c6-553ef9269c94
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DII - Actuals Monthly' = ```
+			
+			IF(
+			    [DPO Denominator - Actuals] / 30 = 0,
+			    0,
+			    [DII Numerator - Actuals] / ([DPO Denominator - Actuals] / 30)
+			)
+			
+			```
+		lineageTag: e3f3667a-cc5d-42d3-84bb-81fdf45df59e
+
+		changedProperty = Name
+
+	measure 'DII Numerator - Actuals' =
+			
+			SUMX(
+			    FILTER(
+			        'Fact BPC',
+			        'Fact BPC'[Version] = "ACTUAL"
+			        && 'Fact BPC'[Scope] = "MIC"
+			        && 'Fact BPC'[ENTITY ID] <> "CONSO"
+			        && 'Fact BPC'[Flow] = "F99"
+			        && RELATED('EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DII_NUMERATOR_VAL]) = 1
+			    ),
+			    IF(
+			        LEFT('Fact BPC'[ACCT ID], 1) = "3",
+			        'Fact BPC'[Signdata Amt - Current] * -1,
+			        'Fact BPC'[Signdata Amt - Current]
+			    )
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f75bc2b3-dcc7-4095-8602-95b20abb8dd6
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'DSO - Actuals Quarterly NoDel' = ```
+			
+			IF(
+			    [Quarterly Revenue - Actuals] / 90 = 0,
+			    0,
+			    [DSO Numerator QTR - Actuals] / [Quarterly Revenue - Actuals] / 90
+			)
+			
+			```
+		lineageTag: 90e5cb05-a055-461c-957e-7659cafde988
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DSO - Actuals Quarterly' = ```
+			
+			IF(
+			    [Revenue - Actuals] / 90 = 0,
+			    0,
+			    [DSO Numerator QTR - Actuals] / ([Revenue - Actuals] / 90)
+			)
+			
+			```
+		lineageTag: 0e562799-ebdc-4949-8030-32f71b220d54
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DSO - Actuals Monthly' = ```
+			
+			IF(
+			    [Revenue - Actuals] / 30 = 0,
+			    0,
+			    [DSO Numerator - Actuals] / ([Revenue - Actuals] / 30)
+			)
+			
+			```
+		lineageTag: e24685c0-e057-489f-a0f4-8f22c4a4d3bb
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DII Numerator - Budget' = ```
+			
+			SUMX(
+			    FILTER(
+			        'Fact BPC',
+			        'Fact BPC'[Version] = "BUDGET"
+			        && 'Fact BPC'[Scope] = "MIC"
+			        && 'Fact BPC'[ENTITY ID] <> "CONSO"
+			        && 'Fact BPC'[Flow] = "F99"
+			        && RELATED('EDW_T_D_FI_MELTGRP_CUR_D'[MELT_DII_NUMERATOR_VAL]) = 1
+			    ),
+			    IF(
+			        LEFT('Fact BPC'[ACCT ID], 1) = "3",
+			        'Fact BPC'[Signdata Amount - Current] * -1,
+			        'Fact BPC'[Signdata Amount - Current]
+			    )
+			)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1e1de269-8d9c-4c87-9f0e-e10e410eec25
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Functional Area ID'
+		dataType: string
+		lineageTag: 5bd310c3-f473-47ab-bb76-205ae29d19b2
+		sourceLineageTag: Functional Area ID
+		summarizeBy: none
+		sourceColumn: Functional Area ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inter Company Profit Center ID'
+		dataType: string
+		lineageTag: 941aa03f-344f-4498-b232-dce6dee08632
+		sourceLineageTag: Inter Company Profit Center ID
+		summarizeBy: none
+		sourceColumn: Inter Company Profit Center ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Profit Center ID'
+		dataType: string
+		lineageTag: d35b8cc5-149e-4927-9a17-93162312f336
+		sourceLineageTag: Profit Center ID
+		summarizeBy: none
+		sourceColumn: Profit Center ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inter Company ID'
+		dataType: string
+		lineageTag: d871277a-eb46-4e0b-8cf0-41d81be2d219
+		sourceLineageTag: Inter Company ID
+		summarizeBy: none
+		sourceColumn: Inter Company ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Signdata Amt - Current'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 853cfab9-13ca-4497-8876-37d71e1c5e58
+		sourceLineageTag: Signdata Amt - Current
+		summarizeBy: sum
+		sourceColumn: Signdata Amt - Current
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column FYP
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 900c32ec-9d54-43ac-9dec-a13bd3fdcdf8
+		sourceLineageTag: FYP
+		summarizeBy: sum
+		sourceColumn: FYP
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Signdata Amount'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9846c7f9-343c-4c28-81dc-4293d81882e8
+		sourceLineageTag: Signdata Amount
+		summarizeBy: sum
+		sourceColumn: Signdata Amount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: 9d1a7d49-9faf-4fa1-b5f5-78933c0e3248
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4f8a1a42-8e95-4b6c-a944-927318a53b58
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ae8ae1e8-b7ce-43a9-b16b-df2f17dde2fc
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column INTER_CMPNY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b8b14d3-56fa-4963-bd53-47d8860b0ec3
+		sourceLineageTag: INTER_CMPNY_KEY
+		summarizeBy: none
+		sourceColumn: INTER_CMPNY_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 205f93a8-5180-40ba-bd9e-f77e5732feb0
+		sourceLineageTag: PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFT_CNTR_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Project
+		dataType: string
+		lineageTag: 2fdb25a1-c130-4eff-874c-57cb22c62f5f
+		sourceLineageTag: Project
+		summarizeBy: none
+		sourceColumn: Project
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Scope
+		dataType: string
+		lineageTag: a10cc085-dd20-4d40-888d-3c084b2b0b01
+		sourceLineageTag: Scope
+		summarizeBy: none
+		sourceColumn: Scope
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Version
+		dataType: string
+		lineageTag: 47a27cd7-5308-42c2-be9c-8cd08aac4396
+		sourceLineageTag: Version
+		summarizeBy: none
+		sourceColumn: Version
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d55c662-b124-456b-b8f8-d952883db891
+		sourceLineageTag: Fiscal Year
+		summarizeBy: sum
+		sourceColumn: Fiscal Year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		lineageTag: 75cea4f1-359c-447b-a2fc-e5d34a1b31e0
+		sourceLineageTag: Currency
+		summarizeBy: none
+		sourceColumn: Currency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Custom1
+		dataType: string
+		lineageTag: 9965a4b3-1008-4fd7-b00e-1ba36db8a25d
+		sourceLineageTag: Custom1
+		summarizeBy: none
+		sourceColumn: Custom1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTITY_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e78ebfef-cbd0-4d08-b1ee-66c54ad5ec6b
+		sourceLineageTag: ENTITY_KEY
+		summarizeBy: none
+		sourceColumn: ENTITY_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Flow
+		dataType: string
+		lineageTag: 572cdd98-ab8b-4076-b346-e9ccca6d32c2
+		sourceLineageTag: Flow
+		summarizeBy: none
+		sourceColumn: Flow
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FUNCTNL_AREA_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 33606f1b-d485-4bfa-b118-d7846e840dfb
+		sourceLineageTag: FUNCTNL_AREA_KEY
+		summarizeBy: none
+		sourceColumn: FUNCTNL_AREA_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column INTER_CMPNY_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c79a1c4-235b-4d29-a533-016f832af4e5
+		sourceLineageTag: INTER_CMPNY_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: INTER_CMPNY_PROFT_CNTR_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACCT_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 219ddb55-15c9-4964-a03e-31421d3a5fb9
+		sourceLineageTag: ACCT_KEY
+		summarizeBy: none
+		sourceColumn: ACCT_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Audit Trail'
+		dataType: string
+		lineageTag: fd02bcef-9968-49f6-b51e-98a5eba11dce
+		sourceLineageTag: Audit Trail
+		summarizeBy: none
+		sourceColumn: Audit Trail
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ACCT ID'
+		dataType: string
+		lineageTag: 35fdc4fc-0520-4e62-8b4b-f139f4df3e03
+		sourceLineageTag: ACCT ID
+		summarizeBy: none
+		sourceColumn: ACCT ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ENTITY ID'
+		dataType: string
+		lineageTag: 8827a9dc-cc52-489d-b53f-fc91d2dbb220
+		sourceLineageTag: ENTITY ID
+		summarizeBy: none
+		sourceColumn: ENTITY ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCHZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e0fd010a-550b-4490-9654-991efc2fed22
+		sourceLineageTag: PROFCHZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCHZ_PROFT_CNTR_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFCVZ_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: a7245ef8-1ca8-4fdf-a7e3-85c1eab857b4
+		sourceLineageTag: PROFCVZ_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: PROFCVZ_PROFT_CNTR_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column INTER_COMPANY_PC_HH_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: e9b7d853-8af7-4ecd-8655-1a3c5718bdcc
+		sourceLineageTag: INTER_COMPANY_PC_HH_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: INTER_COMPANY_PC_HH_PROFT_CNTR_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column INTER_COMP_PC_VH_PROFT_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 75509a4c-ec4d-40bc-b0e7-95839e748974
+		sourceLineageTag: INTER_COMP_PC_VH_PROFT_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: INTER_COMP_PC_VH_PROFT_CNTR_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FYQ
+		dataType: string
+		lineageTag: c720ac6c-cbd8-4e2c-8b79-202b897ef5ce
+		sourceLineageTag: FYQ
+		summarizeBy: none
+		sourceColumn: FYQ
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MST_DATE_KEY
+		dataType: string
+		lineageTag: 606f7c86-7859-4600-a03f-71aa7d4d3c3e
+		sourceLineageTag: MST_DATE_KEY
+		summarizeBy: none
+		sourceColumn: MST_DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Functional_GL_Key
+		dataType: string
+		lineageTag: 3f86a6b2-1b8b-4ff1-bbc7-69ba3b9f21f3
+		sourceLineageTag: Functional_GL_Key
+		summarizeBy: none
+		sourceColumn: Functional_GL_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: int64
+		formatString: 0
+		lineageTag: 9860d135-4acb-4768-a664-ad9833ca9a04
+		sourceLineageTag: Period
+		summarizeBy: sum
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Month of Quarter'
+		dataType: int64
+		formatString: 0
+		lineageTag: c5f2de71-fd6f-406e-b9f6-3a4a6b4223a4
+		sourceLineageTag: Last Month of Quarter
+		summarizeBy: sum
+		sourceColumn: Last Month of Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact BPC' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_FACT_FI_BPCDTAU_CUR_D
+			schemaName: Propelis
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = IsHidden
+
+	changedProperty = Name
+

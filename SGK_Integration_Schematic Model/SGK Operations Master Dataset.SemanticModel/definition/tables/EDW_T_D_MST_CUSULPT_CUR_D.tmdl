@@ -1,118 +1,155 @@
 table EDW_T_D_MST_CUSULPT_CUR_D
+	isHidden
 	lineageTag: dbd6bda3-8cd8-4d31-898b-b2a21d694444
 	sourceLineageTag: [dbo].[EDW_T_D_MST_CUSULPT_CUR_D]
 
 	column CUST_UNLOADING_PNT_KEY
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: fb66a8a3-0887-49c4-9c35-3d0d7e88a67e
 		sourceLineageTag: CUST_UNLOADING_PNT_KEY
 		summarizeBy: sum
 		sourceColumn: CUST_UNLOADING_PNT_KEY
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Number'
 		dataType: string
+		isHidden
 		lineageTag: 5699097f-b2ad-4e79-b411-79a257ca5181
 		sourceLineageTag: Customer Number
 		summarizeBy: none
 		sourceColumn: Customer Number
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Unloading Point'
 		dataType: string
+		isHidden
 		lineageTag: db69df58-1141-4cb5-8b47-ec8360392ccc
 		sourceLineageTag: Unloading Point
 		summarizeBy: none
 		sourceColumn: Unloading Point
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Sequential Number for Unloading Points'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 74e3f255-6b6b-489d-88f6-3c30f24f9642
 		sourceLineageTag: Sequential Number for Unloading Points
 		summarizeBy: sum
 		sourceColumn: Sequential Number for Unloading Points
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Factory Calendar'
 		dataType: string
+		isHidden
 		lineageTag: a98fe0e1-8590-42fb-b516-3165917c5c49
 		sourceLineageTag: Customer Factory Calendar
 		summarizeBy: none
 		sourceColumn: Customer Factory Calendar
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Tax Classification Description'
 		dataType: string
+		isHidden
 		lineageTag: 6ff99aac-050e-46b6-93c4-3795c6faaf55
 		sourceLineageTag: Tax Classification Description
 		summarizeBy: none
 		sourceColumn: Tax Classification Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'ETL Source System Code'
 		dataType: string
+		isHidden
 		lineageTag: 0516c642-feea-460b-9ef5-37441add7086
 		sourceLineageTag: ETL Source System Code
 		summarizeBy: none
 		sourceColumn: ETL Source System Code
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'ETL Effective Begin Date'
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: af398473-da10-41ea-9a01-18b527847fa5
 		sourceLineageTag: ETL Effective Begin Date
 		summarizeBy: none
 		sourceColumn: ETL Effective Begin Date
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'ETL Effective End Date'
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: 52fbe745-b6db-4836-90dc-92aab88b9c87
 		sourceLineageTag: ETL Effective End Date
 		summarizeBy: none
 		sourceColumn: ETL Effective End Date
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'ETL Current Record Indicator'
 		dataType: string
+		isHidden
 		lineageTag: 05dddc40-f3d1-471d-bc7e-13dbaef42551
 		sourceLineageTag: ETL Current Record Indicator
 		summarizeBy: none
 		sourceColumn: ETL Current Record Indicator
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'ETL Created Timestamp'
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: ed776fc7-fe52-4211-91a0-9e26ec15e2e3
 		sourceLineageTag: ETL Created Timestamp
 		summarizeBy: none
 		sourceColumn: ETL Created Timestamp
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'ETL Updated Timestamp'
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: c6b08f9c-c829-466b-9ee8-c037cbec0a4d
 		sourceLineageTag: ETL Updated Timestamp
 		summarizeBy: none
 		sourceColumn: ETL Updated Timestamp
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -122,4 +159,6 @@ table EDW_T_D_MST_CUSULPT_CUR_D
 			entityName: EDW_T_D_MST_CUSULPT_CUR_D
 			schemaName: dbo
 			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = IsHidden
 

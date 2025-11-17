@@ -1,0 +1,77 @@
+table 'Cost Center Vertical'
+	lineageTag: 4c143c52-59cf-402f-be27-e23d8c79333e
+	sourceLineageTag: [dbo].[EDW_T_D_HY_COSTCVZ_CUR_D]
+
+	column COST_CNTR_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 07a9330c-5dec-4740-a303-be25821e0445
+		sourceLineageTag: COST_CNTR_KEY
+		summarizeBy: none
+		sourceColumn: COST_CNTR_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Controlling Area ID VH'
+		dataType: string
+		lineageTag: 4bf98dd7-6336-4970-b627-d576e56ef61c
+		sourceLineageTag: Cost Center Controlling Area ID VH
+		summarizeBy: none
+		sourceColumn: Cost Center Controlling Area ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Parent ID VH'
+		dataType: string
+		lineageTag: 4c3b101d-6f6c-445c-b9e5-529ae4acbba1
+		sourceLineageTag: Cost Center Parent ID VH
+		summarizeBy: none
+		sourceColumn: Cost Center Parent ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Parent Description VH'
+		dataType: string
+		lineageTag: 9ec5c354-a8ce-4740-84c1-b2fa3f694c7b
+		sourceLineageTag: Cost Center Parent Description VH
+		summarizeBy: none
+		sourceColumn: Cost Center Parent Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Child ID VH'
+		dataType: string
+		lineageTag: b632db2b-e250-4c92-9897-2074c0891c57
+		sourceLineageTag: Cost Center Child ID VH
+		summarizeBy: none
+		sourceColumn: Cost Center Child ID VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Child Description VH'
+		dataType: string
+		lineageTag: 9aaccd69-0863-4bbb-99e6-db0db3dc4165
+		sourceLineageTag: Cost Center Child Description VH
+		summarizeBy: none
+		sourceColumn: Cost Center Child Description VH
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Hierarchical Level VH'
+		dataType: string
+		lineageTag: af2151cd-3718-4dd4-be71-7435b3b54794
+		sourceLineageTag: Cost Center Hierarchical Level VH
+		summarizeBy: none
+		sourceColumn: Cost Center Hierarchical Level VH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Cost Center Vertical' = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_HY_COSTCVZ_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

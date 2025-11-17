@@ -292,6 +292,31 @@ table 'Fact Time Confirmation Service Orders'
 			)
 		lineageTag: 00937df7-2b67-45a1-bf0c-9efa008cc564
 
+	measure 'Utilization Type' =
+			
+			VAR FirstFour =
+			    LEFT([Activity], 4)
+			VAR IsNum =
+			    NOT ISERROR(VALUE(FirstFour))
+			RETURN
+			IF(
+			    IsNum,
+			    "Non-Billable",
+			    "Billable"
+			)
+		lineageTag: 3945130d-9002-4ddf-af26-b486224e33ea
+
+	measure 'Utilization Type 1' =
+			
+			VAR FirstFour = LEFT([Activity], 4)
+			RETURN
+			IF(
+			    ISBLANK(FirstFour) || ISERROR(VALUE(FirstFour)),
+			    "Billable",
+			    "Non-Billable"
+			)
+		lineageTag: 7d2846d5-3fe0-4d6e-ac29-c8e326be66c8
+
 	column SEG_CD_KEY
 		dataType: int64
 		formatString: 0

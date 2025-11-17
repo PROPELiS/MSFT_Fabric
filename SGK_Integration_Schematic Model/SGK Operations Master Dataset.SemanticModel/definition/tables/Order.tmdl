@@ -1,0 +1,823 @@
+table Order
+	lineageTag: 2a105589-d73a-49ab-8639-d6ebaa773a07
+	sourceLineageTag: [dbo].[EDW_T_D_PM_ORDER_CUR_D]
+
+	column ORDER_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: cf93c547-0e67-4af4-8d1c-e7d30df36982
+		sourceLineageTag: ORDER_KEY
+		summarizeBy: none
+		sourceColumn: ORDER_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Type'
+		dataType: string
+		lineageTag: 0cf61982-8670-48f7-a038-e0a5f33c3535
+		sourceLineageTag: Order Type
+		summarizeBy: none
+		sourceColumn: Order Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Category'
+		dataType: string
+		lineageTag: 0e4e51d6-d4ac-40f9-bcfe-e563c4e93d00
+		sourceLineageTag: Order Category
+		summarizeBy: none
+		sourceColumn: Order Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Company Code'
+		dataType: string
+		lineageTag: 9b9ca6cf-158c-41de-9e44-14c8c9ed0767
+		sourceLineageTag: Order Company Code
+		summarizeBy: none
+		sourceColumn: Order Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Production Plant ID'
+		dataType: string
+		lineageTag: 668b439f-0fb1-4a6a-8d7a-7353b298fcc4
+		sourceLineageTag: Production Plant ID
+		summarizeBy: none
+		sourceColumn: Production Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planning Plant ID'
+		dataType: string
+		lineageTag: bdf4a3f5-2b17-42b5-9e22-4d29a26fa105
+		sourceLineageTag: Planning Plant ID
+		summarizeBy: none
+		sourceColumn: Planning Plant ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material ID'
+		dataType: string
+		lineageTag: 0006cc27-e570-4c82-ae6f-5f5f175da714
+		sourceLineageTag: Material ID
+		summarizeBy: none
+		sourceColumn: Material ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Profit Center ID'
+		dataType: string
+		lineageTag: c035ab9f-66fb-4857-b11d-d1f4081cc1dd
+		sourceLineageTag: Order Profit Center ID
+		summarizeBy: none
+		sourceColumn: Order Profit Center ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Order ID'
+		dataType: string
+		lineageTag: 593f2bde-2302-4433-ba68-d260b5ca250d
+		sourceLineageTag: Sales Order ID
+		summarizeBy: none
+		sourceColumn: Sales Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Order Item Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a85ae3e-0633-4b06-86e1-6fe74e978eca
+		sourceLineageTag: Sales Order Item Number
+		summarizeBy: none
+		sourceColumn: Sales Order Item Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Task List Type'
+		dataType: string
+		lineageTag: 210e7fa7-43e7-4c8e-854b-9fcd65909915
+		sourceLineageTag: Task List Type
+		summarizeBy: none
+		sourceColumn: Task List Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Create Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 76d3999a-b261-4e6b-9391-1e8a2e089382
+		sourceLineageTag: Order Create Date
+		summarizeBy: none
+		sourceColumn: Order Create Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Close Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b5549d9b-4295-4f1b-8c9c-9c1fac874856
+		sourceLineageTag: Order Close Date
+		summarizeBy: none
+		sourceColumn: Order Close Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Project ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 69332f2a-8000-4290-a297-2ec8ca33f674
+		sourceLineageTag: Project ID
+		summarizeBy: none
+		sourceColumn: Project ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MRP Controller Code'
+		dataType: string
+		lineageTag: e506a52a-438b-4ccc-9bfc-e812fe426b69
+		sourceLineageTag: MRP Controller Code
+		summarizeBy: none
+		sourceColumn: MRP Controller Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reservation Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: c4f8b442-9b33-4dbc-8b0d-513cc83e6c07
+		sourceLineageTag: Reservation Number
+		summarizeBy: none
+		sourceColumn: Reservation Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Scheduled Start Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1c7df480-819b-40b0-a5da-c6c564722d00
+		sourceLineageTag: Scheduled Start Date
+		summarizeBy: none
+		sourceColumn: Scheduled Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Scheduled Finish Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5a26b67c-3a69-474f-9324-c8ef18ca572a
+		sourceLineageTag: Scheduled Finish Date
+		summarizeBy: none
+		sourceColumn: Scheduled Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Start Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f4463c73-4fb2-43e7-8bb0-11c17ceccbc2
+		sourceLineageTag: Actual Start Date
+		summarizeBy: none
+		sourceColumn: Actual Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Finish Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1817ea01-27bd-4e46-a2ec-2cdfcdda784a
+		sourceLineageTag: Actual Finish Date
+		summarizeBy: none
+		sourceColumn: Actual Finish Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planned Release Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 373925b6-2f41-43bf-90fe-a41f301260eb
+		sourceLineageTag: Planned Release Date
+		summarizeBy: none
+		sourceColumn: Planned Release Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Release Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b1f9c322-3b8c-4e23-a6da-a2184375be39
+		sourceLineageTag: Actual Release Date
+		summarizeBy: none
+		sourceColumn: Actual Release Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_SRC_SYS_CD
+		dataType: string
+		lineageTag: c5cdd3c0-38c4-4677-a42c-ecfb59488efe
+		sourceLineageTag: ETL_SRC_SYS_CD
+		summarizeBy: none
+		sourceColumn: ETL_SRC_SYS_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_BEGIN_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 44414136-bbac-465c-83e0-8a12ce2b3822
+		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_BEGIN_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_EFFECTV_END_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b8478f74-b47c-4d0a-a149-8ed76fe06192
+		sourceLineageTag: ETL_EFFECTV_END_DATE
+		summarizeBy: none
+		sourceColumn: ETL_EFFECTV_END_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CURR_RCD_IND
+		dataType: string
+		lineageTag: 6279d2c3-5988-4d88-b66b-9a988a687b36
+		sourceLineageTag: ETL_CURR_RCD_IND
+		summarizeBy: none
+		sourceColumn: ETL_CURR_RCD_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_CREATED_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3370eae7-926b-46ed-9075-af154f449ba8
+		sourceLineageTag: ETL_CREATED_TS
+		summarizeBy: none
+		sourceColumn: ETL_CREATED_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETL_UPDTD_TS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 896d04d7-2fb5-4434-897f-7aafa5a4c7fd
+		sourceLineageTag: ETL_UPDTD_TS
+		summarizeBy: none
+		sourceColumn: ETL_UPDTD_TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Number'
+		dataType: string
+		lineageTag: f89c89eb-868f-4014-abf6-139a9f106482
+		sourceLineageTag: Order Number
+		summarizeBy: none
+		sourceColumn: Order Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entered By'
+		dataType: string
+		lineageTag: 836d03c5-7f3b-454d-9ab1-1c73560c14a7
+		sourceLineageTag: Entered By
+		summarizeBy: none
+		sourceColumn: Entered By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Description'
+		dataType: string
+		lineageTag: d0d8dfc8-2f16-4cb1-89e9-7ff961a74ed6
+		sourceLineageTag: Order Description
+		summarizeBy: none
+		sourceColumn: Order Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WBS Element Internal'
+		dataType: int64
+		formatString: 0
+		lineageTag: f31ed802-1769-49f4-bc36-c62f98a22776
+		sourceLineageTag: WBS Element Internal
+		summarizeBy: none
+		sourceColumn: WBS Element Internal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Controlling Area'
+		dataType: string
+		lineageTag: a08acf49-b229-4862-923b-b546eba964c9
+		sourceLineageTag: Controlling Area
+		summarizeBy: none
+		sourceColumn: Controlling Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Responsible Cost Center'
+		dataType: string
+		lineageTag: cbc7f61f-b3bd-47f0-95ea-64d6bfcb8d92
+		sourceLineageTag: Responsible Cost Center
+		summarizeBy: none
+		sourceColumn: Responsible Cost Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Currency Code'
+		dataType: string
+		lineageTag: fbbc03af-d1c7-4fff-842f-fbad8e414cd0
+		sourceLineageTag: Order Currency Code
+		summarizeBy: none
+		sourceColumn: Order Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Release Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5cf344b5-3ec8-45f2-a068-c24f6c94b66b
+		sourceLineageTag: Release Date
+		summarizeBy: none
+		sourceColumn: Release Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Technical Completion Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3eb0847f-62c0-4116-bf27-0db2d7f184ac
+		sourceLineageTag: Technical Completion Date
+		summarizeBy: none
+		sourceColumn: Technical Completion Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Object Number'
+		dataType: string
+		lineageTag: d5ff3832-52fd-4ead-a01e-4778eefe803e
+		sourceLineageTag: Object Number
+		summarizeBy: none
+		sourceColumn: Object Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Requested By'
+		dataType: string
+		lineageTag: c31cb4ba-939d-4375-94f8-9c30bb3f90a4
+		sourceLineageTag: Requested By
+		summarizeBy: none
+		sourceColumn: Requested By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reason Code'
+		dataType: string
+		lineageTag: 7625339f-549d-4877-924d-8d5e9afd3c83
+		sourceLineageTag: Reason Code
+		summarizeBy: none
+		sourceColumn: Reason Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Error Severity'
+		dataType: string
+		lineageTag: 538a9662-6ef8-44bb-a0c5-c0e28f5936d4
+		sourceLineageTag: Error Severity
+		summarizeBy: none
+		sourceColumn: Error Severity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Error Caught By'
+		dataType: string
+		lineageTag: 2b568ba0-3a1f-4e12-a420-bb43ee54a1ef
+		sourceLineageTag: Error Caught By
+		summarizeBy: none
+		sourceColumn: Error Caught By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Error Origin'
+		dataType: string
+		lineageTag: 25932c1e-d2f4-44a0-8060-9d4763aa4fd8
+		sourceLineageTag: Error Origin
+		summarizeBy: none
+		sourceColumn: Error Origin
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Error Type'
+		dataType: string
+		lineageTag: 14e42094-1979-4c25-a2db-d3d75318d5f9
+		sourceLineageTag: Error Type
+		summarizeBy: none
+		sourceColumn: Error Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Error Description'
+		dataType: string
+		lineageTag: b1bb087e-5f45-411e-97ad-af82d2b8f06c
+		sourceLineageTag: Error Description
+		summarizeBy: none
+		sourceColumn: Error Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reason For Change'
+		dataType: string
+		lineageTag: 0f592727-09c6-4cac-a46c-8b6fdb44cb32
+		sourceLineageTag: Reason For Change
+		summarizeBy: none
+		sourceColumn: Reason For Change
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Description Of Change'
+		dataType: string
+		lineageTag: 6531aabf-a51b-4760-b987-21c9b3d0893a
+		sourceLineageTag: Description Of Change
+		summarizeBy: none
+		sourceColumn: Description Of Change
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Main Work Center ID'
+		dataType: string
+		lineageTag: 85822975-74a2-441e-9920-8975f10d94bc
+		sourceLineageTag: Main Work Center ID
+		summarizeBy: none
+		sourceColumn: Main Work Center ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Costing Sheet'
+		dataType: string
+		lineageTag: c1ea2a97-d1e2-40d7-a4f5-f76719e9f832
+		sourceLineageTag: Costing Sheet
+		summarizeBy: none
+		sourceColumn: Costing Sheet
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Changed By'
+		dataType: string
+		lineageTag: ad399fd2-c2bd-4c57-9e8f-10712fcba762
+		sourceLineageTag: Order Changed By
+		summarizeBy: none
+		sourceColumn: Order Changed By
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Changed On'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6f2caa83-cac6-4353-b3dc-ac8699cde767
+		sourceLineageTag: Order Changed On
+		summarizeBy: none
+		sourceColumn: Order Changed On
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Area'
+		dataType: string
+		lineageTag: 5535e842-bb18-4f30-9f44-1e9328698470
+		sourceLineageTag: Business Area
+		summarizeBy: none
+		sourceColumn: Business Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Area'
+		dataType: string
+		lineageTag: da7a46b2-c44f-47e4-abc6-f30f43452dc0
+		sourceLineageTag: Functional Area
+		summarizeBy: none
+		sourceColumn: Functional Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Object Class'
+		dataType: string
+		lineageTag: c3b04f90-7e05-4941-8f30-7918c73bb11d
+		sourceLineageTag: Object Class
+		summarizeBy: none
+		sourceColumn: Object Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tax Jurisdiction'
+		dataType: string
+		lineageTag: f1888fd7-b845-4e4f-b152-217f37b9eccf
+		sourceLineageTag: Tax Jurisdiction
+		summarizeBy: none
+		sourceColumn: Tax Jurisdiction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Overhead Key'
+		dataType: string
+		lineageTag: 165d41c0-f569-4790-8310-fdf3520ad5c5
+		sourceLineageTag: Overhead Key
+		summarizeBy: none
+		sourceColumn: Overhead Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Basic End Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1d374512-3b18-426c-8922-eeea9192aaa0
+		sourceLineageTag: Basic End Date
+		summarizeBy: none
+		sourceColumn: Basic End Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Basic Start Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ca6f5029-96e3-4335-aa24-1659b999946d
+		sourceLineageTag: Basic Start Date
+		summarizeBy: none
+		sourceColumn: Basic Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Scheduled Release Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1dfca310-d9d7-4e83-8fc9-1e72442e55ca
+		sourceLineageTag: Scheduled Release Date
+		summarizeBy: none
+		sourceColumn: Scheduled Release Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plan Number Of Operation'
+		dataType: int64
+		formatString: 0
+		lineageTag: b6636321-3633-4e1e-99e9-84ab12e80902
+		sourceLineageTag: Plan Number Of Operation
+		summarizeBy: none
+		sourceColumn: Plan Number Of Operation
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Exact Break Times'
+		dataType: string
+		lineageTag: 646a340f-8d7c-4c5e-a163-08c57deffa12
+		sourceLineageTag: Exact Break Times
+		summarizeBy: none
+		sourceColumn: Exact Break Times
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Network Profile'
+		dataType: string
+		lineageTag: cde9f61c-d577-453f-a55e-b44d5f7fcea1
+		sourceLineageTag: Network Profile
+		summarizeBy: none
+		sourceColumn: Network Profile
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Priority'
+		dataType: string
+		lineageTag: 36095c90-fe8d-48d1-ba2c-5a75140057d9
+		sourceLineageTag: Order Priority
+		summarizeBy: none
+		sourceColumn: Order Priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Costing Variant Plan'
+		dataType: string
+		lineageTag: b385c9b7-fc97-4c78-b30e-afe001933181
+		sourceLineageTag: Costing Variant Plan
+		summarizeBy: none
+		sourceColumn: Costing Variant Plan
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Costing Variant Actual'
+		dataType: string
+		lineageTag: 0b476aa8-ca1f-4353-9ff0-e190397ade0f
+		sourceLineageTag: Costing Variant Actual
+		summarizeBy: none
+		sourceColumn: Costing Variant Actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Superior Network Number'
+		dataType: string
+		lineageTag: 23dda7f4-5476-4a3f-8082-88e550e33873
+		sourceLineageTag: Superior Network Number
+		summarizeBy: none
+		sourceColumn: Superior Network Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Superior Activity'
+		dataType: string
+		lineageTag: 7a2c8df1-ce1a-4acc-a16f-ea14b119ee65
+		sourceLineageTag: Superior Activity
+		summarizeBy: none
+		sourceColumn: Superior Activity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Responsible Planner Group'
+		dataType: string
+		lineageTag: 53516df9-609c-4e1f-a44d-6c78f7dbc0aa
+		sourceLineageTag: Responsible Planner Group
+		summarizeBy: none
+		sourceColumn: Responsible Planner Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Change Number'
+		dataType: string
+		lineageTag: 705ba0fc-7e99-4103-a120-57aa88594fdf
+		sourceLineageTag: Change Number
+		summarizeBy: none
+		sourceColumn: Change Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Type Description'
+		dataType: string
+		lineageTag: a726ad59-4eb1-4683-9c9b-37497055813d
+		sourceLineageTag: Order Type Description
+		summarizeBy: none
+		sourceColumn: Order Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Category Description'
+		dataType: string
+		lineageTag: 20817b16-5b14-41cf-aa50-e25a0146ef8a
+		sourceLineageTag: Order Category Description
+		summarizeBy: none
+		sourceColumn: Order Category Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Task List Type Description'
+		dataType: string
+		lineageTag: 8d9e7dc0-48d1-458c-ad3c-33dce1f8ca87
+		sourceLineageTag: Task List Type Description
+		summarizeBy: none
+		sourceColumn: Task List Type Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MRP Controller Code Description'
+		dataType: string
+		lineageTag: 8ef57258-a429-40bf-b91a-4f18a9e7fbb1
+		sourceLineageTag: MRP Controller Code Description
+		summarizeBy: none
+		sourceColumn: MRP Controller Code Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Controlling Area Description'
+		dataType: string
+		lineageTag: 152f9f98-49ef-48c7-aafe-783d47ceb7e4
+		sourceLineageTag: Controlling Area Description
+		summarizeBy: none
+		sourceColumn: Controlling Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Area Description'
+		dataType: string
+		lineageTag: 685095dc-9bf1-42e5-bfbc-3e75d94ed28d
+		sourceLineageTag: Business Area Description
+		summarizeBy: none
+		sourceColumn: Business Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Area Description'
+		dataType: string
+		lineageTag: 16cf34e1-bd65-4742-a610-323ac023c366
+		sourceLineageTag: Functional Area Description
+		summarizeBy: none
+		sourceColumn: Functional Area Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Object Class Description'
+		dataType: string
+		lineageTag: 4978b377-9fb5-4cc4-8bc0-80abbfc71c91
+		sourceLineageTag: Object Class Description
+		summarizeBy: none
+		sourceColumn: Object Class Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'External Order Number'
+		dataType: string
+		lineageTag: 09f6d3c0-a73b-4e3c-9bd9-f7b57abbe25d
+		sourceLineageTag: External Order Number
+		summarizeBy: none
+		sourceColumn: External Order Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Person Responsible'
+		dataType: string
+		lineageTag: db4a5c7c-1e17-4e15-ab12-700317f6e8f3
+		sourceLineageTag: Person Responsible
+		summarizeBy: none
+		sourceColumn: Person Responsible
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'End Of Work Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4dbd1b79-c7bf-42de-b72e-0d6a75866234
+		sourceLineageTag: End Of Work Date
+		summarizeBy: none
+		sourceColumn: End Of Work Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Of Last Status Change'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5dfb441d-8655-4e52-83a7-86c873108d76
+		sourceLineageTag: Date Of Last Status Change
+		summarizeBy: none
+		sourceColumn: Date Of Last Status Change
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Reached So Far'
+		dataType: int64
+		formatString: 0
+		lineageTag: 82981442-7e0c-4bbe-a87f-2d867a8a0255
+		sourceLineageTag: Status Reached So Far
+		summarizeBy: none
+		sourceColumn: Status Reached So Far
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Created'
+		dataType: string
+		lineageTag: 0a523ebb-d70b-45ce-a4a4-e57533321a1e
+		sourceLineageTag: Is Created
+		summarizeBy: none
+		sourceColumn: Is Created
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Released'
+		dataType: string
+		lineageTag: a924669a-818d-497b-af01-67dbd469dd2d
+		sourceLineageTag: Is Released
+		summarizeBy: none
+		sourceColumn: Is Released
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Completed'
+		dataType: string
+		lineageTag: 11785ea4-2de3-4927-9cdd-599a00cbfcd3
+		sourceLineageTag: Is Completed
+		summarizeBy: none
+		sourceColumn: Is Completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Closed'
+		dataType: string
+		lineageTag: 84d87fd6-576f-428f-87fb-19a0cb250710
+		sourceLineageTag: Is Closed
+		summarizeBy: none
+		sourceColumn: Is Closed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Deletion Indicator'
+		dataType: string
+		lineageTag: 89b262e6-7f76-4df0-b456-87602fafcd13
+		sourceLineageTag: Deletion Indicator
+		summarizeBy: none
+		sourceColumn: Deletion Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Order = entity
+		mode: directLake
+		source
+			entityName: EDW_T_D_PM_ORDER_CUR_D
+			schemaName: dbo
+			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = Name
+

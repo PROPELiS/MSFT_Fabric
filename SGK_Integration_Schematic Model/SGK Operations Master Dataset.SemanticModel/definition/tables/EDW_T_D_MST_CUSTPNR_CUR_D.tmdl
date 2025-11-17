@@ -1,217 +1,287 @@
 table EDW_T_D_MST_CUSTPNR_CUR_D
+	isHidden
 	lineageTag: 60b279d1-1a4e-4ad6-bb81-7d2b13849b98
 	sourceLineageTag: [dbo].[EDW_T_D_MST_CUSTPNR_CUR_D]
 
 	column CUST_PRTNR_KEY
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: dd2e0da7-86fc-4176-b5d4-8db203ea2bcb
 		sourceLineageTag: CUST_PRTNR_KEY
 		summarizeBy: sum
 		sourceColumn: CUST_PRTNR_KEY
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Customer ID'
 		dataType: string
+		isHidden
 		lineageTag: 761c3298-4756-4134-893a-0bae755c25fe
 		sourceLineageTag: Customer Partner Customer ID
 		summarizeBy: none
 		sourceColumn: Customer Partner Customer ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Sales Organization'
 		dataType: string
+		isHidden
 		lineageTag: 5fb53bef-8d60-480b-a6de-81434c4c3dcc
 		sourceLineageTag: Customer Partner Sales Organization
 		summarizeBy: none
 		sourceColumn: Customer Partner Sales Organization
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Sales Organization Description'
 		dataType: string
+		isHidden
 		lineageTag: 391f9856-bdb4-4a11-8d06-436b7dd53c71
 		sourceLineageTag: Customer Partner Sales Organization Description
 		summarizeBy: none
 		sourceColumn: Customer Partner Sales Organization Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Distribution Channel'
 		dataType: string
+		isHidden
 		lineageTag: 1a1034bb-1015-4053-83e7-9547d47e606c
 		sourceLineageTag: Customer Partner Distribution Channel
 		summarizeBy: none
 		sourceColumn: Customer Partner Distribution Channel
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Distribution Channel Description'
 		dataType: string
+		isHidden
 		lineageTag: f8111d39-6b5d-40fb-b6eb-2a5e1bf804e8
 		sourceLineageTag: Customer Partner Distribution Channel Description
 		summarizeBy: none
 		sourceColumn: Customer Partner Distribution Channel Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Division'
 		dataType: string
+		isHidden
 		lineageTag: 5fff82c2-29b1-43ed-97dd-81ac053f9295
 		sourceLineageTag: Customer Partner Division
 		summarizeBy: none
 		sourceColumn: Customer Partner Division
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Division Description'
 		dataType: string
+		isHidden
 		lineageTag: d8068d0b-9894-4b51-ba07-f02cbe6c057e
 		sourceLineageTag: Customer Partner Division Description
 		summarizeBy: none
 		sourceColumn: Customer Partner Division Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Customer Number of Business Partner'
 		dataType: string
+		isHidden
 		lineageTag: 63f94257-d645-4d64-9baf-485970e79202
 		sourceLineageTag: Customer Partner Customer Number of Business Partner
 		summarizeBy: none
 		sourceColumn: Customer Partner Customer Number of Business Partner
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Function'
 		dataType: string
+		isHidden
 		lineageTag: 7f07c4d5-314e-4168-800f-9dd6c95d1f69
 		sourceLineageTag: Customer Partner Function
 		summarizeBy: none
 		sourceColumn: Customer Partner Function
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Function Description'
 		dataType: string
+		isHidden
 		lineageTag: fe74ac64-f782-4875-8b53-3e37633f7380
 		sourceLineageTag: Customer Partner Function Description
 		summarizeBy: none
 		sourceColumn: Customer Partner Function Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Personel ID'
 		dataType: string
+		isHidden
 		lineageTag: 1f002928-64d6-491c-b9d4-39c226e095fd
 		sourceLineageTag: Customer Partner Personel ID
 		summarizeBy: none
 		sourceColumn: Customer Partner Personel ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Counter'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 70a1b81d-d1e4-4777-9f1e-80b9b2d7c019
 		sourceLineageTag: Customer Partner Counter
 		summarizeBy: sum
 		sourceColumn: Customer Partner Counter
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ETL_SRC_SYS_CD
 		dataType: string
+		isHidden
 		lineageTag: b35e66c4-6a42-4f64-ba25-4302bd2afebe
 		sourceLineageTag: ETL_SRC_SYS_CD
 		summarizeBy: none
 		sourceColumn: ETL_SRC_SYS_CD
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ETL_EFFECTV_BEGIN_DATE
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: 1c5a2ad2-8b65-4294-b6bc-f2c24cc58988
 		sourceLineageTag: ETL_EFFECTV_BEGIN_DATE
 		summarizeBy: none
 		sourceColumn: ETL_EFFECTV_BEGIN_DATE
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ETL_EFFECTV_END_DATE
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: befd266c-d0b2-4f0d-984c-af5487e2e2d2
 		sourceLineageTag: ETL_EFFECTV_END_DATE
 		summarizeBy: none
 		sourceColumn: ETL_EFFECTV_END_DATE
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Current Record Indicator of Customer Partner'
 		dataType: string
+		isHidden
 		lineageTag: 13648227-2823-4c01-a027-3cbd89802973
 		sourceLineageTag: Current Record Indicator of Customer Partner
 		summarizeBy: none
 		sourceColumn: Current Record Indicator of Customer Partner
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ETL_CREATED_TS
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: f5086d43-e288-4b53-8b0b-70f59cd33e07
 		sourceLineageTag: ETL_CREATED_TS
 		summarizeBy: none
 		sourceColumn: ETL_CREATED_TS
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ETL_UPDTD_TS
 		dataType: dateTime
+		isHidden
 		formatString: General Date
 		lineageTag: 2e7733fc-4a9b-4b9e-8ec2-4ec04efb3f06
 		sourceLineageTag: ETL_UPDTD_TS
 		summarizeBy: none
 		sourceColumn: ETL_UPDTD_TS
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Vendor ID'
 		dataType: string
+		isHidden
 		lineageTag: 6c0042f1-52a6-4eb6-8849-423261e0b881
 		sourceLineageTag: Customer Partner Vendor ID
 		summarizeBy: none
 		sourceColumn: Customer Partner Vendor ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Contact Person ID'
 		dataType: string
+		isHidden
 		lineageTag: 5c591fd4-1d0b-4581-89be-9b94bb0cb39e
 		sourceLineageTag: Customer Partner Contact Person ID
 		summarizeBy: none
 		sourceColumn: Customer Partner Contact Person ID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Description'
 		dataType: string
+		isHidden
 		lineageTag: 84b7ad05-1f18-4739-bb4d-c47f1e75600d
 		sourceLineageTag: Customer Partner Description
 		summarizeBy: none
 		sourceColumn: Customer Partner Description
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Customer Partner Default Partner'
 		dataType: string
+		isHidden
 		lineageTag: f21a56ac-836a-4048-a6cc-ad2b7ff2189f
 		sourceLineageTag: Customer Partner Default Partner
 		summarizeBy: none
 		sourceColumn: Customer Partner Default Partner
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -221,4 +291,6 @@ table EDW_T_D_MST_CUSTPNR_CUR_D
 			entityName: EDW_T_D_MST_CUSTPNR_CUR_D
 			schemaName: dbo
 			expressionSource: 'DirectLake - GLOBAL_EDW'
+
+	changedProperty = IsHidden
 

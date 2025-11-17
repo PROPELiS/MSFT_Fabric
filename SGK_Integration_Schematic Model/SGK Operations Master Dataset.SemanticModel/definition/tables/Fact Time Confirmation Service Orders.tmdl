@@ -173,7 +173,7 @@ table 'Fact Time Confirmation Service Orders'
 			    SUM('Fact Time Confirmation Service Orders'[ACTUAL_WRK_IN_HRS]),
 			    FILTER(
 			        'Fact Time Confirmation Service Orders',
-			        RELATED('Operating Plant'[Operating Plant ID]) = RELATED('PLANNING_PLANT'[Planning Plant ID])
+			        RELATED('Operating Plant'[Operating Plant ID]) = RELATED('Planning Plant'[Planning Plant ID])
 			    )
 			) + 0
 			 
@@ -215,13 +215,6 @@ table 'Fact Time Confirmation Service Orders'
 
 	measure 'Remaining Work in Hours' = sum('Fact Time Confirmation Service Orders'[REMG_WRK_IN_HRS])
 		lineageTag: 5be91c38-4851-4e13-b35c-50d818fe88ae
-
-		changedProperty = Name
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure Smart_Sourced_Hours_Other = [Actual Work in Hours] -([Flex Force Hours]+[Planning Plant Hours]+[Smart Sourced Hours Low Cost])
-		lineageTag: fbb64d4d-5a86-450a-8f35-b82f3d99296d
 
 		changedProperty = Name
 
@@ -280,6 +273,47 @@ table 'Fact Time Confirmation Service Orders'
 			)
 			```
 		lineageTag: 5cb68200-3368-47c0-8dc6-5fe32cb47b12
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Available Hours' = [Actual Work in Hours]+[Actual Wrk In Hrs]
+		lineageTag: 7dec5f55-4cf9-426b-a525-d0e9538fc54d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Direct Utilization %' = [Actual Work in Hours]/[Available Hours]
+		lineageTag: 664acb69-b23e-4c66-b75a-11652715d5ba
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'MTD DIRECT Utilization%' = CALCULATE( [Direct Utilization %], 'Posting Date'[Posting Current Month Minus 1 Flag] = 1 )
+		lineageTag: 3d825f0e-2e2c-49c2-a90f-cacd99cb7443
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YTD Direct Utilization%' =
+			
+			IF(
+			    MONTH(TODAY()) = 10,
+			    CALCULATE([Direct Utilization %], 'Posting Date'[Posting Current Fiscal Year Minus 1 Flag] = 1),
+			    CALCULATE([Direct Utilization %], 'Posting Date'[Posting Current Fiscal Year Flag] = 1)
+			)
+		lineageTag: 7c2cdd4e-5ec2-4122-9e0c-3d53c340fab0
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Smart_Sourced_Hours_Other = [Actual Work in Hours] -([Flex Force Hours]+[Planning Plant Hours]+[Smart Sourced Hours Low Cost])
+		lineageTag: d6cfbd58-d442-4b06-b7d6-350fde6db5cc
 
 		changedProperty = Name
 
@@ -982,13 +1016,19 @@ table 'Fact Time Confirmation Service Orders'
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column ACCT_IND
-		dataType: string
+		dataType: double
 		lineageTag: f71520cb-7544-452a-a494-36c3ad33a99e
 		sourceLineageTag: ACCT_IND
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: ACCT_IND
 
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column PROFCHZ_PROFT_CNTR_KEY
 		dataType: int64
@@ -1058,6 +1098,70 @@ table 'Fact Time Confirmation Service Orders'
 		sourceColumn: PRDVCON_KEY
 
 		annotation SummarizationSetBy = Automatic
+
+	column SOLDTO_CUST_KEY
+		dataType: int64
+		formatString: 0
+		lineageTag: 34d35ac3-339d-499b-ad48-5a28b677917f
+		sourceLineageTag: SOLDTO_CUST_KEY
+		summarizeBy: sum
+		sourceColumn: SOLDTO_CUST_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Activity
+		dataType: string
+		lineageTag: 0ef04f4e-f0c9-476b-a457-17220ac8a99a
+		sourceLineageTag: Activity
+		summarizeBy: none
+		sourceColumn: Activity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Utilization Type'
+		dataType: string
+		lineageTag: eaebbcce-d3a9-4832-ab45-7a2e757e07e9
+		sourceLineageTag: Utilization Type
+		summarizeBy: none
+		sourceColumn: Utilization Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column AG
+		dataType: string
+		lineageTag: 03fd9c12-7020-480e-974b-a4f63229bca3
+		sourceLineageTag: AG
+		summarizeBy: none
+		sourceColumn: AG
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hours_Of_Original
+		dataType: double
+		lineageTag: 1995480a-240b-45be-a093-bb91594677f5
+		sourceLineageTag: Hours_Of_Original
+		summarizeBy: sum
+		sourceColumn: Hours_Of_Original
+
+		changedProperty = FormatString
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Hours_Of_Approval
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 10079f9f-4d0c-46a3-8203-b949de338245
+		sourceLineageTag: Hours_Of_Approval
+		summarizeBy: sum
+		sourceColumn: Hours_Of_Approval
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	partition 'Fact Time Confirmation Service Orders' = entity
 		mode: directLake

@@ -12,16 +12,16 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["RemoteModeling","DirectLakeOnOneLakeCreatedInDesktop","DirectLakeOnOneLakeInWeb","WebModelingEdit"]
 
-ref table EDW_T_R_BASE_TARGET_PRICE
-ref table EDW_T_R_BASE_TARGET_PRICING_COMMENTS
+ref table 'Base Target Price'
+ref table 'Base Target Pricing Comments'
 ref table 'Partner Profit Center'
 ref table CAGGIATI_CUST_MASTER
 ref table 'Foreign Currency'
 ref table 'Document Currency'
-ref table EDW_T_D_MST_MATSALS_CUR_D
+ref table 'Material Sales'
 ref table EDW_T_D_MST_CUSULPT_CUR_D
 ref table 'Billing Date'
-ref table REQD_DELVRY_DATE
+ref table 'Required Delivery Date'
 ref table 'Company Currency'
 ref table 'Partner Profit Center Vertical'
 ref table 'Partner Cost Center Horizontal'
@@ -39,40 +39,40 @@ ref table 'Responsible Cost Center Vertical'
 ref table 'Customer Project Manager'
 ref table 'Responsible Cost Center Horizontal'
 ref table 'Technical Completion Date'
-ref table EDW_T_D_PRD_SERVORD_CUR_D
+ref table 'Service Order'
 ref table 'Parent Customer'
 ref table 'Person Responsible Cost Center'
-ref table EDW_T_D_SAL_SALAREA_CUR_D
+ref table 'Sales Area'
 ref table 'Person Responsible Cost Center Vertical Heirarcy'
-ref table EDW_T_D_HY_PROFCVZ_CUR_D
+ref table 'Profit Center Vertical'
 ref table 'Person Responsible Cost Center Horizontal Heirarcy'
 ref table 'Person Responsible Personnel'
 ref table 'Partner Cost Center'
-ref table EDW_T_D_HY_PROFCHZ_CUR_D
-ref table EDW_T_D_HY_WORKCHZ_CUR_D
-ref table EDW_T_D_HY_WORKCVZ_CUR_D
+ref table 'Profit Center Horizontal'
+ref table 'Work Center Horizontal'
+ref table 'Work Center Vertical'
 ref table 'Posting Date'
-ref table EDW_T_D_MST_PLANT_CUR_D
+ref table Plant
 ref table 'Printer Customer'
-ref table EDW_T_D_MST_PROFCTR_CUR_D
-ref table EDW_T_D_MST_CUSTOMR_CUR_D
-ref table EDW_T_D_MST_CRNCY_CUR_D
-ref table EDW_T_D_SAL_SALORDH_CUR_D
-ref table EDW_T_D_MST_WORKCTR_CUR_D
-ref table SALES_REP
-ref table EDW_T_D_MST_ACTTYPE_CUR_D
-ref table CUSTOMER_SERVICE_REP
+ref table 'Profit Center'
+ref table Customer
+ref table Currency
+ref table 'Sales Order Header'
+ref table 'Work Center'
+ref table 'Sales Representative Personnel'
+ref table 'Activity Type'
+ref table 'Customer Service Rep Personnnel'
 ref table 'Fact Service Order Costs'
 ref table 'Fact COPA Actual'
 ref table EDW_T_D_PP_PURORDL_CUR_D
 ref table 'Fact Sales Order Details'
-ref table EDW_T_D_SAL_INVOICE_CUR_D
+ref table Invoice
 ref table 'Sales Person Personel'
 ref table EDW_T_D_FI_ICGLGRP_CUR_D
-ref table EDW_T_D_MST_DATE_CUR_D
+ref table 'Calender Date'
 ref table EDW_T_D_FI_ICPTRDG_CUR_D
-ref table EDW_T_D_MST_EXCHGRT_CUR_D
-ref table EDW_T_D_MST_SEGMENT_CUR_D
+ref table 'Exchange Rate'
+ref table Segment
 ref table EDW_T_D_MST_GLCMPCD_CUR_D
 ref table EDW_T_D_MST_CMPNYDT_CUR_D
 ref table 'Sold To Customer'
@@ -83,76 +83,76 @@ ref table 'Profit Center Trading Partner Grouping'
 ref table 'Partner Profit Center Trading Partner Grouping'
 ref table EDW_T_R_SGK_OPERREG_CUR_D
 ref table 'Payer Customer'
-ref table EDW_T_D_MST_CACSELM_CUR_D
+ref table 'Controlling Area Cost Element'
 ref table 'Company Information'
-ref table EDW_T_D_MST_CMPNYCD_CUR_D
-ref table SO_PARENT_CUST
-ref table EDW_T_D_MST_COSCNTR_CUR_D
+ref table Company
+ref table 'So Parent Customer'
+ref table 'Cost Center'
 ref table 'Producing Plant Region'
-ref table EDW_T_D_MST_VENDOR_CUR_D
+ref table Vendor
 ref table EDW_T_D_FI_MELTGRP_CUR_D
 ref table 'Bill To Customer'
-ref table UNITIZATION_AGENT_VENDOR
+ref table 'Unitization Agent Vendor'
 ref table 'Order For Customer'
-ref table EDW_T_D_HY_ENTYHZ_CUR_D
+ref table 'Entity Hierarchy'
 ref table 'Agency Customer'
-ref table MATRL_ENTERED
-ref table EDW_T_FACT_FI_BPCDTAU_CUR_D
+ref table 'Material Entered'
+ref table 'Fact BPC'
 ref table TEC_T_D_ETL_JBSTATS2_CUR_D
 ref table EDW_T_D_SAL_PRDVCON_CUR_D
-ref table EDW_T_D_MST_PERSONL_CUR_D
+ref table Personnel
 ref table EDW_T_D_MST_CUSTXMS_CUR_D
 ref table 'Inter Company'
-ref table EDW_T_D_MST_CUSTSAL_CUR_D
+ref table 'Customer Sales Area'
 ref table 'Inter Company Profit Center'
-ref table EDW_T_D_HY_COSTEVZ_CUR_D
-ref table EDW_T_D_MST_COSTELM_CUR_D
+ref table 'Cost Element Vertical'
+ref table 'Cost Element'
 ref table EDW_T_D_MST_CUSTPNR_CUR_D
 ref table 'Baseline Due Date'
 ref table EDW_T_D_MST_SEGMEN2_CUR_D
-ref table EDW_T_D_MST_CUSTMINR_CUR_D
-ref table EDW_T_B_SAL_SOIPTNR_CUR_D
+ref table 'Customer Material Info Record'
+ref table 'Sales Order Item Partner'
 ref table 'Personnel Plant Region'
-ref table EDW_T_D_MST_CUSTCMP_CUR_D
-ref table EDW_T_D_PM_ORDER_CUR_D
-ref table EDW_T_D_MST_GENLDGR_CUR_D
+ref table 'Customer Company'
+ref table Order
+ref table 'General Ledger'
 ref table 'Fact Cost Center Cost Summary'
 ref table 'Clearing Date'
-ref table EDW_T_D_MST_FUNCTAR_CUR_D
+ref table 'Functional Area'
 ref table EDW_T_D_HY_GLACTHZ_CUR_D
 ref table 'Fact Cost Center Cost Transaction'
-ref table EDW_T_D_SAL_ADDRESS_CUR_D
-ref table EMPLOYEE_RESP
+ref table Address
+ref table 'Employee Responsible Personnel'
 ref table 'Ship To Customer'
 ref table 'Transaction Currency'
-ref table EDW_T_D_PRS_WBSELEM_CUR_D
+ref table 'WBS Element'
 ref table 'Cylinder Owner Customer'
-ref table EDW_T_D_HY_COSTEHZ_CUR_D
+ref table 'Cost Element Horizontal'
 ref table 'Inter Company Profit Center Horizontal Hierarcy'
-ref table EDW_T_D_HY_COSTCVZ_CUR_D
-ref table EDW_T_D_SAL_DCHAREN_CUR_D
+ref table 'Cost Center Vertical'
+ref table 'Document Characteristics Encoway Job Sheet Header'
 ref table 'Entity Company'
 ref table 'Forwarding Agent Vendor'
-ref table Trading_Partner_Company
-ref table EMPLOYEE_RESP_2
-ref table EDW_T_D_HY_COSTCHZ_CUR_D
-ref table EDW_T_D_MST_MATERIAL_CUR_D
+ref table 'Trading Partner Company'
+ref table 'Employee Responsible Personnel 2'
+ref table 'Cost Center Horizontal'
+ref table Material
 ref table 'Group Currency'
-ref table EDW_T_D_MST_PRTHRCY_CUR_D
-ref table EDW_T_D_MST_CUSCRED_CUR_D
+ref table 'Product Hierarchy'
+ref table 'Customer Credit'
 ref table 'Location Plant'
-ref table EDW_T_D_MST_CUSTCNT_CUR_D
+ref table 'Customer Contact'
 ref table 'Producing Plant'
 ref table 'Fact Accounts Receivable'
 ref table 'Goods Issued Date'
 ref table 'Personnel Number'
 ref table 'Loaction Plan Region'
-ref table EDW_T_D_HY_BPCGLHZ_CUR_D
+ref table 'BPC GL Hierarchy'
 ref table 'Last Dunning Notice Date'
 ref table 'Invoice Creation Date'
 ref table 'Sales Order Header Create Date'
-ref table EDW_V_D_SAL_PRDVCON_CUR_D
-ref table 'Fact General Ledger'
+ref table 'Product Variant Configuration'
 ref table 'Fact General Ledger Plan & Budget'
 ref table 'Inter Company Profit Center Vertical Hierarcy'
+ref table 'Fact General Ledger'
 

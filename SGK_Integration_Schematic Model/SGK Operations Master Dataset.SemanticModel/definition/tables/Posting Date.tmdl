@@ -14,13 +14,21 @@ table 'Posting Date'
 
 	column 'Posting Date'
 		dataType: dateTime
-		formatString: General Date
+		formatString: mm/dd/yyyy
 		lineageTag: 354e8820-ec19-46d3-8acb-761f29a37bac
 		sourceLineageTag: Posting Date
 		summarizeBy: none
 		sourceColumn: Posting Date
 
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column 'Posting Fiscal Year'
 		dataType: int64
