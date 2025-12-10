@@ -1,6 +1,6 @@
 CREATE TABLE [Propelis].[EDW_T_FACT_PRD_FFUDATA_CUR_D] (
 
-	[FFU Job ID] int NOT NULL, 
+	[FFU Job ID] bigint NOT NULL, 
 	[FFU Account Indicator] varchar(max) NULL, 
 	[FFU Author] varchar(max) NULL, 
 	[FFU Auto Status] varchar(max) NULL, 
@@ -13,7 +13,7 @@ CREATE TABLE [Propelis].[EDW_T_FACT_PRD_FFUDATA_CUR_D] (
 	[FFU Site] varchar(max) NULL, 
 	[FFU SKU Description] varchar(max) NULL, 
 	[FFU Sold To Party Name] varchar(max) NULL, 
-	[FFU Status] int NULL, 
+	[FFU Status] bigint NULL, 
 	[SERVC_ORDER_KEY] int NULL, 
 	[SALES_ORDER_KEY] int NULL, 
 	[SOLD_TO_PARTY_KEY] int NULL, 

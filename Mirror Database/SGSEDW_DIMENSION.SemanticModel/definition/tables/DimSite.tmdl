@@ -1,0 +1,157 @@
+table DimSite
+	lineageTag: fbdad701-2f7e-4c43-9e2f-0ada669a4e00
+	sourceLineageTag: [DBO].[DimSite]
+
+	column HEXKeySites
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 2f75c6f1-ca74-4dcc-914a-caff1120eb1c
+		sourceLineageTag: HEXKeySites
+		summarizeBy: none
+		sourceColumn: HEXKeySites
+
+		annotation SummarizationSetBy = Automatic
+
+	column SiteId
+		dataType: double
+		sourceProviderType: decimal
+		lineageTag: a14d82ef-d4f7-4d1c-bb7c-3b024cdf69fa
+		sourceLineageTag: SiteId
+		summarizeBy: sum
+		sourceColumn: SiteId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SiteLBC
+		dataType: double
+		sourceProviderType: decimal
+		lineageTag: f1fa2de4-7110-4040-8f00-8224cc7c2cfc
+		sourceLineageTag: SiteLBC
+		summarizeBy: sum
+		sourceColumn: SiteLBC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SiteName
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 19878c42-2e3c-47fa-9409-d7a57a2067a8
+		sourceLineageTag: SiteName
+		summarizeBy: none
+		sourceColumn: SiteName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryISO3
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 00b01959-5978-48c8-b4c2-5f1499e59f9c
+		sourceLineageTag: CountryISO3
+		summarizeBy: none
+		sourceColumn: CountryISO3
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryName
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 48034b26-b3b8-4a32-bd53-fd434109254a
+		sourceLineageTag: CountryName
+		summarizeBy: none
+		sourceColumn: CountryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionCode
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 1d5e3b04-d785-40d6-b01d-d123f8cce1e3
+		sourceLineageTag: RegionCode
+		summarizeBy: none
+		sourceColumn: RegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionName
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 33ba625d-eba4-48c5-9383-6f349af2de69
+		sourceLineageTag: RegionName
+		summarizeBy: none
+		sourceColumn: RegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 77e24b56-abe3-442a-bc83-2e488e2d523f
+		sourceLineageTag: Latitude
+		summarizeBy: none
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column Longitude
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: a605dd4c-4325-4df8-9032-023179b1723d
+		sourceLineageTag: Longitude
+		summarizeBy: none
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+	column InactiveSite
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 152129a2-295a-40a1-a757-3fe107f05622
+		sourceLineageTag: InactiveSite
+		summarizeBy: none
+		sourceColumn: InactiveSite
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubRegionCode
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 9cf96eff-4bb1-42da-9a8a-75ef4c5b622d
+		sourceLineageTag: SubRegionCode
+		summarizeBy: none
+		sourceColumn: SubRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubRegionName
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 3ffd416e-f826-423e-a21f-af43b5fe3073
+		sourceLineageTag: SubRegionName
+		summarizeBy: none
+		sourceColumn: SubRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: b45021b0-c550-484d-979b-349069313570
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimSite-07535840-046e-4407-85ce-cb9f5a76018c = entity
+		mode: directLake
+		source
+			entityName: DimSite
+			schemaName: DBO
+			expressionSource: DatabaseQuery
+
+	annotation IsTableInBiModel = True
+

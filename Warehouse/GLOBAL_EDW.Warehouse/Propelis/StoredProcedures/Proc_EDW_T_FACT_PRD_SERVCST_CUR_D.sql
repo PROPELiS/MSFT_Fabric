@@ -1,76 +1,15 @@
---SELECT COUNT(*) FROM [Propelis].[EDW_T_FACT_PRD_SERVCST_CUR_D]
-
 CREATE   PROCEDURE [Propelis].[Proc_EDW_T_FACT_PRD_SERVCST_CUR_D]
-AS
+AS 
 BEGIN
 
-    -- Update existing records
-    UPDATE T
-    SET  
-        T.[SERVC_ORDER_KEY] = S.[SERVC_ORDER_KEY],
-        T.[PRODUCING_PLNT_KEY] = S.[PRODUCING_PLNT_KEY],
-        T.[Period] = S.[Period],
-        T.[DOCMT_CRNCY_KEY] = S.[DOCMT_CRNCY_KEY],
-        T.[CMPNY_CRNCY_KEY] = S.[CMPNY_CRNCY_KEY],
-        T.[GROUP_CRNCY_KEY] = S.[GROUP_CRNCY_KEY],
-        T.[DOCMT_CRNCY_VAL] = S.[DOCMT_CRNCY_VAL],
-        T.[CMPNY_CRNCY_VAL] = S.[CMPNY_CRNCY_VAL],
-        T.[GROUP_CRNCY_VAL] = S.[GROUP_CRNCY_VAL],
-        T.[QTY_TOTAL] = S.[QTY_TOTAL],
-        T.[UoM] = S.[UoM],
-        T.[Fiscal Year] = S.[Fiscal Year],
-        T.[Value Type] = S.[Value Type],
-        T.[COST_ELEMNT_KEY] = S.[COST_ELEMNT_KEY],
-        T.[TRNSCTN_TYP] = S.[TRNSCTN_TYP],
-        T.[Partner Object] = S.[Partner Object],
-        T.[MATRL_KEY] = S.[MATRL_KEY],
-        T.[CMPNY_KEY] = S.[CMPNY_KEY],
-        T.[PRTNR_CMPNY_KEY] = S.[PRTNR_CMPNY_KEY],
-        T.[Order Type] = S.[Order Type],
-        T.[Order Category] = S.[Order Category],
-        T.[MAINTENANCE_WRK_CNTR_KEY] = S.[MAINTENANCE_WRK_CNTR_KEY],
-        T.[Object Class] = S.[Object Class],
-        T.[RESPNSBLE_COST_CNTR_KEY] = S.[RESPNSBLE_COST_CNTR_KEY],
-        T.[PROFT_CNTR_KEY] = S.[PROFT_CNTR_KEY],
-        T.[ETL_SRC_SYS_CD] = S.[ETL_SRC_SYS_CD],
-        T.[ETL_CREATED_TS] = S.[ETL_CREATED_TS],
-        T.[ETL_UPDTD_TS] = S.[ETL_UPDTD_TS],
-        T.[LOC_PLNT_KEY] = S.[LOC_PLNT_KEY],
-        T.[Type Of Cost] = S.[Type Of Cost],
-        T.[PERSONEL_NUM_KEY] = S.[PERSONEL_NUM_KEY],
-        T.[FUNCTNL_AREA_KEY] = S.[FUNCTNL_AREA_KEY],
-        T.[Debit/Credit Indicator] = S.[Debit/Credit Indicator],
-        T.[Reference Document Number] = S.[Reference Document Number],
-        T.[PLNT_KEY] = S.[PLNT_KEY],
-        T.[PSTNG_DATE_KEY] = S.[PSTNG_DATE_KEY],
-        T.[Value Type Description] = S.[Value Type Description],
-        T.[Transaction Type Description] = S.[Transaction Type Description],
-        T.[Controlling Area Description] = S.[Controlling Area Description],
-        T.[Is Internal  Posting] = S.[Is Internal  Posting],
-        T.[ACTIVITY_TYP_KEY] = S.[ACTIVITY_TYP_KEY],
-        T.[Is INTER Company Posting] = S.[Is INTER Company Posting],
-        T.[Is INTRA Company Posting] = S.[Is INTRA Company Posting],
-        T.[PRTNR_COST_CNTR_KEY] = S.[PRTNR_COST_CNTR_KEY],
-        T.[TCHNCL_COMPLETION_DATE_KEY] = S.[TCHNCL_COMPLETION_DATE_KEY],
-        T.[DOCMT_DATE_KEY] = S.[DOCMT_DATE_KEY],
-        T.[CREATION_DATE_KEY] = S.[CREATION_DATE_KEY],
-        T.[Posting Creation Date Timestamp] = S.[Posting Creation Date Timestamp],
-        T.[PERSONNEL_PLANT_REGION_PLANT] = S.[PERSONNEL_PLANT_REGION_PLANT],
-        T.[PLANT_REGION_PLANT] = S.[PLANT_REGION_PLANT],
-        T.[LOCATION_PLANT_REGION_PLANT] = S.[LOCATION_PLANT_REGION_PLANT],
-        T.[PRODUCING_PLANT_REGION_PLANT] = S.[PRODUCING_PLANT_REGION_PLANT]
-    FROM 
-        [GLOBAL_EDW].[Propelis].[EDW_T_FACT_PRD_SERVCST_CUR_D] T
-    INNER JOIN 
-        [GLOBAL_EDW].[Propelis].[TEMP_EDW_T_FACT_PRD_SERVCST_CUR_D] S
-        ON T.[Document Number] = S.[Document Number]
-        AND T.[Posting Row] = S.[Posting Row]
-        AND T.[Controlling Area] = S.[Controlling Area];
-
-    -- Insert new records
-    INSERT INTO [GLOBAL_EDW].[Propelis].[EDW_T_FACT_PRD_SERVCST_CUR_D] 
-    (
-        [SERVC_ORDER_KEY],
+    -- Step 1: Clear existing data from the target table
+	
+	TRUNCATE TABLE [GLOBAL_EDW].[Propelis].[EDW_T_FACT_PRD_SERVCST_CUR_D];
+	
+	-- Step 2: Insert refreshed data from mirror table with joins
+	
+	INSERT INTO [GLOBAL_EDW].[Propelis].[EDW_T_FACT_PRD_SERVCST_CUR_D](
+	    [SERVC_ORDER_KEY],
         [PRODUCING_PLNT_KEY],
         [Document Number],
         [Period],
@@ -103,7 +42,7 @@ BEGIN
         [Type Of Cost],
         [PERSONEL_NUM_KEY],
         [FUNCTNL_AREA_KEY],
-        [Debit/Credit Indicator],
+        [Debit Credit Indicator],
         [Reference Document Number],
         [Controlling Area],
         [PLNT_KEY],
@@ -121,75 +60,162 @@ BEGIN
         [DOCMT_DATE_KEY],
         [CREATION_DATE_KEY],
         [Posting Creation Date Timestamp],
+		
+	--Below columns are added for the Alias tables
+		
         [PERSONNEL_PLANT_REGION_PLANT],
         [PLANT_REGION_PLANT],
         [LOCATION_PLANT_REGION_PLANT],
-        [PRODUCING_PLANT_REGION_PLANT]
-    )
-    SELECT
-        S.[SERVC_ORDER_KEY],
-        S.[PRODUCING_PLNT_KEY],
-        S.[Document Number],
-        S.[Period],
-        S.[DOCMT_CRNCY_KEY],
-        S.[CMPNY_CRNCY_KEY],
-        S.[GROUP_CRNCY_KEY],
-        S.[DOCMT_CRNCY_VAL],
-        S.[CMPNY_CRNCY_VAL],
-        S.[GROUP_CRNCY_VAL],
-        S.[QTY_TOTAL],
-        S.[UoM],
-        S.[Fiscal Year],
-        S.[Value Type],
-        S.[COST_ELEMNT_KEY],
-        S.[TRNSCTN_TYP],
-        S.[Partner Object],
-        S.[MATRL_KEY],
-        S.[CMPNY_KEY],
-        S.[PRTNR_CMPNY_KEY],
-        S.[Order Type],
-        S.[Order Category],
-        S.[MAINTENANCE_WRK_CNTR_KEY],
-        S.[Object Class],
-        S.[RESPNSBLE_COST_CNTR_KEY],
-        S.[PROFT_CNTR_KEY],
-        S.[ETL_SRC_SYS_CD],
-        S.[ETL_CREATED_TS],
-        S.[ETL_UPDTD_TS],
-        S.[LOC_PLNT_KEY],
-        S.[Type Of Cost],
-        S.[PERSONEL_NUM_KEY],
-        S.[FUNCTNL_AREA_KEY],
-        S.[Debit/Credit Indicator],
-        S.[Reference Document Number],
-        S.[Controlling Area],
-        S.[PLNT_KEY],
-        S.[PSTNG_DATE_KEY],
-        S.[Value Type Description],
-        S.[Transaction Type Description],
-        S.[Controlling Area Description],
-        S.[Is Internal  Posting],
-        S.[ACTIVITY_TYP_KEY],
-        S.[Posting Row],
-        S.[Is INTER Company Posting],
-        S.[Is INTRA Company Posting],
-        S.[PRTNR_COST_CNTR_KEY],
-        S.[TCHNCL_COMPLETION_DATE_KEY],
-        S.[DOCMT_DATE_KEY],
-        S.[CREATION_DATE_KEY],
-        S.[Posting Creation Date Timestamp],
-        S.[PERSONNEL_PLANT_REGION_PLANT],
-        S.[PLANT_REGION_PLANT],
-        S.[LOCATION_PLANT_REGION_PLANT],
-        S.[PRODUCING_PLANT_REGION_PLANT]
-    FROM 
-        [GLOBAL_EDW].[Propelis].[TEMP_EDW_T_FACT_PRD_SERVCST_CUR_D] S
-    LEFT JOIN 
-        [GLOBAL_EDW].[Propelis].[EDW_T_FACT_PRD_SERVCST_CUR_D] T
-        ON T.[Document Number] = S.[Document Number]
-        AND T.[Posting Row] = S.[Posting Row]
-        AND T.[Controlling Area] = S.[Controlling Area]
-    WHERE 
-        T.[Document Number] IS NULL;
+        [PRODUCING_PLANT_REGION_PLANT],
+        [COSTEHZ_COST_ELEMNT_KEY],
+        [COSTEVZ_COST_ELEMNT_KEY],
+        [PROFCHZ_PROFT_CNTR_KEY],
+        [PROFCVZ_PROFT_CNTR_KEY],
+        [WORKCHZ_WRK_CNTR_KEY],
+        [WORKCVZ_WRK_CNTR_KEY],
+        [Resp_Cost_Center_Horizontal_COST_CNTR_KEY],
+        [Resp_Cost_Center_Vertical_COST_CNTR_KEY],
+        [Partner_Cost_Center_Horizontal_COST_CNTR_KEY],
+        [Partner_Cost_Center_Vertical_COST_CNTR_KEY]
+		
+		
+	--[Service Order Sales Order] COLUMN DETAILS NOT FOUND
+	)
+	SELECT 
+	    FACT.[SERVC_ORDER_KEY],
+        FACT.[PRODUCING_PLNT_KEY],
+        FACT.[DOCMT_NUM],
+        FACT.[PER],
+        FACT.[DOCMT_CRNCY_KEY],
+        FACT.[CMPNY_CRNCY_KEY],
+        FACT.[GROUP_CRNCY_KEY],
+        FACT.[DOCMT_CRNCY_VAL],
+        FACT.[CMPNY_CRNCY_VAL],
+        FACT.[GROUP_CRNCY_VAL],
+        FACT.[QTY_TOTAL],
+        FACT.[UOM],
+        FACT.[FISCAL_YR],
+        FACT.[VAL_TYP],
+        FACT.[COST_ELEMNT_KEY],
+        FACT.[TRNSCTN_TYP],
+        FACT.[PRTNR_OBJ],
+        FACT.[MATRL_KEY],
+        FACT.[CMPNY_KEY],
+        FACT.[PRTNR_CMPNY_KEY],
+        FACT.[ORDER_TYP],
+        FACT.[ORDER_CTGRY],
+        FACT.[MAINTENANCE_WRK_CNTR_KEY],
+        FACT.[OBJ_CLASS],
+        FACT.[RESPNSBLE_COST_CNTR_KEY],
+        FACT.[PROFT_CNTR_KEY],
+        FACT.[ETL_SRC_SYS_CD],
+        FACT.[ETL_CREATED_TS],
+        FACT.[ETL_UPDTD_TS],
+        FACT.[LOC_PLNT_KEY],
+        FACT.[TYP_OF_COST],
+        FACT.[PERSONEL_NUM_KEY],
+        FACT.[FUNCTNL_AREA_KEY],
+        FACT.[DEBIT_CREDIT_IND],
+        FACT.[REF_DOCMT_NUM],
+        FACT.[CONTROLLING_AREA],
+        FACT.[PLNT_KEY],
+        FACT.[PSTNG_DATE_KEY],
+        FACT.[VAL_TYP_DESC],
+        FACT.[TRNSCTN_TYP_DESC],
+        FACT.[CONTROLLING_AREA_DESC],
+        FACT.[IS_INTERNL_PSTNG],
+        FACT.[ACTIVITY_TYP_KEY],
+        FACT.[PSTNG_ROW],
+        FACT.[IS_INTER_CMPNY_PSTNG],
+        FACT.[IS_INTRA_CMPNY_PSTNG],
+        FACT.[PRTNR_COST_CNTR_KEY],
+        FACT.[TCHNCL_COMPLETION_DATE_KEY],
+        FACT.[DOCMT_DATE_KEY],
+        FACT.[CREATION_DATE_KEY],
+        FACT.[CREATION_DATE_TS],
+		
+	--Below columns are added for the Alias tables
+		
+		substring(PSNL_NUM.[Personnel Cost Center ID],4,4) AS PERSONNEL_PLANT_REGION_PLANT,
+		PNT.[Plant ID] AS PLANT_REGION_PLANT,
+		LOC_PNT.[Location Plant ID] AS LOCATION_PLANT_REGION_PLANT,
+		PRDU_PNT.[Producing Plant ID] AS PRODUCING_PLANT_REGION_PLANT,
+		COSTELM.COST_ELEMNT_KEY AS COSTEHZ_COST_ELEMNT_KEY,
+		COSTELM.COST_ELEMNT_KEY AS COSTEVZ_COST_ELEMNT_KEY,
+		PROFCTR.PROFT_CNTR_KEY AS PROFCHZ_PROFT_CNTR_KEY,
+		PROFCTR.PROFT_CNTR_KEY AS PROFCVZ_PROFT_CNTR_KEY,
+		WORKCTR.WRK_CNTR_KEY AS WORKCHZ_WRK_CNTR_KEY,
+		WORKCTR.WRK_CNTR_KEY AS WORKCVZ_WRK_CNTR_KEY,
+		RP_CT_CNTR.COST_CNTR_KEY AS Resp_Cost_Center_Horizontal_COST_CNTR_KEY,
+		RP_CT_CNTR.COST_CNTR_KEY AS Resp_Cost_Center_Vertical_COST_CNTR_KEY,
+		PNTR_CT_CNTR.COST_CNTR_KEY AS Partner_Cost_Center_Horizontal_COST_CNTR_KEY,
+		PNTR_CT_CNTR.COST_CNTR_KEY AS Partner_Cost_Center_Vertical_COST_CNTR_KEY
+		
+	FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_F_PRD_SERVCST_CUR_D] AS FACT
+	
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_MATERIAL_CUR_D] AS MATERIAL
+	    ON FACT.MATRL_KEY = MATERIAL.MATRL_KEY
 
-END;
+    LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_PRD_SERVORD_CUR_D] AS SERVORD
+	    ON FACT.SERVC_ORDER_KEY = SERVORD.SERVC_ORDER_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_COSTELM_CUR_D] AS COSTELM
+	    ON FACT.COST_ELEMNT_KEY = COSTELM.COST_ELEMNT_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PROFCTR_CUR_D] AS PROFCTR
+	    ON FACT.PROFT_CNTR_KEY = PROFCTR.PROFT_CNTR_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_FUNCTAR_CUR_D] AS FUNCTAR
+	    ON FACT.FUNCTNL_AREA_KEY = FUNCTAR.FUNCTNL_AREA_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_WORKCTR_CUR_D] AS WORKCTR
+	    ON FACT.MAINTENANCE_WRK_CNTR_KEY = WORKCTR.WRK_CNTR_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_DATE_CUR_D] AS DT
+	    ON FACT.PSTNG_DATE_KEY = DT.DATE_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_ACTTYPE_CUR_D] AS ACTTYPE
+	    ON FACT.ACTIVITY_TYP_KEY = ACTTYPE.ACTIVITY_TYP_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[DOCUMENT_CURRENCY] AS DOC_CURNCY
+	    ON FACT.DOCMT_CRNCY_KEY = DOC_CURNCY.CRNCY_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[COMPANY_CURRENCY] AS COM_CURNCY
+	    ON FACT.CMPNY_CRNCY_KEY = COM_CURNCY.CRNCY_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[GROUP_CURRENCY] AS GRP_CURNCY
+	    ON FACT.GROUP_CRNCY_KEY = GRP_CURNCY.CRNCY_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[COMPANY] AS CMP
+	    ON FACT.CMPNY_KEY = CMP.CMPNY_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[PARTNER_COMPANY] AS PNTR_CMP
+	    ON FACT.PRTNR_CMPNY_KEY = PNTR_CMP.CMPNY_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[PRODUCING_PLANT] AS PRDU_PNT
+	    ON FACT.PRODUCING_PLNT_KEY = PRDU_PNT.PLNT_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[RESP_COST_CENTER] AS RP_CT_CNTR
+	    ON FACT.RESPNSBLE_COST_CNTR_KEY = RP_CT_CNTR.COST_CNTR_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[LOCATION_PLANT] AS LOC_PNT
+	    ON FACT.LOC_PLNT_KEY = LOC_PNT.PLNT_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[PLANT] AS PNT
+	    ON FACT.PLNT_KEY = PNT.PLNT_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[PERSONNEL_NUMBER] AS PSNL_NUM
+	    ON FACT.PERSONEL_NUM_KEY = PSNL_NUM.PERSONEL_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[PARTNER_COST_CENTER] AS PNTR_CT_CNTR
+	    ON FACT.PRTNR_COST_CNTR_KEY = PNTR_CT_CNTR.COST_CNTR_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[TECH_COMPLETION_DATE] AS TE_COM_DT
+	    ON FACT.TCHNCL_COMPLETION_DATE_KEY = TE_COM_DT.DATE_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[DOCUMENT_DATE] AS DOC_DT
+	    ON FACT.DOCMT_DATE_KEY = DOC_DT.DATE_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[CREATION_DATE] AS CRT_DT
+	    ON FACT.CREATION_DATE_KEY = CRT_DT.DATE_KEY;
+END

@@ -1,0 +1,303 @@
+table PlateSqInchDetails
+	lineageTag: be8e5066-54dc-48cf-975d-dd06fea6e28c
+	sourceLineageTag: [dbo].[PlateSqInchDetails]
+
+	column 'JOB - Formatted Job Number'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7bd4f65f-e47d-466e-b604-6b38aef0f794
+		sourceLineageTag: FormattedJobNumber
+		summarizeBy: none
+		sourceColumn: FormattedJobNumber
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JOB - Job Item Id'
+		dataType: double
+		formatString: 0
+		sourceProviderType: decimal(20, 0)
+		lineageTag: 6cd407ab-ca4a-44b9-a4bd-852dcedbb47c
+		sourceLineageTag: JobItemId
+		summarizeBy: count
+		sourceColumn: JobItemId
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'EMP - Site LBC'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e0dcb6c5-0205-4207-bf57-fdda6ad15717
+		sourceLineageTag: SiteLBC
+		summarizeBy: none
+		sourceColumn: SiteLBC
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Simplified Customer'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 870509db-4f5e-4839-b24b-4bb8450cfcc6
+		sourceLineageTag: SimplifiedCustomer
+		summarizeBy: none
+		sourceColumn: SimplifiedCustomer
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CUST - Portfolio Customer'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ab1d78eb-aeb5-464e-8df7-51b7f201e6df
+		sourceLineageTag: PortfolioCustomer
+		summarizeBy: none
+		sourceColumn: PortfolioCustomer
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAL - YYYYMM'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bf8557eb-ae0d-4478-be00-c8878d570bfe
+		sourceLineageTag: YYYYMM
+		summarizeBy: none
+		sourceColumn: YYYYMM
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QNTY - Height'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1905452f-4620-4207-8c8c-6295bc1ff575
+		sourceLineageTag: Height
+		summarizeBy: none
+		sourceColumn: Height
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QNTY - Width'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6e99c76e-c603-4f64-870c-04326388cf62
+		sourceLineageTag: Width
+		summarizeBy: none
+		sourceColumn: Width
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QNTY - Default Plate Square Inch from MDS'
+		dataType: double
+		sourceProviderType: decimal(38, 4)
+		lineageTag: 6ca34144-2f55-47a7-a141-a8bd8696b2e5
+		sourceLineageTag: DefaultPlateSquareInchfromMDS
+		summarizeBy: sum
+		sourceColumn: DefaultPlateSquareInchfromMDS
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'QNTY - No Of Colors'
+		dataType: double
+		sourceProviderType: decimal(38, 6)
+		lineageTag: a40d0c7e-1296-4a52-ab80-f08295c5c13d
+		sourceLineageTag: NoOfColors
+		summarizeBy: sum
+		sourceColumn: NoOfColors
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'IND - Plate SqInch Default Indicator'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 33a68991-efcf-46e1-bba9-c93e86ad2a01
+		sourceLineageTag: PlateSqInchDefaultIndicator
+		summarizeBy: none
+		sourceColumn: PlateSqInchDefaultIndicator
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QNTY - Plate Count'
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 43c3f0d9-56dc-4da0-a3ad-6c5dd734ab42
+		sourceLineageTag: PlateCount
+		summarizeBy: sum
+		sourceColumn: PlateCount
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'QNTY - Total Plate SqInch'
+		dataType: double
+		sourceProviderType: decimal(38, 10)
+		lineageTag: 013dde55-d05a-4c84-8163-c0dcd5ae3c6b
+		sourceLineageTag: TotalPlateSqInch
+		summarizeBy: sum
+		sourceColumn: TotalPlateSqInch
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'IND - Actual Plate Count Indicator'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e6f0542f-abe0-44ae-ad02-31b9b40acd1b
+		sourceLineageTag: ActualPlateCountIndicator
+		summarizeBy: none
+		sourceColumn: ActualPlateCountIndicator
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 87ead978-099f-470b-a8fe-cc92f59987b8
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubService
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 46212172-f877-4e96-a634-bdec38ef5b21
+		sourceLineageTag: SubServiceDescription
+		summarizeBy: none
+		sourceColumn: SubServiceDescription
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubServiceCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: e257e086-b075-4406-8ad8-97d0eecd92fb
+		sourceLineageTag: SubServiceCode
+		summarizeBy: count
+		sourceColumn: SubServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Service
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 294c3138-ae88-4619-994a-e3b4bc723621
+		sourceLineageTag: ServiceDescription
+		summarizeBy: none
+		sourceColumn: ServiceDescription
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: b92aca8c-f2ec-4bc8-a5c4-801b04ce59b0
+		sourceLineageTag: ServiceCode
+		summarizeBy: count
+		sourceColumn: ServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOBDescription
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a61ef9e9-9cb1-4eb2-b5c1-26c7551c863a
+		sourceLineageTag: LOBDescription
+		summarizeBy: none
+		sourceColumn: LOBDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOBCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 0bfd7a85-303a-41b7-89f8-56112d073725
+		sourceLineageTag: LOBCode
+		summarizeBy: count
+		sourceColumn: LOBCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PlateSqInchDetails = entity
+		mode: directLake
+		source
+			entityName: PlateSqInchDetails
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

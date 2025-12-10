@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_PARTNER_PROFIT_CENTER]
+CREATE     PROCEDURE [Propelis].[Proc_PARTNER_PROFIT_CENTER]
 AS
 BEGIN
     -- ==============================================
@@ -47,7 +47,7 @@ BEGIN
         T.[Partner Profit Center Valid To Date] = S.[VALID_TO_DATE],
         T.[Partner Profit Center Valid From Date] = S.[VALID_FROM_DATE]
     FROM [GLOBAL_EDW].[Propelis].[PARTNER_PROFIT_CENTER] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PROFCTR_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PROFCTR_CUR_D] S
         ON T.[PROFT_CNTR_KEY] = S.[PROFT_CNTR_KEY];
 
     -- ==============================================
@@ -138,7 +138,7 @@ BEGIN
         S.[TAX_JRSDCTN],
         S.[VALID_TO_DATE],
         S.[VALID_FROM_DATE]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PROFCTR_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PROFCTR_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[PARTNER_PROFIT_CENTER] T
         ON T.[PROFT_CNTR_KEY] = S.[PROFT_CNTR_KEY]
     WHERE T.[PROFT_CNTR_KEY] IS NULL;

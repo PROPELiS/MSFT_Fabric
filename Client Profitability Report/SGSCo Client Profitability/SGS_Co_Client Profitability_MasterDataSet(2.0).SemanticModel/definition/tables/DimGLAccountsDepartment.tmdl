@@ -199,16 +199,16 @@ table DimGLAccountsDepartment
 		annotation SummarizationSetBy = Automatic
 
 	column CalYear
-		dataType: double
+		dataType: string
 		sourceProviderType: decimal(38, 0)
 		lineageTag: e358647c-ff4d-4f43-b391-132ac28bfe81
 		sourceLineageTag: CalYear
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CalYear
 
-		annotation SummarizationSetBy = Automatic
+		changedProperty = DataType
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation SummarizationSetBy = Automatic
 
 	column VCMLineTag
 		dataType: string

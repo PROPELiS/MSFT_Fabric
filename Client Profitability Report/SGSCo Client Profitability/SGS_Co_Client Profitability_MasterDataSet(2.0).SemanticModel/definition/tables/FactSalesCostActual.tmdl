@@ -2937,6 +2937,30 @@ table FactSalesCostActual
 
 		annotation SummarizationSetBy = Automatic
 
+	column Hours
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 0541af1d-9cf7-4839-b40b-4417d6110fc3
+		sourceLineageTag: Hours
+		summarizeBy: sum
+		sourceColumn: Hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PMPoints
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 9679135b-d6bc-4020-b228-f9c0d33090ad
+		sourceLineageTag: PMPoints
+		summarizeBy: sum
+		sourceColumn: PMPoints
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition FactSalesCostActual = entity
 		mode: directLake
 		source

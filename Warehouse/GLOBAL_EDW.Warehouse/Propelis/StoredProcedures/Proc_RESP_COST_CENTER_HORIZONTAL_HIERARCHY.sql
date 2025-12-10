@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_RESP_COST_CENTER_HORIZONTAL_HIERARCHY]
+CREATE     PROCEDURE [Propelis].[Proc_RESP_COST_CENTER_HORIZONTAL_HIERARCHY]
 AS
 BEGIN
     ----------------------------------------------------------------------
@@ -27,7 +27,7 @@ BEGIN
         T.[Resp Cost Center Level 8 ID HH] = S.[LVL_8_ID],
         T.[Resp Cost Center Level 8 Description HH] = S.[LVL_8_DESC]
     FROM [GLOBAL_EDW].[Propelis].[RESP_COST_CENTER_HORIZONTAL_HIERARCHY] T
-    INNER JOIN [GLOBAL_EDW_Mirror].[dbo].[EDW_T_D_HY_COSTCHZ_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_HY_COSTCHZ_CUR_D] S
         ON T.[COST_CNTR_KEY] = S.[COST_CNTR_KEY];
 
     ----------------------------------------------------------------------
@@ -79,7 +79,7 @@ BEGIN
         S.[LVL_7_DESC],
         S.[LVL_8_ID],
         S.[LVL_8_DESC]
-    FROM [GLOBAL_EDW_Mirror].[dbo].[EDW_T_D_HY_COSTCHZ_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_HY_COSTCHZ_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[RESP_COST_CENTER_HORIZONTAL_HIERARCHY] T
         ON T.[COST_CNTR_KEY] = S.[COST_CNTR_KEY]
     WHERE T.[COST_CNTR_KEY] IS NULL;

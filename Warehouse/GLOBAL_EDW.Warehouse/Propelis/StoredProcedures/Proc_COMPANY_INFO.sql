@@ -1,4 +1,4 @@
-CREATE     PROCEDURE [Propelis].[Proc_COMPANY_INFO]
+CREATE       PROCEDURE [Propelis].[Proc_COMPANY_INFO]
 AS
 BEGIN
     -----------------------------------------------------------------

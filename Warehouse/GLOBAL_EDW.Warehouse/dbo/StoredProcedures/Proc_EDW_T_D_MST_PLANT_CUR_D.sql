@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_MST_PLANT_CUR_D]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_D_MST_PLANT_CUR_D]
 AS
 BEGIN
     -- Update existing records
@@ -38,7 +38,7 @@ BEGIN
         T.[Plant Shipping/Receiving Point]       = S.[SHIPG_RECVNG_PNT],
         T.[Plant Shipping/Receiving Point Description] = S.[SHIPG_RECVNG_PNT_DESC]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PLANT_CUR_D] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PLANT_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PLANT_CUR_D] S
         ON T.[PLNT_KEY] = S.[PLNT_KEY];
 
     -- Insert new records
@@ -114,7 +114,7 @@ BEGIN
         S.[PLNT_TAX_IND_DESC],
         S.[SHIPG_RECVNG_PNT],
         S.[SHIPG_RECVNG_PNT_DESC]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PLANT_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PLANT_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PLANT_CUR_D] T
         ON T.[PLNT_KEY] = S.[PLNT_KEY]
     WHERE T.[PLNT_KEY] IS NULL;

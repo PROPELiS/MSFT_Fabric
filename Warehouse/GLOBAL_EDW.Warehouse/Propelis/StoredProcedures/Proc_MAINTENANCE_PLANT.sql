@@ -1,4 +1,4 @@
-CREATE       PROCEDURE [Propelis].[Proc_MAINTENANCE_PLANT] 
+CREATE   PROCEDURE [Propelis].[Proc_MAINTENANCE_PLANT] 
 AS
 BEGIN  
     ----------------------------------------------------------------------
@@ -42,7 +42,7 @@ BEGIN
             ,T.[Maintenance Plant Shipping/Receiving Point Description]	  =  S.[SHIPG_RECVNG_PNT_DESC]
 
 	FROM [GLOBAL_EDW].[Propelis].[MAINTENANCE_PLANT] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PLANT_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PLANT_CUR_D] S
         ON T.[PLNT_KEY] = S.[PLNT_KEY];
  
     ----------------------------------------------------------------------
@@ -121,7 +121,7 @@ BEGIN
 	     ,S.[SHIPG_RECVNG_PNT]  
 	     ,S.[SHIPG_RECVNG_PNT_DESC]
 
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PLANT_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PLANT_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[MAINTENANCE_PLANT] T
          ON T.[PLNT_KEY] = S.[PLNT_KEY]
          WHERE T.[PLNT_KEY] IS NULL;

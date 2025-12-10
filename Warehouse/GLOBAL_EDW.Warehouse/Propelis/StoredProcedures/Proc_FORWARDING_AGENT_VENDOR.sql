@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_FORWARDING_AGENT_VENDOR]
+CREATE     PROCEDURE [Propelis].[Proc_FORWARDING_AGENT_VENDOR]
 AS
 BEGIN
     -- Step 1: Update existing records in target table from mirror
@@ -66,7 +66,7 @@ BEGIN
         T.[Forwarding Agent Vendor Account No Alternate Payee]= S.[ACCT_NO_ALT_PYE],
         T.[Forwarding Agent Vendor Email Address]            = S.[E_MAIL_ADDR]
     FROM [GLOBAL_EDW].[Propelis].[FORWARDING_AGENT_VENDOR] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_VENDOR_CUR_D] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_VENDOR_CUR_D] AS S
         ON T.[VNDR_KEY] = S.[VNDR_KEY];
 
     -- Step 2: Insert new records from mirror into target table
@@ -197,7 +197,7 @@ BEGIN
         S.[CORPORATE_GROUP],
         S.[ACCT_NO_ALT_PYE],
         S.[E_MAIL_ADDR]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_VENDOR_CUR_D] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_VENDOR_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[FORWARDING_AGENT_VENDOR] AS T
         ON T.[VNDR_KEY] = S.[VNDR_KEY]
     WHERE T.[VNDR_KEY] IS NULL;

@@ -1,4 +1,4 @@
-CREATE   PROCEDURE Propelis.Proc_PLANT
+CREATE     PROCEDURE Propelis.Proc_PLANT
 AS
 BEGIN
 
@@ -84,7 +84,7 @@ BEGIN
             )
         ) AS HashKey
     INTO #SourceData
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PLANT_CUR_D] AS S;
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PLANT_CUR_D] AS S;
 
     -- Step 2: Update changed rows in target (hash mismatch)
     UPDATE T

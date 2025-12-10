@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_MST_STORLOC_CUR_D]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_D_MST_STORLOC_CUR_D]
 AS
 BEGIN
     ----------------------------------------------------------------------
@@ -25,7 +25,7 @@ BEGIN
         T.[Store Location Shipping Receiving Point Description] = S.[SHIPG_RECVNG_PNT_DESC],
         T.[Store Location Sales Organization Description] = S.[SALES_ORG_DESC]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_MST_STORLOC_CUR_D] T
-    INNER JOIN [GLOBAL_EDW_02_MIRROR].[GLOBAL_EDW].[EDW_T_D_MST_STORLOC_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_STORLOC_CUR_D] S
         ON T.[STOR_LOC_KEY] = S.[STOR_LOC_KEY];
 
     ----------------------------------------------------------------------
@@ -72,7 +72,7 @@ BEGIN
         S.[WRHSE_DESC],
         S.[SHIPG_RECVNG_PNT_DESC],
         S.[SALES_ORG_DESC]
-    FROM [GLOBAL_EDW_02_MIRROR].[GLOBAL_EDW].[EDW_T_D_MST_STORLOC_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_STORLOC_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_STORLOC_CUR_D] T
         ON T.[STOR_LOC_KEY] = S.[STOR_LOC_KEY]
     WHERE T.[STOR_LOC_KEY] IS NULL;

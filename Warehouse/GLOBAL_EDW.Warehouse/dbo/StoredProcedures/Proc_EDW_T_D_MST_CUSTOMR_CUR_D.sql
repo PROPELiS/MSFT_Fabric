@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_MST_CUSTOMR_CUR_D]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_D_MST_CUSTOMR_CUR_D]
 AS
 BEGIN  
     -- Update existing records
@@ -140,7 +140,7 @@ BEGIN
         T.[Customer Central Order Block For Customer] = S.[CENTRAL_ORDER_BLK_FOR_CUST],
         T.[Customer Payment Block] = S.[PYMT_BLK]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_MST_CUSTOMR_CUR_D] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_CUSTOMR_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CUSTOMR_CUR_D] S
         ON T.[CUST_KEY] = S.[CUST_KEY];
  
         -- Insert new records
@@ -420,7 +420,7 @@ BEGIN
         S.[CENTRAL_ORDER_BLK_FOR_CUST],
         S.[PYMT_BLK]
     
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_CUSTOMR_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CUSTOMR_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_CUSTOMR_CUR_D] T
         ON T.[CUST_KEY] = S.[CUST_KEY]
     WHERE T.[CUST_KEY] IS NULL;

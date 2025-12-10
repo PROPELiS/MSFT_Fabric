@@ -55,5 +55,6 @@ CREATE TABLE [dbo].[EDW_T_D_MST_CMPNYDT_CUR_D] (
 	[Company Business Day Number] int NULL, 
 	[ETL_SRC_SYS_CD] varchar(max) NULL, 
 	[ETL_CREATED_TS] datetime2(0) NULL, 
-	[ETL_UPDTD_TS] datetime2(0) NULL
+	[ETL_UPDTD_TS] datetime2(0) NULL, 
+	[CMPNYDT_KEY] varchar(max) NULL
 );

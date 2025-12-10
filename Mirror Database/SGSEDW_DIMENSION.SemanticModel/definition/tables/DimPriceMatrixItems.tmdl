@@ -1,0 +1,336 @@
+table DimPriceMatrixItems
+	lineageTag: 8190b7ff-88f0-4f9c-8018-ee245fec1e98
+	sourceLineageTag: [DBO].[DimPriceMatrixItems]
+
+	column HexKeyPriceMartrixItems
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 0d18f0e1-f8c9-4b09-9773-108fcb8c7eb4
+		sourceLineageTag: HexKeyPriceMartrixItems
+		summarizeBy: none
+		sourceColumn: HexKeyPriceMartrixItems
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceMatrixItemId
+		dataType: double
+		sourceProviderType: decimal
+		lineageTag: 78d52765-b0ef-4462-88fb-120c4dadd260
+		sourceLineageTag: PriceMatrixItemId
+		summarizeBy: sum
+		sourceColumn: PriceMatrixItemId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceMatrixId
+		dataType: double
+		sourceProviderType: decimal
+		lineageTag: 0c91b284-41a3-46c8-90d0-5b7ad347236a
+		sourceLineageTag: PriceMatrixId
+		summarizeBy: sum
+		sourceColumn: PriceMatrixId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceMatrixItemDesc
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 04e4f86b-e783-4785-85ed-14308c045964
+		sourceLineageTag: PriceMatrixItemDesc
+		summarizeBy: none
+		sourceColumn: PriceMatrixItemDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceMatrixItemCost
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal
+		lineageTag: 6fcb5461-d196-4b57-b249-7f0591decdaf
+		sourceLineageTag: PriceMatrixItemCost
+		summarizeBy: sum
+		sourceColumn: PriceMatrixItemCost
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceMatrixItemSalesAccountCode
+		dataType: double
+		sourceProviderType: decimal
+		lineageTag: c17fa858-da51-4fd6-b874-f46adbb70a8d
+		sourceLineageTag: PriceMatrixItemSalesAccountCode
+		summarizeBy: sum
+		sourceColumn: PriceMatrixItemSalesAccountCode
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LOBDescription
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 4cda0181-8738-4c0c-940d-80d19a06a5a2
+		sourceLineageTag: LOBDescription
+		summarizeBy: none
+		sourceColumn: LOBDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal
+		lineageTag: 83ebd3b0-a0b5-4f77-a5fd-04c333d5a19f
+		sourceLineageTag: ServiceCode
+		summarizeBy: sum
+		sourceColumn: ServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceDescription
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 95cc1b73-bd96-4f67-b67c-41bf754879ed
+		sourceLineageTag: ServiceDescription
+		summarizeBy: none
+		sourceColumn: ServiceDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubServiceCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal
+		lineageTag: e54a458a-03a1-4e15-8e03-411d875a4610
+		sourceLineageTag: SubServiceCode
+		summarizeBy: sum
+		sourceColumn: SubServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubServiceDescription
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 2fc241b6-a0d5-4219-b940-81aeb6155c9b
+		sourceLineageTag: SubServiceDescription
+		summarizeBy: none
+		sourceColumn: SubServiceDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 0bad27c0-8255-452e-913e-cb78e893ae10
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceMatrixItemSalesAccountCodeName
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 044db592-a649-4ed9-8d06-d2b19bb3b1bf
+		sourceLineageTag: PriceMatrixItemSalesAccountCodeName
+		summarizeBy: none
+		sourceColumn: PriceMatrixItemSalesAccountCodeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceMatrixItemSalesDepartmentCodeName
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: f0ec5bb9-82da-4ef5-b580-64fae37b486f
+		sourceLineageTag: PriceMatrixItemSalesDepartmentCodeName
+		summarizeBy: none
+		sourceColumn: PriceMatrixItemSalesDepartmentCodeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceMatrixItemSalesTaxCodeName
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 5331e87f-6bfd-4763-beb1-aa94e0e0ebd2
+		sourceLineageTag: PriceMatrixItemSalesTaxCodeName
+		summarizeBy: none
+		sourceColumn: PriceMatrixItemSalesTaxCodeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal
+		lineageTag: 65167bbe-c88c-446f-a5e5-cf94cc122b73
+		sourceLineageTag: GroupCode
+		summarizeBy: sum
+		sourceColumn: GroupCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupDescription
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 199e69ce-1682-4142-803f-b27dc7632612
+		sourceLineageTag: GroupDescription
+		summarizeBy: none
+		sourceColumn: GroupDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOBCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal
+		lineageTag: 0a12aea1-2954-4380-890a-d456aedd4991
+		sourceLineageTag: LOBCode
+		summarizeBy: sum
+		sourceColumn: LOBCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceMatrixItemMultiplier
+		dataType: double
+		sourceProviderType: decimal
+		lineageTag: 1df99c4a-ee6a-40cd-a9e1-ca9f0ffa3e23
+		sourceLineageTag: PriceMatrixItemMultiplier
+		summarizeBy: sum
+		sourceColumn: PriceMatrixItemMultiplier
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceMatrixItemSalesDepartmentCode
+		dataType: double
+		sourceProviderType: decimal
+		lineageTag: 6cd7154c-78be-45df-985e-db5e632fa3b7
+		sourceLineageTag: PriceMatrixItemSalesDepartmentCode
+		summarizeBy: sum
+		sourceColumn: PriceMatrixItemSalesDepartmentCode
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceMatrixItemSalesTaxCode
+		dataType: double
+		sourceProviderType: decimal
+		lineageTag: 18dc45fa-e522-4ffb-9c96-d783c8569e20
+		sourceLineageTag: PriceMatrixItemSalesTaxCode
+		summarizeBy: sum
+		sourceColumn: PriceMatrixItemSalesTaxCode
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Independent
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: a17173d9-322a-4090-b6ea-f0609c882f77
+		sourceLineageTag: Independent
+		summarizeBy: none
+		sourceColumn: Independent
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: decimal
+		sourceProviderType: decimal
+		lineageTag: 593e1731-ab6f-4325-a34a-490c9f09c012
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceMatrixName
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 41bc69ab-26d7-49e2-bf82-abd8174011d7
+		sourceLineageTag: PriceMatrixName
+		summarizeBy: none
+		sourceColumn: PriceMatrixName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceMatrixItemPlateType
+		dataType: double
+		sourceProviderType: decimal
+		lineageTag: 40daf0db-6aac-46e4-9c73-fb0138a9ad09
+		sourceLineageTag: PriceMatrixItemPlateType
+		summarizeBy: sum
+		sourceColumn: PriceMatrixItemPlateType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceMatrixItemOrder
+		dataType: double
+		sourceProviderType: decimal
+		lineageTag: cd80aae4-6ac6-4137-9b9e-0337aba4b430
+		sourceLineageTag: PriceMatrixItemOrder
+		summarizeBy: sum
+		sourceColumn: PriceMatrixItemOrder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceMatrixItemKPITypeId
+		dataType: double
+		sourceProviderType: decimal
+		lineageTag: 75b2cdfd-a857-4975-9cbf-74564aa9351e
+		sourceLineageTag: PriceMatrixItemKPITypeId
+		summarizeBy: sum
+		sourceColumn: PriceMatrixItemKPITypeId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceMatrixItemKPITurnaround
+		dataType: decimal
+		sourceProviderType: decimal
+		lineageTag: 0822a7e7-4da5-46fe-8d58-b7114ccd155e
+		sourceLineageTag: PriceMatrixItemKPITurnaround
+		summarizeBy: sum
+		sourceColumn: PriceMatrixItemKPITurnaround
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemDeleted
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: afbb534b-8ed3-48a3-80e0-69522d740aa3
+		sourceLineageTag: ItemDeleted
+		summarizeBy: none
+		sourceColumn: ItemDeleted
+
+		annotation SummarizationSetBy = Automatic
+
+	column PriceMatrixItemAlias
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: be4a1fa8-97b4-48ea-9d1f-200a341de710
+		sourceLineageTag: PriceMatrixItemAlias
+		summarizeBy: none
+		sourceColumn: PriceMatrixItemAlias
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimPriceMatrixItems-d17fe439-7404-447b-af5c-11a8fb39c6c2 = entity
+		mode: directLake
+		source
+			entityName: DimPriceMatrixItems
+			schemaName: DBO
+			expressionSource: DatabaseQuery
+
+	annotation IsTableInBiModel = True
+

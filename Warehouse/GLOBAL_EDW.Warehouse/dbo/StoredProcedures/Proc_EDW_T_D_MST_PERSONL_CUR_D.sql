@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_MST_PERSONL_CUR_D]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_D_MST_PERSONL_CUR_D]
 AS
 BEGIN
     -- Step 1: Update existing records in target
@@ -35,7 +35,7 @@ BEGIN
         [Personnel Company Description]    = S.[CMPNY_DESC],
         [Personnel Plant Description]      = S.[PLNT_DESC]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PERSONL_CUR_D] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PERSONL_CUR_D] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PERSONL_CUR_D] AS S
         ON T.[PERSONEL_KEY] = S.[PERSONEL_KEY];
 
     -- Step 2: Insert new records that do not exist in target
@@ -105,7 +105,7 @@ BEGIN
         S.[ETL_UPDTD_TS],
         S.[CMPNY_DESC],
         S.[PLNT_DESC]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PERSONL_CUR_D] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PERSONL_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PERSONL_CUR_D] AS T
         ON T.[PERSONEL_KEY] = S.[PERSONEL_KEY]
     WHERE T.[PERSONEL_KEY] IS NULL;

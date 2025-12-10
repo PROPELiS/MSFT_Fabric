@@ -1,0 +1,113 @@
+table DimLBCRevenueStream
+	lineageTag: 778c0ddc-91c4-4ec1-bce7-f2e7e056897d
+	sourceLineageTag: [DBO].[DimLBCRevenueStream]
+
+	column FacilityLBC
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: ae9a18a5-8b37-43b1-b08d-3dfbad092d28
+		sourceLineageTag: FacilityLBC
+		summarizeBy: none
+		sourceColumn: FacilityLBC
+
+		annotation SummarizationSetBy = Automatic
+
+	column RevenueStream
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: e99a89d6-1ab9-484e-a266-a68437e198f2
+		sourceLineageTag: RevenueStream
+		summarizeBy: none
+		sourceColumn: RevenueStream
+
+		annotation SummarizationSetBy = Automatic
+
+	column LBCRevenueStream
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 8000c0b3-c65f-4682-8447-b601d3dc19f9
+		sourceLineageTag: LBCRevenueStream
+		summarizeBy: none
+		sourceColumn: LBCRevenueStream
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubServiceCode
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 13b5501c-1fe3-4c5e-97a2-5e4c51dcf4ad
+		sourceLineageTag: SubServiceCode
+		summarizeBy: none
+		sourceColumn: SubServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Group
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 23f911b3-6dfa-418a-9ce8-114742301ca5
+		sourceLineageTag: Group
+		summarizeBy: none
+		sourceColumn: Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineOfBusiness
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: b1c07699-1401-41fa-8658-6ba00b4c1dbe
+		sourceLineageTag: LineOfBusiness
+		summarizeBy: none
+		sourceColumn: LineOfBusiness
+
+		annotation SummarizationSetBy = Automatic
+
+	column Service
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: da6f9899-0574-466f-b03c-ccb690a93228
+		sourceLineageTag: Service
+		summarizeBy: none
+		sourceColumn: Service
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubService
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 4b6be4a3-013a-4e65-be82-79ddbab70366
+		sourceLineageTag: SubService
+		summarizeBy: none
+		sourceColumn: SubService
+
+		annotation SummarizationSetBy = Automatic
+
+	column HexKeyLBCRevenueStream
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: cc596800-4a6a-4adc-b751-31500d73c650
+		sourceLineageTag: HexKeyLBCRevenueStream
+		summarizeBy: none
+		sourceColumn: HexKeyLBCRevenueStream
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: c71ea630-a695-47ad-bcba-df538ce34fce
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimLBCRevenueStream-e7e1ebc2-046b-4bda-ac34-4a1064f51bda = entity
+		mode: directLake
+		source
+			entityName: DimLBCRevenueStream
+			schemaName: DBO
+			expressionSource: DatabaseQuery
+
+	annotation IsTableInBiModel = True
+

@@ -1,4 +1,4 @@
-CREATE     PROCEDURE [Propelis].[Proc_CREATION_DATE]
+CREATE       PROCEDURE [Propelis].[Proc_CREATION_DATE]
 AS
 BEGIN
     -- Update existing records
@@ -61,7 +61,7 @@ BEGIN
         T.[Creation Current Fiscal Week Minus 7 Flag]	        = S.[CURR_FISCAL_WK_MINUS_7_FLG]
 
     FROM [GLOBAL_EDW].[Propelis].[CREATION_DATE] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_DATE_CUR_D] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_DATE_CUR_D] AS S
         ON T.[DATE_KEY] = S.[DATE_KEY];
 
     -- Insert new records
@@ -179,7 +179,7 @@ BEGIN
         S.[CURR_FISCAL_WK_MINUS_4_FLG],
         S.[CURR_FISCAL_WK_MINUS_5_FLG],
         S.[CURR_FISCAL_WK_MINUS_7_FLG]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_DATE_CUR_D] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_DATE_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[CREATION_DATE] AS T
         ON T.[DATE_KEY] = S.[DATE_KEY]
     WHERE T.[DATE_KEY] IS NULL;

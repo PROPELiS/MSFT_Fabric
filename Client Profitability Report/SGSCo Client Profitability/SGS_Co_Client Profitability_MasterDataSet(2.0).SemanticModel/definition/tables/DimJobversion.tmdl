@@ -12,13 +12,15 @@ table DimJobversion
 
 		annotation SummarizationSetBy = Automatic
 
-	column BatchStatus
+	column 'JOB - Batch Status'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 89aba210-1023-463c-9208-57739a9a3b67
 		sourceLineageTag: BatchStatus
 		summarizeBy: none
 		sourceColumn: BatchStatus
+
+		changedProperty = Name
 
 		annotation SummarizationSetBy = Automatic
 
@@ -27,7 +29,7 @@ table DimJobversion
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 0398d07d-4b5d-4cb4-a5c5-c72039b9df20
 		sourceLineageTag: JobVersionId
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: JobVersionId
 
 		changedProperty = Name
@@ -115,7 +117,7 @@ table DimJobversion
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 1dbfafe9-62d3-40b5-bb12-a87f4b84b1a7
 		sourceLineageTag: LatestJobStatusByLoginId
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: LatestJobStatusByLoginId
 
 		changedProperty = Name
@@ -141,7 +143,7 @@ table DimJobversion
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 69e0b747-9576-408f-9113-ef095fb013b1
 		sourceLineageTag: PrimaryContact_CustomerId
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: PrimaryContact_CustomerId
 
 		annotation SummarizationSetBy = Automatic
@@ -166,7 +168,7 @@ table DimJobversion
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 4c5c72d2-8176-4e0c-b83a-971667f4f34a
 		sourceLineageTag: JobTeamId
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: JobTeamId
 
 		changedProperty = Name
@@ -180,7 +182,7 @@ table DimJobversion
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 83f96dca-e1da-4a9f-a046-f54c9086b026
 		sourceLineageTag: ProjectManagerLoginId
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: ProjectManagerLoginId
 
 		changedProperty = Name
@@ -202,13 +204,15 @@ table DimJobversion
 
 		annotation SummarizationSetBy = Automatic
 
-	column ProjectManagerSiteId
+	column 'JOB - Project Manager Site Id'
 		dataType: double
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 16d04149-c9b4-4ce8-bbb3-e667fee6abf3
 		sourceLineageTag: ProjectManagerSiteId
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: ProjectManagerSiteId
+
+		changedProperty = Name
 
 		annotation SummarizationSetBy = Automatic
 
@@ -274,13 +278,15 @@ table DimJobversion
 
 		annotation SummarizationSetBy = Automatic
 
-	column NoOfColors
+	column 'QNTY - No Of Colors'
 		dataType: double
 		sourceProviderType: decimal(17, 6)
 		lineageTag: 1bdf89de-4025-4c62-be38-1196582f4a25
 		sourceLineageTag: NoOfColors
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: NoOfColors
+
+		changedProperty = Name
 
 		annotation SummarizationSetBy = Automatic
 
@@ -388,7 +394,7 @@ table DimJobversion
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 735f836c-f00c-4088-894b-c08a2762c5db
 		sourceLineageTag: LoginId
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: LoginId
 
 		changedProperty = Name
@@ -426,20 +432,22 @@ table DimJobversion
 		sourceProviderType: decimal(38, 0)
 		lineageTag: 27332040-cc30-4734-99c4-4da368b13c93
 		sourceLineageTag: PrimaryContactCustomerId
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: PrimaryContactCustomerId
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column PlateCount
+	column 'QNTY - Plate Count'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 41211ca9-2c1f-41fe-873a-c96149a80cfa
 		sourceLineageTag: PlateCount
 		summarizeBy: none
 		sourceColumn: PlateCount
+
+		changedProperty = Name
 
 		annotation SummarizationSetBy = Automatic
 
@@ -503,7 +511,7 @@ table DimJobversion
 
 		annotation SummarizationSetBy = Automatic
 
-	column PhotonEligibilityIndicator
+	column 'IND - Photon Eligibility Indicator'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: ed49b444-cc2b-4912-8606-7cca2f58da53
@@ -511,9 +519,11 @@ table DimJobversion
 		summarizeBy: none
 		sourceColumn: PhotonEligibilityIndicator
 
+		changedProperty = Name
+
 		annotation SummarizationSetBy = Automatic
 
-	column JobPhase
+	column 'JOB - Job Phase'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 398447f4-ad9c-4ad7-aae9-169d7307aa48
@@ -521,9 +531,11 @@ table DimJobversion
 		summarizeBy: none
 		sourceColumn: JobPhase
 
+		changedProperty = Name
+
 		annotation SummarizationSetBy = Automatic
 
-	column PlateType
+	column 'JOB - Plate Type'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 15f280eb-0c3e-4903-b307-62a9c4b314a1
@@ -531,15 +543,19 @@ table DimJobversion
 		summarizeBy: none
 		sourceColumn: PlateType
 
+		changedProperty = Name
+
 		annotation SummarizationSetBy = Automatic
 
-	column PlateThickness
+	column 'JOB - Plate Thickness'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 94c0dadd-4e7c-4250-8888-bcb782f62b28
 		sourceLineageTag: PlateThickness
 		summarizeBy: none
 		sourceColumn: PlateThickness
+
+		changedProperty = Name
 
 		annotation SummarizationSetBy = Automatic
 
@@ -553,31 +569,35 @@ table DimJobversion
 
 		annotation SummarizationSetBy = Automatic
 
-	column HeightInSqInch
+	column 'QNTY - Height In SqInch'
 		dataType: double
 		sourceProviderType: decimal(19, 4)
 		lineageTag: e7167b9b-88b6-4ede-be2d-1325d845c231
 		sourceLineageTag: HeightInSqInch
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: HeightInSqInch
+
+		changedProperty = Name
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column WidthInSqInch
+	column 'QNTY - Width In SqInch'
 		dataType: double
 		sourceProviderType: decimal(19, 4)
 		lineageTag: ebbf86cb-5f41-4f60-a5b0-64150cc79dc1
 		sourceLineageTag: WidthInSqInch
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: WidthInSqInch
+
+		changedProperty = Name
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column Weight
+	column 'QNTY - Weight'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 051a636f-2630-4f85-b6fc-065ef7a8b02a
@@ -585,9 +605,11 @@ table DimJobversion
 		summarizeBy: none
 		sourceColumn: Weight
 
+		changedProperty = Name
+
 		annotation SummarizationSetBy = Automatic
 
-	column Laguage
+	column 'JOB - Laguage'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 5db4b50f-b96c-41e8-8bb2-c03695e58c1e
@@ -595,9 +617,11 @@ table DimJobversion
 		summarizeBy: none
 		sourceColumn: Laguage
 
+		changedProperty = Name
+
 		annotation SummarizationSetBy = Automatic
 
-	column Packgingreference
+	column 'JOB - Packging reference'
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 58b26738-2b84-42d2-9056-9741017fe252
@@ -605,21 +629,25 @@ table DimJobversion
 		summarizeBy: none
 		sourceColumn: Packgingreference
 
+		changedProperty = Name
+
 		annotation SummarizationSetBy = Automatic
 
-	column Projectreference
+	column 'JOB - Project reference'
 		dataType: double
 		sourceProviderType: decimal(38, 0)
 		lineageTag: c224e139-e602-46f0-909c-ed4a9f978153
 		sourceLineageTag: Projectreference
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Projectreference
+
+		changedProperty = Name
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column Archived
+	column 'JOB - Archived'
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		sourceProviderType: bit
@@ -628,9 +656,11 @@ table DimJobversion
 		summarizeBy: none
 		sourceColumn: Archived
 
+		changedProperty = Name
+
 		annotation SummarizationSetBy = Automatic
 
-	column Projectcreateddate
+	column 'JOB - Project created date'
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
@@ -639,9 +669,11 @@ table DimJobversion
 		summarizeBy: none
 		sourceColumn: Projectcreateddate
 
+		changedProperty = Name
+
 		annotation SummarizationSetBy = Automatic
 
-	column ArtReceived
+	column 'JOB - Art Received'
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
@@ -649,6 +681,8 @@ table DimJobversion
 		sourceLineageTag: ArtReceived
 		summarizeBy: none
 		sourceColumn: ArtReceived
+
+		changedProperty = Name
 
 		annotation SummarizationSetBy = Automatic
 
@@ -663,7 +697,7 @@ table DimJobversion
 
 		annotation SummarizationSetBy = Automatic
 
-	column PrinterInfoReceived
+	column 'JOB - Printer Info Received'
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
@@ -672,9 +706,11 @@ table DimJobversion
 		summarizeBy: none
 		sourceColumn: PrinterInfoReceived
 
+		changedProperty = Name
+
 		annotation SummarizationSetBy = Automatic
 
-	column LastInfoReceived
+	column 'JOB - Last Info Received'
 		dataType: dateTime
 		formatString: General Date
 		sourceProviderType: datetime2
@@ -682,6 +718,8 @@ table DimJobversion
 		sourceLineageTag: LastInfoReceived
 		summarizeBy: none
 		sourceColumn: LastInfoReceived
+
+		changedProperty = Name
 
 		annotation SummarizationSetBy = Automatic
 

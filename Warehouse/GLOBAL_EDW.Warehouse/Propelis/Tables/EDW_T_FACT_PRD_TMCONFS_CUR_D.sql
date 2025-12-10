@@ -82,5 +82,9 @@ CREATE TABLE [Propelis].[EDW_T_FACT_PRD_TMCONFS_CUR_D] (
 	[SOLDTO_CUST_KEY] int NULL, 
 	[Activity] varchar(max) NULL, 
 	[Utilization Type] varchar(max) NULL, 
-	[AG] varchar(max) NULL
+	[AG] varchar(max) NULL, 
+	[Hours_Of_Original] decimal(18,4) NULL, 
+	[Hours_Of_Approval] decimal(18,4) NULL, 
+	[Sample_Posting_Year] int NULL, 
+	[Posting Date] date NULL
 );

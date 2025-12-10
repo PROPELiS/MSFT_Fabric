@@ -25,7 +25,7 @@ BEGIN
         T.[ETL_CREATED_TS]                                = S.[ETL_CREATED_TS],
         T.[ETL_UPDTD_TS]                                  = S.[ETL_UPDTD_TS]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PRTHRCY_CUR_D] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PRTHRCY_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PRTHRCY_CUR_D] S
         ON T.[Product Hierarchy] = S.[PRDT_HIERCHY_CD];
 
     -- Insert new records
@@ -72,7 +72,7 @@ BEGIN
         S.[ETL_CURR_RCD_IND],
         S.[ETL_CREATED_TS],
         S.[ETL_UPDTD_TS]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PRTHRCY_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PRTHRCY_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PRTHRCY_CUR_D] T
         ON T.[Product Hierarchy] = S.[PRDT_HIERCHY_CD]
     WHERE T.[Product Hierarchy] IS NULL;

@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_PARTNER_SEGMENT] 
+CREATE     PROCEDURE [Propelis].[Proc_PARTNER_SEGMENT] 
 AS
 BEGIN  
     ----------------------------------------------------------------------
@@ -15,7 +15,7 @@ BEGIN
         T.[ETL_CREATED_TS] = S.[ETL_CREATED_TS],
         T.[ETL_UPDTD_TS] = S.[ETL_UPDTD_TS]
     FROM [GLOBAL_EDW].[Propelis].[PARTNER_SEGMENT] T
-    INNER JOIN [GLOBAL_EDW_02_MIRROR].[GLOBAL_EDW].[EDW_T_D_MST_SEGMEN2_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_SEGMEN2_CUR_D] S
         ON T.[SEG_KEY] = S.[SEG_KEY];
  
     ----------------------------------------------------------------------
@@ -42,7 +42,7 @@ BEGIN
         S.[ETL_CURR_RCD_IND],
         S.[ETL_CREATED_TS],
         S.[ETL_UPDTD_TS]
-    FROM [GLOBAL_EDW_02_MIRROR].[GLOBAL_EDW].[EDW_T_D_MST_SEGMEN2_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_SEGMEN2_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[PARTNER_SEGMENT] T
         ON T.[SEG_KEY] = S.[SEG_KEY]
     WHERE T.[SEG_KEY] IS NULL;

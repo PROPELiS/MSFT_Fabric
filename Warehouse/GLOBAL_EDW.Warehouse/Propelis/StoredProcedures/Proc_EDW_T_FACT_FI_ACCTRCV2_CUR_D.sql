@@ -1,253 +1,209 @@
-CREATE PROCEDURE [Propelis].[Proc_EDW_T_FACT_FI_ACCTRCV2_CUR_D]
+CREATE     PROCEDURE [Propelis].[Proc_EDW_T_FACT_FI_ACCTRCV2_CUR_D]
 AS
 BEGIN
-
-UPDATE T 
-SET 
-T.[AR Dunning Level] = S.[AR Dunning Level],
-T.[DUNNING_KEY] = S.[DUNNING_KEY],
-T.[AR Dunning Key Description] = S.[AR Dunning Key Description],
-T.[AR Expected Customer Sales Organization Description] = S.[AR Expected Customer Sales Organization Description],
-T.[AR Expected Sales Organization] = S.[AR Expected Sales Organization],
-T.[AR Expected Sales Organization Description] = S.[AR Expected Sales Organization Description],
-T.[AR Dunning Block] = S.[AR Dunning Block],
-T.[AR Dunning Block Description] = S.[AR Dunning Block Description],
-T.[LAST_DUNNING_NOTICE_DATE_KEY] = S.[LAST_DUNNING_NOTICE_DATE_KEY],
-T.[AR Controlling Area Description] = S.[AR Controlling Area Description],
-T.[AR Ledger Code Description] = S.[AR Ledger Code Description],
-T.[AR Item Text] = S.[AR Item Text],
-T.[AR Deletion Flag] = S.[AR Deletion Flag],
-T.[AR Debit Credit Indicator] = S.[AR Debit Credit Indicator],
-T.[AR Expected Customer Sales Organization] = S.[AR Expected Customer Sales Organization],
-T.[CUST_SALES_AREA_KEY] = S.[CUST_SALES_AREA_KEY],
-T.[CUST_CREDIT_KEY] = S.[CUST_CREDIT_KEY],
-T.[AR Document Type Description] = S.[AR Document Type Description],
-T.[AR Special GL Indicator Description] = S.[AR Special GL Indicator Description],
-T.[AR Posting Key Description] = S.[AR Posting Key Description],
-T.[AR Payment Terms Description] = S.[AR Payment Terms Description],
-T.[ETL_SRC_SYS_CD] = S.[ETL_SRC_SYS_CD],
-T.[ETL_CREATED_TS] = S.[ETL_CREATED_TS],
-T.[ETL_UPDTD_TS] = S.[ETL_UPDTD_TS],
-T.[AR Controlling Area] = S.[AR Controlling Area],
-T.[WBS_ELEMNT_KEY] = S.[WBS_ELEMNT_KEY],
-T.[SALES_AREA_KEY] = S.[SALES_AREA_KEY],
-T.[AR Days 2] = S.[AR Days 2],
-T.[AR Days Net] = S.[AR Days Net],
-T.[AR Reference Key for Line Item] = S.[AR Reference Key for Line Item],
-T.[PROFT_CNTR_KEY] = S.[PROFT_CNTR_KEY],
-T.[SEG_KEY] = S.[SEG_KEY],
-T.[BILLING_DOCMT_KEY] = S.[BILLING_DOCMT_KEY],
-T.[PSTNG_KEY] = S.[PSTNG_KEY],
-T.[DEBIT_CREDIT_IND] = S.[DEBIT_CREDIT_IND],
-T.[GL_KEY] = S.[GL_KEY],
-T.[BSLINE_DUE_DATE_KEY] = S.[BSLINE_DUE_DATE_KEY],
-T.[AR Payment Terms] = S.[AR Payment Terms],
-T.[AR Days 1] = S.[AR Days 1],
-T.[AR Invoice Reference Number] = S.[AR Invoice Reference Number],
-T.[AR Reason Code] = S.[AR Reason Code],
-T.[AR Reason Code Description] = S.[AR Reason Code Description],
-T.[Company Currency Amount] = S.[Company Currency Amount],
-T.[Document Currency Amount] = S.[Document Currency Amount],
-T.[Group Currency Amount] = S.[Group Currency Amount],
-T.[DOCMT_CRNCY_KEY] = S.[DOCMT_CRNCY_KEY],
-T.[CMPNY_CRNCY_KEY] = S.[CMPNY_CRNCY_KEY],
-T.[GROUP_CRNCY_KEY] = S.[GROUP_CRNCY_KEY],
-T.[AR Posting Period] = S.[AR Posting Period],
-T.[AR Document Type] = S.[AR Document Type],
-T.[AR Reference Number] = S.[AR Reference Number],
-T.[CLEARING_DATE_KEY] = S.[CLEARING_DATE_KEY],
-T.[AR Assignment Number] = S.[AR Assignment Number],
-T.[AR Special GL Transaction Type] = S.[AR Special GL Transaction Type],
-T.[AR Special GL Indicator] = S.[AR Special GL Indicator],
-T.[DOCMT_DATE_KEY] = S.[DOCMT_DATE_KEY],
-T.[PSTNG_DATE_KEY] = S.[PSTNG_DATE_KEY],
-T.[Baseline Due Fiscal Year] = S.[Baseline Due Fiscal Year],
-T.[AR Ledger Code] = S.[AR Ledger Code],
-T.[AR Ledger Posting Item Number] = S.[AR Ledger Posting Item Number],
-T.[PAYER_CUST_KEY] = S.[PAYER_CUST_KEY],
-T.[AR Document Line Item Number] = S.[AR Document Line Item Number],
-T.[AR Clearing Document Number] = S.[AR Clearing Document Number],
-T.[CMPNY_KEY] = S.[CMPNY_KEY],
-T.[AR Document Header Number] = S.[AR Document Header Number]
-
-
-FROM [GLOBAL_EDW].[Propelis].[EDW_T_FACT_FI_ACCTRCV2_CUR_D] T 
-INNER JOIN [GLOBAL_EDW].[Propelis].[TEMP_EDW_T_FACT_FI_ACCTRCV2_CUR_D]S
-ON T.[DOCMT_DATE_KEY] = S.[DOCMT_DATE_KEY]
-AND T.[PSTNG_DATE_KEY] = S.[PSTNG_DATE_KEY]
-AND T.[CMPNY_KEY] = S.[CMPNY_KEY]
-AND T.[PAYER_CUST_KEY] = S.[PAYER_CUST_KEY]
-AND T.[DOCMT_CRNCY_KEY] = S.[DOCMT_CRNCY_KEY]
-AND T.[GROUP_CRNCY_KEY] = S.[GROUP_CRNCY_KEY]
-AND T.[CMPNY_CRNCY_KEY] = S.[CMPNY_CRNCY_KEY]
-AND T.[CLEARING_DATE_KEY] = S.[CLEARING_DATE_KEY]
-AND T.[BSLINE_DUE_DATE_KEY] = S.[BSLINE_DUE_DATE_KEY]
-AND T.[PROFT_CNTR_KEY] = S.[PROFT_CNTR_KEY]
-AND T.[BILLING_DOCMT_KEY] = S.[BILLING_DOCMT_KEY]
-AND T.[WBS_ELEMNT_KEY] = S.[WBS_ELEMNT_KEY]
-AND T.[GL_KEY] = S.[GL_KEY]
-AND T.[CUST_CREDIT_KEY] = S.[CUST_CREDIT_KEY]
-AND T.[SALES_AREA_KEY] = S.[SALES_AREA_KEY]
-AND T.[CUST_SALES_AREA_KEY] = S.[CUST_SALES_AREA_KEY]
-AND T.[SEG_KEY] = S.[SEG_KEY]
-AND T.[LAST_DUNNING_NOTICE_DATE_KEY] = S.[LAST_DUNNING_NOTICE_DATE_KEY];
-
+ 
+    -- Step 1: Clear existing data from the target table
+    TRUNCATE TABLE [GLOBAL_EDW].[Propelis].[EDW_T_FACT_FI_ACCTRCV2_CUR_D];
+	-- Step 2: Insert refreshed data from mirror table with joins
 
 INSERT INTO [GLOBAL_EDW].[Propelis].[EDW_T_FACT_FI_ACCTRCV2_CUR_D]
 (
-[AR Dunning Level],
-[DUNNING_KEY],
-[AR Dunning Key Description],
-[AR Expected Customer Sales Organization Description],
-[AR Expected Sales Organization],
-[AR Expected Sales Organization Description],
-[AR Dunning Block],
-[AR Dunning Block Description],
-[LAST_DUNNING_NOTICE_DATE_KEY],
-[AR Controlling Area Description],
-[AR Ledger Code Description],
-[AR Item Text],
-[AR Deletion Flag],
-[AR Debit Credit Indicator],
-[AR Expected Customer Sales Organization],
-[CUST_SALES_AREA_KEY],
-[CUST_CREDIT_KEY],
-[AR Document Type Description],
-[AR Special GL Indicator Description],
-[AR Posting Key Description],
-[AR Payment Terms Description],
-[ETL_SRC_SYS_CD],
-[ETL_CREATED_TS],
-[ETL_UPDTD_TS],
-[AR Controlling Area],
-[WBS_ELEMNT_KEY],
-[SALES_AREA_KEY],
-[AR Days 2],
-[AR Days Net],
-[AR Reference Key for Line Item],
-[PROFT_CNTR_KEY],
-[SEG_KEY],
-[BILLING_DOCMT_KEY],
-[PSTNG_KEY],
-[DEBIT_CREDIT_IND],
-[GL_KEY],
-[BSLINE_DUE_DATE_KEY],
-[AR Payment Terms],
-[AR Days 1],
-[AR Invoice Reference Number],
-[AR Reason Code],
-[AR Reason Code Description],
-[Company Currency Amount],
-[Document Currency Amount],
-[Group Currency Amount],
-[DOCMT_CRNCY_KEY],
-[CMPNY_CRNCY_KEY],
-[GROUP_CRNCY_KEY],
-[AR Posting Period],
-[AR Document Type],
-[AR Reference Number],
-[CLEARING_DATE_KEY],
-[AR Assignment Number],
-[AR Special GL Transaction Type],
-[AR Special GL Indicator],
-[DOCMT_DATE_KEY],
-[PSTNG_DATE_KEY],
-[Baseline Due Fiscal Year],
-[AR Ledger Code],
-[AR Ledger Posting Item Number],
-[PAYER_CUST_KEY],
-[AR Document Line Item Number],
-[AR Clearing Document Number],
-[CMPNY_KEY],
-[AR Document Header Number]
-)
+		[CMPNY_KEY],
+		[AR Document Header Number],
+		[Baseline Due Fiscal Year],
+		[AR Ledger Code],
+		[AR Ledger Posting Item Number],
+		[PAYER_CUST_KEY],
+		[AR Document Line Item Number],
+		[AR Clearing Document Number],
+		[CLEARING_DATE_KEY],
+		[AR Assignment Number],
+		[AR Special GL Transaction Type],
+		[AR Special GL Indicator],
+		[DOCMT_DATE_KEY],
+		[PSTNG_DATE_KEY],
+		[DOCMT_CRNCY_KEY],
+		[CMPNY_CRNCY_KEY],
+		[GROUP_CRNCY_KEY],
+		[AR Posting Period],
+		[AR Document Type],
+		[AR Reference Number],
+		[AR Invoice Reference Number],
+		[AR Reason Code],
+		[AR Reason Code Description],
+		[CMPNY_CRNCY_AMT],
+		[DOCMT_CRNCY_AMT],
+		[GROUP_CRNCY_AMT],
+		[PSTNG_KEY],
+		[DEBIT_CREDIT_IND],
+		[GL_KEY],
+		[BSLINE_DUE_DATE_KEY],
+		[AR Payment Terms],
+		[AR Days 1],
+		[AR Days 2],
+		[AR Days Net],
+		[AR Reference Key for Line Item],
+		[PROFT_CNTR_KEY],
+		[SEG_KEY],
+		[BILLING_DOCMT_KEY],
+		[ETL_SRC_SYS_CD],
+		[ETL_CREATED_TS],
+		[ETL_UPDTD_TS],
+		[AR Controlling Area],
+		[WBS_ELEMNT_KEY],
+		[SALES_AREA_KEY],
+		[CUST_SALES_AREA_KEY],
+		[CUST_CREDIT_KEY],
+		[AR Document Type Description],
+		[AR Special GL Indicator Description],
+		[AR Posting Key Description],
+		[AR Payment Terms Description],
+		[AR Controlling Area Description],
+		[AR Ledger Code Description],
+		[AR Item Text],
+		[AR Deletion Flag],
+		[AR Debit Credit Indicator],
+		[AR Expected Customer Sales Organization],
+		[AR Expected Customer Sales Organization Description],
+		[AR Expected Sales Organization],
+		[AR Expected Sales Organization Description],
+		[AR Dunning Block],
+		[AR Dunning Block Description],
+		[LAST_DUNNING_NOTICE_DATE_KEY],
+		[AR Dunning Level],
+		[DUNNING_KEY],
+		[AR Dunning Key Description],
 
+	--Below columns are added for the Alias tables
+        [PROFCHZ_PROFT_CNTR_KEY],
+        [PROFCVZ_PROFT_CNTR_KEY]
+)	
 SELECT 
+		FACT.[CMPNY_KEY],
+		FACT.[DOCMT_HDR_NUM],
+		FACT.[FISCAL_YR],
+		FACT.[LDGR_CD],
+		FACT.[LDGR_PSTNG_ITM_NUM],
+		FACT.[PAYER_CUST_KEY],
+		FACT.[DOCMT_LINE_ITM_NUM],
+		FACT.[CLEARING_DOCMT_NUM],
+		FACT.[CLEARING_DATE_KEY],
+		FACT.[ASSIGN_NUM],
+		FACT.[SPCL_GL_TRNSCTN_TYP],
+		FACT.[SPCL_GL_IND],
+		FACT.[DOCMT_DATE_KEY],
+		FACT.[PSTNG_DATE_KEY],
+		FACT.[DOCMT_CRNCY_KEY],
+		FACT.[CMPNY_CRNCY_KEY],
+		FACT.[GROUP_CRNCY_KEY],
+		FACT.[PSTNG_PER],
+		FACT.[DOCMT_TYP],
+		FACT.[REF_NUM],
+		FACT.[INVC_REF_NUM],
+		FACT.[RSN_CD],
+		FACT.[RSN_CD_DESC],
+		FACT.[CMPNY_CRNCY_AMT],
+		FACT.[DOCMT_CRNCY_AMT],
+		FACT.[GROUP_CRNCY_AMT],
+		FACT.[PSTNG_KEY],
+		FACT.[DEBIT_CREDIT_IND],
+		FACT.[GL_KEY],
+		FACT.[BSLINE_DUE_DATE_KEY],
+		FACT.[PYMT_TRMS],
+		FACT.[CASH_DISCOUNTS_DAY_1],
+		FACT.[CASH_DISCOUNTS_DAY_2],
+		FACT.[NET_PAYMENTS_TERM_PER],
+		FACT.[REF_KEY_FOR_LINE_ITM],
+		FACT.[PROFT_CNTR_KEY],
+		FACT.[SEG_KEY],
+		FACT.[BILLING_DOCMT_KEY],
+		FACT.[ETL_SRC_SYS_CD],
+		FACT.[ETL_CREATED_TS],
+		FACT.[ETL_UPDTD_TS],
+		FACT.[CONTROLLING_AREA],
+		FACT.[WBS_ELEMNT_KEY],
+		FACT.[SALES_AREA_KEY],
+		FACT.[CUST_SALES_AREA_KEY],
+		FACT.[CUST_CREDIT_KEY],
+		FACT.[DOCMT_TYP_DESC],
+		FACT.[SPCL_GL_IND_DESC],
+		FACT.[PSTNG_KEY_DESC],
+		FACT.[PYMT_TRMS_DESC],
+		FACT.[CONTROLLING_AREA_DESC],
+		FACT.[LDGR_CD_DESC],
+		FACT.[ITM_TEXT],
+		FACT.[DELETION_FLG],
+		FACT.[DEBIT_CREDIT_IND_BSEG],
+		FACT.[EXPECTED_CUST_SALES_ORGZTN],
+		FACT.[EXPECTED_CUST_SALES_ORGZTN_DESC],
+		FACT.[EXPECTED_SALES_ORGZTN],
+		FACT.[EXPECTED_SALES_ORGZTN_DESC],
+		FACT.[DUNNING_BLK],
+		FACT.[DUNNING_BLK_DESC],
+		FACT.[LAST_DUNNING_NOTICE_DATE_KEY],
+		FACT.[DUNNING_LVL],
+		FACT.[DUNNING_KEY],
+		FACT.[DUNNING_KEY_DESC],
 
-S.[AR Dunning Level],
-S.[DUNNING_KEY],
-S.[AR Dunning Key Description],
-S.[AR Expected Customer Sales Organization Description],
-S.[AR Expected Sales Organization],
-S.[AR Expected Sales Organization Description],
-S.[AR Dunning Block],
-S.[AR Dunning Block Description],
-S.[LAST_DUNNING_NOTICE_DATE_KEY],
-S.[AR Controlling Area Description],
-S.[AR Ledger Code Description],
-S.[AR Item Text],
-S.[AR Deletion Flag],
-S.[AR Debit Credit Indicator],
-S.[AR Expected Customer Sales Organization],
-S.[CUST_SALES_AREA_KEY],
-S.[CUST_CREDIT_KEY],
-S.[AR Document Type Description],
-S.[AR Special GL Indicator Description],
-S.[AR Posting Key Description],
-S.[AR Payment Terms Description],
-S.[ETL_SRC_SYS_CD],
-S.[ETL_CREATED_TS],
-S.[ETL_UPDTD_TS],
-S.[AR Controlling Area],
-S.[WBS_ELEMNT_KEY],
-S.[SALES_AREA_KEY],
-S.[AR Days 2],
-S.[AR Days Net],
-S.[AR Reference Key for Line Item],
-S.[PROFT_CNTR_KEY],
-S.[SEG_KEY],
-S.[BILLING_DOCMT_KEY],
-S.[PSTNG_KEY],
-S.[DEBIT_CREDIT_IND],
-S.[GL_KEY],
-S.[BSLINE_DUE_DATE_KEY],
-S.[AR Payment Terms],
-S.[AR Days 1],
-S.[AR Invoice Reference Number],
-S.[AR Reason Code],
-S.[AR Reason Code Description],
-S.[Company Currency Amount],
-S.[Document Currency Amount],
-S.[Group Currency Amount],
-S.[DOCMT_CRNCY_KEY],
-S.[CMPNY_CRNCY_KEY],
-S.[GROUP_CRNCY_KEY],
-S.[AR Posting Period],
-S.[AR Document Type],
-S.[AR Reference Number],
-S.[CLEARING_DATE_KEY],
-S.[AR Assignment Number],
-S.[AR Special GL Transaction Type],
-S.[AR Special GL Indicator],
-S.[DOCMT_DATE_KEY],
-S.[PSTNG_DATE_KEY],
-S.[Baseline Due Fiscal Year],
-S.[AR Ledger Code],
-S.[AR Ledger Posting Item Number],
-S.[PAYER_CUST_KEY],
-S.[AR Document Line Item Number],
-S.[AR Clearing Document Number],
-S.[CMPNY_KEY],
-S.[AR Document Header Number]
+--Below columns are added for the Alias tables
+        MST_PROFCTR.PROFT_CNTR_KEY AS PROFCHZ_PROFT_CNTR_KEY,
+	    MST_PROFCTR.PROFT_CNTR_KEY AS PROFCVZ_PROFT_CNTR_KEY
 
-FROM [GLOBAL_EDW].[Propelis].[TEMP_EDW_T_FACT_FI_ACCTRCV2_CUR_D] S 
-LEFT JOIN [GLOBAL_EDW].[Propelis].[EDW_T_FACT_FI_ACCTRCV2_CUR_D] T 
-ON T.[DOCMT_DATE_KEY] = S.[DOCMT_DATE_KEY]
-AND T.[PSTNG_DATE_KEY] = S.[PSTNG_DATE_KEY]
-AND T.[CMPNY_KEY] = S.[CMPNY_KEY]
-AND T.[PAYER_CUST_KEY] = S.[PAYER_CUST_KEY]
-AND T.[DOCMT_CRNCY_KEY] = S.[DOCMT_CRNCY_KEY]
-AND T.[GROUP_CRNCY_KEY] = S.[GROUP_CRNCY_KEY]
-AND T.[CMPNY_CRNCY_KEY] = S.[CMPNY_CRNCY_KEY]
-AND T.[CLEARING_DATE_KEY] = S.[CLEARING_DATE_KEY]
-AND T.[BSLINE_DUE_DATE_KEY] = S.[BSLINE_DUE_DATE_KEY]
-AND T.[PROFT_CNTR_KEY] = S.[PROFT_CNTR_KEY]
-AND T.[BILLING_DOCMT_KEY] = S.[BILLING_DOCMT_KEY]
-AND T.[WBS_ELEMNT_KEY] = S.[WBS_ELEMNT_KEY]
-AND T.[GL_KEY] = S.[GL_KEY]
-AND T.[CUST_CREDIT_KEY] = S.[CUST_CREDIT_KEY]
-AND T.[SALES_AREA_KEY] = S.[SALES_AREA_KEY]
-AND T.[CUST_SALES_AREA_KEY] = S.[CUST_SALES_AREA_KEY]
-AND T.[SEG_KEY] = S.[SEG_KEY]
-AND T.[LAST_DUNNING_NOTICE_DATE_KEY] = S.[LAST_DUNNING_NOTICE_DATE_KEY];
-END;
+			
+FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_F_FI_ACCTRCV2_CUR_D] AS FACT
+
+LEFT JOIN [GLOBAL_EDW].[Propelis].[POSTING_DATE] AS PS_DT
+  ON FACT.PSTNG_DATE_KEY = PS_DT.DATE_KEY 
+  
+LEFT JOIN [GLOBAL_EDW].[Propelis].[DOCUMENT_DATE] AS DOCM_DT
+  ON FACT.DOCMT_DATE_KEY = DOCM_DT.DATE_KEY
+  
+LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_CMPNYCD_CUR_D] AS MST_CMPNYCD
+  ON FACT.CMPNY_KEY = MST_CMPNYCD.CMPNY_KEY
+  
+LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_CUSTOMR_CUR_D] AS MST_CUSTOMR
+  ON FACT.PAYER_CUST_KEY = MST_CUSTOMR.CUST_KEY
+  
+LEFT JOIN [GLOBAL_EDW].[Propelis].[DOCUMENT_CURRENCY] AS DOCM_CRNCY
+  ON FACT.DOCMT_CRNCY_KEY = DOCM_CRNCY.CRNCY_KEY
+  
+LEFT JOIN [GLOBAL_EDW].[Propelis].[GROUP_CURRENCY] AS GRP_CRNCY
+   ON FACT.GROUP_CRNCY_KEY = GRP_CRNCY.CRNCY_KEY
+   
+LEFT JOIN [GLOBAL_EDW].[Propelis].[COMPANY_CURRENCY] AS CMPNY_CRNCY
+  ON FACT.CMPNY_CRNCY_KEY = CMPNY_CRNCY.CRNCY_KEY
+  
+LEFT JOIN [GLOBAL_EDW].[Propelis].[CLEARING_DATE] AS CLR_DT
+  ON FACT.CLEARING_DATE_KEY = CLR_DT.DATE_KEY
+  
+LEFT JOIN [GLOBAL_EDW].[Propelis].[BASELINE_DUE_DATE] AS BSL_D_DT
+  ON FACT.BSLINE_DUE_DATE_KEY = BSL_D_DT.DATE_KEY
+  
+LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PROFCTR_CUR_D] AS MST_PROFCTR
+  ON FACT.PROFT_CNTR_KEY = MST_PROFCTR.PROFT_CNTR_KEY
+  
+LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_SAL_INVOICE_CUR_D] AS SAL_INVOICE
+  ON FACT.BILLING_DOCMT_KEY = SAL_INVOICE.INVC_KEY
+
+LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_PRS_WBSELEM_CUR_D] AS PRS_WBSELEM
+  ON FACT.WBS_ELEMNT_KEY = PRS_WBSELEM.WBS_ELEMNT_KEY
+  
+LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_GENLDGR_CUR_D] AS MST_GENLDGR
+  ON FACT.GL_KEY = MST_GENLDGR.GL_KEY
+  
+LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_CUSCRED_CUR_D] AS MST_CUSCRED
+   ON FACT.CUST_CREDIT_KEY = MST_CUSCRED.CUST_CREDIT_KEY
+   
+LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_SAL_SALAREA_CUR_D] AS SAL_SALAREA
+   ON FACT.SALES_AREA_KEY= SAL_SALAREA.SALES_AREA_KEY   
+  
+LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_CUSTSAL_CUR_D] AS MST_CUSTSAL
+   ON FACT.CUST_SALES_AREA_KEY = MST_CUSTSAL.CUST_SALES_AREA_KEY
+  
+LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_SEGMEN2_CUR_D] AS MST_SEGMEN2
+   ON FACT.SEG_KEY = MST_SEGMEN2.SEG_KEY
+   
+LEFT JOIN [GLOBAL_EDW].[Propelis].[LAST_DUNNING_NOTICE_DATE] AS LST_DN_DT
+   ON FACT.LAST_DUNNING_NOTICE_DATE_KEY = LST_DN_DT.DATE_KEY;
+   
+END

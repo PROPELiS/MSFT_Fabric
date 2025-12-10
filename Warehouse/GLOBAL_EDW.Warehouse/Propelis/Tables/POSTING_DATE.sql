@@ -54,5 +54,8 @@ CREATE TABLE [Propelis].[POSTING_DATE] (
 	[Posting Current Fiscal Week Minus 3 Flag] int NULL, 
 	[Posting Current Fiscal Week Minus 4 Flag] int NULL, 
 	[Posting Current Fiscal Week Minus 5 Flag] int NULL, 
-	[Posting Current Fiscal Week Minus 7 Flag] int NULL
+	[Posting Current Fiscal Week Minus 7 Flag] int NULL, 
+	[Posting_Fiscal_Quarter] int NULL, 
+	[Posting_Fiscal_Month_Code] int NULL, 
+	[Date_String] varchar(50) NULL
 );

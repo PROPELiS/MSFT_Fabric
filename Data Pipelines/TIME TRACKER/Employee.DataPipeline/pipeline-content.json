@@ -102,6 +102,10 @@
           },
           "sink": {
             "type": "SqlServerSink",
+            "preCopyScript": {
+              "value": "TRUNCATE TABLE [sgsweb].[STG_LoadEmployee]",
+              "type": "Expression"
+            },
             "sqlWriterUseTableLock": false,
             "writeBehavior": "insert",
             "datasetSettings": {

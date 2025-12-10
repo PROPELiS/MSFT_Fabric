@@ -1,0 +1,83 @@
+table DimCostAllocationMethodologyCategory
+	lineageTag: c057cae0-ba51-46c1-a6ba-f841a4a18732
+	sourceLineageTag: [DBO].[DimCostAllocationMethodologyCategory]
+
+	column HEXKeyAllocationMethodology
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 64062975-82bd-4e19-9fb8-c10a685e2453
+		sourceLineageTag: HEXKeyAllocationMethodology
+		summarizeBy: none
+		sourceColumn: HEXKeyAllocationMethodology
+
+		annotation SummarizationSetBy = Automatic
+
+	column AllocationMethodology
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: d1fe9383-607c-4454-970f-f60f4f6b07af
+		sourceLineageTag: AllocationMethodology
+		summarizeBy: none
+		sourceColumn: AllocationMethodology
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataSource
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 9018e6f1-9056-44cf-a7e8-c392f2c29f85
+		sourceLineageTag: DataSource
+		summarizeBy: none
+		sourceColumn: DataSource
+
+		annotation SummarizationSetBy = Automatic
+
+	column RoleType
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 86f3cb31-09de-4a90-a62b-bfb4e6806ead
+		sourceLineageTag: RoleType
+		summarizeBy: none
+		sourceColumn: RoleType
+
+		annotation SummarizationSetBy = Automatic
+
+	column RoleSummaryType
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 75076e6e-d52b-4409-a2a9-06edc736a513
+		sourceLineageTag: RoleSummaryType
+		summarizeBy: none
+		sourceColumn: RoleSummaryType
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 69015ded-cadd-46a1-a00b-1d4fc35ee125
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Note
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: feb45b95-51bb-4981-96a4-f05b6afb8873
+		sourceLineageTag: Note
+		summarizeBy: none
+		sourceColumn: Note
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCostAllocationMethodologyCategory-c6c87137-59b0-4e99-a994-a457ea79aeff = entity
+		mode: directLake
+		source
+			entityName: DimCostAllocationMethodologyCategory
+			schemaName: DBO
+			expressionSource: DatabaseQuery
+
+	annotation IsTableInBiModel = True
+

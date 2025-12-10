@@ -1,102 +1,15 @@
--- Create or alter the stored procedure for updating and inserting records 
--- into the EDW_T_FACT_PRD_TMCONFS_CUR_D table in the Propelis schema
 CREATE     PROCEDURE [Propelis].[Proc_EDW_T_FACT_PRD_TMCONFS_CUR_D]
 AS
 BEGIN
-    
-    -- Step 1: Update existing records in the target table (T) 
-    -- with values from the source table (S) based on matching keys
-    UPDATE T
-    SET
-        T.[SEG_CD_KEY] = S.[SEG_CD_KEY],                                -- Update segment code key
-        T.[Operation Task List ID] = S.[Operation Task List ID],        -- Update operation task list ID
-        T.[Operation Counter ID] = S.[Operation Counter ID],            -- Update operation counter ID
-        T.[Operation Activity ID] = S.[Operation Activity ID],          -- Update operation activity ID
-        T.[Operation Confirmation ID] = S.[Operation Confirmation ID],  -- Update operation confirmation ID
-        T.[Operation Sequence ID] = S.[Operation Sequence ID],  -- Update operation sequence ID
-        T.[PROFT_CNTR_KEY] = S.[PROFT_CNTR_KEY],  -- Update profit center key
-        T.[SALES_ORDER_KEY] = S.[SALES_ORDER_KEY],  -- Update sales order key
-        T.[Sales Order Item Number] = S.[Sales Order Item Number],  -- Update sales order item number
-        T.[CMPNY_KEY] = S.[CMPNY_KEY],  -- Update company key
-        T.[WRK_CNTR_KEY] = S.[WRK_CNTR_KEY],  -- Update work center key
-        T.[COST_CNTR_KEY] = S.[COST_CNTR_KEY],  -- Update cost center key
-        T.[OPERATION_STD_TEXT] = S.[OPERATION_STD_TEXT],  -- Update operation standard text
-        T.[Operation Short Text] = S.[Operation Short Text],  -- Update operation short text
-        T.[PSTNG_DATE_KEY] = S.[PSTNG_DATE_KEY],  -- Update posting date key
-        T.[PLNG_PLNT_KEY] = S.[PLNG_PLNT_KEY],  -- Update planning plant key
-        T.[Entry Create Date] = S.[Entry Create Date],  -- Update entry creation date
-        T.[Person Who Entererd] = S.[Person Who Entererd],  -- Update person who entered the record
-        T.[Operation Confirm Counter] = S.[Operation Confirm Counter],  -- Update operation confirm counter
-        T.[Actual Work] = S.[Actual Work],  -- Update actual work
-        T.[Actual Work UOM] = S.[Actual Work UOM],  -- Update actual work unit of measure
-        T.[Accounting Indicator] = S.[Accounting Indicator],  -- Update accounting indicator
-        T.[Remaining Work] = S.[Remaining Work],  -- Update remaining work
-        T.[Remaining Work UOM] = S.[Remaining Work UOM],  -- Update remaining work unit of measure
-        T.[Actual Work in Hours] = S.[Actual Work in Hours],  -- Update actual work in hours
-        T.[Remaining Work in Hours] = S.[Remaining Work in Hours],  -- Update remaining work in hours
-        T.[Work In Hours UOM] = S.[Work In Hours UOM],  -- Update work in hours unit of measure
-        T.[ACTIVITY_TYP_KEY] = S.[ACTIVITY_TYP_KEY],  -- Update activity type key
-        T.[Operation Confirm Text] = S.[Operation Confirm Text],  -- Update operation confirm text
-        T.[Reason for Variance] = S.[Reason for Variance],  -- Update reason for variance
-        T.[Confirm  Counter  Of  Cancelled  Confirmation] = S.[Confirm  Counter  Of  Cancelled  Confirmation],  -- Update confirm counter of cancelled confirmation
-        T.[SOLD_TO_CUST_KEY] = S.[SOLD_TO_CUST_KEY],  -- Update sold to customer key
-        T.[PERSONEL_NUM_KEY] = S.[PERSONEL_NUM_KEY],  -- Update personnel number key
-        T.[ETL_SRC_SYS_CD] = S.[ETL_SRC_SYS_CD],  -- Update ETL source system code
-        T.[ETL_CREATED_TS] = S.[ETL_CREATED_TS],  -- Update ETL created timestamp
-        T.[ETL_UPDTD_TS] = S.[ETL_UPDTD_TS],  -- Update ETL updated timestamp
-        T.[SERVC_ORDER_KEY] = S.[SERVC_ORDER_KEY],  -- Update service order key
-        T.[SALES_AREA_KEY] = S.[SALES_AREA_KEY],  -- Update sales area key
-        T.[OPERATING_PLNT_KEY] = S.[OPERATING_PLNT_KEY],  -- Update operating plant key
-        T.[SERVC_ORDER_CREATE_DATE_KEY] = S.[SERVC_ORDER_CREATE_DATE_KEY],  -- Update service order create date key
-        T.[Account Indicator] = S.[Account Indicator],  -- Update account indicator
-        T.[PARNT_CUST_KEY] = S.[PARNT_CUST_KEY],  -- Update parent customer key
-        T.[Reason for Variance Description] = S.[Reason for Variance Description],  -- Update reason for variance description
-        T.[Partial Final Confirm] = S.[Partial Final Confirm],  -- Update partial final confirm
-        T.[TCHNCL_COMPLETION_DATE_KEY] = S.[TCHNCL_COMPLETION_DATE_KEY],  -- Update technical completion date key
-        T.[SALES_ORDER_ID] = S.[SALES_ORDER_ID],  -- Update sales order ID
-        T.[Accounting Indicator Description] = S.[Accounting Indicator Description],  -- Update accounting indicator description
-        T.[SERV_ORDER_INVOICE_CREATED_DATE_KEY] = S.[SERV_ORDER_INVOICE_CREATED_DATE_KEY],  -- Update service order invoice created date key
-        T.[OPERATING_PLANT_REGION_PLANT] = S.[OPERATING_PLANT_REGION_PLANT],  -- Update operating plant region plant
-        T.[PLANNING_PLANT_REGION_PLANT] = S.[PLANNING_PLANT_REGION_PLANT],  -- Update planning plant region plant
-        T.[PERSONNEL_PLANT_REGION_PLANT] = S.[PERSONNEL_PLANT_REGION_PLANT],  -- Update personnel plant region plant
-        T.[PARENT_CUST_KEY] = S.[PARENT_CUST_KEY],  -- Update parent customer key
-        T.[PAYER_CUST_KEY] = S.[PAYER_CUST_KEY],  -- Update payer customer key
-        T.[SHIP_TO_CUST_KEY] = S.[SHIP_TO_CUST_KEY],  -- Update ship to customer key
-        T.[BRAND_OWNER_CUST_KEY] = S.[BRAND_OWNER_CUST_KEY],  -- Update brand owner customer key
-        T.[CUST_CONTACT_KEY] = S.[CUST_CONTACT_KEY],  -- Update customer contact key
-        T.[PERSON_RESP_PERSONNEL_KEY] = S.[PERSON_RESP_PERSONNEL_KEY],  -- Update person responsible personnel key
-        T.[CYLINDER_OWNER_CUST_KEY] = S.[CYLINDER_OWNER_CUST_KEY],  -- Update cylinder owner customer key
-        T.[AGENCY_CUST_KEY] = S.[AGENCY_CUST_KEY],  -- Update agency customer key
-        T.[PRINTER_CUST_KEY] = S.[PRINTER_CUST_KEY],  -- Update printer customer key
-        T.[SUPPLIER_CUST_KEY] = S.[SUPPLIER_CUST_KEY],  -- Update supplier customer key
-        T.[EMPLOYEE_RESP_PERSONEL_KEY] = S.[EMPLOYEE_RESP_PERSONEL_KEY],  -- Update employee responsible personnel key
-        T.[EMPLOYEE_RESP_2_PERSONEL_KEY] = S.[EMPLOYEE_RESP_2_PERSONEL_KEY],  -- Update second employee responsible personnel key
-        T.[FORWARDING_AGENT_VENDOR_KEY] = S.[FORWARDING_AGENT_VENDOR_KEY],  -- Update forwarding agent vendor key
-        T.[UNITIZATION_AGENT_VENDOR_KEY] = S.[UNITIZATION_AGENT_VENDOR_KEY],  -- Update unitization agent vendor key
-        T.[ORDER_FOR_CUSTOMER_ADDR_KEY] = S.[ORDER_FOR_CUSTOMER_ADDR_KEY],  -- Update order for customer address key
-        T.[SO_PARENT_CUST_KEY] = S.[SO_PARENT_CUST_KEY],  -- Update sales order parent customer key
-        T.[BILL_TO_CUST_KEY] = S.[BILL_TO_CUST_KEY],  -- Update bill to customer key
-        T.[CUSTOMER_PROJECT_MANAGER_CUST_CONTACT_KEY] = S.[CUSTOMER_PROJECT_MANAGER_CUST_CONTACT_KEY],  -- Update customer project manager contact key
-        T.[SALES_PERSON_PERSONEL_KEY] = S.[SALES_PERSON_PERSONEL_KEY],  -- Update sales person personnel key
-        T.[PRDT_VARIANT_CONFIG_KEY] = S.[PRDT_VARIANT_CONFIG_KEY],  -- Update product variant configuration key
-        T.[SOIPTNR_KEY] = S.[SOIPTNR_KEY]  -- Update sales order item partner key
-    FROM 
-        [GLOBAL_EDW].[Propelis].[EDW_T_FACT_PRD_TMCONFS_CUR_D] T
-    INNER JOIN 
-        [GLOBAL_EDW].[Propelis].[TEMP_EDW_T_FACT_PRD_TMCONFS_CUR_D] S
-    ON 
-        T.[SEG_CD_KEY] = S.[SEG_CD_KEY] AND
-        T.[Operation Task List ID] = S.[Operation Task List ID] AND
-        T.[Operation Counter ID] = S.[Operation Counter ID] AND
-        T.[Operation Confirmation ID] = S.[Operation Confirmation ID] AND
-        T.[CMPNY_KEY] = S.[CMPNY_KEY] AND
-        T.[Operation Confirm Counter] = S.[Operation Confirm Counter] AND
-        T.[SERVC_ORDER_KEY] = S.[SERVC_ORDER_KEY];
-            
-    -- Step 2: Insert new records from the temporary table (S) 
-    -- into the target table (T) where the service order key does not exist
-    INSERT INTO [GLOBAL_EDW].[Propelis].[EDW_T_FACT_PRD_TMCONFS_CUR_D] (
-        [SEG_CD_KEY],
+
+    -- Step 1: Clear existing data from the target table
+	
+	TRUNCATE TABLE [GLOBAL_EDW].[Propelis].[EDW_T_FACT_PRD_TMCONFS_CUR_D];
+	
+	-- Step 2: Insert refreshed data from mirror table with joins
+	
+	INSERT INTO [GLOBAL_EDW].[Propelis].[EDW_T_FACT_PRD_TMCONFS_CUR_D](
+	    [SEG_CD_KEY],
         [Operation Task List ID],
         [Operation Counter ID],
         [Operation Activity ID],
@@ -115,13 +28,13 @@ BEGIN
         [Entry Create Date],
         [Person Who Entererd],
         [Operation Confirm Counter],
-        [Actual Work],
+        [ACTUAL_WRK],
         [Actual Work UOM],
         [Accounting Indicator],
-        [Remaining Work],
+        [REMG_WRK],
         [Remaining Work UOM],
-        [Actual Work in Hours],
-        [Remaining Work in Hours],
+        [ACTUAL_WRK_IN_HRS],
+        [REMG_WRK_IN_HRS],
         [Work In Hours UOM],
         [ACTIVITY_TYP_KEY],
         [Operation Confirm Text],
@@ -136,13 +49,16 @@ BEGIN
         [SALES_AREA_KEY],
         [OPERATING_PLNT_KEY],
         [SERVC_ORDER_CREATE_DATE_KEY],
-        [Account Indicator],
+        [ACCT_IND],
         [PARNT_CUST_KEY],
         [Reason for Variance Description],
         [Partial Final Confirm],
         [TCHNCL_COMPLETION_DATE_KEY],
         [SALES_ORDER_ID],
         [Accounting Indicator Description],
+		
+		--Below columns are added for the Alias tables
+		
         [SERV_ORDER_INVOICE_CREATED_DATE_KEY],
         [OPERATING_PLANT_REGION_PLANT],
         [PLANNING_PLANT_REGION_PLANT],
@@ -166,98 +82,160 @@ BEGIN
         [BILL_TO_CUST_KEY],
         [CUSTOMER_PROJECT_MANAGER_CUST_CONTACT_KEY],
         [SALES_PERSON_PERSONEL_KEY],
-        [PRDT_VARIANT_CONFIG_KEY],
-        [SOIPTNR_KEY]
+        [SOLDTO_CUST_KEY],		
+        [SOIPTNR_KEY],
+		[PRDVCON_KEY],
+        [PROFCHZ_PROFT_CNTR_KEY],
+        [PROFCVZ_PROFT_CNTR_KEY],
+        [WORKCHZ_WRK_CNTR_KEY],
+        [WORKCVZ_WRK_CNTR_KEY],
+        [COSTCHZ_COST_CNTR_KEY],
+        [COSTCVZ_COST_CNTR_KEY]
     )
     SELECT
-        S.[SEG_CD_KEY],
-        S.[Operation Task List ID],
-        S.[Operation Counter ID],
-        S.[Operation Activity ID],
-        S.[Operation Confirmation ID],
-        S.[Operation Sequence ID],
-        S.[PROFT_CNTR_KEY],
-        S.[SALES_ORDER_KEY],
-        S.[Sales Order Item Number],
-        S.[CMPNY_KEY],
-        S.[WRK_CNTR_KEY],
-        S.[COST_CNTR_KEY],
-        S.[OPERATION_STD_TEXT],
-        S.[Operation Short Text],
-        S.[PSTNG_DATE_KEY],
-        S.[PLNG_PLNT_KEY],
-        S.[Entry Create Date],
-        S.[Person Who Entererd],
-        S.[Operation Confirm Counter],
-        S.[Actual Work],
-        S.[Actual Work UOM],
-        S.[Accounting Indicator],
-        S.[Remaining Work],
-        S.[Remaining Work UOM],
-        S.[Actual Work in Hours],
-        S.[Remaining Work in Hours],
-        S.[Work In Hours UOM],
-        S.[ACTIVITY_TYP_KEY],
-        S.[Operation Confirm Text],
-        S.[Reason for Variance],
-        S.[Confirm  Counter  Of  Cancelled  Confirmation],
-        S.[SOLD_TO_CUST_KEY],
-        S.[PERSONEL_NUM_KEY],
-        S.[ETL_SRC_SYS_CD],
-        S.[ETL_CREATED_TS],
-        S.[ETL_UPDTD_TS],
-        S.[SERVC_ORDER_KEY],
-        S.[SALES_AREA_KEY],
-        S.[OPERATING_PLNT_KEY],
-        S.[SERVC_ORDER_CREATE_DATE_KEY],
-        S.[Account Indicator],
-        S.[PARNT_CUST_KEY],
-        S.[Reason for Variance Description],
-        S.[Partial Final Confirm],
-        S.[TCHNCL_COMPLETION_DATE_KEY],
-        S.[SALES_ORDER_ID],
-        S.[Accounting Indicator Description],
-        S.[SERV_ORDER_INVOICE_CREATED_DATE_KEY],
-        S.[OPERATING_PLANT_REGION_PLANT],
-        S.[PLANNING_PLANT_REGION_PLANT],
-        S.[PERSONNEL_PLANT_REGION_PLANT],
-        S.[PARENT_CUST_KEY],
-        S.[PAYER_CUST_KEY],
-        S.[SHIP_TO_CUST_KEY],
-        S.[BRAND_OWNER_CUST_KEY],
-        S.[CUST_CONTACT_KEY],
-        S.[PERSON_RESP_PERSONNEL_KEY],
-        S.[CYLINDER_OWNER_CUST_KEY],
-        S.[AGENCY_CUST_KEY],
-        S.[PRINTER_CUST_KEY],
-        S.[SUPPLIER_CUST_KEY],
-        S.[EMPLOYEE_RESP_PERSONEL_KEY],
-        S.[EMPLOYEE_RESP_2_PERSONEL_KEY],
-        S.[FORWARDING_AGENT_VENDOR_KEY],
-        S.[UNITIZATION_AGENT_VENDOR_KEY],
-        S.[ORDER_FOR_CUSTOMER_ADDR_KEY],
-        S.[SO_PARENT_CUST_KEY],
-        S.[BILL_TO_CUST_KEY],
-        S.[CUSTOMER_PROJECT_MANAGER_CUST_CONTACT_KEY],
-        S.[SALES_PERSON_PERSONEL_KEY],
-        S.[PRDT_VARIANT_CONFIG_KEY],
-        S.[SOIPTNR_KEY]
-    FROM 
-        [GLOBAL_EDW].[Propelis].[TEMP_EDW_T_FACT_PRD_TMCONFS_CUR_D] S
-    LEFT JOIN 
-        [GLOBAL_EDW].[Propelis].[EDW_T_FACT_PRD_TMCONFS_CUR_D] T
-    ON 
-        T.[SEG_CD_KEY] = S.[SEG_CD_KEY] AND
-        T.[Operation Task List ID] = S.[Operation Task List ID] AND
-        T.[Operation Counter ID] = S.[Operation Counter ID] AND
-        T.[Operation Confirmation ID] = S.[Operation Confirmation ID] AND
-        T.[CMPNY_KEY] = S.[CMPNY_KEY] AND
-        T.[Operation Confirm Counter] = S.[Operation Confirm Counter] AND
-        T.[SERVC_ORDER_KEY] = S.[SERVC_ORDER_KEY]
-    WHERE 
-        -- Only select records from S that do not have a corresponding record in T
-        T.[SEG_CD_KEY] IS NULL;
-END
+        FACT.[SEG_CD_KEY]  ,
+	    FACT.[OPERATION_TASK_LIST_ID] ,
+	    FACT.[OPERATION_COUNTER_ID] ,
+	    FACT.[OPERATION_ACTIVITY_ID] ,
+	    FACT.[OPERATION_CONFIRM_ID] ,
+	    FACT.[OPERATION_SEQ_ID] ,
+	    FACT.[PROFT_CNTR_KEY]  ,
+	    FACT.[SALES_ORDER_KEY]  ,
+	    FACT.[SALES_ORDER_ITM_NBR]  ,
+	    FACT.[CMPNY_KEY] ,
+	    FACT.[WRK_CNTR_KEY]  ,
+	    FACT.[COST_CNTR_KEY]  ,
+	    FACT.[OPERATION_STD_TEXT] ,
+	    FACT.[OPERATION_SHORT_TEXT] ,
+	    FACT.[PSTNG_DATE_KEY]  ,
+	    FACT.[PLNG_PLNT_KEY]  ,
+	    FACT.[ENTRY_CREATE_DATE] ,
+	    FACT.[PERSON_WHO_ENTERERD] ,
+	    FACT.[OPERATION_CONFIRM_COUNTER] ,
+	    FACT.[ACTUAL_WRK] ,
+	    FACT.[ACTUAL_WRK_UOM] ,
+	    FACT.[ACCTNG_IND] ,
+	    FACT.[REMG_WRK] ,
+	    FACT.[REMG_WRK_UOM] ,
+	    FACT.[ACTUAL_WRK_IN_HRS] ,
+	    FACT.[REMG_WRK_IN_HRS] ,
+	    FACT.[WRK_IN_HRS_UOM] ,
+	    FACT.[ACTIVITY_TYP_KEY]  ,
+	    FACT.[OPERATION_CONFIRM_TEXT] ,
+	    FACT.[RSN_FOR_VRNC] ,
+	    FACT.[CONFIRM_COUNTER_OF_CANCELLED_CO]  ,
+	    FACT.[SOLD_TO_CUST_KEY]  ,
+	    FACT.[PERSONEL_NUM_KEY]  ,
+	    FACT.[ETL_SRC_SYS_CD] ,
+	    FACT.[ETL_CREATED_TS] ,
+	    FACT.[ETL_UPDTD_TS] ,
+	    FACT.[SERVC_ORDER_KEY] ,
+	    FACT.[SALES_AREA_KEY] ,
+	    FACT.[OPERATING_PLNT_KEY]  ,
+	    FACT.[SERVC_ORDER_CREATE_DATE_KEY]  ,
+	    FACT.[ACCT_IND] ,
+	    FACT.[PARNT_CUST_KEY]  ,
+	    FACT.[RSN_FOR_VRNC_DESC] ,
+	    FACT.[PARTIAL_FINAL_CONFIRM] ,
+	    FACT.[TCHNCL_COMPLETION_DATE_KEY]  ,
+	    FACT.[SALES_ORDER_ID] ,
+	    FACT.[ACCTNG_IND_DESC],
+	    
+	    --Below columns are added for the Alias tables
+		
+	    CASE WHEN CONVERT(VARCHAR, SERVORD.[Service Order Invoice Create Date], 112) = '19000101' 
+			OR SERVORD.[Service Order Invoice Create Date] IS NULL 
+			THEN '-1'
+			ELSE CONVERT(VARCHAR, SERVORD.[Service Order Invoice Create Date], 112)
+			END AS SERV_ORDER_INVOICE_CREATED_DATE_KEY,
+	    OPT_PLT.[Operating Plant ID] AS OPERATING_PLANT_REGION_PLANT,
+	    PLNG_PLT.[Planning Plant ID] AS PLANNING_PLANT_REGION_PLANT,
+	    substring(PERSONL.[Personnel Cost Center ID],4,4) AS PERSONNEL_PLANT_REGION_PLANT,
+	    SOIPTNR.PARNT_CUST_KEY AS PARNT_CUST_KEY,
+	    SOIPTNR.PAYER_CUST_KEY AS PAYER_CUST_KEY,
+	    SOIPTNR.SHIP_TO_CUST_KEY AS SHIP_TO_CUST_KEY,
+	    SOIPTNR.BRAND_OWNER_CUST_KEY AS BRAND_OWNER_CUST_KEY,
+	    SOIPTNR.CUST_CONTACT_KEY AS CUST_CONTACT_KEY,
+	    SOIPTNR.PERSON_RESPNSBLE_KEY AS PERSON_RESP_PERSONNEL_KEY,
+	    SOIPTNR.CYLINDER_OWNER_CUST_KEY AS CYLINDER_OWNER_CUST_KEY,
+	    SOIPTNR.AGENCY_CUST_KEY AS AGENCY_CUST_KEY,
+	    SOIPTNR.PRINTER_CUST_KEY AS PRINTER_CUST_KEY,
+	    SOIPTNR.SUPPLIER_CUST_KEY AS SUPPLIER_CUST_KEY,
+	    SOIPTNR.EMPL_RESPNSBLE_KEY AS EMPLOYEE_RESP_PERSONEL_KEY,
+	    SOIPTNR.EMPL_RESPNSBLE_2_KEY AS EMPLOYEE_RESP_2_PERSONEL_KEY,
+	    SOIPTNR.FORWARDING_AGENT_VNDR_KEY AS FORWARDING_AGENT_VENDOR_KEY,
+	    SOIPTNR.UNITIZATION_AGENT_VNDR_KEY AS UNITIZATION_AGENT_VENDOR_KEY,
+	    SOIPTNR.ORDER_FOR_CUST_KEY AS ORDER_FOR_CUSTOMER_ADDR_KEY,
+	    SOIPTNR.SO_PARNT_CUST_KEY AS SO_PARENT_CUST_KEY,
+	    SOIPTNR.BILL_TO_CUST_KEY  AS BILL_TO_CUST_KEY, 
+	    SOIPTNR.CUST_PROJ_MGR_KEY AS CUSTOMER_PROJECT_MANAGER_CUST_CONTACT_KEY,
+	    SOIPTNR.SALES_PERSON_PERSONNEL_KEY AS SALES_PERSON_PERSONEL_KEY,
+		SOIPTNR.SOLDTO_CUST_KEY AS SOLDTO_CUST_KEY,
+	    CONCAT(FACT.SALES_ORDER_ID, '-', FACT.SALES_ORDER_ITM_NBR) AS SOIPTNR_KEY,
+	    CONCAT(FACT.SALES_ORDER_ID, '-', FACT.SALES_ORDER_ITM_NBR) AS PRDVCON_KEY,
+		PROFCTR.PROFT_CNTR_KEY AS PROFCHZ_PROFT_CNTR_KEY,
+		PROFCTR.PROFT_CNTR_KEY AS PROFCVZ_PROFT_CNTR_KEY,
+		WORKCTR.WRK_CNTR_KEY AS WORKCHZ_WRK_CNTR_KEY,
+	    WORKCTR.WRK_CNTR_KEY AS WORKCVZ_WRK_CNTR_KEY,
+		COSCNTR.COST_CNTR_KEY AS COSTCHZ_COST_CNTR_KEY,
+		COSCNTR.COST_CNTR_KEY AS COSTCVZ_COST_CNTR_KEY
+	   
+	
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_F_PRD_TMCONFS_CUR_D] AS FACT
 
--- Execute the stored procedure to perform the update and insert operations
-EXEC [Propelis].[Proc_EDW_T_FACT_PRD_TMCONFS_CUR_D]
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_PRD_SERVORD_CUR_D] AS SERVORD
+        ON FACT.SERVC_ORDER_KEY = SERVORD.SERVC_ORDER_KEY
+
+    LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_SAL_SALAREA_CUR_D] AS	SALAREA
+        ON FACT.SALES_AREA_KEY = SALAREA.SALES_AREA_KEY	
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_SEGMENT_CUR_D] AS SEGMENT
+	    ON FACT.SEG_CD_KEY = SEGMENT.SEG_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PROFCTR_CUR_D] AS PROFCTR
+	    ON FACT.PROFT_CNTR_KEY = PROFCTR.PROFT_CNTR_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_SAL_SALORDH_CUR_D] AS SALORDH
+	    ON FACT.SALES_ORDER_KEY = SALORDH.SALES_ORDER_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_CMPNYCD_CUR_D] AS CMPNYCD
+	    ON FACT.CMPNY_KEY = CMPNYCD.CMPNY_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_WORKCTR_CUR_D] AS WORKCTR
+	    ON FACT.WRK_CNTR_KEY = WORKCTR.WRK_CNTR_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_COSCNTR_CUR_D] AS COSCNTR
+	    ON FACT.COST_CNTR_KEY = COSCNTR.COST_CNTR_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_ACTTYPE_CUR_D] AS ACTTYPE
+	    ON FACT.ACTIVITY_TYP_KEY = ACTTYPE.ACTIVITY_TYP_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PERSONL_CUR_D] AS PERSONL
+	    ON FACT.PERSONEL_NUM_KEY = PERSONL.PERSONEL_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_R_MST_SGK_STNDRD_TXT_CATG_CUR_D] AS SGK_STNDRD_TXT
+	    ON FACT.OPERATION_STD_TEXT = SGK_STNDRD_TXT.STANDARD_TEXT_KEY
+		
+	LEFT JOIN (SELECT SALES_ORDER_ITM_ID,MAX(SALES_ORDER_ID) AS SALES_ORDER_ID FROM
+	    [GLOBAL_EDW].[dbo].[EDW_T_D_SAL_PRDVCON_CUR_D] GROUP BY SALES_ORDER_ITM_ID) AS PRDVCON
+	    ON FACT.SALES_ORDER_ID = PRDVCON.SALES_ORDER_ID
+		AND FACT.SALES_ORDER_ITM_NBR = PRDVCON.SALES_ORDER_ITM_ID
+		
+	LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_B_SAL_SOIPTNR_CUR_D]  AS SOIPTNR
+	    ON CONCAT(FACT.SALES_ORDER_ID, '-', FACT.SALES_ORDER_ITM_NBR) = SOIPTNR.SOIPTNR_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[POSTING_DATE] AS PST_DT
+	    ON FACT.PSTNG_DATE_KEY = PST_DT.DATE_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[PLANNING_PLANT] AS PLNG_PLT
+	    ON FACT.PLNG_PLNT_KEY = PLNG_PLT.PLNT_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[OPERATING_PLANT] AS OPT_PLT
+	    ON FACT.OPERATING_PLNT_KEY = OPT_PLT.PLNT_KEY
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[SERVICE_ORDER_CREATE_DATE] AS SEV_ORD_CT_DT
+	    ON FACT.SERVC_ORDER_CREATE_DATE_KEY = SEV_ORD_CT_DT.[DATE KEY]
+		
+	LEFT JOIN [GLOBAL_EDW].[Propelis].[TECH_COMPLETION_DATE] AS TH_COM_DT
+	    ON FACT.TCHNCL_COMPLETION_DATE_KEY = TH_COM_DT.DATE_KEY;
+END

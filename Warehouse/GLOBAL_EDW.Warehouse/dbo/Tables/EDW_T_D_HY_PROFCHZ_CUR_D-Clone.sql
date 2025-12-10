@@ -1,0 +1,26 @@
+CREATE TABLE [dbo].[EDW_T_D_HY_PROFCHZ_CUR_D-Clone] (
+
+	[PROFT_CNTR_KEY] int NULL, 
+	[Profit Center Controlling Area ID HH] varchar(max) NULL, 
+	[Profit Center Leaf Level HH] int NULL, 
+	[Profit Center Level 0 ID HH] varchar(max) NULL, 
+	[Profit Center Level 0 Description HH] varchar(max) NULL, 
+	[Profit Center Level 1 ID HH] varchar(max) NULL, 
+	[Profit Center Level 1 Description HH] varchar(max) NULL, 
+	[Profit Center Level 2 ID HH] varchar(max) NULL, 
+	[Profit Center Level 2 Description HH] varchar(max) NULL, 
+	[Profit Center Level 3 ID HH] varchar(max) NULL, 
+	[Profit Center Level 3 Description HH] varchar(max) NULL, 
+	[Profit Center Level 4 ID HH] varchar(max) NULL, 
+	[Profit Center Level 4 Description HH] varchar(max) NULL, 
+	[Profit Center Level 5 ID HH] varchar(max) NULL, 
+	[Profit Center Level 5 Description HH] varchar(max) NULL, 
+	[Profit Center Level 6 ID HH] varchar(max) NULL, 
+	[Profit Center Level 6 Description HH] varchar(max) NULL, 
+	[Profit Center Level 7 ID HH] varchar(max) NULL, 
+	[Profit Center Level 7 Description HH] varchar(max) NULL, 
+	[Profit Center Level 8 ID HH] varchar(max) NULL, 
+	[Profit Center Level 8 Description HH] varchar(max) NULL, 
+	[Profit Center Level 9 ID HH] varchar(max) NULL, 
+	[Profit Center Level 9 Description HH] varchar(max) NULL
+);

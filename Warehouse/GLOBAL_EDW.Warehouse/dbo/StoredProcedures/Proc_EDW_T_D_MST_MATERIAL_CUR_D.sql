@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_MST_MATERIAL_CUR_D]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_D_MST_MATERIAL_CUR_D]
 AS
 BEGIN
     -- =============================
@@ -223,7 +223,7 @@ BEGIN
         T.[DIVISION]                                  = S.[DIVISION],
         T.[DIVISION_DESC]                             = S.[DIVISION_DESC]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_MST_MATERIAL_CUR_D] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_MATERIAL_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_MATERIAL_CUR_D] S
         ON T.[MATRL_KEY] = S.[MATRL_KEY];
 
     -- =============================
@@ -666,7 +666,7 @@ BEGIN
         S.[MATRL_X_PLNT_DESC],
         S.[DIVISION],
         S.[DIVISION_DESC]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_MATERIAL_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_MATERIAL_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_MATERIAL_CUR_D] T
         ON T.[MATRL_KEY] = S.[MATRL_KEY]
     WHERE T.[MATRL_KEY] IS NULL;

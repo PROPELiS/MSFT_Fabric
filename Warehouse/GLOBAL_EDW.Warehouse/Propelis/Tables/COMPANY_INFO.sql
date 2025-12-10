@@ -1,7 +1,7 @@
 CREATE TABLE [Propelis].[COMPANY_INFO] (
 
 	[CMPNY_KEY] int NOT NULL, 
-	[Company Code] int NULL, 
+	[Company Code] varchar(max) NULL, 
 	[Legacy Company Code] varchar(max) NULL, 
 	[Company Name] varchar(max) NULL, 
 	[Line Of Business] varchar(max) NULL, 

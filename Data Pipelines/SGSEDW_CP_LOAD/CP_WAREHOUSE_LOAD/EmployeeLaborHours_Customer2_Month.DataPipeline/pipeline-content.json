@@ -6,7 +6,10 @@
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
-            "sqlReaderQuery": "select \t[DataSource],\r\n\t[MonthBeginDate],\r\n\t[EmployeeNumber],\r\n\t[EmployeeName],\r\n\t[Customer2],\r\n\t[LaborHours],\r\n\t[MDSSimplifiedId],\r\n\t[MDSPortfolioId]  from [CP].[EmployeeLaborHours_Customer2_Month]",
+            "sqlReaderQuery": {
+              "value": "select \t[DataSource],\n\t[MonthBeginDate],\n\t[EmployeeNumber],\n\t[EmployeeName],\n\t[Customer2],\n\t[LaborHours],\n\t[MDSSimplifiedId],\n\t[MDSPortfolioId]  from [CP].[EmployeeLaborHours_Customer2_Month]",
+              "type": "Expression"
+            },
             "partitionOption": "None",
             "queryTimeout": "02:00:00",
             "datasetSettings": {
@@ -368,64 +371,22 @@
         ]
       },
       {
-        "type": "Copy",
+        "type": "Script",
         "typeProperties": {
-          "source": {
-            "type": "LakehouseTableSource",
-            "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "CP",
-                "table": "EmployeeLaborHours_Customer2_Month"
+          "scripts": [
+            {
+              "text": {
+                "value": "ALTER EXTERNAL TABLE BRONZE.CP.\"EmployeeLaborHours_Customer2_Month\" REFRESH;",
+                "type": "Expression"
               },
-              "schema": [],
-              "linkedService": {
-                "name": "BRONZE",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Tables"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
+              "type": "Query"
             }
-          },
-          "sink": {
-            "type": "SnowflakeSink",
-            "preCopyScript": {
-              "value": "TRUNCATE TABLE \"BRONZE\".\"CP\".\"EmployeeLaborHours_Customer2_Month\";  ",
-              "type": "Expression"
-            },
-            "importSettings": {
-              "type": "SnowflakeImportCopyCommand"
-            },
-            "datasetSettings": {
-              "type": "SnowflakeTable",
-              "typeProperties": {
-                "schema": "CP",
-                "table": "EmployeeLaborHours_Customer2_Month",
-                "database": "BRONZE"
-              },
-              "schema": [],
-              "externalReferences": {
-                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
-              },
-              "annotations": []
-            }
-          },
-          "translator": {
-            "type": "TabularTranslator",
-            "typeConversion": true,
-            "typeConversionSettings": {
-              "allowDataTruncation": true,
-              "treatBooleanAsNumber": false
-            }
-          },
-          "enableStaging": true
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00",
+          "connectionVersion": "1.1"
+        },
+        "externalReferences": {
+          "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
         },
         "policy": {
           "timeout": "0.12:00:00",
@@ -434,10 +395,45 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_PRODSF",
+        "name": "Fabric_To__Prod_SF_BRONZE",
         "dependsOn": [
           {
             "activity": "File_To_Table",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Script",
+        "typeProperties": {
+          "scripts": [
+            {
+              "text": {
+                "value": "CALL SILVER.CP.\"Proc_EmployeeLaborHours_Customer2_Month\"('','FULL')",
+                "type": "Expression"
+              },
+              "type": "Query"
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00",
+          "connectionVersion": "1.1"
+        },
+        "externalReferences": {
+          "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_to_Prod_SF_SILVER",
+        "dependsOn": [
+          {
+            "activity": "Fabric_To__Prod_SF_BRONZE",
             "dependencyConditions": [
               "Succeeded"
             ]

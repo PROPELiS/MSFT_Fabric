@@ -62,7 +62,7 @@ BEGIN
         T.[Occurrence Date]                             = S.[THE_DATE],
         T.[Occurrence Fiscal Year]                      = S.[FISCAL_YR]
     FROM [GLOBAL_EDW].[Propelis].[OCCURRENCE_DATE] T
-    INNER JOIN [GLOBAL_EDW_MIRROR_OLD].[dbo].[EDW_T_D_MST_DATE_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_DATE_CUR_D] S
         ON T.[DATE_KEY] = S.[DATE_KEY];
 
     ----------------------------------------------------------------------
@@ -182,7 +182,7 @@ BEGIN
         S.[DATE_KEY],
         S.[THE_DATE],
         S.[FISCAL_YR]
-    FROM [GLOBAL_EDW_MIRROR_OLD].[dbo].[EDW_T_D_MST_DATE_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_DATE_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[OCCURRENCE_DATE] T
         ON T.[DATE_KEY] = S.[DATE_KEY]
     WHERE T.[DATE_KEY] IS NULL;

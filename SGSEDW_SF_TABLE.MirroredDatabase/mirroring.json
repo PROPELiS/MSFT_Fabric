@@ -1,0 +1,117 @@
+{
+  "properties": {
+    "source": {
+      "type": "Snowflake",
+      "typeProperties": {
+        "connection": "47176d63-b76d-4f2e-a75c-0c3e6faed85f",
+        "database": "SGSEDW"
+      }
+    },
+    "target": {
+      "type": "MountedRelationalDatabase",
+      "typeProperties": {
+        "defaultSchema": "dbo",
+        "format": "Delta",
+        "retentionInDays": 1
+      }
+    },
+    "mountedTables": [
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "DimBudgetCategory"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "DimCalendarDate"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "DimCommercialAssignmentRole"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "DimCommercialAssignmentsGrid"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "DimCostAllocationMethodologyCategory"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "DimCustomer"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "DimCustomerException"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "DimCustomerSummary"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "DimDepartment"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "DimDepartment_Backup"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "DimEmployee"
+          }
+        }
+      },
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "DBO",
+            "tableName": "DimEmployeeHistory"
+          }
+        }
+      }
+    ]
+  }
+}

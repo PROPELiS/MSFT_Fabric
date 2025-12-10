@@ -547,7 +547,7 @@
         }
       },
       {
-        "name": "FactCOGSLaborAllocationRate_14V2",
+        "name": "Proc_CP_FactLeadershipAllocationRate_14V2",
         "type": "Script",
         "dependsOn": [
           {
@@ -581,7 +581,7 @@
               ],
               "type": "Query",
               "text": {
-                "value": "USE DATABASE SGSEDW;\r\nUSE SCHEMA DBO;\r\nCALL SGSEDW.DBO.\"Proc_CP_FactCOGSLaborAllocationRate_14V2\"('@{pipeline().parameters.ProcMonth}','FULL');",
+                "value": "USE DATABASE SGSEDW;\r\nUSE SCHEMA DBO;\r\nCALL SGSEDW.DBO.\"Proc_CP_FactLeadershipAllocationRate_14V2\"('@{pipeline().parameters.ProcMonth}','FULL');",
                 "type": "Expression"
               }
             }
@@ -597,7 +597,7 @@
         "type": "Script",
         "dependsOn": [
           {
-            "activity": "FactCOGSLaborAllocationRate_14V2",
+            "activity": "Proc_CP_FactLeadershipAllocationRate_14V2",
             "dependencyConditions": [
               "Succeeded"
             ]

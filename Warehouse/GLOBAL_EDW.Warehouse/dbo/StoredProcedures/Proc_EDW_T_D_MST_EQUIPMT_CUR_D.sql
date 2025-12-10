@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_MST_EQUIPMT_CUR_D]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_D_MST_EQUIPMT_CUR_D]
 AS
 BEGIN
     -- Update existing records
@@ -33,7 +33,7 @@ BEGIN
         T.[Equipment Special Stock Indicator]        = S.[SPCL_STK_IND],
         T.[Equipment System Status]                  = S.[SYS_STATUS]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_MST_EQUIPMT_CUR_D] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_EQUIPMT_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_EQUIPMT_CUR_D] S
         ON T.[EQUIP_KEY] = S.[EQUIP_KEY];
 
     -- Insert new records
@@ -98,7 +98,7 @@ BEGIN
         S.[STOR_LOC],
         S.[SPCL_STK_IND],
         S.[SYS_STATUS]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_EQUIPMT_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_EQUIPMT_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_EQUIPMT_CUR_D] T
         ON T.[EQUIP_KEY] = S.[EQUIP_KEY]
     WHERE T.[EQUIP_KEY] IS NULL;

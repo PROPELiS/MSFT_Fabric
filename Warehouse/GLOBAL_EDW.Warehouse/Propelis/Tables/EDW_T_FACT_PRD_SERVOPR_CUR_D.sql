@@ -162,5 +162,10 @@ CREATE TABLE [Propelis].[EDW_T_FACT_PRD_SERVOPR_CUR_D] (
 	[PROFCVZ_PROFT_CNTR_KEY] int NULL, 
 	[WORKCHZ_WRK_CNTR_KEY] int NULL, 
 	[WORKCVZ_WRK_CNTR_KEY] int NULL, 
-	[OPER_PLANT_KEY] int NULL
+	[OPER_PLANT_KEY] int NULL, 
+	[PARENT_CUST_KEY] int NULL, 
+	[Resp_Cost_Center_Horizontal_Hierarchy_KEY] int NULL, 
+	[Resp_Cost_Center_Vertical_Hierarchy_KEY] int NULL, 
+	[Cost_Center_Vertical_Hierarchy_KEY] int NULL, 
+	[Cost_Center_Horizontal_Hierarchy_KEY] int NULL
 );

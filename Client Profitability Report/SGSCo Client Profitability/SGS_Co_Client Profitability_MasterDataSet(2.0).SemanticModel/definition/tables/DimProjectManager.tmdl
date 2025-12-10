@@ -1770,6 +1770,16 @@ table DimProjectManager
 
 		annotation SummarizationSetBy = Automatic
 
+	column SGSOrSGKIndicator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 85ba3ac2-9074-4312-ac63-a7c067015c80
+		sourceLineageTag: SGSOrSGKIndicator
+		summarizeBy: none
+		sourceColumn: SGSOrSGKIndicator
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimProjectManager = entity
 		mode: directLake
 		source

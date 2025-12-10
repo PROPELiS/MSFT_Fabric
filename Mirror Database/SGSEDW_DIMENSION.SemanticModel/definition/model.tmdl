@@ -1,0 +1,24 @@
+model c7f5ef2c-e17e-4ccb-be26-312fec0fbf5c
+	culture: en-US
+	collation: Latin1_General_100_BIN2_UTF8
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["sql_pool_insights","exec_requests_history","long_running_queries","frequently_run_queries","exec_sessions_history","DimJobItem","DimGLAccounts","DimLBCRevenueStream","DimGLAccountsDepartment","DimReportingCustomer","DimSite","DimBudgetCategory","DimProduct","DimPriceMatrixItems","DimSubRegion","DimEmployeeHistory","DimLOB","DimCostAllocationMethodologyCategory","DimLBCLocation","DimCustomer","DimService","DimCalendarDate","PlateSqInchDetails","DimSubService","DimEmployee","CPSecurityCustomerIdUser","DimDepartment","DimJobversion"]
+
+annotation SourceLineageTagType = DatabaseFullyQualifiedName
+
+ref table DimCostAllocationMethodologyCategory
+ref table PlateSqInchDetails
+ref table DimJobItem
+ref table DimLBCRevenueStream
+ref table DimSite
+ref table DimService
+ref table DimLOB
+ref table DimPriceMatrixItems
+

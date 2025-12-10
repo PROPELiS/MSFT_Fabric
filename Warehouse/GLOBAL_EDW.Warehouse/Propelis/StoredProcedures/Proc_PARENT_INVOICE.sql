@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_PARENT_INVOICE]
+CREATE       PROCEDURE [Propelis].[Proc_PARENT_INVOICE]
 AS
 BEGIN
 
@@ -7,7 +7,7 @@ BEGIN
     ----------------------------------------------------------------------
     UPDATE T
     SET
-        T.[Sales Order Parent Invoice ID] = S.[SALES_ORDER_INVC_ID],
+        T.[Parent Invoice Sales Order Invoice ID] = S.[SALES_ORDER_INVC_ID],
         T.[Parent Invoice Company Code] = S.[CMPNY_CD],
         T.[Parent Invoice Billing Type Code] = S.[BILLING_TYP_CD],
         T.[Parent Invoice Billing Category] = S.[BILLING_CTGRY],
@@ -79,7 +79,7 @@ BEGIN
         T.[Parent Invoice Customer Group 9 Description] = S.[CUST_GROUP_9_DESC],
         T.[Parent Invoice Customer Group 10 Description] = S.[CUST_GROUP_10_DESC]
     FROM [GLOBAL_EDW].[Propelis].[PARENT_INVOICE] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[GLOBAL_EDW].[EDW_T_D_SAL_INVOICE_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_SAL_INVOICE_CUR_D] S
         ON T.[INVC_KEY] = S.[INVC_KEY];
 
     ----------------------------------------------------------------------
@@ -87,7 +87,7 @@ BEGIN
     ----------------------------------------------------------------------
     INSERT INTO [GLOBAL_EDW].[Propelis].[PARENT_INVOICE] (
         [INVC_KEY],
-        [Sales Order Parent Invoice ID],
+        [Parent Invoice Sales Order Invoice ID],
         [Parent Invoice Company Code],
         [Parent Invoice Billing Type Code],
         [Parent Invoice Billing Category],
@@ -233,7 +233,7 @@ BEGIN
     S.[CUST_GROUP_9_DESC],
     S.[CUST_GROUP_10_DESC]
    
-    FROM [GLOBAL_EDW_MIRROR].[GLOBAL_EDW].[EDW_T_D_SAL_INVOICE_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_SAL_INVOICE_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[PARENT_INVOICE] T
         ON T.[INVC_KEY] = S.[INVC_KEY]
     WHERE T.[INVC_KEY] IS NULL;

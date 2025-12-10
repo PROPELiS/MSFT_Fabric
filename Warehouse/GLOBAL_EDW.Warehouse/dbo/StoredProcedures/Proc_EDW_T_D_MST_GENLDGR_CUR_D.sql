@@ -6,9 +6,9 @@ BEGIN
     ----------------------------------------------------------------------
     UPDATE T
     SET
-        T.[General Ledger Account] = S.[GL_CD],
+        T.[GL_CD] = S.[GL_CD],
         T.[Chart Of General Ledger Account] = S.[CHART_OF_ACCTS],
-        T.[General Ledger Account Description] = S.[GL_DESC],
+        T.[General Ledger Description] = S.[GL_DESC],
         T.[General Ledger Account Is Balance Sheet] = S.[IS_BAL_SHEET_ACCT],
         T.[General Ledger Account Created Date] = S.[CREATED_DATE],
         T.[General Ledger Account Created By] = S.[CREATED_BY],
@@ -30,8 +30,8 @@ BEGIN
         T.[General Ledger Group Account Number] = S.[GROUP_ACCT_NUM],
         T.[General Ledger Search Matchcode] = S.[SEARCH_MATCHCODE],
         T.[General Ledger Short Description] = S.[GL_SHORT_DESC]
-    FROM [GLOBAL_EDW].[dbo].[EDW_T_D_MST_GENLDGR_CUR_D] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_GENLDGR_CUR_D] S
+    FROM [GLOBAL_EDW].[dbo].[EDW_T_D_MST_GENLDGR_CUR_D] AS T
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_GENLDGR_CUR_D] AS S
         ON T.[GL_KEY] = S.[GL_KEY];
 
     ----------------------------------------------------------------------
@@ -39,9 +39,9 @@ BEGIN
     ----------------------------------------------------------------------
     INSERT INTO [GLOBAL_EDW].[dbo].[EDW_T_D_MST_GENLDGR_CUR_D] (
         [GL_KEY],
-        [General Ledger Account],
+        [GL_CD],
         [Chart Of General Ledger Account],
-        [General Ledger Account Description],
+        [General Ledger Description],
         [General Ledger Account Is Balance Sheet],
         [General Ledger Account Created Date],
         [General Ledger Account Created By],
@@ -90,8 +90,8 @@ BEGIN
         S.[GROUP_ACCT_NUM],
         S.[SEARCH_MATCHCODE],
         S.[GL_SHORT_DESC]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_GENLDGR_CUR_D] S
-    LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_GENLDGR_CUR_D] T
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_GENLDGR_CUR_D] AS S
+    LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_GENLDGR_CUR_D] AS T
         ON T.[GL_KEY] = S.[GL_KEY]
     WHERE T.[GL_KEY] IS NULL;
-END
+END;

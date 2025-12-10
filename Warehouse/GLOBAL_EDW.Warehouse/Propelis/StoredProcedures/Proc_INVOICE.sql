@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_INVOICE]
+CREATE     PROCEDURE [Propelis].[Proc_INVOICE]
 AS
 BEGIN
 
@@ -79,7 +79,7 @@ BEGIN
         T.[Invoice Customer Group 9 Description] = S.[CUST_GROUP_9_DESC],
         T.[Invoice Customer Group 10 Description] = S.[CUST_GROUP_10_DESC]
     FROM [GLOBAL_EDW].[Propelis].[INVOICE] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[GLOBAL_EDW].[EDW_T_D_SAL_INVOICE_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_SAL_INVOICE_CUR_D] S
         ON T.[INVC_KEY] = S.[INVC_KEY];
 
     ----------------------------------------------------------------------
@@ -233,7 +233,7 @@ BEGIN
     S.[CUST_GROUP_9_DESC],
     S.[CUST_GROUP_10_DESC]
    
-    FROM [GLOBAL_EDW_MIRROR].[GLOBAL_EDW].[EDW_T_D_SAL_INVOICE_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_SAL_INVOICE_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[INVOICE] T
         ON T.[INVC_KEY] = S.[INVC_KEY]
     WHERE T.[INVC_KEY] IS NULL;

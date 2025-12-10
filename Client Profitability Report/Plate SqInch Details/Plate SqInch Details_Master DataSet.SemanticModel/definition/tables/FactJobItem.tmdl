@@ -814,6 +814,16 @@ table FactJobItem
 
 		annotation SummarizationSetBy = Automatic
 
+	column Priority
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 42879e29-d80c-4134-a1f3-46946d09c485
+		sourceLineageTag: Priority
+		summarizeBy: none
+		sourceColumn: Priority
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactJobItem = entity
 		mode: directLake
 		source

@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_RECEIVING_PLANT]
+CREATE     PROCEDURE [Propelis].[Proc_RECEIVING_PLANT]
 AS
 BEGIN
     ----------------------------------------------------------------------
@@ -40,7 +40,7 @@ BEGIN
         T.[Receiving Plant Shipping Recvng Point] = S.[SHIPG_RECVNG_PNT],
         T.[Receiving Plant Shipping Recvng Point Description] = S.[SHIPG_RECVNG_PNT_DESC]
     FROM [GLOBAL_EDW].[Propelis].[RECEIVING_PLANT] T
-    INNER JOIN [GLOBAL_EDW_Mirror].[dbo].[EDW_T_D_MST_PLANT_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PLANT_CUR_D] S
         ON T.[PLNT_KEY] = S.[PLNT_KEY];
 
     ----------------------------------------------------------------------
@@ -117,7 +117,7 @@ BEGIN
         S.[PLNT_TAX_IND_DESC],
         S.[SHIPG_RECVNG_PNT],
         S.[SHIPG_RECVNG_PNT_DESC]
-    FROM [GLOBAL_EDW_Mirror].[dbo].[EDW_T_D_MST_PLANT_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PLANT_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[RECEIVING_PLANT] T
         ON T.[PLNT_KEY] = S.[PLNT_KEY]
     WHERE T.[PLNT_KEY] IS NULL;

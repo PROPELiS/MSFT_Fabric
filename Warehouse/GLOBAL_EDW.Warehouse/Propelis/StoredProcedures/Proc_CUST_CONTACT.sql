@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_CUST_CONTACT]
+CREATE     PROCEDURE [Propelis].[Proc_CUST_CONTACT]
 AS
 BEGIN
     -- Step 1: Update existing records in target table
@@ -19,7 +19,7 @@ BEGIN
               T.[ETL_UPDTD_TS]	     = S.[ETL_UPDTD_TS]
 
     FROM [GLOBAL_EDW].[Propelis].[CUST_CONTACT] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_CUSTCNT_CUR_D] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CUSTCNT_CUR_D] AS S
         ON T.[CUST_CONTACT_KEY] = S.[CUST_CONTACT_KEY];
 
     -- Step 2: Insert new records from mirror to target table
@@ -53,7 +53,7 @@ BEGIN
         S.[ETL_CREATED_TS],
         S.[ETL_UPDTD_TS]
    
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_CUSTCNT_CUR_D] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CUSTCNT_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[CUST_CONTACT] AS T
         ON T.[CUST_CONTACT_KEY] = S.[CUST_CONTACT_KEY]
     WHERE T.[CUST_CONTACT_KEY] IS NULL;

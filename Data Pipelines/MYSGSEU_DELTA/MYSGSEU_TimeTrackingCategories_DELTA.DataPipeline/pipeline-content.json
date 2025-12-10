@@ -2,7 +2,18 @@
   "properties": {
     "activities": [
       {
+        "name": "LookupNew",
         "type": "Lookup",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
@@ -10,34 +21,36 @@
               "value": "SELECT DISTINCT \n\t\tISNULL(MAX(CT.SYS_CHANGE_VERSION),0) AS SYS_CHANGE_VERSION\t   \nFROM CHANGETABLE(CHANGES [Administration].[TimeTrackingCategories],0) CT\nLEFT JOIN [Administration].[TimeTrackingCategories] F\n ON CT.[Id] = F.[Id]\nWHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''",
               "type": "Expression"
             },
-            "partitionOption": "None",
-            "queryTimeout": "02:00:00"
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None"
           },
+          "firstRowOnly": true,
           "datasetSettings": {
+            "annotations": [],
             "type": "SqlServerTable",
+            "schema": [],
             "typeProperties": {
               "database": "MCGDataFactory"
             },
-            "schema": [],
             "externalReferences": {
               "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
-            },
-            "annotations": []
-          },
-          "firstRowOnly": true
-        },
+            }
+          }
+        }
+      },
+      {
+        "name": "LookupOld",
+        "type": "Lookup",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [],
         "policy": {
           "timeout": "0.12:00:00",
           "retry": 0,
           "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
+          "secureOutput": false,
+          "secureInput": false
         },
-        "name": "LookupNew",
-        "dependsOn": []
-      },
-      {
-        "type": "Lookup",
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
@@ -45,117 +58,28 @@
               "value": "SELECT SYS_CHANGE_VERSION FROM ChangeTracking_Fabric_Update WHERE TableName = 'Administration_TimeTrackingCategories'",
               "type": "Expression"
             },
-            "partitionOption": "None",
-            "queryTimeout": "02:00:00"
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None"
           },
+          "firstRowOnly": true,
           "datasetSettings": {
+            "annotations": [],
             "type": "SqlServerTable",
+            "schema": [],
             "typeProperties": {
               "database": "SGSWEB"
             },
-            "schema": [],
             "externalReferences": {
               "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
-            },
-            "annotations": []
-          },
-          "firstRowOnly": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "LookupOld",
-        "dependsOn": []
+            }
+          }
+        }
       },
       {
-        "type": "Copy",
-        "typeProperties": {
-          "source": {
-            "type": "SqlServerSource",
-            "sqlReaderQuery": {
-              "value": "SELECT \n\tCT.SYS_CHANGE_VERSION\n\t,CT.SYS_CHANGE_CREATION_VERSION\n\t,CT.SYS_CHANGE_OPERATION\n\t,CT.SYS_CHANGE_COLUMNS\n\t,CT.SYS_CHANGE_CONTEXT\n\t,CT.[Id] AS CT_Id\n\t,F.[Id]\n    ,F.[Name]\n\t,F.[Internal]\n    FROM  CHANGETABLE(CHANGES [Administration].[TimeTrackingCategories],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n     LEFT JOIN [Administration].[TimeTrackingCategories] F\n     ON CT.[Id] = F.[Id]\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
-              "type": "Expression"
-            },
-            "partitionOption": "None",
-            "queryTimeout": "02:00:00",
-            "datasetSettings": {
-              "type": "SqlServerTable",
-              "typeProperties": {
-                "database": "MCGDataFactory"
-              },
-              "schema": [],
-              "externalReferences": {
-                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
-              },
-              "annotations": []
-            }
-          },
-          "sink": {
-            "type": "DelimitedTextSink",
-            "formatSettings": {
-              "type": "DelimitedTextWriteSettings",
-              "quoteAllText": true,
-              "fileExtension": ".csv"
-            },
-            "storeSettings": {
-              "type": "LakehouseWriteSettings",
-              "copyBehavior": "FlattenHierarchy"
-            },
-            "datasetSettings": {
-              "type": "DelimitedText",
-              "typeProperties": {
-                "location": {
-                  "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Delta/Active",
-                  "fileName": {
-                    "value": "@concat('MYSGSEU','_','Administration_TimeTrackingCategories','.csv')",
-                    "type": "Expression"
-                  }
-                },
-                "columnDelimiter": "^",
-                "rowDelimiter": "\r\n",
-                "quoteChar": "\"",
-                "escapeChar": "\\",
-                "firstRowAsHeader": true
-              },
-              "schema": [],
-              "linkedService": {
-                "name": "BRONZE",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Files"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
-            }
-          },
-          "translator": {
-            "type": "TabularTranslator",
-            "typeConversion": true,
-            "typeConversionSettings": {
-              "allowDataTruncation": true,
-              "treatBooleanAsNumber": false
-            }
-          },
-          "enableStaging": false
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
         "name": "Administration_TimeTrackingCategories_Delta_csv",
+        "type": "Copy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "LookupNew",
@@ -169,45 +93,14 @@
               "Succeeded"
             ]
           }
-        ]
-      },
-      {
-        "type": "Script",
-        "typeProperties": {
-          "database": "SGSWEB",
-          "scripts": [
-            {
-              "text": {
-                "value": "UPDATE ChangeTracking_Fabric_Update\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\nWHERE [TableName] = 'Administration_TimeTrackingCategories'",
-                "type": "Expression"
-              },
-              "type": "Query"
-            }
-          ],
-          "scriptBlockExecutionTimeout": "02:00:00"
-        },
-        "externalReferences": {
-          "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
-        },
+        ],
         "policy": {
           "timeout": "0.12:00:00",
           "retry": 0,
           "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
+          "secureOutput": false,
+          "secureInput": false
         },
-        "name": "ChangeTracking_version_Update",
-        "dependsOn": [
-          {
-            "activity": "File_To_Table",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "Copy",
         "typeProperties": {
           "source": {
             "type": "SqlServerSource",
@@ -215,58 +108,65 @@
               "value": "SELECT \n\tCT.SYS_CHANGE_VERSION\n\t,CT.SYS_CHANGE_CREATION_VERSION\n\t,CT.SYS_CHANGE_OPERATION\n\t,CT.SYS_CHANGE_COLUMNS\n\t,CT.SYS_CHANGE_CONTEXT\n\t,CT.[Id] AS CT_Id\n\t,F.[Id]\n    ,F.[Name]\n\t,F.[Internal]\n    FROM  CHANGETABLE(CHANGES [Administration].[TimeTrackingCategories],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n     LEFT JOIN [Administration].[TimeTrackingCategories] F\n     ON CT.[Id] = F.[Id]\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
               "type": "Expression"
             },
-            "partitionOption": "None",
             "queryTimeout": "02:00:00",
+            "partitionOption": "None",
             "datasetSettings": {
+              "annotations": [],
               "type": "SqlServerTable",
+              "schema": [],
               "typeProperties": {
                 "database": "MCGDataFactory"
               },
-              "schema": [],
               "externalReferences": {
                 "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
-              },
-              "annotations": []
+              }
             }
           },
           "sink": {
-            "type": "ParquetSink",
-            "formatSettings": {
-              "type": "ParquetWriteSettings",
-              "enableVertiParquet": true
-            },
+            "type": "DelimitedTextSink",
             "storeSettings": {
-              "type": "LakehouseWriteSettings"
+              "type": "LakehouseWriteSettings",
+              "copyBehavior": "FlattenHierarchy"
+            },
+            "formatSettings": {
+              "type": "DelimitedTextWriteSettings",
+              "fileExtension": ".csv",
+              "quoteAllText": true
             },
             "datasetSettings": {
-              "type": "Parquet",
-              "typeProperties": {
-                "location": {
-                  "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Delta/Active",
-                  "fileName": {
-                    "value": "@concat('MYSGSEU','_','Administration_TimeTrackingCategories','.parquet')",
-                    "type": "Expression"
-                  }
-                },
-                "compressionCodec": "snappy"
-              },
-              "schema": [],
+              "annotations": [],
               "linkedService": {
                 "name": "BRONZE",
                 "properties": {
+                  "annotations": [],
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "5db3d583-e11f-4ac4-9781-65ee3ee820a0",
                     "rootFolder": "Files"
-                  },
-                  "annotations": []
+                  }
                 }
               },
-              "annotations": []
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','Administration_TimeTrackingCategories','.csv')",
+                    "type": "Expression"
+                  },
+                  "folderPath": "MYSGSEU/Delta/Active"
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true,
+                "quoteChar": "\""
+              },
+              "schema": []
             }
           },
+          "enableStaging": false,
           "translator": {
             "type": "TabularTranslator",
             "typeConversion": true,
@@ -274,17 +174,51 @@
               "allowDataTruncation": true,
               "treatBooleanAsNumber": false
             }
-          },
-          "enableStaging": false
-        },
+          }
+        }
+      },
+      {
+        "name": "ChangeTracking_version_Update",
+        "type": "Script",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "File_To_Table",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
         "policy": {
           "timeout": "0.12:00:00",
           "retry": 0,
           "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
+          "secureOutput": false,
+          "secureInput": false
         },
+        "typeProperties": {
+          "scripts": [
+            {
+              "type": "Query",
+              "text": {
+                "value": "UPDATE ChangeTracking_Fabric_Update\nSET [SYS_CHANGE_VERSION] = @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}\nWHERE [TableName] = 'Administration_TimeTrackingCategories'",
+                "type": "Expression"
+              }
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00",
+          "database": "SGSWEB"
+        },
+        "externalReferences": {
+          "connection": "b61c5550-087f-4c68-a3be-ee036e728bd1"
+        }
+      },
+      {
         "name": "Administration_TimeTrackingCategories_Delta_parquet",
+        "type": "Copy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "Administration_TimeTrackingCategories_Delta_csv",
@@ -292,80 +226,74 @@
               "Succeeded"
             ]
           }
-        ]
-      },
-      {
-        "type": "Copy",
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
         "typeProperties": {
           "source": {
-            "type": "DelimitedTextSource",
-            "formatSettings": {
-              "type": "DelimitedTextReadSettings"
+            "type": "SqlServerSource",
+            "sqlReaderQuery": {
+              "value": "SELECT \n\tCT.SYS_CHANGE_VERSION\n\t,CT.SYS_CHANGE_CREATION_VERSION\n\t,CT.SYS_CHANGE_OPERATION\n\t,CT.SYS_CHANGE_COLUMNS\n\t,CT.SYS_CHANGE_CONTEXT\n\t,CT.[Id] AS CT_Id\n\t,F.[Id]\n    ,F.[Name]\n\t,F.[Internal]\n    FROM  CHANGETABLE(CHANGES [Administration].[TimeTrackingCategories],@{activity('LookupOld').output.firstRow.SYS_CHANGE_VERSION}) CT \n     LEFT JOIN [Administration].[TimeTrackingCategories] F\n     ON CT.[Id] = F.[Id]\n     WHERE ISNULL(CT.[SYS_CHANGE_VERSION],'') > ''\n     AND ISNULL(CT.SYS_CHANGE_VERSION,0) <= @{activity('LookupNew').output.firstRow.SYS_CHANGE_VERSION}",
+              "type": "Expression"
             },
-            "storeSettings": {
-              "type": "LakehouseReadSettings",
-              "recursive": true,
-              "enablePartitionDiscovery": false
-            },
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
             "datasetSettings": {
-              "type": "DelimitedText",
-              "typeProperties": {
-                "location": {
-                  "type": "LakehouseLocation",
-                  "folderPath": "MYSGSEU/Delta/Active",
-                  "fileName": "MYSGSEU_Administration_TimeTrackingCategories.csv"
-                },
-                "columnDelimiter": "^",
-                "rowDelimiter": "\r\n",
-                "quoteChar": "\"",
-                "escapeChar": "\\",
-                "firstRowAsHeader": true
-              },
+              "annotations": [],
+              "type": "SqlServerTable",
               "schema": [],
-              "linkedService": {
-                "name": "BRONZE",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Files"
-                  },
-                  "annotations": []
-                }
+              "typeProperties": {
+                "database": "MCGDataFactory"
               },
-              "annotations": []
+              "externalReferences": {
+                "connection": "9ec72f35-598c-46cf-b8ad-16ab19fb641f"
+              }
             }
           },
           "sink": {
-            "type": "LakehouseTableSink",
-            "tableActionOption": "OverwriteSchema",
-            "partitionOption": "None",
+            "type": "ParquetSink",
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "formatSettings": {
+              "type": "ParquetWriteSettings",
+              "enableVertiParquet": true
+            },
             "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": {
-                  "value": "Administration_TimeTrackingCategories_DELTA",
-                  "type": "Expression"
-                }
-              },
-              "schema": [],
+              "annotations": [],
               "linkedService": {
                 "name": "BRONZE",
                 "properties": {
+                  "annotations": [],
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Tables"
-                  },
-                  "annotations": []
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "5db3d583-e11f-4ac4-9781-65ee3ee820a0",
+                    "rootFolder": "Files"
+                  }
                 }
               },
-              "annotations": []
+              "type": "Parquet",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "fileName": {
+                    "value": "@concat('MYSGSEU','_','Administration_TimeTrackingCategories','.parquet')",
+                    "type": "Expression"
+                  },
+                  "folderPath": "MYSGSEU/Delta/Active"
+                },
+                "compressionCodec": "snappy"
+              },
+              "schema": []
             }
           },
+          "enableStaging": false,
           "translator": {
             "type": "TabularTranslator",
             "typeConversion": true,
@@ -373,17 +301,14 @@
               "allowDataTruncation": true,
               "treatBooleanAsNumber": false
             }
-          },
-          "enableStaging": false
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
+          }
+        }
+      },
+      {
         "name": "File_To_Table",
+        "type": "Copy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "Administration_TimeTrackingCategories_Delta_parquet",
@@ -391,28 +316,100 @@
               "Succeeded"
             ]
           }
-        ]
-      },
-      {
-        "type": "TridentNotebook",
-        "typeProperties": {
-          "notebookId": "cbfa1829-734b-a57b-4dfc-6aabce3d581b",
-          "workspaceId": "00000000-0000-0000-0000-000000000000",
-          "parameters": {
-            "in_mode": {
-              "value": "DELTA",
-              "type": "string"
-            }
-          }
-        },
+        ],
         "policy": {
           "timeout": "0.12:00:00",
           "retry": 0,
           "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
+          "secureOutput": false,
+          "secureInput": false
         },
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "annotations": [],
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "5db3d583-e11f-4ac4-9781-65ee3ee820a0",
+                    "rootFolder": "Files"
+                  }
+                }
+              },
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "fileName": "MYSGSEU_Administration_TimeTrackingCategories.csv",
+                  "folderPath": "MYSGSEU/Delta/Active"
+                },
+                "columnDelimiter": "^",
+                "rowDelimiter": "\r\n",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true,
+                "quoteChar": "\""
+              },
+              "schema": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "BRONZE",
+                "properties": {
+                  "annotations": [],
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "5db3d583-e11f-4ac4-9781-65ee3ee820a0",
+                    "rootFolder": "Tables"
+                  }
+                }
+              },
+              "type": "LakehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": {
+                  "value": "Administration_TimeTrackingCategories_DELTA",
+                  "type": "Expression"
+                }
+              }
+            }
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      },
+      {
         "name": "Administration_TimeTrackingCategories_Notebook",
+        "type": "TridentNotebook",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "ChangeTracking_version_Update",
@@ -420,33 +417,68 @@
               "Succeeded"
             ]
           }
-        ]
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "notebookId": "ce3d581b-6aab-4dfc-a57b-734bcbfa1829",
+          "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+          "parameters": {
+            "in_mode": {
+              "value": "DELTA",
+              "type": "string"
+            }
+          }
+        }
       },
       {
+        "name": "Fabric_To_SF_Administration_TimeTrackingCategories",
         "type": "Copy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "Administration_TimeTrackingCategories_Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
         "typeProperties": {
           "source": {
             "type": "LakehouseTableSource",
             "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "administration_timetrackingcategories"
-              },
-              "schema": [],
+              "annotations": [],
               "linkedService": {
                 "name": "SILVER",
                 "properties": {
+                  "annotations": [],
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
                     "rootFolder": "Tables"
-                  },
-                  "annotations": []
+                  }
                 }
               },
-              "annotations": []
+              "type": "LakehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "administration_timetrackingcategories"
+              }
             }
           },
           "sink": {
@@ -459,19 +491,20 @@
               "type": "SnowflakeImportCopyCommand"
             },
             "datasetSettings": {
+              "annotations": [],
               "type": "SnowflakeTable",
+              "schema": [],
               "typeProperties": {
                 "schema": "MYSGSEU",
                 "table": "Administration_TimeTrackingCategories",
                 "database": "SILVER"
               },
-              "schema": [],
               "externalReferences": {
                 "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
-              },
-              "annotations": []
+              }
             }
           },
+          "enableStaging": true,
           "translator": {
             "type": "TabularTranslator",
             "typeConversion": true,
@@ -479,17 +512,14 @@
               "allowDataTruncation": true,
               "treatBooleanAsNumber": false
             }
-          },
-          "enableStaging": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Fabric_To_SF_Administration_TimeTrackingCategories",
+          }
+        }
+      },
+      {
+        "name": "Fabric_To_DEV_SF_Administration_TimeTrackingCategories",
+        "type": "Copy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": [
           {
             "activity": "Administration_TimeTrackingCategories_Notebook",
@@ -497,33 +527,37 @@
               "Succeeded"
             ]
           }
-        ]
-      },
-      {
-        "type": "Copy",
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
         "typeProperties": {
           "source": {
             "type": "LakehouseTableSource",
             "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "MYSGSEU",
-                "table": "administration_timetrackingcategories"
-              },
-              "schema": [],
+              "annotations": [],
               "linkedService": {
                 "name": "SILVER",
                 "properties": {
+                  "annotations": [],
                   "type": "Lakehouse",
                   "typeProperties": {
-                    "artifactId": "05f4420f-4b0f-ba5b-4c58-0501aabf914c",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "workspaceId": "c8d75176-b949-4f7e-a658-b996603ec8c3",
+                    "artifactId": "aabf914c-0501-4c58-ba5b-4b0f05f4420f",
                     "rootFolder": "Tables"
-                  },
-                  "annotations": []
+                  }
                 }
               },
-              "annotations": []
+              "type": "LakehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "MYSGSEU",
+                "table": "administration_timetrackingcategories"
+              }
             }
           },
           "sink": {
@@ -536,19 +570,20 @@
               "type": "SnowflakeImportCopyCommand"
             },
             "datasetSettings": {
+              "annotations": [],
               "type": "SnowflakeTable",
+              "schema": [],
               "typeProperties": {
                 "schema": "MYSGSEU",
                 "table": "Administration_TimeTrackingCategories",
                 "database": "SILVER"
               },
-              "schema": [],
               "externalReferences": {
                 "connection": "5d21465f-20b5-454e-a1d5-e8e11b3c796a"
-              },
-              "annotations": []
+              }
             }
           },
+          "enableStaging": true,
           "translator": {
             "type": "TabularTranslator",
             "typeConversion": true,
@@ -556,25 +591,8 @@
               "allowDataTruncation": true,
               "treatBooleanAsNumber": false
             }
-          },
-          "enableStaging": true
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Fabric_To_DEV_SF_Administration_TimeTrackingCategories",
-        "dependsOn": [
-          {
-            "activity": "Administration_TimeTrackingCategories_Notebook",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
           }
-        ]
+        }
       }
     ]
   }

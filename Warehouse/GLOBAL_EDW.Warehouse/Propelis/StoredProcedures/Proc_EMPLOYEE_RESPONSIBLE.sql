@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_EMPLOYEE_RESPONSIBLE]
+CREATE     PROCEDURE [Propelis].[Proc_EMPLOYEE_RESPONSIBLE]
 AS
 BEGIN
     ----------------------------------------------------------------------
@@ -37,7 +37,7 @@ BEGIN
         T.[Company Description] = S.[CMPNY_DESC],
         T.[Plant Description] = S.[PLNT_DESC]
     FROM [GLOBAL_EDW].[Propelis].[EMPLOYEE_RESPONSIBLE] T
-    INNER JOIN [GLOBAL_EDW_Mirror].[dbo].[EDW_T_D_MST_PERSONL_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PERSONL_CUR_D] S
         ON T.[PERSONEL_KEY] = S.[PERSONEL_KEY];
 
     ----------------------------------------------------------------------
@@ -109,7 +109,7 @@ BEGIN
         S.[ETL_UPDTD_TS],
         S.[CMPNY_DESC],
         S.[PLNT_DESC]
-    FROM [GLOBAL_EDW_Mirror].[dbo].[EDW_T_D_MST_PERSONL_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PERSONL_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[EMPLOYEE_RESPONSIBLE] T
         ON T.[PERSONEL_KEY] = S.[PERSONEL_KEY]
     WHERE T.[PERSONEL_KEY] IS NULL;

@@ -1770,6 +1770,16 @@ table DimEmployee
 
 		annotation SummarizationSetBy = Automatic
 
+	column SGSOrSGKIndicator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ed2f5e90-3456-401f-a855-90a8adc815d7
+		sourceLineageTag: SGSOrSGKIndicator
+		summarizeBy: none
+		sourceColumn: SGSOrSGKIndicator
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimEmployee = entity
 		mode: directLake
 		source

@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [dbo].[Proc_EDW_T_D_MST_PROFCTR_CUR_D]
+CREATE     PROCEDURE [dbo].[Proc_EDW_T_D_MST_PROFCTR_CUR_D]
 AS
 BEGIN  
     -- Update existing records
@@ -46,7 +46,7 @@ BEGIN
         T.[Profit Center Valid To Date] = S.[VALID_TO_DATE],
         T.[Profit Center Valid From Date] = S.[VALID_FROM_DATE]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PROFCTR_CUR_D] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PROFCTR_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PROFCTR_CUR_D] S
         ON T.[PROFT_CNTR_KEY] = S.[PROFT_CNTR_KEY];
 
     -- Insert new records
@@ -135,7 +135,7 @@ BEGIN
         S.[TAX_JRSDCTN],
         S.[VALID_TO_DATE],
         S.[VALID_FROM_DATE]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PROFCTR_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PROFCTR_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PROFCTR_CUR_D] T
         ON T.[PROFT_CNTR_KEY] = S.[PROFT_CNTR_KEY]
     WHERE T.[PROFT_CNTR_KEY] IS NULL;

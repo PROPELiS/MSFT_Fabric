@@ -18,7 +18,6 @@ CREATE TABLE [Propelis].[EDW_T_FACT_CO_COPA3_CUR_D] (
 	[COPA Industry Code 2 Description] varchar(max) NULL, 
 	[COPA Accounting Clerk] varchar(max) NULL, 
 	[COPA Customer Group Description] varchar(max) NULL, 
-	[CNTRY_KEY] int NULL, 
 	[COPA Customer Group 2] varchar(max) NULL, 
 	[COPA Customer Group 2 Description] varchar(max) NULL, 
 	[COPA Material Group] varchar(max) NULL, 
@@ -26,7 +25,6 @@ CREATE TABLE [Propelis].[EDW_T_FACT_CO_COPA3_CUR_D] (
 	[COPA Distribution Channel Description] varchar(max) NULL, 
 	[COPA Division] varchar(max) NULL, 
 	[COPA Division Description] varchar(max) NULL, 
-	[INDUS_KEY] int NULL, 
 	[COPA Industry Description] varchar(max) NULL, 
 	[COPA Customer Group] varchar(max) NULL, 
 	[COPA Customer Account Assignment Group Description] varchar(max) NULL, 
@@ -60,7 +58,6 @@ CREATE TABLE [Propelis].[EDW_T_FACT_CO_COPA3_CUR_D] (
 	[COPA Cancelled Document] varchar(max) NULL, 
 	[COPA Cancelled Document Item] varchar(max) NULL, 
 	[COPA Ship To Telephone] varchar(max) NULL, 
-	[TRMS_OF_PYMT_KEY] int NULL, 
 	[COPA Terms of Payment Description] varchar(max) NULL, 
 	[COPA Ship To Address] varchar(max) NULL, 
 	[COPA Ship To Country] varchar(max) NULL, 
@@ -160,5 +157,8 @@ CREATE TABLE [Propelis].[EDW_T_FACT_CO_COPA3_CUR_D] (
 	[Partner_Profit_Center_Vertical_PROFT_CNTR_KEY] int NULL, 
 	[Partner_Profit_Center_Horizontal_PROFT_CNTR_KEY] int NULL, 
 	[PROFCVZ_PROFT_CNTR_KEY] int NULL, 
-	[PROFCHZ_PROFT_CNTR_KEY] int NULL
+	[PROFCHZ_PROFT_CNTR_KEY] int NULL, 
+	[CNTRY_KEY] varchar(max) NULL, 
+	[INDUS_KEY] varchar(max) NULL, 
+	[TRMS_OF_PYMT_KEY] varchar(max) NULL
 );

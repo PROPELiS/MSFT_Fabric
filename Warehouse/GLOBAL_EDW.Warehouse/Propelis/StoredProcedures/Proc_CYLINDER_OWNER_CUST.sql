@@ -1,4 +1,4 @@
-CREATE    PROCEDURE [Propelis].[Proc_CYLINDER_OWNER_CUST]
+CREATE      PROCEDURE [Propelis].[Proc_CYLINDER_OWNER_CUST]
 AS
 BEGIN
     -- Step 1: Update existing records in target table
@@ -142,7 +142,7 @@ BEGIN
                 T.[Cylinder Owner Cust Payment Block]	= S.[PYMT_BLK]
 
     FROM [GLOBAL_EDW].[Propelis].[CYLINDER_OWNER_CUST] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_CUSTOMR_CUR_D] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CUSTOMR_CUR_D] AS S
         ON T.[CUST_KEY] = S.[CUST_KEY];
 
     -- Step 2: Insert new records from mirror to target table
@@ -422,7 +422,7 @@ BEGIN
          S.[INDUS_CD_5_DESC],
          S.[CENTRAL_ORDER_BLK_FOR_CUST],
          S.[PYMT_BLK]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_CUSTOMR_CUR_D] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CUSTOMR_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[CYLINDER_OWNER_CUST] AS T
         ON T.[CUST_KEY] = S.[CUST_KEY]
     WHERE T.[CUST_KEY] IS NULL;

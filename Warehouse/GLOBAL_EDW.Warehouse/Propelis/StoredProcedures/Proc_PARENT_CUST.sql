@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_PARENT_CUST]
+CREATE     PROCEDURE [Propelis].[Proc_PARENT_CUST]
 AS
 BEGIN
     -------------------------------------------------------------------
@@ -141,7 +141,7 @@ BEGIN
         T.[Parent Cust Central Order Block For Customer] = S.[CENTRAL_ORDER_BLK_FOR_CUST],
         T.[Parent Cust Payment Block]                 = S.[PYMT_BLK]
     FROM [GLOBAL_EDW].[Propelis].[PARENT_CUST] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_CUSTOMR_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CUSTOMR_CUR_D] S
         ON T.[CUST_KEY] = S.[CUST_KEY];
 
     -------------------------------------------------------------------
@@ -424,7 +424,7 @@ SELECT
     S.[INDUS_CD_5_DESC],
     S.[CENTRAL_ORDER_BLK_FOR_CUST],
     S.[PYMT_BLK]
-FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_CUSTOMR_CUR_D] S
+FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_CUSTOMR_CUR_D] S
 LEFT JOIN [GLOBAL_EDW].[Propelis].[PARENT_CUST] T
     ON T.[CUST_KEY] = S.[CUST_KEY]
 WHERE T.[CUST_KEY] IS NULL;

@@ -1,0 +1,74 @@
+table DimLOB
+	lineageTag: 7c3a78ac-f6ed-4cc7-b79a-dcf0b4704432
+	sourceLineageTag: [DBO].[DimLOB]
+
+	column HEXKeyLineOfBusiness
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 5f3a50ea-7db7-4b63-85b3-c1364ccdeff8
+		sourceLineageTag: HEXKeyLineOfBusiness
+		summarizeBy: none
+		sourceColumn: HEXKeyLineOfBusiness
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOBCode
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: d4074b0e-67b9-4cf0-95b4-5fde7b297f9d
+		sourceLineageTag: LOBCode
+		summarizeBy: none
+		sourceColumn: LOBCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineofBusiness
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 1bc9bf78-db23-4bc6-bd6a-b41bcb65a5a1
+		sourceLineageTag: LineofBusiness
+		summarizeBy: none
+		sourceColumn: LineofBusiness
+
+		annotation SummarizationSetBy = Automatic
+
+	column Group
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 484593db-a797-42fe-8d26-8c2a873873c2
+		sourceLineageTag: Group
+		summarizeBy: none
+		sourceColumn: Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column GroupCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal
+		lineageTag: c38a366b-e73c-49ec-8a3a-39debb9ae8c1
+		sourceLineageTag: GroupCode
+		summarizeBy: sum
+		sourceColumn: GroupCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		sourceProviderType: varchar
+		lineageTag: 48882bd3-257e-4ef1-8714-0e46d042234e
+		sourceLineageTag: METADATA$ROW_ID
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimLOB-0afbe316-c7ee-4300-b72f-81482ba56c6c = entity
+		mode: directLake
+		source
+			entityName: DimLOB
+			schemaName: DBO
+			expressionSource: DatabaseQuery
+
+	annotation IsTableInBiModel = True
+

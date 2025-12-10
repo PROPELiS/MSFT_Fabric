@@ -29,8 +29,6 @@ table PlateSqInchDetails
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isDecimal":true}
-
 	column 'EMP - Site LBC'
 		dataType: string
 		sourceProviderType: varchar(8000)
@@ -192,6 +190,69 @@ table PlateSqInchDetails
 		sourceLineageTag: METADATA$ROW_ID
 		summarizeBy: none
 		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubServiceDescription
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d1e99d6a-a8fa-4bcf-a49a-2915c707a9aa
+		sourceLineageTag: SubServiceDescription
+		summarizeBy: none
+		sourceColumn: SubServiceDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubServiceCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 28699268-647d-4ba0-b48a-63d51d43ddd5
+		sourceLineageTag: SubServiceCode
+		summarizeBy: count
+		sourceColumn: SubServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceDescription
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cee0dd2a-7e3f-4acd-91e9-ff36a62827c1
+		sourceLineageTag: ServiceDescription
+		summarizeBy: none
+		sourceColumn: ServiceDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: ae9ccce1-5333-4589-bd3a-db5d8d0f73da
+		sourceLineageTag: ServiceCode
+		summarizeBy: count
+		sourceColumn: ServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOBDescription
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 40702c37-2e8b-4794-9025-62efa2e8bd69
+		sourceLineageTag: LOBDescription
+		summarizeBy: none
+		sourceColumn: LOBDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOBCode
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 885f775c-2305-4e38-9973-274e95ed5c17
+		sourceLineageTag: LOBCode
+		summarizeBy: count
+		sourceColumn: LOBCode
 
 		annotation SummarizationSetBy = Automatic
 

@@ -1,4 +1,4 @@
-CREATE     PROCEDURE [dbo].[Proc_EDW_T_D_FI_ICGLGRP_CUR_D]
+CREATE         PROCEDURE [dbo].[Proc_EDW_T_D_FI_ICGLGRP_CUR_D]
 AS
 BEGIN
 
@@ -26,7 +26,7 @@ BEGIN
             
         )) AS HashKey
     INTO #SourceData
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_FI_ICGLGRP_CUR_D] AS S;
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_FI_ICGLGRP_CUR_D] AS S;
 
     ------------------------------------------------------------------
     -- Step 2: Update changed rows in target (hash mismatch)
@@ -42,7 +42,7 @@ BEGIN
         
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_FI_ICGLGRP_CUR_D] AS T
     INNER JOIN #SourceData AS S
-        ON T.[GL_CD] = S.[GL_CD]
+        ON T.[GL_ID] = S.[GL_ID]
     WHERE HASHBYTES('SHA2_256', CONCAT(
             ISNULL(T.[GL_ID], ''), '|',
             ISNULL(T.[General Ledger Description], ''), '|',
@@ -78,7 +78,7 @@ BEGIN
     WHERE NOT EXISTS (
         SELECT 1
         FROM [GLOBAL_EDW].[dbo].[EDW_T_D_FI_ICGLGRP_CUR_D] AS T
-        WHERE T.[GL_CD] = S.[GL_CD]
+        WHERE T.[GL_ID] = S.[GL_ID]
     );
 
     ------------------------------------------------------------------

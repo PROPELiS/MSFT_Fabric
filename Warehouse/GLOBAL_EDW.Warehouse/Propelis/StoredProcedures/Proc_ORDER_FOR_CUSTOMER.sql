@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_ORDER_FOR_CUSTOMER]
+CREATE     PROCEDURE [Propelis].[Proc_ORDER_FOR_CUSTOMER]
 AS
 BEGIN
     -- Step 1: Update existing records in target
@@ -22,7 +22,7 @@ BEGIN
         [ETL_CREATED_TS]                             = S.[ETL_CREATED_TS],
         [ETL_UPDTD_TS]                               = S.[ETL_UPDTD_TS]
     FROM [GLOBAL_EDW].[Propelis].[ORDER_FOR_CUSTOMER] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_SAL_ADDRESS_CUR_D] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_SAL_ADDRESS_CUR_D] AS S
         ON T.[ADDR_KEY] = S.[ADDR_KEY];
 
     -- Step 2: Insert new records that do not exist in target
@@ -66,7 +66,7 @@ BEGIN
         S.[ETL_CURR_RCD_IND],
         S.[ETL_CREATED_TS],
         S.[ETL_UPDTD_TS]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_SAL_ADDRESS_CUR_D] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_SAL_ADDRESS_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[ORDER_FOR_CUSTOMER] AS T
         ON T.[ADDR_KEY] = S.[ADDR_KEY]
     WHERE T.[ADDR_KEY] IS NULL;

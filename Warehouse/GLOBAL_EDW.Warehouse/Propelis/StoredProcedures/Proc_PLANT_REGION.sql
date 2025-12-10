@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_PLANT_REGION]
+CREATE       PROCEDURE [Propelis].[Proc_PLANT_REGION]
 AS
 BEGIN
 
@@ -8,27 +8,27 @@ BEGIN
     IF OBJECT_ID('tempdb..#SourceData') IS NOT NULL
         DROP TABLE #SourceData;
 
-    SELECT 
-        S.[BUSINESS_FUNCTION],
-        S.[REGION],
+    SELECT
+        S.[Business Function],
+        S.[SGK Plant Region],
         S.[PLANT],
         HASHBYTES('SHA2_256', 
             CONCAT(
-                ISNULL(S.[BUSINESS_FUNCTION], ''), '|',
-                ISNULL(S.[REGION], ''), '|',
+                ISNULL(S.[Business Function], ''), '|',
+                ISNULL(S.[SGK Plant Region], ''), '|',
                 ISNULL(S.[PLANT], '')
             )
         ) AS HashKey
     INTO #SourceData
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_R_SGK_OPERREG_CUR_D] AS S;
+ FROM [GLOBAL_EDW].[dbo].[EDW_T_R_SGK_OPERREG_CUR_D] AS S;
 
     ------------------------------------------------------------------
     -- Step 2: Update changed rows in target (hash mismatch)
     ------------------------------------------------------------------
     UPDATE T
     SET 
-        [Plant Business Function] = S.[BUSINESS_FUNCTION],
-        [Plant Region]            = S.[REGION],
+        [Plant Business Function] = S.[Business Function],
+        [Plant Region]            = S.[SGK Plant Region],
         [PLANT]                   = S.[PLANT]
     FROM [GLOBAL_EDW].[Propelis].[PLANT_REGION] AS T
     INNER JOIN #SourceData AS S
@@ -51,8 +51,8 @@ BEGIN
         [PLANT]
     )
     SELECT 
-        S.[BUSINESS_FUNCTION],
-        S.[REGION],
+        S.[Business Function],
+        S.[SGK Plant Region],
         S.[PLANT]
     FROM #SourceData AS S
     WHERE NOT EXISTS (

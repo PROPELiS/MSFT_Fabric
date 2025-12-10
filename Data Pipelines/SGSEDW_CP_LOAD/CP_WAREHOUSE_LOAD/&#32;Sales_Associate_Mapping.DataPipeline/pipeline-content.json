@@ -338,64 +338,22 @@
         ]
       },
       {
-        "type": "Copy",
+        "type": "Script",
         "typeProperties": {
-          "source": {
-            "type": "LakehouseTableSource",
-            "datasetSettings": {
-              "type": "LakehouseTable",
-              "typeProperties": {
-                "schema": "CP",
-                "table": "Sales_Associate_Mapping"
+          "scripts": [
+            {
+              "text": {
+                "value": "ALTER EXTERNAL TABLE BRONZE.CP.\"Sales_Associate_Mapping\" REFRESH;\n",
+                "type": "Expression"
               },
-              "schema": [],
-              "linkedService": {
-                "name": "BRONZE",
-                "properties": {
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "artifactId": "3ee820a0-65ee-9781-4ac4-e11f5db3d583",
-                    "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Tables"
-                  },
-                  "annotations": []
-                }
-              },
-              "annotations": []
+              "type": "Query"
             }
-          },
-          "sink": {
-            "type": "SnowflakeSink",
-            "preCopyScript": {
-              "value": "TRUNCATE TABLE \"BRONZE\".\"CP\".\"Sales_Associate_Mapping\";  ",
-              "type": "Expression"
-            },
-            "importSettings": {
-              "type": "SnowflakeImportCopyCommand"
-            },
-            "datasetSettings": {
-              "type": "SnowflakeTable",
-              "typeProperties": {
-                "schema": "CP",
-                "table": "Sales_Associate_Mapping",
-                "database": "BRONZE"
-              },
-              "schema": [],
-              "externalReferences": {
-                "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
-              },
-              "annotations": []
-            }
-          },
-          "translator": {
-            "type": "TabularTranslator",
-            "typeConversion": true,
-            "typeConversionSettings": {
-              "allowDataTruncation": true,
-              "treatBooleanAsNumber": false
-            }
-          },
-          "enableStaging": true
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00",
+          "connectionVersion": "1.1"
+        },
+        "externalReferences": {
+          "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
         },
         "policy": {
           "timeout": "0.12:00:00",
@@ -404,10 +362,45 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Fabric_To_SF_PROD",
+        "name": "Fabric_To_Prod_BRONZE",
         "dependsOn": [
           {
             "activity": "File_To_Table",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Script",
+        "typeProperties": {
+          "scripts": [
+            {
+              "text": {
+                "value": "CALL SILVER.CP.\"Proc_Sales_Associate_Mapping\"('','FULL')",
+                "type": "Expression"
+              },
+              "type": "Query"
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00",
+          "connectionVersion": "1.1"
+        },
+        "externalReferences": {
+          "connection": "dfdf593d-e2f5-4d2f-aa71-5da8cf3d25ac"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Fabric_To_Prod_SF_SILVER",
+        "dependsOn": [
+          {
+            "activity": "Fabric_To_Prod_BRONZE",
             "dependencyConditions": [
               "Succeeded"
             ]

@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_PA_COMPLETION_DATE]
+CREATE     PROCEDURE [Propelis].[Proc_PA_COMPLETION_DATE]
 AS
 BEGIN
     ----------------------------------------------------------------------
@@ -62,7 +62,7 @@ BEGIN
         T.[PA Completion Current Fiscal Week Minus 6 Flag] = S.[CURR_FISCAL_WK_MINUS_6_FLG],
         T.[PA Completion Current Fiscal Week Minus 7 Flag] = S.[CURR_FISCAL_WK_MINUS_7_FLG]
     FROM [GLOBAL_EDW].[Propelis].[PA_COMPLETION_DATE] T
-    INNER JOIN [GLOBAL_EDW_MIRROR_OLD].[dbo].[EDW_T_D_MST_DATE_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_DATE_CUR_D] S
         ON T.[DATE_KEY] = S.[DATE_KEY];
 
     ----------------------------------------------------------------------
@@ -181,7 +181,7 @@ BEGIN
         S.[CURR_FISCAL_WK_MINUS_5_FLG],
         S.[CURR_FISCAL_WK_MINUS_6_FLG],
         S.[CURR_FISCAL_WK_MINUS_7_FLG]
-    FROM [GLOBAL_EDW_MIRROR_OLD].[dbo].[EDW_T_D_MST_DATE_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_DATE_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[PA_COMPLETION_DATE] T
         ON T.[DATE_KEY] = S.[DATE_KEY]
     WHERE T.[DATE_KEY] IS NULL;

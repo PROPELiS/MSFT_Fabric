@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_OPERATION_LEVEL_WORK_CENTER]
+CREATE     PROCEDURE [Propelis].[Proc_OPERATION_LEVEL_WORK_CENTER]
 AS
 BEGIN
     -- Step 1: Update existing records in target from source
@@ -42,7 +42,7 @@ BEGIN
         [Operation Work Center Control Description] = S.[CTRL_DESC],
         [Operation Work Center Storage Location Description] = S.[STOR_LOC_DESC]
     FROM [GLOBAL_EDW].[Propelis].[OPERATION_LEVEL_WORK_CENTER] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_WORKCTR_CUR_D] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_WORKCTR_CUR_D] AS S
         ON T.[WRK_CNTR_KEY] = S.[WRK_CNTR_KEY];
 
     -- Step 2: Insert new records from source not existing in target
@@ -125,7 +125,7 @@ BEGIN
         S.[SUPLY_AREA_DESC],
         S.[CTRL_DESC],
         S.[STOR_LOC_DESC]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_WORKCTR_CUR_D] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_WORKCTR_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[OPERATION_LEVEL_WORK_CENTER] AS T
         ON T.[WRK_CNTR_KEY] = S.[WRK_CNTR_KEY]
     WHERE T.[WRK_CNTR_KEY] IS NULL;

@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_REQUIREMENT_DATE]
+CREATE     PROCEDURE [Propelis].[Proc_REQUIREMENT_DATE]
 AS
 BEGIN  
     -- Update existing records

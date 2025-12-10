@@ -37,5 +37,6 @@ CREATE TABLE [dbo].[EDW_T_D_HY_GLACTHZ_CUR_D] (
 	[General Ledger Level 6 NODEID] varchar(max) NULL, 
 	[General Ledger Level 6 IOBJNM] varchar(max) NULL, 
 	[General Ledger Level 6 NODENAME] varchar(max) NULL, 
-	[Functional_GL_Key] varchar(8000) NULL
+	[Functional_GL_Key] varchar(8000) NULL, 
+	[GLACTHZ_KEY] varchar(max) NULL
 );

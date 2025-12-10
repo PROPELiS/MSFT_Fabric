@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_DISCOVERY_DATE] 
+CREATE     PROCEDURE [Propelis].[Proc_DISCOVERY_DATE] 
 AS
 BEGIN  
     ----------------------------------------------------------------------
@@ -30,7 +30,7 @@ BEGIN
         T.[ETL_CREATED_TS] = S.[ETL_CREATED_TS],
         T.[ETL_UPDTD_TS] = S.[ETL_UPDTD_TS]
     FROM [GLOBAL_EDW].[Propelis].[DISCOVERY_DATE] T
-    INNER JOIN [GLOBAL_EDW_MIRROR_OLD].[dbo].[EDW_T_D_MST_DATE_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_DATE_CUR_D] S
         ON T.[DATE_KEY] = S.[DATE_KEY];
 
     ----------------------------------------------------------------------
@@ -85,7 +85,7 @@ BEGIN
         S.[ETL_SRC_SYS_CD],
         S.[ETL_CREATED_TS],
         S.[ETL_UPDTD_TS]
-    FROM [GLOBAL_EDW_MIRROR_OLD].[dbo].[EDW_T_D_MST_DATE_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_DATE_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[DISCOVERY_DATE] T
         ON T.[DATE_KEY] = S.[DATE_KEY]
     WHERE T.[DATE_KEY] IS NULL;

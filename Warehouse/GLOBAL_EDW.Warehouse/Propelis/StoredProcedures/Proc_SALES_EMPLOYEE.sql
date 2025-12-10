@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_SALES_EMPLOYEE]
+CREATE     PROCEDURE [Propelis].[Proc_SALES_EMPLOYEE]
 AS
 BEGIN
     -- Step 1: Update existing records in the target table
@@ -35,7 +35,7 @@ BEGIN
         [Sales Employee Company Description]    = S.[CMPNY_DESC],
         [Sales Employee Plant Description]      = S.[PLNT_DESC]
     FROM [GLOBAL_EDW].[Propelis].[SALES_EMPLOYEE] AS T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PERSONL_CUR_D] AS S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PERSONL_CUR_D] AS S
         ON T.[PERSONEL_KEY] = S.[PERSONEL_KEY];
 
     -- Step 2: Insert new records not present in the target
@@ -105,7 +105,7 @@ BEGIN
         S.[ETL_UPDTD_TS],
         S.[CMPNY_DESC],
         S.[PLNT_DESC]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_PERSONL_CUR_D] AS S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PERSONL_CUR_D] AS S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[SALES_EMPLOYEE] AS T
         ON T.[PERSONEL_KEY] = S.[PERSONEL_KEY]
     WHERE T.[PERSONEL_KEY] IS NULL;

@@ -1,4 +1,4 @@
-CREATE   PROCEDURE Propelis.Proc_RESP_COST_CENTER_HORIZONTAL
+CREATE     PROCEDURE Propelis.Proc_RESP_COST_CENTER_HORIZONTAL
 
 AS
 BEGIN
@@ -60,7 +60,7 @@ BEGIN
             )
         ) AS HashKey
     INTO #SourceData
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_HY_COSTCHZ_CUR_D] AS S;
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_HY_COSTCHZ_CUR_D] AS S;
 
     -- Step 2: Update changed rows in target (hash mismatch)
     UPDATE T

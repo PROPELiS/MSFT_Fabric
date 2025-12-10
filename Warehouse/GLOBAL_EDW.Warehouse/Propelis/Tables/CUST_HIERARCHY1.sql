@@ -2,7 +2,7 @@ CREATE TABLE [Propelis].[CUST_HIERARCHY1] (
 
 	[CUST_KEY] int NOT NULL, 
 	[Customer Hierarchy1 ID] varchar(max) NULL, 
-	[Customer Hierarchy1 Legacy ID] varchar(max) NULL, 
+	[Customer Hierarchy1 Legacy Customer ID] varchar(max) NULL, 
 	[Customer Hierarchy1 Name] varchar(max) NULL, 
 	[Customer Hierarchy1 Line 2 Description] varchar(max) NULL, 
 	[Customer Hierarchy1 Country Code] varchar(max) NULL, 

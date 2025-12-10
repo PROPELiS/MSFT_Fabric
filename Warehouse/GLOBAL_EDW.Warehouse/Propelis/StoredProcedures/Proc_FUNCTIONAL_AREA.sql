@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_FUNCTIONAL_AREA] 
+CREATE     PROCEDURE [Propelis].[Proc_FUNCTIONAL_AREA] 
 AS
 BEGIN  
     ----------------------------------------------------------------------
@@ -15,7 +15,7 @@ BEGIN
         T.[ETL_CREATED_TS] = S.[ETL_CREATED_TS],
         T.[ETL_UPDTD_TS] = S.[ETL_UPDTD_TS]
     FROM [GLOBAL_EDW].[Propelis].[FUNCTIONAL_AREA] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_FUNCTAR_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_FUNCTAR_CUR_D] S
         ON T.[FUNCTNL_AREA_KEY] = S.[FUNCTNL_AREA_KEY];
  
     ----------------------------------------------------------------------
@@ -42,7 +42,7 @@ BEGIN
         S.[ETL_CURR_RCD_IND],
         S.[ETL_CREATED_TS],
         S.[ETL_UPDTD_TS]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_FUNCTAR_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_FUNCTAR_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[FUNCTIONAL_AREA] T
         ON T.[FUNCTNL_AREA_KEY] = S.[FUNCTNL_AREA_KEY]
     WHERE T.[FUNCTNL_AREA_KEY] IS NULL;

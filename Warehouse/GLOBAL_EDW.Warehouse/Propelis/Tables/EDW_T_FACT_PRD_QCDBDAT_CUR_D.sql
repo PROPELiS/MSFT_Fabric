@@ -26,5 +26,6 @@ CREATE TABLE [Propelis].[EDW_T_FACT_PRD_QCDBDAT_CUR_D] (
 	[ETL_SRC_SYS_CD] varchar(max) NULL, 
 	[ETL_CREATED_TS] datetime2(0) NULL, 
 	[ETL_UPDTD_TS] datetime2(0) NULL, 
-	[QC Instructions] varchar(max) NULL
+	[QC Instructions] varchar(max) NULL, 
+	[OPERREG_PLANT] varchar(max) NULL
 );

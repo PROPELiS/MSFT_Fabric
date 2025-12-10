@@ -488,6 +488,16 @@ table DimEmployeeHistory
 
 		annotation SummarizationSetBy = Automatic
 
+	column SGSOrSGKIndicator
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d1fd814a-cce2-4972-a1eb-f27ca09625f4
+		sourceLineageTag: SGSOrSGKIndicator
+		summarizeBy: none
+		sourceColumn: SGSOrSGKIndicator
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimEmployeeHistory = entity
 		mode: directLake
 		source

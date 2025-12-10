@@ -86,7 +86,7 @@ BEGIN
         T.[Plant Material Distribution Profile Of Material In Plant] = S.[DISTR_PROFILE_OF_MATRL_IN_PLNT],
         T.[Plant Material Distribution Profile Of Material In Plant Description] = S.[DISTRBN_PROFILE_OF_MATRL_IN_PLN]
     FROM [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PLNTMAT_CUR_D] T
-    INNER JOIN [GLOBAL_EDW_02_MIRROR].[GLOBAL_EDW].[EDW_T_D_MST_PLNTMAT_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PLNTMAT_CUR_D] S
         ON T.[PLNT_MATRL_KEY] = S.[PLNT_MATRL_KEY];
 
     ----------------------------------------------------------------------
@@ -255,7 +255,7 @@ BEGIN
         S.[SERIAL_NUM_PROFILE_DESC],
         S.[DISTR_PROFILE_OF_MATRL_IN_PLNT],
         S.[DISTRBN_PROFILE_OF_MATRL_IN_PLN]
-    FROM [GLOBAL_EDW_02_MIRROR].[GLOBAL_EDW].[EDW_T_D_MST_PLNTMAT_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_PLNTMAT_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[dbo].[EDW_T_D_MST_PLNTMAT_CUR_D] T
         ON T.[PLNT_MATRL_KEY] = S.[PLNT_MATRL_KEY]
     WHERE T.[PLNT_MATRL_KEY] IS NULL;

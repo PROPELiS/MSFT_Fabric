@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_PERSON_RESPNSBLE_COST_CNTR]
+CREATE     PROCEDURE [Propelis].[Proc_PERSON_RESPNSBLE_COST_CNTR]
 AS
 BEGIN
     ------------------------------------------------------------------
@@ -58,7 +58,7 @@ BEGIN
         T.[VALID_TO_DATE]                                        = S.[VALID_TO_DATE],
         T.[VALID_FROM_DATE]                                      = S.[VALID_FROM_DATE]
     FROM [GLOBAL_EDW].[Propelis].[PERSON_RESPNSBLE_COST_CNTR] T
-    INNER JOIN [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_COSCNTR_CUR_D] S
+    INNER JOIN [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_COSCNTR_CUR_D] S
         ON T.[COST_CNTR_KEY] = S.[COST_CNTR_KEY];
 
     ------------------------------------------------------------------
@@ -172,7 +172,7 @@ BEGIN
         S.[COST_CNTR_LONG_DESC],
         S.[VALID_TO_DATE],
         S.[VALID_FROM_DATE]
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_MST_COSCNTR_CUR_D] S
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_MST_COSCNTR_CUR_D] S
     LEFT JOIN [GLOBAL_EDW].[Propelis].[PERSON_RESPNSBLE_COST_CNTR] T
         ON T.[COST_CNTR_KEY] = S.[COST_CNTR_KEY]
     WHERE T.[COST_CNTR_KEY] IS NULL;

@@ -262,3 +262,19 @@ relationship ca70e1f2-e7d2-9e9e-9192-3805d73448f4
 	fromColumn: FactSalesCostActual.HEXKeyReportingCustomerNumber
 	toColumn: DimCustomerReporting.'zID - HEXKeyReportingCustomer'
 
+relationship 030a08f5-8908-8077-a00d-8231882e6309
+	fromColumn: FactJobItem.HEXKeyJobItem
+	toColumn: DimJobItem.HEXKeyJobItemId
+
+relationship 1b5a35e1-d8cd-5dcc-2f12-197e50c3543e
+	fromColumn: FactJobItem.HEXKeyJobVersion
+	toColumn: DimJobversion.HEXKeyJobVersion
+
+relationship fcc85f02-7555-901f-0898-24c8ddf447d4
+	fromColumn: FactJobItem.HEXKeyPrimaryContactCustomer
+	toColumn: DimCustomerPrimaryContact.'zID - HEXKey Combine Customer'
+
+relationship 70473107-3fe2-c1ce-b70e-895bcc3a6418
+	fromColumn: FactJobItem.HEXKeyJobInvoicedDate
+	toColumn: DimCalendarDate.'zID - HEXKey Calendar Date'
+

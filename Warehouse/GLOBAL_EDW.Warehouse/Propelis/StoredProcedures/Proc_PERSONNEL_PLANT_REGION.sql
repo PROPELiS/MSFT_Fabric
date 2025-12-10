@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_PERSONNEL_PLANT_REGION]
+CREATE       PROCEDURE [Propelis].[Proc_PERSONNEL_PLANT_REGION]
 AS
 BEGIN
 
@@ -8,7 +8,7 @@ BEGIN
     IF OBJECT_ID('tempdb..#SourceData') IS NOT NULL
         DROP TABLE #SourceData;
 
-    SELECT 
+    SELECT DISTINCT
         S.[BUSINESS_FUNCTION],
         S.[REGION],
         S.[PLANT],
@@ -20,7 +20,7 @@ BEGIN
             )
         ) AS HashKey
     INTO #SourceData
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_R_SGK_OPERREG_CUR_D] AS S;
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_R_SGK_OPERREG_CUR_D] AS S;
 
     ------------------------------------------------------------------
     -- Step 2: Update changed rows in target (hash mismatch)

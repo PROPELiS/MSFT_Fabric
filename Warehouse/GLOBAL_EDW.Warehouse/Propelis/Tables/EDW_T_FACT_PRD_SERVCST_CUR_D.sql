@@ -33,7 +33,6 @@ CREATE TABLE [Propelis].[EDW_T_FACT_PRD_SERVCST_CUR_D] (
 	[Type Of Cost] varchar(max) NULL, 
 	[PERSONEL_NUM_KEY] int NULL, 
 	[FUNCTNL_AREA_KEY] int NULL, 
-	[Debit/Credit Indicator] varchar(max) NULL, 
 	[Reference Document Number] varchar(max) NULL, 
 	[Controlling Area] varchar(max) NULL, 
 	[PLNT_KEY] int NULL, 
@@ -65,5 +64,6 @@ CREATE TABLE [Propelis].[EDW_T_FACT_PRD_SERVCST_CUR_D] (
 	[Resp_Cost_Center_Horizontal_COST_CNTR_KEY] int NULL, 
 	[Resp_Cost_Center_Vertical_COST_CNTR_KEY] int NULL, 
 	[Partner_Cost_Center_Horizontal_COST_CNTR_KEY] int NULL, 
-	[Partner_Cost_Center_Vertical_COST_CNTR_KEY] int NULL
+	[Partner_Cost_Center_Vertical_COST_CNTR_KEY] int NULL, 
+	[Debit Credit Indicator] varchar(max) NULL
 );

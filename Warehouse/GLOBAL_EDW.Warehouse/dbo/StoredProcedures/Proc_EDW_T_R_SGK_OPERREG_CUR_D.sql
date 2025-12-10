@@ -1,4 +1,4 @@
-CREATE   PROCEDURE dbo.Proc_EDW_T_R_SGK_OPERREG_CUR_D
+CREATE     PROCEDURE dbo.Proc_EDW_T_R_SGK_OPERREG_CUR_D
 AS
 BEGIN
 
@@ -8,7 +8,7 @@ BEGIN
     IF OBJECT_ID('tempdb..#SourceData') IS NOT NULL
         DROP TABLE #SourceData;
 
-    SELECT 
+    SELECT DISTINCT
         S.[BUSINESS_FUNCTION],
         S.[REGION],
         S.[PLANT],

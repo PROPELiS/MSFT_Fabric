@@ -1,4 +1,4 @@
-CREATE   PROCEDURE [Propelis].[Proc_Profit_Center_Trading_Partner_Grouping]
+CREATE     PROCEDURE [Propelis].[Proc_Profit_Center_Trading_Partner_Grouping]
 AS
 BEGIN
     ------------------------------------------------------------------
@@ -16,7 +16,7 @@ BEGIN
             ISNULL(S.[TRADING_PRTNR], '')
         )) AS HashKey
     INTO #SourceData
-    FROM [GLOBAL_EDW_MIRROR].[dbo].[EDW_T_D_FI_ICPTRDG_CUR_D] AS S;
+    FROM [GLOBAL_EDW_QA].[GLOBAL_EDW].[EDW_T_D_FI_ICPTRDG_CUR_D] AS S;
 
     ------------------------------------------------------------------
     -- Step 2: Update changed rows in target (hash mismatch)
