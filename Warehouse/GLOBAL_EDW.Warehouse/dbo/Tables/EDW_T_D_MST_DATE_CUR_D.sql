@@ -54,6 +54,5 @@ CREATE TABLE [dbo].[EDW_T_D_MST_DATE_CUR_D] (
 	[Date Current Fiscal Week Minus 3 Flag] int NULL, 
 	[Date Current Fiscal Week Minus 4 Flag] int NULL, 
 	[Date Current Fiscal Week Minus 5 Flag] int NULL, 
-	[Date Current Fiscal Week Minus 7 Flag] int NULL, 
-	[MST_DATE_KEY] varchar(max) NULL
+	[Date Current Fiscal Week Minus 7 Flag] int NULL
 );
